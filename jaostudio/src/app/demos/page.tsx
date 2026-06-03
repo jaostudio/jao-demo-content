@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Demo Catalog — JAOstudio',
@@ -109,7 +110,7 @@ shared packages
         </pre>
         <div className="mt-6 flex justify-center gap-4 text-sm">
           <a href="https://github.com/jaostudio/jaostudio" className="underline hover:text-neutral-600">GitHub</a>
-          <a href="/docs/demo-credentials" className="underline hover:text-neutral-600">Demo Credentials</a>
+          <Link href="/docs/demo-credentials" className="underline hover:text-neutral-600">Demo Credentials</Link>
         </div>
       </div>
     </main>
