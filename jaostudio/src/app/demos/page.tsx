@@ -10,6 +10,7 @@ const demos = [
   {
     name: 'Landing Page Engine',
     slug: 'landingpage-demo',
+    url: 'https://jao-demo-landing.vercel.app',
     description: 'Conversion-optimized landing pages with swappable industry content. 5 verticals driven entirely by data.',
     stack: ['Next.js 16', 'Tailwind v4', 'Framer Motion', 'Engine (SectionRenderer)'],
     features: ['Vertical engine', '7-section funnel', 'Qualification wizard', 'Static generation'],
@@ -17,6 +18,7 @@ const demos = [
   {
     name: 'Commerce Platform',
     slug: 'commerce-demo',
+    url: 'https://jao-demo-commerce.vercel.app',
     description: 'Full e-commerce lifecycle: product catalog, cart, checkout, and admin order management.',
     stack: ['Next.js 16', 'Prisma + SQLite', 'Zustand', 'State machines'],
     features: ['Product catalog', 'Persisted cart', 'Order workflow', 'Admin dashboard'],
@@ -24,6 +26,7 @@ const demos = [
   {
     name: 'Marketplace',
     slug: 'marketplace-demo',
+    url: 'https://jao-demo-marketplace.vercel.app',
     description: 'Two-sided marketplace with vendor listings, admin moderation, multi-vendor cart, and actor-guarded transitions.',
     stack: ['Next.js 16', 'Prisma + SQLite', 'NextAuth v4', '5 state machines'],
     features: ['Vendor dashboard', 'Listing moderation', 'Multi-vendor cart', 'Event causation chains'],
@@ -31,6 +34,7 @@ const demos = [
   {
     name: 'Content Platform',
     slug: 'content-platform-demo',
+    url: 'https://jao-demo-content.vercel.app',
     description: 'Headless CMS with editorial workflow, ISR-based public pages, and SEO pipeline.',
     stack: ['Next.js 16', 'Prisma + SQLite', 'ISR', 'contentMachine'],
     features: ['Editorial workflow', 'ISR (revalidate: 60s)', 'JSON-LD + OG tags', 'Moderation audit'],
@@ -38,6 +42,7 @@ const demos = [
   {
     name: 'Project Management SaaS',
     slug: 'web-application-demo',
+    url: 'https://jao-demo-webapp.vercel.app',
     description: 'Multi-tenant project management with Kanban boards, org-level RBAC, and local state machines.',
     stack: ['Next.js 16', 'Prisma + SQLite', 'NextAuth v4', 'Local TaskMachine'],
     features: ['Org isolation', 'Role hierarchy', 'Kanban columns', 'Local state machine'],
@@ -45,6 +50,7 @@ const demos = [
   {
     name: 'Secure Client Portal',
     slug: 'database-security-demo',
+    url: 'https://jao-demo-security.vercel.app',
     description: 'B2B security portal with audit trails, data isolation, security headers, and role-based access.',
     stack: ['Next.js 16', 'Prisma + SQLite', 'NextAuth v4', 'Security middleware'],
     features: ['Audit trail', 'Data isolation', 'Security headers', 'Rate limiting'],
@@ -70,12 +76,20 @@ export default function DemosPage() {
                 <h2 className="text-xl font-bold">{demo.name}</h2>
                 <p className="mt-1 text-sm text-neutral-600">{demo.description}</p>
               </div>
-              <div className="flex shrink-0 gap-2">
+              <div className="flex shrink-0 items-start gap-2">
                 {demo.stack.slice(0, 4).map((tech) => (
                   <span key={tech} className="rounded-full bg-neutral-100 px-2.5 py-0.5 text-xs font-medium text-neutral-600">
                     {tech}
                   </span>
                 ))}
+                <a
+                  href={demo.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ml-2 rounded-full bg-neutral-900 px-3 py-0.5 text-xs font-medium text-white hover:bg-neutral-700"
+                >
+                  Visit →
+                </a>
               </div>
             </div>
             <div className="mt-4 flex flex-wrap gap-4">
