@@ -44,7 +44,7 @@ Values for all 5 Turso databases and tokens are stored in the chat log (deployme
 
 All 4 NextAuth configs include:
 - `secret: process.env.NEXTAUTH_SECRET`
-- `trustHost: true` — required for Vercel headers + preview deployments
+- NEXTAUTH_URL should be set to the production URL per deployment.md env matrix
 
 ### Local development
 
