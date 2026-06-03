@@ -1,0 +1,37 @@
+{
+  "name": "jaostudio-demos",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "commerce-demo",
+    "marketplace-demo",
+    "content-platform-demo",
+    "landingpage-demo",
+    "database-security-demo",
+    "web-application-demo"
+  ],
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "clean": "turbo clean",
+    "ci": "npm run lint && npm run build && npm run check:arch",
+    "format": "prettier --write \"**/*.{ts,tsx,js,json,md}\"",
+    "check:arch": "npm run check:deps && npm run check:machines && npm run check:events",
+    "check:deps": "madge --extensions ts,tsx --warning packages/",
+    "check:machines": "tsx packages/core/tests/architecture/state-machines.test.ts",
+    "check:events": "tsx packages/core/tests/architecture/events.test.ts",
+    "check:graph": "tsx packages/core/tests/architecture/dependency-graph.test.ts"
+  },
+  "devDependencies": {
+    "madge": "^8.0.0",
+    "prettier": "^3.5.0",
+    "prettier-plugin-tailwindcss": "^0.6.0",
+    "tsx": "^4.22.4",
+    "turbo": "^2.5.0"
+  },
+  "packageManager": "npm@11.6.0",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

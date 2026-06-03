@@ -1,0 +1,80 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../../node_modules/@prisma/security-client"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id             String   @id @default(cuid())
+  name           String
+  email          String   @unique
+  password       String
+  organizationId String?
+  organization   Organization? @relation(fields: [organizationId], references: [id])
+  role           String   @default("ORG_USER")
+  image          String?
+  createdAt      DateTime @default(now())
+
+  documents       Document[]      @relation("DocumentUploader")
+  auditEvents     AuditEvent[]
+}
+
+model Organization {
+  id        String   @id @default(cuid())
+  name      String
+  slug      String   @unique
+  createdAt DateTime @default(now())
+
+  users     User[]
+  documents Document[]
+}
+
+model Document {
+  id            String   @id @default(cuid())
+  title         String
+  body          String
+  status        String   @default("ACTIVE")
+  organizationId String
+  organization  Organization @relation(fields: [organizationId], references: [id])
+  uploadedById  String
+  uploadedBy    User     @relation("DocumentUploader", fields: [uploadedById], references: [id])
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model AuditEvent {
+  id             String   @id @default(cuid())
+  action         String
+  entityType     String
+  entityId       String?
+  userId         String?
+  user           User?    @relation(fields: [userId], references: [id])
+  organizationId String
+  metadata       String   @default("{}")
+  ipAddress      String?
+  causationId    String?
+  createdAt      DateTime @default(now())
+}
+
+model ApiLog {
+  id        String   @id @default(cuid())
+  method    String
+  path      String
+  userId    String?
+  ip        String?
+  status    Int
+  createdAt DateTime @default(now())
+}
+
+model SecuritySetting {
+  id             String   @id @default(cuid())
+  key            String
+  value          String
+  organizationId String
+  updatedAt      DateTime @updatedAt
+
+  @@unique([key, organizationId])
+}

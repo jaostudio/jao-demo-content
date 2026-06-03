@@ -1,0 +1,11 @@
+{
+  "name": "@jaostudio/config",
+  "version": "0.1.0",
+  "private": true,
+  "exports": {
+    "./eslint": "./src/eslint.config.mjs"
+  },
+  "peerDependencies": {
+    "eslint": "^9.0.0"
+  }
+}

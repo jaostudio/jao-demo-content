@@ -1,0 +1,162 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../../node_modules/@prisma/marketplace-client"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+enum UserRole {
+  VENDOR
+  BUYER
+  ADMIN
+}
+
+enum ListingStatus {
+  DRAFT
+  PENDING_REVIEW
+  APPROVED
+  REJECTED
+  SOLD
+  ARCHIVED
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+}
+
+enum PaymentState {
+  PENDING_PAYMENT
+  PAID
+  REFUNDED
+}
+
+enum FulfillmentState {
+  UNFULFILLED
+  PROCESSING
+  FULFILLED
+  RETURNED
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      UserRole @default(BUYER)
+  image     String?
+  createdAt DateTime @default(now())
+
+  listings         Listing[]
+  moderatedListings Listing[] @relation("ModeratedListings")
+  reviews          Review[]
+  bookings         Booking[]
+  orders           Order[]
+  vendorOrders     Order[]    @relation("VendorOrders")
+  metrics          VendorMetrics?
+}
+
+model Category {
+  id       String    @id @default(cuid())
+  name     String
+  slug     String    @unique
+  listings Listing[]
+}
+
+model Listing {
+  id            String        @id @default(cuid())
+  title         String
+  slug          String        @unique
+  description   String
+  price         Int
+  status        ListingStatus @default(DRAFT)
+  moderatedAt   DateTime?
+  moderatedById String?
+  moderatedBy   User?         @relation("ModeratedListings", fields: [moderatedById], references: [id])
+  vendorId      String
+  vendor        User          @relation(fields: [vendorId], references: [id])
+  categoryId    String
+  category      Category      @relation(fields: [categoryId], references: [id])
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  images  ListingImage[]
+  reviews Review[]
+  bookings Booking[]
+}
+
+model ListingImage {
+  id        String  @id @default(cuid())
+  url       String
+  alt       String?
+  sortOrder Int     @default(0)
+  listingId String
+  listing   Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  rating    Int
+  text      String
+  listingId String
+  listing   Listing  @relation(fields: [listingId], references: [id], onDelete: Cascade)
+  authorId  String
+  author    User     @relation(fields: [authorId], references: [id])
+  createdAt DateTime @default(now())
+
+  @@unique([listingId, authorId])
+}
+
+model Booking {
+  id         String        @id @default(cuid())
+  date       DateTime
+  message    String?
+  status     BookingStatus @default(PENDING)
+  listingId  String
+  listing    Listing       @relation(fields: [listingId], references: [id], onDelete: Cascade)
+  buyerId    String
+  buyer      User          @relation(fields: [buyerId], references: [id])
+  createdAt  DateTime      @default(now())
+  updatedAt  DateTime      @updatedAt
+}
+
+model VendorMetrics {
+  vendorId     String   @id
+  vendor       User     @relation(fields: [vendorId], references: [id])
+  listingCount Int      @default(0)
+  orderCount   Int      @default(0)
+  reviewCount  Int      @default(0)
+  updatedAt    DateTime @updatedAt
+}
+
+model Order {
+  id                String          @id @default(cuid())
+  orderNumber       String          @unique
+  total             Int
+  currency          String          @default("usd")
+  paymentState      PaymentState    @default(PENDING_PAYMENT)
+  fulfillmentState  FulfillmentState @default(UNFULFILLED)
+  buyerId           String
+  buyer             User            @relation(fields: [buyerId], references: [id])
+  vendorId          String
+  vendor            User            @relation("VendorOrders", fields: [vendorId], references: [id])
+  email             String?
+  name              String?
+  address           String?
+  createdAt         DateTime        @default(now())
+
+  items OrderItem[]
+}
+
+model OrderItem {
+  id              String @id @default(cuid())
+  orderId         String
+  order           Order  @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  listingId       String
+  productName     String
+  priceAtPurchase Int
+  quantity        Int
+}

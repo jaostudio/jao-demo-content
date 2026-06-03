@@ -1,0 +1,8 @@
+export { HeroSection } from './hero'
+export { ProofSection } from './proof'
+export { ServicesSection } from './services'
+export { CaseStudiesSection } from './case-studies'
+export { TestimonialsSection } from './testimonials'
+export { ProcessSection } from './process'
+export { ContactSection } from './contact'
+export { defaultSectionComponents } from './registry'

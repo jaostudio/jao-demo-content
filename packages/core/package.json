@@ -1,0 +1,34 @@
+{
+  "name": "@jaostudio/core",
+  "version": "0.1.0",
+  "private": true,
+  "exports": {
+    ".": "./src/index.ts",
+    "./db": "./src/db/index.ts",
+    "./auth": "./src/auth/index.ts",
+    "./rate-limit": "./src/rate-limit/index.ts",
+    "./logger": "./src/logger/index.ts",
+    "./validation": "./src/validation/index.ts",
+    "./storage": "./src/storage/index.ts",
+    "./state": "./src/state/index.ts",
+    "./theme": "./src/theme/index.ts",
+    "./state-machines": "./src/state-machines/index.ts",
+    "./state-machines/*": "./src/state-machines/*",
+    "./events": "./src/events/index.ts",
+    "./events/*": "./src/events/*"
+  },
+  "peerDependencies": {
+    "@prisma/client": "^7.0.0",
+    "next": "^16.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "@prisma/client": "^7.0.0",
+    "next": "^16.1.0"
+  },
+  "dependencies": {
+    "zod": "^4.0.0",
+    "clsx": "^2.1.0",
+    "tailwind-merge": "^3.0.0"
+  }
+}

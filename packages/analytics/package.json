@@ -1,0 +1,15 @@
+{
+  "name": "@jaostudio/analytics",
+  "version": "0.1.0",
+  "private": true,
+  "exports": {
+    "./*": "./src/*"
+  },
+  "peerDependencies": {
+    "next": "^16.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "next": "^16.1.0"
+  }
+}

@@ -1,0 +1,57 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../../node_modules/@prisma/commerce-client"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Category {
+  id       String    @id @default(cuid())
+  name     String
+  slug     String    @unique
+  products Product[]
+}
+
+model Product {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  description String
+  price       Int
+  currency    String   @default("usd")
+  image       String
+  categoryId  String
+  category    Category @relation(fields: [categoryId], references: [id])
+  inventory   Int      @default(0)
+  createdAt   DateTime @default(now())
+}
+
+model Order {
+  id                  String     @id @default(cuid())
+  orderNumber         String     @unique
+  status              String     @default("draft")
+  paymentState        String     @default("pending_payment")
+  fulfillmentState    String     @default("unfulfilled")
+  total               Int
+  currency            String     @default("usd")
+  email               String?
+  name                String?
+  address             String?
+  stripePaymentIntentId String?  @unique
+  items               OrderItem[]
+  createdAt           DateTime   @default(now())
+  updatedAt           DateTime   @updatedAt
+}
+
+model OrderItem {
+  id               String  @id @default(cuid())
+  orderId          String
+  order            Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId        String  @default("")
+  productName      String
+  productImage     String
+  quantity         Int
+  priceAtPurchase  Int
+}

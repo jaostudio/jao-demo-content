@@ -1,0 +1,115 @@
+:root {
+  --background: #F1EDF7;
+  --bg-secondary: #EAE5F2;
+  --bg-surface: #FAF8FD;
+  --bg-elevated: #FFFFFF;
+
+  --text-primary: #111114;
+  --text-secondary: #565564;
+  --text-tertiary: #80808F;
+
+  --accent: #7C3AED;
+  --accent-hover: #6D28D9;
+  --accent-subtle: rgba(124, 58, 237, 0.12);
+  --accent-glow: rgba(124, 58, 237, 0.10);
+
+  --border: rgba(124, 58, 237, 0.10);
+  --border-subtle: rgba(124, 58, 237, 0.05);
+  --border-hover: rgba(124, 58, 237, 0.12);
+  --border-active: rgba(124, 58, 237, 0.3);
+  --surface-hover: rgba(17, 17, 20, 0.03);
+  --accent-soft: rgba(124, 58, 237, 0.05);
+  --accent-warm: #D97706;
+  --accent-warm-soft: rgba(217, 119, 6, 0.12);
+  --accent-warm-glow: rgba(217, 119, 6, 0.15);
+
+  --shadow-subtle: 0 0 0 1px rgba(17, 17, 20, 0.04);
+  --shadow-card: 0 0 0 1px rgba(17, 17, 20, 0.05), 0 8px 32px rgba(17, 17, 20, 0.06);
+  --shadow-elevated: 0 0 0 1px rgba(17, 17, 20, 0.06), 0 16px 48px rgba(17, 17, 20, 0.08);
+
+  --i18n-max-button-chars: 22;
+  --i18n-max-label-chars: 30;
+  --i18n-max-label-lines: 1;
+  --i18n-card-min-height: 0;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-full: 9999px;
+
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --duration-xl: 800ms;
+  --duration-hero: 1200ms;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-cinematic: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-emphasis: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  --section-py: clamp(3rem, 6vw + 1rem, 6rem);
+  --section-py-compact: clamp(2.5rem, 4vw + 0.5rem, 4rem);
+  --section-py-roomy: clamp(4rem, 8vw + 1rem, 11rem);
+  --container-max: 1280px;
+  --container-wide: 1440px;
+  --container-content: 768px;
+  --content-max: 768px;
+
+  --gap-sm: clamp(0.5rem, 1vw + 0.25rem, 1rem);
+  --gap-md: clamp(0.75rem, 1.5vw + 0.25rem, 1.5rem);
+  --gap-lg: clamp(1rem, 2vw + 0.5rem, 2rem);
+  --gap-xl: clamp(1.5rem, 3vw + 0.5rem, 3rem);
+  --gap-section: clamp(2rem, 4vw + 0.5rem, 4rem);
+
+  --text-hero: clamp(2rem, 5.5vw + 0.5rem, 3.5rem);
+  --text-section: clamp(1.5rem, 3.5vw + 0.5rem, 2.5rem);
+  --text-card-title: clamp(1rem, 1.5vw + 0.5rem, 1.25rem);
+  --text-body: clamp(0.875rem, 0.5vw + 0.75rem, 1rem);
+  --text-meta: clamp(0.75rem, 0.3vw + 0.65rem, 0.8125rem);
+  --text-caption: clamp(0.6875rem, 0.2vw + 0.6rem, 0.75rem);
+
+  --weight-medium: 500;
+  --weight-semibold: 600;
+
+  --leading-display: 1.1;
+  --leading-display-alt: 1.15;
+  --leading-relaxed: 1.6;
+  --leading-tight: 1.25;
+
+  --tracking-tight: -0.02em;
+  --tracking-wider: 0.05em;
+  --tracking-wide: 0.08em;
+}
+
+.dark {
+  --background: #050505;
+  --bg-secondary: #0A0A0A;
+  --bg-surface: #111111;
+  --bg-elevated: #161616;
+
+  --text-primary: #FAFAFA;
+  --text-secondary: #A1A1AA;
+  --text-tertiary: #D6D6DB;
+
+  --accent-subtle: rgba(124, 58, 237, 0.22);
+  --accent-glow: rgba(124, 58, 237, 0.15);
+
+  --border: rgba(255, 255, 255, 0.08);
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-hover: rgba(255, 255, 255, 0.12);
+  --surface-hover: rgba(255, 255, 255, 0.03);
+  --accent-soft: rgba(124, 58, 237, 0.07);
+
+  --shadow-subtle: 0 0 0 1px rgba(255, 255, 255, 0.05);
+  --shadow-card: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 4px 24px rgba(0, 0, 0, 0.4);
+  --shadow-elevated: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 8px 40px rgba(0, 0, 0, 0.5);
+
+  --i18n-max-button-chars: 22;
+  --i18n-max-label-chars: 30;
+  --i18n-max-label-lines: 1;
+  --i18n-card-min-height: 0;
+}

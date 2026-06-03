@@ -1,0 +1,4 @@
+Contact: mailto:jameson.olitoquit@gmail.com
+Preferred-Languages: en
+Canonical: https://jaostudio.dev/.well-known/security.txt
+Policy: https://jaostudio.dev/.well-known/security.txt

@@ -1,0 +1,139 @@
+name: QA Pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      base_url:
+        description: 'Target URL (preview or production). Do NOT use http://localhost in CI runners.'
+        required: true
+        default: ''
+
+jobs:
+  validate:
+    name: Validate target URL
+    runs-on: ubuntu-latest
+    outputs:
+      base_url: ${{ steps.set.outputs.base_url }}
+    steps:
+      - name: Check input
+        id: set
+        run: |
+          if [ -z "${{ github.event.inputs.base_url }}" ]; then
+            echo "Error: base_url is empty. Provide a production or preview URL when dispatching this workflow." >&2
+            exit 1
+          fi
+          if echo "${{ github.event.inputs.base_url }}" | grep -qi "localhost"; then
+            echo "Error: CI runners cannot access localhost. Use a public preview or production URL." >&2
+            exit 1
+          fi
+          echo "base_url=${{ github.event.inputs.base_url }}" >> $GITHUB_OUTPUT
+
+  smoke:
+    name: Smoke test (console + network)
+    runs-on: ubuntu-latest
+    needs: validate
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: |
+          npm ci
+
+      - name: Run build (optional)
+        run: |
+          if [ -f package.json ]; then npm run build || echo "build failed or skipped"; fi
+
+      - name: Run smoke script
+        env:
+          BASE_URL: ${{ github.event.inputs.base_url }}
+        run: |
+          mkdir -p logs
+          node ./scripts/smoke.js --url "${{ github.event.inputs.base_url }}"
+
+      - name: Check bundle budget
+        run: |
+          node ./scripts/check-budget.js
+
+      - name: Upload smoke artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke-artifacts
+          path: logs/*
+          retention-days: 7
+
+  screenshots:
+    name: Project screenshots
+    runs-on: ubuntu-latest
+    needs: smoke
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: |
+          npm ci
+
+      - name: Run screenshots script
+        env:
+          BASE_URL: ${{ github.event.inputs.base_url }}
+        run: |
+          node ./scripts/screenshots.js --url "${{ github.event.inputs.base_url }}"
+
+      - name: Upload screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: project-screenshots
+          path: public/projects/**/hero.webp
+          retention-days: 7
+
+      - name: Upload screenshot details
+        uses: actions/upload-artifact@v4
+        with:
+          name: project-screenshots-detail
+          path: public/projects/**/detail.webp
+          retention-days: 7
+
+  lighthouse:
+    name: Lighthouse audits
+    runs-on: ubuntu-latest
+    needs: smoke
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Use stable Chrome for Lighthouse
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Install Lighthouse
+        run: |
+          npm ci
+          npm install --no-save --no-audit --no-fund lighthouse chrome-launcher
+
+      - name: Run Lighthouse audits (script)
+        env:
+          BASE_URL: ${{ github.event.inputs.base_url }}
+        run: |
+          node ./scripts/lighthouse.js --url "${{ github.event.inputs.base_url }}"
+
+      - name: Upload Lighthouse reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-reports
+          path: lighthouse/**
+          retention-days: 7

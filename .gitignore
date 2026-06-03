@@ -1,0 +1,17 @@
+node_modules
+.next
+.turbo
+dist
+.env
+.env.local
+.env.*.local
+
+# prisma local DBs
+*.db
+*.db-journal
+
+# vercel
+.vercel
+
+# logs
+*.log
