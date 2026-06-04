@@ -1,9 +1,9 @@
 'use client'
 
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useMotionValue, motion } from 'framer-motion'
 import Link from 'next/link'
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { Card } from '@/components/ui/card'
 
 export interface SystemCategory {
@@ -12,6 +12,7 @@ export interface SystemCategory {
   description: string
   includes: string[]
   usedFor: string[]
+  systemId?: string
 }
 
 interface Props {
@@ -21,8 +22,9 @@ interface Props {
 const SPEED = 50
 
 function SystemCarouselCard({ category }: { category: SystemCategory }) {
+  const href = category.systemId ? `/demos?system=${category.systemId}` : '/demos'
   return (
-    <Link href="/demos">
+    <Link href={href}>
       <Card className="group flex h-full w-[300px] flex-col gap-4 p-6 sm:w-[340px] md:w-[380px]">
         <div className="flex items-center gap-2">
           <span className="text-2xl">{category.icon}</span>
@@ -135,22 +137,6 @@ export function SystemsCarousel({ categories }: Props) {
     return () => cancelAnimationFrame(rafId)
   }, [isPaused, setWidth, x])
 
-  const slotWidth = setWidth > 0 ? setWidth / categories.length : 0
-
-  const scrollLeft = useCallback(() => {
-    const currentX = x.get()
-    x.set(Math.min(currentX + slotWidth, 0))
-  }, [x, slotWidth])
-
-  const scrollRight = useCallback(() => {
-    const currentX = x.get()
-    let newX = currentX - slotWidth
-    if (newX < -setWidth) {
-      newX = newX + setWidth
-    }
-    x.set(newX)
-  }, [x, slotWidth, setWidth])
-
   const doubled = [...categories, ...categories]
 
   return (
@@ -160,22 +146,6 @@ export function SystemsCarousel({ categories }: Props) {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <button
-        onClick={scrollLeft}
-        aria-label="Scroll left"
-        className="absolute left-3 top-1/2 z-10 -translate-y-1/2 rounded-full border border-border-subtle bg-bg-elevated p-2 text-text-secondary opacity-0 shadow-lg transition-all hover:bg-bg-surface hover:text-text-primary group-hover:opacity-100"
-      >
-        <ChevronLeft className="h-5 w-5" />
-      </button>
-
-      <button
-        onClick={scrollRight}
-        aria-label="Scroll right"
-        className="absolute right-3 top-1/2 z-10 -translate-y-1/2 rounded-full border border-border-subtle bg-bg-elevated p-2 text-text-secondary opacity-0 shadow-lg transition-all hover:bg-bg-surface hover:text-text-primary group-hover:opacity-100"
-      >
-        <ChevronRight className="h-5 w-5" />
-      </button>
-
       <motion.div
         ref={innerRef}
         className="flex gap-5 px-3 py-3"

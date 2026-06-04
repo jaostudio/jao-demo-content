@@ -4,6 +4,10 @@ import { Badge } from '@/components/typography/badge'
 import { Button } from '@/components/ui/button'
 import { getTranslations } from 'next-intl/server'
 import { ORG_ID } from '@/lib/json-ld-ids'
+import { DeliveryStages } from './service-stages'
+import { EngagementModels } from './engagement-models'
+import { ExampleScopes } from './example-scopes'
+import { AvailabilitySection } from './availability-section'
 
 export async function generateMetadata() {
   const t = await getTranslations('services')
@@ -27,8 +31,8 @@ const schemaJsonLd = {
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://jaostudio.dev' },
-        { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://jaostudio.dev/services' },
+        { '@position': 1, name: 'Home', item: 'https://jaostudio.dev' },
+        { '@position': 2, name: 'Services', item: 'https://jaostudio.dev/services' },
       ],
     },
   ],
@@ -84,6 +88,22 @@ export default async function ServicesPage() {
         </Section>
       </Container>
 
+      <Container className="mx-auto max-w-5xl">
+        <DeliveryStages />
+      </Container>
+
+      <Container className="mx-auto max-w-3xl">
+        <EngagementModels />
+      </Container>
+
+      <Container className="mx-auto max-w-5xl">
+        <ExampleScopes />
+      </Container>
+
+      <Container className="mx-auto max-w-3xl">
+        <AvailabilitySection />
+      </Container>
+
       <Container className="mx-auto max-w-3xl">
         <Section className="pb-32 md:pb-40">
           <div className="flex flex-col items-center gap-6 text-center">
@@ -102,3 +122,4 @@ export default async function ServicesPage() {
     </>
   )
 }
+

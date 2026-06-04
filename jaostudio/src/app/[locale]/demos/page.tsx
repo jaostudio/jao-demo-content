@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
-import { ActiveSystemView, type SystemContent } from '@/components/sections/active-system-view'
+import { Suspense } from 'react'
+import type { SystemContent } from '@/components/sections/active-system-view'
 import { SystemProvider } from '@/components/layout/system-provider'
+import { DemosClient } from './demos-client'
 import { SYSTEMS } from '@/lib/systems'
 import { projects } from '@/lib/projects'
 
 export const metadata: Metadata = {
-  title: 'Production Systems — JAOstudio',
-  description: 'Six live systems that solve real business problems: lead generation, revenue operations, multi-vendor marketplaces, editorial workflow, internal operations, and compliance.',
+  title: 'Business Systems — JAOstudio',
+  description: 'Six production-ready platforms for lead generation, revenue operations, multi-vendor marketplaces, editorial workflow, internal operations, and compliance.',
 }
 
 const SYSTEM_DETAILS: Record<string, Omit<SystemContent, 'proof'>> = {
@@ -15,6 +16,7 @@ const SYSTEM_DETAILS: Record<string, Omit<SystemContent, 'proof'>> = {
     uiLabel: 'Get More Customers',
     name: 'Lead Generation Platform',
     category: 'growth',
+    outcome: 'Convert website traffic into qualified leads and booked appointments across multiple service verticals — without manual follow-up.',
     description: 'Turn visitors into booked appointments. A multi-industry lead generation system with vertical-specific engines.',
     useCase: 'Service businesses — dental, construction, real estate — that need to convert website visitors into qualified leads and booked appointments.',
     features: ['Industry vertical engine', 'Lead capture forms', 'SEO-optimized content', '7-section conversion funnel', 'Appointment scheduling integration'],
@@ -25,6 +27,7 @@ const SYSTEM_DETAILS: Record<string, Omit<SystemContent, 'proof'>> = {
     uiLabel: 'Increase Revenue',
     name: 'Revenue Operations Platform',
     category: 'revenue',
+    outcome: 'Turn more visitors into customers with a unified commerce system that manages products, checkout, and fulfillment in one workflow.',
     description: 'From catalog to delivery, one platform. A full e-commerce system with persistent cart, checkout, and order management.',
     useCase: 'Growing ecommerce businesses that need a unified platform from product catalog through delivery tracking.',
     features: ['Product catalog with variants', 'Persistent shopping cart', 'Checkout flow', 'Order management dashboard', 'Inventory tracking'],
@@ -35,6 +38,7 @@ const SYSTEM_DETAILS: Record<string, Omit<SystemContent, 'proof'>> = {
     uiLabel: 'Sell Online',
     name: 'Multi-Vendor Commerce Platform',
     category: 'platform',
+    outcome: 'Run a marketplace business from a single dashboard — onboard vendors, manage listings, and process multi-vendor transactions.',
     description: 'Run a marketplace, not a spreadsheet of vendors. A multi-tenant platform connecting buyers with independent vendors.',
     useCase: 'Platform businesses that need to onboard vendors, manage listings, and process multi-vendor transactions.',
     features: ['Vendor onboarding workflow', 'Multi-vendor cart', 'Listing moderation', 'Role-based dashboards', 'Commission tracking'],
@@ -45,6 +49,7 @@ const SYSTEM_DETAILS: Record<string, Omit<SystemContent, 'proof'>> = {
     uiLabel: 'Manage Content',
     name: 'Editorial Workflow Platform',
     category: 'publishing',
+    outcome: 'Move content from pitch to publication through a structured editorial workflow with role-based approvals and scheduling.',
     description: 'From pitch to publish, tracked at every state. An editorial state machine for content teams and publishers.',
     useCase: 'Content teams and editorial departments that need structured workflows from pitch through publication.',
     features: ['Editorial state machine', 'Author/Admin roles', 'Category management', 'ISR-powered public pages', 'Content scheduling'],
@@ -55,6 +60,7 @@ const SYSTEM_DETAILS: Record<string, Omit<SystemContent, 'proof'>> = {
     uiLabel: 'Run Your Operations',
     name: 'Internal Operations Platform',
     category: 'operations',
+    outcome: 'Keep multiple business units running smoothly with task management, kanban boards, and role-based permissions across your organization.',
     description: 'One platform for every org in your company. A multi-tenant operations system with task management and RBAC.',
     useCase: 'Operations teams managing multiple business units who need a unified internal platform.',
     features: ['Multi-tenant orgs', 'Kanban boards', 'Task management', 'Org-level RBAC', 'Activity audit log'],
@@ -65,6 +71,7 @@ const SYSTEM_DETAILS: Record<string, Omit<SystemContent, 'proof'>> = {
     uiLabel: 'Secure Your Business',
     name: 'Compliance & Audit Platform',
     category: 'governance',
+    outcome: 'Track every action, permission change, and access event across your organization with immutable audit trails and role-based controls.',
     description: 'Who did what, when — and who allowed it. A compliance system with audit trails, role hierarchy, and data isolation.',
     useCase: 'Compliance officers and IT administrators who need granular access control and immutable audit trails.',
     features: ['Immutable audit trail', 'Role hierarchy', 'Data isolation per tenant', 'Security headers', 'Access request workflow'],
@@ -121,74 +128,22 @@ export default function DemosPage() {
               Live Demos
             </span>
             <h1 className="text-[var(--text-display)] font-[var(--weight-medium)] leading-[var(--leading-display)] tracking-[var(--tracking-tight)] text-text-primary">
-              Production Systems
+              Business Systems Built to Run Real Operations
             </h1>
             <p className="max-w-2xl text-[var(--text-body)] leading-[var(--leading-relaxed)] text-text-secondary">
-              Six live systems that solve real business problems. Each one is independently deployed,
-              fully functional, and built on shared architecture.
+              Generate leads without manual follow-up. Increase revenue without platform chaos.
+              Run operations without spreadsheets. Six production-ready platforms, each independently deployed and fully functional.
             </p>
           </div>
         </div>
       </section>
 
-      <section id="systems" className="relative py-[var(--section-py-compact)]">
-        <div className="mx-auto w-full max-w-7xl px-6 md:px-8 lg:px-12">
-          <ActiveSystemView
-            systems={SYSTEMS.map((s) => ({ id: s.id }))}
-            systemDetails={SYSTEMS_WITH_PROOFS}
-          />
-        </div>
-      </section>
-
-      <section id="architecture" className="relative bg-bg-secondary py-[var(--section-py-compact)]">
-        <div className="mx-auto w-full max-w-7xl px-6 md:px-8 lg:px-12">
-          <div className="mx-auto max-w-3xl">
-            <div className="flex flex-col items-center text-center">
-              <h2 className="text-[var(--text-section)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
-                Shared Architecture
-              </h2>
-              <p className="mt-2 max-w-xl text-[var(--text-body)] leading-relaxed text-text-secondary">
-                All six systems share the same monorepo, deployment pipeline, and package design.
-                Each system deploys independently with isolated data stores.
-              </p>
-            </div>
-            <div className="mt-8 grid gap-4 md:grid-cols-3">
-              <div className="rounded-xl border border-border-subtle bg-bg-surface p-5 text-left">
-                <p className="text-[10px] font-medium uppercase tracking-wider text-accent">Monorepo</p>
-                <p className="mt-1.5 text-sm leading-relaxed text-text-secondary">
-                  Shared packages for state machines, auth, UI components, and analytics. One version of every dependency.
-                </p>
-              </div>
-              <div className="rounded-xl border border-border-subtle bg-bg-surface p-5 text-left">
-                <p className="text-[10px] font-medium uppercase tracking-wider text-accent">Independent Deployments</p>
-                <p className="mt-1.5 text-sm leading-relaxed text-text-secondary">
-                  Each system deploys independently on Vercel with its own environment variables and preview URLs.
-                </p>
-              </div>
-              <div className="rounded-xl border border-border-subtle bg-bg-surface p-5 text-left">
-                <p className="text-[10px] font-medium uppercase tracking-wider text-accent">Data Isolation</p>
-                <p className="mt-1.5 text-sm leading-relaxed text-text-secondary">
-                  Separate data stores per system. No cross-system data coupling. Tenant boundaries enforced at the database level.
-                </p>
-              </div>
-            </div>
-            <div className="mt-6 flex justify-center gap-6 text-sm">
-              <a
-                href="https://github.com/jamesonolitoquit/jaostudio-platform"
-                className="text-text-secondary underline underline-offset-4 transition-colors hover:text-text-primary"
-              >
-                GitHub
-              </a>
-              <Link
-                href="/docs/demo-credentials"
-                className="text-text-secondary underline underline-offset-4 transition-colors hover:text-text-primary"
-              >
-                Demo Credentials
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Suspense fallback={null}>
+        <DemosClient
+          systems={SYSTEMS.map((s) => ({ id: s.id }))}
+          systemDetails={SYSTEMS_WITH_PROOFS}
+        />
+      </Suspense>
     </SystemProvider>
   )
 }

@@ -167,7 +167,7 @@ export function Navbar() {
         className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 md:px-8 lg:px-12">
         <NextLink
           href={localizeHref('/')}
-          className="focus-ring text-sm font-medium tracking-tight text-text-primary transition-colors hover:text-text-secondary"
+          className={`focus-ring relative text-sm font-medium tracking-tight text-text-primary transition-colors hover:text-text-secondary`}
         >
           <Logo size={36} className="text-xl font-bold tracking-tight" />
         </NextLink>
@@ -186,7 +186,9 @@ export function Navbar() {
                 <NextLink
                   key={link.href}
                   href={link.href}
-                  className="focus-ring text-sm text-text-secondary transition-colors hover:text-text-primary"
+                  className={`focus-ring text-sm transition-colors ${
+                    pathname === link.href ? 'text-text-primary font-medium' : 'text-text-secondary hover:text-text-primary'
+                  }`}
                 >
                   {link.label}
                 </NextLink>
@@ -268,7 +270,9 @@ export function Navbar() {
                     navigatingRef.current = true
                     closeMenu()
                   }}
-                  className="focus-ring text-2xl font-medium text-text-primary transition-colors hover:text-text-secondary py-2"
+                  className={`focus-ring text-2xl font-medium transition-colors py-2 ${
+                    pathname === link.href ? 'text-accent' : 'text-text-primary hover:text-text-secondary'
+                  }`}
                 >
                 {link.label}
               </NextLink>

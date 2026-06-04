@@ -60,7 +60,7 @@ button:focus-visible:not(:has(svg)) {
 }
 
 html {
-  scroll-behavior: auto;
+  scroll-behavior: smooth;
   scroll-padding-top: var(--anchor-offset);
 }
 

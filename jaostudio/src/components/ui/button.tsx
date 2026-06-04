@@ -47,9 +47,12 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     )
 
     if (href) {
+      const isExternal = href.startsWith('http://') || href.startsWith('https://') || href.startsWith('//')
       return (
         <motion.a
           href={href}
+          target={isExternal ? '_blank' : undefined}
+          rel={isExternal ? 'noopener noreferrer' : undefined}
           className={baseStyles}
           whileHover={{ scale: 1.02, transition: { duration: 0.3, ease: easeOut } }}
           whileTap={{ scale: 0.97, transition: { duration: 0.3, ease: easeOut } }}

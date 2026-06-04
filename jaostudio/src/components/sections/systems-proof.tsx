@@ -14,6 +14,7 @@ const CATEGORIES: SystemCategory[] = [
     description: 'Turn visitors into leads and customers.',
     includes: ['Landing pages', 'Funnels', 'Analytics dashboards'],
     usedFor: ['Lead generation', 'Conversion optimization'],
+    systemId: 'landing',
   },
   {
     icon: '💳',
@@ -21,6 +22,7 @@ const CATEGORIES: SystemCategory[] = [
     description: 'From catalog to delivery, one platform.',
     includes: ['Product catalogs', 'Checkout flows', 'Order dashboards'],
     usedFor: ['E-commerce', 'Subscription management'],
+    systemId: 'commerce',
   },
   {
     icon: '⚙️',
@@ -28,6 +30,7 @@ const CATEGORIES: SystemCategory[] = [
     description: 'One platform for every org in your company.',
     includes: ['Task managers', 'Kanban boards', 'Role dashboards'],
     usedFor: ['Team coordination', 'Process automation'],
+    systemId: 'webapp',
   },
   {
     icon: '🔒',
@@ -35,6 +38,7 @@ const CATEGORIES: SystemCategory[] = [
     description: 'Who did what, when — and who allowed it.',
     includes: ['Audit trails', 'Role systems', 'Data portals'],
     usedFor: ['Access control', 'Regulatory compliance'],
+    systemId: 'security',
   },
 ]
 
