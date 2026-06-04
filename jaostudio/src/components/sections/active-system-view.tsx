@@ -145,8 +145,8 @@ export function ActiveSystemView({
           className="mt-8"
         >
           <div className="mx-auto max-w-7xl">
-            <div className="rounded-xl border border-border-subtle bg-bg-surface p-8 lg:p-10">
-              <div className="grid gap-8 lg:grid-cols-[3fr_2fr] lg:items-center">
+            <div className="rounded-xl border border-border-subtle bg-bg-surface p-10 lg:p-12">
+              <div className="grid gap-10 lg:grid-cols-[3fr_2fr] lg:items-center">
                 <div className="flex flex-col gap-4">
                   <div>
                     <h2 className="text-[var(--text-section)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
@@ -154,7 +154,7 @@ export function ActiveSystemView({
                     </h2>
                     <p className="mt-1 text-sm text-text-tertiary">{active.name}</p>
                   </div>
-                  <p className="text-base leading-relaxed text-text-secondary">{active.outcome}</p>
+                  <p className="text-lg leading-relaxed text-text-secondary">{active.outcome}</p>
                   <div className="flex flex-col gap-2">
                     <a
                       href={active.url}
@@ -210,7 +210,7 @@ export function ActiveSystemView({
             </div>
           </div>
 
-          <div className="mt-8">
+          <div className="mt-12">
             <div className="mx-auto max-w-3xl">
               <div className="border-l-2 border-accent pl-4">
                 <p className="text-[10px] uppercase tracking-[0.2em] text-text-tertiary">Problem</p>
