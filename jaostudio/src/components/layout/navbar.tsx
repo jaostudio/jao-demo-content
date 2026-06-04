@@ -118,8 +118,7 @@ export function Navbar() {
 
   const navLinks: NavLink[] = [
     { type: 'route', label: t('demos'), href: localizeHref('/demos') },
-    { type: 'hash', label: t('work'), href: localizeHref('/#work') },
-    { type: 'hash', label: t('services'), href: localizeHref('/#capabilities') },
+    { type: 'route', label: t('services'), href: localizeHref('/services') },
     { type: 'route', label: t('about'), href: localizeHref('/studio') },
   ]
 
@@ -210,7 +209,7 @@ export function Navbar() {
             </button>
             <NavHashLink
               href={localizeHref('/#contact')}
-              className="focus-ring rounded-xl border border-border bg-surface-hover px-4 py-2 text-sm font-medium text-text-primary transition-all hover:bg-surface-hover"
+              className="focus-ring rounded-xl bg-accent px-4 py-2 text-sm font-medium text-white transition-all hover:brightness-110 active:scale-[0.99]"
             >
               {t('cta')}
             </NavHashLink>

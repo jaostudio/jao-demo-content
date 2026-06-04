@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { DemosGrid } from '@/components/sections/demos-grid'
+import { FeaturedProjects } from '@/components/sections/featured-projects'
 
 export const metadata: Metadata = {
   title: 'Production Systems — JAOstudio',
@@ -79,6 +80,8 @@ packages/
           </div>
         </div>
       </section>
+
+      <FeaturedProjects />
     </>
   )
 }

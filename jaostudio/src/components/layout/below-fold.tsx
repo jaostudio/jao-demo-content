@@ -8,10 +8,6 @@ const FeaturedProjects = dynamic(
   () => import('@/components/sections/featured-projects').then((m) => m.FeaturedProjects),
   { ssr: false, loading: () => null },
 )
-const CapabilitiesSection = dynamic(
-  () => import('@/components/sections/capabilities-section').then((m) => m.CapabilitiesSection),
-  { ssr: false, loading: () => null },
-)
 const ProcessScrollytelling = dynamic(
   () => import('@/components/sections/process-scrollytelling').then((m) => ({ default: m.ProcessScrollytelling })),
 )
@@ -33,7 +29,6 @@ export function BelowFold() {
     <>
       <SystemsProof />
       <FeaturedProjects />
-      <CapabilitiesSection />
       <ProcessScrollytelling />
       <TechCredibility />
       <SocialProof />
