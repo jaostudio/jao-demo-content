@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 
 const SYSTEM_DETAILS: Record<string, Omit<SystemContent, 'proof'>> = {
   landing: {
+    uiLabel: 'Get More Customers',
     name: 'Lead Generation Platform',
     category: 'growth',
     description: 'Turn visitors into booked appointments. A multi-industry lead generation system with vertical-specific engines.',
@@ -21,6 +22,7 @@ const SYSTEM_DETAILS: Record<string, Omit<SystemContent, 'proof'>> = {
     screenshot: '/images/demos/landing-hero.png',
   },
   commerce: {
+    uiLabel: 'Increase Revenue',
     name: 'Revenue Operations Platform',
     category: 'revenue',
     description: 'From catalog to delivery, one platform. A full e-commerce system with persistent cart, checkout, and order management.',
@@ -30,6 +32,7 @@ const SYSTEM_DETAILS: Record<string, Omit<SystemContent, 'proof'>> = {
     screenshot: '/images/demos/commerce-hero.png',
   },
   marketplace: {
+    uiLabel: 'Sell Online',
     name: 'Multi-Vendor Commerce Platform',
     category: 'platform',
     description: 'Run a marketplace, not a spreadsheet of vendors. A multi-tenant platform connecting buyers with independent vendors.',
@@ -39,6 +42,7 @@ const SYSTEM_DETAILS: Record<string, Omit<SystemContent, 'proof'>> = {
     screenshot: '/images/demos/marketplace-hero.png',
   },
   content: {
+    uiLabel: 'Manage Content',
     name: 'Editorial Workflow Platform',
     category: 'publishing',
     description: 'From pitch to publish, tracked at every state. An editorial state machine for content teams and publishers.',
@@ -48,6 +52,7 @@ const SYSTEM_DETAILS: Record<string, Omit<SystemContent, 'proof'>> = {
     screenshot: '/images/demos/content-hero.png',
   },
   webapp: {
+    uiLabel: 'Run Your Operations',
     name: 'Internal Operations Platform',
     category: 'operations',
     description: 'One platform for every org in your company. A multi-tenant operations system with task management and RBAC.',
@@ -57,6 +62,7 @@ const SYSTEM_DETAILS: Record<string, Omit<SystemContent, 'proof'>> = {
     screenshot: '/images/demos/webapp-hero.png',
   },
   security: {
+    uiLabel: 'Secure Your Business',
     name: 'Compliance & Audit Platform',
     category: 'governance',
     description: 'Who did what, when — and who allowed it. A compliance system with audit trails, role hierarchy, and data isolation.',
@@ -128,7 +134,7 @@ export default function DemosPage() {
       <section id="systems" className="relative py-[var(--section-py-compact)]">
         <div className="mx-auto w-full max-w-7xl px-6 md:px-8 lg:px-12">
           <ActiveSystemView
-            systems={SYSTEMS.map((s) => ({ id: s.id, name: s.name }))}
+            systems={SYSTEMS.map((s) => ({ id: s.id }))}
             systemDetails={SYSTEMS_WITH_PROOFS}
           />
         </div>
