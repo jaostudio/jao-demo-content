@@ -117,6 +117,7 @@ export function Navbar() {
     | { type: 'route'; label: string; href: string }
 
   const navLinks: NavLink[] = [
+    { type: 'route', label: t('systems'), href: localizeHref('/demos') },
     { type: 'hash', label: t('work'), href: localizeHref('/#work') },
     { type: 'hash', label: t('services'), href: localizeHref('/#capabilities') },
     { type: 'hash', label: t('process'), href: localizeHref('/#process') },

@@ -2,6 +2,7 @@
 
 import dynamic from 'next/dynamic'
 import React from 'react'
+import { SystemsProof } from '@/components/sections/systems-proof'
 
 const FeaturedProjects = dynamic(
   () => import('@/components/sections/featured-projects').then((m) => m.FeaturedProjects),
@@ -30,6 +31,7 @@ const ContactSection = dynamic(
 export function BelowFold() {
   return (
     <>
+      <SystemsProof />
       <FeaturedProjects />
       <CapabilitiesSection />
       <ProcessScrollytelling />
