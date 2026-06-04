@@ -12,7 +12,7 @@ export async function ExampleScopes() {
           {t('exampleScopes')}
         </h2>
       </div>
-      <div className="mt-6 grid gap-4 md:grid-cols-3">
+      <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {examples.map((i) => (
           <div key={i} className="rounded-xl border border-border-subtle bg-bg-surface p-5">
             <p className="text-sm font-medium text-text-primary">{t(`example${i}Title`)}</p>

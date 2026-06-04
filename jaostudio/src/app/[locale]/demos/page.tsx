@@ -7,7 +7,7 @@ import { SYSTEMS } from '@/lib/systems'
 import { projects } from '@/lib/projects'
 
 export const metadata: Metadata = {
-  title: 'Business Systems — JAOstudio',
+  title: 'Business Systems for Real Operations — JAOstudio',
   description: 'Six production-ready platforms for lead generation, revenue operations, multi-vendor marketplaces, editorial workflow, internal operations, and compliance.',
 }
 
@@ -95,11 +95,12 @@ function buildProofs(): Record<string, SystemContent['proof']> {
   for (const p of projects) {
     const systemId = projectToSystem[p.slug]
     if (!systemId) continue
+    if (!p.businessContext) continue
     if (!proofs[systemId]) proofs[systemId] = []
     proofs[systemId].push({
       title: p.title,
-      context: p.businessContext?.problem ?? p.context,
-      outcome: p.businessContext?.result ?? p.outcome,
+      context: p.businessContext.problem,
+      outcome: p.businessContext.result,
     })
   }
   return proofs

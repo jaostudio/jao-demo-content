@@ -71,7 +71,12 @@ export default async function ServicesPage() {
 
       <Container className="mx-auto max-w-3xl">
         <Section density="compact">
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="flex flex-col items-center text-center">
+            <h2 className="text-[var(--text-section)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
+              {t('workingStyle')}
+            </h2>
+          </div>
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
             {services.map((svc) => (
               <div
                 key={svc.title}
