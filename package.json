@@ -21,7 +21,8 @@
     "check:deps": "madge --extensions ts,tsx --warning packages/",
     "check:machines": "tsx packages/core/tests/architecture/state-machines.test.ts",
     "check:events": "tsx packages/core/tests/architecture/events.test.ts",
-    "check:graph": "tsx packages/core/tests/architecture/dependency-graph.test.ts"
+    "check:graph": "tsx packages/core/tests/architecture/dependency-graph.test.ts",
+    "smoke:auth": "tsx scripts/auth-smoke.ts"
   },
   "devDependencies": {
     "madge": "^8.0.0",
