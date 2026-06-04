@@ -9,18 +9,17 @@ No authentication required. Visit `/` and `/construction`, `/dental`,
 
 ## commerce-demo
 
-| Email | Role |
-|---|---|
-| `admin@demo.dev` | Admin |
+No authentication required. Guest checkout only.
+Admin order management is publicly accessible (demo-only).
 
 ## marketplace-demo
 
 | Email | Role |
 |---|---|
-| `vendor1@demo.dev` | Vendor |
-| `vendor2@demo.dev` | Vendor |
-| `buyer@demo.dev` | Buyer |
-| `admin@demo.dev` | Admin |
+| `admin@marketplace.dev` | Admin |
+| `alice@crafts.com` | Vendor |
+| `bob@vintage.com` | Vendor |
+| `buyer@test.com` | Buyer |
 
 ## content-platform-demo
 
