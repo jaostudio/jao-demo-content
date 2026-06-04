@@ -1,9 +1,9 @@
 {
   "navbar": {
+    "demos": "Demo",
     "work": "Projects",
     "services": "Services",
-    "process": "Proseso",
-    "studio": "Studio",
+    "about": "Tungkol",
     "cta": "Simulan ang Proyekto",
     "toggleMenu": "Menu",
     "closeMenu": "Isara ang menu",

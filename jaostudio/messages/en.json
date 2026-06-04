@@ -1,10 +1,9 @@
 {
   "navbar": {
+    "demos": "Demos",
     "work": "Work",
     "services": "Services",
-    "process": "Process",
-    "studio": "Studio",
-    "systems": "Systems",
+    "about": "About",
     "cta": "Start a Project",
     "toggleMenu": "Toggle menu",
     "closeMenu": "Close menu",
