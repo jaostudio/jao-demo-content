@@ -5,9 +5,25 @@ import Link from 'next/link'
 import { Section } from '@/components/ui/section'
 import { Badge } from '@/components/typography/badge'
 import { fadeUpBlur, fadeUpReduced, staggerSlow, staggerFast } from '@/lib/motion-variants'
-import { SYSTEMS } from '@/lib/systems'
 
-const VISIBLE = SYSTEMS.slice(0, 4)
+const CATEGORIES = [
+  {
+    title: 'Digital Products',
+    description: 'Customer-facing platforms, lead generation, onboarding, and marketing systems.',
+  },
+  {
+    title: 'Business Operations',
+    description: 'Commerce, revenue operations, multi-vendor marketplaces, and order management.',
+  },
+  {
+    title: 'Internal Tools',
+    description: 'Dashboards, operations platforms, task management, and team workflow systems.',
+  },
+  {
+    title: 'Secure Applications',
+    description: 'Compliance-ready portals, audit trails, role-based access, and data-governed tools.',
+  },
+]
 
 export function SystemsProof() {
   const prefersReducedMotion = useReducedMotion()
@@ -23,13 +39,13 @@ export function SystemsProof() {
         whileInView="visible"
         viewport={{ once: true, margin: '-50px' }}
       >
-        <Badge variant="accent">Live Systems</Badge>
+        <Badge variant="accent">What We Build</Badge>
         <h2 className="text-[var(--text-display)] font-[var(--weight-medium)] leading-[var(--leading-display)] tracking-[var(--tracking-tight)] text-text-primary">
-          Production systems, one architecture
+          Systems that solve real business problems
         </h2>
         <p className="max-w-2xl text-[var(--text-body)] leading-[var(--leading-relaxed)] text-text-secondary">
-          Every system is independently deployed, fully functional, and built on shared
-          state machine architecture. These are not mockups — they are running production applications.
+          Customer-facing platforms, internal tools, and compliance-ready systems.
+          Each one independently deployed, fully functional, and built on shared architecture.
         </p>
       </motion.div>
 
@@ -40,14 +56,14 @@ export function SystemsProof() {
         whileInView="visible"
         viewport={{ once: true, margin: '-50px' }}
       >
-        {VISIBLE.map((system) => (
+        {CATEGORIES.map((cat) => (
           <motion.div
-            key={system.id}
+            key={cat.title}
             variants={contentVariant}
             className="group rounded-xl border border-border-subtle bg-bg-surface p-5 transition-shadow hover:shadow-md"
           >
-            <h3 className="text-base font-[var(--weight-medium)] text-text-primary">{system.name}</h3>
-            <p className="mt-1 text-sm leading-relaxed text-text-secondary">{system.outcome}</p>
+            <h3 className="text-base font-[var(--weight-medium)] text-text-primary">{cat.title}</h3>
+            <p className="mt-1 text-sm leading-relaxed text-text-secondary">{cat.description}</p>
           </motion.div>
         ))}
       </motion.div>
@@ -63,7 +79,7 @@ export function SystemsProof() {
           href="/demos"
           className="inline-flex items-center gap-2 rounded-lg bg-text-primary px-5 py-2.5 text-sm font-medium text-bg-primary hover:opacity-90"
         >
-          View all 6 production systems →
+          Explore all systems →
         </Link>
       </motion.div>
     </Section>

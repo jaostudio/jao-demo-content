@@ -127,7 +127,7 @@ export function Hero() {
 
             <motion.div className="flex flex-col gap-3 sm:flex-row sm:gap-4" variants={slideVariant}>
               <Button
-                href="/#contact"
+                href="/demos"
                 size="lg"
                 trackingLabel="hero_start_project"
                 className="w-full sm:w-auto text-base py-3 sm:text-sm sm:py-2.5"
@@ -135,7 +135,7 @@ export function Hero() {
                 {t('ctaPrimary')}
               </Button>
               <Button
-                href="/#work"
+                href="/services"
                 variant="secondary"
                 size="lg"
                 trackingLabel="hero_view_projects"
