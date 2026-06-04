@@ -1,26 +1,16 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Image from 'next/image'
-import { DemosGrid } from '@/components/sections/demos-grid'
-import { FeaturedProjects } from '@/components/sections/featured-projects'
+import { ActiveSystemView, type SystemContent } from '@/components/sections/active-system-view'
 import { SystemProvider } from '@/components/layout/system-provider'
+import { SYSTEMS } from '@/lib/systems'
+import { projects } from '@/lib/projects'
 
 export const metadata: Metadata = {
   title: 'Production Systems — JAOstudio',
   description: 'Six live systems that solve real business problems: lead generation, revenue operations, multi-vendor marketplaces, editorial workflow, internal operations, and compliance.',
 }
 
-interface SystemDetail {
-  name: string
-  category: string
-  description: string
-  useCase: string
-  features: string[]
-  url: string
-  screenshot: string
-}
-
-const SYSTEM_DETAILS: Record<string, SystemDetail> = {
+const SYSTEM_DETAILS: Record<string, Omit<SystemContent, 'proof'>> = {
   landing: {
     name: 'Lead Generation Platform',
     category: 'growth',
@@ -77,65 +67,39 @@ const SYSTEM_DETAILS: Record<string, SystemDetail> = {
   },
 }
 
-function SystemSection({ id, detail }: { id: string; detail: SystemDetail }) {
-  return (
-    <section id={`system-${id}`} className="relative scroll-mt-24 py-[var(--section-py-compact)]">
-      <div className="mx-auto w-full max-w-7xl px-6 md:px-8 lg:px-12">
-        <div className="grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-start">
-          <div>
-            <p className="text-[11px] uppercase tracking-[0.2em] text-accent">{detail.category}</p>
-            <h2 className="mt-2 text-[var(--text-section)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
-              {detail.name}
-            </h2>
-            <p className="mt-3 text-[var(--text-body)] leading-relaxed text-text-secondary">
-              {detail.description}
-            </p>
-            <div className="mt-6">
-              <p className="text-[10px] uppercase tracking-[0.2em] text-text-tertiary">Use case</p>
-              <p className="mt-1 text-sm leading-relaxed text-text-secondary">{detail.useCase}</p>
-            </div>
-            <div className="mt-4">
-              <p className="text-[10px] uppercase tracking-[0.2em] text-text-tertiary">Features</p>
-              <ul className="mt-2 space-y-1.5">
-                {detail.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-sm text-text-secondary">
-                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-accent" />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <a
-                href={detail.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg bg-text-primary px-5 py-2.5 text-sm font-medium text-bg-primary hover:opacity-90"
-              >
-                Open Live System →
-              </a>
-              <a
-                href="#systems"
-                className="inline-flex items-center gap-1 text-sm text-text-secondary underline underline-offset-4 transition-colors hover:text-text-primary"
-              >
-                ← Back to all systems
-              </a>
-            </div>
-          </div>
-          <div className="overflow-hidden rounded-xl border border-border-subtle">
-            <Image
-              src={detail.screenshot}
-              alt={`${detail.name} screenshot`}
-              width={1440}
-              height={900}
-              className="w-full"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-  )
+const projectToSystem: Record<string, string> = {
+  'isp-platform': 'commerce',
+  'landing-page': 'landing',
+  'web-application': 'webapp',
+  'saas-frontend': 'marketplace',
+  'ecommerce-store': 'commerce',
+  'design-system': 'webapp',
+  'mobile-web-app': 'content',
 }
+
+function buildProofs(): Record<string, SystemContent['proof']> {
+  const proofs: Record<string, SystemContent['proof']> = {}
+  for (const p of projects) {
+    const systemId = projectToSystem[p.slug]
+    if (!systemId) continue
+    if (!proofs[systemId]) proofs[systemId] = []
+    proofs[systemId].push({
+      title: p.title,
+      context: p.businessContext?.problem ?? p.context,
+      outcome: p.businessContext?.result ?? p.outcome,
+    })
+  }
+  return proofs
+}
+
+const PROOFS = buildProofs()
+
+const SYSTEMS_WITH_PROOFS: Record<string, SystemContent> = Object.fromEntries(
+  Object.entries(SYSTEM_DETAILS).map(([id, detail]) => [
+    id,
+    { ...detail, proof: PROOFS[id] ?? [] },
+  ]),
+)
 
 export default function DemosPage() {
   return (
@@ -148,7 +112,7 @@ export default function DemosPage() {
         <div className="mx-auto w-full max-w-7xl px-6 md:px-8 lg:px-12">
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
             <span className="inline-flex min-w-[5rem] items-center justify-center gap-1.5 rounded-full bg-accent-subtle px-3 py-1 text-xs font-medium text-accent">
-              Live Systems
+              Live Demos
             </span>
             <h1 className="text-[var(--text-display)] font-[var(--weight-medium)] leading-[var(--leading-display)] tracking-[var(--tracking-tight)] text-text-primary">
               Production Systems
@@ -163,13 +127,12 @@ export default function DemosPage() {
 
       <section id="systems" className="relative py-[var(--section-py-compact)]">
         <div className="mx-auto w-full max-w-7xl px-6 md:px-8 lg:px-12">
-          <DemosGrid />
+          <ActiveSystemView
+            systems={SYSTEMS.map((s) => ({ id: s.id, name: s.name }))}
+            systemDetails={SYSTEMS_WITH_PROOFS}
+          />
         </div>
       </section>
-
-      {Object.entries(SYSTEM_DETAILS).map(([id, detail]) => (
-        <SystemSection key={id} id={id} detail={detail} />
-      ))}
 
       <section id="architecture" className="relative bg-bg-secondary py-[var(--section-py-compact)]">
         <div className="mx-auto w-full max-w-7xl px-6 md:px-8 lg:px-12">
@@ -220,8 +183,6 @@ export default function DemosPage() {
           </div>
         </div>
       </section>
-
-      <FeaturedProjects />
     </SystemProvider>
   )
 }

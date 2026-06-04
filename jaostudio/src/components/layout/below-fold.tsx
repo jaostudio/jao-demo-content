@@ -3,10 +3,9 @@
 import dynamic from 'next/dynamic'
 import React from 'react'
 import { SystemsProof } from '@/components/sections/systems-proof'
-import { ProcessSteps } from '@/components/sections/process-steps'
 
-const FeaturedProjects = dynamic(
-  () => import('@/components/sections/featured-projects').then((m) => m.FeaturedProjects),
+const ProcessScrollytelling = dynamic(
+  () => import('@/components/sections/process-scrollytelling').then((m) => m.ProcessScrollytelling),
   { ssr: false, loading: () => null },
 )
 const TechCredibility = dynamic(
@@ -26,8 +25,7 @@ export function BelowFold() {
   return (
     <>
       <SystemsProof />
-      <FeaturedProjects />
-      <ProcessSteps />
+      <ProcessScrollytelling />
       <TechCredibility />
       <SocialProof />
       <ContactSection />
