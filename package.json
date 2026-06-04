@@ -22,10 +22,12 @@
     "check:machines": "tsx packages/core/tests/architecture/state-machines.test.ts",
     "check:events": "tsx packages/core/tests/architecture/events.test.ts",
     "check:graph": "tsx packages/core/tests/architecture/dependency-graph.test.ts",
-    "smoke:auth": "tsx scripts/auth-smoke.ts"
+    "smoke:auth": "tsx scripts/auth-smoke.ts",
+    "screenshots": "tsx scripts/capture-screenshots.ts"
   },
   "devDependencies": {
     "madge": "^8.0.0",
+    "playwright": "^1.60.0",
     "prettier": "^3.5.0",
     "prettier-plugin-tailwindcss": "^0.6.0",
     "tsx": "^4.22.4",

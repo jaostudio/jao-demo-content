@@ -46,6 +46,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@next/bundle-analyzer": "^16.2.6",
+    "@next/swc-win32-x64-msvc": "^15.5.18",
     "@playwright/test": "^1.60.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
