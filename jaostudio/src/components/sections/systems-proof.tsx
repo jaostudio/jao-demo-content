@@ -4,31 +4,43 @@ import { motion, useReducedMotion } from 'framer-motion'
 import Link from 'next/link'
 import { Section } from '@/components/ui/section'
 import { Badge } from '@/components/typography/badge'
-import { fadeUpBlur, fadeUpReduced, staggerSlow, staggerFast } from '@/lib/motion-variants'
+import { SystemsCarousel, type SystemCategory } from '@/components/sections/systems-carousel'
+import { fadeUpBlur, fadeUpReduced } from '@/lib/motion-variants'
 
-const CATEGORIES = [
+const CATEGORIES: SystemCategory[] = [
   {
-    title: 'Digital Products',
-    description: 'Customer-facing platforms, lead generation, onboarding, and marketing systems.',
+    icon: '🚀',
+    title: 'Customer Growth Systems',
+    description: 'Turn visitors into leads and customers.',
+    includes: ['Landing pages', 'Funnels', 'Analytics dashboards'],
+    usedFor: ['Lead generation', 'Conversion optimization'],
   },
   {
-    title: 'Business Operations',
-    description: 'Commerce, revenue operations, multi-vendor marketplaces, and order management.',
+    icon: '💳',
+    title: 'Revenue & Checkout Systems',
+    description: 'From catalog to delivery, one platform.',
+    includes: ['Product catalogs', 'Checkout flows', 'Order dashboards'],
+    usedFor: ['E-commerce', 'Subscription management'],
   },
   {
-    title: 'Internal Tools',
-    description: 'Dashboards, operations platforms, task management, and team workflow systems.',
+    icon: '⚙️',
+    title: 'Operations & Workflow Systems',
+    description: 'One platform for every org in your company.',
+    includes: ['Task managers', 'Kanban boards', 'Role dashboards'],
+    usedFor: ['Team coordination', 'Process automation'],
   },
   {
-    title: 'Secure Applications',
-    description: 'Compliance-ready portals, audit trails, role-based access, and data-governed tools.',
+    icon: '🔒',
+    title: 'Compliance & Access Systems',
+    description: 'Who did what, when — and who allowed it.',
+    includes: ['Audit trails', 'Role systems', 'Data portals'],
+    usedFor: ['Access control', 'Regulatory compliance'],
   },
 ]
 
 export function SystemsProof() {
   const prefersReducedMotion = useReducedMotion()
   const contentVariant = prefersReducedMotion ? fadeUpReduced : fadeUpBlur
-  const staggerVariant = prefersReducedMotion ? staggerFast(0.03) : staggerSlow(0.05)
 
   return (
     <Section id="systems" variant="default" glow density="compact">
@@ -49,24 +61,9 @@ export function SystemsProof() {
         </p>
       </motion.div>
 
-      <motion.div
-        className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
-        variants={staggerVariant}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-50px' }}
-      >
-        {CATEGORIES.map((cat) => (
-          <motion.div
-            key={cat.title}
-            variants={contentVariant}
-            className="group rounded-xl border border-border-subtle bg-bg-surface p-5 transition-shadow hover:shadow-md"
-          >
-            <h3 className="text-base font-[var(--weight-medium)] text-text-primary">{cat.title}</h3>
-            <p className="mt-1 text-sm leading-relaxed text-text-secondary">{cat.description}</p>
-          </motion.div>
-        ))}
-      </motion.div>
+      <div className="mt-10">
+        <SystemsCarousel categories={CATEGORIES} />
+      </div>
 
       <motion.div
         className="mt-10 text-center"
