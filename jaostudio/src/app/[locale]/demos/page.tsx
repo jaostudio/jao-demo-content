@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { DemosGrid } from '@/components/sections/demos-grid'
 import { FeaturedProjects } from '@/components/sections/featured-projects'
+import { SystemProvider } from '@/components/layout/system-provider'
 
 export const metadata: Metadata = {
   title: 'Production Systems — JAOstudio',
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function DemosPage() {
   return (
-    <>
+    <SystemProvider>
       <section className="relative py-[var(--section-py-compact)]">
         <div
           className="pointer-events-none absolute inset-0"
@@ -82,6 +83,6 @@ packages/
       </section>
 
       <FeaturedProjects />
-    </>
+    </SystemProvider>
   )
 }
