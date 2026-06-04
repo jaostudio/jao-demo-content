@@ -45,7 +45,7 @@ export function SystemsProof() {
   const staggerVariant = prefersReducedMotion ? staggerFast(0.03) : staggerSlow(0.05)
 
   return (
-    <Section id="systems" variant="default" glow="soft" density="compact">
+    <Section id="systems" variant="default" glow density="compact">
       <motion.div
         className="flex flex-col gap-4 items-center text-center md:max-w-3xl mx-auto"
         variants={contentVariant}
