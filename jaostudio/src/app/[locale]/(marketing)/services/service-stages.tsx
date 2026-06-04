@@ -25,15 +25,15 @@ export async function DeliveryStages() {
               <p className="text-sm font-medium text-text-primary">{t(`stage${i}Title`)}</p>
             </div>
             <p className="mt-2 text-[10px] uppercase tracking-wider text-text-tertiary">
-              Timeline
+              {t('timeline')}
             </p>
             <p className="mt-0.5 text-xs text-text-tertiary">{t(`stage${i}Timeline`)}</p>
             <div className="mt-3">
-              <p className="text-[10px] font-medium text-text-secondary">Output</p>
+              <p className="text-[10px] font-medium text-text-secondary">{t('output')}</p>
               <p className="text-xs text-text-tertiary">{t(`stage${i}Output`)}</p>
             </div>
             <div className="mt-2">
-              <p className="text-[10px] font-medium text-text-secondary">Input needed</p>
+              <p className="text-[10px] font-medium text-text-secondary">{t('fromYou')}</p>
               <p className="text-xs text-text-tertiary">{t(`stage${i}Input`)}</p>
             </div>
           </div>

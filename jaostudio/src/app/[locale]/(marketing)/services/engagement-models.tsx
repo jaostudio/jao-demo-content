@@ -8,7 +8,10 @@ export async function EngagementModels() {
   return (
     <section className="mt-16">
       <div className="flex flex-col items-center text-center">
-        <h2 className="text-[var(--text-section)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
+        <p className="text-[10px] font-medium uppercase tracking-widest text-accent">
+          {t('processBadge')}
+        </p>
+        <h2 className="mt-2 text-[var(--text-section)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
           {t('engagementModel')}
         </h2>
       </div>

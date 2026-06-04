@@ -212,12 +212,12 @@ export function ActiveSystemView({
 
           <div className="mt-12">
             <div className="mx-auto max-w-3xl">
-              <div className="border-l-2 border-accent pl-4">
+              <div className="border-l-2 border-accent bg-white/[0.01] rounded-r-md pl-4 py-1">
                 <p className="text-[10px] uppercase tracking-[0.2em] text-text-tertiary">Problem</p>
                 <p className="mt-1 text-sm leading-relaxed text-text-secondary">{active.useCase}</p>
               </div>
 
-              <div className="mt-6 border-l-2 border-accent pl-4">
+              <div className="mt-6 border-l-2 border-accent bg-white/[0.01] rounded-r-md pl-4 py-1">
                 <p className="text-[10px] uppercase tracking-[0.2em] text-text-tertiary">Solution</p>
                 <p className="mt-1 text-sm leading-relaxed text-text-secondary">{active.description}</p>
               </div>
