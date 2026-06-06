@@ -13,6 +13,9 @@ export async function generateMetadata({ params }: { params: Promise<{ vertical:
   const resolved = await params
   const profile = industries[resolved.vertical]
   if (!profile) return {}
+  const baseUrl = process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : 'https://jao-demo-landing.vercel.app'
   return {
     title: `${profile.company.name} | ${profile.company.tagline}`,
     description: profile.company.description,
@@ -20,6 +23,9 @@ export async function generateMetadata({ params }: { params: Promise<{ vertical:
       title: `${profile.company.name} | ${profile.company.tagline}`,
       description: profile.company.description,
       images: [`/og/${resolved.vertical}.svg`],
+    },
+    alternates: {
+      canonical: `${baseUrl}/${resolved.vertical}`,
     },
   }
 }

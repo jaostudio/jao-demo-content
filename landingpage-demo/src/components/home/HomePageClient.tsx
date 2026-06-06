@@ -6,7 +6,11 @@ import { motion } from "framer-motion";
 import type { IndustryProfile } from "@jaostudio/engine/types";
 import { resolveTheme } from "@jaostudio/engine/theme";
 import { HomeHero } from "./HomeHero";
+import { useState } from "react";
+import Image from "next/image";
+import { Zap, Target, Search } from "lucide-react";
 import { transitions, durations, easing, staggers } from "@/lib/motion-tokens";
+import { FooterAdapter } from "@/components/sections/footer/FooterAdapter";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -36,7 +40,13 @@ export function HomePageClient({ profiles }: Props) {
 
       <AboutSection />
       <TrustBar />
+      <TestimonialQuote />
       <ContactSection />
+      <FooterAdapter
+        name="JAO Studio"
+        email="hello@jaostudio.com"
+        phone="+1 (555) 123-4567"
+      />
     </main>
   );
 }
@@ -138,6 +148,16 @@ function ShowcaseConstruction({ profile }: { profile: IndustryProfile }) {
               View Project
             </Link>
           </motion.div>
+
+          <div className="absolute -top-4 right-0 w-28 h-28 rounded-xl shadow-2xl overflow-hidden border-2 border-slate-700/50 hidden md:block">
+            <Image
+              src="/industry-assets/summit-ridge/thumbnail.jpg"
+              alt="Summit Ridge site preview"
+              width={112}
+              height={112}
+              className="object-cover w-full h-full"
+            />
+          </div>
         </div>
       </section>
   );
@@ -149,7 +169,7 @@ function ShowcaseDental({ profile }: { profile: IndustryProfile }) {
 
   return (
     <section style={style} className="bg-white py-16 dark:bg-neutral-950 md:py-24">
-      <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 md:grid-cols-2 md:gap-16">
+      <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-6 md:grid-cols-2 md:gap-16">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -198,6 +218,16 @@ function ShowcaseDental({ profile }: { profile: IndustryProfile }) {
           >
             View Project
           </Link>
+
+          <div className="absolute -bottom-4 -right-4 w-24 h-24 rounded-xl shadow-lg overflow-hidden border-2 border-white dark:border-neutral-800 hidden md:block">
+            <Image
+              src="/industry-assets/brightsmile/gallery-1.jpg"
+              alt="BrightSmile gallery preview"
+              width={96}
+              height={96}
+              className="object-cover w-full h-full"
+            />
+          </div>
         </motion.div>
       </div>
     </section>
@@ -210,7 +240,7 @@ function ShowcaseLegal({ profile }: { profile: IndustryProfile }) {
 
   return (
     <section style={style} className="bg-neutral-950 py-16 md:py-24">
-      <div className="mx-auto max-w-4xl px-6 text-center">
+      <div className="relative mx-auto max-w-4xl px-6 text-center">
         <motion.span
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -266,6 +296,16 @@ function ShowcaseLegal({ profile }: { profile: IndustryProfile }) {
             View Project
           </Link>
         </motion.div>
+
+        <div className="absolute -bottom-4 left-4 w-24 h-24 rounded-xl shadow-2xl overflow-hidden border-2 border-neutral-700 hidden md:block">
+          <Image
+            src="/industry-assets/harrison-cole/gallery-1.jpg"
+            alt="Harrison & Cole gallery preview"
+            width={96}
+            height={96}
+            className="object-cover w-full h-full"
+          />
+        </div>
       </div>
     </section>
   );
@@ -273,7 +313,7 @@ function ShowcaseLegal({ profile }: { profile: IndustryProfile }) {
 
 function AboutSection() {
   return (
-    <section className="border-t border-neutral-200 bg-white py-20 dark:border-neutral-800 dark:bg-neutral-950 md:py-28">
+    <section className="border-t border-neutral-200 bg-neutral-50 py-20 dark:border-neutral-800 dark:bg-neutral-900 md:py-28">
       <div className="mx-auto max-w-4xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -307,14 +347,17 @@ function AboutSection() {
         >
           {[
             {
+              icon: Zap,
               title: "Fast by default",
               desc: "Every page targets 90+ Lighthouse scores. Static generation, optimized images, minimal JavaScript — performance is not an afterthought.",
             },
             {
+              icon: Target,
               title: "Built for conversion",
               desc: "Section order, CTA placement, and trust signals follow industry-specific buying psychology — not a generic template.",
             },
             {
+              icon: Search,
               title: "SEO without plugins",
               desc: "Unique meta tags, structured data, semantic HTML, and canonical URLs. No WordPress plugins needed.",
             },
@@ -325,9 +368,10 @@ function AboutSection() {
                 hidden: { opacity: 0, y: 12 },
                 visible: { opacity: 1, y: 0 },
               }}
-              className="rounded-2xl border border-neutral-200 bg-neutral-50 p-6 dark:border-neutral-800 dark:bg-neutral-900"
+              className="rounded-2xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-950"
             >
-              <h3 className="font-semibold text-neutral-900 dark:text-neutral-50">
+              <item.icon className="h-8 w-8 text-neutral-700 dark:text-neutral-300" />
+              <h3 className="mt-4 font-semibold text-neutral-900 dark:text-neutral-50">
                 {item.title}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
@@ -363,7 +407,30 @@ function TrustBar() {
   );
 }
 
+function TestimonialQuote() {
+  return (
+    <section className="border-t border-neutral-200 bg-white py-16 dark:border-neutral-800 dark:bg-neutral-950">
+      <div className="mx-auto max-w-3xl px-6 text-center">
+        <p className="text-xl italic leading-relaxed text-neutral-600 dark:text-neutral-400">
+          &ldquo;The budget estimator on our new site has increased qualified leads by 40%. It&apos;s become our most valuable sales tool.&rdquo;
+        </p>
+        <p className="mt-6 font-semibold text-neutral-900 dark:text-neutral-50">
+          &mdash; Marcus Tan, Summit Ridge Construction
+        </p>
+      </div>
+    </section>
+  );
+}
+
 function ContactSection() {
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    window.location.href = `mailto:hello@jaostudio.com?subject=Portfolio Inquiry&body=${encodeURIComponent(message)}%0A%0AFrom: ${encodeURIComponent(email)}`;
+  };
+
   return (
     <section className="border-t border-neutral-200 bg-neutral-900 py-20 dark:border-neutral-800 dark:bg-neutral-950 md:py-28">
       <div className="mx-auto max-w-3xl px-6 text-center">
@@ -393,12 +460,30 @@ function ContactSection() {
           transition={{ ...transitions.normal, delay: 0.1 }}
           className="mt-8"
         >
-          <a
-            href="mailto:hello@jaostudio.com"
-            className="inline-block rounded-xl bg-neutral-800 px-8 py-3 font-medium text-white transition-all hover:bg-neutral-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200"
-          >
-            Send a message
-          </a>
+          <form onSubmit={handleSubmit} className="mx-auto max-w-md space-y-4">
+            <input
+              type="email"
+              placeholder="Your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="w-full rounded-lg border border-neutral-700 bg-neutral-800 px-4 py-2.5 text-sm text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-500"
+            />
+            <textarea
+              placeholder="Tell us about your project"
+              rows={3}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              required
+              className="w-full rounded-lg border border-neutral-700 bg-neutral-800 px-4 py-2.5 text-sm text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-500"
+            />
+            <button
+              type="submit"
+              className="w-full rounded-xl bg-neutral-700 px-8 py-3 text-sm font-medium text-white transition-all hover:bg-neutral-600"
+            >
+              Send message
+            </button>
+          </form>
         </motion.div>
       </div>
     </section>
