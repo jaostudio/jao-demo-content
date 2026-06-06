@@ -10,6 +10,7 @@
     "./rendering/*": "./src/rendering/*",
     "./transitions": "./src/transitions/index.ts",
     "./transitions/*": "./src/transitions/*",
+    "./theme": "./src/theme/index.ts",
     "./composition": "./src/composition/index.ts",
     "./composition/*": "./src/composition/*"
   },

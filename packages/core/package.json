@@ -11,7 +11,7 @@
     "./validation": "./src/validation/index.ts",
     "./storage": "./src/storage/index.ts",
     "./state": "./src/state/index.ts",
-    "./theme": "./src/theme/index.ts",
+    "./theme": "./src/theme/index.tsx",
     "./state-machines": "./src/state-machines/index.ts",
     "./state-machines/*": "./src/state-machines/*",
     "./events": "./src/events/index.ts",

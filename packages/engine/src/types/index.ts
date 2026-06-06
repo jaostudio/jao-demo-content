@@ -8,6 +8,11 @@ export type {
   ContactData,
   SectionData,
   VerticalContent,
+  IconKey,
 } from './section'
 
 export type { SectionComponentMap } from './registry'
+
+export { SectionType, type SiteComposition } from './composition'
+
+export type { IndustryProfile, NavItem } from './industry'

@@ -1,22 +1,64 @@
 import { notFound } from 'next/navigation'
-import { verticals } from '../../content'
-import { VerticalPageClient } from './vertical-page-client'
+import type { Theme } from '@jaostudio/engine/theme'
+import { industries } from '../../industry'
+import { resolveIndustry } from '../../industry/resolver'
+import { getSiteComponent } from '../../sites'
+import { ThemeBridge } from '../../components/theme/ThemeBridge'
 
 export function generateStaticParams() {
-  return Object.keys(verticals).map((slug) => ({ vertical: slug }))
+  return Object.keys(industries).map((slug) => ({ vertical: slug }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ vertical: string }> }) {
   const resolved = await params
-  const v = verticals[resolved.vertical]
-  if (!v) return {}
-  return { title: `${v.name} | ${v.tagline}`, description: v.description }
+  const profile = industries[resolved.vertical]
+  if (!profile) return {}
+  return {
+    title: `${profile.company.name} | ${profile.company.tagline}`,
+    description: profile.company.description,
+    openGraph: {
+      title: `${profile.company.name} | ${profile.company.tagline}`,
+      description: profile.company.description,
+      images: [`/og/${resolved.vertical}.svg`],
+    },
+  }
+}
+
+function JsonLd({ profile }: { profile: { slug: string; company: { name: string; description: string; domain: string } } }) {
+  const schema: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: profile.company.name,
+    description: profile.company.description,
+    url: `https://${profile.company.domain}`,
+  };
+
+  if (profile.slug === "brightsmile") {
+    schema["@type"] = "MedicalOrganization";
+  } else if (profile.slug === "harrison-cole") {
+    schema["@type"] = "LegalService";
+  }
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
 }
 
 export default async function VerticalPage({ params }: { params: Promise<{ vertical: string }> }) {
   const resolved = await params
-  const content = verticals[resolved.vertical]
-  if (!content) notFound()
+  const profile = industries[resolved.vertical]
+  if (!profile) notFound()
 
-  return <VerticalPageClient content={content} />
+  const composition = resolveIndustry(profile)
+  const Site = getSiteComponent(resolved.vertical)
+
+  return (
+    <ThemeBridge theme={profile.theme as Theme}>
+      <JsonLd profile={profile} />
+      <Site composition={composition} />
+    </ThemeBridge>
+  )
 }

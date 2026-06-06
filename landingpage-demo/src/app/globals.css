@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@variant dark (&:is(.dark *));
+
 @source "../../packages/ui/src/**/*.tsx";
 
 @theme {
@@ -13,4 +15,16 @@
   --color-brand-700: #c2410c;
   --color-brand-800: #9a3412;
   --color-brand-900: #7c2d12;
+}
+
+:root {
+  --theme-primary: var(--color-brand-500);
+  --theme-primary-600: var(--color-brand-600);
+  --theme-accent: var(--color-amber-500);
+  --theme-accent-600: var(--color-amber-600);
+}
+
+.dark {
+  --theme-primary: var(--color-brand-400);
+  --theme-primary-600: var(--color-brand-500);
 }

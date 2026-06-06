@@ -11,9 +11,15 @@ export interface ProofData {
   items: { value: string; label: string }[]
 }
 
+export type IconKey =
+  | "building" | "home" | "wrench" | "route" | "clipboard-check" | "trending-up"
+  | "smile-plus" | "syringe" | "sparkles" | "smile" | "pill" | "ambulance"
+  | "search" | "dollar-sign" | "truck" | "zap" | "droplets" | "fan"
+  | "hammer" | "paintbrush" | "users" | "shield" | "file-text" | "book-open"
+
 export interface ServiceData {
   headline: string
-  items: { title: string; description: string; icon?: string }[]
+  items: { title: string; description: string; icon?: IconKey }[]
 }
 
 export interface CaseStudyData {
