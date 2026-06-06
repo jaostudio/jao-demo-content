@@ -460,26 +460,36 @@ function ContactSection() {
           transition={{ ...transitions.normal, delay: 0.1 }}
           className="mt-8"
         >
-          <form onSubmit={handleSubmit} className="mx-auto max-w-md space-y-4">
-            <input
-              type="email"
-              placeholder="Your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="w-full rounded-lg border border-neutral-700 bg-neutral-800 px-4 py-2.5 text-sm text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-500"
-            />
-            <textarea
-              placeholder="Tell us about your project"
-              rows={3}
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              required
-              className="w-full rounded-lg border border-neutral-700 bg-neutral-800 px-4 py-2.5 text-sm text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-500"
-            />
+          <form onSubmit={handleSubmit} className="mx-auto max-w-md space-y-4 text-left">
+            <label className="block">
+              <span className="mb-1 block text-xs font-semibold uppercase tracking-widest text-neutral-400">Email</span>
+              <input
+                type="email"
+                placeholder="Your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                aria-label="Your email"
+                autoComplete="email"
+                className="w-full rounded-lg border border-neutral-700 bg-neutral-800 px-4 py-2.5 text-sm text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-500"
+              />
+            </label>
+            <label className="block">
+              <span className="mb-1 block text-xs font-semibold uppercase tracking-widest text-neutral-400">Message</span>
+              <textarea
+                placeholder="Tell us about your project"
+                rows={3}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                required
+                aria-label="Your message"
+                autoComplete="off"
+                className="w-full rounded-lg border border-neutral-700 bg-neutral-800 px-4 py-2.5 text-sm text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-500"
+              />
+            </label>
             <button
               type="submit"
-              className="w-full rounded-xl bg-neutral-700 px-8 py-3 text-sm font-medium text-white transition-all hover:bg-neutral-600"
+              className="w-full rounded-xl bg-[var(--theme-primary-600)] px-8 py-3 text-sm font-medium text-white transition-all hover:brightness-110"
             >
               Send message
             </button>

@@ -16,7 +16,7 @@ export function HeroLegal({ data, image, stats, playfairClassName }: Props) {
   return (
     <>
       <link rel="preload" as="image" href={image} fetchPriority="high" />
-      <section data-testid="hero" className="relative overflow-hidden bg-indigo-950 py-24 md:py-36">
+      <section data-testid="hero" className="relative overflow-hidden bg-neutral-100 py-24 dark:bg-indigo-950 md:py-36">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 md:grid-cols-2 md:gap-16">
         <div className="relative z-10">
           <motion.h1
@@ -59,7 +59,7 @@ export function HeroLegal({ data, image, stats, playfairClassName }: Props) {
             {data.secondaryCta && (
               <Link
                 href={data.secondaryCta.href}
-                className="rounded-xl border border-neutral-600 px-6 py-3 font-medium text-neutral-300 transition-colors hover:border-neutral-500 hover:text-neutral-100"
+                className="rounded-xl border border-neutral-400 px-6 py-3 font-medium text-neutral-700 transition-colors hover:border-neutral-500 hover:text-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-500 dark:border-neutral-500 dark:text-neutral-200 dark:hover:border-neutral-400 dark:hover:text-white"
               >
                 {data.secondaryCta.label}
               </Link>
@@ -94,7 +94,7 @@ export function HeroLegal({ data, image, stats, playfairClassName }: Props) {
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${image})` }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-indigo-950/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-neutral-200/30 to-transparent dark:from-indigo-950/60" />
         </motion.div>
       </div>
     </section>

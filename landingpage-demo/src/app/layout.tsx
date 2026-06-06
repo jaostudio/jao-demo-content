@@ -14,7 +14,10 @@ export const metadata: Metadata = {
   title: 'Portfolio Showcase — Three Bespoke Business Websites',
   description:
     'A conversion-focused landing page architecture with swappable industry verticals.',
-  icons: [{ rel: 'icon', url: '/favicon.svg', type: 'image/svg+xml' }],
+  icons: [
+    { rel: 'icon', url: '/favicon.svg', type: 'image/svg+xml' },
+    { rel: 'apple-touch-icon', url: '/favicon.svg' },
+  ],
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

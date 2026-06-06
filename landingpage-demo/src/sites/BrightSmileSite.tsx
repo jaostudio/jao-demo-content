@@ -79,19 +79,19 @@ function DentalContactForm({ onSuccess }: { onSuccess: () => void }) {
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label className="mb-1 block text-xs font-semibold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">Name <span className="text-[var(--theme-primary)]">*</span></label>
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} className={inputClass} />
+          <input type="text" value={name} onChange={(e) => setName(e.target.value)} autoComplete="name" className={inputClass} />
           {errors.name && <p className="mt-1 text-xs text-[var(--theme-primary)]">{errors.name}</p>}
         </div>
         <div>
           <label className="mb-1 block text-xs font-semibold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">Email <span className="text-[var(--theme-primary)]">*</span></label>
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className={inputClass} />
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="email" className={inputClass} />
           {errors.email && <p className="mt-1 text-xs text-[var(--theme-primary)]">{errors.email}</p>}
         </div>
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label className="mb-1 block text-xs font-semibold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">Phone</label>
-          <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} className={inputClass} />
+          <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} autoComplete="tel" className={inputClass} />
         </div>
         <div>
           <label className="mb-1 block text-xs font-semibold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">Service Interest</label>

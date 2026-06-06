@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { fadeUp, transitions } from "@/lib/motion-tokens";
 
 type ProjectType = "commercial" | "industrial" | "interior" | "renovation";
@@ -78,6 +78,8 @@ export function BudgetEstimator() {
     size: null,
     quality: null,
   });
+  const shouldReduceMotion = useReducedMotion();
+  const trans = shouldReduceMotion ? { duration: 0 } : transitions.normal;
 
   const range = formatRange(config);
   const allSelected = config.projectType && config.size && config.quality;
@@ -108,7 +110,7 @@ export function BudgetEstimator() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          transition={transitions.normal}
+          transition={trans}
           className="text-center text-3xl font-bold tracking-tight text-slate-950 dark:text-slate-50"
         >
           Project Budget Estimator
@@ -118,7 +120,7 @@ export function BudgetEstimator() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          transition={{ ...transitions.normal, delay: 0.05 }}
+          transition={{ ...trans, delay: 0.05 }}
           className="mx-auto mt-4 max-w-xl text-center text-sm leading-relaxed text-slate-700 dark:text-slate-300"
         >
           Select your project details to receive a preliminary budget range.
@@ -131,7 +133,7 @@ export function BudgetEstimator() {
             <div key={label} className="flex items-center gap-2">
               <button
                 onClick={() => setStep(i)}
-                className={`flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold transition-colors ${
+                className={`flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 ${
                   i === step
                     ? "bg-amber-700 text-white dark:bg-amber-500 dark:text-slate-950"
                     : i < step
@@ -170,14 +172,14 @@ export function BudgetEstimator() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -12 }}
-                transition={transitions.normal}
+                transition={trans}
                 className="grid gap-4 sm:grid-cols-2"
               >
                 {projectTypes.map((pt) => (
                   <button
                     key={pt.value}
                     onClick={() => select(pt.value)}
-                    className={`rounded-lg border-2 px-5 py-4 text-left transition-all ${
+                    className={`rounded-lg border-2 px-5 py-4 text-left transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 ${
                       config.projectType === pt.value
                         ? "border-amber-500 bg-amber-50 dark:border-amber-400 dark:bg-amber-900/20"
                         : "border-slate-200 bg-white hover:border-amber-300 dark:border-slate-700 dark:bg-slate-900 dark:hover:border-amber-600"
@@ -196,14 +198,14 @@ export function BudgetEstimator() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -12 }}
-                transition={transitions.normal}
+                transition={trans}
                 className="grid gap-4 sm:grid-cols-4"
               >
                 {sizeOptions.map((sz) => (
                   <button
                     key={sz.value}
                     onClick={() => select(sz.value)}
-                    className={`rounded-lg border-2 px-4 py-4 text-center transition-all ${
+                    className={`rounded-lg border-2 px-4 py-4 text-center transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 ${
                       config.size === sz.value
                         ? "border-amber-500 bg-amber-50 dark:border-amber-400 dark:bg-amber-900/20"
                         : "border-slate-200 bg-white hover:border-amber-300 dark:border-slate-700 dark:bg-slate-900 dark:hover:border-amber-600"
@@ -222,14 +224,14 @@ export function BudgetEstimator() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -12 }}
-                transition={transitions.normal}
+                transition={trans}
                 className="grid gap-4 sm:grid-cols-3"
               >
                 {qualityTiers.map((qt) => (
                   <button
                     key={qt.value}
                     onClick={() => select(qt.value)}
-                    className={`rounded-lg border-2 px-5 py-5 text-center transition-all ${
+                    className={`rounded-lg border-2 px-5 py-5 text-center transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 ${
                       config.quality === qt.value
                         ? "border-amber-500 bg-amber-50 dark:border-amber-400 dark:bg-amber-900/20"
                         : "border-slate-200 bg-white hover:border-amber-300 dark:border-slate-700 dark:bg-slate-900 dark:hover:border-amber-600"
@@ -249,7 +251,7 @@ export function BudgetEstimator() {
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={transitions.normal}
+            transition={trans}
             className="mx-auto mt-8 max-w-md rounded-xl border-2 border-amber-500 bg-white p-6 text-center dark:bg-slate-900"
           >
             <p className="text-xs font-bold uppercase tracking-widest text-amber-600 dark:text-amber-400">

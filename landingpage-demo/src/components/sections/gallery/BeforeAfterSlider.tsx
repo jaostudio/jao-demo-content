@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { fadeUp, transitions } from "@/lib/motion-tokens";
 
 interface BeforeAfterImage {
@@ -43,6 +43,8 @@ export function BeforeAfterSlider({ items = defaultItems }: Props) {
   const isDragging = useRef(false);
 
   const active = items[activeIndex];
+  const shouldReduceMotion = useReducedMotion();
+  const trans = shouldReduceMotion ? { duration: 0 } : transitions.normal;
 
   const handleMove = useCallback((clientX: number) => {
     if (!containerRef.current) return;
@@ -76,7 +78,7 @@ export function BeforeAfterSlider({ items = defaultItems }: Props) {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          transition={transitions.normal}
+          transition={trans}
           className="text-center text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50"
         >
           Before & After
@@ -86,7 +88,7 @@ export function BeforeAfterSlider({ items = defaultItems }: Props) {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          transition={{ ...transitions.normal, delay: 0.05 }}
+          transition={{ ...trans, delay: 0.05 }}
           className="mx-auto mt-4 max-w-xl text-center text-sm leading-relaxed text-neutral-600 dark:text-neutral-400"
         >
           Real patient transformations at BrightSmile Dental.
@@ -122,7 +124,7 @@ export function BeforeAfterSlider({ items = defaultItems }: Props) {
           onMouseLeave={onMouseUp}
           onTouchMove={onTouchMove}
           onKeyDown={handleKeyDown}
-          className="relative mx-auto mt-8 aspect-[4/3] w-full max-w-3xl cursor-ew-resize overflow-hidden rounded-2xl border border-slate-200 select-none dark:border-slate-700 outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
+          className="relative mx-auto mt-8 aspect-[4/3] w-full max-w-3xl cursor-ew-resize overflow-hidden rounded-2xl border border-slate-200 select-none dark:border-slate-700 outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-900"
         >
           {/* After image (full) */}
           <div
@@ -142,7 +144,7 @@ export function BeforeAfterSlider({ items = defaultItems }: Props) {
             className="absolute top-0 bottom-0 w-0.5 bg-white shadow-lg"
             style={{ left: `${sliderPos}%` }}
           >
-            <div className="absolute top-1/2 left-1/2 h-10 w-10 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white bg-slate-900/40 shadow-lg backdrop-blur-sm flex items-center justify-center">
+            <div className="absolute top-1/2 left-1/2 h-12 w-12 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white bg-slate-900/60 shadow-lg backdrop-blur-sm flex items-center justify-center">
               <svg className="h-4 w-4 text-white" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M11 3L5 8l6 5" />
               </svg>

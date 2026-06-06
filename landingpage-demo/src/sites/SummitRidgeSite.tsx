@@ -233,7 +233,7 @@ export function SummitRidgeSite({ composition }: Props) {
               </div>
             ))}
           </div>
-          <p data-testid="disclosure" className="mx-auto mt-16 max-w-2xl text-center text-xs text-slate-500 dark:text-slate-500">
+          <p data-testid="disclosure" className="mx-auto mt-16 max-w-2xl text-center text-xs text-slate-500 dark:text-slate-400">
             Portfolio project created by JAO Studio. Projects, testimonials, and business data
             shown are fictional and provided for illustration purposes.
           </p>
@@ -300,7 +300,7 @@ export function SummitRidgeSite({ composition }: Props) {
               </div>
               <button
                 onClick={() => setSubmitted(false)}
-                className="mt-8 rounded-lg bg-amber-700 px-6 py-3 text-sm font-bold text-white transition-all hover:brightness-110 dark:bg-amber-500 dark:text-slate-950"
+                className="mt-8 rounded-lg bg-[var(--theme-primary-600)] px-6 py-3 text-sm font-bold text-white transition-all hover:brightness-110 dark:bg-[var(--theme-primary)] dark:text-slate-950"
               >
                 Submit Another Inquiry
               </button>
@@ -313,7 +313,7 @@ export function SummitRidgeSite({ composition }: Props) {
               whileInView="visible"
               viewport={{ once: true }}
               transition={{ ...mechTransition, delay: 0.15 }}
-              className="mx-auto mt-16 max-w-xl text-center text-xs text-slate-500 dark:text-slate-500"
+              className="mx-auto mt-16 max-w-xl text-center text-xs text-slate-500 dark:text-slate-400"
             >
               {composition.contact.email}
             </motion.p>
@@ -380,23 +380,23 @@ function ContactForm({ onSuccess }: { onSuccess: () => void }) {
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label className="mb-1 block text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-500">Name <span className="text-amber-500">*</span></label>
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} className={inputClass} />
+          <input type="text" value={name} onChange={(e) => setName(e.target.value)} autoComplete="name" className={inputClass} />
           {errors.name && <p className="mt-1 text-xs text-amber-500">{errors.name}</p>}
         </div>
         <div>
           <label className="mb-1 block text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-500">Company</label>
-          <input type="text" value={company} onChange={(e) => setCompany(e.target.value)} className={inputClass} />
+          <input type="text" value={company} onChange={(e) => setCompany(e.target.value)} autoComplete="organization" className={inputClass} />
         </div>
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label className="mb-1 block text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-500">Email <span className="text-amber-500">*</span></label>
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className={inputClass} />
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="email" className={inputClass} />
           {errors.email && <p className="mt-1 text-xs text-amber-500">{errors.email}</p>}
         </div>
         <div>
           <label className="mb-1 block text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-500">Phone</label>
-          <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} className={inputClass} />
+          <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} autoComplete="tel" className={inputClass} />
         </div>
       </div>
       <div>
@@ -415,7 +415,7 @@ function ContactForm({ onSuccess }: { onSuccess: () => void }) {
       <button
         type="submit"
         disabled={submitting}
-        className="w-full rounded-lg bg-amber-700 px-6 py-3 text-sm font-bold text-white transition-all hover:brightness-110 disabled:opacity-60 dark:bg-amber-500 dark:text-slate-950"
+        className="w-full rounded-lg bg-[var(--theme-primary-600)] px-6 py-3 text-sm font-bold text-white transition-all hover:brightness-110 disabled:opacity-60 dark:bg-[var(--theme-primary)] dark:text-slate-950"
       >
         {submitting ? "Submitting..." : "Submit Project Inquiry"}
       </button>

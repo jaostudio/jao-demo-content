@@ -83,26 +83,26 @@ function LegalContactForm({ onSuccess }: { onSuccess: () => void }) {
     setTimeout(() => { setSubmitting(false); onSuccess(); }, 400);
   };
 
-  const inputClass = "w-full border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-900 outline-none transition-colors focus:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/40 dark:border-neutral-500 dark:bg-neutral-900 dark:text-neutral-100";
+  const inputClass = "w-full border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-900 outline-none transition-colors focus:border-[var(--theme-primary)] focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)]/40 dark:border-neutral-500 dark:bg-neutral-900 dark:text-neutral-100";
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label className="mb-1 block text-xs font-bold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">Name <span className="text-indigo-500">*</span></label>
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} className={inputClass} />
-          {errors.name && <p className="mt-1 text-xs text-indigo-500">{errors.name}</p>}
+          <label className="mb-1 block text-xs font-bold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">Name <span className="text-[var(--theme-primary)]">*</span></label>
+          <input type="text" value={name} onChange={(e) => setName(e.target.value)} autoComplete="name" className={inputClass} />
+              {errors.name && <p className="mt-1 text-xs text-[var(--theme-primary)]">{errors.name}</p>}
         </div>
         <div>
-          <label className="mb-1 block text-xs font-bold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">Email <span className="text-indigo-500">*</span></label>
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className={inputClass} />
-          {errors.email && <p className="mt-1 text-xs text-indigo-500">{errors.email}</p>}
+          <label className="mb-1 block text-xs font-bold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">Email <span className="text-[var(--theme-primary)]">*</span></label>
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="email" className={inputClass} />
+              {errors.email && <p className="mt-1 text-xs text-[var(--theme-primary)]">{errors.email}</p>}
         </div>
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label className="mb-1 block text-xs font-bold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">Phone</label>
-          <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} className={inputClass} />
+          <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} autoComplete="tel" className={inputClass} />
         </div>
         <div>
           <label className="mb-1 block text-xs font-bold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">Practice Area</label>
@@ -113,9 +113,9 @@ function LegalContactForm({ onSuccess }: { onSuccess: () => void }) {
         </div>
       </div>
       <div>
-        <label className="mb-1 block text-xs font-bold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">Case Description <span className="text-indigo-500">*</span></label>
+          <label className="mb-1 block text-xs font-bold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">Case Description <span className="text-[var(--theme-primary)]">*</span></label>
         <textarea rows={4} value={caseDescription} onChange={(e) => setCaseDescription(e.target.value)} className={inputClass + " resize-y"} placeholder="Briefly describe your legal matter..." />
-        {errors.caseDescription && <p className="mt-1 text-xs text-indigo-500">{errors.caseDescription}</p>}
+          {errors.caseDescription && <p className="mt-1 text-xs text-[var(--theme-primary)]">{errors.caseDescription}</p>}
       </div>
       <div>
         <label className="mb-1 block text-xs font-bold uppercase tracking-widest text-neutral-500 dark:text-neutral-400">Supporting Documents</label>
@@ -123,7 +123,7 @@ function LegalContactForm({ onSuccess }: { onSuccess: () => void }) {
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
-            className="rounded-lg border border-dashed border-neutral-300 px-4 py-2 text-xs font-medium text-neutral-500 transition-colors hover:border-indigo-400 hover:text-indigo-600 dark:border-neutral-700 dark:text-neutral-400 dark:hover:border-indigo-500 dark:hover:text-indigo-400"
+            className="rounded-lg border border-dashed border-neutral-300 px-4 py-2 text-xs font-medium text-neutral-500 transition-colors hover:border-indigo-400 hover:text-indigo-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 dark:border-neutral-700 dark:text-neutral-400 dark:hover:border-indigo-500 dark:hover:text-indigo-400"
           >
             + Attach Files
           </button>
@@ -141,7 +141,7 @@ function LegalContactForm({ onSuccess }: { onSuccess: () => void }) {
           <ul className="mt-3 space-y-1">
             {files.map((file, i) => (
               <li key={i} className="flex items-center gap-2 text-xs text-neutral-500 dark:text-neutral-400">
-                <svg className="h-3.5 w-3.5 shrink-0 text-indigo-500" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <svg className="h-3.5 w-3.5 shrink-0 text-[var(--theme-primary)]" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <path d="M14 10v2a2 2 0 01-2 2H4a2 2 0 01-2-2v-2M12 6l-4-4-4 4M8 2v9" />
                 </svg>
                 <span className="truncate">{file.name}</span>
@@ -160,7 +160,7 @@ function LegalContactForm({ onSuccess }: { onSuccess: () => void }) {
           </ul>
         )}
       </div>
-      <button type="submit" disabled={submitting} className="w-full rounded-xl bg-indigo-600 px-6 py-3 text-sm font-bold text-white transition-all hover:brightness-110 disabled:opacity-60">
+      <button type="submit" disabled={submitting} className="w-full rounded-xl bg-[var(--theme-primary-600)] px-6 py-3 text-sm font-bold text-white transition-all hover:brightness-110 disabled:opacity-60">
         {submitting ? "Submitting..." : "Free Case Evaluation"}
       </button>
     </form>
@@ -258,7 +258,7 @@ export function HarrisonColeSite({ composition }: Props) {
                 bio: "Aggressive advocate for clients in criminal defense and personal injury matters. Fluent in Mandarin and Spanish.",
               },
             ].map((attorney) => (
-              <div key={attorney.name} className="flex gap-5 border-l-2 border-indigo-200/40 pl-5 dark:border-indigo-700/40">
+                <div key={attorney.name} className="flex gap-5 border-l-2 border-indigo-400 pl-5 dark:border-indigo-500">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center">
                   <span className="text-base font-bold text-indigo-600 dark:text-indigo-400">
                     {attorney.name.split(" ").map(n => n[0]).join("")}
@@ -314,7 +314,7 @@ export function HarrisonColeSite({ composition }: Props) {
                 {composition.contact.email && <p>{composition.contact.email}</p>}
                 {composition.contact.phone && <p>{composition.contact.phone}</p>}
               </div>
-              <button onClick={() => setSubmitted(false)} className="mt-8 rounded-xl bg-indigo-600 px-6 py-3 text-sm font-bold text-white transition-all hover:brightness-110">
+                <button onClick={() => setSubmitted(false)} className="mt-8 rounded-xl bg-[var(--theme-primary-600)] px-6 py-3 text-sm font-bold text-white transition-all hover:brightness-110">
                 Submit Another Case
               </button>
             </motion.div>
