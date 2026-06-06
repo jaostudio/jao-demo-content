@@ -101,9 +101,9 @@ export function BeforeAfterSlider({ items = defaultItems }: Props) {
               key={i}
               onClick={() => { setActiveIndex(i); setSliderPos(50); }}
               className={`rounded-lg border-2 px-4 py-2 text-xs font-semibold transition-all ${
-                i === activeIndex
-                  ? "border-cyan-500 bg-cyan-50 text-cyan-700 dark:border-cyan-400 dark:bg-cyan-900/20 dark:text-cyan-300"
-                  : "border-slate-200 text-slate-600 hover:border-cyan-300 dark:border-neutral-700 dark:text-neutral-400"
+                  i === activeIndex
+                  ? "border-[var(--theme-primary)] bg-[var(--theme-primary)]/10 text-[var(--theme-primary)] dark:border-[var(--theme-primary)] dark:bg-[var(--theme-primary)]/20 dark:text-[var(--theme-primary)]"
+                  : "border-slate-200 text-slate-600 hover:border-[var(--theme-primary)]/50 dark:border-neutral-700 dark:text-neutral-400"
               }`}
             >
               {item.title}

@@ -8,7 +8,7 @@ export const brightsmile: IndustryProfile = {
     tagline: 'Before & After Gallery — Book Online',
     description:
       'Gentle, modern dentistry for the whole family — from routine cleanings to full-mouth restoration with same-day appointments and sedation options.',
-    cta: { label: 'Book an Appointment', href: '/brightsmile/book' },
+    cta: { label: 'Book an Appointment', href: '#contact' },
     heroStats: [
       { value: '5,000+', label: 'Patients Treated' },
       { value: '4.9', label: 'Average Rating' },
@@ -44,7 +44,7 @@ export const brightsmile: IndustryProfile = {
         subtitle:
           'From routine cleanings to full-mouth restoration — same-day appointments available with sedation for anxiety-free treatment.',
 cta: { label: 'Book an Appointment', href: '#contact' },
-        secondaryCta: { label: 'Our Services', href: '/brightsmile/services' },
+        secondaryCta: { label: 'Our Services', href: '#services' },
       },
     },
     {

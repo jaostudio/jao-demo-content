@@ -104,13 +104,13 @@ export function CaseTicker({ items = defaultItems }: Props) {
           {duplicated.map((item, i) => (
             <div
               key={i}
-              className="flex w-64 shrink-0 flex-col rounded-xl border border-indigo-100 bg-indigo-50/50 p-5 dark:border-indigo-900/30 dark:bg-indigo-950/20"
+              className="flex w-64 shrink-0 flex-col rounded-xl border border-[var(--theme-primary)]/30 bg-[var(--theme-primary)]/5 p-5 dark:border-[var(--theme-primary)]/30 dark:bg-[var(--theme-primary)]/10"
             >
               <div className="flex items-baseline justify-between">
-                <span className="text-xs font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">
+                <span className="text-xs font-bold uppercase tracking-widest text-[var(--theme-primary)]">
                   {item.category}
                 </span>
-                <span className="text-lg font-bold text-indigo-700 dark:text-indigo-300">
+                <span className="text-lg font-bold text-[var(--theme-primary)]">
                   {item.amount}
                 </span>
               </div>

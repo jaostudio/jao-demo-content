@@ -8,7 +8,7 @@ export const harrisonCole: IndustryProfile = {
     tagline: '$500M+ Recovered — Free Consultation',
     description:
       'Full-service law firm serving individuals and businesses with decades of combined experience across corporate, family, and criminal law.',
-    cta: { label: 'Free Case Evaluation', href: '/harrison-cole/consult' },
+    cta: { label: 'Free Case Evaluation', href: '#contact' },
     heroStats: [
       { value: '$500M+', label: 'Recovered for Clients' },
       { value: '2,000+', label: 'Cases Won' },
@@ -44,7 +44,7 @@ export const harrisonCole: IndustryProfile = {
         subtitle:
           'A full-service law firm with $500M+ recovered for clients across corporate law, family law, and criminal defense.',
 cta: { label: 'Free Case Evaluation', href: '#contact' },
-        secondaryCta: { label: 'Practice Areas', href: '/harrison-cole/practice-areas' },
+        secondaryCta: { label: 'Practice Areas', href: '#practice-areas' },
       },
     },
     {

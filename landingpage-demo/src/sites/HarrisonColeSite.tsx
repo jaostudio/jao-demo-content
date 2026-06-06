@@ -83,7 +83,7 @@ function LegalContactForm({ onSuccess }: { onSuccess: () => void }) {
     setTimeout(() => { setSubmitting(false); onSuccess(); }, 400);
   };
 
-  const inputClass = "w-full border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-900 outline-none transition-colors focus:border-[var(--theme-primary)] focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)]/40 dark:border-neutral-500 dark:bg-neutral-900 dark:text-neutral-100";
+  const inputClass = "w-full border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-900 outline-none transition-colors focus:border-[var(--theme-primary)] focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)]/40 dark:border-neutral-500 dark:bg-neutral-800 dark:text-neutral-100";
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
@@ -123,7 +123,7 @@ function LegalContactForm({ onSuccess }: { onSuccess: () => void }) {
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
-            className="rounded-lg border border-dashed border-neutral-300 px-4 py-2 text-xs font-medium text-neutral-500 transition-colors hover:border-indigo-400 hover:text-indigo-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 dark:border-neutral-700 dark:text-neutral-400 dark:hover:border-indigo-500 dark:hover:text-indigo-400"
+            className="rounded-lg border border-dashed border-neutral-300 px-4 py-2 text-xs font-medium text-neutral-500 transition-colors hover:border-[var(--theme-primary)] hover:text-[var(--theme-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] dark:border-neutral-700 dark:text-neutral-400 dark:hover:border-[var(--theme-primary)] dark:hover:text-[var(--theme-primary)]"
           >
             + Attach Files
           </button>
@@ -183,7 +183,7 @@ export function HarrisonColeSite({ composition }: Props) {
         <ServicesAdapter data={composition.services} />
       </section>
 
-      <section id="results" className="border-t border-neutral-200 bg-neutral-50 py-20 dark:border-neutral-800 dark:bg-neutral-900/50 md:py-28">
+      <section id="results" className="border-t border-neutral-200 bg-neutral-50 py-20 dark:border-neutral-800 dark:bg-neutral-900 md:py-28">
         <div className="mx-auto max-w-4xl px-6">
               <motion.h2 variants={fadeOnly} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={fadeTransition} className={`text-center text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50 ${playfair.className}`}>
                 {composition.caseStudies?.headline || "Notable Case Results"}
@@ -225,7 +225,7 @@ export function HarrisonColeSite({ composition }: Props) {
       <CaseTicker />
 
       {/* Attorney Profiles — inline for Harrison & Cole */}
-      <section id="attorneys" className="bg-neutral-50 py-16 dark:bg-neutral-900/50 md:py-20">
+      <section id="attorneys" className="bg-neutral-50 py-16 dark:bg-neutral-900 md:py-20">
         <div className="mx-auto max-w-4xl px-6">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className={`text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50 ${playfair.className}`}>
@@ -258,9 +258,9 @@ export function HarrisonColeSite({ composition }: Props) {
                 bio: "Aggressive advocate for clients in criminal defense and personal injury matters. Fluent in Mandarin and Spanish.",
               },
             ].map((attorney) => (
-                <div key={attorney.name} className="flex gap-5 border-l-2 border-indigo-400 pl-5 dark:border-indigo-500">
+                <div key={attorney.name} className="flex gap-5 border-l-2 border-[var(--theme-primary)] pl-5 dark:border-[var(--theme-primary)]">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center">
-                  <span className="text-base font-bold text-indigo-600 dark:text-indigo-400">
+                  <span className="text-base font-bold text-[var(--theme-primary)]">
                     {attorney.name.split(" ").map(n => n[0]).join("")}
                   </span>
                 </div>

@@ -103,7 +103,7 @@ export function BudgetEstimator() {
     (step === 2 && config.quality);
 
   return (
-    <section data-testid="budget-estimator" className="bg-stone-50 py-20 dark:bg-slate-950 md:py-28">
+    <section id="process" data-testid="budget-estimator" className="bg-stone-50 py-20 dark:bg-slate-950 md:py-28">
       <div className="mx-auto max-w-4xl px-6">
         <motion.h2
           variants={fadeUp}
@@ -133,11 +133,11 @@ export function BudgetEstimator() {
             <div key={label} className="flex items-center gap-2">
               <button
                 onClick={() => setStep(i)}
-                className={`flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 ${
+                className={`flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 ${
                   i === step
-                    ? "bg-amber-700 text-white dark:bg-amber-500 dark:text-slate-950"
+                    ? "bg-[var(--theme-primary-600)] text-white dark:bg-[var(--theme-primary)] dark:text-slate-950"
                     : i < step
-                      ? "bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300"
+                      ? "bg-[var(--theme-primary)]/15 text-[var(--theme-primary)] dark:bg-[var(--theme-primary)]/30 dark:text-[var(--theme-primary)]"
                       : "bg-slate-200 text-slate-500 dark:bg-slate-800 dark:text-slate-400"
                 }`}
               >
@@ -146,7 +146,7 @@ export function BudgetEstimator() {
               <span
                 className={`hidden text-xs font-medium sm:inline ${
                   i === step
-                    ? "text-amber-700 dark:text-amber-400"
+                    ? "text-[var(--theme-primary)]"
                     : "text-slate-500 dark:text-slate-400"
                 }`}
               >
@@ -155,7 +155,7 @@ export function BudgetEstimator() {
               {i < steps.length - 1 && (
                 <div
                   className={`mx-1 h-px w-6 ${
-                    i < step ? "bg-amber-500" : "bg-slate-300 dark:bg-slate-700"
+                    i < step ? "bg-[var(--theme-primary)]" : "bg-slate-300 dark:bg-slate-700"
                   }`}
                 />
               )}
@@ -179,10 +179,10 @@ export function BudgetEstimator() {
                   <button
                     key={pt.value}
                     onClick={() => select(pt.value)}
-                    className={`rounded-lg border-2 px-5 py-4 text-left transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 ${
+                    className={`rounded-lg border-2 px-5 py-4 text-left transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 ${
                       config.projectType === pt.value
-                        ? "border-amber-500 bg-amber-50 dark:border-amber-400 dark:bg-amber-900/20"
-                        : "border-slate-200 bg-white hover:border-amber-300 dark:border-slate-700 dark:bg-slate-900 dark:hover:border-amber-600"
+                        ? "border-[var(--theme-primary)] bg-[var(--theme-primary)]/10 dark:border-[var(--theme-primary)] dark:bg-[var(--theme-primary)]/20"
+                        : "border-slate-200 bg-white hover:border-[var(--theme-primary)]/50 dark:border-slate-700 dark:bg-slate-900 dark:hover:border-[var(--theme-primary)]"
                     }`}
                   >
                     <div className="text-sm font-bold text-slate-950 dark:text-slate-50">{pt.label}</div>
@@ -205,10 +205,10 @@ export function BudgetEstimator() {
                   <button
                     key={sz.value}
                     onClick={() => select(sz.value)}
-                    className={`rounded-lg border-2 px-4 py-4 text-center transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 ${
+                    className={`rounded-lg border-2 px-4 py-4 text-center transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 ${
                       config.size === sz.value
-                        ? "border-amber-500 bg-amber-50 dark:border-amber-400 dark:bg-amber-900/20"
-                        : "border-slate-200 bg-white hover:border-amber-300 dark:border-slate-700 dark:bg-slate-900 dark:hover:border-amber-600"
+                        ? "border-[var(--theme-primary)] bg-[var(--theme-primary)]/10 dark:border-[var(--theme-primary)] dark:bg-[var(--theme-primary)]/20"
+                        : "border-slate-200 bg-white hover:border-[var(--theme-primary)]/50 dark:border-slate-700 dark:bg-slate-900 dark:hover:border-[var(--theme-primary)]"
                     }`}
                   >
                     <div className="text-sm font-bold text-slate-950 dark:text-slate-50">{sz.label}</div>
@@ -231,10 +231,10 @@ export function BudgetEstimator() {
                   <button
                     key={qt.value}
                     onClick={() => select(qt.value)}
-                    className={`rounded-lg border-2 px-5 py-5 text-center transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 ${
+                    className={`rounded-lg border-2 px-5 py-5 text-center transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 ${
                       config.quality === qt.value
-                        ? "border-amber-500 bg-amber-50 dark:border-amber-400 dark:bg-amber-900/20"
-                        : "border-slate-200 bg-white hover:border-amber-300 dark:border-slate-700 dark:bg-slate-900 dark:hover:border-amber-600"
+                        ? "border-[var(--theme-primary)] bg-[var(--theme-primary)]/10 dark:border-[var(--theme-primary)] dark:bg-[var(--theme-primary)]/20"
+                        : "border-slate-200 bg-white hover:border-[var(--theme-primary)]/50 dark:border-slate-700 dark:bg-slate-900 dark:hover:border-[var(--theme-primary)]"
                     }`}
                   >
                     <div className="text-base font-bold text-slate-950 dark:text-slate-50">{qt.label}</div>
@@ -252,9 +252,9 @@ export function BudgetEstimator() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={trans}
-            className="mx-auto mt-8 max-w-md rounded-xl border-2 border-amber-500 bg-white p-6 text-center dark:bg-slate-900"
+            className="mx-auto mt-8 max-w-md rounded-xl border-2 border-[var(--theme-primary)] bg-white p-6 text-center dark:bg-slate-900"
           >
-            <p className="text-xs font-bold uppercase tracking-widest text-amber-600 dark:text-amber-400">
+            <p className="text-xs font-bold uppercase tracking-widest text-[var(--theme-primary)]">
               Estimated Budget Range
             </p>
             <p className="mt-2 text-3xl font-bold tracking-tight text-slate-950 dark:text-slate-50">
@@ -265,7 +265,7 @@ export function BudgetEstimator() {
             </p>
             <button
               onClick={reset}
-              className="mt-4 text-sm font-medium text-amber-700 underline-offset-2 hover:underline dark:text-amber-400"
+              className="mt-4 text-sm font-medium text-[var(--theme-primary)] underline-offset-2 hover:underline"
             >
               Start Over
             </button>

@@ -25,7 +25,7 @@ export function HeroIndustrial({ data, image, sectors, capabilities }: Props) {
             initial="hidden"
             animate="visible"
             transition={{ ...transitions.fast, delay: 0.05 }}
-            className="mb-4 block text-sm font-bold uppercase tracking-widest text-amber-700 dark:text-amber-500"
+            className="mb-4 block text-sm font-bold uppercase tracking-widest text-[var(--theme-primary)]"
           >
             Commercial Construction
           </motion.span>
@@ -98,7 +98,7 @@ export function HeroIndustrial({ data, image, sectors, capabilities }: Props) {
             <Link
               data-testid="hero-cta"
               href={data.cta.href}
-              className="rounded-lg bg-amber-700 px-6 py-3 font-bold text-white transition-all hover:brightness-110 dark:bg-amber-500 dark:text-slate-950"
+              className="rounded-lg bg-[var(--theme-primary-600)] px-6 py-3 font-bold text-white transition-all hover:brightness-110 dark:bg-[var(--theme-primary)] dark:text-slate-950"
             >
               {data.cta.label}
             </Link>

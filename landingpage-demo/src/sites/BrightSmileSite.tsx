@@ -122,7 +122,7 @@ export function BrightSmileSite({ composition }: Props) {
 
       <section id="services" className="border-t border-slate-100 bg-white py-24 dark:border-neutral-900 dark:bg-neutral-950 md:py-32">
         <div className="mx-auto max-w-5xl px-6">
-          <span className="mb-2 block text-center text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-700 dark:text-cyan-300">
+          <span className="mb-2 block text-center text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--theme-primary)]">
             01 · Care
           </span>
           <motion.h2 variants={softReveal} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={softTransition} className="text-center text-3xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-50">
@@ -159,7 +159,7 @@ export function BrightSmileSite({ composition }: Props) {
 
       <section id="results" className="border-t border-slate-100 bg-neutral-50 py-16 dark:border-neutral-900 dark:bg-neutral-900 md:py-20">
         <div className="mx-auto max-w-6xl px-6">
-          <span className="mb-2 block text-center text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-700 dark:text-cyan-300">
+          <span className="mb-2 block text-center text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--theme-primary)]">
             02 · Results
           </span>
           <motion.h2 variants={softReveal} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={softTransition} className="text-center text-3xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-50">
@@ -174,8 +174,8 @@ export function BrightSmileSite({ composition }: Props) {
                       <div className="h-full w-full bg-cover bg-center" style={{ backgroundImage: `url(${study.image})` }} />
                     </div>
                   )}
-                  <div className="p-8">
-                    <span className="inline-block rounded-full bg-cyan-50 px-3 py-1 text-xs font-semibold text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300">{study.title}</span>
+                    <div className="p-8">
+                    <span className="inline-block rounded-full bg-[var(--theme-primary)]/10 px-3 py-1 text-xs font-semibold text-[var(--theme-primary)] dark:bg-[var(--theme-primary)]/20 dark:text-[var(--theme-primary)]">{study.title}</span>
                     <p className="mt-3 text-base leading-relaxed text-neutral-600 dark:text-neutral-400">{study.outcome}</p>
                     <p className="mt-2 text-sm leading-relaxed text-neutral-400 dark:text-neutral-500">{study.challenge}</p>
                   </div>
@@ -188,7 +188,7 @@ export function BrightSmileSite({ composition }: Props) {
                     </div>
                   )}
                   <div className="p-6">
-                    <span className="inline-block rounded-full bg-cyan-50 px-3 py-1 text-xs font-semibold text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300">{study.title}</span>
+                    <span className="inline-block rounded-full bg-[var(--theme-primary)]/10 px-3 py-1 text-xs font-semibold text-[var(--theme-primary)] dark:bg-[var(--theme-primary)]/20 dark:text-[var(--theme-primary)]">{study.title}</span>
                     <p className="mt-3 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">{study.outcome}</p>
                     <p className="mt-2 text-xs leading-relaxed text-neutral-400 dark:text-neutral-500">{study.challenge}</p>
                   </div>
@@ -204,7 +204,7 @@ export function BrightSmileSite({ composition }: Props) {
       {/* Insurance & Payment — inline for BrightSmile */}
       <section id="insurance" className="border-t border-slate-100 bg-white py-12 dark:border-neutral-900 dark:bg-neutral-900 md:py-16">
         <div className="mx-auto max-w-2xl px-6">
-          <span className="mb-2 block text-center text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-700 dark:text-cyan-300">
+          <span className="mb-2 block text-center text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--theme-primary)]">
             03 · Coverage
           </span>
           <motion.h2 variants={softReveal} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={softTransition} className="text-center text-3xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-50">
@@ -241,7 +241,7 @@ export function BrightSmileSite({ composition }: Props) {
         <div className="mx-auto max-w-2xl px-6">
           {!submitted && (
             <>
-              <span className="mb-2 block text-center text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-400/60">
+              <span className="mb-2 block text-center text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--theme-primary)]/60">
                 05 · Booking
               </span>
               <motion.h2 variants={softReveal} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={softTransition} className="text-center text-3xl font-semibold tracking-tight text-neutral-50">

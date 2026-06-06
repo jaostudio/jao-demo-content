@@ -68,7 +68,7 @@ export function SummitRidgeSite({ composition }: Props) {
       />
 
       {/* Featured Work — inline for Summit Ridge */}
-      <section data-testid="work-section" id="work" className="bg-white py-20 dark:bg-slate-900 md:py-28">
+      <section data-testid="work-section" id="work" className="bg-white py-20 dark:bg-slate-950 md:py-28">
         <div className="mx-auto max-w-6xl px-6">
           <motion.h2
             variants={fadeUp}
@@ -208,13 +208,13 @@ export function SummitRidgeSite({ composition }: Props) {
       <BudgetEstimator />
 
       {composition.testimonials && (
-        <section className="border-t border-slate-300 bg-white py-20 dark:border-slate-800 dark:bg-slate-900 md:py-28">
+        <section className="border-t border-slate-300 py-20 dark:border-slate-800 md:py-28">
           <TestimonialsAdapter data={composition.testimonials} />
         </section>
       )}
 
       {/* Safety & Compliance — theme-aware like other sections */}
-      <section data-testid="safety-section" id="safety" className="bg-white py-20 dark:bg-slate-900 md:py-28">
+      <section data-testid="safety-section" id="safety" className="bg-white py-20 dark:bg-slate-950 md:py-28">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-slate-950 dark:text-slate-50">
@@ -241,7 +241,7 @@ export function SummitRidgeSite({ composition }: Props) {
       </section>
 
       {/* Contact — lead intake form for Summit Ridge */}
-      <section data-testid="contact-section" id="contact" className="border-t border-slate-300 bg-stone-100 py-20 dark:border-slate-800 dark:bg-slate-900 md:py-28">
+      <section data-testid="contact-section" id="contact" className="border-t border-slate-300 bg-stone-100 py-20 dark:border-slate-800 dark:bg-slate-950 md:py-28">
         <div className="mx-auto max-w-5xl px-6">
           <motion.h2
             variants={fadeUp}
@@ -373,15 +373,15 @@ function ContactForm({ onSuccess }: { onSuccess: () => void }) {
     }, 400);
   };
 
-  const inputClass = "w-full border border-slate-300 bg-transparent px-3 py-2 text-sm text-slate-700 outline-none transition-colors focus:border-amber-500 focus-visible:ring-2 focus-visible:ring-amber-500/40 dark:border-slate-500 dark:text-slate-300";
+  const inputClass = "w-full border border-slate-300 bg-transparent px-3 py-2 text-sm text-slate-700 outline-none transition-colors focus:border-[var(--theme-primary)] focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)]/40 dark:border-slate-500 dark:bg-slate-800 dark:text-slate-300";
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label className="mb-1 block text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-500">Name <span className="text-amber-500">*</span></label>
+          <label className="mb-1 block text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-500">Name <span className="text-[var(--theme-primary)]">*</span></label>
           <input type="text" value={name} onChange={(e) => setName(e.target.value)} autoComplete="name" className={inputClass} />
-          {errors.name && <p className="mt-1 text-xs text-amber-500">{errors.name}</p>}
+          {errors.name && <p className="mt-1 text-xs text-[var(--theme-primary)]">{errors.name}</p>}
         </div>
         <div>
           <label className="mb-1 block text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-500">Company</label>
@@ -390,9 +390,9 @@ function ContactForm({ onSuccess }: { onSuccess: () => void }) {
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label className="mb-1 block text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-500">Email <span className="text-amber-500">*</span></label>
+          <label className="mb-1 block text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-500">Email <span className="text-[var(--theme-primary)]">*</span></label>
           <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="email" className={inputClass} />
-          {errors.email && <p className="mt-1 text-xs text-amber-500">{errors.email}</p>}
+          {errors.email && <p className="mt-1 text-xs text-[var(--theme-primary)]">{errors.email}</p>}
         </div>
         <div>
           <label className="mb-1 block text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-500">Phone</label>
@@ -400,17 +400,17 @@ function ContactForm({ onSuccess }: { onSuccess: () => void }) {
         </div>
       </div>
       <div>
-        <label className="mb-1 block text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-500">Project Type <span className="text-amber-500">*</span></label>
+        <label className="mb-1 block text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-500">Project Type <span className="text-[var(--theme-primary)]">*</span></label>
         <select value={projectType} onChange={(e) => setProjectType(e.target.value)} className={inputClass}>
           <option value="">Select project type</option>
           {projectTypes.map((t) => <option key={t} value={t}>{t}</option>)}
         </select>
-        {errors.projectType && <p className="mt-1 text-xs text-amber-500">{errors.projectType}</p>}
+          {errors.projectType && <p className="mt-1 text-xs text-[var(--theme-primary)]">{errors.projectType}</p>}
       </div>
       <div>
-        <label className="mb-1 block text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-500">Project Details <span className="text-amber-500">*</span></label>
+        <label className="mb-1 block text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-500">Project Details <span className="text-[var(--theme-primary)]">*</span></label>
         <textarea rows={4} value={message} onChange={(e) => setMessage(e.target.value)} className={inputClass + " resize-y"} />
-        {errors.message && <p className="mt-1 text-xs text-amber-500">{errors.message}</p>}
+          {errors.message && <p className="mt-1 text-xs text-[var(--theme-primary)]">{errors.message}</p>}
       </div>
       <button
         type="submit"
