@@ -83,7 +83,7 @@ function LegalContactForm({ onSuccess }: { onSuccess: () => void }) {
     setTimeout(() => { setSubmitting(false); onSuccess(); }, 400);
   };
 
-  const inputClass = "w-full border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-900 outline-none transition-colors focus:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/40 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100";
+  const inputClass = "w-full border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-900 outline-none transition-colors focus:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/40 dark:border-neutral-500 dark:bg-neutral-900 dark:text-neutral-100";
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">

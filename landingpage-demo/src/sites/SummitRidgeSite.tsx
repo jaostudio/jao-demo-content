@@ -373,7 +373,7 @@ function ContactForm({ onSuccess }: { onSuccess: () => void }) {
     }, 400);
   };
 
-  const inputClass = "w-full border border-slate-300 bg-transparent px-3 py-2 text-sm text-slate-700 outline-none transition-colors focus:border-amber-500 focus-visible:ring-2 focus-visible:ring-amber-500/40 dark:border-slate-700 dark:text-slate-300";
+  const inputClass = "w-full border border-slate-300 bg-transparent px-3 py-2 text-sm text-slate-700 outline-none transition-colors focus:border-amber-500 focus-visible:ring-2 focus-visible:ring-amber-500/40 dark:border-slate-500 dark:text-slate-300";
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">

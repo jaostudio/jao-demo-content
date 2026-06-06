@@ -122,7 +122,7 @@ export function BrightSmileSite({ composition }: Props) {
 
       <section id="services" className="border-t border-slate-100 bg-white py-24 md:py-32">
         <div className="mx-auto max-w-5xl px-6">
-          <span className="mb-2 block text-center text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-600/60 dark:text-cyan-400/60">
+          <span className="mb-2 block text-center text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-700 dark:text-cyan-300">
             01 · Care
           </span>
           <motion.h2 variants={softReveal} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={softTransition} className="text-center text-3xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-50">
@@ -159,7 +159,7 @@ export function BrightSmileSite({ composition }: Props) {
 
       <section id="results" className="border-t border-slate-100 bg-neutral-50 py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-6">
-          <span className="mb-2 block text-center text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-600/60 dark:text-cyan-400/60">
+          <span className="mb-2 block text-center text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-700 dark:text-cyan-300">
             02 · Results
           </span>
           <motion.h2 variants={softReveal} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={softTransition} className="text-center text-3xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-50">
@@ -204,7 +204,7 @@ export function BrightSmileSite({ composition }: Props) {
       {/* Insurance & Payment — inline for BrightSmile */}
       <section id="insurance" className="border-t border-slate-100 bg-white py-12 md:py-16">
         <div className="mx-auto max-w-2xl px-6">
-          <span className="mb-2 block text-center text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-600/60 dark:text-cyan-400/60">
+          <span className="mb-2 block text-center text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-700 dark:text-cyan-300">
             03 · Coverage
           </span>
           <motion.h2 variants={softReveal} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={softTransition} className="text-center text-3xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-50">
