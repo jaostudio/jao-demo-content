@@ -18,7 +18,7 @@ const containerVariants = {
 
 export function TestimonialsAdapter({ data }: Props) {
   return (
-    <section className="bg-neutral-50 py-20 dark:bg-neutral-900/50 md:py-28">
+    <section className="bg-neutral-50 py-20 dark:bg-neutral-900 md:py-28">
       <div className="mx-auto max-w-6xl px-6">
         <motion.h2
           variants={fadeUp}
@@ -45,7 +45,7 @@ export function TestimonialsAdapter({ data }: Props) {
                 hidden: { opacity: 0, y: 10 },
                 visible: { opacity: 1, y: 0 },
               }}
-              className="flex h-full flex-col justify-between rounded-2xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900"
+              className="flex h-full flex-col justify-between rounded-2xl border border-neutral-200 bg-white p-6 dark:border-neutral-700 dark:bg-neutral-800"
             >
               <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">
                 &ldquo;{item.quote}&rdquo;

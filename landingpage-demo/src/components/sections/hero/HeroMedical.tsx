@@ -88,7 +88,7 @@ export function HeroMedical({ data, image, stats }: Props) {
           transition={{ duration: durations.slow, ease: easing.out, delay: 0.35 }}
           className="mx-auto mt-16 max-w-6xl px-6"
         >
-          <div className="grid grid-cols-2 gap-6 rounded-2xl bg-[var(--theme-primary)]/10 p-8 md:grid-cols-4 md:gap-8">
+          <div className="grid grid-cols-2 gap-6 rounded-2xl border border-neutral-200 bg-white/5 p-8 backdrop-blur-sm md:grid-cols-4 md:gap-8 dark:border-neutral-800">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className="text-2xl font-bold text-[var(--theme-primary)] md:text-3xl">

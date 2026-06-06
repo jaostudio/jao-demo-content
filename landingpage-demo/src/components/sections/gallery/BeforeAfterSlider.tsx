@@ -71,7 +71,7 @@ export function BeforeAfterSlider({ items = defaultItems }: Props) {
   };
 
   return (
-    <section className="border-t border-slate-100 bg-white py-20 dark:bg-slate-900 md:py-28">
+    <section className="border-t border-slate-100 bg-white py-20 dark:border-neutral-900 dark:bg-neutral-950 md:py-28">
       <div className="mx-auto max-w-5xl px-6">
         <motion.h2
           variants={fadeUp}
@@ -103,7 +103,7 @@ export function BeforeAfterSlider({ items = defaultItems }: Props) {
               className={`rounded-lg border-2 px-4 py-2 text-xs font-semibold transition-all ${
                 i === activeIndex
                   ? "border-cyan-500 bg-cyan-50 text-cyan-700 dark:border-cyan-400 dark:bg-cyan-900/20 dark:text-cyan-300"
-                  : "border-slate-200 text-slate-600 hover:border-cyan-300 dark:border-slate-700 dark:text-slate-400"
+                  : "border-slate-200 text-slate-600 hover:border-cyan-300 dark:border-neutral-700 dark:text-neutral-400"
               }`}
             >
               {item.title}
@@ -124,7 +124,7 @@ export function BeforeAfterSlider({ items = defaultItems }: Props) {
           onMouseLeave={onMouseUp}
           onTouchMove={onTouchMove}
           onKeyDown={handleKeyDown}
-          className="relative mx-auto mt-8 aspect-[4/3] w-full max-w-3xl cursor-ew-resize overflow-hidden rounded-2xl border border-slate-200 select-none dark:border-slate-700 outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-900"
+          className="relative mx-auto mt-8 aspect-[4/3] w-full max-w-3xl cursor-ew-resize overflow-hidden rounded-2xl border border-slate-200 select-none dark:border-neutral-700 outline-none focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-neutral-950"
         >
           {/* After image (full) */}
           <div

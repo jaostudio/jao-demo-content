@@ -72,7 +72,7 @@ function DentalContactForm({ onSuccess }: { onSuccess: () => void }) {
     setTimeout(() => { setSubmitting(false); onSuccess(); }, 400);
   };
 
-  const inputClass = "w-full border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-900 outline-none transition-colors focus:border-[var(--theme-primary)] focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)]/40 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100";
+  const inputClass = "w-full border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-900 outline-none transition-colors focus:border-[var(--theme-primary)] focus-visible:ring-2 focus-visible:ring-[var(--theme-primary)]/40 dark:border-neutral-500 dark:bg-neutral-800 dark:text-neutral-100";
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
@@ -120,7 +120,7 @@ export function BrightSmileSite({ composition }: Props) {
     <main>
       <HeroMedical data={composition.hero} image={composition.assets.hero} stats={composition.heroStats} />
 
-      <section id="services" className="border-t border-slate-100 bg-white py-24 md:py-32">
+      <section id="services" className="border-t border-slate-100 bg-white py-24 dark:border-neutral-900 dark:bg-neutral-950 md:py-32">
         <div className="mx-auto max-w-5xl px-6">
           <span className="mb-2 block text-center text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-700 dark:text-cyan-300">
             01 · Care
@@ -157,7 +157,7 @@ export function BrightSmileSite({ composition }: Props) {
         </div>
       </section>
 
-      <section id="results" className="border-t border-slate-100 bg-neutral-50 py-16 md:py-20">
+      <section id="results" className="border-t border-slate-100 bg-neutral-50 py-16 dark:border-neutral-900 dark:bg-neutral-900 md:py-20">
         <div className="mx-auto max-w-6xl px-6">
           <span className="mb-2 block text-center text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-700 dark:text-cyan-300">
             02 · Results
@@ -168,7 +168,7 @@ export function BrightSmileSite({ composition }: Props) {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ staggerChildren: 0.09 }} className="mt-12 space-y-10">
             {(composition.caseStudies?.studies ?? []).map((study, i) =>
               i === 0 ? (
-                <motion.div key={study.title} variants={softReveal} transition={softTransition} className="overflow-hidden rounded-2xl border border-slate-100 bg-white dark:border-slate-800 dark:bg-neutral-900">
+                <motion.div key={study.title} variants={softReveal} transition={softTransition} className="overflow-hidden rounded-2xl border border-slate-100 bg-white dark:border-neutral-700 dark:bg-neutral-800">
                   {study.image && (
                     <div className="aspect-[5/2] w-full bg-neutral-100 dark:bg-neutral-800">
                       <div className="h-full w-full bg-cover bg-center" style={{ backgroundImage: `url(${study.image})` }} />
@@ -181,7 +181,7 @@ export function BrightSmileSite({ composition }: Props) {
                   </div>
                 </motion.div>
               ) : (
-                <motion.div key={study.title} variants={softReveal} transition={softTransition} className="ml-auto w-full overflow-hidden rounded-2xl border border-slate-100 bg-white dark:border-slate-800 dark:bg-neutral-900 md:w-2/5">
+                <motion.div key={study.title} variants={softReveal} transition={softTransition} className="ml-auto w-full overflow-hidden rounded-2xl border border-slate-100 bg-white dark:border-neutral-700 dark:bg-neutral-800 md:w-2/5">
                   {study.image && (
                     <div className="aspect-[4/3] w-full bg-neutral-100 dark:bg-neutral-800">
                       <div className="h-full w-full bg-cover bg-center" style={{ backgroundImage: `url(${study.image})` }} />
@@ -202,7 +202,7 @@ export function BrightSmileSite({ composition }: Props) {
       <BeforeAfterSlider />
 
       {/* Insurance & Payment — inline for BrightSmile */}
-      <section id="insurance" className="border-t border-slate-100 bg-white py-12 md:py-16">
+      <section id="insurance" className="border-t border-slate-100 bg-white py-12 dark:border-neutral-900 dark:bg-neutral-900 md:py-16">
         <div className="mx-auto max-w-2xl px-6">
           <span className="mb-2 block text-center text-[11px] font-bold uppercase tracking-[0.2em] text-cyan-700 dark:text-cyan-300">
             03 · Coverage
@@ -220,7 +220,7 @@ export function BrightSmileSite({ composition }: Props) {
               { name: "MetLife", network: "PPO, PDP Plus" },
               { name: "Aetna", network: "PPO, Vital Savings" },
             ].map((plan) => (
-              <motion.div key={plan.name} variants={softReveal} transition={softTransition} className="flex items-baseline justify-between border-b border-slate-100 pb-3 dark:border-slate-800">
+              <motion.div key={plan.name} variants={softReveal} transition={softTransition} className="flex items-baseline justify-between border-b border-slate-100 pb-3 dark:border-neutral-800">
                 <span className="text-sm font-semibold text-neutral-900 dark:text-neutral-50">{plan.name}</span>
                 <span className="text-xs text-neutral-500 dark:text-neutral-400">{plan.network}</span>
               </motion.div>
@@ -232,12 +232,12 @@ export function BrightSmileSite({ composition }: Props) {
         </div>
       </section>
 
-      <section className="bg-neutral-50 py-20 dark:bg-neutral-900/50 md:py-28">
+      <section className="bg-neutral-50 py-20 dark:bg-neutral-900 md:py-28">
         {composition.testimonials && <TestimonialsAdapter data={composition.testimonials} />}
       </section>
 
       {/* Contact — inline appointment booking form */}
-      <section id="contact" className="border-t border-neutral-200 bg-neutral-900 py-24 dark:border-neutral-800 dark:bg-neutral-950 md:py-32">
+      <section id="contact" className="border-t border-neutral-200 bg-neutral-900 py-24 dark:border-neutral-900 dark:bg-black md:py-32">
         <div className="mx-auto max-w-2xl px-6">
           {!submitted && (
             <>
