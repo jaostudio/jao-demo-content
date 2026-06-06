@@ -237,17 +237,17 @@ export function BrightSmileSite({ composition }: Props) {
       </section>
 
       {/* Contact — inline appointment booking form */}
-      <section id="contact" className="border-t border-neutral-200 bg-neutral-900 py-24 dark:border-neutral-900 dark:bg-black md:py-32">
+      <section id="contact" className="border-t border-neutral-200 bg-white py-24 dark:border-neutral-900 dark:bg-neutral-950 md:py-32">
         <div className="mx-auto max-w-2xl px-6">
           {!submitted && (
             <>
               <span className="mb-2 block text-center text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--theme-primary)]/60">
                 05 · Booking
               </span>
-              <motion.h2 variants={softReveal} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={softTransition} className="text-center text-3xl font-semibold tracking-tight text-neutral-50">
+              <motion.h2 variants={softReveal} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={softTransition} className="text-center text-3xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-50">
                 {composition.contact.headline}
               </motion.h2>
-              <motion.p variants={softReveal} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ ...softTransition, delay: 0.05 }} className="mt-4 text-center text-lg text-neutral-400">
+              <motion.p variants={softReveal} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ ...softTransition, delay: 0.05 }} className="mt-4 text-center text-lg text-neutral-600 dark:text-neutral-400">
                 {composition.contact.subtitle}
               </motion.p>
               <div className="mx-auto mt-10 max-w-xl">
@@ -261,8 +261,8 @@ export function BrightSmileSite({ composition }: Props) {
           )}
           {submitted && (
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="text-center">
-              <h2 className="text-3xl font-semibold tracking-tight text-neutral-50">Appointment Requested</h2>
-              <p className="mt-4 text-lg text-neutral-400">We&apos;ll confirm your appointment within 24 hours. You can also reach us directly.</p>
+              <h2 className="text-3xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-50">Appointment Requested</h2>
+              <p className="mt-4 text-lg text-neutral-600 dark:text-neutral-400">We&apos;ll confirm your appointment within 24 hours. You can also reach us directly.</p>
               <div className="mt-8 space-y-1 text-sm text-neutral-500">
                 {composition.contact.email && <p>{composition.contact.email}</p>}
                 {composition.contact.phone && <p>{composition.contact.phone}</p>}

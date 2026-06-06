@@ -280,19 +280,19 @@ export function HarrisonColeSite({ composition }: Props) {
       {composition.testimonials && <TestimonialsAdapter data={composition.testimonials} />}
 
       {/* Contact — inline consultation intake form */}
-      <section id="contact" className="border-t border-neutral-200 bg-neutral-900 py-16 dark:border-neutral-800 dark:bg-neutral-950 md:py-20">
+      <section id="contact" className="border-t border-neutral-200 bg-white py-16 dark:border-neutral-800 dark:bg-neutral-950 md:py-20">
         <div className="mx-auto max-w-4xl px-6">
           {!submitted && (
             <>
-              <motion.h2 variants={fadeOnly} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={fadeTransition} className={`text-center text-3xl font-bold tracking-tight text-neutral-50 ${playfair.className}`}>
+              <motion.h2 variants={fadeOnly} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={fadeTransition} className={`text-center text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50 ${playfair.className}`}>
                 {composition.contact.headline}
               </motion.h2>
-              <motion.p variants={fadeOnly} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ ...fadeTransition, delay: 0.1 }} className="mt-4 text-center text-lg text-neutral-400">
+              <motion.p variants={fadeOnly} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ ...fadeTransition, delay: 0.1 }} className="mt-4 text-center text-lg text-neutral-600 dark:text-neutral-400">
                 {composition.contact.subtitle}
               </motion.p>
               <div className="mt-12 grid gap-10 md:grid-cols-5 md:gap-16">
                 <div className="md:col-span-2">
-                  <p className="text-sm leading-relaxed text-neutral-400">
+                  <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
                     Initial consultations are confidential. Provide a summary of your matter and the appropriate attorney will respond.
                   </p>
                   <div className="mt-6 space-y-1 text-sm text-neutral-500">
@@ -308,8 +308,8 @@ export function HarrisonColeSite({ composition }: Props) {
           )}
           {submitted && (
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="mx-auto max-w-xl text-center">
-              <h2 className="text-3xl font-semibold tracking-tight text-neutral-50">Consultation Requested</h2>
-              <p className="mt-4 text-lg text-neutral-400">An attorney will review your case and contact you within one business day. All consultations are confidential.</p>
+              <h2 className="text-3xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-50">Consultation Requested</h2>
+              <p className="mt-4 text-lg text-neutral-600 dark:text-neutral-400">An attorney will review your case and contact you within one business day. All consultations are confidential.</p>
               <div className="mt-8 space-y-1 text-sm text-neutral-500">
                 {composition.contact.email && <p>{composition.contact.email}</p>}
                 {composition.contact.phone && <p>{composition.contact.phone}</p>}
