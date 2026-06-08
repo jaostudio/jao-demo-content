@@ -95,7 +95,7 @@ export function Nav() {
             )}
             {isAdmin && (
               <NavLink href="/admin" icon={<ShieldCheck className="h-4 w-4" />}>
-                Admin
+                Admin Panel
               </NavLink>
             )}
           </nav>
