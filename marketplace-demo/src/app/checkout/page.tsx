@@ -52,7 +52,7 @@ export default function CheckoutPage() {
   const [step, setStep] = useState<1 | 2 | 3>(1)
 
   const shippingFee = useMemo(
-    () => SHIPPING_METHODS.find((s) => s.value === shippingMethod)!.fee,
+    () => SHIPPING_METHODS.find((s) => s.value === shippingMethod)?.fee ?? 0,
     [shippingMethod],
   )
 

@@ -38,10 +38,11 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.0",
+    "@liveviewer/cli": "^2.1.1",
     "@playwright/test": "^1.60.0",
     "@tailwindcss/postcss": "^4.0.0",
     "@types/bcryptjs": "^3.0.0",
-    "@types/node": "^22.0.0",
+    "@types/node": "^22.19.20",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "eslint": "^9.0.0",

@@ -2,8 +2,10 @@ import { getSessionUser } from '@/lib/auth'
 import { redirect } from 'next/navigation'
 import { prisma } from '@/lib/prisma'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { MetricsCards } from '@/components/vendor/metrics-cards'
-import { RevenueChart } from '@/components/vendor/revenue-chart'
+
+const RevenueChart = dynamic(() => import('@/components/vendor/revenue-chart').then(m => m.RevenueChart))
 
 export default async function DashboardPage() {
   const user = await getSessionUser()
@@ -12,7 +14,7 @@ export default async function DashboardPage() {
   const now = new Date()
   const thirtyDaysAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000)
 
-  const [listingsCount, ordersCount, revenueAgg, avgRating, recentOrders] = await Promise.all([
+  const [listingsCount, ordersCount, revenueAgg, avgRating, recentOrders, lowStockListings] = await Promise.all([
     prisma.listing.count({ where: { vendorId: user.id } }),
     prisma.order.count({ where: { vendorId: user.id } }),
     prisma.order.aggregate({
@@ -27,6 +29,11 @@ export default async function DashboardPage() {
       where: { vendorId: user.id, createdAt: { gte: thirtyDaysAgo } },
       select: { createdAt: true, total: true },
       orderBy: { createdAt: 'asc' },
+    }),
+    prisma.listing.findMany({
+      where: { vendorId: user.id, stock: { lte: 3, gt: 0 } },
+      select: { id: true, title: true, stock: true, slug: true },
+      orderBy: { stock: 'asc' },
     }),
   ])
 
@@ -64,6 +71,25 @@ export default async function DashboardPage() {
           Add listing
         </Link>
       </div>
+
+      {/* Low-stock alert */}
+      {lowStockListings.length > 0 && (
+        <div className="mb-6 rounded-2xl border border-amber-200 bg-amber-50 p-4 dark:border-amber-800 dark:bg-amber-900/20">
+          <p className="text-sm font-semibold text-amber-800 dark:text-amber-300">
+            Low stock alert{lowStockListings.length > 1 ? 's' : ''}
+          </p>
+          <ul className="mt-2 space-y-1">
+            {lowStockListings.map((l) => (
+              <li key={l.id} className="text-sm text-amber-700 dark:text-amber-400">
+                <Link href={`/dashboard/listings/${l.id}/edit`} className="underline underline-offset-2 hover:no-underline">
+                  {l.title}
+                </Link>
+                <span className="text-amber-600 dark:text-amber-500"> — {l.stock} left</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       <MetricsCards
         totalRevenue={totalRevenue}

@@ -123,6 +123,7 @@ Use this list to verify every feature works as intended. Mark `[x]` when tested 
 | 7.13 | Update fulfillment status (unfulfilled -> processing -> shipped -> delivered) | [x] | With Process / Mark shipped buttons |
 | 7.14 | Print packing slip | [x] | Button on vendor order list for PROCESSING/FULFILLED states |
 | 7.15 | Vendor profile editor – `/dashboard/profile` (bio, avatar, banner, social links) | [x] | Name, avatar, bio, location, social links |
+| 7.16 | Low-stock alerts on dashboard | [x] | Shows warning for listings with stock ≤ 3 |
 
 ---
 
@@ -185,6 +186,8 @@ Use this list to verify every feature works as intended. Mark `[x]` when tested 
 | 11.9 | Sitemap.xml & robots.txt | [x] | Dynamic sitemap.ts (listings, categories, vendors) + robots.ts |
 | 11.10 | PWA – installable, offline fallback, service worker | [x] | manifest.json + SVG icons + sw.js + install prompt |
 | 11.11 | Analytics – Google Analytics or Plausible (demo ID) | [x] | Plausible script in layout.tsx, gated by NEXT_PUBLIC_PLAUSIBLE_DOMAIN env var |
+| 11.12 | Price drop alert ("Notify me" button) | [x] | Toast confirmation on product detail page |
+| 11.13 | Live chat widget (floating button) | [x] | Bottom-right chat bubble with contact form |
 
 ---
 
@@ -211,7 +214,7 @@ Use this list to verify every feature works as intended. Mark `[x]` when tested 
 | 13.2 | `.env.example` documents all required env vars | [x] | DATABASE_URL, NEXTAUTH_SECRET, DEMO_MODE |
 | 13.3 | `DEMO_MODE` flag guards production features | [x] | Blocks createOrder + banner in layout |
 | 13.4 | Demo mode banner informs users it's a demo | [x] | Sticky banner with test card info |
-| 13.5 | Lighthouse score >90 for Performance, Accessibility, SEO | [ ] | |
+| 13.5 | Lighthouse score >90 for Performance, Accessibility, SEO | [ ] | A11y=100 BP=96 SEO=100; Perf=88 (LCP 57/25% weight) — needs hero Image outside framer-motion; deploy blocked by Vercel daily limit. Liveviewer WCAG 297/300 (99%), contrast issues fixed. |
 | 13.6 | No console errors (client or server) | [x] | Fixed silent catch in message-unread-badge.tsx, all images have proper alt text |
 | 13.7 | TypeScript `--noEmit` passes | [x] | Verified — build completes with 0 type errors |
 
@@ -227,11 +230,11 @@ Use this list to verify every feature works as intended. Mark `[x]` when tested 
 | 4. Product Listing & Search | 14 | 14 | 100% |
 | 5. Cart & Checkout | 14 | 14 | 100% |
 | 6. Buyer Order Management | 7 | 7 | 100% |
-| 7. Vendor Experience | 15 | 15 | 100% |
+| 7. Vendor Experience | 16 | 16 | 100% |
 | 8. Admin Panel | 9 | 9 | 100% |
 | 9. Messaging & Notifications | 7 | 7 | 100% |
 | 10. Booking & Services | 7 | 7 | 100% |
-| 11. Advanced Features | 11 | 11 | 100% |
+| 11. Advanced Features | 13 | 13 | 100% |
 | 12. UI/UX Polish | 8 | 8 | 100% |
 | 13. Performance & Build | 7 | 6 | 86% |
-| **TOTAL** | **122** | **121** | **99.2%** |
+| **TOTAL** | **125** | **124** | **99.2%** |

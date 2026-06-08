@@ -1,15 +1,17 @@
 import { prisma } from '@/lib/prisma'
 import { getSessionUser } from '@/lib/auth'
 import { getWishlistIds } from '@/lib/actions/wishlist'
+import nextDynamic from 'next/dynamic'
 import { HeroSection } from '@/components/home/hero-section'
 import { CategoryGrid } from '@/components/home/category-grid'
 import { FeaturedListings } from '@/components/home/featured-listings'
 import { VendorSpotlight } from '@/components/home/vendor-spotlight'
-import { StatsCounter } from '@/components/home/stats-counter'
-import { WhyLikha } from '@/components/home/why-likha'
-import { NewsletterCta } from '@/components/home/newsletter-cta'
 import { RecentlyViewed } from '@/components/recently-viewed'
 import type { ListingCardData } from '@/components/listing-card'
+
+const StatsCounter = nextDynamic(() => import('@/components/home/stats-counter').then(m => m.StatsCounter))
+const WhyLikha = nextDynamic(() => import('@/components/home/why-likha').then(m => m.WhyLikha))
+const NewsletterCta = nextDynamic(() => import('@/components/home/newsletter-cta').then(m => m.NewsletterCta))
 
 export const dynamic = 'force-dynamic'
 

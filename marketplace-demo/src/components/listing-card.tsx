@@ -51,7 +51,7 @@ export function ListingCard({ listing, priority = false }: ListingCardProps) {
         <div className="relative aspect-square overflow-hidden bg-neutral-100 dark:bg-neutral-800">
           {imageUrl ? (
             <motion.div
-              className="h-full w-full"
+              className="relative h-full w-full"
               whileHover={reduce ? undefined : { scale: 1.05 }}
               transition={{ duration: 0.4, ease: 'easeOut' }}
             >
@@ -110,7 +110,7 @@ export function ListingCard({ listing, priority = false }: ListingCardProps) {
             {listing.vendor.avatarUrl ? (
               <Image
                 src={listing.vendor.avatarUrl}
-                alt=""
+                alt="" role="presentation"
                 width={16}
                 height={16}
                 className="h-4 w-4 rounded-full object-cover"

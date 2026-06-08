@@ -371,6 +371,17 @@ const LISTINGS = [
     category: 'food-drink',
     image: '/products/coffee-bundle.jpg',
   },
+  {
+    title: 'Sagada Arabica (Single Origin)',
+    slug: 'sagada-arabica-single-origin',
+    description:
+      'Single-origin arabica from Sagada, Mountain Province. Bright acidity, citrus notes, clean finish. 200g bag — hand-sorted, sun-dried, small-batch roasted.',
+    price: php(450),
+    stock: 30,
+    vendor: 'rico@likha.ph',
+    category: 'food-drink',
+    image: '/products/sagada-arabica.jpg',
+  },
   // Rico's service
   {
     title: 'Private Coffee Cupping',
@@ -429,7 +440,7 @@ const LISTINGS = [
     stock: 18,
     vendor: 'teresa@likha.ph',
     category: 'fashion',
-    image: '/products/peptide-bracelet.jpg',
+    image: '/products/mother-of-pearl-bracelet.jpg',
   },
   {
     title: 'Capiz Window Panel (set of 3)',
@@ -509,7 +520,7 @@ const LISTINGS = [
     stock: 20,
     vendor: 'lorna@likha.ph',
     category: 'art-prints',
-    image: '/products/coffee-bundle.jpg',
+    image: '/products/banaue-terraces.jpg',
   },
 ]
 

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTheme } from 'next-themes'
 import { useDemoControl, type DemoUserId } from '@/lib/store/demo-control'
 import { DEMO_USERS } from '@/lib/demo-users'
@@ -17,7 +17,10 @@ function clearCookie() {
 export function DemoControlPanel() {
   const { simulatedUserId, setSimulatedUser, simulatedLabel } = useDemoControl()
   const { setTheme, resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
   const [expanded, setExpanded] = useState(false)
+
+  useEffect(() => { setMounted(true) }, [])
 
   const handleUserSwitch = (email: DemoUserId) => {
     setSimulatedUser(email)
@@ -50,7 +53,7 @@ export function DemoControlPanel() {
           </div>
 
           {/* Current state badge */}
-          {collapsedLabel !== 'Not logged in' && (
+          {mounted && collapsedLabel !== 'Not logged in' && (
             <div className="border-b border-neutral-100 px-4 py-2 dark:border-neutral-800">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">
                 <Zap className="h-3 w-3" />
@@ -102,7 +105,7 @@ export function DemoControlPanel() {
           className="flex items-center gap-2 rounded-xl bg-primary-500 px-3 py-2 text-xs font-semibold text-white shadow-md transition-all hover:bg-primary-600 hover:shadow-lg"
         >
           <Zap className="h-3.5 w-3.5" />
-          {collapsedLabel !== 'Not logged in' ? collapsedLabel : 'Demo'}
+          {mounted && collapsedLabel !== 'Not logged in' ? collapsedLabel : 'Demo'}
         </button>
       )}
     </div>

@@ -7,6 +7,7 @@ import { AddToCartButton } from './add-to-cart-button'
 import { Price } from '@/components/price'
 import { Star, MapPin, Package, Sparkles, ShieldCheck, Truck } from 'lucide-react'
 import { CompareButton, ShareButtons, RecentlyViewedTracker, CompareFloatingBar } from '@/components/product-actions'
+import { PriceDropAlertButton } from '@/components/price-drop-alert-button'
 import { MessageVendorButton } from '@/components/message-vendor-button'
 import { BundleOffer } from '@/components/bundle-offer'
 import { getBundlesForListing } from '@/lib/actions/bundles'
@@ -261,10 +262,11 @@ export default async function ListingDetailPage({
             }))}
           />
 
-          {/* Compare + Share */}
-          <div className="mt-4 flex items-center gap-3">
+          {/* Compare + Share + Price drop alert */}
+          <div className="mt-4 flex flex-wrap items-center gap-2">
             <CompareButton listingId={listing.id} title={listing.title} />
             <ShareButtons title={listing.title} slug={listing.slug} />
+            <PriceDropAlertButton listingId={listing.id} />
           </div>
 
           {/* Trust strip */}

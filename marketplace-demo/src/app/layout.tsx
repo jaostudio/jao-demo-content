@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, Playfair_Display } from 'next/font/google'
-import { ThemeProvider } from 'next-themes'
+import { ThemeProviderWrapper } from '@/components/theme-provider-wrapper'
 import Script from 'next/script'
 import { cookies } from 'next/headers'
+import dynamic from 'next/dynamic'
 import './globals.css'
 import { AuthProvider } from '@/components/auth-provider'
 import { IntlProvider } from '@/components/intl-provider'
@@ -12,10 +13,12 @@ import { PageViewTracker } from '@/components/page-view-tracker'
 import { DemoBanner } from '@/components/demo-banner'
 import { Toaster } from 'sonner'
 import { ErrorBoundaryWrapper } from '@/components/error-boundary-wrapper'
-import { DemoControlPanel } from '@/components/demo-control-panel'
 import { AbandonedCartTracker } from '@/components/abandoned-cart-tracker'
 import { ServiceWorkerRegister } from '@/components/service-worker-register'
 import { PwaInstallPrompt } from '@/components/pwa-install-prompt'
+
+const DemoControlPanel = dynamic(() => import('@/components/demo-control-panel').then(m => m.DemoControlPanel))
+const LiveChatWidget = dynamic(() => import('@/components/live-chat-widget').then(m => m.LiveChatWidget))
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair' })
@@ -56,14 +59,13 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link rel="manifest" href="/manifest.json" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN && (
-          <Script
-            defer
-            data-domain={process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN}
-            src="https://plausible.io/js/script.js"
-            strategy="afterInteractive"
-          />
-        )}
+        <Script
+          id="suppress-react-theme-warning"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: 'if(!console._themeSuppressed){console._themeSuppressed=true;var _ce=console.error;console.error=function(){if(arguments[0]&&typeof arguments[0]==="string"&&arguments[0].indexOf("Encountered a script tag while rendering React component")!==-1)return;_ce.apply(console,arguments)}}',
+          }}
+        />
       </head>
       <body className={`${inter.variable} ${playfair.variable} font-sans min-h-screen bg-neutral-50 text-neutral-800 antialiased dark:bg-neutral-950 dark:text-neutral-100`}>
         <a
@@ -72,7 +74,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         >
           Skip to main content
         </a>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProviderWrapper attribute="class" defaultTheme="system" enableSystem>
           <AuthProvider>
             <IntlProvider locale={locale} messages={messages}>
               <DemoBanner show={process.env.DEMO_MODE !== 'false'} />
@@ -84,10 +86,19 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               {process.env.DEMO_MODE !== 'false' && <DemoControlPanel />}
               <PwaInstallPrompt />
               <ServiceWorkerRegister />
+              <LiveChatWidget />
               <Footer />
             </IntlProvider>
           </AuthProvider>
-        </ThemeProvider>
+        </ThemeProviderWrapper>
+        {process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN && (
+          <Script
+            defer
+            data-domain={process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN}
+            src="https://plausible.io/js/script.js"
+            strategy="afterInteractive"
+          />
+        )}
       </body>
     </html>
   )

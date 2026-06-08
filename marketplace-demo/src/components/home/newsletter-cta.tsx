@@ -44,7 +44,7 @@ export function NewsletterCta() {
           <div className="mx-auto mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-500/20 text-primary-300">
             <Mail className="h-7 w-7" />
           </div>
-          <h2 className="font-serif text-3xl font-bold sm:text-4xl">
+          <h2 className="font-serif text-3xl font-bold text-white sm:text-4xl">
             Discover new makers
           </h2>
           <p className="mt-3 text-base text-neutral-300">
@@ -105,7 +105,7 @@ export function NewsletterCta() {
             </p>
           )}
 
-          <p className="mt-4 text-xs text-neutral-500">
+          <p className="mt-4 text-xs text-neutral-300">
             We respect your inbox. Unsubscribe anytime.
           </p>
         </motion.div>
