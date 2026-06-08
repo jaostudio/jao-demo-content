@@ -29,11 +29,8 @@ export function HeroSection() {
       ref={heroRef}
       className="relative isolate overflow-hidden bg-neutral-100 dark:bg-neutral-950"
     >
-      {/* Background image with parallax */}
-      <motion.div
-        style={reduce ? undefined : { y, opacity }}
-        className="absolute inset-0 -z-10"
-      >
+      {/* Background image — outside motion for instant LCP */}
+      <div className="absolute inset-0 -z-10">
         <Image
           src="/hero-banner.jpg"
           alt="Filipino artisan at work"
@@ -42,7 +39,12 @@ export function HeroSection() {
           sizes="100vw"
           className="object-cover"
         />
-        {/* Warm gradient overlay */}
+      </div>
+      {/* Parallax gradient overlays */}
+      <motion.div
+        style={reduce ? undefined : { y, opacity }}
+        className="absolute inset-0 -z-10"
+      >
         <div className="absolute inset-0 bg-gradient-to-br from-neutral-900/80 via-neutral-900/60 to-primary-900/50" />
         <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/60 to-transparent" />
       </motion.div>
