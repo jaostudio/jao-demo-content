@@ -71,6 +71,8 @@ model User {
   conversationsA    Conversation[]   @relation("ConvA")
   conversationsB    Conversation[]   @relation("ConvB")
   messagesSent      Message[]
+  accounts          Account[]
+  sessions          Session[]
 }
 
 model Category {
@@ -111,6 +113,7 @@ model Listing {
   reviews   Review[]
   bookings  Booking[]
   wishlist  WishlistItem[]
+  bundleItems BundleItem[]
 }
 
 model ListingImage {
@@ -120,6 +123,27 @@ model ListingImage {
   sortOrder Int     @default(0)
   listingId String
   listing   Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
+}
+
+model Bundle {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  discountPct Int      @default(10)
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  items       BundleItem[]
+}
+
+model BundleItem {
+  id        String  @id @default(cuid())
+  bundleId  String
+  bundle    Bundle  @relation(fields: [bundleId], references: [id], onDelete: Cascade)
+  listingId String
+  listing   Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
+
+  @@unique([bundleId, listingId])
 }
 
 model Review {
@@ -212,6 +236,42 @@ model Coupon {
   active    Boolean  @default(true)
   expiresAt DateTime?
   createdAt DateTime @default(now())
+}
+
+// NextAuth models — required by PrismaAdapter for OAuth
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
 }
 
 model Notification {

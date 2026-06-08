@@ -1,10 +1,12 @@
 import type { NextAuthOptions } from 'next-auth'
 import type { UserRole } from '@prisma/marketplace-client'
 import CredentialsProvider from 'next-auth/providers/credentials'
+import GoogleProvider from 'next-auth/providers/google'
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import { getServerSession } from 'next-auth'
 import bcrypt from 'bcryptjs'
 import { prisma } from './prisma'
+import { getDemoSession } from './demo-auth'
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma as any) as any,
@@ -40,6 +42,11 @@ export const authOptions: NextAuthOptions = {
           image: user.image,
         }
       },
+    }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID ?? '',
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? '',
+      allowDangerousEmailAccountLinking: true,
     }),
   ],
   callbacks: {
@@ -77,20 +84,22 @@ export type SessionUser = {
 
 export async function getSessionUser(): Promise<SessionUser | null> {
   const session = await getServerSession(authOptions)
-  if (!session?.user) return null
-  const u = session.user as any
-  const dbUser = await prisma.user.findUnique({
-    where: { id: u.id },
-    select: { suspended: true },
-  })
-  if (dbUser?.suspended) return null
-  return {
-    id: u.id,
-    email: u.email,
-    name: u.name,
-    role: u.role,
-    image: u.image,
+  if (session?.user) {
+    const u = session.user as any
+    const dbUser = await prisma.user.findUnique({
+      where: { id: u.id },
+      select: { suspended: true },
+    })
+    if (dbUser?.suspended) return null
+    return {
+      id: u.id,
+      email: u.email,
+      name: u.name,
+      role: u.role,
+      image: u.image,
+    }
   }
+  return getDemoSession()
 }
 
 export async function requireUser(): Promise<SessionUser> {

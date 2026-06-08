@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { useSession, signOut } from 'next-auth/react'
 import { useTheme } from 'next-themes'
@@ -9,6 +10,7 @@ import {
   PlusCircle,
   LayoutDashboard,
   Heart,
+  MessageSquare,
   Sun,
   Moon,
   LogOut,
@@ -19,13 +21,19 @@ import {
   ChevronDown,
 } from 'lucide-react'
 import { useCart } from '@/lib/store/cart'
+import { useDemoControl } from '@/lib/store/demo-control'
 import { useState, useRef, useEffect } from 'react'
 import { MobileNav } from './mobile-nav'
 import { CurrencySwitcher } from './currency-switcher'
+import { NotificationDropdown } from './notification-dropdown'
+import { MessageUnreadBadge } from './message-unread-badge'
 
 export function Nav() {
   const { data: session } = useSession()
-  const user = session?.user as any
+  const realUser = session?.user as any
+  const { simulatedUserId, demoUserName, demoUserRole, demoUserAvatar } = useDemoControl()
+  // If a real session exists, use it. Otherwise use the demo simulated user.
+  const user = realUser ?? (simulatedUserId ? { name: demoUserName, role: demoUserRole, email: simulatedUserId, image: demoUserAvatar } : null)
   const itemCount = useCart((s) => s.itemCount())
   const { setTheme, resolvedTheme } = useTheme()
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -74,7 +82,7 @@ export function Nav() {
                 Sell
               </NavLink>
             )}
-            {session && !isVendor && !isAdmin && (
+            {user && !isVendor && !isAdmin && (
               <NavLink href="/orders" icon={<Package className="h-4 w-4" />}>
                 My Orders
               </NavLink>
@@ -105,7 +113,7 @@ export function Nav() {
             </button>
 
             {/* Wishlist (desktop only) */}
-            {session && (
+            {user && (
               <Link
                 href="/wishlist"
                 aria-label="Wishlist"
@@ -114,6 +122,10 @@ export function Nav() {
                 <Heart className="h-5 w-5" />
               </Link>
             )}
+
+            {user && <MessageUnreadBadge />}
+
+            {user && <NotificationDropdown />}
 
             {/* Cart */}
             <Link
@@ -130,7 +142,7 @@ export function Nav() {
             </Link>
 
             {/* User menu (desktop) */}
-            {session ? (
+            {user ? (
               <div ref={userMenuRef} className="relative hidden md:block">
                 <button
                   onClick={() => setUserMenuOpen((o) => !o)}
@@ -139,7 +151,7 @@ export function Nav() {
                   aria-expanded={userMenuOpen}
                 >
                   {user?.avatarUrl ? (
-                    <img src={user.avatarUrl} alt="" className="h-7 w-7 rounded-full object-cover" />
+                    <Image src={user.avatarUrl} alt="" width={28} height={28} className="h-7 w-7 rounded-full object-cover" />
                   ) : (
                     <div className="flex h-7 w-7 items-center justify-center rounded-full bg-primary-100 text-xs font-bold text-primary-700 dark:bg-primary-900/40 dark:text-primary-300">
                       {user?.name?.charAt(0).toUpperCase() ?? 'U'}
@@ -166,6 +178,9 @@ export function Nav() {
                     <UserMenuLink href="/wishlist" icon={<Heart className="h-4 w-4" />}>
                       Wishlist
                     </UserMenuLink>
+                    <UserMenuLink href="/messages" icon={<MessageSquare className="h-4 w-4" />}>
+                      Messages
+                    </UserMenuLink>
                     <UserMenuLink href="/orders" icon={<Package className="h-4 w-4" />}>
                       My Orders
                     </UserMenuLink>
@@ -181,7 +196,15 @@ export function Nav() {
                     )}
                     <div className="my-1 border-t border-neutral-100 dark:border-neutral-800" />
                     <button
-                      onClick={() => signOut({ callbackUrl: '/' })}
+                      onClick={() => {
+                        if (simulatedUserId) {
+                          document.cookie = 'demo_user_email=; path=/; max-age=0'
+                          useDemoControl.getState().setSimulatedUser(null)
+                          window.location.reload()
+                        } else {
+                          signOut({ callbackUrl: '/' })
+                        }
+                      }}
                       className="flex w-full items-center gap-2 px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-50 dark:text-neutral-300 dark:hover:bg-neutral-800 transition-colors"
                     >
                       <LogOut className="h-4 w-4" />

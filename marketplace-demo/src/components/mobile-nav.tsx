@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { useSession, signOut } from 'next-auth/react'
 import {
@@ -7,6 +8,7 @@ import {
   Home,
   Package,
   Heart,
+  MessageSquare,
   ShoppingCart,
   PlusCircle,
   LayoutDashboard,
@@ -17,6 +19,7 @@ import {
   Leaf,
 } from 'lucide-react'
 import { useCart } from '@/lib/store/cart'
+import { useDemoControl } from '@/lib/store/demo-control'
 
 interface MobileNavProps {
   open: boolean
@@ -25,7 +28,9 @@ interface MobileNavProps {
 
 export function MobileNav({ open, onClose }: MobileNavProps) {
   const { data: session } = useSession()
-  const user = session?.user as any
+  const realUser = session?.user as any
+  const { simulatedUserId, demoUserName, demoUserRole, demoUserAvatar } = useDemoControl()
+  const user = realUser ?? (simulatedUserId ? { name: demoUserName, role: demoUserRole, email: simulatedUserId, image: demoUserAvatar } : null)
   const itemCount = useCart((s) => s.itemCount())
 
   const isVendor = user?.role === 'VENDOR'
@@ -66,11 +71,11 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
         </div>
 
         <div className="overflow-y-auto h-[calc(100%-4rem)] px-2 py-4">
-          {session && user && (
+          {user && (
             <div className="mb-4 rounded-xl bg-neutral-50 p-4 dark:bg-neutral-900">
               <div className="flex items-center gap-3">
                 {user.avatarUrl ? (
-                  <img src={user.avatarUrl} alt="" className="h-10 w-10 rounded-full object-cover" />
+                  <Image src={user.avatarUrl} alt="" width={40} height={40} className="h-10 w-10 rounded-full object-cover" />
                 ) : (
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-100 text-sm font-bold text-primary-700 dark:bg-primary-900/40 dark:text-primary-300">
                     {user.name?.charAt(0).toUpperCase() ?? 'U'}
@@ -104,12 +109,17 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
                 </span>
               )}
             </MobileNavLink>
-            {session && (
+            {user && (
               <MobileNavLink href="/wishlist" onClick={onClose} icon={<Heart className="h-5 w-5" />}>
                 Wishlist
               </MobileNavLink>
             )}
-            {session && !isVendor && !isAdmin && (
+            {user && (
+              <MobileNavLink href="/messages" onClick={onClose} icon={<MessageSquare className="h-5 w-5" />}>
+                Messages
+              </MobileNavLink>
+            )}
+            {user && !isVendor && !isAdmin && (
               <MobileNavLink href="/orders" onClick={onClose} icon={<Package className="h-5 w-5" />}>
                 My Orders
               </MobileNavLink>
@@ -138,11 +148,18 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
 
           <div className="my-4 border-t border-neutral-200 dark:border-neutral-800" />
 
-          {session ? (
+          {user ? (
             <button
               onClick={() => {
-                signOut({ callbackUrl: '/' })
-                onClose()
+                if (simulatedUserId) {
+                  document.cookie = 'demo_user_email=; path=/; max-age=0'
+                  useDemoControl.getState().setSimulatedUser(null)
+                  onClose()
+                  window.location.reload()
+                } else {
+                  signOut({ callbackUrl: '/' })
+                  onClose()
+                }
               }}
               className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-800"
             >

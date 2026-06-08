@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, Playfair_Display } from 'next/font/google'
 import { ThemeProvider } from 'next-themes'
+import Script from 'next/script'
 import './globals.css'
 import { AuthProvider } from '@/components/auth-provider'
 import { Nav } from '@/components/nav'
@@ -9,6 +10,8 @@ import { PageViewTracker } from '@/components/page-view-tracker'
 import { DemoBanner } from '@/components/demo-banner'
 import { Toaster } from 'sonner'
 import { ErrorBoundaryWrapper } from '@/components/error-boundary-wrapper'
+import { DemoControlPanel } from '@/components/demo-control-panel'
+import { AbandonedCartTracker } from '@/components/abandoned-cart-tracker'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair' })
@@ -19,11 +22,13 @@ export const metadata: Metadata = {
     'A multi-vendor marketplace for authentic Filipino artisan goods. Handwoven textiles, pottery, woodcraft, artisan food, and more — direct from island makers.',
   keywords: ['marketplace', 'Filipino', 'artisan', 'handmade', 'Philippines', 'craft'],
   authors: [{ name: 'Likha' }],
+  robots: { index: true, follow: true },
   openGraph: {
     title: 'Likha — Discover Filipino Craft',
     description: 'Authentic artisanal goods, straight from the islands.',
     type: 'website',
     locale: 'en_PH',
+    siteName: 'Likha',
   },
 }
 
@@ -38,8 +43,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/favicon.svg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN && (
+          <Script
+            defer
+            data-domain={process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN}
+            src="https://plausible.io/js/script.js"
+            strategy="afterInteractive"
+          />
+        )}
       </head>
       <body className={`${inter.variable} ${playfair.variable} font-sans min-h-screen bg-neutral-50 text-neutral-800 antialiased dark:bg-neutral-950 dark:text-neutral-100`}>
         <a
@@ -53,8 +68,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <DemoBanner show={process.env.DEMO_MODE !== 'false'} />
             <Nav />
             <PageViewTracker />
+            <AbandonedCartTracker />
             <main id="main" className="min-h-[calc(100vh-4rem)]"><ErrorBoundaryWrapper>{children}</ErrorBoundaryWrapper></main>
             <Toaster richColors position="top-right" />
+            {process.env.DEMO_MODE !== 'false' && <DemoControlPanel />}
             <Footer />
           </AuthProvider>
         </ThemeProvider>
