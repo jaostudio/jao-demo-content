@@ -15,7 +15,6 @@ import { Toaster } from 'sonner'
 import { ErrorBoundaryWrapper } from '@/components/error-boundary-wrapper'
 import { AbandonedCartTracker } from '@/components/abandoned-cart-tracker'
 import { ServiceWorkerRegister } from '@/components/service-worker-register'
-import { PwaInstallPrompt } from '@/components/pwa-install-prompt'
 
 const DemoControlPanel = dynamic(() => import('@/components/demo-control-panel').then(m => m.DemoControlPanel))
 const LiveChatWidget = dynamic(() => import('@/components/live-chat-widget').then(m => m.LiveChatWidget))
@@ -84,7 +83,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               <main id="main" className="min-h-[calc(100vh-4rem)]"><ErrorBoundaryWrapper>{children}</ErrorBoundaryWrapper></main>
               <Toaster richColors position="top-right" />
               {process.env.DEMO_MODE !== 'false' && <DemoControlPanel />}
-              <PwaInstallPrompt />
               <ServiceWorkerRegister />
               <LiveChatWidget />
               <Footer />

@@ -31,10 +31,10 @@ export function PwaInstallPrompt() {
   return (
     <button
       onClick={handleInstall}
-      className="fixed bottom-20 right-4 z-40 flex items-center gap-2 rounded-2xl bg-primary-500 px-4 py-2.5 text-sm font-semibold text-white shadow-warm-md transition-all hover:bg-primary-600 hover:shadow-warm-lg"
+      aria-label="Install Likha"
+      className="flex h-10 w-10 items-center justify-center rounded-xl text-neutral-600 hover:bg-neutral-100 hover:text-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-neutral-100 transition-colors"
     >
-      <Download className="h-4 w-4" />
-      Install Likha
+      <Download className="h-5 w-5" />
     </button>
   )
 }

@@ -28,6 +28,7 @@ import { CurrencySwitcher } from './currency-switcher'
 import { LanguageSwitcher } from './language-switcher'
 import { NotificationDropdown } from './notification-dropdown'
 import { MessageUnreadBadge } from './message-unread-badge'
+import { PwaInstallPrompt } from './pwa-install-prompt'
 
 export function Nav() {
   const { data: session } = useSession()
@@ -104,6 +105,7 @@ export function Nav() {
           <div className="flex items-center gap-1">
             <CurrencySwitcher />
             <LanguageSwitcher />
+            <PwaInstallPrompt />
             {/* Theme toggle */}
             <button
               onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
