@@ -26,6 +26,7 @@ enum BookingStatus {
   PENDING
   CONFIRMED
   CANCELLED
+  COMPLETED
 }
 
 enum PaymentState {
@@ -48,21 +49,36 @@ model User {
   password  String
   role      UserRole @default(BUYER)
   image     String?
+  suspended Boolean  @default(false)
   createdAt DateTime @default(now())
 
-  listings         Listing[]
-  moderatedListings Listing[] @relation("ModeratedListings")
-  reviews          Review[]
-  bookings         Booking[]
-  orders           Order[]
-  vendorOrders     Order[]    @relation("VendorOrders")
-  metrics          VendorMetrics?
+  // Extended profile fields
+  bio         String?
+  avatarUrl   String?
+  location    String?
+  socialLinks Json?
+
+  // Relations
+  listings          Listing[]
+  moderatedListings Listing[]        @relation("ModeratedListings")
+  reviews           Review[]
+  bookings          Booking[]
+  orders            Order[]
+  vendorOrders      Order[]          @relation("VendorOrders")
+  metrics           VendorMetrics?
+  wishlist          WishlistItem[]
+  notifications     Notification[]
+  conversationsA    Conversation[]   @relation("ConvA")
+  conversationsB    Conversation[]   @relation("ConvB")
+  messagesSent      Message[]
 }
 
 model Category {
   id       String    @id @default(cuid())
   name     String
   slug     String    @unique
+  icon     String?
+  coverUrl String?
   listings Listing[]
 }
 
@@ -83,9 +99,18 @@ model Listing {
   createdAt     DateTime      @default(now())
   updatedAt     DateTime      @updatedAt
 
-  images  ListingImage[]
-  reviews Review[]
-  bookings Booking[]
+  // Extended fields
+  isService       Boolean   @default(false)
+  bookingDuration Int?
+  stock           Int       @default(1)
+  isFlashSale     Boolean   @default(false)
+  flashSalePrice  Int?
+  flashSaleEnds   DateTime?
+
+  images    ListingImage[]
+  reviews   Review[]
+  bookings  Booking[]
+  wishlist  WishlistItem[]
 }
 
 model ListingImage {
@@ -111,42 +136,44 @@ model Review {
 }
 
 model Booking {
-  id         String        @id @default(cuid())
-  date       DateTime
-  message    String?
-  status     BookingStatus @default(PENDING)
-  listingId  String
-  listing    Listing       @relation(fields: [listingId], references: [id], onDelete: Cascade)
-  buyerId    String
-  buyer      User          @relation(fields: [buyerId], references: [id])
-  createdAt  DateTime      @default(now())
-  updatedAt  DateTime      @updatedAt
+  id        String        @id @default(cuid())
+  date      DateTime
+  message   String?
+  status    BookingStatus @default(PENDING)
+  listingId String
+  listing   Listing       @relation(fields: [listingId], references: [id], onDelete: Cascade)
+  buyerId   String
+  buyer     User          @relation(fields: [buyerId], references: [id])
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
 }
 
 model VendorMetrics {
-  vendorId     String   @id
   vendor       User     @relation(fields: [vendorId], references: [id])
+  vendorId     String   @id
   listingCount Int      @default(0)
   orderCount   Int      @default(0)
   reviewCount  Int      @default(0)
+  totalRevenue Int      @default(0)
+  averageRating Float   @default(0)
   updatedAt    DateTime @updatedAt
 }
 
 model Order {
-  id                String          @id @default(cuid())
-  orderNumber       String          @unique
-  total             Int
-  currency          String          @default("usd")
-  paymentState      PaymentState    @default(PENDING_PAYMENT)
-  fulfillmentState  FulfillmentState @default(UNFULFILLED)
-  buyerId           String
-  buyer             User            @relation(fields: [buyerId], references: [id])
-  vendorId          String
-  vendor            User            @relation("VendorOrders", fields: [vendorId], references: [id])
-  email             String?
-  name              String?
-  address           String?
-  createdAt         DateTime        @default(now())
+  id               String           @id @default(cuid())
+  orderNumber      String           @unique
+  total            Int
+  currency         String           @default("php")
+  paymentState     PaymentState     @default(PENDING_PAYMENT)
+  fulfillmentState FulfillmentState @default(UNFULFILLED)
+  buyerId          String
+  buyer            User             @relation(fields: [buyerId], references: [id])
+  vendorId         String
+  vendor           User             @relation("VendorOrders", fields: [vendorId], references: [id])
+  email            String?
+  name             String?
+  address          String?
+  createdAt        DateTime         @default(now())
 
   items OrderItem[]
 }
@@ -159,4 +186,73 @@ model OrderItem {
   productName     String
   priceAtPurchase Int
   quantity        Int
+}
+
+model WishlistItem {
+  id        String   @id @default(cuid())
+  userId    String
+  listingId String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  listing   Listing  @relation(fields: [listingId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([userId, listingId])
+  @@index([userId])
+  @@index([listingId])
+}
+
+model Coupon {
+  id        String   @id @default(cuid())
+  code      String   @unique
+  kind      String   // "percent" or "fixed"
+  value     Int      // percent (e.g. 10) or fixed cents (e.g. 20000)
+  label     String
+  maxUses   Int      @default(0)
+  useCount  Int      @default(0)
+  active    Boolean  @default(true)
+  expiresAt DateTime?
+  createdAt DateTime @default(now())
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type      String
+  title     String
+  message   String
+  isRead    Boolean  @default(false)
+  link      String?
+  createdAt DateTime @default(now())
+
+  @@index([userId, isRead, createdAt])
+}
+
+model Conversation {
+  id             String    @id @default(cuid())
+  participantAId String
+  participantBId String
+  participantA   User      @relation("ConvA", fields: [participantAId], references: [id])
+  participantB   User      @relation("ConvB", fields: [participantBId], references: [id])
+  listingId      String?
+  messages       Message[]
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  @@unique([participantAId, participantBId, listingId])
+  @@index([participantAId])
+  @@index([participantBId])
+}
+
+model Message {
+  id             String       @id @default(cuid())
+  conversationId String
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  senderId       String
+  sender         User         @relation(fields: [senderId], references: [id])
+  content        String
+  isRead         Boolean      @default(false)
+  createdAt      DateTime     @default(now())
+
+  @@index([conversationId, createdAt])
 }

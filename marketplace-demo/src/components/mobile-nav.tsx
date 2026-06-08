@@ -1,0 +1,199 @@
+'use client'
+
+import Link from 'next/link'
+import { useSession, signOut } from 'next-auth/react'
+import {
+  X,
+  Home,
+  Package,
+  Heart,
+  ShoppingCart,
+  PlusCircle,
+  LayoutDashboard,
+  ShieldCheck,
+  LogIn,
+  UserPlus,
+  LogOut,
+  Leaf,
+} from 'lucide-react'
+import { useCart } from '@/lib/store/cart'
+
+interface MobileNavProps {
+  open: boolean
+  onClose: () => void
+}
+
+export function MobileNav({ open, onClose }: MobileNavProps) {
+  const { data: session } = useSession()
+  const user = session?.user as any
+  const itemCount = useCart((s) => s.itemCount())
+
+  const isVendor = user?.role === 'VENDOR'
+  const isAdmin = user?.role === 'ADMIN'
+
+  return (
+    <>
+      {/* Backdrop */}
+      <div
+        onClick={onClose}
+        className={`fixed inset-0 z-50 bg-neutral-900/50 backdrop-blur-sm transition-opacity md:hidden ${
+          open ? 'opacity-100' : 'pointer-events-none opacity-0'
+        }`}
+        aria-hidden="true"
+      />
+
+      {/* Drawer */}
+      <aside
+        className={`fixed right-0 top-0 z-50 h-full w-80 max-w-[85vw] transform border-l border-neutral-200 bg-white shadow-2xl transition-transform duration-200 ease-out dark:border-neutral-800 dark:bg-neutral-950 md:hidden ${
+          open ? 'translate-x-0' : 'translate-x-full'
+        }`}
+        aria-label="Mobile menu"
+      >
+        <div className="flex h-16 items-center justify-between border-b border-neutral-200 px-4 dark:border-neutral-800">
+          <Link href="/" onClick={onClose} className="flex items-center gap-2">
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary-500 text-white">
+              <Leaf className="h-5 w-5" strokeWidth={2.25} />
+            </div>
+            <span className="font-bold text-lg text-neutral-800 dark:text-neutral-100">Likha</span>
+          </Link>
+          <button
+            onClick={onClose}
+            aria-label="Close menu"
+            className="flex h-10 w-10 items-center justify-center rounded-xl text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-800"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        </div>
+
+        <div className="overflow-y-auto h-[calc(100%-4rem)] px-2 py-4">
+          {session && user && (
+            <div className="mb-4 rounded-xl bg-neutral-50 p-4 dark:bg-neutral-900">
+              <div className="flex items-center gap-3">
+                {user.avatarUrl ? (
+                  <img src={user.avatarUrl} alt="" className="h-10 w-10 rounded-full object-cover" />
+                ) : (
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-100 text-sm font-bold text-primary-700 dark:bg-primary-900/40 dark:text-primary-300">
+                    {user.name?.charAt(0).toUpperCase() ?? 'U'}
+                  </div>
+                )}
+                <div className="min-w-0 flex-1">
+                  <p className="truncate text-sm font-semibold text-neutral-800 dark:text-neutral-100">
+                    {user.name}
+                  </p>
+                  <p className="truncate text-xs text-neutral-500">{user.email}</p>
+                </div>
+              </div>
+              <p className="mt-2 inline-block rounded-full bg-primary-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary-700 dark:bg-primary-900/40 dark:text-primary-300">
+                {user.role}
+              </p>
+            </div>
+          )}
+
+          <nav className="space-y-0.5">
+            <MobileNavLink href="/" onClick={onClose} icon={<Home className="h-5 w-5" />}>
+              Home
+            </MobileNavLink>
+            <MobileNavLink href="/listings" onClick={onClose} icon={<Package className="h-5 w-5" />}>
+              Browse Crafts
+            </MobileNavLink>
+            <MobileNavLink href="/cart" onClick={onClose} icon={<ShoppingCart className="h-5 w-5" />}>
+              <span className="flex-1">Cart</span>
+              {itemCount > 0 && (
+                <span className="rounded-full bg-primary-500 px-2 py-0.5 text-[10px] font-bold text-white">
+                  {itemCount}
+                </span>
+              )}
+            </MobileNavLink>
+            {session && (
+              <MobileNavLink href="/wishlist" onClick={onClose} icon={<Heart className="h-5 w-5" />}>
+                Wishlist
+              </MobileNavLink>
+            )}
+            {session && !isVendor && !isAdmin && (
+              <MobileNavLink href="/orders" onClick={onClose} icon={<Package className="h-5 w-5" />}>
+                My Orders
+              </MobileNavLink>
+            )}
+            {isVendor && (
+              <>
+                <MobileNavLink href="/listings/create" onClick={onClose} icon={<PlusCircle className="h-5 w-5" />}>
+                  Create Listing
+                </MobileNavLink>
+                <MobileNavLink href="/dashboard" onClick={onClose} icon={<LayoutDashboard className="h-5 w-5" />}>
+                  Dashboard
+                </MobileNavLink>
+              </>
+            )}
+            {isAdmin && (
+              <>
+                <MobileNavLink href="/dashboard" onClick={onClose} icon={<LayoutDashboard className="h-5 w-5" />}>
+                  Dashboard
+                </MobileNavLink>
+                <MobileNavLink href="/admin" onClick={onClose} icon={<ShieldCheck className="h-5 w-5" />}>
+                  Admin Panel
+                </MobileNavLink>
+              </>
+            )}
+          </nav>
+
+          <div className="my-4 border-t border-neutral-200 dark:border-neutral-800" />
+
+          {session ? (
+            <button
+              onClick={() => {
+                signOut({ callbackUrl: '/' })
+                onClose()
+              }}
+              className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-800"
+            >
+              <LogOut className="h-5 w-5" />
+              Sign Out
+            </button>
+          ) : (
+            <div className="space-y-2">
+              <Link
+                href="/auth/signin"
+                onClick={onClose}
+                className="flex items-center justify-center gap-2 rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm font-semibold text-neutral-800 hover:bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-100 dark:hover:bg-neutral-900"
+              >
+                <LogIn className="h-4 w-4" />
+                Sign In
+              </Link>
+              <Link
+                href="/auth/register"
+                onClick={onClose}
+                className="flex items-center justify-center gap-2 rounded-xl bg-primary-500 px-4 py-3 text-sm font-semibold text-white hover:bg-primary-600 shadow-warm-sm"
+              >
+                <UserPlus className="h-4 w-4" />
+                Join Likha
+              </Link>
+            </div>
+          )}
+        </div>
+      </aside>
+    </>
+  )
+}
+
+function MobileNavLink({
+  href,
+  onClick,
+  children,
+  icon,
+}: {
+  href: string
+  onClick: () => void
+  children: React.ReactNode
+  icon?: React.ReactNode
+}) {
+  return (
+    <Link
+      href={href}
+      onClick={onClick}
+      className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-800 transition-colors"
+    >
+      {icon}
+      {children}
+    </Link>
+  )
+}

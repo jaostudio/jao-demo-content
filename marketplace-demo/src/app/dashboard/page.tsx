@@ -3,40 +3,109 @@ import { authOptions } from '@/lib/auth'
 import { redirect } from 'next/navigation'
 import { prisma } from '@/lib/prisma'
 import Link from 'next/link'
+import { MetricsCards } from '@/components/vendor/metrics-cards'
+import { RevenueChart } from '@/components/vendor/revenue-chart'
 
 export default async function DashboardPage() {
   const session = await getServerSession(authOptions)
   const user = session?.user as any
   if (!user || !(user.role === 'VENDOR' || user.role === 'ADMIN')) redirect('/auth/signin')
 
-  const listingsCount = await prisma.listing.count({ where: { vendorId: user.id } })
-  const ordersCount = await prisma.order.count({ where: { vendorId: user.id } })
-  const reviewsCount = await prisma.review.count({
-    where: { listing: { vendorId: user.id } },
-  })
+  const now = new Date()
+  const thirtyDaysAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000)
+
+  const [listingsCount, ordersCount, revenueAgg, avgRating, recentOrders] = await Promise.all([
+    prisma.listing.count({ where: { vendorId: user.id } }),
+    prisma.order.count({ where: { vendorId: user.id } }),
+    prisma.order.aggregate({
+      where: { vendorId: user.id, paymentState: 'PAID' },
+      _sum: { total: true },
+    }),
+    prisma.review.aggregate({
+      where: { listing: { vendorId: user.id } },
+      _avg: { rating: true },
+    }),
+    prisma.order.findMany({
+      where: { vendorId: user.id, createdAt: { gte: thirtyDaysAgo } },
+      select: { createdAt: true, total: true },
+      orderBy: { createdAt: 'asc' },
+    }),
+  ])
+
+  const totalRevenue = revenueAgg._sum.total ?? 0
+  const averageRating = avgRating._avg.rating ?? 0
+
+  const revenueByDate = new Map<string, number>()
+  for (const order of recentOrders) {
+    const dateKey = order.createdAt.toISOString().slice(0, 10)
+    revenueByDate.set(dateKey, (revenueByDate.get(dateKey) ?? 0) + order.total)
+  }
+
+  const chartData: { date: string; revenue: number }[] = []
+  for (let i = 29; i >= 0; i--) {
+    const d = new Date(now.getTime() - i * 24 * 60 * 60 * 1000)
+    const key = d.toISOString().slice(0, 10)
+    chartData.push({ date: key, revenue: revenueByDate.get(key) ?? 0 })
+  }
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12">
-      <h1 className="text-2xl font-bold tracking-tight">Dashboard</h1>
+      <div className="mb-8 flex items-center justify-between">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-widest text-primary-600 dark:text-primary-400">
+            Vendor Dashboard
+          </p>
+          <h1 className="mt-1 font-serif text-3xl font-bold text-neutral-800 dark:text-neutral-100 sm:text-4xl">
+            Welcome back, {user.name?.split(' ')[0] ?? 'Vendor'}
+          </h1>
+        </div>
+        <Link
+          href="/dashboard/listings"
+          className="inline-flex h-10 items-center gap-2 rounded-xl bg-primary-500 px-5 text-sm font-semibold text-white shadow-warm-sm transition-colors hover:bg-primary-600"
+        >
+          Add listing
+        </Link>
+      </div>
+
+      <MetricsCards
+        totalRevenue={totalRevenue}
+        totalOrders={ordersCount}
+        totalListings={listingsCount}
+        averageRating={averageRating}
+      />
+
+      <div className="mt-8">
+        <RevenueChart data={chartData} />
+      </div>
+
       <div className="mt-8 grid gap-6 sm:grid-cols-3">
-        <div className="rounded-xl border border-neutral-200 p-6 dark:border-neutral-800">
-          <p className="text-sm text-neutral-500">Listings</p>
-          <p className="mt-1 text-3xl font-bold">{listingsCount}</p>
-          <Link href="/dashboard/listings" className="mt-2 inline-block text-sm font-medium text-blue-600 hover:underline dark:text-blue-400">
-            Manage →
-          </Link>
-        </div>
-        <div className="rounded-xl border border-neutral-200 p-6 dark:border-neutral-800">
-          <p className="text-sm text-neutral-500">Orders</p>
-          <p className="mt-1 text-3xl font-bold">{ordersCount}</p>
-          <Link href="/dashboard/orders" className="mt-2 inline-block text-sm font-medium text-blue-600 hover:underline dark:text-blue-400">
-            View →
-          </Link>
-        </div>
-        <div className="rounded-xl border border-neutral-200 p-6 dark:border-neutral-800">
-          <p className="text-sm text-neutral-500">Reviews</p>
-          <p className="mt-1 text-3xl font-bold">{reviewsCount}</p>
-        </div>
+        <Link
+          href="/dashboard/listings"
+          className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-warm-sm transition-all hover:-translate-y-0.5 hover:shadow-warm-lg dark:border-neutral-800 dark:bg-neutral-900"
+        >
+          <p className="text-sm font-medium text-neutral-500">Manage Listings</p>
+          <p className="mt-1 text-sm text-neutral-700 dark:text-neutral-300">
+            View, edit, or submit your products for review.
+          </p>
+        </Link>
+        <Link
+          href="/dashboard/orders"
+          className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-warm-sm transition-all hover:-translate-y-0.5 hover:shadow-warm-lg dark:border-neutral-800 dark:bg-neutral-900"
+        >
+          <p className="text-sm font-medium text-neutral-500">Incoming Orders</p>
+          <p className="mt-1 text-sm text-neutral-700 dark:text-neutral-300">
+            Update fulfillment status and manage orders.
+          </p>
+        </Link>
+        <Link
+          href="/dashboard/profile"
+          className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-warm-sm transition-all hover:-translate-y-0.5 hover:shadow-warm-lg dark:border-neutral-800 dark:bg-neutral-900"
+        >
+          <p className="text-sm font-medium text-neutral-500">Store Profile</p>
+          <p className="mt-1 text-sm text-neutral-700 dark:text-neutral-300">
+            Edit your bio, avatar, location, and social links.
+          </p>
+        </Link>
       </div>
     </div>
   )

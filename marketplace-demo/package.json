@@ -26,13 +26,18 @@
     "lucide-react": "^0.500.0",
     "next": "^16.1.0",
     "next-auth": "^4.24.0",
+    "next-themes": "^0.4.6",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-error-boundary": "^6.1.2",
+    "recharts": "^3.8.1",
+    "sonner": "^2.0.7",
     "tailwind-merge": "^3.0.0",
     "zustand": "^5.0.14"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.0",
+    "@playwright/test": "^1.60.0",
     "@tailwindcss/postcss": "^4.0.0",
     "@types/bcryptjs": "^3.0.0",
     "@types/node": "^22.0.0",
