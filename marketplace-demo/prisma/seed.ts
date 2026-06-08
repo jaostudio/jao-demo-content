@@ -2,9 +2,11 @@ import { PrismaClient } from '@prisma/marketplace-client'
 import { PrismaLibSql } from '@prisma/adapter-libsql'
 import bcrypt from 'bcryptjs'
 
-const adapter = new PrismaLibSql({
-  url: process.env.DATABASE_URL ?? 'file:./dev.db',
-})
+const adapter = new PrismaLibSql(
+  process.env.TURSO_AUTH_TOKEN
+    ? { url: process.env.DATABASE_URL ?? 'file:./dev.db', authToken: process.env.TURSO_AUTH_TOKEN }
+    : { url: process.env.DATABASE_URL ?? 'file:./dev.db' },
+)
 const prisma = new PrismaClient({ adapter })
 
 // All passwords are 'likha2026' for demo purposes
@@ -497,6 +499,18 @@ const LISTINGS = [
     category: 'food-drink',
     image: '/products/buko-pie.jpg',
   },
+  // ===== Banaue Rice Terraces Print (art-prints, vendor Lorna) =====
+  {
+    title: 'Banaue Rice Terraces Photo Print',
+    slug: 'banaue-rice-terraces-print',
+    description:
+      'Limited-edition fine art photograph of the Banaue Rice Terraces. Printed on archival matte paper (A3, 11.7×16.5 inches) with pigment inks. Each print is signed and numbered by the photographer. Shipped flat in a rigid mailer.',
+    price: php(8500),
+    stock: 20,
+    vendor: 'lorna@likha.ph',
+    category: 'art-prints',
+    image: '/products/coffee-bundle.jpg',
+  },
 ]
 
 const REVIEWS = [
@@ -547,6 +561,24 @@ const REVIEWS = [
     author: 'isabel@test.ph',
     rating: 4,
     text: 'Lightweight, look expensive. Bought two pairs as gifts.',
+  },
+  {
+    listing: 'cordillera-shoulder-bag',
+    author: 'paolo@test.ph',
+    rating: 5,
+    text: 'My wife uses this daily. The weave is tight, the leather trim is quality. Got compliments everywhere.',
+  },
+  {
+    listing: 'terracotta-planter-30',
+    author: 'liza@test.ph',
+    rating: 4,
+    text: 'Beautiful warm terracotta color. Fits a large monstera perfectly. Only wish it had a drainage hole.',
+  },
+  {
+    listing: 'ceramic-pour-over',
+    author: 'isabel@test.ph',
+    rating: 5,
+    text: 'Makes my morning coffee ritual feel intentional. The pour is smooth, no drips. Stunning glaze.',
   },
 ]
 
@@ -608,6 +640,34 @@ const ORDERS = [
     paymentState: 'PENDING_PAYMENT' as const,
     fulfillmentState: 'UNFULFILLED' as const,
     hoursAgo: 2,
+  },
+  {
+    orderNumber: 'LIKHA-005',
+    buyer: 'isabel@test.ph',
+    vendor: 'teresa@likha.ph',
+    items: [
+      { slug: 'capiz-pendant-light', name: 'Capiz Shell Pendant Light', price: php(2800), qty: 1 },
+    ],
+    email: 'isabel@test.ph',
+    name: 'Isabel Reyes',
+    address: '24 Maginhawa St., Quezon City, Metro Manila 1101',
+    paymentState: 'PAID' as const,
+    fulfillmentState: 'PROCESSING' as const,
+    daysAgo: 5,
+  },
+  {
+    orderNumber: 'LIKHA-006',
+    buyer: 'paolo@test.ph',
+    vendor: 'lorna@likha.ph',
+    items: [
+      { slug: 'narra-bowl', name: 'Narra Salad Bowl', price: php(1200), qty: 1 },
+    ],
+    email: 'paolo@test.ph',
+    name: 'Paolo Cruz',
+    address: '12 Ayala Ave., Makati City, Metro Manila 1226',
+    paymentState: 'PAID' as const,
+    fulfillmentState: 'UNFULFILLED' as const,
+    daysAgo: 0,
   },
 ]
 
@@ -673,6 +733,27 @@ const WISHLIST = [
   { user: 'liza@test.ph', listings: ['inabel-blanket-twin', 'bamboo-tray-set'] },
 ]
 
+const COUPONS = [
+  {
+    code: 'LIKHA10',
+    kind: 'PERCENTAGE',
+    value: 10,
+    label: '10% off your order',
+    maxUses: 100,
+    useCount: 0,
+    active: true,
+  },
+  {
+    code: 'WELCOME',
+    kind: 'FIXED',
+    value: 20000,
+    label: '₱200 off your first order',
+    maxUses: 50,
+    useCount: 0,
+    active: true,
+  },
+]
+
 const CONVERSATIONS = [
   {
     participants: ['isabel@test.ph', 'maria@likha.ph'],
@@ -718,9 +799,12 @@ async function main() {
 
   // Wipe everything in dependency order
   console.log('  ↺ Clearing existing data...')
+  await prisma.bundleItem.deleteMany()
+  await prisma.bundle.deleteMany()
   await prisma.message.deleteMany()
   await prisma.conversation.deleteMany()
   await prisma.notification.deleteMany()
+  await prisma.coupon.deleteMany()
   await prisma.wishlistItem.deleteMany()
   await prisma.booking.deleteMany()
   await prisma.review.deleteMany()
@@ -890,6 +974,13 @@ async function main() {
   }
   console.log(`     Created ${NOTIFICATIONS.length} notifications`)
 
+  // Coupons
+  console.log('  🏷️  Seeding coupons...')
+  for (const c of COUPONS) {
+    await prisma.coupon.create({ data: c })
+  }
+  console.log(`     Created ${COUPONS.length} coupons`)
+
   // Wishlist
   console.log('  ❤️  Seeding wishlist...')
   let wishlistCount = 0
@@ -972,6 +1063,36 @@ async function main() {
     })
   }
   console.log('     Vendor metrics computed')
+
+  // Bundles
+  console.log('  🎁 Seeding bundles...')
+  const bundleData = [
+    {
+      title: 'Textile Lover\'s Bundle',
+      description: 'Save 15% when you buy the Inabel Blanket, Kalinga Wrap Skirt, and T\'boli T\'nalak Cloth together. Perfect for bringing Filipino weaving traditions into your home.',
+      discountPct: 15,
+      items: ['inabel-blanket-twin', 'kalinga-wrap-skirt', 'tboli-tnalak-cloth'],
+    },
+    {
+      title: 'Coffee Connoisseur Bundle',
+      description: 'Taste three of the Philippines\' finest single-origin coffees — Sagada Arabica, Batangas Barako, and Benguet — at 12% off the individual prices.',
+      discountPct: 12,
+      items: ['sagada-arabica-250g', 'barako-250g', 'benguet-250g'],
+    },
+  ]
+  for (const b of bundleData) {
+    const listingIds = b.items.map((slug) => listingMap.get(slug)).filter(Boolean) as string[]
+    if (listingIds.length < 2) continue
+    const bundle = await prisma.bundle.create({
+      data: {
+        title: b.title,
+        description: b.description,
+        discountPct: b.discountPct,
+        items: { create: listingIds.map((listingId) => ({ listingId })) },
+      },
+    })
+  }
+  console.log('  🎁 Bundles seeded')
 
   console.log('\n✅ Seed complete!')
   console.log('\n   Test accounts (password: likha2026):')
