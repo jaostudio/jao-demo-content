@@ -86,6 +86,11 @@ export function ListingCard({ listing, priority = false }: ListingCardProps) {
             )}
           </div>
 
+          {/* Category badge */}
+          <div className="absolute bottom-3 left-3 z-10 rounded-md bg-black/60 px-2 py-0.5 text-[10px] font-medium text-white backdrop-blur-sm">
+            {listing.category.name}
+          </div>
+
           {/* Top-right: wishlist */}
           <div className="absolute right-3 top-3">
             <WishlistButton
@@ -99,10 +104,7 @@ export function ListingCard({ listing, priority = false }: ListingCardProps) {
 
         {/* Content */}
         <div className="p-4">
-          <p className="text-[10px] font-semibold uppercase tracking-wider text-primary-600 dark:text-primary-400">
-            {listing.category.name}
-          </p>
-          <h3 className="mt-1 line-clamp-2 font-semibold text-neutral-800 transition-colors group-hover:text-primary-600 dark:text-neutral-100 dark:group-hover:text-primary-400">
+          <h3 className="line-clamp-2 font-semibold text-neutral-800 transition-colors group-hover:text-primary-600 dark:text-neutral-100 dark:group-hover:text-primary-400">
             {listing.title}
           </h3>
           <div className="mt-2 flex items-center gap-1.5 text-xs text-neutral-500">

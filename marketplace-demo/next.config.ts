@@ -10,15 +10,7 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: '**' },
     ],
   },
-  async redirects() {
-    return [
-      {
-        source: '/products/peptide-bracelet.jpg',
-        destination: '/products/mother-of-pearl-bracelet.jpg',
-        permanent: true,
-      },
-    ]
-  },
+
 }
 
 export default nextConfig

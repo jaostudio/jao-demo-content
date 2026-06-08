@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import { motion, useReducedMotion, type Variants } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 
@@ -58,7 +57,7 @@ export function CategoryGrid({ categories }: CategoryGridProps) {
           </Link>
         </motion.div>
 
-        <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
+        <div className="flex flex-wrap justify-center gap-3">
           {categories.map((cat) => (
             <motion.div
               key={cat.id}
@@ -74,50 +73,17 @@ export function CategoryGrid({ categories }: CategoryGridProps) {
 }
 
 function CategoryCard({ category }: { category: CategoryTile }) {
-  const reduce = useReducedMotion()
-
   return (
     <Link
       href={`/listings?category=${category.slug}`}
-      className="group relative block aspect-[4/5] overflow-hidden rounded-2xl bg-neutral-200 shadow-warm-sm dark:bg-neutral-800"
+      className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-neutral-100 px-5 py-2.5 text-sm font-medium text-neutral-700 transition-colors hover:border-primary-200 hover:bg-primary-50 hover:text-primary-600 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:border-primary-800 dark:hover:bg-primary-900/20 dark:hover:text-primary-400"
     >
-      {/* Image */}
-      {category.coverUrl ? (
-        <motion.div
-          className="absolute inset-0"
-          whileHover={reduce ? undefined : { scale: 1.08 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-        >
-          <Image
-            src={category.coverUrl}
-            alt={category.name}
-            fill
-            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-            className="object-cover"
-          />
-        </motion.div>
-      ) : (
-        <div className="flex h-full w-full items-center justify-center text-5xl font-bold text-neutral-500">
-          {category.name.charAt(0)}
-        </div>
+      <span>{category.name}</span>
+      {category.listingCount !== undefined && (
+        <span className="text-[11px] text-neutral-400 dark:text-neutral-500">
+          {category.listingCount}
+        </span>
       )}
-
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/85 via-neutral-900/20 to-transparent transition-opacity duration-300 group-hover:from-neutral-900/95" />
-
-      {/* Glassmorphism label */}
-      <div className="absolute inset-x-3 bottom-3 sm:inset-x-4 sm:bottom-4">
-        <div className="rounded-xl border border-white/20 bg-white/10 p-3 backdrop-blur-md transition-all duration-300 group-hover:border-white/30 group-hover:bg-white/15 group-hover:translate-y-[-2px] sm:p-4">
-          <h3 className="font-semibold text-white text-sm sm:text-base">
-            {category.name}
-          </h3>
-          {category.listingCount !== undefined && (
-            <p className="mt-0.5 text-[11px] text-white/70">
-              {category.listingCount} {category.listingCount === 1 ? 'item' : 'items'}
-            </p>
-          )}
-        </div>
-      </div>
     </Link>
   )
 }

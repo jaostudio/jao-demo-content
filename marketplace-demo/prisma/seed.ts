@@ -186,6 +186,62 @@ const LISTINGS = [
     isService: true,
     bookingDuration: 30,
   },
+  // Maria's new products
+  {
+    title: 'Heritage Kamiseta',
+    slug: 'heritage-kamiseta',
+    description:
+      'Hand-embroidered traditional Filipino blouse made from piña-seda (pineapple-silk blend). The embroidery pattern is inspired by the Cordillera rice terraces. Each piece takes two weeks to complete by master embroiderers from Lumban, Laguna.',
+    price: php(4500),
+    stock: 0,
+    vendor: 'maria@likha.ph',
+    category: 'fashion',
+    image: '/products/heritage-kamiseta.jpg',
+  },
+  {
+    title: 'Handwoven Banig Mat (Single)',
+    slug: 'handwoven-banig-mat',
+    description:
+      'Traditional sleeping mat handwoven from pandan leaves. Natural beige with indigo stripes. Single size 36×72 inches. Rolled for shipping. These mats are used in Filipino homes for afternoon naps and as picnic blankets.',
+    price: php(1200),
+    stock: 2,
+    vendor: 'maria@likha.ph',
+    category: 'textiles',
+    image: '/products/banig-mat.jpg',
+  },
+  {
+    title: 'Pinukpok Abaca Wall Hanging',
+    slug: 'pinukpok-abaca-wall-hanging',
+    description:
+      'Hand-beaten abaca fiber wall art. The "pinukpok" technique involves pounding abaca stalks until the fibers separate, then weaving them into intricate patterns. 60×90cm. Natural ecru color with earth-tone stripes.',
+    price: php(2800),
+    stock: 7,
+    vendor: 'maria@likha.ph',
+    category: 'textiles',
+    image: '/products/pinukpok-abaca.jpg',
+  },
+  {
+    title: 'Pineapple Fiber Scarf',
+    slug: 'pineapple-fiber-scarf',
+    description:
+      'Luxuriously soft scarf woven from piña (pineapple fiber). The fiber is hand-stripped from pineapple leaves, a tradition that dates back to the Spanish colonial era. Lightweight, breathable, and naturally lustrous. 30×150cm.',
+    price: php(1800),
+    stock: 6,
+    vendor: 'maria@likha.ph',
+    category: 'fashion',
+    image: '/products/pineapple-scarf.jpg',
+  },
+  {
+    title: 'Abaca Market Tote',
+    slug: 'abaca-market-tote',
+    description:
+      'Eco-friendly market bag woven from abaca fiber. Reinforced leather handles, internal pocket, folds flat for storage. 40×35cm. Strong enough for your weekly wet market run, beautiful enough for the office.',
+    price: php(750),
+    stock: 15,
+    vendor: 'maria@likha.ph',
+    category: 'textiles',
+    image: '/products/abaca-tote.jpg',
+  },
 
   // ===== Juan — Taal Pottery (6 total: 5 products + 1 service) =====
   {
@@ -257,6 +313,40 @@ const LISTINGS = [
     isService: true,
     bookingDuration: 120,
   },
+  // Juan's new products
+  {
+    title: 'Ceramic Vase (Tall)',
+    slug: 'ceramic-vase-tall',
+    description:
+      'Tall ceramic vase with a narrow neck, thrown on a wheel in two sections and joined by hand. Glazed in celadon green. 40cm tall. Holds a generous bouquet of native flowers — santan, sampaguita, or wild ferns.',
+    price: php(2500),
+    stock: 0,
+    vendor: 'juan@likha.ph',
+    category: 'pottery',
+    image: '/products/ceramic-vase.jpg',
+  },
+  {
+    title: 'Itneg Wine Goblet (set of 2)',
+    slug: 'itneg-wine-goblet',
+    description:
+      'Hand-thrown wine goblets inspired by traditional Itneg drinking vessels. Each goblet is unique — the glaze creates unpredictable patterns during firing. 12cm tall. Dishwasher safe on gentle cycle.',
+    price: php(1500),
+    stock: 8,
+    vendor: 'juan@likha.ph',
+    category: 'home-decor',
+    image: '/products/itneg-wine-glass.jpg',
+  },
+  {
+    title: 'Garden Ceramic Turtle',
+    slug: 'garden-ceramic-turtle',
+    description:
+      'Whimsical garden ornament hand-sculpted from terracotta. Each turtle has a unique expression and shell pattern. 20×25cm. Suitable for garden, patio, or as a quirky indoor planter (succulents recommended).',
+    price: php(1200),
+    stock: 7,
+    vendor: 'juan@likha.ph',
+    category: 'pottery',
+    image: '/products/garden-turtle.jpg',
+  },
 
   // ===== Lorna — Ilocos Heritage (5 products, no service) =====
   {
@@ -313,6 +403,62 @@ const LISTINGS = [
     vendor: 'lorna@likha.ph',
     category: 'woodcraft',
     image: '/products/mortar-pestle.jpg',
+  },
+  // Lorna's new products
+  {
+    title: 'Rattan Sunburst Mirror',
+    slug: 'rattan-sunburst-mirror',
+    description:
+      'Round mirror framed in hand-woven rattan strips radiating outward like the sun. 60cm diameter. A statement piece that brings warmth and texture to any wall. The rattan is sourced from sustainable farms in Palawan.',
+    price: php(3800),
+    stock: 0,
+    vendor: 'lorna@likha.ph',
+    category: 'home-decor',
+    image: '/products/rattan-mirror.jpg',
+  },
+  {
+    title: 'Small Bamboo Basket',
+    slug: 'small-bamboo-basket',
+    description:
+      'Hand-woven bamboo basket with a tight weave. Perfect for storing fruits, bread, or as a catch-all on your entryway table. 20cm diameter, 15cm tall. Made from locally-harvested bamboo treated against pests.',
+    price: php(580),
+    stock: 3,
+    vendor: 'lorna@likha.ph',
+    category: 'woodcraft',
+    image: '/products/bamboo-basket.jpg',
+  },
+  {
+    title: 'Wood Carved Serving Platter',
+    slug: 'wood-carved-platter',
+    description:
+      'Hand-carved from a single slab of acacia wood. The natural grain runs the length of the platter — no two pieces are alike. Food-safe oil finish. 45×20cm. Perfect for cheese, charcuterie, or as a serving piece for lechon.',
+    price: php(2200),
+    stock: 6,
+    vendor: 'lorna@likha.ph',
+    category: 'woodcraft',
+    image: '/products/wood-platter.jpg',
+  },
+  {
+    title: 'Mahogany Picture Frame (A4)',
+    slug: 'mahogany-picture-frame',
+    description:
+      'Solid Philippine mahogany picture frame. Hand-mitered corners, brass hanging hardware, and a standing easel back. Holds A4 (21×29.7cm) photos or artwork. The rich reddish-brown wood darkens beautifully with age.',
+    price: php(980),
+    stock: 12,
+    vendor: 'lorna@likha.ph',
+    category: 'woodcraft',
+    image: '/products/mahogany-frame.jpg',
+  },
+  {
+    title: 'Hand-painted Mural Canvas (60×90cm)',
+    slug: 'hand-painted-mural-canvas',
+    description:
+      'Original acrylic painting on stretched canvas by a collaborating Ilocano artist. Depicts scenes from daily life in the Ilocos region — farmers in the field, carabaos, and the iconic Vigan cobblestone streets. 60×90cm, ready to hang.',
+    price: php(6500),
+    stock: 5,
+    vendor: 'lorna@likha.ph',
+    category: 'art-prints',
+    image: '/products/mural-canvas.jpg',
   },
 
   // ===== Rico — Davao Gold (6 total: 5 products + 1 service) =====
@@ -396,6 +542,40 @@ const LISTINGS = [
     isService: true,
     bookingDuration: 60,
   },
+  // Rico's new products
+  {
+    title: 'Benguet Arabica Coffee 200g',
+    slug: 'benguet-arabica-200g',
+    description:
+      'Single-origin Arabica from the highlands of Benguet. Grown at 1,400m elevation, this coffee has a bright acidity with notes of green apple and honey. Medium roast. Whole bean, 200g.',
+    price: php(420),
+    stock: 3,
+    vendor: 'rico@likha.ph',
+    category: 'food-drink',
+    image: '/products/benguet-arabica.jpg',
+  },
+  {
+    title: 'Davao Wild Honey 250g',
+    slug: 'davao-wild-honey-250g',
+    description:
+      'Raw, unfiltered honey harvested from stingless bees (Kiwot) in the forests of Davao. The bees forage on wild coffee blossoms and native fruiting trees, giving the honey a complex floral-citrus profile. 250g jar.',
+    price: php(550),
+    stock: 12,
+    vendor: 'rico@likha.ph',
+    category: 'food-drink',
+    image: '/products/davao-honey.jpg',
+  },
+  {
+    title: 'Cacao Tea Bags (12-pack)',
+    slug: 'cacao-tea-bags-12pack',
+    description:
+      'Roasted cacao shell tea bags. Made from the husks of our single-origin Davao cacao beans. Naturally caffeine-free, rich in antioxidants, with a subtle chocolate aroma. 12 individually wrapped tea bags.',
+    price: php(280),
+    stock: 20,
+    vendor: 'rico@likha.ph',
+    category: 'food-drink',
+    image: '/products/cacao-tea.jpg',
+  },
 
   // ===== Teresa — Cebu Craft (5 products, no service) =====
   {
@@ -452,6 +632,62 @@ const LISTINGS = [
     vendor: 'teresa@likha.ph',
     category: 'home-decor',
     image: '/products/capiz-window.jpg',
+  },
+  // Teresa's new products
+  {
+    title: 'Limited Edition Shell Necklace',
+    slug: 'limited-shell-necklace',
+    description:
+      'Statement necklace hand-strung with capiz discs, mother-of-pearl drops, and small cowrie shells. Each piece is one-of-a-kind — the shells are hand-selected for color and luster. 45cm length with adjustable chain.',
+    price: php(2800),
+    stock: 0,
+    vendor: 'teresa@likha.ph',
+    category: 'fashion',
+    image: '/products/shell-necklace.jpg',
+  },
+  {
+    title: 'Puka Shell Anklet',
+    slug: 'puka-shell-anklet',
+    description:
+      'Hand-strung puka shell anklet with gold-tone accent beads. Adjustable from 23cm to 28cm. Lightweight and comfortable for daily wear. The puka shells are naturally tumbled by the sea — no two are the same.',
+    price: php(380),
+    stock: 1,
+    vendor: 'teresa@likha.ph',
+    category: 'fashion',
+    image: '/products/puka-anklet.jpg',
+  },
+  {
+    title: 'Capiz Coaster Set (4)',
+    slug: 'capiz-coaster-set-4',
+    description:
+      'Set of 4 hexagonal capiz shell coasters mounted on cork backing. 10cm diameter each. The iridescent shells catch the light beautifully — each coaster shimmers differently depending on the angle. Wipe clean with a damp cloth.',
+    price: php(680),
+    stock: 15,
+    vendor: 'teresa@likha.ph',
+    category: 'home-decor',
+    image: '/products/capiz-coaster.jpg',
+  },
+  {
+    title: 'Shell Wind Chime',
+    slug: 'shell-wind-chime',
+    description:
+      'Capiz shell wind chime with a bamboo top piece and coconut shell striker. 8 strings of graduated shell discs. The shells produce a soft, tinkling sound — like waves on a Cebu shoreline. 60cm total length.',
+    price: php(1400),
+    stock: 10,
+    vendor: 'teresa@likha.ph',
+    category: 'home-decor',
+    image: '/products/shell-wind-chime.jpg',
+  },
+  {
+    title: 'Capiz Candle Holder (Set of 3)',
+    slug: 'capiz-candle-holder-set-3',
+    description:
+      'Set of 3 hand-assembled capiz shell candle holders. Holds standard tea light candles. The shells cast a warm, dancing glow when lit. Heights: 8cm, 12cm, 15cm. Perfect for dinner parties or a relaxing evening.',
+    price: php(1200),
+    stock: 8,
+    vendor: 'teresa@likha.ph',
+    category: 'home-decor',
+    image: '/products/capiz-candle-holder.jpg',
   },
 
   // ===== Chef Andres — Pampanga Kitchen (5 products, no service) =====
@@ -510,6 +746,41 @@ const LISTINGS = [
     category: 'food-drink',
     image: '/products/buko-pie.jpg',
   },
+  // Andres' new products
+  {
+    title: 'Mangosteen Vinegar 250ml',
+    slug: 'mangosteen-vinegar-250ml',
+    description:
+      'Artisanal vinegar made from fermented mangosteen peel. Fruity and tangy with a distinctive purple-pink hue. A specialty of the Davao region. Perfect for salad dressings, dipping sauces, or deglazing pans.',
+    price: php(280),
+    stock: 3,
+    vendor: 'andres@likha.ph',
+    category: 'food-drink',
+    image: '/products/mangosteen-vinegar.jpg',
+  },
+  {
+    title: 'Coconut Sugar 500g',
+    slug: 'coconut-sugar-500g',
+    description:
+      'Organic coconut sugar from the sap of coconut blossoms. Low glycemic index, rich in minerals. Caramel-like flavor that works beautifully in coffee, baking, and traditional Filipino desserts. 500g resealable pack.',
+    price: php(320),
+    stock: 25,
+    vendor: 'andres@likha.ph',
+    category: 'food-drink',
+    image: '/products/coconut-sugar.jpg',
+  },
+  {
+    title: 'Dried Mangoes 200g',
+    slug: 'dried-mangoes-200g',
+    description:
+      'Sun-dried carabao mangoes from Guimaras — the sweetest mangoes in the world. No added sugar, no preservatives. Naturally sweet and chewy. 200g resealable pack. A classic Filipino pasalubong.',
+    price: php(250),
+    stock: 30,
+    vendor: 'andres@likha.ph',
+    category: 'food-drink',
+    image: '/products/dried-mangoes.jpg',
+  },
+
   // ===== Banaue Rice Terraces Print (art-prints, vendor Lorna) =====
   {
     title: 'Banaue Rice Terraces Photo Print',
@@ -521,6 +792,29 @@ const LISTINGS = [
     vendor: 'lorna@likha.ph',
     category: 'art-prints',
     image: '/products/banaue-terraces.jpg',
+  },
+  // Lorna's art prints
+  {
+    title: 'Cordillera Mountain Landscape Print',
+    slug: 'cordillera-landscape-print',
+    description:
+      'Fine art photograph of the Cordillera mountain range at sunrise. Printed on archival matte paper (A3, 11.7×16.5 inches) with pigment inks. The mist rising over the pine forests creates a serene, meditative composition.',
+    price: php(5500),
+    stock: 10,
+    vendor: 'lorna@likha.ph',
+    category: 'art-prints',
+    image: '/products/cordillera-print.jpg',
+  },
+  {
+    title: 'Katipunan Flag Replica Print',
+    slug: 'katipunan-flag-replica-print',
+    description:
+      'Reproduction of the original Katipunan flag from 1892, scanned from the archives of the National Museum. Printed on textured cotton canvas using archival inks. 40×60cm, unframed. A powerful piece of Filipino heritage for your wall.',
+    price: php(2500),
+    stock: 8,
+    vendor: 'lorna@likha.ph',
+    category: 'art-prints',
+    image: '/products/katipunan-flag.jpg',
   },
 ]
 
@@ -590,6 +884,72 @@ const REVIEWS = [
     author: 'isabel@test.ph',
     rating: 5,
     text: 'Makes my morning coffee ritual feel intentional. The pour is smooth, no drips. Stunning glaze.',
+  },
+  {
+    listing: 'pineapple-fiber-scarf',
+    author: 'isabel@test.ph',
+    rating: 5,
+    text: 'So soft and elegant. The pineapple fiber has a natural sheen. Bought one for myself and one as a gift.',
+  },
+  {
+    listing: 'benguet-arabica-200g',
+    author: 'paolo@test.ph',
+    rating: 5,
+    text: 'Bright, clean finish. My new favorite morning coffee.',
+  },
+  {
+    listing: 'davao-wild-honey-250g',
+    author: 'isabel@test.ph',
+    rating: 5,
+    text: 'Extraordinary honey. Complex floral notes, drizzle on kesong puti — perfection.',
+  },
+  {
+    listing: 'hand-painted-mural-canvas',
+    author: 'liza@test.ph',
+    rating: 5,
+    text: 'The painting captures Ilocos perfectly. I tear up every time I look at it — reminds me of my grandmother\'s province.',
+  },
+  {
+    listing: 'capiz-coaster-set-4',
+    author: 'isabel@test.ph',
+    rating: 4,
+    text: 'Beautiful on the dining table. The shells catch light differently throughout the day.',
+  },
+  {
+    listing: 'cordillera-landscape-print',
+    author: 'liza@test.ph',
+    rating: 5,
+    text: 'Stunning photograph. The morning mist over the mountains is breathtaking. High quality print.',
+  },
+  {
+    listing: 'dried-mangoes-200g',
+    author: 'paolo@test.ph',
+    rating: 4,
+    text: 'Tastes like summer. Sweet, chewy, no preservatives. My kids finished the pack in one sitting.',
+  },
+  {
+    listing: 'abaca-market-tote',
+    author: 'liza@test.ph',
+    rating: 5,
+    text: 'Perfect market bag. Sturdy, expands to fit a lot, folds flat. The leather handles are a nice touch.',
+  },
+  {
+    listing: 'inabel-blanket-twin',
+    author: 'liza@test.ph',
+    rating: 5,
+    text: 'Added a second one to my home. The quality is consistent and the indigo blue is beautiful.',
+  },
+  {
+    listing: 'narra-bowl',
+    author: 'isabel@test.ph',
+    rating: 4,
+    text: 'Bought this as a gift for my niece\'s wedding. The wood grain is spectacular.',
+  },
+  {
+    listing: 'cebu-guitar-pick',
+    author: 'paolo@test.ph',
+    rating: 5,
+    text: 'My guitarist friend loved these. The shell picks produce a brighter tone than plastic.',
   },
 ]
 
@@ -680,6 +1040,93 @@ const ORDERS = [
     fulfillmentState: 'UNFULFILLED' as const,
     daysAgo: 0,
   },
+  {
+    orderNumber: 'LIKHA-007',
+    buyer: 'isabel@test.ph',
+    vendor: 'juan@likha.ph',
+    items: [
+      { slug: 'itneg-wine-goblet', name: 'Itneg Wine Goblet (set of 2)', price: php(1500), qty: 2 },
+    ],
+    email: 'isabel@test.ph',
+    name: 'Isabel Reyes',
+    address: '24 Maginhawa St., Quezon City, Metro Manila 1101',
+    paymentState: 'PAID' as const,
+    fulfillmentState: 'FULFILLED' as const,
+    daysAgo: 10,
+  },
+  {
+    orderNumber: 'LIKHA-008',
+    buyer: 'paolo@test.ph',
+    vendor: 'teresa@likha.ph',
+    items: [
+      { slug: 'limited-shell-necklace', name: 'Limited Edition Shell Necklace', price: php(2800), qty: 1 },
+    ],
+    email: 'paolo@test.ph',
+    name: 'Paolo Cruz',
+    address: '12 Ayala Ave., Makati City, Metro Manila 1226',
+    paymentState: 'PAID' as const,
+    fulfillmentState: 'RETURNED' as const,
+    daysAgo: 4,
+  },
+  {
+    orderNumber: 'LIKHA-009',
+    buyer: 'liza@test.ph',
+    vendor: 'andres@likha.ph',
+    items: [
+      { slug: 'dried-mangoes-200g', name: 'Dried Mangoes 200g', price: php(250), qty: 3 },
+      { slug: 'coconut-sugar-500g', name: 'Coconut Sugar 500g', price: php(320), qty: 1 },
+    ],
+    email: 'liza@test.ph',
+    name: 'Liza Mendoza',
+    address: '88 Gorordo Ave., Cebu City, Cebu 6000',
+    paymentState: 'PAID' as const,
+    fulfillmentState: 'FULFILLED' as const,
+    daysAgo: 6,
+  },
+  {
+    orderNumber: 'LIKHA-010',
+    buyer: 'isabel@test.ph',
+    vendor: 'lorna@likha.ph',
+    items: [
+      { slug: 'cordillera-landscape-print', name: 'Cordillera Mountain Landscape Print', price: php(5500), qty: 1 },
+    ],
+    email: 'isabel@test.ph',
+    name: 'Isabel Reyes',
+    address: '24 Maginhawa St., Quezon City, Metro Manila 1101',
+    paymentState: 'PAID' as const,
+    fulfillmentState: 'PROCESSING' as const,
+    daysAgo: 2,
+  },
+  {
+    orderNumber: 'LIKHA-011',
+    buyer: 'paolo@test.ph',
+    vendor: 'rico@likha.ph',
+    items: [
+      { slug: 'benguet-arabica-200g', name: 'Benguet Arabica Coffee 200g', price: php(420), qty: 1 },
+      { slug: 'davao-wild-honey-250g', name: 'Davao Wild Honey 250g', price: php(550), qty: 1 },
+    ],
+    email: 'paolo@test.ph',
+    name: 'Paolo Cruz',
+    address: '12 Ayala Ave., Makati City, Metro Manila 1226',
+    paymentState: 'PENDING_PAYMENT' as const,
+    fulfillmentState: 'UNFULFILLED' as const,
+    hoursAgo: 1,
+  },
+  {
+    orderNumber: 'LIKHA-012',
+    buyer: 'liza@test.ph',
+    vendor: 'maria@likha.ph',
+    items: [
+      { slug: 'pineapple-fiber-scarf', name: 'Pineapple Fiber Scarf', price: php(1800), qty: 1 },
+      { slug: 'abaca-market-tote', name: 'Abaca Market Tote', price: php(750), qty: 1 },
+    ],
+    email: 'liza@test.ph',
+    name: 'Liza Mendoza',
+    address: '88 Gorordo Ave., Cebu City, Cebu 6000',
+    paymentState: 'PAID' as const,
+    fulfillmentState: 'PROCESSING' as const,
+    daysAgo: 1,
+  },
 ]
 
 const BOOKINGS = [
@@ -737,11 +1184,46 @@ const NOTIFICATIONS = [
     isRead: false,
     daysAgo: 1,
   },
+  {
+    user: 'isabel@test.ph',
+    type: 'order_update',
+    title: 'Your order LIKHA-007 has been delivered!',
+    message: 'Juan dela Cruz marked your order as delivered. We hope you love your Itneg Wine Goblets!',
+    isRead: false,
+    link: '/orders',
+    daysAgo: 10,
+  },
+  {
+    user: 'liza@test.ph',
+    type: 'order_update',
+    title: 'Your order LIKHA-009 has been delivered!',
+    message: 'Chef Andres marked your order as delivered. Enjoy your dried mangoes and coconut sugar!',
+    isRead: true,
+    link: '/orders',
+    daysAgo: 6,
+  },
+  {
+    user: 'paolo@test.ph',
+    type: 'message',
+    title: 'Teresa replied to your inquiry',
+    message: 'Teresa Lim responded to your message about the Limited Edition Shell Necklace.',
+    isRead: false,
+    daysAgo: 2,
+  },
+  {
+    user: 'liza@test.ph',
+    type: 'review_reply',
+    title: 'Maria responded to your review',
+    message: 'Maria Santos replied to your review of the Abaca Market Tote.',
+    isRead: false,
+    daysAgo: 1,
+  },
 ]
 
 const WISHLIST = [
-  { user: 'isabel@test.ph', listings: ['capiz-pendant-light', 'sagada-arabica-250g', 'vigan-chair'] },
-  { user: 'liza@test.ph', listings: ['inabel-blanket-twin', 'bamboo-tray-set'] },
+  { user: 'isabel@test.ph', listings: ['capiz-pendant-light', 'sagada-arabica-250g', 'vigan-chair', 'pineapple-fiber-scarf', 'itneg-wine-goblet', 'cordillera-landscape-print', 'davao-wild-honey-250g', 'abaca-market-tote', 'hand-painted-mural-canvas', 'garden-ceramic-turtle'] },
+  { user: 'paolo@test.ph', listings: ['benguet-arabica-200g', 'cacao-tea-bags-12pack', 'capiz-candle-holder-set-3', 'small-bamboo-basket', 'wood-carved-platter'] },
+  { user: 'liza@test.ph', listings: ['inabel-blanket-twin', 'bamboo-tray-set', 'pineapple-fiber-scarf', 'ceramic-vase-tall', 'hand-painted-mural-canvas', 'coconut-sugar-500g', 'shell-wind-chime', 'mangosteen-vinegar-250ml'] },
 ]
 
 const COUPONS = [
@@ -763,6 +1245,24 @@ const COUPONS = [
     useCount: 0,
     active: true,
   },
+  {
+    code: 'FREESHIP',
+    kind: 'FIXED',
+    value: 10000,
+    label: 'Free shipping on your next order',
+    maxUses: 30,
+    useCount: 0,
+    active: true,
+  },
+  {
+    code: 'SUMMER15',
+    kind: 'PERCENTAGE',
+    value: 15,
+    label: '15% off summer collection',
+    maxUses: 20,
+    useCount: 0,
+    active: true,
+  },
 ]
 
 const CONVERSATIONS = [
@@ -781,6 +1281,38 @@ const CONVERSATIONS = [
     messages: [
       { sender: 'liza@test.ph', content: 'Hi! Can I bring a friend to the workshop?' },
       { sender: 'juan@likha.ph', content: 'Of course! Additional person is ₱1,000. I will update the booking.' },
+    ],
+  },
+  {
+    participants: ['liza@test.ph', 'teresa@likha.ph'],
+    listingSlug: 'capiz-coaster-set-4',
+    messages: [
+      { sender: 'liza@test.ph', content: 'Hi Teresa! Do you do custom colors for the capiz coasters?' },
+      { sender: 'teresa@likha.ph', content: 'Hello Liza! Yes, I can source different shell tones. What color scheme are you looking for?' },
+    ],
+  },
+  {
+    participants: ['paolo@test.ph', 'rico@likha.ph'],
+    listingSlug: 'benguet-arabica-200g',
+    messages: [
+      { sender: 'paolo@test.ph', content: 'Rico, when was the Benguet batch roasted?' },
+      { sender: 'rico@likha.ph', content: 'Just last week! Fresh batch, roasted on June 2. It is drinking beautifully now.' },
+    ],
+  },
+  {
+    participants: ['isabel@test.ph', 'lorna@likha.ph'],
+    listingSlug: 'cordillera-landscape-print',
+    messages: [
+      { sender: 'isabel@test.ph', content: 'Lorna, is this print available in a larger size?' },
+      { sender: 'lorna@likha.ph', content: 'Yes! We can do A2 (16.5×23.4 inches) as a special order. Just add a note to your order.' },
+    ],
+  },
+  {
+    participants: ['liza@test.ph', 'maria@likha.ph'],
+    listingSlug: 'abaca-market-tote',
+    messages: [
+      { sender: 'liza@test.ph', content: 'Maria, do you have the abaca tote in natural (undyed) color?' },
+      { sender: 'maria@likha.ph', content: 'We do! The natural ecru version is available. I will update the listing with more color options.' },
     ],
   },
 ]
@@ -1108,9 +1640,21 @@ async function main() {
     },
     {
       title: 'Coffee Connoisseur Bundle',
-      description: 'Taste three of the Philippines\' finest single-origin coffees — Sagada Arabica, Batangas Barako, and Benguet — at 12% off the individual prices.',
+      description: 'Taste three of the Philippines\' finest single-origin coffees — Sagada Arabica, Batangas Barako, and Benguet Arabica — at 12% off the individual prices.',
       discountPct: 12,
-      items: ['sagada-arabica-250g', 'barako-250g', 'benguet-250g'],
+      items: ['sagada-arabica-250g', 'barako-coffee-200g', 'benguet-arabica-200g'],
+    },
+    {
+      title: 'Home Decor Bundle',
+      description: 'Save 10% on our most popular home decor items — Capiz Pendant Light, Bamboo Tray Set, and Mini Pot Trio. Light up your home with Filipino craftsmanship.',
+      discountPct: 10,
+      items: ['capiz-pendant-light', 'bamboo-tray-set', 'mini-pot-trio'],
+    },
+    {
+      title: 'Kitchen Pantry Bundle',
+      description: 'Stock your kitchen with the best of Filipino artisan food — Tocino, Longganisa, Coconut Sugar, and Suka ng Tuba. Save 10% when you buy the set.',
+      discountPct: 10,
+      items: ['tocino', 'longganisa-10pc', 'coconut-sugar-500g', 'suka-ng-tuba'],
     },
   ]
   for (const b of bundleData) {
