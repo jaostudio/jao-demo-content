@@ -109,7 +109,7 @@ export function VendorSpotlight({ vendors }: VendorSpotlightProps) {
       </div>
 
       {/* Mobile scroll indicator */}
-      <p className="mt-2 text-center text-xs text-neutral-500 md:hidden">
+      <p className="mt-2 text-center text-xs text-neutral-500 dark:text-neutral-400 md:hidden">
         ← Swipe to see more makers →
       </p>
     </section>

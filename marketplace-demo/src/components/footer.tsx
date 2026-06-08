@@ -68,7 +68,7 @@ export function Footer() {
           <FooterColumn title="Legal" links={footerLinks.legal} />
         </div>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-neutral-200 pt-8 text-sm text-neutral-500 dark:border-neutral-800 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-4 border-t border-neutral-200 pt-8 text-sm text-neutral-500 dark:text-neutral-400 dark:border-neutral-800 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Likha Marketplace. Made with care in the Philippines.</p>
           <p className="text-xs">Demo portfolio project — not a real store.</p>
         </div>
