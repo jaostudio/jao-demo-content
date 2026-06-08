@@ -77,7 +77,7 @@ export function HeroSection() {
           style={{ fontFamily: 'var(--font-playfair)' }}
         >
           Discover{' '}
-          <span className="italic text-secondary-300">Filipino</span> Craft
+          <span className="italic text-secondary-200">Filipino</span> Craft
         </motion.h1>
 
         <motion.p
