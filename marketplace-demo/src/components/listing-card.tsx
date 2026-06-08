@@ -125,7 +125,7 @@ export function ListingCard({ listing, priority = false }: ListingCardProps) {
               <Price amountCents={hasFlashSale ? listing.flashSalePrice! : listing.price} />
             </p>
             {hasFlashSale && (
-              <p className="text-xs text-neutral-400 line-through">
+              <p className="text-xs text-neutral-500 line-through dark:text-neutral-400">
                 <Price amountCents={listing.price} />
               </p>
             )}

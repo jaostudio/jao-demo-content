@@ -883,6 +883,28 @@ async function main() {
   }
   console.log(`     Created ${listingMap.size} listings`)
 
+  // Variants for selected listings
+  const inabelId = listingMap.get('inabel-blanket-twin')
+  if (inabelId) {
+    await prisma.listingVariant.createMany({
+      data: [
+        { listingId: inabelId, label: 'Twin', priceAdj: 0, stock: 5 },
+        { listingId: inabelId, label: 'Queen', priceAdj: php(800), stock: 3 },
+        { listingId: inabelId, label: 'King', priceAdj: php(1500), stock: 2 },
+      ],
+    })
+  }
+  const cordilleraBagId = listingMap.get('cordillera-shoulder-bag')
+  if (cordilleraBagId) {
+    await prisma.listingVariant.createMany({
+      data: [
+        { listingId: cordilleraBagId, label: 'Brown', priceAdj: 0, stock: 10 },
+        { listingId: cordilleraBagId, label: 'Black', priceAdj: 0, stock: 7 },
+        { listingId: cordilleraBagId, label: 'Tan', priceAdj: 0, stock: 4 },
+      ],
+    })
+  }
+
   // Reviews
   console.log('  ⭐ Seeding reviews...')
   for (const r of REVIEWS) {

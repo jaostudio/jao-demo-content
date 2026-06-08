@@ -25,6 +25,7 @@ import { useDemoControl } from '@/lib/store/demo-control'
 import { useState, useRef, useEffect } from 'react'
 import { MobileNav } from './mobile-nav'
 import { CurrencySwitcher } from './currency-switcher'
+import { LanguageSwitcher } from './language-switcher'
 import { NotificationDropdown } from './notification-dropdown'
 import { MessageUnreadBadge } from './message-unread-badge'
 
@@ -102,6 +103,7 @@ export function Nav() {
           {/* Right side actions */}
           <div className="flex items-center gap-1">
             <CurrencySwitcher />
+            <LanguageSwitcher />
             {/* Theme toggle */}
             <button
               onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}

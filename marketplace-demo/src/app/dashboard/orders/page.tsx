@@ -1,5 +1,4 @@
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/lib/auth'
+import { getSessionUser } from '@/lib/auth'
 import { redirect } from 'next/navigation'
 import { prisma } from '@/lib/prisma'
 import Link from 'next/link'
@@ -20,8 +19,7 @@ function FulfillmentBadge({ state }: { state: string }) {
 }
 
 export default async function DashboardOrdersPage() {
-  const session = await getServerSession(authOptions)
-  const user = session?.user as any
+  const user = await getSessionUser()
   if (!user || !(user.role === 'VENDOR' || user.role === 'ADMIN')) redirect('/auth/signin')
 
   const orders = await prisma.order.findMany({
@@ -66,9 +64,15 @@ export default async function DashboardOrdersPage() {
                   <p className="font-bold text-neutral-800 dark:text-neutral-100">
                     ₱{(order.total / 100).toLocaleString()}
                   </p>
-                  <p className="text-xs text-neutral-400 capitalize">{order.paymentState.toLowerCase().replace(/_/g, ' ')}</p>
+                  <p className="text-xs text-neutral-500 capitalize dark:text-neutral-400">{order.paymentState.toLowerCase().replace(/_/g, ' ')}</p>
                 </div>
-                <FulfillmentActions orderId={order.id} fulfillmentState={order.fulfillmentState} />
+                <FulfillmentActions
+                  orderId={order.id}
+                  fulfillmentState={order.fulfillmentState}
+                  orderNumber={order.orderNumber}
+                  buyerName={order.buyer.name}
+                  items={order.items.map((i) => ({ name: i.productName, quantity: i.quantity }))}
+                />
               </div>
             </div>
           </div>

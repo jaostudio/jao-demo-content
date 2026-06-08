@@ -8,6 +8,7 @@ import { Price } from '@/components/price'
 import { CancelOrderButton } from './cancel-order-button'
 import { ReorderButton } from '@/components/reorder-button'
 import { OrderActions } from '@/components/order-actions'
+import { MessageMakerButton } from '@/components/message-maker-button'
 
 export default async function OrderDetailPage({
   params,
@@ -129,12 +130,7 @@ export default async function OrderDetailPage({
             )}
           </div>
         </div>
-        <Link
-          href="/messages"
-          className="hidden h-9 items-center justify-center rounded-xl border border-neutral-300 px-4 text-sm font-medium text-neutral-800 transition-colors hover:bg-neutral-100 sm:inline-flex dark:border-neutral-700 dark:text-neutral-100 dark:hover:bg-neutral-800"
-        >
-          Message maker
-        </Link>
+        <MessageMakerButton />
       </div>
 
       {/* Two-column grid */}

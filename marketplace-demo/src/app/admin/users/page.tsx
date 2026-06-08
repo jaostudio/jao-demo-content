@@ -1,13 +1,11 @@
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/lib/auth'
+import { getSessionUser } from '@/lib/auth'
 import { redirect } from 'next/navigation'
 import { prisma } from '@/lib/prisma'
 import { UserRoleManager } from './user-role-manager'
 import { UserSuspendToggle } from './user-suspend-toggle'
 
 export default async function AdminUsersPage() {
-  const session = await getServerSession(authOptions)
-  const user = session?.user as any
+  const user = await getSessionUser()
   if (!user || user.role !== 'ADMIN') redirect('/auth/signin')
 
   const users = await prisma.user.findMany({

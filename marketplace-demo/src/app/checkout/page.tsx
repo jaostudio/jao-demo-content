@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useSession } from 'next-auth/react'
+import { useDemoControl } from '@/lib/store/demo-control'
 import { motion } from 'framer-motion'
 import {
   CreditCard,
@@ -33,6 +34,9 @@ import {
 export default function CheckoutPage() {
   const router = useRouter()
   const { data: session, status } = useSession()
+  const { simulatedUserId, demoUserName, demoUserRole, demoUserAvatar } = useDemoControl()
+  const isAuthenticated = !!session || !!simulatedUserId
+  const demoUser = simulatedUserId ? { name: demoUserName, email: simulatedUserId, role: demoUserRole, image: demoUserAvatar } : null
   const { items, total, clearCart, couponCode } = useCart()
   const cartTotal = total()
   const cartItems = items
@@ -64,7 +68,7 @@ export default function CheckoutPage() {
     ? PROVINCES_BY_REGION[region as RegionValue] ?? []
     : []
 
-  if (status === 'loading') {
+  if (status === 'loading' && !simulatedUserId) {
     return (
       <div className="mx-auto max-w-3xl px-4 py-24 text-center">
         <Loader2 className="mx-auto h-8 w-8 animate-spin text-primary-500" />
@@ -72,7 +76,7 @@ export default function CheckoutPage() {
     )
   }
 
-  if (!session) {
+  if (!isAuthenticated) {
     return (
       <div className="mx-auto max-w-lg px-4 py-24 text-center">
         <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-primary-50 dark:bg-primary-900/20">
@@ -226,12 +230,12 @@ export default function CheckoutPage() {
             onStepEnter={() => setStep(1)}
           >
             <div className="grid gap-4 sm:grid-cols-2">
-              <Field label="Full name" name="name" defaultValue={session.user?.name ?? ''} required />
+              <Field label="Full name" name="name" defaultValue={demoUser?.name ?? session?.user?.name ?? ''} required />
               <Field
                 label="Email"
                 name="email"
                 type="email"
-                defaultValue={session.user?.email ?? ''}
+                defaultValue={demoUser?.email ?? session?.user?.email ?? ''}
                 required
               />
               <Field
@@ -560,7 +564,7 @@ export default function CheckoutPage() {
                         className="object-cover"
                       />
                     ) : (
-                      <div className="flex h-full w-full items-center justify-center text-sm font-bold text-neutral-400">
+                      <div className="flex h-full w-full items-center justify-center text-sm font-bold text-neutral-500">
                         {item.name.charAt(0)}
                       </div>
                     )}

@@ -1,8 +1,7 @@
 'use server'
 
 import { prisma } from '@/lib/prisma'
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/lib/auth'
+import { getSessionUser } from '@/lib/auth'
 import { revalidatePath } from 'next/cache'
 
 function slugify(text: string): string {
@@ -10,8 +9,7 @@ function slugify(text: string): string {
 }
 
 export async function createCategory(formData: FormData) {
-  const session = await getServerSession(authOptions)
-  const user = session?.user as any
+  const user = await getSessionUser()
   if (!user || user.role !== 'ADMIN') throw new Error('Unauthorized')
 
   const name = formData.get('name') as string
@@ -32,8 +30,7 @@ export async function createCategory(formData: FormData) {
 }
 
 export async function updateCategory(categoryId: string, formData: FormData) {
-  const session = await getServerSession(authOptions)
-  const user = session?.user as any
+  const user = await getSessionUser()
   if (!user || user.role !== 'ADMIN') throw new Error('Unauthorized')
 
   const name = formData.get('name') as string
@@ -55,8 +52,7 @@ export async function updateCategory(categoryId: string, formData: FormData) {
 }
 
 export async function deleteCategory(categoryId: string) {
-  const session = await getServerSession(authOptions)
-  const user = session?.user as any
+  const user = await getSessionUser()
   if (!user || user.role !== 'ADMIN') throw new Error('Unauthorized')
 
   const listingCount = await prisma.listing.count({ where: { categoryId } })

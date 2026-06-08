@@ -1,5 +1,4 @@
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/lib/auth'
+import { getSessionUser } from '@/lib/auth'
 import { redirect, notFound } from 'next/navigation'
 import { prisma } from '@/lib/prisma'
 import { EditListingForm } from '@/components/vendor/edit-listing-form'
@@ -9,8 +8,7 @@ export default async function EditListingPage({
 }: {
   params: Promise<{ id: string }>
 }) {
-  const session = await getServerSession(authOptions)
-  const user = session?.user as any
+  const user = await getSessionUser()
   if (!user || user.role !== 'VENDOR') redirect('/auth/signin')
 
   const { id } = await params
@@ -21,6 +19,7 @@ export default async function EditListingPage({
       include: {
         images: { orderBy: { sortOrder: 'asc' }, select: { url: true } },
         category: { select: { slug: true } },
+        variants: { orderBy: { label: 'asc' }, select: { label: true, priceAdj: true, stock: true } },
       },
     }),
     prisma.category.findMany({
@@ -53,6 +52,7 @@ export default async function EditListingPage({
         initialIsService={listing.isService}
         initialCategorySlug={listing.category.slug}
         initialImages={listing.images.map((img) => img.url)}
+        initialVariants={listing.variants.map((v) => ({ label: v.label, priceAdj: v.priceAdj, stock: v.stock }))}
         categories={categories}
       />
     </div>

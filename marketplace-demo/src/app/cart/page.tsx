@@ -247,8 +247,8 @@ function VendorGroup({
   saving,
 }: {
   group: CartGroup
-  onUpdateQuantity: (id: string, q: number) => void
-  onRemove: (id: string) => void
+  onUpdateQuantity: (id: string, q: number, variantLabel?: string | null) => void
+  onRemove: (id: string, variantLabel?: string | null) => void
   onSaveForLater: (id: string) => void
   saving: string | null
 }) {
@@ -296,7 +296,7 @@ function VendorGroup({
                       className="object-cover"
                     />
                   ) : (
-                    <div className="flex h-full w-full items-center justify-center text-xl font-bold text-neutral-400">
+                    <div className="flex h-full w-full items-center justify-center text-xl font-bold text-neutral-600 dark:text-neutral-300">
                       {item.name.charAt(0)}
                     </div>
                   )}
@@ -310,6 +310,9 @@ function VendorGroup({
                   >
                     {item.name}
                   </Link>
+                  {item.variantLabel && (
+                    <p className="mt-0.5 text-xs text-neutral-500">{item.variantLabel}</p>
+                  )}
                   <p className="mt-1 text-sm font-medium text-neutral-700 dark:text-neutral-300">
                     <Price amountCents={item.price} />
                   </p>
@@ -317,7 +320,7 @@ function VendorGroup({
                   <div className="mt-2.5 flex flex-wrap items-center gap-2">
                     <div className="inline-flex items-center rounded-lg border border-neutral-200 dark:border-neutral-700">
                       <button
-                        onClick={() => onUpdateQuantity(item.listingId, item.quantity - 1)}
+                        onClick={() => onUpdateQuantity(item.listingId, item.quantity - 1, item.variantLabel)}
                         aria-label="Decrease quantity"
                         className="flex h-8 w-8 items-center justify-center text-neutral-600 transition-colors hover:bg-neutral-100 disabled:opacity-40 dark:text-neutral-300 dark:hover:bg-neutral-800"
                       >
@@ -327,7 +330,7 @@ function VendorGroup({
                         {item.quantity}
                       </span>
                       <button
-                        onClick={() => onUpdateQuantity(item.listingId, item.quantity + 1)}
+                        onClick={() => onUpdateQuantity(item.listingId, item.quantity + 1, item.variantLabel)}
                         aria-label="Increase quantity"
                         className="flex h-8 w-8 items-center justify-center text-neutral-600 transition-colors hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-800"
                       >
@@ -343,7 +346,7 @@ function VendorGroup({
                       <span>{saving === item.listingId ? 'Saving…' : 'Save for later'}</span>
                     </button>
                     <button
-                      onClick={() => onRemove(item.listingId)}
+                      onClick={() => onRemove(item.listingId, item.variantLabel)}
                       aria-label="Remove item"
                       className="inline-flex items-center gap-1 rounded-lg px-2 py-1 text-xs font-medium text-neutral-500 transition-colors hover:bg-red-50 hover:text-red-600 dark:hover:bg-red-900/20"
                     >

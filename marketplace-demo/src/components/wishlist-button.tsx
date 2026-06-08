@@ -4,6 +4,7 @@ import { useState, useTransition } from 'react'
 import { Heart } from 'lucide-react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { useSession } from 'next-auth/react'
+import { useDemoControl } from '@/lib/store/demo-control'
 import { useRouter } from 'next/navigation'
 import { toast } from 'sonner'
 import { toggleWishlistItem } from '@/lib/actions/wishlist'
@@ -22,6 +23,8 @@ export function WishlistButton({
   variant = 'plain',
 }: WishlistButtonProps) {
   const { data: session } = useSession()
+  const { simulatedUserId } = useDemoControl()
+  const isAuthenticated = !!session || !!simulatedUserId
   const router = useRouter()
   const [wished, setWished] = useState(initialWished)
   const [pending, startTransition] = useTransition()
@@ -48,7 +51,7 @@ export function WishlistButton({
     e.preventDefault()
     e.stopPropagation()
 
-    if (!session) {
+    if (!isAuthenticated) {
       router.push('/auth/signin')
       return
     }

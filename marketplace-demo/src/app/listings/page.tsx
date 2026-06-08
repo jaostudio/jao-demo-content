@@ -204,7 +204,7 @@ export default async function ListingsPage({ searchParams }: ListingsPageProps) 
 
       {/* Filter toggles */}
       <details className="mb-6 group">
-        <summary className="cursor-pointer text-sm font-medium text-neutral-600 hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-100">
+        <summary className="cursor-pointer text-sm font-medium text-neutral-700 hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-100">
           <span className="inline-flex items-center gap-1.5">
             <SlidersHorizontal className="h-4 w-4" />
             Filters
@@ -241,7 +241,7 @@ export default async function ListingsPage({ searchParams }: ListingsPageProps) 
             </button>
             <Link
               href={buildHref({ q, sort, category })}
-              className="inline-flex h-10 items-center justify-center rounded-xl border border-neutral-200 bg-white px-5 text-sm font-medium text-neutral-600 hover:bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-400"
+              className="inline-flex h-10 items-center justify-center rounded-xl border border-neutral-200 bg-white px-5 text-sm font-medium text-neutral-700 hover:bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-400"
             >
               Reset
             </Link>

@@ -1,13 +1,11 @@
 'use server'
 
 import { prisma } from '@/lib/prisma'
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/lib/auth'
+import { getSessionUser } from '@/lib/auth'
 import { revalidatePath } from 'next/cache'
 
 async function requireAdmin() {
-  const session = await getServerSession(authOptions)
-  const user = session?.user as any
+  const user = await getSessionUser()
   if (!user || user.role !== 'ADMIN') throw new Error('Unauthorized')
   return user
 }

@@ -2,7 +2,13 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { ImagePlus, Loader2, Plus, X } from 'lucide-react'
+import { ImagePlus, Loader2, Plus, Tag, X } from 'lucide-react'
+
+interface VariantRow {
+  label: string
+  priceAdj: number
+  stock: number
+}
 
 interface EditListingFormProps {
   listingId: string
@@ -13,6 +19,7 @@ interface EditListingFormProps {
   initialIsService: boolean
   initialCategorySlug: string
   initialImages: string[]
+  initialVariants?: VariantRow[]
   categories: { slug: string; name: string }[]
 }
 
@@ -25,6 +32,7 @@ export function EditListingForm({
   initialIsService,
   initialCategorySlug,
   initialImages,
+  initialVariants,
   categories,
 }: EditListingFormProps) {
   const router = useRouter()
@@ -33,6 +41,7 @@ export function EditListingForm({
   const [imageUrls, setImageUrls] = useState<string[]>(
     initialImages.length > 0 ? initialImages : [''],
   )
+  const [variants, setVariants] = useState<VariantRow[]>(initialVariants ?? [])
 
   function addImageField() {
     setImageUrls([...imageUrls, ''])
@@ -40,6 +49,20 @@ export function EditListingForm({
 
   function removeImageField(index: number) {
     setImageUrls(imageUrls.filter((_, i) => i !== index))
+  }
+
+  function addVariant() {
+    setVariants([...variants, { label: '', priceAdj: 0, stock: 1 }])
+  }
+
+  function removeVariant(index: number) {
+    setVariants(variants.filter((_, i) => i !== index))
+  }
+
+  function updateVariant(index: number, field: keyof VariantRow, value: string | number) {
+    const updated = [...variants]
+    ;(updated[index] as any)[field] = value
+    setVariants(updated)
   }
 
   function updateImageUrl(index: number, value: string) {
@@ -57,6 +80,12 @@ export function EditListingForm({
     const validUrls = imageUrls.filter(Boolean)
     if (validUrls.length > 0) {
       form.set('imageUrls', JSON.stringify(validUrls))
+    }
+    const validVariants = variants.filter((v) => v.label.trim())
+    if (validVariants.length > 0) {
+      form.set('variants', JSON.stringify(validVariants))
+    } else {
+      form.set('variants', '[]')
     }
 
     const res = await fetch(`/api/listings/${listingId}`, {
@@ -189,6 +218,60 @@ export function EditListingForm({
           >
             <Plus className="h-4 w-4" />
             Add another image
+          </button>
+        </div>
+      </div>
+
+      <div>
+        <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300">
+          Variants <span className="text-xs font-normal text-neutral-400">(optional)</span>
+        </label>
+        <p className="mt-0.5 text-xs text-neutral-400">
+          Size, color, or other options. Customers choose before adding to cart.
+        </p>
+        <div className="mt-2 space-y-2">
+          {variants.map((v, i) => (
+            <div key={i} className="flex items-center gap-2">
+              <input
+                type="text"
+                value={v.label}
+                onChange={(e) => updateVariant(i, 'label', e.target.value)}
+                placeholder="e.g. Small, Red, 30cm"
+                className="block w-40 rounded-xl border border-neutral-200 bg-white px-3 py-2.5 text-sm placeholder:text-neutral-400 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-400/30 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-100"
+              />
+              <div className="relative">
+                <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-xs text-neutral-400">±₱</span>
+                <input
+                  type="number"
+                  value={v.priceAdj}
+                  onChange={(e) => updateVariant(i, 'priceAdj', parseInt(e.target.value) || 0)}
+                  className="block w-24 rounded-xl border border-neutral-200 bg-white py-2.5 pl-8 pr-3 text-sm focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-400/30 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-100"
+                />
+              </div>
+              <input
+                type="number"
+                value={v.stock}
+                onChange={(e) => updateVariant(i, 'stock', parseInt(e.target.value) || 0)}
+                min={0}
+                placeholder="Stock"
+                className="block w-20 rounded-xl border border-neutral-200 bg-white px-3 py-2.5 text-sm placeholder:text-neutral-400 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-400/30 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-100"
+              />
+              <button
+                type="button"
+                onClick={() => removeVariant(i)}
+                className="flex h-10 w-10 items-center justify-center rounded-xl text-neutral-400 hover:bg-neutral-100 hover:text-red-500 dark:hover:bg-neutral-800"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+          ))}
+          <button
+            type="button"
+            onClick={addVariant}
+            className="inline-flex items-center gap-1.5 rounded-xl border border-dashed border-neutral-300 px-4 py-2 text-sm font-medium text-neutral-500 hover:border-neutral-400 hover:text-neutral-700 dark:border-neutral-700 dark:text-neutral-400 dark:hover:border-neutral-600 dark:hover:text-neutral-300"
+          >
+            <Tag className="h-4 w-4" />
+            Add variant
           </button>
         </div>
       </div>

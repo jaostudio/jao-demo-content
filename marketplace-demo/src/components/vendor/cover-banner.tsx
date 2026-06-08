@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { MapPin, Star, Facebook, Instagram } from 'lucide-react'
 import type { StorefrontData } from '@/lib/vendor'
+import { MessageVendorButton } from '@/components/message-vendor-button'
 
 interface CoverBannerProps {
   vendor: Pick<StorefrontData, 'id' | 'name' | 'avatarUrl' | 'location' | 'bio' | 'socialLinks'>
@@ -98,17 +99,11 @@ export function CoverBanner({ vendor, metrics, isOwner }: CoverBannerProps) {
                 Edit profile
               </a>
             ) : (
-              <button
-                type="button"
-                disabled
-                title="Messaging launches in a future update"
-                className="inline-flex h-10 cursor-not-allowed items-center justify-center gap-1.5 rounded-xl border border-neutral-200 bg-white px-5 text-sm font-semibold text-neutral-400 dark:border-neutral-700 dark:bg-neutral-900"
-              >
-                Contact maker
-                <span className="text-[10px] uppercase tracking-wider text-neutral-400">
-                  Soon
-                </span>
-              </button>
+              <MessageVendorButton
+                vendorId={vendor.id}
+                label="Contact maker"
+                className="h-10 rounded-xl border border-neutral-200 bg-white px-5 text-sm font-semibold text-neutral-700 hover:bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-800"
+              />
             )}
           </div>
         </div>
@@ -123,7 +118,7 @@ export function CoverBanner({ vendor, metrics, isOwner }: CoverBannerProps) {
                   className={`h-4 w-4 ${
                     i < Math.round(metrics.averageRating)
                       ? 'fill-amber-400 text-amber-400'
-                      : 'text-neutral-300 dark:text-neutral-600'
+                      : 'text-neutral-500 dark:text-neutral-400'
                   }`}
                 />
               ))}

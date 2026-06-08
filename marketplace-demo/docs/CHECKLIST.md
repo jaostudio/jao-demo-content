@@ -61,7 +61,7 @@ Use this list to verify every feature works as intended. Mark `[x]` when tested 
 | 4.7 | Sort – price low to high, high to low, newest, highest rated | [x] | |
 | 4.8 | Active filters display with remove buttons | [x] | FilterPill component + Clear all link |
 | 4.9 | Product detail page – image gallery (lightbox) | [x] | Tested via smoke test |
-| 4.10 | Product variant selector (size/color) – if applicable | [ ] | |
+| 4.10 | Product variant selector (size/color) – if applicable | [x] | Label chips on product detail, tracked through cart to order |
 | 4.11 | Stock indicator ("In stock", "Only X left", "Out of stock") | [x] | |
 | 4.12 | Flash sale badge + countdown timer (if on sale) | [x] | useCountdown hook on listing card |
 | 4.13 | Vendor info card on product page (avatar, name, contact button) | [x] | Tested via smoke test ("Visit store") |
@@ -175,7 +175,7 @@ Use this list to verify every feature works as intended. Mark `[x]` when tested 
 | # | Feature | Status | Notes |
 |---|---------|--------|-------|
 | 11.1 | Multi-currency switcher (PHP / USD) – changes displayed prices | [x] | Zustand store + navbar toggle, Price component |
-| 11.2 | Multi-language (English / Tagalog) – i18n with `next-intl` | [ ] | |
+| 11.2 | Multi-language (English / Tagalog) – i18n with `next-intl` | [x] | next-intl with cookie-based locale, EN/TL switcher in nav (scoped: public pages) |
 | 11.3 | Social login – Google | [x] | GoogleProvider in NextAuth, branded button on sign-in page |
 | 11.4 | Product comparison – select up to 4 products, side-by-side table | [x] | localStorage + /compare page |
 | 11.5 | Social share buttons – Facebook, Twitter, copy link | [x] | On product detail page |
@@ -183,7 +183,7 @@ Use this list to verify every feature works as intended. Mark `[x]` when tested 
 | 11.7 | Product bundles – "Frequently bought together" with discount | [x] | Bundle + BundleItem models, seed data, BundleOffer component on product detail |
 | 11.8 | Dynamic meta tags (Open Graph) for product pages | [x] | generateMetadata in listings/[slug]/page.tsx — title, description, OG image, Twitter card |
 | 11.9 | Sitemap.xml & robots.txt | [x] | Dynamic sitemap.ts (listings, categories, vendors) + robots.ts |
-| 11.10 | PWA – installable, offline fallback, service worker | [ ] | |
+| 11.10 | PWA – installable, offline fallback, service worker | [x] | manifest.json + SVG icons + sw.js + install prompt |
 | 11.11 | Analytics – Google Analytics or Plausible (demo ID) | [x] | Plausible script in layout.tsx, gated by NEXT_PUBLIC_PLAUSIBLE_DOMAIN env var |
 
 ---
@@ -231,7 +231,7 @@ Use this list to verify every feature works as intended. Mark `[x]` when tested 
 | 8. Admin Panel | 9 | 9 | 100% |
 | 9. Messaging & Notifications | 7 | 7 | 100% |
 | 10. Booking & Services | 7 | 7 | 100% |
-| 11. Advanced Features | 11 | 9 | 82% |
+| 11. Advanced Features | 11 | 11 | 100% |
 | 12. UI/UX Polish | 8 | 8 | 100% |
 | 13. Performance & Build | 7 | 6 | 86% |
-| **TOTAL** | **122** | **117** | **95.9%** |
+| **TOTAL** | **122** | **121** | **99.2%** |

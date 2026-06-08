@@ -2,8 +2,10 @@ import type { Metadata, Viewport } from 'next'
 import { Inter, Playfair_Display } from 'next/font/google'
 import { ThemeProvider } from 'next-themes'
 import Script from 'next/script'
+import { cookies } from 'next/headers'
 import './globals.css'
 import { AuthProvider } from '@/components/auth-provider'
+import { IntlProvider } from '@/components/intl-provider'
 import { Nav } from '@/components/nav'
 import { Footer } from '@/components/footer'
 import { PageViewTracker } from '@/components/page-view-tracker'
@@ -12,6 +14,8 @@ import { Toaster } from 'sonner'
 import { ErrorBoundaryWrapper } from '@/components/error-boundary-wrapper'
 import { DemoControlPanel } from '@/components/demo-control-panel'
 import { AbandonedCartTracker } from '@/components/abandoned-cart-tracker'
+import { ServiceWorkerRegister } from '@/components/service-worker-register'
+import { PwaInstallPrompt } from '@/components/pwa-install-prompt'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair' })
@@ -39,12 +43,17 @@ export const viewport: Viewport = {
   ],
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const cookieStore = await cookies()
+  const locale = cookieStore.get('NEXT_LOCALE')?.value || 'en'
+  const messages = (await import(`../../messages/${locale}.json`)).default
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale === 'tl' ? 'tl' : 'en'} suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/favicon.svg" />
+        <link rel="manifest" href="/manifest.json" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN && (
@@ -65,14 +74,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </a>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <AuthProvider>
-            <DemoBanner show={process.env.DEMO_MODE !== 'false'} />
-            <Nav />
-            <PageViewTracker />
-            <AbandonedCartTracker />
-            <main id="main" className="min-h-[calc(100vh-4rem)]"><ErrorBoundaryWrapper>{children}</ErrorBoundaryWrapper></main>
-            <Toaster richColors position="top-right" />
-            {process.env.DEMO_MODE !== 'false' && <DemoControlPanel />}
-            <Footer />
+            <IntlProvider locale={locale} messages={messages}>
+              <DemoBanner show={process.env.DEMO_MODE !== 'false'} />
+              <Nav />
+              <PageViewTracker />
+              <AbandonedCartTracker />
+              <main id="main" className="min-h-[calc(100vh-4rem)]"><ErrorBoundaryWrapper>{children}</ErrorBoundaryWrapper></main>
+              <Toaster richColors position="top-right" />
+              {process.env.DEMO_MODE !== 'false' && <DemoControlPanel />}
+              <PwaInstallPrompt />
+              <ServiceWorkerRegister />
+              <Footer />
+            </IntlProvider>
           </AuthProvider>
         </ThemeProvider>
       </body>

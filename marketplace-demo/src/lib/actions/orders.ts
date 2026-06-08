@@ -1,22 +1,31 @@
 'use server'
 
 import { prisma } from '@/lib/prisma'
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/lib/auth'
-import { requireUser, requireRole } from '@/lib/auth'
+import { getSessionUser, requireUser, requireRole } from '@/lib/auth'
 import { DEMO_MODE } from '@/lib/demo'
 import { transitionListing, transitionPayment, transitionFulfillment } from '@jaostudio/core/state-machines'
 import { emit } from '@jaostudio/core/events'
 import { revalidatePath } from 'next/cache'
 import { MOCK_COUPONS, type ShippingMethod, type PaymentMethod } from '@/lib/philippines'
 
+async function createNotification(userId: string, type: string, title: string, message: string, link?: string) {
+  await prisma.notification.create({
+    data: { userId, type, title, message, link: link ?? null },
+  })
+}
+
 function slugify(text: string): string {
   return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 }
 
+interface VariantInput {
+  label: string
+  priceAdj: number
+  stock: number
+}
+
 export async function createListing(formData: FormData) {
-  const session = await getServerSession(authOptions)
-  const user = session?.user as any
+  const user = await getSessionUser()
   if (!user || user.role !== 'VENDOR') throw new Error('Unauthorized')
 
   const title = formData.get('title') as string
@@ -27,6 +36,8 @@ export async function createListing(formData: FormData) {
   const isService = formData.get('isService') === 'on'
   const imageUrlsRaw = formData.get('imageUrls') as string | null
   const imageUrls: string[] = imageUrlsRaw ? JSON.parse(imageUrlsRaw) : []
+  const variantsRaw = formData.get('variants') as string | null
+  const variants: VariantInput[] = variantsRaw ? JSON.parse(variantsRaw) : []
 
   if (!title || !description || !pricePesos || !categorySlug) throw new Error('Missing fields')
 
@@ -53,6 +64,9 @@ export async function createListing(formData: FormData) {
       images: imageUrls.length > 0
         ? { create: imageUrls.map((url, i) => ({ url, sortOrder: i })) }
         : undefined,
+      variants: variants.length > 0
+        ? { create: variants.map((v) => ({ label: v.label, priceAdj: v.priceAdj, stock: v.stock })) }
+        : undefined,
     },
   })
 
@@ -77,8 +91,7 @@ export async function createListing(formData: FormData) {
 }
 
 export async function moderateListing(listingId: string, action: 'approve' | 'reject') {
-  const session = await getServerSession(authOptions)
-  const user = session?.user as any
+  const user = await getSessionUser()
   if (!user || user.role !== 'ADMIN') throw new Error('Unauthorized')
 
   const listing = await prisma.listing.findUnique({ where: { id: listingId } })
@@ -233,6 +246,9 @@ export async function createOrder(input: CreateOrderInput) {
     const causeId = `evt_${Date.now()}_create_${order.id}`
     emit.orderCreated(order.id, vendorTotal, 'php', undefined, causeId)
 
+    await createNotification(vendorId, 'order_update', `New order ${orderNumber}`, 'A customer has placed a new order.', `/dashboard/orders`)
+    await createNotification(user.id, 'order_update', `Order ${orderNumber} placed`, 'Your order has been placed successfully.', `/orders/${order.id}`)
+
     created.push({ orderId: order.id, orderNumber, vendorId })
   }
 
@@ -268,6 +284,7 @@ export async function markOrderPaid(orderId: string) {
       data: { paymentState: 'PAID' },
     })
     emit.orderTransitioned(orderId, 'pending_payment', 'paid', undefined, `evt_${Date.now()}_pay`)
+    await createNotification(order.buyerId, 'order_update', 'Payment confirmed', `Order ${order.orderNumber} has been paid.`, `/orders/${orderId}`)
   }
   revalidatePath(`/orders/${orderId}`)
   revalidatePath('/orders')
@@ -326,6 +343,7 @@ export async function markOrdersProcessing(orderIds: string[]) {
       undefined,
       `evt_${Date.now()}_cod_process`,
     )
+    await createNotification(order.vendorId, 'order_update', `Order ${order.orderNumber}`, 'A new order is awaiting processing.', `/dashboard/orders`)
     revalidatePath(`/orders/${orderId}`)
     revalidatePath('/dashboard/orders')
   }
@@ -357,14 +375,17 @@ export async function transitionOrderFulfillment(
     data: { fulfillmentState: next.toUpperCase() as any },
   })
   emit.orderTransitioned(orderId, stateKey, next, undefined, `evt_${Date.now()}_${action}`)
+  const messages: Record<string, string> = { process: 'is being prepared', ship: 'has been shipped', return_fulfillment: 'has been returned' }
+  if (messages[action]) {
+    await createNotification(order.buyerId, 'order_update', `Order ${order.orderNumber}`, `Your order ${messages[action]}.`, `/orders/${orderId}`)
+  }
   revalidatePath(`/orders/${orderId}`)
   revalidatePath('/dashboard/orders')
   return { ok: true, state: next }
 }
 
 export async function updateVendorProfile(formData: FormData) {
-  const session = await getServerSession(authOptions)
-  const user = session?.user as any
+  const user = await getSessionUser()
   if (!user || user.role !== 'VENDOR') throw new Error('Unauthorized')
 
   const name = formData.get('name') as string
@@ -393,8 +414,7 @@ export async function updateVendorProfile(formData: FormData) {
 }
 
 export async function archiveListing(listingId: string) {
-  const session = await getServerSession(authOptions)
-  const user = session?.user as any
+  const user = await getSessionUser()
   if (!user || user.role !== 'VENDOR') throw new Error('Unauthorized')
 
   const listing = await prisma.listing.findUnique({ where: { id: listingId } })
@@ -412,8 +432,7 @@ export async function archiveListing(listingId: string) {
 }
 
 export async function updateListing(listingId: string, formData: FormData) {
-  const session = await getServerSession(authOptions)
-  const user = session?.user as any
+  const user = await getSessionUser()
   if (!user || user.role !== 'VENDOR') throw new Error('Unauthorized')
 
   const listing = await prisma.listing.findUnique({ where: { id: listingId } })
@@ -426,6 +445,8 @@ export async function updateListing(listingId: string, formData: FormData) {
   const categorySlug = formData.get('category') as string
   const stock = parseInt(formData.get('stock') as string) || 1
   const isService = formData.get('isService') === 'on'
+  const variantsRaw = formData.get('variants') as string | null
+  const variants: VariantInput[] = variantsRaw ? JSON.parse(variantsRaw) : []
 
   if (!title || !description || !pricePesos || !categorySlug) throw new Error('Missing fields')
 
@@ -434,6 +455,14 @@ export async function updateListing(listingId: string, formData: FormData) {
   if (!category) throw new Error('Invalid category')
 
   const slug = slugify(title)
+
+  // Replace variants: delete existing, create new
+  await prisma.listingVariant.deleteMany({ where: { listingId } })
+  if (variants.length > 0) {
+    await prisma.listingVariant.createMany({
+      data: variants.map((v) => ({ listingId, label: v.label, priceAdj: v.priceAdj, stock: v.stock })),
+    })
+  }
 
   await prisma.listing.update({
     where: { id: listingId },

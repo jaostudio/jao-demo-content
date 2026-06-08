@@ -1,5 +1,4 @@
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/lib/auth'
+import { getSessionUser } from '@/lib/auth'
 import { redirect } from 'next/navigation'
 import { prisma } from '@/lib/prisma'
 import Link from 'next/link'
@@ -7,8 +6,7 @@ import { MetricsCards } from '@/components/vendor/metrics-cards'
 import { RevenueChart } from '@/components/vendor/revenue-chart'
 
 export default async function DashboardPage() {
-  const session = await getServerSession(authOptions)
-  const user = session?.user as any
+  const user = await getSessionUser()
   if (!user || !(user.role === 'VENDOR' || user.role === 'ADMIN')) redirect('/auth/signin')
 
   const now = new Date()
@@ -78,7 +76,7 @@ export default async function DashboardPage() {
         <RevenueChart data={chartData} />
       </div>
 
-      <div className="mt-8 grid gap-6 sm:grid-cols-3">
+      <div className="mt-8 grid gap-6 sm:grid-cols-4">
         <Link
           href="/dashboard/listings"
           className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-warm-sm transition-all hover:-translate-y-0.5 hover:shadow-warm-lg dark:border-neutral-800 dark:bg-neutral-900"
@@ -95,6 +93,15 @@ export default async function DashboardPage() {
           <p className="text-sm font-medium text-neutral-500">Incoming Orders</p>
           <p className="mt-1 text-sm text-neutral-700 dark:text-neutral-300">
             Update fulfillment status and manage orders.
+          </p>
+        </Link>
+        <Link
+          href="/dashboard/bookings"
+          className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-warm-sm transition-all hover:-translate-y-0.5 hover:shadow-warm-lg dark:border-neutral-800 dark:bg-neutral-900"
+        >
+          <p className="text-sm font-medium text-neutral-500">Bookings</p>
+          <p className="mt-1 text-sm text-neutral-700 dark:text-neutral-300">
+            Manage service requests from buyers.
           </p>
         </Link>
         <Link

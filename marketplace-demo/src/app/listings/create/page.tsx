@@ -1,12 +1,10 @@
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/lib/auth'
+import { getSessionUser } from '@/lib/auth'
 import { redirect } from 'next/navigation'
 import { prisma } from '@/lib/prisma'
 import { CreateListingForm } from '@/components/vendor/create-listing-form'
 
 export default async function CreateListingPage() {
-  const session = await getServerSession(authOptions)
-  const user = session?.user as any
+  const user = await getSessionUser()
   if (!user || user.role !== 'VENDOR') redirect('/auth/signin')
 
   const categories = await prisma.category.findMany({

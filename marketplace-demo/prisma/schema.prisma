@@ -114,6 +114,7 @@ model Listing {
   bookings  Booking[]
   wishlist  WishlistItem[]
   bundleItems BundleItem[]
+  variants    ListingVariant[]
 }
 
 model ListingImage {
@@ -144,6 +145,17 @@ model BundleItem {
   listing   Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
 
   @@unique([bundleId, listingId])
+}
+
+model ListingVariant {
+  id        String  @id @default(cuid())
+  listingId String
+  label     String
+  priceAdj  Int     @default(0)
+  stock     Int     @default(1)
+  listing   Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
+
+  @@index([listingId])
 }
 
 model Review {

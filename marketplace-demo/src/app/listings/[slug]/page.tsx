@@ -1,13 +1,58 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
+import type { Metadata } from 'next'
 import { prisma } from '@/lib/prisma'
 import { AddToCartButton } from './add-to-cart-button'
 import { Price } from '@/components/price'
 import { Star, MapPin, Package, Sparkles, ShieldCheck, Truck } from 'lucide-react'
 import { CompareButton, ShareButtons, RecentlyViewedTracker, CompareFloatingBar } from '@/components/product-actions'
+import { MessageVendorButton } from '@/components/message-vendor-button'
+import { BundleOffer } from '@/components/bundle-offer'
+import { getBundlesForListing } from '@/lib/actions/bundles'
 
 export const dynamic = 'force-dynamic'
+
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const listing = await prisma.listing.findUnique({
+    where: { slug },
+    select: {
+      title: true,
+      description: true,
+      images: { orderBy: { sortOrder: 'asc' }, take: 1, select: { url: true } },
+      vendor: { select: { name: true } },
+    },
+  })
+  if (!listing) return { title: 'Not Found — Likha' }
+  const ogImage = listing.images[0]?.url || `${BASE_URL}/hero-banner.jpg`
+  const description = listing.description
+    ? listing.description.length > 160
+      ? listing.description.slice(0, 157) + '...'
+      : listing.description
+    : `Shop ${listing.title} on Likha`
+  return {
+    title: `${listing.title} — Likha`,
+    description,
+    openGraph: {
+      title: `${listing.title} — Likha`,
+      description,
+      type: 'website',
+      locale: 'en_PH',
+      siteName: 'Likha',
+      url: `${BASE_URL}/listings/${slug}`,
+      images: [{ url: ogImage, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${listing.title} — Likha`,
+      description,
+      images: [ogImage],
+    },
+  }
+}
 
 export default async function ListingDetailPage({
   params,
@@ -30,6 +75,9 @@ export default async function ListingDetailPage({
       },
       category: { select: { name: true, slug: true } },
       images: { orderBy: { sortOrder: 'asc' } },
+      variants: {
+        orderBy: { label: 'asc' },
+      },
       reviews: {
         include: { author: { select: { name: true, avatarUrl: true } } },
         orderBy: { createdAt: 'desc' },
@@ -63,6 +111,8 @@ export default async function ListingDetailPage({
   const hasDiscount =
     listing.isFlashSale && listing.flashSalePrice && listing.flashSaleEnds &&
     new Date(listing.flashSaleEnds) > new Date()
+
+  const bundles = await getBundlesForListing(listing.id)
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 sm:py-14">
@@ -141,7 +191,7 @@ export default async function ListingDetailPage({
                     className={`h-4 w-4 ${
                       i <= Math.round(avgRating)
                         ? 'fill-amber-400 text-amber-400'
-                        : 'text-neutral-300 dark:text-neutral-600'
+                        : 'text-neutral-500 dark:text-neutral-400'
                     }`}
                   />
                 ))}
@@ -160,7 +210,7 @@ export default async function ListingDetailPage({
                 <p className="font-serif text-4xl font-bold text-primary-600 dark:text-primary-400">
                   <Price amountCents={listing.flashSalePrice!} />
                 </p>
-                <p className="text-lg text-neutral-400 line-through">
+                <p className="text-lg text-neutral-500 line-through dark:text-neutral-400">
                   <Price amountCents={listing.price} />
                 </p>
                 <span className="rounded-full bg-red-100 px-2 py-0.5 text-xs font-bold uppercase text-red-700 dark:bg-red-900/30 dark:text-red-300">
@@ -203,6 +253,12 @@ export default async function ListingDetailPage({
               imageUrl: listing.images[0]?.url ?? null,
             }}
             isService={listing.isService}
+            variants={listing.variants.map((v) => ({
+              id: v.id,
+              label: v.label,
+              priceAdj: v.priceAdj,
+              stock: v.stock,
+            }))}
           />
 
           {/* Compare + Share */}
@@ -265,15 +321,32 @@ export default async function ListingDetailPage({
                 </div>
               </div>
             </div>
-            <Link
-              href={`/vendors/${listing.vendor.id}`}
-              className="hidden h-9 items-center justify-center rounded-xl border border-neutral-300 px-4 text-sm font-medium text-neutral-800 transition-colors hover:bg-neutral-100 sm:inline-flex dark:border-neutral-700 dark:text-neutral-100 dark:hover:bg-neutral-800"
-            >
-              Visit store
-            </Link>
+            <div className="flex items-center gap-2">
+              <MessageVendorButton
+                vendorId={listing.vendor.id}
+                listingId={listing.id}
+                label="Message"
+                className="h-9 border border-neutral-300 bg-white text-neutral-800 hover:bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100 dark:hover:bg-neutral-800"
+              />
+              <Link
+                href={`/vendors/${listing.vendor.id}`}
+                className="hidden h-9 items-center justify-center rounded-xl border border-neutral-300 px-4 text-sm font-medium text-neutral-800 transition-colors hover:bg-neutral-100 sm:inline-flex dark:border-neutral-700 dark:text-neutral-100 dark:hover:bg-neutral-800"
+              >
+                Visit store
+              </Link>
+            </div>
           </div>
         </div>
       </div>
+
+      {/* Bundle offers */}
+      {bundles.length > 0 && (
+        <div className="mt-10 space-y-4">
+          {bundles.map((bundle) => (
+            <BundleOffer key={bundle.id} bundle={bundle as any} currentListingId={listing.id} />
+          ))}
+        </div>
+      )}
 
       {/* Reviews */}
       <section className="mt-16">
@@ -324,7 +397,7 @@ export default async function ListingDetailPage({
                         className={`h-3.5 w-3.5 ${
                           i <= review.rating
                             ? 'fill-amber-400 text-amber-400'
-                            : 'text-neutral-300 dark:text-neutral-600'
+          : 'text-neutral-500 dark:text-neutral-400'
                         }`}
                       />
                     ))}

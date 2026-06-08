@@ -26,6 +26,17 @@ async function main() {
 
   await client.execute(`CREATE UNIQUE INDEX IF NOT EXISTS BundleItem_bundleId_listingId_key ON BundleItem(bundleId, listingId)`)
 
+  await client.execute(`CREATE TABLE IF NOT EXISTS ListingVariant (
+    id TEXT NOT NULL PRIMARY KEY,
+    listingId TEXT NOT NULL,
+    label TEXT NOT NULL,
+    priceAdj INTEGER NOT NULL DEFAULT 0,
+    stock INTEGER NOT NULL DEFAULT 1,
+    FOREIGN KEY (listingId) REFERENCES Listing(id) ON DELETE CASCADE
+  )`)
+
+  await client.execute(`CREATE INDEX IF NOT EXISTS ListingVariant_listingId_idx ON ListingVariant(listingId)`)
+
   // NextAuth models
   await client.execute(`CREATE TABLE IF NOT EXISTS Account (
     id TEXT NOT NULL PRIMARY KEY,

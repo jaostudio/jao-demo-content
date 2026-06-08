@@ -97,7 +97,7 @@ function CategoryCard({ category }: { category: CategoryTile }) {
           />
         </motion.div>
       ) : (
-        <div className="flex h-full w-full items-center justify-center text-5xl font-bold text-neutral-400">
+        <div className="flex h-full w-full items-center justify-center text-5xl font-bold text-neutral-500">
           {category.name.charAt(0)}
         </div>
       )}

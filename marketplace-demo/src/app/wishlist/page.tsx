@@ -1,5 +1,4 @@
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/lib/auth'
+import { getSessionUser } from '@/lib/auth'
 import { redirect } from 'next/navigation'
 import { prisma } from '@/lib/prisma'
 import { ListingCard, type ListingCardData } from '@/components/listing-card'
@@ -9,8 +8,7 @@ import { Heart } from 'lucide-react'
 export const dynamic = 'force-dynamic'
 
 export default async function WishlistPage() {
-  const session = await getServerSession(authOptions)
-  const user = session?.user as any
+  const user = await getSessionUser()
   if (!user) redirect('/auth/signin')
 
   const items = await prisma.wishlistItem.findMany({

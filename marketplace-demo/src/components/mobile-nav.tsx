@@ -20,6 +20,7 @@ import {
 } from 'lucide-react'
 import { useCart } from '@/lib/store/cart'
 import { useDemoControl } from '@/lib/store/demo-control'
+import { LanguageSwitcher } from './language-switcher'
 
 interface MobileNavProps {
   open: boolean
@@ -145,6 +146,12 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
               </>
             )}
           </nav>
+
+          <div className="my-4 border-t border-neutral-200 dark:border-neutral-800" />
+
+          <div className="flex items-center justify-between px-3 py-2">
+            <LanguageSwitcher />
+          </div>
 
           <div className="my-4 border-t border-neutral-200 dark:border-neutral-800" />
 

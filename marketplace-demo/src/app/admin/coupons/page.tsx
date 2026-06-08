@@ -1,12 +1,10 @@
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/lib/auth'
+import { getSessionUser } from '@/lib/auth'
 import { redirect } from 'next/navigation'
 import { prisma } from '@/lib/prisma'
 import { CouponManager } from './coupon-manager'
 
 export default async function AdminCouponsPage() {
-  const session = await getServerSession(authOptions)
-  const user = session?.user as any
+  const user = await getSessionUser()
   if (!user || user.role !== 'ADMIN') redirect('/auth/signin')
 
   const coupons = await prisma.coupon.findMany({ orderBy: { createdAt: 'desc' } })
