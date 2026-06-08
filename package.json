@@ -7,8 +7,7 @@
     "marketplace-demo",
     "content-platform-demo",
     "landingpage-demo",
-    "database-security-demo",
-    "web-application-demo"
+    "database-security-demo"
   ],
   "scripts": {
     "dev": "turbo dev",
