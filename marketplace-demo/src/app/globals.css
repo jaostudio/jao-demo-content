@@ -17,7 +17,7 @@ html, body { overflow-x: hidden; width: 100%; }
   --color-primary-200: #EDB98E;
   --color-primary-300: #E29761;
   --color-primary-400: #D17D43;
-  --color-primary-500: #C2693D;
+  --color-primary-500: #B2542A;
   --color-primary-600: #A4512D;
   --color-primary-700: #824025;
   --color-primary-800: #5F2F1C;
@@ -68,7 +68,7 @@ html, body { overflow-x: hidden; width: 100%; }
   --color-brand-900: var(--color-primary-900);
 
   /* Tailwind v4 tree-shake bypass — keep CSS vars in output */
-  --color-primary-500-hex: #C2693D;
+  --color-primary-500-hex: #B2542A;
   --color-primary-600-hex: #A4512D;
   --color-secondary-500-hex: #D4A352;
   --color-secondary-600-hex: #B58A3D;
