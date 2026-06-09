@@ -78,7 +78,7 @@ export function SystemsProof() {
       >
         <Link
           href="/demos"
-          className="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-white transition-transform duration-200 hover:brightness-110 active:scale-[0.99] focus-visible:ring-2 focus-visible:ring-accent/50"
+          className="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-base font-medium text-white transition-transform duration-200 hover:brightness-110 active:scale-[0.99] focus-visible:ring-2 focus-visible:ring-accent/50"
         >
           Explore all systems →
         </Link>

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight, UserPlus, ShoppingCart, Share2, FileText, Settings, Shield } from 'lucide-react'
+import { Card } from '@/components/ui/card'
 import { easeOut } from '@/lib/motion-variants'
 
 export interface ProofItem {
@@ -88,7 +89,7 @@ export function ActiveSystemView({
             <button
               onClick={() => scroll('left')}
               aria-label="Scroll left"
-              className="absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full border border-border-subtle bg-bg-elevated p-1.5 text-text-secondary opacity-0 shadow-lg transition-all hover:bg-bg-surface hover:text-text-primary group-hover:opacity-100"
+              className="absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full border border-border-subtle bg-bg-elevated p-1.5 text-text-secondary opacity-0 shadow-lg transition-[color,background-color,opacity] hover:bg-bg-surface hover:text-text-primary group-hover:opacity-100"
             >
               <ChevronLeft className="h-4 w-4" />
             </button>
@@ -127,7 +128,7 @@ export function ActiveSystemView({
             <button
               onClick={() => scroll('right')}
               aria-label="Scroll right"
-              className="absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full border border-border-subtle bg-bg-elevated p-1.5 text-text-secondary opacity-0 shadow-lg transition-all hover:bg-bg-surface hover:text-text-primary group-hover:opacity-100"
+              className="absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full border border-border-subtle bg-bg-elevated p-1.5 text-text-secondary opacity-0 shadow-lg transition-[color,background-color,opacity] hover:bg-bg-surface hover:text-text-primary group-hover:opacity-100"
             >
               <ChevronRight className="h-4 w-4" />
             </button>
@@ -145,22 +146,22 @@ export function ActiveSystemView({
           className="mt-8"
         >
           <div className="mx-auto max-w-7xl">
-            <div className="rounded-xl border border-border-subtle bg-bg-surface p-10 lg:p-12">
-              <div className="grid gap-10 lg:grid-cols-[3fr_2fr] lg:items-center">
-                <div className="flex flex-col gap-4">
+            <Card className="p-8 lg:p-10">
+              <div className="grid gap-8 lg:grid-cols-[3fr_2fr] lg:items-stretch">
+                <div className="flex flex-col gap-3">
                   <div>
                     <h2 className="text-[var(--text-section)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
                       {active.uiLabel}
                     </h2>
-                    <p className="mt-1 text-sm text-text-tertiary">{active.name}</p>
+                    <p className="mt-0.5 text-sm text-text-tertiary">{active.name}</p>
                   </div>
-                  <p className="text-lg leading-relaxed text-text-secondary">{active.outcome}</p>
-                  <div className="flex flex-col gap-2">
+                  <p className="text-base text-text-secondary">{active.outcome}</p>
+                  <div className="flex flex-col gap-1.5">
                     <a
                       href={active.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="self-start inline-flex items-center gap-2 rounded-xl bg-text-primary px-6 py-3 text-sm font-medium text-bg-primary transition-all hover:opacity-90 active:scale-[0.99]"
+                      className="self-start inline-flex items-center gap-2 rounded-xl bg-text-primary px-6 py-3 text-sm font-medium text-bg-primary transition-[opacity,transform] hover:opacity-90 active:scale-[0.99]"
                     >
                       Try This System →
                     </a>
@@ -182,48 +183,48 @@ export function ActiveSystemView({
                     </p>
                   </div>
                 </div>
-                <div>
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-text-tertiary">
+                <div className="flex flex-col h-full">
+                  <p className="text-xs uppercase tracking-[0.2em] text-text-tertiary">
                     PRODUCTION PREVIEW
                   </p>
-                  <div className="mt-1 overflow-hidden rounded-lg border border-border-subtle shadow-2xl ring-1 ring-white/10 scale-[1.02]">
+                  <div className="mt-1 overflow-hidden rounded-lg border border-border-subtle shadow-2xl ring-1 ring-white/10">
                     <div className="flex items-center gap-1.5 border-b border-border-subtle bg-bg-secondary px-3 py-1.5">
                       <span className="h-2 w-2 rounded-full bg-red-500 opacity-80" />
                       <span className="h-2 w-2 rounded-full bg-yellow-500 opacity-80" />
                       <span className="h-2 w-2 rounded-full bg-green-500 opacity-80" />
                     </div>
-                    <div className="relative">
+                    <div className="relative aspect-[16/10]">
                       <Image
                         src={active.screenshot}
                         alt={`${active.uiLabel} screenshot`}
                         width={1440}
                         height={900}
-                        className="w-full"
+                        className="w-full h-full object-cover"
                       />
-                      <span className="absolute bottom-1.5 right-1.5 rounded-full bg-accent px-1.5 py-0.5 text-[10px] font-medium text-white">
+                      <span className="absolute bottom-1.5 right-1.5 z-10 rounded-full bg-accent px-1.5 py-0.5 text-xs font-medium text-white backdrop-blur-sm">
                         Live System
                       </span>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </Card>
           </div>
 
           <div className="mt-12">
             <div className="mx-auto max-w-3xl">
               <div className="border-l-2 border-accent bg-white/[0.01] rounded-r-md pl-4 py-1">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-text-tertiary">Problem</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-text-tertiary">Problem</p>
                 <p className="mt-1 text-sm leading-relaxed text-text-secondary">{active.useCase}</p>
               </div>
 
               <div className="mt-6 border-l-2 border-accent bg-white/[0.01] rounded-r-md pl-4 py-1">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-text-tertiary">Solution</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-text-tertiary">Solution</p>
                 <p className="mt-1 text-sm leading-relaxed text-text-secondary">{active.description}</p>
               </div>
 
               <div className="mt-6 border-l-2 border-accent pl-4">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-text-tertiary">System Behavior</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-text-tertiary">System Behavior</p>
                 <ul className="mt-2 space-y-1.5">
                   {active.features.map((f) => (
                     <li key={f} className="flex items-start gap-2 text-sm text-text-secondary">
@@ -236,15 +237,15 @@ export function ActiveSystemView({
 
               {active.proof.length > 0 && (
                 <div className="mt-6">
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-text-tertiary">Selected Work</p>
+                  <p className="text-xs uppercase tracking-[0.2em] text-text-tertiary">Selected Work</p>
                   <p className="mt-0.5 text-xs text-text-tertiary">Used in real deployments</p>
                   <div className="mt-3 space-y-3">
                     {active.proof.map((p) => (
-                      <div key={p.title} className="rounded-lg border border-border-subtle bg-bg-surface p-4">
+                      <Card key={p.title} className="p-4">
                         <p className="text-sm font-medium text-text-primary">{p.title}</p>
                         <p className="mt-0.5 text-xs text-text-tertiary">{p.context}</p>
                         <p className="mt-1 text-xs leading-relaxed text-text-secondary">{p.outcome}</p>
-                      </div>
+                      </Card>
                     ))}
                   </div>
                 </div>

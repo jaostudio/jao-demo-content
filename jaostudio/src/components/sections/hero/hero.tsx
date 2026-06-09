@@ -119,31 +119,40 @@ export function Hero() {
                 {t('subtitle')}
               </p>
               <div className="flex flex-wrap gap-2 max-sm:hidden">
-                <span className="rounded-full border border-accent-warm/20 bg-accent-warm-soft px-3 py-1 text-[11px] text-accent-warm">
+                <span className="rounded-full border border-accent-warm/20 bg-accent-warm-soft px-3 py-1 text-sm text-accent-warm">
                   {t('availability')}
+                </span>
+                <span className="rounded-full border border-border bg-surface-hover px-3 py-1 text-sm text-text-tertiary">
+                  {t('notForEveryoneBadge')}
                 </span>
               </div>
             </motion.div>
 
-            <motion.div className="flex flex-col gap-3 sm:flex-row sm:gap-4" variants={slideVariant}>
-              <Button
-                href="/demos"
-                size="lg"
-                trackingLabel="hero_start_project"
-                className="w-full sm:w-auto text-base py-3 sm:text-sm sm:py-2.5"
+              <motion.div className="flex flex-col gap-3 sm:flex-row sm:gap-4" variants={slideVariant}>
+                <Button
+                  href="/demos"
+                  size="lg"
+                  trackingLabel="hero_start_project"
+                  className="w-full sm:w-auto text-base py-3 sm:py-2.5"
+                >
+                  {t('ctaPrimary')}
+                </Button>
+                <Button
+                  href="/services"
+                  variant="secondary"
+                  size="lg"
+                  trackingLabel="hero_view_projects"
+                  className="w-full sm:w-auto text-base py-3 sm:py-2.5"
+                >
+                  {t('ctaSecondary')}
+                </Button>
+              </motion.div>
+              <motion.p
+                variants={slideVariant}
+                className="max-w-lg text-xs leading-relaxed text-text-tertiary/70"
               >
-                {t('ctaPrimary')}
-              </Button>
-              <Button
-                href="/services"
-                variant="secondary"
-                size="lg"
-                trackingLabel="hero_view_projects"
-                className="w-full sm:w-auto text-sm py-3 sm:py-2.5"
-              >
-                {t('ctaSecondary')}
-              </Button>
-            </motion.div>
+                {t('notForEveryoneDetail')}
+              </motion.p>
           </motion.div>
 
           <motion.div
@@ -156,11 +165,11 @@ export function Hero() {
             <div className="relative overflow-hidden rounded-[2rem] border border-border-subtle bg-bg-surface p-4 shadow-elevated md:p-7" style={{ backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)' }}>
               <div className="flex items-center justify-between gap-4">
                 <div>
-                  <p className="text-[10px] uppercase tracking-[0.3em] text-text-secondary">
+                  <p className="text-xs uppercase tracking-[0.3em] text-text-secondary">
                     {t('systemTopology')}
                   </p>
                 </div>
-                <span className="rounded-full border border-accent-warm/20 bg-accent-warm-soft px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-accent-warm">
+                <span className="rounded-full border border-accent-warm/20 bg-accent-warm-soft px-3 py-1 text-xs uppercase tracking-[0.25em] text-accent-warm">
                   {t('live')}
                 </span>
               </div>
@@ -182,9 +191,9 @@ export function Hero() {
                     key={`${item.label}-${item.value}`}
                     className="rounded-2xl border border-border-subtle bg-bg-surface/80 px-3 py-2 md:px-4 md:py-3"
                   >
-                    <p className="text-[10px] uppercase tracking-[0.28em] text-text-secondary">{item.label}</p>
-                    <p className="mt-1 text-sm text-text-secondary">{item.value}</p>
-                    <p className="mt-0.5 text-[11px] text-text-tertiary/60">{item.metric}</p>
+                    <p className="text-xs uppercase tracking-[0.28em] text-text-secondary">{item.label}</p>
+                    <p className="mt-1 text-base text-text-secondary">{item.value}</p>
+                    <p className="mt-0.5 text-xs text-text-tertiary/60">{item.metric}</p>
                   </div>
                 ))}
               </div>

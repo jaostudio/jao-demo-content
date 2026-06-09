@@ -49,7 +49,7 @@ export function CapabilitiesSection() {
             <div
               key={index}
               className={cn(
-                'rounded-2xl border p-6 transition-all duration-500',
+                'rounded-2xl border p-6 transition-colors duration-500',
                 isHighlighted
                   ? 'border-accent/30 bg-accent/8 shadow-[0_0_0_1px_rgba(124,58,237,0.14)]'
                   : isDimmed
@@ -67,7 +67,7 @@ export function CapabilitiesSection() {
                 {item.tech.map((t) => (
                   <span
                     key={t}
-                    className="rounded-md border border-border-subtle bg-surface-hover px-2 py-0.5 text-[11px] text-text-tertiary"
+                    className="rounded-md border border-border-subtle bg-surface-hover px-2 py-0.5 text-xs text-text-tertiary"
                   >
                     {t}
                   </span>

@@ -1,14 +1,19 @@
-import type { Metadata } from 'next'
 import { Suspense } from 'react'
 import type { SystemContent } from '@/components/sections/active-system-view'
 import { SystemProvider } from '@/components/layout/system-provider'
+import { Badge } from '@/components/typography/badge'
+import { LayeredFrame } from '@/components/ui/layout/layered-frame'
+import { getTranslations } from 'next-intl/server'
 import { DemosClient } from './demos-client'
 import { SYSTEMS } from '@/lib/systems'
 import { projects } from '@/lib/projects'
+import { ORG_ID, WEBSITE_ID } from '@/lib/json-ld-ids'
 
-export const metadata: Metadata = {
-  title: 'Business Systems for Real Operations — JAOstudio',
-  description: 'Six production-ready platforms for lead generation, revenue operations, multi-vendor marketplaces, editorial workflow, internal operations, and compliance.',
+export async function generateMetadata() {
+  return {
+    title: 'Business Systems for Real Operations — JAOstudio',
+    description: 'Six production-ready platforms for lead generation, revenue operations, multi-vendor marketplaces, editorial workflow, internal operations, and compliance.',
+  }
 }
 
 const SYSTEM_DETAILS: Record<string, Omit<SystemContent, 'proof'>> = {
@@ -115,28 +120,43 @@ const SYSTEMS_WITH_PROOFS: Record<string, SystemContent> = Object.fromEntries(
   ]),
 )
 
-export default function DemosPage() {
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      '@id': `${ORG_ID}/#demos`,
+      url: 'https://jaostudio.dev/demos',
+      name: 'Business Systems for Real Operations — JAOstudio',
+      isPartOf: { '@id': WEBSITE_ID },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://jaostudio.dev' },
+        { '@type': 'ListItem', position: 2, name: 'Demos', item: 'https://jaostudio.dev/demos' },
+      ],
+    },
+  ],
+}
+
+export default async function DemosPage() {
+  const t = await getTranslations('demos')
   return (
     <SystemProvider>
-      <section className="relative py-[var(--section-py-compact)]">
-        <div
-          className="pointer-events-none absolute inset-0"
-          style={{ background: 'radial-gradient(circle at 50% 0%, rgba(124,58,237,0.08), transparent 60%)' }}
-        />
-        <div className="mx-auto w-full max-w-7xl px-6 md:px-8 lg:px-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <section className="relative pt-20 lg:pt-28">
+        <LayeredFrame glow>
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
-            <span className="inline-flex min-w-[5rem] items-center justify-center gap-1.5 rounded-full bg-accent-subtle px-3 py-1 text-xs font-medium text-accent">
-              Live Demos
-            </span>
-            <h1 className="text-[var(--text-display)] font-[var(--weight-medium)] leading-[var(--leading-display)] tracking-[var(--tracking-tight)] text-text-primary">
-              Business Systems Built to Run Real Operations
+            <Badge variant="accent">{t('badge')}</Badge>
+            <h1 className="text-[var(--text-hero)] font-[var(--weight-medium)] leading-[var(--leading-display)] tracking-[var(--tracking-tight)] text-text-primary">
+              {t('heading')}
             </h1>
             <p className="max-w-2xl text-[var(--text-body)] leading-[var(--leading-relaxed)] text-text-secondary">
-              Generate leads without manual follow-up. Increase revenue without platform chaos.
-              Run operations without spreadsheets. Six production-ready platforms, each independently deployed and fully functional.
+              {t('description')}
             </p>
           </div>
-        </div>
+        </LayeredFrame>
       </section>
 
       <Suspense fallback={null}>

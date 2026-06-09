@@ -15,6 +15,7 @@
     "qa:screenshots": "node ./scripts/screenshots.js",
     "qa:all": "npm run qa:smoke -- && npm run qa:lighthouse -- && npm run qa:screenshots --",
     "i18n:report": "node ./scripts/translations-report.js",
+    "seo:validate": "npx tsx scripts/validate-seo.ts",
     "i18n:check": "node ./scripts/translations-report.js --fail-under=65 && node ./scripts/validate-contracts.js && node ./scripts/funnel-qa.js && node ./scripts/cta-consistency.js && node ./scripts/orphan-detection.js",
     "i18n:leakage": "node ./scripts/translations-report.js --detect-english-leakage",
     "i18n:drift": "node ./scripts/translations-report.js --detect-drift",
@@ -27,6 +28,7 @@
   },
   "dependencies": {
     "@sentry/nextjs": "^10.55.0",
+    "@swc/core": "^1.15.40",
     "@upstash/ratelimit": "^2.0.8",
     "@upstash/redis": "^1.38.0",
     "clsx": "^2.1.1",
@@ -41,15 +43,18 @@
     "react-dom": "19.1.0",
     "resend": "^6.12.4",
     "tailwind-merge": "^3.6.0",
+    "web-vitals": "^5.3.0",
     "zod": "^4.4.3"
   },
   "volta": {
     "node": "22.15.0"
   },
+  "engines": {
+    "node": ">=22 <23"
+  },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@next/bundle-analyzer": "^16.2.6",
-
     "@playwright/test": "^1.60.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",

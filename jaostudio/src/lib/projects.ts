@@ -1,5 +1,6 @@
 import type { ProjectMetadata } from '@/types'
 import type { ProjectType } from '@/lib/project-types'
+import type { ServiceId } from '@/lib/services'
 import { architectureRegistry } from '@/lib/architecture-data'
 
 function projectType(category: string): ProjectType | undefined {
@@ -90,6 +91,7 @@ export const projects: ProjectMetadata[] = [
       result: 'Estimated 40% reduction in pricing-related support inquiries. Zero server costs. The owner can update pricing and content without external help.',
     },
     gallery: ['/projects/isp-platform/hero.webp', '/projects/isp-platform/detail.webp'],
+    relatedServices: ['web-applications', 'business-automation'],
     liveUrl: 'https://jao-business-website-sample.vercel.app',
     githubUrl: 'https://github.com/jaoce/business-website-sample',
     architecture: architectureRegistry['isp-platform'],
@@ -170,6 +172,7 @@ export const projects: ProjectMetadata[] = [
       result: 'Sub-1.2s load times on mobile where 70%+ of traffic originates. The page handled the entire conversion funnel until the full site launched.',
     },
     gallery: ['/projects/landing-page/hero.webp', '/projects/landing-page/detail.webp'],
+    relatedServices: ['custom-websites'],
     liveUrl: 'https://jao-landingpage-website-sample.vercel.app',
     githubUrl: 'https://github.com/jaoce/landingpage-website-sample',
     systems: {
@@ -242,6 +245,7 @@ export const projects: ProjectMetadata[] = [
       result: 'Replaced manual spreadsheets with real-time inventory tracking. Role-based views let each team member see only what they need, reducing login-to-decision time significantly.',
     },
     gallery: ['/projects/web-application/hero.webp', '/projects/web-application/detail.webp'],
+    relatedServices: ['web-applications'],
     liveUrl: 'https://jao-web-application-sample.vercel.app',
     githubUrl: 'https://github.com/jaoce/web-application-sample',
     architecture: architectureRegistry['web-application'],
@@ -319,6 +323,7 @@ export const projects: ProjectMetadata[] = [
       result: 'Time-to-first-success reduced by 40%. Trial-to-paid conversion improved as users discovered value earlier in the funnel.',
     },
     gallery: ['/projects/saas-frontend/hero.webp', '/projects/saas-frontend/detail.webp'],
+    relatedServices: ['web-applications'],
     liveUrl: 'https://jao-saas-frontend-sample.vercel.app',
     githubUrl: 'https://github.com/jaoce/saas-frontend-sample',
     architecture: architectureRegistry['saas-frontend'],
@@ -374,6 +379,7 @@ export const projects: ProjectMetadata[] = [
       result: 'Improved conversion rate across paid social channels. Bounce rate decreased as pages loaded faster. Large product catalog no longer negatively affected load performance.',
     },
     gallery: ['/projects/ecommerce-store/hero.webp', '/projects/ecommerce-store/detail.webp'],
+    relatedServices: ['web-applications', 'client-portals'],
     liveUrl: 'https://jao-ecommerce-sample.vercel.app',
     githubUrl: 'https://github.com/jaoce/ecommerce-store-sample',
     systems: {
@@ -427,6 +433,7 @@ export const projects: ProjectMetadata[] = [
       result: 'New features shipped faster by composing existing primitives. Visual consistency improved measurably across products. Accessibility was baked into every component instead of retrofitted.',
     },
     gallery: ['/projects/design-system/hero.webp', '/projects/design-system/detail.webp'],
+    relatedServices: ['web-applications'],
     liveUrl: 'https://jao-design-system-sample.vercel.app',
     githubUrl: 'https://github.com/jaoce/design-system-sample',
     systems: {
@@ -479,6 +486,7 @@ export const projects: ProjectMetadata[] = [
       result: 'Stable experience on low-bandwidth networks where competitors failed to load. Improved engagement from social-sourced traffic. Offline support enabled content consumption without continuous connectivity.',
     },
     gallery: ['/projects/mobile-web-app/hero.webp', '/projects/mobile-web-app/detail.webp'],
+    relatedServices: ['web-applications'],
     liveUrl: 'https://jao-mobile-webapp-sample.vercel.app',
     githubUrl: 'https://github.com/jaoce/mobile-webapp-sample',
     systems: {
@@ -520,4 +528,10 @@ export function getRelatedProjects(slug: string, limit = 2): ProjectMetadata[] {
 
   scored.sort((a, b) => b.score - a.score)
   return scored.slice(0, limit).map((s) => s.project)
+}
+
+export function getProjectsByService(serviceId: ServiceId): ProjectMetadata[] {
+  return projects.filter(
+    (p) => p.projectTier !== 'concept' && p.relatedServices.includes(serviceId),
+  )
 }

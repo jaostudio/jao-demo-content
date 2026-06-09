@@ -1,12 +1,31 @@
 'use client'
 
 import { useState, useCallback, useRef, useEffect } from 'react'
-import { Section } from '@/components/ui/section'
 import { Container } from '@/components/ui/container'
 import { Badge } from '@/components/typography/badge'
 import { Button } from '@/components/ui/button'
+import { Card } from '@/components/ui/card'
+import { LayeredFrame } from '@/components/ui/layout/layered-frame'
 import { track, EVENTS } from '@/lib/analytics'
 import { useTranslations } from 'next-intl'
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      url: 'https://jaostudio.dev/audit',
+      name: 'Free Website Audit — JAOstudio',
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://jaostudio.dev' },
+        { '@type': 'ListItem', position: 2, name: 'Audit', item: 'https://jaostudio.dev/audit' },
+      ],
+    },
+  ],
+}
 
 type FormState =
   | { status: 'idle' }
@@ -98,13 +117,13 @@ export default function AuditPage() {
 
   if (formState.status === 'success') {
     return (
-      <Section className="pt-32 md:pt-40">
-        <Container className="mx-auto max-w-xl text-center">
-          <div className="flex flex-col items-center gap-6">
+      <section className="relative pt-20 lg:pt-28">
+        <LayeredFrame glow>
+          <div className="mx-auto flex max-w-xl flex-col items-center gap-6 text-center">
             <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-accent-subtle">
               <span className="text-2xl text-accent">✓</span>
             </div>
-            <h1 ref={successRef} tabIndex={-1} className="text-[var(--text-section)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
+            <h1 ref={successRef} tabIndex={-1} className="text-[var(--text-hero)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
               {t('successHeading')}
             </h1>
             <p className="text-[var(--text-body)] leading-[var(--leading-relaxed)] text-text-secondary">
@@ -114,26 +133,27 @@ export default function AuditPage() {
               {t('successCta')}
             </Button>
           </div>
-        </Container>
-      </Section>
+        </LayeredFrame>
+      </section>
     )
   }
 
   return (
     <>
-      <Section className="pt-32 md:pt-40">
-        <Container className="mx-auto max-w-2xl">
-          <div className="flex flex-col gap-4">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <section className="relative pt-20 lg:pt-28">
+        <LayeredFrame glow>
+          <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
             <Badge variant="accent">{t('badge')}</Badge>
-            <h1 className="text-[var(--text-section)] font-[var(--weight-medium)] leading-[var(--leading-display-alt)] tracking-[var(--tracking-tight)] text-text-primary">
+            <h1 className="text-[var(--text-hero)] font-[var(--weight-medium)] leading-[var(--leading-display-alt)] tracking-[var(--tracking-tight)] text-text-primary">
               {t('heading')}
             </h1>
             <p className="max-w-xl text-[var(--text-body)] leading-[var(--leading-relaxed)] text-text-secondary">
               {t('description')}
             </p>
           </div>
-        </Container>
-      </Section>
+        </LayeredFrame>
+      </section>
 
       <Container className="pb-32 md:pb-40">
         <div className="mx-auto max-w-2xl">
@@ -144,13 +164,10 @@ export default function AuditPage() {
               { title: t('feature3Title'), desc: t('feature3Desc') },
               { title: t('feature4Title'), desc: t('feature4Desc') },
             ].map((item) => (
-              <div
-                key={item.title}
-                className="rounded-xl border border-border-subtle bg-bg-surface p-5"
-              >
+              <Card key={item.title} className="p-5">
                 <p className="text-[var(--text-body)] font-medium text-text-primary">{item.title}</p>
                 <p className="mt-1 text-[var(--text-meta)] leading-relaxed text-text-secondary">{item.desc}</p>
-              </div>
+              </Card>
             ))}
           </div>
 

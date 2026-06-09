@@ -105,7 +105,7 @@ function DropoffBar({ data }: { data: FunnelResult }) {
           <span className="w-20 text-right text-text-secondary">{s.label}</span>
           <div className="h-4 flex-1 rounded bg-gray-100">
             <div
-              className="h-full rounded bg-blue-500 transition-all"
+              className="h-full rounded bg-blue-500 transition-[height]"
               style={{ width: `${(s.count / maxCount) * 100}%` }}
             />
           </div>

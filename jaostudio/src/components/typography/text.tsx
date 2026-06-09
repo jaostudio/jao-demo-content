@@ -17,7 +17,7 @@ export function Text({ children, className, variant = 'body', muted }: TextProps
           'text-sm': variant === 'small',
           'text-xs font-medium uppercase tracking-widest': variant === 'label',
         },
-        muted ? 'text-[#A1A1AA]' : 'text-[#FAFAFA]',
+        muted ? 'text-text-tertiary' : 'text-text-primary',
         className,
       )}
     >

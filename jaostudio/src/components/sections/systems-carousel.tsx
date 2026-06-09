@@ -27,23 +27,23 @@ function SystemCarouselCard({ category }: { category: SystemCategory }) {
     <Link href={href}>
       <Card className="group flex h-full w-[300px] flex-col gap-4 p-6 sm:w-[340px] md:w-[380px]">
         <div className="flex items-center gap-2">
-          <span className="text-2xl">{category.icon}</span>
+          <span className="text-2xl leading-relaxed">{category.icon}</span>
           <h3 className="text-base font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
             {category.title}
           </h3>
         </div>
 
-        <p className="text-sm leading-relaxed text-text-secondary">
+        <p className="text-base leading-relaxed text-text-secondary">
           {category.description}
         </p>
 
         <div>
-          <p className="text-[10px] uppercase tracking-widest text-text-tertiary">What this includes</p>
+          <p className="text-xs uppercase tracking-widest text-text-tertiary">What this includes</p>
           <div className="mt-2 flex flex-wrap gap-1.5">
             {category.includes.map((item) => (
               <span
                 key={item}
-                className="rounded-md border border-border-subtle bg-surface-hover px-2 py-0.5 text-[10px] text-text-secondary"
+                className="rounded-md border border-border-subtle bg-surface-hover px-2 py-0.5 text-xs text-text-secondary"
               >
                 {item}
               </span>
@@ -52,8 +52,8 @@ function SystemCarouselCard({ category }: { category: SystemCategory }) {
         </div>
 
         <div>
-          <p className="text-[10px] uppercase tracking-widest text-text-tertiary">Used for</p>
-          <div className="mt-2 flex items-center gap-3 text-[11px] text-text-secondary">
+          <p className="text-xs uppercase tracking-widest text-text-tertiary">Used for</p>
+          <div className="mt-2 flex items-center gap-3 text-xs text-text-secondary">
             {category.usedFor.map((item) => (
               <span key={item} className="flex items-center gap-1">
                 <span className="h-1 w-1 rounded-full bg-accent" />
@@ -63,7 +63,7 @@ function SystemCarouselCard({ category }: { category: SystemCategory }) {
           </div>
         </div>
 
-        <span className="mt-auto inline-flex w-fit items-center gap-2 rounded-lg bg-accent px-4 py-3 min-h-[44px] text-sm font-medium text-white transition-all hover:brightness-110 active:scale-[0.99]">
+        <span className="mt-auto inline-flex w-fit items-center gap-2 rounded-lg bg-accent px-4 py-3 min-h-[44px] text-base font-medium text-white transition-[filter,transform] hover:brightness-110 active:scale-[0.99]">
           <span>Explore systems</span>
           <ArrowRight className="h-4 w-4" />
         </span>

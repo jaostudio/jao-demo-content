@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl'
 import { Suspense, useState, useRef, useCallback, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
+import { motion } from 'framer-motion'
 import { Section } from '@/components/ui/section'
 import { Badge } from '@/components/typography/badge'
 import { Button } from '@/components/ui/button'
@@ -130,7 +131,12 @@ function ContactForm() {
   return (
     <Section id="contact" className="">
       <div className="mx-auto max-w-2xl">
-          <div className="mb-12 flex flex-col gap-4 items-center text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-12 flex flex-col gap-5 md:gap-9 items-center text-center"
+          >
             <Badge variant="accent">{t('badge')}</Badge>
             <h2 className="text-[var(--text-section)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
               {t('heading')}
@@ -138,7 +144,7 @@ function ContactForm() {
             <p className="max-w-lg text-[var(--text-body)] leading-[var(--leading-relaxed)] text-text-secondary">
               {t('description')}
             </p>
-          </div>
+          </motion.div>
 
           <form onSubmit={handleSubmit} onFocus={handleFirstInteraction} className="flex flex-col gap-6">
             <input type="hidden" name="_gotcha" aria-hidden="true" />
@@ -247,29 +253,28 @@ function ContactForm() {
             </Button>
           </form>
 
-            <div className="mt-8 grid gap-3 border-t border-border-subtle pt-8 md:grid-cols-3">
-              <div className="flex items-start gap-3">
-                <span className="mt-0.5 text-xs text-accent-warm">✓</span>
-                <div>
-                  <p className="text-xs font-medium text-text-primary">{t('responseTitle1')}</p>
-                  <p className="mt-0.5 text-[10px] text-text-secondary">{t('responseDesc1')}</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="mt-0.5 text-xs text-accent-warm">✓</span>
-                <div>
-                  <p className="text-xs font-medium text-text-primary">{t('responseTitle2')}</p>
-                  <p className="mt-0.5 text-[10px] text-text-secondary">{t('responseDesc2')}</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="mt-0.5 text-xs text-accent-warm">✓</span>
-                <div>
-                  <p className="text-xs font-medium text-text-primary">{t('responseTitle3')}</p>
-                  <p className="mt-0.5 text-[10px] text-text-secondary">{t('responseDesc3')}</p>
-                </div>
-              </div>
-            </div>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ staggerChildren: 0.15 }}
+              className="mt-8 grid gap-3 border-t border-border-subtle pt-8 md:grid-cols-3"
+            >
+              {[1, 2, 3].map((i) => (
+                <motion.div
+                  key={i}
+                  variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0 } }}
+                  transition={{ duration: 0.5 }}
+                  className="flex items-start gap-3"
+                >
+                  <span className="mt-0.5 text-xs text-accent-warm">✓</span>
+                  <div>
+                    <p className="text-xs font-medium text-text-primary">{t(`responseTitle${i}`)}</p>
+                    <p className="mt-0.5 text-xs text-text-secondary">{t(`responseDesc${i}`)}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
         </div>
     </Section>
   )

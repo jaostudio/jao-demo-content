@@ -2,6 +2,7 @@ import type { NextConfig } from 'next'
 import withBundleAnalyzer from '@next/bundle-analyzer'
 import { withSentryConfig } from '@sentry/nextjs'
 import createNextIntlPlugin from 'next-intl/plugin'
+import path from 'node:path'
 
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts')
 
@@ -28,6 +29,12 @@ const csp = [
 ].join('; ')
 
 const nextConfig: NextConfig = {
+  experimental: {
+    inlineCss: true,
+  },
+  turbopack: {
+    root: path.resolve(__dirname, '..'),
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
@@ -73,6 +80,18 @@ const nextConfig: NextConfig = {
       {
         source: '/(.*)',
         headers: baseHeaders,
+      },
+      {
+        source: '/images/(.*)',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+        ],
+      },
+      {
+        source: '/_next/static/(.*)',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+        ],
       },
     ]
   },

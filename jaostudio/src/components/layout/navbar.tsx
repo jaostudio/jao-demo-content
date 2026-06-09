@@ -12,6 +12,7 @@ import { Logo } from '@/components/layout/logo'
 import { easeOut } from '@/lib/motion-variants'
 import { scrollToHash, updateUrlHash } from '@/lib/scroll-to-hash'
 import { NavHashLink } from '@/components/layout/nav-hash-link'
+import { useFocusTrap } from '@/lib/hooks/use-focus-trap'
 import { useTransitionController } from '@/animations/hooks/useTransitionController'
 import { usePathname } from 'next/navigation'
 import { buildLocaleHref } from '@/lib/build-locale-href'
@@ -26,6 +27,7 @@ export function Navbar() {
   const [mounted, setMounted] = useState(false)
   const navigatingRef = useRef(false)
   const pathname = usePathname()
+  const menuRef = useFocusTrap(mobileOpen)
   const locale = useLocale()
   const { theme, setTheme } = useTheme()
   const t = useTranslations('navbar')
@@ -167,7 +169,7 @@ export function Navbar() {
         className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 md:px-8 lg:px-12">
         <NextLink
           href={localizeHref('/')}
-          className={`focus-ring relative text-sm font-medium tracking-tight text-text-primary transition-colors hover:text-text-secondary`}
+          className={`focus-ring relative text-base font-medium tracking-tight text-text-primary transition-colors hover:text-text-secondary`}
         >
           <Logo size={36} className="text-xl font-bold tracking-tight" />
         </NextLink>
@@ -178,7 +180,7 @@ export function Navbar() {
                 <NavHashLink
                   key={link.href}
                   href={link.href}
-                  className="focus-ring text-sm text-text-secondary transition-colors hover:text-text-primary"
+                  className="focus-ring text-base text-text-secondary transition-colors hover:text-text-primary"
                 >
                   {link.label}
                 </NavHashLink>
@@ -186,7 +188,7 @@ export function Navbar() {
                 <NextLink
                   key={link.href}
                   href={link.href}
-                  className={`focus-ring text-sm transition-colors ${
+                  className={`focus-ring text-base transition-colors ${
                     pathname === link.href ? 'text-text-primary font-medium' : 'text-text-secondary hover:text-text-primary'
                   }`}
                 >
@@ -197,21 +199,21 @@ export function Navbar() {
             <button
               onClick={toggleLocale}
               data-anim-locale
-              className="focus-ring rounded-xl border border-border bg-surface-hover px-2.5 py-1.5 text-xs font-medium uppercase tracking-wider text-text-secondary transition-all hover:text-text-primary"
+              className="focus-ring rounded-xl border border-border bg-bg-secondary px-2.5 py-1.5 text-xs font-medium uppercase tracking-wider text-text-primary transition-colors hover:text-text-secondary"
               aria-label={`Switch language to ${locale === 'en' ? 'Tagalog' : 'English'}`}
             >
               {locale === 'en' ? 'TL' : 'EN'}
             </button>
             <button
               onClick={handleThemeToggle}
-              className="focus-ring rounded-xl border border-border bg-surface-hover p-2 text-text-secondary transition-all hover:text-text-primary"
+              className="focus-ring rounded-xl border border-border bg-surface-hover p-2 text-text-secondary transition-colors hover:text-text-primary"
               aria-label={theme === 'dark' ? t('themeLight') : t('themeDark')}
             >
               {mounted && theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </button>
             <NavHashLink
               href={localizeHref('/#contact')}
-              className="focus-ring rounded-xl bg-accent px-4 py-2 text-sm font-medium text-white transition-all hover:brightness-110 active:scale-[0.99]"
+              className="focus-ring rounded-xl bg-accent px-4 py-2 text-base font-medium text-white transition-[filter,transform] hover:brightness-110 active:scale-[0.99]"
             >
               {t('cta')}
             </NavHashLink>
@@ -219,6 +221,7 @@ export function Navbar() {
 
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
+          data-close-menu
           className="relative z-50 flex items-center justify-center md:hidden"
           aria-label={t('toggleMenu')}
         >
@@ -240,6 +243,7 @@ export function Navbar() {
             role="dialog"
             aria-modal="true"
             aria-label={t('closeMenu')}
+            ref={menuRef}
             className="fixed inset-0 z-[60] flex flex-col items-center justify-center gap-8 bg-bg-primary md:hidden pb-[env(safe-area-inset-bottom)] pt-[env(safe-area-inset-top)]"
           >
             {navLinks.map((link, i) => (
@@ -287,14 +291,14 @@ export function Navbar() {
               <button
                 onClick={toggleLocale}
                 data-anim-locale
-                className="focus-ring rounded-xl border border-border bg-surface-hover px-3 py-2.5 text-sm font-medium uppercase tracking-wider text-text-secondary transition-all hover:text-text-primary"
+                className="focus-ring rounded-xl border border-border bg-surface-hover px-3 py-2.5 text-sm font-medium uppercase tracking-wider text-text-secondary transition-colors hover:text-text-primary"
                 aria-label={`Switch language to ${locale === 'en' ? 'Tagalog' : 'English'}`}
               >
                 {locale === 'en' ? 'TL' : 'EN'}
               </button>
               <button
                 onClick={handleThemeToggle}
-                className="focus-ring rounded-xl border border-border bg-surface-hover p-3 text-text-secondary transition-all hover:text-text-primary"
+                className="focus-ring rounded-xl border border-border bg-surface-hover p-3 text-text-secondary transition-colors hover:text-text-primary"
                 aria-label={theme === 'dark' ? t('themeLight') : t('themeDark')}
               >
                 {mounted && (theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />)}

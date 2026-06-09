@@ -1,11 +1,12 @@
-import { Section } from '@/components/ui/section'
 import { Container } from '@/components/ui/container'
 import { Badge } from '@/components/typography/badge'
 import { Card } from '@/components/ui/card'
+import { LayeredFrame } from '@/components/ui/layout/layered-frame'
 import { ProjectTierBadge } from '@/components/projects/project-tier-badge'
 import { ProjectCardLink } from '@/components/projects/project-card-link'
 import { projects } from '@/lib/projects'
 import { getTranslations } from 'next-intl/server'
+import { ORG_ID, WEBSITE_ID } from '@/lib/json-ld-ids'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -15,21 +16,44 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://jaostudio.dev/projects' },
 }
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'CollectionPage',
+      '@id': `${ORG_ID}/#collectionpage`,
+      url: 'https://jaostudio.dev/projects',
+      name: 'Projects — JAOstudio',
+      isPartOf: { '@id': WEBSITE_ID },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://jaostudio.dev' },
+        { '@type': 'ListItem', position: 2, name: 'Projects', item: 'https://jaostudio.dev/projects' },
+      ],
+    },
+  ],
+}
+
 export default async function ProjectsPage() {
   const t = await getTranslations('projects')
   return (
     <>
-      <Section className="pt-32 md:pt-40">
-        <div className="flex flex-col gap-4">
-          <Badge variant="accent">{t('badge')}</Badge>
-          <h1 className="text-[var(--text-section)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
-            {t('pageHeading')}
-          </h1>
-          <p className="max-w-2xl text-[var(--text-body)] leading-[var(--leading-relaxed)] text-text-secondary">
-            {t('pageDescription')}
-          </p>
-        </div>
-      </Section>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <section className="relative pt-20 lg:pt-28">
+        <LayeredFrame glow>
+          <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
+            <Badge variant="accent">{t('badge')}</Badge>
+            <h1 className="text-[var(--text-hero)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
+              {t('pageHeading')}
+            </h1>
+            <p className="max-w-2xl text-[var(--text-body)] leading-[var(--leading-relaxed)] text-text-secondary">
+              {t('pageDescription')}
+            </p>
+          </div>
+        </LayeredFrame>
+      </section>
 
       <Container className="pb-32 md:pb-40">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -63,7 +87,7 @@ export default async function ProjectsPage() {
                       {project.stack.slice(0, 4).map((tech) => (
                         <span
                           key={tech}
-                          className="rounded-md border border-border-subtle bg-surface-hover px-2 py-0.5 text-[10px] text-text-tertiary"
+                          className="rounded-md border border-border-subtle bg-surface-hover px-2 py-0.5 text-xs text-text-tertiary"
                         >
                           {tech}
                         </span>

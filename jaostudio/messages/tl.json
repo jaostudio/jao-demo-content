@@ -143,7 +143,7 @@
   "studio": {
     "metaTitle": "Studio — JAOstudio",
     "metaDescription": "Paano ako nagtatrabaho, ano ang aking pinahahalagahan, at ano ang iyong maaasahan. Mga prinsipyo sa operasyon, engagement models, at production standards.",
-    "badge": "Studio",
+    "badge": "About",
     "heading": "Studio na naka-focus sa systems, hindi lang basta websites",
     "description": "Ang thinking ko ay architecture, hindi lang pages. Ito ang aking approach sa projects, principles na sinusunod, at kung ano ang aasahan mo sa pagtutulungan natin.",
     "principle1Label": "Kalinawan kaysa complexity",
@@ -167,42 +167,59 @@
     "cta": "Simulan ang Proyekto"
   },
   "services": {
-    "heroBadge": "Anong Ginagawa Ko",
-    "heroDesc": "End-to-end web development services — mula marketing sites hanggang full platforms, binuo para sa performance at kalinawan.",
+    "heroBadge": "Services",
+    "heroTitle": "Business Systems That Automate Operations",
+    "heroDesc": "We design and build custom platforms, dashboards, and internal tools that reduce manual work, automate workflows, and create measurable business outcomes — for founders, agencies, and operations teams.",
     "metaTitle": "Services — JAOstudio",
     "metaDescription": "Custom websites, web applications, dashboards, performance optimization, at technical consulting. Binuo para sa conversion, bilis, at maintainability.",
-    "stage1": "Discovery at Strategy",
+    "stage1Title": "Discovery at Strategy",
     "stage1Timeline": "3–7 araw",
     "stage1Output": "Project brief, sitemap, at tech recommendations",
     "stage1Input": "Iyong goals, brand guidelines, at content outline",
-    "stage2": "Design at Architecture",
+    "stage2Title": "Design at Architecture",
     "stage2Timeline": "5–14 araw",
     "stage2Output": "Wireframes, design mockups, at component tree",
     "stage2Input": "Feedback sa designs at structure",
-    "stage3": "Development",
+    "stage3Title": "Development",
     "stage3Timeline": "10–30 araw",
     "stage3Output": "Staged preview environment at working features",
     "stage3Input": "Regular review at feedback",
-    "stage4": "QA at Optimization",
+    "stage4Title": "QA at Optimization",
     "stage4Timeline": "3–7 araw",
     "stage4Output": "Lighthouse report, accessibility audit, at final checks",
     "stage4Input": "Final approval at content sign-off",
-    "stage5": "Launch at Handoff",
+    "stage5Title": "Launch at Handoff",
     "stage5Timeline": "2–5 araw",
     "stage5Output": "Live site, source code, at documentation",
     "stage5Input": "Domain at hosting access",
-    "model1Title": "Fixed Scope",
-    "model1Desc": "May defined budget at timeline para sa malinaw na projects. Pinakamainam kung klaro ang requirements mula pa sa simula.",
+    "model1Title": "Standard Build Engagement",
+    "model1Desc": "Fixed-scope delivery na may defined timeline at milestones. Para sa projects na may malinaw na requirements.",
+    "model1BestFor": "Malinaw na requirements, predictable scope",
     "model2Title": "Retainer",
-    "model2Desc": "Patuloy na development, maintenance, at iteration. Pinakamainam para sa lumalaking products na kailangan ng continuous improvement.",
-    "model3Title": "Consulting",
-    "model3Desc": "Technical guidance, code review, at architecture planning. Pinakamainam kung kailangan mo ng expertise nang walang full execution.",
-    "model4Title": "Emergency",
-    "model4Desc": "Mabilis na turnaround para sa urgent fixes at critical issues. Pinakamainam kung may nasira at kailangan ng mabilisang ayos.",
-    "processBadge": "Proseso",
+    "model2Desc": "Patuloy na development, maintenance, at iteration. Para sa lumalaking products na nangangailangan ng continuous improvement.",
+    "model2BestFor": "Patuloy na platform development",
+    "model3Title": "Advisory",
+    "model3Desc": "Technical guidance, code review, at architecture planning. Para sa teams na nangangailangan ng expertise nang walang full execution.",
+    "model3BestFor": "Architecture reviews, technical leverage",
+    "model4Title": "Dedicated Build Partner",
+    "model4Desc": "Priority execution lane para sa scoped builds na may accelerated delivery. Para sa pangmatagalang system ownership.",
+    "model4BestFor": "Pangmatagalang system ownership, priority execution",
+    "processBadge": "Process",
     "deliveryStages": "Mga Stage ng Delivery",
+    "engagementBadge": "Paano makipag-engage",
     "engagementModel": "Engagement Model",
     "workingStyle": "Services",
+    "whoForBadge": "Para Kanino Ito",
+    "whoForTitle": "Built para sa teams na nangangailangan ng systems, hindi templates",
+    "whoForFitTitle": "Bagay para sa",
+    "whoForFit1": "Service businesses na may repeatable processes",
+    "whoForFit2": "Agencies na humahawak ng maraming clients o projects",
+    "whoForFit3": "Internal operations teams na nagpapalaki ng manual workflows",
+    "whoForFit4": "Multi-location businesses na may fragmented tools",
+    "whoForNotFitTitle": "Hindi bagay para sa",
+    "whoForNotFit1": "MVP-stage startups na nangangailangan ng rapid experimentation",
+    "whoForNotFit2": "One-off landing page o brochure site projects",
+    "whoForNotFit3": "Template-based o pre-built theme customizations",
     "service1Title": "Web Development",
     "service1Desc": "Custom websites, web applications, at dashboards — gawa mula sa simula para sa performance, accessibility, at conversion.",
     "service2Title": "Consulting at Architecture",
@@ -211,27 +228,98 @@
     "service3Desc": "Lighthouse optimization, Core Web Vitals, SEO audits, at load-time reduction para mabilis at mataas ang rank.",
     "service4Title": "Support at Maintenance",
     "service4Desc": "Patuloy na updates, monitoring, security patches, at iterative improvements para sa live products.",
+    "registry": {
+      "customWebsites": {
+        "title": "Custom Websites",
+        "description": "Mga high-performance marketing sites, landing pages, at brand websites na binuo para sa bilis at conversion.",
+        "seoTitle": "Custom Websites — JAOstudio",
+        "seoDescription": "Custom website development — high-performance marketing sites, landing pages, at brand websites na binuo para sa bilis at conversion."
+      },
+      "webApplications": {
+        "title": "Web Applications",
+        "description": "Mga dashboard, internal tools, at operational platforms na may role-based access at real-time data.",
+        "seoTitle": "Web Applications — JAOstudio",
+        "seoDescription": "Custom web application development — mga dashboard, internal tools, at operational platforms na may role-based access at real-time data."
+      },
+      "businessAutomation": {
+        "title": "Business Automation",
+        "description": "Custom automation systems na nagbabawas ng manual work, nagpapadali ng processes, at nag-aalis ng data silos.",
+        "seoTitle": "Business Automation — JAOstudio",
+        "seoDescription": "Custom business automation — mga system na nagbabawas ng manual work, nagpapadali ng processes, at nag-aalis ng data silos sa iyong organisasyon."
+      },
+      "internalTools": {
+        "title": "Internal Tools",
+        "description": "Mga purpose-built tools para sa operations teams — inventory tracking, task management, at compliance workflows.",
+        "seoTitle": "Internal Tools — JAOstudio",
+        "seoDescription": "Custom internal tools — inventory tracking, task management, compliance workflows, at iba pang operations software."
+      },
+      "clientPortals": {
+        "title": "Client Portals",
+        "description": "Secure portals para sa client communication, document sharing, project tracking, at account management.",
+        "seoTitle": "Client Portals — JAOstudio",
+        "seoDescription": "Custom client portal development — secure portals para sa client communication, document sharing, project tracking, at account management."
+      }
+    },
+    "exampleScopesBadge": "Halimbawa ng Scope",
     "exampleScopes": "Halimbawa ng Scope",
-    "example1Title": "Small Business Website",
-    "example1Timeline": "Maikling Timeline",
-    "example1Scope": "Marketing site na may content pages, contact flow, at analytics setup",
-    "example2Title": "Internal Dashboard System",
-    "example2Timeline": "Katamtamang Complexity",
-    "example2Scope": "Data visualization, role-based views, at API integration",
+    "example1Title": "Lead Generation Platform",
+    "example1Timeline": "4–6 na linggo",
+    "example1Scope": "CRM, lead capture, appointment scheduling, analytics",
+    "example1Result": "Kumuha, mag-qualify, at mag-route ng leads nang walang manual follow-up",
+    "example2Title": "Operations Dashboard",
+    "example2Timeline": "6–10 na linggo",
+    "example2Scope": "Data visualization, role-based views, API integration",
+    "example2Result": "Real-time operational visibility na may role-based access",
     "example3Title": "SaaS Frontend Platform",
-    "example3Timeline": "Mahabang Build",
-    "example3Scope": "Multi-tenant architecture, onboarding flow, at subscription management",
-    "availabilityNote": "Tungkol sa Availability",
-    "availabilityIntro": "Isa akong solo developer na nakatuon sa paghahatid ng exceptional work para sa maliit na bilang ng clients sa isang pagkakataon.",
-    "availabilityNote1": "Wala akong 24/7 support o emergency response. Async-first ang communication ko tuwing business hours.",
-    "availabilityNote2": "Hindi ako nag-cucustomize ng pre-built themes o templates. Bawat project ay gawa mula sa simula.",
-    "availabilityNote3": "Maingat ako sa pagpili ng projects. Kung hindi bagay, sasabihin ko nang totoo — at minsan, magrerekomenda ako ng iba.",
+    "example3Timeline": "8–14 na linggo",
+    "example3Scope": "Multi-tenant architecture, onboarding flow, subscription management",
+    "example3Result": "Multi-tenant onboarding na may automated provisioning",
+    "availabilityBadge": "Availability",
+    "availabilityTitle": "Kasalukuyang Build Capacity",
+    "availabilityIntro": "Limitadong bilang ng projects ang hinahawakan ko sa isang pagkakataon para mapanatili ang delivery quality. Nakadepende ang start dates sa kasalukuyang load at scope alignment.",
+    "availabilityNote1": "Async-first ang communication tuwing business hours. Bawat project ay gawa mula sa simula — walang templates.",
+    "availabilityNote2": "Ang mga projects ay tinatanggap nang selektibo batay sa scope alignment at scheduling readiness.",
+    "availabilityNote3": "Kung hindi bagay, sasabihin ko nang totoo — at minsan, magrerekomenda ako ng iba.",
+    "seeDemosTitle": "Tingnan ang mga System na Ito",
+    "seeDemosDesc": "Anim na production-ready platforms — lead generation, commerce, marketplace, editorial, operations, at compliance. Bawat isa ay independently deployed at fully functional.",
+    "seeDemosCta": "Tingnan ang Live Demos",
+    "projectFitTitle": "Ang Isang Project ay Karaniwang Bagay Kung",
+    "projectFit1": "May malinaw kang business process na gusto i-systematize",
+    "projectFit2": "Gusto mong bawasan ang manual work at operational overhead",
+    "projectFit3": "Naghahanap ka ng pangmatagalang system, hindi one-time deliverable",
+    "projectNotFitTitle": "Ang mga Project ay Karaniwang Hindi Bagay Kung",
+    "projectNotFit1": "Kailangan mo ng delivery sa loob ng ilang araw",
+    "projectNotFit2": "Ang requirements ay ganap na undefined",
+    "projectNotFit3": "Naghahanap ka ng template-based solutions",
+    "projectNotFit4": "Ang budget ay determinado bago pa maintindihan ang scope",
+    "trustTitle": "Built para sa Production",
+    "trust1": "6 na independently deployed live systems",
+    "trust2": "Multi-language support",
+    "trust3": "Role-based access control",
+    "trust4": "Scalable, isolated architecture",
     "timeline": "Timeline",
     "output": "Output",
+    "result": "Business Result",
+    "bestFor": "Best para sa",
     "fromYou": "Mula sa Iyo",
     "ctaSubtitle": "Sabihin mo sa akin ang iyong ginagawa. Magre-respond ako sa loob ng 24 oras na may project brief.",
     "ctaButton": "Simulan ang Proyekto",
     "cta": "Handa nang magsimula ng project?"
+  },
+  "demoCredentials": {
+    "metaTitle": "Demo Credentials — JAOstudio",
+    "metaDescription": "Access credentials for all six demo systems — lead generation, commerce, marketplace, editorial, operations, and compliance.",
+    "title": "Demo Systems Access",
+    "purpose": "Ang mga demo system na ito ay sandbox environments para sa pag-evaluate ng platform architecture, workflows, at user experience. Walang production data na ginagamit.",
+    "whatThisIs": "Ano ito",
+    "whatThisIsDesc": "Read-only access sa independently deployed systems para sa evaluation at testing purposes.",
+    "whatThisIsNot": "Ano ito hindi",
+    "whatThisIsNotDesc": "Hindi ito production environments. Nagre-reset ang data pana-panahon. Ang credentials ay nagbibigay lamang ng limited access roles.",
+    "password": "Password",
+    "allPassword": "Lahat ng passwords",
+    "noAuthRequired": "Walang authentication na kailangan. Bisitahin ang live demo para mag-explore.",
+    "backToDemos": "Tingnan ang Demos",
+    "backToServices": "Services"
   },
   "contactPage": {
     "heading": "Simulan ang Proyekto",
@@ -329,6 +417,25 @@
     "metricBundle": "Bundle Size",
     "metricTTFB": "TTFB"
   },
+  "caseStudies": {
+    "badge": "Case Studies",
+    "heading": "Totoong Proyekto, Nasusukat na Resulta",
+    "description": "Detalyadong walkthrough ng mga proyekto — ang problema, ang constraints, ang solusyon, at ang mga resulta.",
+    "readCaseStudy": "Basahin ang Case Study",
+    "backLink": "Lahat ng Case Studies",
+    "sectionChallenge": "Ang Hamon",
+    "sectionConstraints": "Mga Constraints",
+    "sectionSolution": "Ang Solusyon",
+    "sectionFeatures": "Mga Pangunahing Feature",
+    "sectionLessons": "Mga Aral at Desisyon",
+    "lessonLabel": "Aral",
+    "architectureLabel": "System Architecture",
+    "relatedServices": "Kaugnay na Services",
+    "relatedDemos": "Kaugnay na Demos",
+    "relatedProject": "Kaugnay na Project",
+    "ctaTitle": "Kailangan mo ng katulad na system para sa iyong negosyo?",
+    "ctaButton": "Magsimula ng Proyekto"
+  },
   "socialProof": {
     "item1": "95+ Lighthouse",
     "item2": "SEO-optimized",
@@ -383,6 +490,11 @@
     "viewProjects": "Tingnan ang Projects",
     "startProject": "Simulan ang Proyekto"
   },
+  "demos": {
+    "badge": "Live Demos",
+    "heading": "Business Systems Built to Run Real Operations",
+    "description": "Generate leads without manual follow-up. Increase revenue without platform chaos. Run operations without spreadsheets. Six production-ready platforms, each independently deployed and fully functional."
+  },
   "playground": {
     "metaTitle": "Playground — JAOstudio",
     "badge": "Experiments",
@@ -413,5 +525,74 @@
     "demo8Title": "Loading States",
     "demo8Description": "Smooth skeleton loading patterns at animated transitions.",
     "demo8Category": "UI"
+  },
+  "seo": {
+    "home": {
+      "title": "JAOstudio — Website, Dashboard at Tool para sa Performance",
+      "description": "Custom web development para sa startups, agencies, at established businesses — mula landing pages hanggang full SaaS platforms. Performance-first at malinaw."
+    },
+    "services": {
+      "title": "Services — JAOstudio",
+      "description": "Custom websites, web applications, dashboards, performance optimization, at technical consulting. Binuo para sa conversion, bilis, at maintainability."
+    },
+    "demos": {
+      "title": "Demos — JAOstudio",
+      "description": "Anim na production-ready platforms para sa lead generation, commerce, marketplace, editorial, operations, at compliance."
+    },
+    "projects": {
+      "title": "Projects — JAOstudio",
+      "description": "Mga piniling projects — business websites, web applications, dashboards, at e-commerce storefronts na binuo para sa real clients."
+    },
+    "contact": {
+      "title": "Contact — JAOstudio",
+      "description": "Magsimula ng project o makipag-ugnayan sa JAOstudio. Sabihin mo ang tungkol sa project mo at magre-respond ako sa loob ng 24 oras."
+    },
+    "audit": {
+      "title": "Free Website Audit — JAOstudio",
+      "description": "Kumuha ng libreng website audit na may mga rekomendasyon para sa performance, SEO, at user experience."
+    },
+    "caseStudies": {
+      "title": "Case Studies — JAOstudio",
+      "description": "Totoong proyekto at resulta — mula construction operations platforms hanggang ecommerce storefronts. Tingnan kung paano kami gumagawa ng systems na lumulutas ng business problems."
+    },
+    "playground": {
+      "title": "Playground — JAOstudio",
+      "description": "Interactive demos at experiments na binuo gamit ang Next.js, Framer Motion, at modern web technologies."
+    },
+    "studio": {
+      "title": "Studio — JAOstudio",
+      "description": "Paano ako nagtatrabaho, ano ang aking pinahahalagahan, at ano ang iyong maaasahan. Mga prinsipyo sa operasyon, engagement models, at production standards."
+    },
+    "cv": {
+      "title": "CV — JAOstudio",
+      "description": "Propesyonal na karanasan sa frontend engineering, web application development, at technical architecture."
+    },
+    "demoCredentials": {
+      "title": "Demo Credentials — JAOstudio",
+      "description": "Access credentials para sa lahat ng anim na demo systems — lead generation, commerce, marketplace, editorial, operations, at compliance."
+    }
+  },
+  "intent": {
+    "hero": {
+      "value": "Gumagawa kami ng scalable na web apps para sa lumalaking negosyo"
+    },
+    "trust": {
+      "statement": "Matibay na systems na may sukat na performance improvements"
+    },
+    "who": {
+      "for": "Para sa mga business na kailangan ng reliable at scalable na systems"
+    },
+    "cta": {
+      "push": "Handa nang gumawa ng system na talagang gagana para sa iyong negosyo?"
+    },
+    "home": {
+      "tagline": "Websites at apps na talagang gagana para sa negosyo mo — hindi template, hindi trial-and-error."
+    },
+    "studio": {
+      "tagline": "Systems, hindi lang pages. Architecture muna bago code."
+    },
+    "contact": {
+      "prompt": "Walang pressure. Sabihin mo lang ang kailangan mo at magpapadala ako ng project brief."
+    }
   }
 }

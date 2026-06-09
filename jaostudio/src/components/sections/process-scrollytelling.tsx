@@ -23,56 +23,6 @@ const nodeToStep: Record<string, number> = {
   data: 4,
 }
 
-function ProcessPreviewButton({
-  step,
-  title,
-  summary,
-  selected,
-  contextual,
-  onClick,
-}: {
-  step: string
-  title: string
-  summary: string
-  selected?: boolean
-  contextual?: boolean
-  onClick: () => void
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={cn(
-        'group flex w-full items-start gap-3 rounded-2xl border px-4 py-3 text-left transition-all duration-300',
-        selected
-          ? 'border-accent/30 bg-accent/8 shadow-[0_0_0_1px_rgba(124,58,237,0.14)]'
-          : contextual
-            ? 'border-accent-warm/20 bg-accent-warm-soft/5 hover:border-border-active hover:bg-bg-surface/70'
-            : 'border-border-subtle bg-bg/55 hover:border-border-active hover:bg-bg-surface/70',
-      )}
-    >
-      <span
-        className={cn(
-          'flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border text-[10px] font-medium transition-colors',
-          selected
-            ? 'border-accent/30 bg-accent-soft text-text-primary'
-            : contextual
-              ? 'border-accent-warm/20 bg-accent-warm-soft/10 text-accent-warm'
-              : 'border-border-subtle bg-bg-elevated text-text-secondary',
-        )}
-      >
-        {step}
-      </span>
-      <span className="min-w-0 flex-1">
-        <span className={cn('block text-[var(--text-body)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)]', selected ? 'text-text-primary' : 'text-text-secondary')}>
-          {title}
-        </span>
-        <span className="mt-1 block text-[var(--text-meta)] leading-relaxed text-text-secondary">{summary}</span>
-      </span>
-    </button>
-  )
-}
-
 function ProcessDesktopScrollytelling({
   steps,
   stepPills,
@@ -119,7 +69,7 @@ function ProcessDesktopScrollytelling({
 }) {
   return (
     <div
-      className="mt-8 max-md:mt-4 grid md:min-h-[clamp(28rem,55svh,36rem)] gap-4 lg:grid-cols-[0.82fr_1.18fr] lg:items-stretch"
+      className="mt-8 max-md:mt-4 flex flex-col gap-4"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onFocusCapture={() => setIsPaused(true)}
@@ -133,8 +83,8 @@ function ProcessDesktopScrollytelling({
       aria-roledescription="process stepper"
       aria-label="Project process steps. Use arrow keys to move between steps."
     >
-      <motion.aside
-        className="hidden md:flex h-full flex-col justify-between rounded-[2rem] border border-border-subtle bg-bg-surface/75 p-3 md:p-5"
+      <motion.div
+        className="hidden md:flex items-center justify-between rounded-[2rem] border border-border-subtle bg-bg-surface/75 px-4 py-2 md:px-6 md:py-3"
         {...(prefersReducedMotion
           ? {}
           : {
@@ -144,33 +94,51 @@ function ProcessDesktopScrollytelling({
         viewport={{ once: true, margin: '-50px' }}
         transition={{ duration: prefersReducedMotion ? 0 : durations.slow, ease: easeOut }}
       >
-        <div className="space-y-3 md:space-y-4">
-          <div className="flex items-center gap-3 max-sm:hidden">
-            <div className="h-px flex-1 bg-gradient-to-r from-accent-warm/60 via-accent/35 to-transparent" />
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-text-secondary">Process map</span>
-          </div>
-
-          <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-1">
-            {stepPills.map((step) => (
-              <ProcessPreviewButton
-                key={step.step}
-                step={step.step}
-                title={step.title}
-                summary={step.summary}
-                selected={step.selected}
-                contextual={step.contextual}
-                onClick={step.onClick}
-              />
-            ))}
-          </div>
+        <div className="flex items-center gap-2">
+          {stepPills.map((step, index) => (
+            <button
+              key={step.step}
+              type="button"
+              onClick={step.onClick}
+              className={cn(
+                'flex items-center gap-2 rounded-xl px-3 py-2 text-left transition-colors duration-300',
+                step.selected
+                  ? 'bg-accent/8 shadow-[0_0_0_1px_rgba(124,58,237,0.14)]'
+                  : 'hover:bg-surface-hover',
+              )}
+            >
+              <span
+                className={cn(
+                  'flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border text-xs font-medium transition-colors',
+                  step.selected
+                    ? 'border-accent/30 bg-accent-soft text-text-primary'
+                    : step.contextual
+                      ? 'border-accent-warm/20 bg-accent-warm-soft/10 text-accent-warm'
+                      : 'border-border-subtle bg-bg-elevated text-text-secondary',
+                )}
+              >
+                {step.step}
+              </span>
+              <span className={cn(
+                'hidden lg:block text-sm',
+                step.selected ? 'text-text-primary' : 'text-text-secondary',
+              )}>
+                {step.title}
+              </span>
+            </button>
+          ))}
         </div>
 
-        <div className="mt-3 md:mt-5 border-t border-border-subtle pt-3 md:pt-4">
-          <span className="text-xs text-text-tertiary">
-            {disableAutoAdvance ? 'Tap a step to explore' : 'Auto-advances every 3.6 seconds'}
+        <div className="flex items-center gap-3">
+          <span className="font-mono text-xs uppercase tracking-[0.2em] text-text-tertiary whitespace-nowrap">
+            {activeIndex + 1}/{steps.length}
+          </span>
+          <span className="text-xs text-text-tertiary/40">·</span>
+          <span className="text-xs uppercase tracking-[0.2em] text-text-tertiary whitespace-nowrap">
+            {activeStep.title} → {nextTitle}
           </span>
         </div>
-      </motion.aside>
+      </motion.div>
 
       <motion.section
         className="relative overflow-hidden rounded-[2rem] border border-border-subtle bg-bg-surface/75 p-4 md:p-6 lg:p-8"
@@ -210,7 +178,7 @@ function ProcessDesktopScrollytelling({
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p className="text-[10px] uppercase tracking-[0.28em] text-text-secondary">Step {activeStep.step}</p>
+                  <p className="text-xs uppercase tracking-[0.28em] text-text-secondary">Step {activeStep.step}</p>
                   <h3 className="mt-2 text-[var(--text-card-title)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
                     {activeStep.title}
                   </h3>
@@ -218,20 +186,11 @@ function ProcessDesktopScrollytelling({
                     {activeStep.summary}
                   </p>
                 </div>
-                <div className="hidden shrink-0 md:flex items-center gap-2 rounded-lg border border-border-subtle bg-bg-surface/60 px-3 py-1.5">
-                  <span className="text-[10px] uppercase tracking-[0.2em] text-text-tertiary whitespace-nowrap">
-                    {activeIndex + 1}/{steps.length}
-                  </span>
-                  <span className="text-[10px] text-text-tertiary/60">·</span>
-                  <span className="text-[10px] uppercase tracking-[0.2em] text-text-tertiary whitespace-nowrap">
-                    {activeStep.title} → {nextTitle}
-                  </span>
-                </div>
               </div>
 
               <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-end">
                 <div className="rounded-xl bg-surface-hover p-4 md:p-5">
-                  <p className="text-[10px] uppercase tracking-[0.28em] text-text-secondary">What happens here</p>
+                  <p className="text-xs uppercase tracking-[0.28em] text-text-secondary">What happens here</p>
                   <p className="mt-3 text-[var(--text-body)] leading-[var(--leading-relaxed)] text-text-secondary">
                     {activeStep.details}
                   </p>
@@ -241,7 +200,7 @@ function ProcessDesktopScrollytelling({
                   {activeStep.deliverables.map((deliverable) => (
                     <span
                       key={deliverable}
-                      className="rounded-2xl border border-border-subtle bg-bg-surface/85 px-3 py-2 text-center text-[10px] uppercase tracking-[0.22em] text-text-secondary"
+                      className="rounded-2xl border border-border-subtle bg-bg-surface/85 px-3 py-2 text-center text-xs uppercase tracking-[0.22em] text-text-secondary"
                     >
                       {deliverable}
                     </span>
@@ -251,7 +210,7 @@ function ProcessDesktopScrollytelling({
 
               <div className="grid gap-4 md:grid-cols-[1.1fr_auto] md:items-end">
                 <div>
-                  <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.24em] text-text-secondary">
+                  <div className="flex items-center justify-between text-xs uppercase tracking-[0.24em] text-text-secondary">
                     <span>Progress</span>
                     <span>{activeIndex + 1}/{steps.length}</span>
                   </div>

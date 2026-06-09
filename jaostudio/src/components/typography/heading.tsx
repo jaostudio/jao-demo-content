@@ -8,7 +8,7 @@ interface HeadingProps {
 
 export function Heading({ children, className, as: Tag = 'h2' }: HeadingProps) {
   const styles = cn(
-    'font-semibold tracking-tight text-[#FAFAFA]',
+    'font-semibold tracking-tight text-text-primary',
     {
       'text-5xl md:text-6xl xl:text-7xl leading-[0.9]': Tag === 'h1',
       'text-4xl md:text-5xl leading-[1.1]': Tag === 'h2',

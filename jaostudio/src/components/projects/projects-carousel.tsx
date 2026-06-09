@@ -42,7 +42,7 @@ function ProjectCarouselCard({ project, relevant = false }: { project: ProjectMe
           <p className="text-sm leading-relaxed text-text-secondary">{project.summary}</p>
         </div>
 
-        <div className="space-y-2 transition-all duration-300 opacity-60 group-hover:opacity-100">
+        <div className="space-y-2 transition-opacity duration-300 opacity-60 group-hover:opacity-100">
           <p className="text-xs leading-relaxed text-text-tertiary line-clamp-1">
             {project.industry} · {project.timeline}
           </p>
@@ -64,7 +64,7 @@ function ProjectCarouselCard({ project, relevant = false }: { project: ProjectMe
           </div>
         </div>
 
-        <span className="inline-flex w-fit items-center gap-2 rounded-lg bg-accent px-4 py-3 min-h-[44px] text-sm font-medium text-white transition-all hover:brightness-110 active:scale-[0.99]">
+        <span className="inline-flex w-fit items-center gap-2 rounded-lg bg-accent px-4 py-3 min-h-[44px] text-sm font-medium text-white transition-[filter,transform] hover:brightness-110 active:scale-[0.99]">
           <span>View Project Sample</span>
           <ArrowRight className="h-4 w-4" />
         </span>
@@ -166,7 +166,7 @@ export function ProjectsCarousel({ projects, relevantSlugs }: Props) {
       <button
         onClick={scrollLeft}
         aria-label="Scroll left"
-        className="absolute left-3 top-1/2 z-10 -translate-y-1/2 rounded-full border border-border-subtle bg-bg-elevated p-2 text-text-secondary opacity-0 shadow-lg transition-all hover:bg-bg-surface hover:text-text-primary group-hover:opacity-100"
+        className="absolute left-3 top-1/2 z-10 -translate-y-1/2 rounded-full border border-border-subtle bg-bg-elevated p-2 text-text-secondary opacity-0 shadow-lg transition-[color,background-color,opacity] hover:bg-bg-surface hover:text-text-primary group-hover:opacity-100"
       >
         <ChevronLeft className="h-5 w-5" />
       </button>
@@ -174,7 +174,7 @@ export function ProjectsCarousel({ projects, relevantSlugs }: Props) {
       <button
         onClick={scrollRight}
         aria-label="Scroll right"
-        className="absolute right-3 top-1/2 z-10 -translate-y-1/2 rounded-full border border-border-subtle bg-bg-elevated p-2 text-text-secondary opacity-0 shadow-lg transition-all hover:bg-bg-surface hover:text-text-primary group-hover:opacity-100"
+        className="absolute right-3 top-1/2 z-10 -translate-y-1/2 rounded-full border border-border-subtle bg-bg-elevated p-2 text-text-secondary opacity-0 shadow-lg transition-[color,background-color,opacity] hover:bg-bg-surface hover:text-text-primary group-hover:opacity-100"
       >
         <ChevronRight className="h-5 w-5" />
       </button>

@@ -32,6 +32,7 @@ export function DeviceFrame({ src, alt, url, className }: DeviceFrameProps) {
     businessContext: { who: '', problem: '', solution: '', result: '' },
     gallery: src ? [src] : [],
     liveUrl: url ?? '',
+    relatedServices: [],
   }
 
   return <PreviewRenderer project={project} className={className} />

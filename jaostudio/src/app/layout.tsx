@@ -133,6 +133,7 @@ export default async function RootLayout({
         />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-bg-primary`}>
+        <div className="noise-overlay" />
         <Providers>
           <ClientProviders>
             <NextIntlClientProvider locale={locale} messages={messages}>

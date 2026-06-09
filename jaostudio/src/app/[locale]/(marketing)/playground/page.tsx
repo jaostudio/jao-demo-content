@@ -1,13 +1,31 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Section } from '@/components/ui/section'
 import { Container } from '@/components/ui/container'
 import { Badge } from '@/components/typography/badge'
 import { Card } from '@/components/ui/card'
+import { LayeredFrame } from '@/components/ui/layout/layered-frame'
 import { track, EVENTS } from '@/lib/analytics'
 import { easeOut } from '@/lib/motion-variants'
 import { useTranslations } from 'next-intl'
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      url: 'https://jaostudio.dev/playground',
+      name: 'Playground — JAOstudio',
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://jaostudio.dev' },
+        { '@type': 'ListItem', position: 2, name: 'Playground', item: 'https://jaostudio.dev/playground' },
+      ],
+    },
+  ],
+}
 
 export default function PlaygroundPage() {
   const t = useTranslations('playground')
@@ -25,17 +43,20 @@ export default function PlaygroundPage() {
 
   return (
     <>
-      <Section className="pt-32 md:pt-40">
-        <div className="flex flex-col gap-4">
-          <Badge variant="accent">{t('badge')}</Badge>
-          <h1 className="text-[var(--text-section)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
-            {t('heading')}
-          </h1>
-          <p className="max-w-lg text-[var(--text-body)] leading-[var(--leading-relaxed)] text-text-secondary">
-            {t('description')}
-          </p>
-        </div>
-      </Section>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <section className="relative pt-20 lg:pt-28">
+        <LayeredFrame glow>
+          <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
+            <Badge variant="accent">{t('badge')}</Badge>
+            <h1 className="text-[var(--text-hero)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
+              {t('heading')}
+            </h1>
+            <p className="max-w-lg text-[var(--text-body)] leading-[var(--leading-relaxed)] text-text-secondary">
+              {t('description')}
+            </p>
+          </div>
+        </LayeredFrame>
+      </section>
 
       <Container className="pb-32 md:pb-40">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

@@ -17,7 +17,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = 'primary', size = 'md', href, loading, trackingLabel, children, ...props }, ref) => {
     const baseStyles = cn(
-      'relative inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-all duration-300',
+      'relative inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-colors duration-300',
       'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg-primary',
       'disabled:pointer-events-none disabled:opacity-40',
       {

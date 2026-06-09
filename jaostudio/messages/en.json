@@ -13,10 +13,12 @@
     "metaTitle": "JAOstudio — Websites, Dashboards & Tools for Performance",
     "metaDescription": "Custom web development for startups, agencies, and established businesses — from landing pages to full SaaS platforms. Performance-first, clarity-driven.",
     "badge": "JAOstudio",
-    "headline": "Custom business software that generates revenue and scales operations.",
-    "subtitle": "We design and build customer-facing platforms, internal operations systems, and compliance-ready portals — from lead generation to audit trails.",
+    "headline": "I build custom software that generates revenue and scales operations.",
+    "subtitle": "Customer-facing platforms, internal operations systems, and compliance-ready portals — from lead gen to audit trails. One project at a time, written by hand.",
     "availability": "Currently accepting Q3 2026 projects",
-    "ctaPrimary": "View Systems",
+    "notForEveryoneBadge": "Not for everyone",
+    "notForEveryoneDetail": "I don't use page builders, templates, or white-label. Just production code, tailored to what you need.",
+    "ctaPrimary": "Work with me",
     "ctaSecondary": "View Services",
     "systemTopology": "System topology",
     "live": "Live"
@@ -141,9 +143,9 @@
     "skeletonHeading": "Start a project with JAOstudio"
   },
   "studio": {
-    "metaTitle": "Studio — JAOstudio",
+    "metaTitle": "About — JAOstudio",
     "metaDescription": "How I work, what I value, and what you can expect when we build together. Operating principles, engagement models, and production standards.",
-    "badge": "Studio",
+    "badge": "About",
     "heading": "How I work, what I value, and what you can expect.",
     "description": "This page explains how I approach projects, the principles I follow, and what it's like to work together.",
     "principle1Label": "Clarity over complexity",
@@ -167,42 +169,61 @@
     "cta": "Start a Project"
   },
   "services": {
-    "heroBadge": "What I Build",
-    "heroDesc": "End-to-end web development services — from marketing sites to full platforms, built for performance and clarity.",
+    "heroBadge": "Services",
+    "heroTitle": "Business Systems That Automate Operations",
+    "heroDesc": "I design and build custom platforms, dashboards, and internal tools that reduce manual work, automate workflows, and create measurable business outcomes — for founders, agencies, and operations teams.",
+    "candidBadge": "Not for everyone",
+    "candidNote": "I don't build with page builders, templates, or white-label. Every project is written from scratch — production code tailored to your specific operations.",
     "metaTitle": "Services — JAOstudio",
     "metaDescription": "Custom websites, web applications, dashboards, performance optimization, and technical consulting. Built for conversion, speed, and maintainability.",
-    "stage1": "Discovery & Strategy",
+    "stage1Title": "Discovery & Strategy",
     "stage1Timeline": "3–7 days",
     "stage1Output": "Project brief, sitemap, tech recommendations",
     "stage1Input": "Your goals, brand guidelines, content outline",
-    "stage2": "Design & Architecture",
+    "stage2Title": "Design & Architecture",
     "stage2Timeline": "5–14 days",
     "stage2Output": "Wireframes, design mockups, component tree",
     "stage2Input": "Feedback on designs and structure",
-    "stage3": "Development",
+    "stage3Title": "Development",
     "stage3Timeline": "10–30 days",
     "stage3Output": "Staged preview environment, working features",
     "stage3Input": "Regular review and feedback",
-    "stage4": "QA & Optimization",
+    "stage4Title": "QA & Optimization",
     "stage4Timeline": "3–7 days",
     "stage4Output": "Lighthouse report, accessibility audit, final checks",
     "stage4Input": "Final approval and content sign-off",
-    "stage5": "Launch & Handoff",
+    "stage5Title": "Launch & Handoff",
     "stage5Timeline": "2–5 days",
     "stage5Output": "Live site, source code, documentation",
     "stage5Input": "Domain and hosting access",
-    "model1Title": "Fixed Scope",
-    "model1Desc": "Defined budget and timeline for well-understood projects. Best when requirements are clear from the start.",
+    "model1Title": "Standard Build Engagement",
+    "model1Desc": "Fixed-scope delivery with defined timeline and milestones. For projects with clear requirements.",
+    "model1BestFor": "Defined requirements, predictable scope",
     "model2Title": "Retainer",
-    "model2Desc": "Ongoing development, maintenance, and iteration. Best for growing products that need continuous improvement.",
-    "model3Title": "Consulting",
-    "model3Desc": "Technical guidance, code review, and architecture planning. Best when you need expertise without full execution.",
-    "model4Title": "Emergency",
-    "model4Desc": "Quick turnaround for urgent fixes and critical issues. Best when something is broken and needs immediate attention.",
+    "model2Desc": "Ongoing development, maintenance, and iteration. For growing products that need continuous improvement.",
+    "model2BestFor": "Ongoing platform development",
+    "model3Title": "Advisory",
+    "model3Desc": "Technical guidance, code review, and architecture planning. For teams that need expertise without full execution.",
+    "model3BestFor": "Architecture reviews, technical leverage",
+    "model4Title": "Dedicated Build Partner",
+    "model4Desc": "Priority execution lane for scoped builds with accelerated delivery. For long-term system ownership.",
+    "model4BestFor": "Long-term system ownership, priority execution",
     "processBadge": "Process",
     "deliveryStages": "Delivery stages",
+    "engagementBadge": "How to engage",
     "engagementModel": "Engagement model",
     "workingStyle": "Services",
+    "whoForBadge": "Who This Is For",
+    "whoForTitle": "Built for teams that need systems, not templates",
+    "whoForFitTitle": "Best fit for",
+    "whoForFit1": "Service businesses with repeatable processes",
+    "whoForFit2": "Agencies managing multiple clients or projects",
+    "whoForFit3": "Internal operations teams scaling manual workflows",
+    "whoForFit4": "Multi-location businesses with fragmented tools",
+    "whoForNotFitTitle": "Not a fit for",
+    "whoForNotFit1": "MVP-stage startups needing rapid experimentation",
+    "whoForNotFit2": "One-off landing page or brochure site projects",
+    "whoForNotFit3": "Template-based or pre-built theme customizations",
     "service1Title": "Web Development",
     "service1Desc": "Custom websites, web applications, and dashboards — built from scratch for performance, accessibility, and conversion.",
     "service2Title": "Consulting & Architecture",
@@ -211,27 +232,98 @@
     "service3Desc": "Lighthouse optimization, Core Web Vitals, SEO audits, and load-time reduction to ship fast and rank well.",
     "service4Title": "Support & Maintenance",
     "service4Desc": "Ongoing updates, monitoring, security patches, and iterative improvements for live products.",
+    "registry": {
+      "customWebsites": {
+        "title": "Custom Websites",
+        "description": "High-performance marketing sites, landing pages, and brand websites built for speed and conversion.",
+        "seoTitle": "Custom Websites — JAOstudio",
+        "seoDescription": "Custom website development services — high-performance marketing sites, landing pages, and brand websites built for speed and conversion."
+      },
+      "webApplications": {
+        "title": "Web Applications",
+        "description": "Dashboards, internal tools, and operational platforms with role-based access and real-time data.",
+        "seoTitle": "Web Applications — JAOstudio",
+        "seoDescription": "Custom web application development — dashboards, internal tools, and operational platforms with role-based access and real-time data."
+      },
+      "businessAutomation": {
+        "title": "Business Automation",
+        "description": "Custom automation systems that reduce manual work, streamline processes, and eliminate data silos.",
+        "seoTitle": "Business Automation — JAOstudio",
+        "seoDescription": "Custom business automation systems that reduce manual work, streamline processes, and eliminate data silos across your organization."
+      },
+      "internalTools": {
+        "title": "Internal Tools",
+        "description": "Purpose-built tools for operations teams, including inventory tracking, task management, and compliance workflows.",
+        "seoTitle": "Internal Tools — JAOstudio",
+        "seoDescription": "Custom internal tools development — inventory tracking, task management, compliance workflows, and purpose-built operations software."
+      },
+      "clientPortals": {
+        "title": "Client Portals",
+        "description": "Secure portals for client communication, document sharing, project tracking, and account management.",
+        "seoTitle": "Client Portals — JAOstudio",
+        "seoDescription": "Custom client portal development — secure portals for client communication, document sharing, project tracking, and account management."
+      }
+    },
+    "exampleScopesBadge": "Example Scopes",
     "exampleScopes": "Example scopes",
-    "example1Title": "Small business website",
-    "example1Timeline": "Short timeline",
-    "example1Scope": "Marketing site with content pages, contact flow, analytics setup",
-    "example2Title": "Internal dashboard system",
-    "example2Timeline": "Medium complexity",
+    "example1Title": "Lead Generation Platform",
+    "example1Timeline": "4–6 weeks",
+    "example1Scope": "CRM, lead capture, appointment scheduling, analytics",
+    "example1Result": "Capture, qualify, and route leads without manual follow-up",
+    "example2Title": "Operations Dashboard",
+    "example2Timeline": "6–10 weeks",
     "example2Scope": "Data visualization, role-based views, API integration",
-    "example3Title": "SaaS frontend platform",
-    "example3Timeline": "Extended build",
+    "example2Result": "Real-time operational visibility with role-based access",
+    "example3Title": "SaaS Frontend Platform",
+    "example3Timeline": "8–14 weeks",
     "example3Scope": "Multi-tenant architecture, onboarding flow, subscription management",
-    "availabilityNote": "A note on availability",
-    "availabilityIntro": "I'm a solo developer focused on delivering exceptional work for a small number of clients at a time.",
-    "availabilityNote1": "I don't offer 24/7 support or emergency response. Communication is async-first during business hours.",
-    "availabilityNote2": "I don't customize pre-built themes or templates. Every project is built from the ground up.",
-    "availabilityNote3": "I'm selective about projects. If it's not a fit, I'll tell you honestly — and sometimes recommend someone else.",
+    "example3Result": "Multi-tenant onboarding with automated provisioning",
+    "availabilityBadge": "Availability",
+    "availabilityTitle": "Current Build Capacity",
+    "availabilityIntro": "I work with a limited number of projects at a time to maintain delivery quality. Engagement start dates depend on current load and scope alignment.",
+    "availabilityNote1": "Communication is async-first during business hours. Projects are built from scratch — no templates.",
+    "availabilityNote2": "Projects are accepted selectively based on scope alignment and scheduling readiness.",
+    "availabilityNote3": "If it's not a fit, I'll tell you honestly — and sometimes recommend someone else.",
+    "seeDemosTitle": "See These Systems in Action",
+    "seeDemosDesc": "Six production-ready platforms — lead generation, commerce, marketplace, editorial, operations, and compliance. Each independently deployed and fully functional.",
+    "seeDemosCta": "View Live Demos",
+    "projectFitTitle": "A Project Is Usually a Good Fit If",
+    "projectFit1": "You have a clear business process to systematize",
+    "projectFit2": "You want to reduce manual work and operational overhead",
+    "projectFit3": "You're looking for a long-term system, not a one-time deliverable",
+    "projectNotFitTitle": "Projects Are Usually Not a Fit If",
+    "projectNotFit1": "You need delivery within a few days",
+    "projectNotFit2": "Requirements are completely undefined",
+    "projectNotFit3": "You're looking for template-based solutions",
+    "projectNotFit4": "Budget is determined before scope is understood",
+    "trustTitle": "Built for Production",
+    "trust1": "6 independently deployed live systems",
+    "trust2": "Multi-language support",
+    "trust3": "Role-based access control",
+    "trust4": "Scalable, isolated architecture",
     "timeline": "Timeline",
     "output": "Output",
+    "result": "Business result",
+    "bestFor": "Best for",
     "fromYou": "From you",
     "ctaSubtitle": "Tell me about what you're building. I'll respond within 24 hours with a project brief.",
     "ctaButton": "Start a Project",
     "cta": "Ready to start a project?"
+  },
+  "demoCredentials": {
+    "metaTitle": "Demo Credentials — JAOstudio",
+    "metaDescription": "Access credentials for all six demo systems — lead generation, commerce, marketplace, editorial, operations, and compliance.",
+    "title": "Demo Systems Access",
+    "purpose": "These demo systems are sandbox environments for evaluating platform architecture, workflows, and user experience. No production data is used.",
+    "whatThisIs": "What this is",
+    "whatThisIsDesc": "Read-only access to independently deployed systems for evaluation and testing purposes.",
+    "whatThisIsNot": "What this is not",
+    "whatThisIsNotDesc": "These are not production environments. Data resets periodically. Credentials provide limited access roles only.",
+    "password": "Password",
+    "allPassword": "All passwords",
+    "noAuthRequired": "No authentication required. Visit the live demo to explore.",
+    "backToDemos": "View Demos",
+    "backToServices": "Services"
   },
   "contactPage": {
     "heading": "Start a Project",
@@ -329,6 +421,25 @@
     "metricBundle": "Bundle Size",
     "metricTTFB": "TTFB"
   },
+  "caseStudies": {
+    "badge": "Case Studies",
+    "heading": "Real Projects, Measurable Outcomes",
+    "description": "Detailed walkthroughs of projects we've built — the problem, the constraints, the solution, and the results.",
+    "readCaseStudy": "Read Case Study",
+    "backLink": "All Case Studies",
+    "sectionChallenge": "The Challenge",
+    "sectionConstraints": "Constraints",
+    "sectionSolution": "The Solution",
+    "sectionFeatures": "Key Features",
+    "sectionLessons": "Lessons & Decisions",
+    "lessonLabel": "Lesson",
+    "architectureLabel": "System Architecture",
+    "relatedServices": "Related Services",
+    "relatedDemos": "Related Demos",
+    "relatedProject": "Related Project",
+    "ctaTitle": "Need a similar system for your business?",
+    "ctaButton": "Start a Project"
+  },
   "socialProof": {
     "item1": "95+ Lighthouse",
     "item2": "SEO-optimized",
@@ -383,6 +494,11 @@
     "viewProjects": "View Projects",
     "startProject": "Start a Project"
   },
+  "demos": {
+    "badge": "Live Demos",
+    "heading": "Business Systems Built to Run Real Operations",
+    "description": "Generate leads without manual follow-up. Increase revenue without platform chaos. Run operations without spreadsheets. Six production-ready platforms, each independently deployed and fully functional."
+  },
   "playground": {
     "metaTitle": "Playground — JAOstudio",
     "badge": "Experiments",
@@ -413,5 +529,74 @@
     "demo8Title": "Loading States",
     "demo8Description": "Smooth skeleton loading patterns and animated transitions.",
     "demo8Category": "UI"
+  },
+  "seo": {
+    "home": {
+      "title": "JAOstudio — Websites, Dashboards & Tools for Performance",
+      "description": "Custom web development for startups, agencies, and established businesses — from landing pages to full SaaS platforms. Performance-first, clarity-driven."
+    },
+    "services": {
+      "title": "Services — JAOstudio",
+      "description": "Custom websites, web applications, dashboards, performance optimization, and technical consulting. Built for conversion, speed, and maintainability."
+    },
+    "demos": {
+      "title": "Business Systems for Real Operations — JAOstudio",
+      "description": "Six production-ready platforms for lead generation, revenue operations, multi-vendor marketplaces, editorial workflow, internal operations, and compliance."
+    },
+    "projects": {
+      "title": "Projects — JAOstudio",
+      "description": "A selection of recent projects — business websites, web applications, dashboards, and e-commerce storefronts built for real clients."
+    },
+    "contact": {
+      "title": "Contact — JAOstudio",
+      "description": "Start a project or get in touch with JAOstudio. Tell me about your project and I'll respond within 24 hours."
+    },
+    "audit": {
+      "title": "Free Website Audit — JAOstudio",
+      "description": "Get a free website audit with actionable recommendations to improve performance, SEO, and user experience."
+    },
+    "caseStudies": {
+      "title": "Case Studies — JAOstudio",
+      "description": "Real-world projects and outcomes — from construction operations platforms to ecommerce storefronts. See how we build systems that solve business problems."
+    },
+    "playground": {
+      "title": "Playground — JAOstudio",
+      "description": "Interactive demos and experiments built with Next.js, Framer Motion, and modern web technologies."
+    },
+    "studio": {
+      "title": "Studio — JAOstudio",
+      "description": "How I work, what I value, and what you can expect when we build together. Operating principles, engagement models, and production standards."
+    },
+    "cv": {
+      "title": "CV — JAOstudio",
+      "description": "Professional experience in frontend engineering, web application development, and technical architecture."
+    },
+    "demoCredentials": {
+      "title": "Demo Credentials — JAOstudio",
+      "description": "Access credentials for all six demo systems — lead generation, commerce, marketplace, editorial, operations, and compliance."
+    }
+  },
+  "intent": {
+    "hero": {
+      "value": "We build scalable web applications for growing businesses"
+    },
+    "trust": {
+      "statement": "Production-grade systems with measurable performance outcomes"
+    },
+    "who": {
+      "for": "For businesses that need reliable, scalable digital infrastructure"
+    },
+    "cta": {
+      "push": "Ready to build something that actually works for your business?"
+    },
+    "home": {
+      "tagline": "Websites and apps that actually work for your business — hindi template, hindi trial-and-error."
+    },
+    "studio": {
+      "tagline": "Systems, hindi lang pages. Architecture muna bago code."
+    },
+    "contact": {
+      "prompt": "Walang pressure. Just tell me what you need and I'll send a project brief."
+    }
   }
 }

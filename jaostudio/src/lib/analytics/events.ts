@@ -16,6 +16,10 @@ export const EVENTS = {
   CASE_STUDY_SCROLL: 'case_study_scroll_depth',
   PLAYGROUND_CARD_CLICK: 'playground_card_click',
   PROCESS_STEP_OPENED: 'process_step_opened',
+  SERVICES_VIEW: 'services_view',
+  ENGAGEMENT_MODEL_VIEW: 'engagement_model_view',
+  PROJECT_FIT_VIEW: 'project_fit_view',
+  DEMO_CLICK: 'demo_click',
 } as const
 
 export type EventName = (typeof EVENTS)[keyof typeof EVENTS]
@@ -36,4 +40,8 @@ export interface EventPayloadMap {
   [EVENTS.CASE_STUDY_SCROLL]: { depth: number }
   [EVENTS.PLAYGROUND_CARD_CLICK]: { demo: string; category: string }
   [EVENTS.PROCESS_STEP_OPENED]: { step: number; title: string; viewport: string }
+  [EVENTS.SERVICES_VIEW]: { locale: string }
+  [EVENTS.ENGAGEMENT_MODEL_VIEW]: { locale: string }
+  [EVENTS.PROJECT_FIT_VIEW]: { locale: string }
+  [EVENTS.DEMO_CLICK]: { locale: string }
 }

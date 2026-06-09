@@ -1,5 +1,6 @@
 import type { ProjectType } from '@/lib/project-types'
 import type { ArchitectureData } from '@/types/architecture'
+import type { ServiceId } from '@/lib/services'
 
 export type { ProjectType }
 
@@ -60,6 +61,7 @@ export interface ProjectMetadata {
     architecture?: string
     infrastructure?: string
   }
+  relatedServices: ServiceId[]
 }
 
 export interface PageMetadata {

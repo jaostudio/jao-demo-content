@@ -58,7 +58,7 @@ export function ProcessMobileAccordion({
               >
                 <span
                   className={cn(
-                    'flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border text-[10px] font-medium transition-colors',
+                    'flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border text-xs font-medium transition-colors',
                     isOpen
                       ? 'border-accent/30 bg-accent-soft text-text-primary'
                       : 'border-border-subtle bg-bg-elevated text-text-secondary',
@@ -112,7 +112,7 @@ export function ProcessMobileAccordion({
                 >
                   <div className="border-t border-border-subtle px-4 py-4 space-y-4">
                     <div>
-                      <p className="text-[10px] uppercase tracking-[0.28em] text-text-secondary">
+                      <p className="text-xs uppercase tracking-[0.28em] text-text-secondary">
                         What happens here
                       </p>
                       <p className="mt-2 text-[var(--text-body)] leading-[var(--leading-relaxed)] text-text-secondary">
@@ -124,7 +124,7 @@ export function ProcessMobileAccordion({
                       {step.deliverables.map((deliverable) => (
                         <span
                           key={deliverable}
-                          className="rounded-2xl border border-border-subtle bg-bg-surface/85 px-3 py-1.5 text-center text-[10px] uppercase tracking-[0.22em] text-text-secondary"
+                          className="rounded-2xl border border-border-subtle bg-bg-surface/85 px-3 py-1.5 text-center text-xs uppercase tracking-[0.22em] text-text-secondary"
                         >
                           {deliverable}
                         </span>
@@ -133,7 +133,7 @@ export function ProcessMobileAccordion({
 
                     <a
                       href={ctaHref}
-                      className="inline-flex items-center justify-center rounded-xl border border-border bg-surface-hover px-4 py-2 text-sm font-medium text-text-primary transition-all hover:bg-surface-hover focus-ring"
+                      className="inline-flex items-center justify-center rounded-xl border border-border bg-surface-hover px-4 py-2 text-sm font-medium text-text-primary transition-colors hover:bg-surface-hover focus-ring"
                     >
                       {ctaLabel}
                     </a>

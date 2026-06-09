@@ -1,7 +1,8 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-import React from 'react'
+import React, { useEffect } from 'react'
+import { reportWebVitals } from '@/lib/web-vitals-reporter'
 
 const LenisProvider = dynamic(
   () => import('./lenis-provider').then((mod) => mod.LenisProvider),
@@ -14,6 +15,10 @@ const PostHogProvider = dynamic(
 )
 
 export default function ClientProviders({ children }: { children: React.ReactNode }) {
+  useEffect(() => {
+    reportWebVitals()
+  }, [])
+
   return (
     <PostHogProvider>
       <LenisProvider>{children}</LenisProvider>

@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl'
 import React, { useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { Section } from '@/components/ui/section'
+import { LayeredFrame } from '@/components/ui/layout/layered-frame'
 import { Badge } from '@/components/typography/badge'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
@@ -165,23 +166,25 @@ export function StudioContent() {
 
   return (
     <>
-      <Section className="pt-32 md:pt-40">
-        <motion.div
-          className="flex flex-col gap-4"
-          variants={prefersReducedMotion ? fadeUpReduced : fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-50px' }}
-        >
-          <Badge variant="accent">{t('badge')}</Badge>
-          <h1 className="text-[var(--text-section)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
-            {t('heading')}
-          </h1>
-          <p className="max-w-2xl text-[var(--text-body)] leading-[var(--leading-relaxed)] text-text-secondary">
-            {t('description')}
-          </p>
-        </motion.div>
-      </Section>
+      <section className="relative pt-20 lg:pt-28">
+        <LayeredFrame glow>
+          <motion.div
+            className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center"
+            variants={prefersReducedMotion ? fadeUpReduced : fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+          >
+            <Badge variant="accent">{t('badge')}</Badge>
+            <h1 className="text-[var(--text-hero)] font-[var(--weight-medium)] leading-[var(--leading-display)] tracking-[var(--tracking-tight)] text-text-primary">
+              {t('heading')}
+            </h1>
+            <p className="max-w-2xl text-[var(--text-body)] leading-[var(--leading-relaxed)] text-text-secondary">
+              {t('description')}
+            </p>
+          </motion.div>
+        </LayeredFrame>
+      </section>
 
       <Section variant="alt" id="principles" glow className="" density="compact">
         <motion.div
@@ -209,7 +212,7 @@ export function StudioContent() {
         >
           {principles.map((p) => (
             <motion.div key={p.principle} variants={prefersReducedMotion ? fadeUpReduced : scaleFade}>
-              <Card className="flex h-full flex-col gap-2" hover={false}>
+              <Card className="flex h-full flex-col gap-2">
                 <p className="text-[var(--text-card-title)] font-[var(--weight-medium)] text-text-primary">
                   {p.principle}
                 </p>
@@ -305,7 +308,7 @@ export function StudioContent() {
                   type="button"
                   onClick={() => setActiveStep(i)}
                   className={cn(
-                    'rounded-md px-3 py-1.5 text-xs font-medium transition-all duration-300',
+                    'rounded-md px-3 py-1.5 text-xs font-medium transition-colors duration-300',
                     activeStep === i
                       ? 'bg-accent text-white'
                       : 'border border-border-subtle text-text-tertiary hover:border-border-active hover:text-text-secondary',
@@ -315,14 +318,14 @@ export function StudioContent() {
                 </button>
               ))}
             </div>
-            <div className="mt-4 rounded-xl border border-border-subtle bg-bg-surface p-4">
+            <Card className="mt-4 p-4">
               <p className="text-[var(--text-card-title)] font-[var(--weight-medium)] text-text-primary">
                 {processSteps[activeStep].step}
               </p>
               <p className="mt-2 text-[var(--text-body)] leading-relaxed text-text-secondary">
                 {processSteps[activeStep].detail}
               </p>
-            </div>
+            </Card>
           </div>
         </div>
 
@@ -404,10 +407,11 @@ export function StudioContent() {
             <motion.div
               key={s.area}
               variants={prefersReducedMotion ? fadeUpReduced : scaleFade}
-              className="rounded-xl border border-border-subtle bg-bg-surface p-5"
             >
-              <p className="text-[10px] font-medium uppercase tracking-wider text-text-tertiary">{s.area}</p>
-              <p className="mt-1.5 text-[var(--text-body)] leading-relaxed text-text-secondary">{s.standard}</p>
+              <Card className="p-5">
+                <p className="text-xs font-medium uppercase tracking-wider text-text-tertiary">{s.area}</p>
+                <p className="mt-1.5 text-[var(--text-body)] leading-relaxed text-text-secondary">{s.standard}</p>
+              </Card>
             </motion.div>
           ))}
         </motion.div>
@@ -570,7 +574,7 @@ export function StudioContent() {
             { value: '<2 min', label: 'Vercel Deploy' },
           ].map((m) => (
             <motion.div key={m.label} variants={prefersReducedMotion ? fadeUpReduced : scaleFade}>
-              <Card className="border-t border-t-accent-warm/30 p-4 md:p-6" hover={false}>
+              <Card className="border-t border-t-accent-warm/30 p-4 md:p-6">
                 <p className="text-[var(--text-section)] font-[var(--weight-medium)] text-text-primary">{m.value}</p>
                 <p className="mt-1 text-[var(--text-meta)] text-text-tertiary">{m.label}</p>
               </Card>

@@ -2,9 +2,11 @@ import Link from 'next/link'
 import { Container } from '@/components/ui/container'
 import { Badge } from '@/components/typography/badge'
 import { Button } from '@/components/ui/button'
+import { LayeredFrame } from '@/components/ui/layout/layered-frame'
 import { getTranslations } from 'next-intl/server'
 import { projects } from '@/lib/projects'
 import { cvProjectSlugs } from '@/lib/cv-config'
+import { PERSON_ID, WEBSITE_ID } from '@/lib/json-ld-ids'
 
 export async function generateMetadata() {
   const t = await getTranslations('cv')
@@ -19,16 +21,38 @@ const highlights = cvProjectSlugs
   .map((slug) => projects.find((p) => p.slug === slug))
   .filter(Boolean)
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'ProfilePage',
+      '@id': `${PERSON_ID}/#profilepage`,
+      url: 'https://jaostudio.dev/cv',
+      name: 'CV — JAOstudio',
+      isPartOf: { '@id': WEBSITE_ID },
+      mainEntity: { '@id': PERSON_ID },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://jaostudio.dev' },
+        { '@type': 'ListItem', position: 2, name: 'CV', item: 'https://jaostudio.dev/cv' },
+      ],
+    },
+  ],
+}
+
 export default async function CVPage() {
   const t = await getTranslations('cv')
 
   return (
     <>
-      <section className="pt-32 md:pt-40">
-        <Container>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <section className="relative pt-20 lg:pt-28">
+        <LayeredFrame glow>
           <div className="flex flex-col gap-4">
             <Badge variant="accent">{t('badge')}</Badge>
-            <h1 className="text-[var(--text-section)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
+            <h1 className="text-[var(--text-hero)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
               {t('name')}
             </h1>
             <p className="text-[var(--text-body)] text-text-secondary">{t('role')}</p>
@@ -38,7 +62,7 @@ export default async function CVPage() {
               <span>{t('employment')}</span>
             </div>
           </div>
-        </Container>
+        </LayeredFrame>
       </section>
 
       <Container className="pb-32 md:pb-40">
