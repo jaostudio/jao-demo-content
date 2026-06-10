@@ -52,6 +52,7 @@ model Article {
   slug           String        @unique
   excerpt        String?
   content        String
+  image          String?
   status         ArticleStatus @default(DRAFT)
   metaTitle      String?
   metaDescription String?
@@ -69,6 +70,11 @@ model Article {
 
   tags     ArticleTag[]
   versions ArticleVersion[]
+  comments Comment[]
+
+  @@index([status])
+  @@index([authorId])
+  @@index([publishAt])
 }
 
 model ArticleTag {
@@ -86,4 +92,16 @@ model ArticleVersion {
   article   Article  @relation(fields: [articleId], references: [id], onDelete: Cascade)
   content   String
   createdAt DateTime @default(now())
+}
+
+model Comment {
+  id          String   @id @default(cuid())
+  articleId   String
+  article     Article  @relation(fields: [articleId], references: [id], onDelete: Cascade)
+  authorName  String
+  authorEmail String
+  body        String
+  createdAt   DateTime @default(now())
+
+  @@index([articleId])
 }

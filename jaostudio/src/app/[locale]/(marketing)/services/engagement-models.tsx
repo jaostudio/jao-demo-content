@@ -17,10 +17,15 @@ export async function EngagementModels() {
           {t('engagementModel')}
         </h2>
       </div>
-      <div className="mt-6 grid gap-4 md:grid-cols-2">
+      <div
+        className="mt-6 grid grid-cols-2 gap-4"
+        role="list"
+        aria-label="Engagement models"
+      >
         {models.map((i) => (
-          <FadeInView key={i} delay={(i - 1) * 0.1}>
-            <Card className="p-5">
+          <div key={i}>
+            <FadeInView delay={(i - 1) * 0.1}>
+            <Card className="p-4 md:p-5">
               <p className="text-sm font-medium text-text-primary">{t(`model${i}Title`)}</p>
               <p className="mt-1 text-xs uppercase tracking-wider text-text-secondary">
                 {t('bestFor')}: {t(`model${i}BestFor`)}
@@ -30,6 +35,7 @@ export async function EngagementModels() {
               </p>
             </Card>
           </FadeInView>
+          </div>
         ))}
       </div>
     </Section>

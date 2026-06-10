@@ -1,16 +1,75 @@
 @import "tailwindcss";
 
-@source "../../packages/ui/src/**/*.tsx";
-
 @theme {
-  --color-brand-50: #eff6ff;
-  --color-brand-100: #dbeafe;
-  --color-brand-200: #bfdbfe;
-  --color-brand-300: #93c5fd;
-  --color-brand-400: #60a5fa;
-  --color-brand-500: #3b82f6;
-  --color-brand-600: #2563eb;
-  --color-brand-700: #1d4ed8;
-  --color-brand-800: #1e40af;
-  --color-brand-900: #1e3a8a;
+  --color-page-bg: #FFF8F0;
+  --color-surface: #FDF6E3;
+  --color-muted: #595959;
+  --color-subtle: #E9ECEF;
+  --color-flag-red: #CE1126;
+  --color-flag-blue: #0038A8;
+  --color-flag-yellow: #F9D400;
+  --color-leafy-green: #2E7D32;
+  --color-leafy-green-dark: #1B5E20;
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #595959;
+  --color-text-tertiary: #595959;
+  --color-accent-warm: #B45309;
+  --color-accent-warm-soft: #FEF3C7;
+  --color-surface-hover: #F5F0E0;
+  --color-border: #D4D4D4;
+  --color-border-subtle: #E5E5E5;
+}
+
+.dark {
+  --color-page-bg: #0D0B0A;
+  --color-surface: #1C1814;
+  --color-muted: #B0B0B0;
+  --color-subtle: #2C2C2C;
+  --color-flag-red: #E63946;
+  --color-flag-blue: #1D4ED8;
+  --color-flag-yellow: #FBBF24;
+  --color-leafy-green: #66BB6A;
+  --color-leafy-green-dark: #2E7D32;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #B0B0B0;
+  --color-text-tertiary: #B0B0B0;
+  --color-accent-warm: #F59E0B;
+  --color-accent-warm-soft: #451A03;
+  --color-surface-hover: #262626;
+  --color-border: #404040;
+  --color-border-subtle: #333333;
+}
+
+body {
+  background-color: var(--color-page-bg);
+  color: #1A1A1A;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.dark body {
+  color: #FFFFFF;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-flag-blue);
+  outline-offset: 2px;
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+.flag-divider {
+  height: 4px;
+  background: linear-gradient(to right, var(--color-flag-blue) 33.33%, var(--color-flag-red) 33.33% 66.66%, var(--color-flag-yellow) 66.66%);
+}
+
+.text-xs {
+  font-size: 0.875rem;
+  line-height: 1.4;
 }

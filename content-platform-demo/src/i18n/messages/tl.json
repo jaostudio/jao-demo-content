@@ -1,0 +1,109 @@
+{
+  "common": {
+    "site_name": "Likha",
+    "tagline": "Isang platform para sa publikasyon na may editorial workflow at SEO optimization.",
+    "hero_tagline": "Magkwento. Magbahagi. Mag-aral.",
+    "hero_subtitle": "Ang Philippine Community Information Hub — opinyon, kwento, at impormasyon para sa bawat Pilipino.",
+    "hero_accent": "Kwentong Barangay",
+    "sign_in": "Mag-sign In",
+    "sign_out": "Mag-sign Out",
+    "register": "Sumali sa Likha",
+    "admin": "Admin",
+    "dashboard": "Dashboard (Pangkalahatang view)",
+    "new_article": "Bagong Artikulo",
+    "home": "Home",
+    "articles": "Mga Artikulo",
+    "categories": "Mga Kategorya",
+    "tags": "Mga Tag",
+    "footer_tagline": "Para sa bawat Pilipino",
+    "footer_thanks": "Salamat sa pagbisita",
+    "welcome_reader": "Magandang araw! Narito ang mga bagong kwento mula sa inyong komunidad. Basahin, matuto, at makibahagi.",
+    "reset_welcome": "I-reset ang welcome",
+    "demo_label": "Demo:",
+    "demo_reader": "Reader (Mambabasa)",
+    "demo_author": "Author (Manunulat)",
+    "demo_admin": "Admin (Tagapamahala)",
+    "empty_default": "Wala pang artikulo dito.",
+    "empty_sub": "Ikaw ba ang unang magsusulat?"
+  },
+  "article": {
+    "title": "Pamagat",
+    "excerpt": "Buod",
+    "content": "Nilalaman (Markdown)",
+    "category": "Kategorya",
+    "select_category": "Pumili...",
+    "create": "Gumawa ng Artikulo",
+    "update": "I-update ang Artikulo",
+    "no_articles": "Wala pang artikulo.",
+    "no_published": "Wala pang nai-publish na artikulo.",
+    "submit_for_review": "I-submit for review",
+    "approve": "Aprubahan",
+    "reject": "I-reject",
+    "archive": "I-archive",
+    "restore": "I-restore",
+    "delete_permanently": "Burahin nang permanente"
+  },
+  "status": {
+    "draft": "Draft",
+    "pending_review": "Pending Review",
+    "published": "Published",
+    "archived": "Archived"
+  },
+  "dashboard": {
+    "title": "Dashboard (Pangkalahatang view)",
+    "drafts": "Mga Draft",
+    "pending_review": "Naka-pending na Review",
+    "published": "Nai-publish"
+  },
+  "auth": {
+    "sign_in_title": "Mag-sign In",
+    "register_title": "Mag-register",
+    "email": "Email",
+    "password": "Password",
+    "name": "Pangalan",
+    "no_account": "Wala pang account? Mag-register",
+    "has_account": "May account na? Mag-sign in",
+    "invalid_credentials": "Mali ang email o password",
+    "register_failed": "Hindi na-process ang registration"
+  },
+  "errors": {
+    "cannot_edit_pending": "Hindi mo ma-edit ang artikulong nasa review. Makipag-ugnayan sa admin.",
+    "unauthorized": "Kailangan mong mag-sign in para gumawa ng artikulo",
+    "forbidden": "Wala kang permiso para i-edit ang artikulong ito",
+    "not_found": "Hindi mahanap ang artikulo",
+    "transition_not_allowed": "Hindi allowed ang transition na ito",
+    "network_error": "Network error. Pakicheck ang iyong connection.",
+    "something_wrong": "May maling nangyari"
+  },
+  "toast": {
+    "article_approved": "Na-approve at nai-publish na ang artikulo",
+    "article_archived": "Na-archive na ang artikulo",
+    "article_rejected": "Na-reject ang artikulo",
+    "article_updated": "Na-update ang artikulo",
+    "demo_title": "Demo mode",
+    "demo_message": "You would have {action} this article. Log in to perform real changes."
+  },
+  "roles": {
+    "author": "Author (Manunulat)",
+    "admin": "Admin (Tagapamahala)",
+    "reader": "Reader (Mambabasa)"
+  },
+  "confirm": {
+    "archive_title": "I-archive ang artikulong ito?",
+    "archive_desc": "Mawawala ito sa public pages. Pwedeng i-restore mamaya.",
+    "reject_title": "I-reject ang artikulong ito?",
+    "reject_desc": "Babalik ito sa draft. Pwedeng mag-resubmit ang author pagkatapos mag-edit.",
+    "cancel": "Kanselahin",
+    "archive_btn": "I-archive",
+    "reject_btn": "I-reject"
+  },
+  "comments": {
+    "title": "Mga Komento",
+    "name_placeholder": "Pangalan mo",
+    "email_placeholder": "Email mo",
+    "body_placeholder": "Magsulat ng komento...",
+    "post": "Mag-post ng Komento",
+    "posting": "Nagpo-post...",
+    "empty": "Wala pang komento. Ikaw na ang mag-una."
+  }
+}

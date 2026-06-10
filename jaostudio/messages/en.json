@@ -99,6 +99,7 @@
     "projectType": "Project Type",
     "select": "Select...",
     "selectOther": "Other",
+    "addMoreDetails": "Add more details (optional)",
     "specifyLabel": "Please specify",
     "specifyPlaceholder": "e.g. Mobile App, Progressive Web App...",
     "budget": "Budget Range",

@@ -6,3 +6,9 @@ out/
 next-env.d.ts
 prisma/**/*.db
 prisma/**/*.db-journal
+.turbo/
+reports/
+extracts/
+*.log
+audit-*.js
+run-*.js

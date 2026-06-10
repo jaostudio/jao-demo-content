@@ -107,13 +107,16 @@ export function Navbar() {
               <span className="text-sm font-medium text-neutral-500">
                 {isHome ? "Navigation" : activeProfile.company.name}
               </span>
-              <button
-                onClick={() => setMobileOpen(false)}
-                aria-label="Close menu"
-                className="rounded-lg p-2 text-neutral-500 transition-colors hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-800"
-              >
-                <X className="h-5 w-5" />
-              </button>
+              <div className="flex items-center gap-1">
+                <ThemeToggle />
+                <button
+                  onClick={() => setMobileOpen(false)}
+                  aria-label="Close menu"
+                  className="rounded-lg p-2 text-neutral-500 transition-colors hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-800"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
             </div>
 
             <nav className="flex flex-1 flex-col items-center justify-center gap-6">
@@ -137,10 +140,6 @@ export function Navbar() {
                 </Link>
               )}
             </nav>
-
-            <div className="flex justify-center pb-12">
-              <ThemeToggle />
-            </div>
           </motion.div>
         )}
       </AnimatePresence>

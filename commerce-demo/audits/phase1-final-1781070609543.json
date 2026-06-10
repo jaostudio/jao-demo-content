@@ -1,0 +1,2575 @@
+{
+  "filepath": "C:\\Users\\Jaoce\\OneDrive\\Documents\\Portfolio contents\\commerce-demo\\audits\\phase1-final-1781070609543.png",
+  "filename": "phase1-final-1781070609543.png",
+  "timestamp": 1781070609543,
+  "url": "http://localhost:3000",
+  "viewport": {
+    "width": 1280,
+    "height": 800
+  },
+  "viewports": [
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "wcag": {
+        "totalElements": 42,
+        "failures": [
+          {
+            "selector": "a.sr-only.focus:not-sr-only.focus:fixed.focus:left-4.focus:top-4.focus:z-50.focus:rounded-xl.focus:bg-flag-blue.focus:px-4.focus:py-2.focus:text-sm.focus:font-semibold.focus:text-white.focus:shadow-lg.focus:outline-none",
+            "text": "Skip to main content",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-xl.font-bold.tracking-tight.text-flag-blue",
+            "text": "Sari-Sari",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.hidden.text-xs.text-muted.sm:inline",
+            "text": "one store, a thousand items",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "a.text-sm.font-medium.text-stone-600.transition-colors.hover:text-muted.dark:text-muted.dark:hover:text-muted",
+            "text": "Products",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "a.text-sm.font-medium.text-stone-600.transition-colors.hover:text-muted.dark:text-muted.dark:hover:text-muted",
+            "text": "Orders",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "a.text-sm.font-semibold.text-flag-blue.transition-colors.hover:underline",
+            "text": "Sign In",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-[clamp(6rem,15vw,14rem)].font-black.tracking-[0.3em].text-flag-blue/[0.03]",
+            "text": "SARI-SARI",
+            "foreground": "#000000",
+            "background": "#000000",
+            "contrastRatio": 1,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.inline-flex.rounded-full.bg-flag-blue/10.px-4.py-1.text-xs.font-semibold.uppercase.tracking-wider.text-flag-blue",
+            "text": "Open na ang Sari-Sari!",
+            "foreground": "#000000",
+            "background": "#000000",
+            "contrastRatio": 1,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-flag-red",
+            "text": "a thousand items",
+            "foreground": "#000000",
+            "background": "#000000",
+            "contrastRatio": 1,
+            "required": 3,
+            "fontSize": 32,
+            "isLarge": true
+          },
+          {
+            "selector": "p.mx-auto.mt-4.max-w-xl.text-lg.text-muted.lg:mx-0.dark:text-gray-400",
+            "text": "Nostalgic snacks, pancit canton, and your favorites — straight from the corner store to your door.",
+            "foreground": "#000000",
+            "background": "#000000",
+            "contrastRatio": 1,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "a.inline-flex.h-12.items-center.justify-center.rounded-xl.bg-flag-blue.px-8.text-sm.font-semibold.text-white.shadow-lg.shadow-flag-blue/25.transition-all.hover:brightness-90.active:scale-[0.99]",
+            "text": "Shop Now!",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "a.inline-flex.h-12.items-center.justify-center.rounded-xl.border.border-subtle.bg-white.px-8.text-sm.font-semibold.text-foreground.transition-all.hover:bg-surface.dark:border-white/30.dark:bg-transparent.dark:text-white",
+            "text": "Snacks",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "a.text-sm.font-medium.text-muted.transition-colors.hover:underline",
+            "text": "View all→",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-xl",
+            "text": "🥤",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-sm.font-semibold.text-foreground",
+            "text": "Beverages",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-xs.text-muted",
+            "text": "Inumin",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-xl",
+            "text": "🍪",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-sm.font-semibold.text-foreground",
+            "text": "Biscuits & Snacks",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-xs.text-muted",
+            "text": "Biskwit",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-xl",
+            "text": "🍬",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-sm.font-semibold.text-foreground",
+            "text": "Candies & Sweets",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-xs.text-muted",
+            "text": "Matatamis",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-xl",
+            "text": "🍿",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-sm.font-semibold.text-foreground",
+            "text": "Classic Snacks",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-xs.text-muted",
+            "text": "Chichirya",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-xl",
+            "text": "🧺",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-sm.font-semibold.text-foreground",
+            "text": "Household Essentials",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-xs.text-muted",
+            "text": "Panlinis",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-xl",
+            "text": "🍜",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-sm.font-semibold.text-foreground",
+            "text": "Instant Noodles & Pantry",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-xs.text-muted",
+            "text": "Pancit at Delata",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-2xl",
+            "text": "🛒",
+            "foreground": "#000000",
+            "background": "#000000",
+            "contrastRatio": 1,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "h3.mt-3.font-semibold",
+            "text": "Free Delivery",
+            "foreground": "#000000",
+            "background": "#000000",
+            "contrastRatio": 1,
+            "required": 3,
+            "fontSize": 18.72,
+            "isLarge": true
+          },
+          {
+            "selector": "p.mt-1.text-sm.text-muted",
+            "text": "Free delivery on orders over ₱499",
+            "foreground": "#000000",
+            "background": "#000000",
+            "contrastRatio": 1,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-2xl",
+            "text": "💚",
+            "foreground": "#000000",
+            "background": "#000000",
+            "contrastRatio": 1,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "h3.mt-3.font-semibold",
+            "text": "Pay on Delivery",
+            "foreground": "#000000",
+            "background": "#000000",
+            "contrastRatio": 1,
+            "required": 3,
+            "fontSize": 18.72,
+            "isLarge": true
+          },
+          {
+            "selector": "p.mt-1.text-sm.text-muted",
+            "text": "Cash on delivery or GCash",
+            "foreground": "#000000",
+            "background": "#000000",
+            "contrastRatio": 1,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-2xl",
+            "text": "🥚",
+            "foreground": "#000000",
+            "background": "#000000",
+            "contrastRatio": 1,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "h3.mt-3.font-semibold",
+            "text": "Suki Points",
+            "foreground": "#000000",
+            "background": "#000000",
+            "contrastRatio": 1,
+            "required": 3,
+            "fontSize": 18.72,
+            "isLarge": true
+          },
+          {
+            "selector": "p.mt-1.text-sm.text-muted",
+            "text": "Earn points with every purchase",
+            "foreground": "#000000",
+            "background": "#000000",
+            "contrastRatio": 1,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "footer.px-4.py-6.text-center.text-xs.text-muted.dark:text-gray-400",
+            "text": "All product images are for demonstration purposes and sourced from royalty-free stock photography. Sari-Sari does not cl",
+            "foreground": "#000000",
+            "background": "#000000",
+            "contrastRatio": 1,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          }
+        ],
+        "passCount": 1,
+        "failCount": 41,
+        "score": 2.4,
+        "_elements": [
+          {
+            "selector": "a.sr-only.focus:not-sr-only.focus:fixed.focus:left-4.focus:top-4.focus:z-50.focus:rounded-xl.focus:bg-flag-blue.focus:px-4.focus:py-2.focus:text-sm.focus:font-semibold.focus:text-white.focus:shadow-lg.focus:outline-none",
+            "text": "Skip to main content",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "a"
+          },
+          {
+            "selector": "span.text-xl.font-bold.tracking-tight.text-flag-blue",
+            "text": "Sari-Sari",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.hidden.text-xs.text-muted.sm:inline",
+            "text": "one store, a thousand items",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "a.text-sm.font-medium.text-stone-600.transition-colors.hover:text-muted.dark:text-muted.dark:hover:text-muted",
+            "text": "Products",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "a"
+          },
+          {
+            "selector": "a.text-sm.font-medium.text-stone-600.transition-colors.hover:text-muted.dark:text-muted.dark:hover:text-muted",
+            "text": "Orders",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "a"
+          },
+          {
+            "selector": "a.text-sm.font-semibold.text-flag-blue.transition-colors.hover:underline",
+            "text": "Sign In",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "a"
+          },
+          {
+            "selector": "span.text-[clamp(6rem,15vw,14rem)].font-black.tracking-[0.3em].text-flag-blue/[0.03]",
+            "text": "SARI-SARI",
+            "foreground": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.inline-flex.rounded-full.bg-flag-blue/10.px-4.py-1.text-xs.font-semibold.uppercase.tracking-wider.text-flag-blue",
+            "text": "Open na ang Sari-Sari!",
+            "foreground": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-flag-red",
+            "text": "a thousand items",
+            "foreground": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 32,
+            "fontWeight": 700,
+            "isLarge": true,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "p.mx-auto.mt-4.max-w-xl.text-lg.text-muted.lg:mx-0.dark:text-gray-400",
+            "text": "Nostalgic snacks, pancit canton, and your favorites — straight from the corner store to your door.",
+            "foreground": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "p"
+          },
+          {
+            "selector": "a.inline-flex.h-12.items-center.justify-center.rounded-xl.bg-flag-blue.px-8.text-sm.font-semibold.text-white.shadow-lg.shadow-flag-blue/25.transition-all.hover:brightness-90.active:scale-[0.99]",
+            "text": "Shop Now!",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "a"
+          },
+          {
+            "selector": "a.inline-flex.h-12.items-center.justify-center.rounded-xl.border.border-subtle.bg-white.px-8.text-sm.font-semibold.text-foreground.transition-all.hover:bg-surface.dark:border-white/30.dark:bg-transparent.dark:text-white",
+            "text": "Snacks",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "a"
+          },
+          {
+            "selector": "a.text-sm.font-medium.text-muted.transition-colors.hover:underline",
+            "text": "View all→",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "a"
+          },
+          {
+            "selector": "span.text-xl",
+            "text": "🥤",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-sm.font-semibold.text-foreground",
+            "text": "Beverages",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-xs.text-muted",
+            "text": "Inumin",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-xl",
+            "text": "🍪",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-sm.font-semibold.text-foreground",
+            "text": "Biscuits & Snacks",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-xs.text-muted",
+            "text": "Biskwit",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-xl",
+            "text": "🍬",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-sm.font-semibold.text-foreground",
+            "text": "Candies & Sweets",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-xs.text-muted",
+            "text": "Matatamis",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-xl",
+            "text": "🍿",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-sm.font-semibold.text-foreground",
+            "text": "Classic Snacks",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-xs.text-muted",
+            "text": "Chichirya",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-xl",
+            "text": "🧺",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-sm.font-semibold.text-foreground",
+            "text": "Household Essentials",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-xs.text-muted",
+            "text": "Panlinis",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-xl",
+            "text": "🍜",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-sm.font-semibold.text-foreground",
+            "text": "Instant Noodles & Pantry",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-xs.text-muted",
+            "text": "Pancit at Delata",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-2xl",
+            "text": "🛒",
+            "foreground": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "h3.mt-3.font-semibold",
+            "text": "Free Delivery",
+            "foreground": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 18.72,
+            "fontWeight": 700,
+            "isLarge": true,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "h3"
+          },
+          {
+            "selector": "p.mt-1.text-sm.text-muted",
+            "text": "Free delivery on orders over ₱499",
+            "foreground": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "p"
+          },
+          {
+            "selector": "span.text-2xl",
+            "text": "💚",
+            "foreground": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "h3.mt-3.font-semibold",
+            "text": "Pay on Delivery",
+            "foreground": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 18.72,
+            "fontWeight": 700,
+            "isLarge": true,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "h3"
+          },
+          {
+            "selector": "p.mt-1.text-sm.text-muted",
+            "text": "Cash on delivery or GCash",
+            "foreground": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "p"
+          },
+          {
+            "selector": "span.text-2xl",
+            "text": "🥚",
+            "foreground": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "h3.mt-3.font-semibold",
+            "text": "Suki Points",
+            "foreground": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 18.72,
+            "fontWeight": 700,
+            "isLarge": true,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "h3"
+          },
+          {
+            "selector": "p.mt-1.text-sm.text-muted",
+            "text": "Earn points with every purchase",
+            "foreground": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "p"
+          },
+          {
+            "selector": "footer.px-4.py-6.text-center.text-xs.text-muted.dark:text-gray-400",
+            "text": "All product images are for demonstration purposes and sourced from royalty-free stock photography. Sari-Sari does not cl",
+            "foreground": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "footer"
+          },
+          {
+            "selector": "span.text-base",
+            "text": "🎮",
+            "foreground": "rgb(0, 0, 0)",
+            "background": "rgb(240, 240, 240)",
+            "fontSize": 13.3333,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "Arial",
+            "lineHeight": 0,
+            "tagName": "span"
+          }
+        ]
+      }
+    },
+    {
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "wcag": {
+        "totalElements": 42,
+        "failures": [
+          {
+            "selector": "a.sr-only.focus:not-sr-only.focus:fixed.focus:left-4.focus:top-4.focus:z-50.focus:rounded-xl.focus:bg-flag-blue.focus:px-4.focus:py-2.focus:text-sm.focus:font-semibold.focus:text-white.focus:shadow-lg.focus:outline-none",
+            "text": "Skip to main content",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-xl.font-bold.tracking-tight.text-flag-blue",
+            "text": "Sari-Sari",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.hidden.text-xs.text-muted.sm:inline",
+            "text": "one store, a thousand items",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "a.text-sm.font-medium.text-stone-600.transition-colors.hover:text-muted.dark:text-muted.dark:hover:text-muted",
+            "text": "Products",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "a.text-sm.font-medium.text-stone-600.transition-colors.hover:text-muted.dark:text-muted.dark:hover:text-muted",
+            "text": "Orders",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "a.text-sm.font-semibold.text-flag-blue.transition-colors.hover:underline",
+            "text": "Sign In",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-[clamp(6rem,15vw,14rem)].font-black.tracking-[0.3em].text-flag-blue/[0.03]",
+            "text": "SARI-SARI",
+            "foreground": "#000000",
+            "background": "#000000",
+            "contrastRatio": 1,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.inline-flex.rounded-full.bg-flag-blue/10.px-4.py-1.text-xs.font-semibold.uppercase.tracking-wider.text-flag-blue",
+            "text": "Open na ang Sari-Sari!",
+            "foreground": "#000000",
+            "background": "#000000",
+            "contrastRatio": 1,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-flag-red",
+            "text": "a thousand items",
+            "foreground": "#000000",
+            "background": "#000000",
+            "contrastRatio": 1,
+            "required": 3,
+            "fontSize": 32,
+            "isLarge": true
+          },
+          {
+            "selector": "p.mx-auto.mt-4.max-w-xl.text-lg.text-muted.lg:mx-0.dark:text-gray-400",
+            "text": "Nostalgic snacks, pancit canton, and your favorites — straight from the corner store to your door.",
+            "foreground": "#000000",
+            "background": "#000000",
+            "contrastRatio": 1,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "a.inline-flex.h-12.items-center.justify-center.rounded-xl.bg-flag-blue.px-8.text-sm.font-semibold.text-white.shadow-lg.shadow-flag-blue/25.transition-all.hover:brightness-90.active:scale-[0.99]",
+            "text": "Shop Now!",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "a.inline-flex.h-12.items-center.justify-center.rounded-xl.border.border-subtle.bg-white.px-8.text-sm.font-semibold.text-foreground.transition-all.hover:bg-surface.dark:border-white/30.dark:bg-transparent.dark:text-white",
+            "text": "Snacks",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "a.text-sm.font-medium.text-muted.transition-colors.hover:underline",
+            "text": "View all→",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-xl",
+            "text": "🥤",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-sm.font-semibold.text-foreground",
+            "text": "Beverages",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-xs.text-muted",
+            "text": "Inumin",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-xl",
+            "text": "🍪",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-sm.font-semibold.text-foreground",
+            "text": "Biscuits & Snacks",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-xs.text-muted",
+            "text": "Biskwit",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-xl",
+            "text": "🍬",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-sm.font-semibold.text-foreground",
+            "text": "Candies & Sweets",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-xs.text-muted",
+            "text": "Matatamis",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-xl",
+            "text": "🍿",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-sm.font-semibold.text-foreground",
+            "text": "Classic Snacks",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-xs.text-muted",
+            "text": "Chichirya",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-xl",
+            "text": "🧺",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-sm.font-semibold.text-foreground",
+            "text": "Household Essentials",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-xs.text-muted",
+            "text": "Panlinis",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-xl",
+            "text": "🍜",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-sm.font-semibold.text-foreground",
+            "text": "Instant Noodles & Pantry",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-xs.text-muted",
+            "text": "Pancit at Delata",
+            "foreground": "#0000ee",
+            "background": "#000000",
+            "contrastRatio": 2.23,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-2xl",
+            "text": "🛒",
+            "foreground": "#000000",
+            "background": "#000000",
+            "contrastRatio": 1,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "h3.mt-3.font-semibold",
+            "text": "Free Delivery",
+            "foreground": "#000000",
+            "background": "#000000",
+            "contrastRatio": 1,
+            "required": 3,
+            "fontSize": 18.72,
+            "isLarge": true
+          },
+          {
+            "selector": "p.mt-1.text-sm.text-muted",
+            "text": "Free delivery on orders over ₱499",
+            "foreground": "#000000",
+            "background": "#000000",
+            "contrastRatio": 1,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-2xl",
+            "text": "💚",
+            "foreground": "#000000",
+            "background": "#000000",
+            "contrastRatio": 1,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "h3.mt-3.font-semibold",
+            "text": "Pay on Delivery",
+            "foreground": "#000000",
+            "background": "#000000",
+            "contrastRatio": 1,
+            "required": 3,
+            "fontSize": 18.72,
+            "isLarge": true
+          },
+          {
+            "selector": "p.mt-1.text-sm.text-muted",
+            "text": "Cash on delivery or GCash",
+            "foreground": "#000000",
+            "background": "#000000",
+            "contrastRatio": 1,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-2xl",
+            "text": "🥚",
+            "foreground": "#000000",
+            "background": "#000000",
+            "contrastRatio": 1,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "h3.mt-3.font-semibold",
+            "text": "Suki Points",
+            "foreground": "#000000",
+            "background": "#000000",
+            "contrastRatio": 1,
+            "required": 3,
+            "fontSize": 18.72,
+            "isLarge": true
+          },
+          {
+            "selector": "p.mt-1.text-sm.text-muted",
+            "text": "Earn points with every purchase",
+            "foreground": "#000000",
+            "background": "#000000",
+            "contrastRatio": 1,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "footer.px-4.py-6.text-center.text-xs.text-muted.dark:text-gray-400",
+            "text": "All product images are for demonstration purposes and sourced from royalty-free stock photography. Sari-Sari does not cl",
+            "foreground": "#000000",
+            "background": "#000000",
+            "contrastRatio": 1,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          }
+        ],
+        "passCount": 1,
+        "failCount": 41,
+        "score": 2.4,
+        "_elements": [
+          {
+            "selector": "a.sr-only.focus:not-sr-only.focus:fixed.focus:left-4.focus:top-4.focus:z-50.focus:rounded-xl.focus:bg-flag-blue.focus:px-4.focus:py-2.focus:text-sm.focus:font-semibold.focus:text-white.focus:shadow-lg.focus:outline-none",
+            "text": "Skip to main content",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "a"
+          },
+          {
+            "selector": "span.text-xl.font-bold.tracking-tight.text-flag-blue",
+            "text": "Sari-Sari",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.hidden.text-xs.text-muted.sm:inline",
+            "text": "one store, a thousand items",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "a.text-sm.font-medium.text-stone-600.transition-colors.hover:text-muted.dark:text-muted.dark:hover:text-muted",
+            "text": "Products",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "a"
+          },
+          {
+            "selector": "a.text-sm.font-medium.text-stone-600.transition-colors.hover:text-muted.dark:text-muted.dark:hover:text-muted",
+            "text": "Orders",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "a"
+          },
+          {
+            "selector": "a.text-sm.font-semibold.text-flag-blue.transition-colors.hover:underline",
+            "text": "Sign In",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "a"
+          },
+          {
+            "selector": "span.text-[clamp(6rem,15vw,14rem)].font-black.tracking-[0.3em].text-flag-blue/[0.03]",
+            "text": "SARI-SARI",
+            "foreground": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.inline-flex.rounded-full.bg-flag-blue/10.px-4.py-1.text-xs.font-semibold.uppercase.tracking-wider.text-flag-blue",
+            "text": "Open na ang Sari-Sari!",
+            "foreground": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-flag-red",
+            "text": "a thousand items",
+            "foreground": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 32,
+            "fontWeight": 700,
+            "isLarge": true,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "p.mx-auto.mt-4.max-w-xl.text-lg.text-muted.lg:mx-0.dark:text-gray-400",
+            "text": "Nostalgic snacks, pancit canton, and your favorites — straight from the corner store to your door.",
+            "foreground": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "p"
+          },
+          {
+            "selector": "a.inline-flex.h-12.items-center.justify-center.rounded-xl.bg-flag-blue.px-8.text-sm.font-semibold.text-white.shadow-lg.shadow-flag-blue/25.transition-all.hover:brightness-90.active:scale-[0.99]",
+            "text": "Shop Now!",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "a"
+          },
+          {
+            "selector": "a.inline-flex.h-12.items-center.justify-center.rounded-xl.border.border-subtle.bg-white.px-8.text-sm.font-semibold.text-foreground.transition-all.hover:bg-surface.dark:border-white/30.dark:bg-transparent.dark:text-white",
+            "text": "Snacks",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "a"
+          },
+          {
+            "selector": "a.text-sm.font-medium.text-muted.transition-colors.hover:underline",
+            "text": "View all→",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "a"
+          },
+          {
+            "selector": "span.text-xl",
+            "text": "🥤",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-sm.font-semibold.text-foreground",
+            "text": "Beverages",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-xs.text-muted",
+            "text": "Inumin",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-xl",
+            "text": "🍪",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-sm.font-semibold.text-foreground",
+            "text": "Biscuits & Snacks",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-xs.text-muted",
+            "text": "Biskwit",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-xl",
+            "text": "🍬",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-sm.font-semibold.text-foreground",
+            "text": "Candies & Sweets",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-xs.text-muted",
+            "text": "Matatamis",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-xl",
+            "text": "🍿",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-sm.font-semibold.text-foreground",
+            "text": "Classic Snacks",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-xs.text-muted",
+            "text": "Chichirya",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-xl",
+            "text": "🧺",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-sm.font-semibold.text-foreground",
+            "text": "Household Essentials",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-xs.text-muted",
+            "text": "Panlinis",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-xl",
+            "text": "🍜",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-sm.font-semibold.text-foreground",
+            "text": "Instant Noodles & Pantry",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-xs.text-muted",
+            "text": "Pancit at Delata",
+            "foreground": "rgb(0, 0, 238)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-2xl",
+            "text": "🛒",
+            "foreground": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "h3.mt-3.font-semibold",
+            "text": "Free Delivery",
+            "foreground": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 18.72,
+            "fontWeight": 700,
+            "isLarge": true,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "h3"
+          },
+          {
+            "selector": "p.mt-1.text-sm.text-muted",
+            "text": "Free delivery on orders over ₱499",
+            "foreground": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "p"
+          },
+          {
+            "selector": "span.text-2xl",
+            "text": "💚",
+            "foreground": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "h3.mt-3.font-semibold",
+            "text": "Pay on Delivery",
+            "foreground": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 18.72,
+            "fontWeight": 700,
+            "isLarge": true,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "h3"
+          },
+          {
+            "selector": "p.mt-1.text-sm.text-muted",
+            "text": "Cash on delivery or GCash",
+            "foreground": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "p"
+          },
+          {
+            "selector": "span.text-2xl",
+            "text": "🥚",
+            "foreground": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "span"
+          },
+          {
+            "selector": "h3.mt-3.font-semibold",
+            "text": "Suki Points",
+            "foreground": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 18.72,
+            "fontWeight": 700,
+            "isLarge": true,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "h3"
+          },
+          {
+            "selector": "p.mt-1.text-sm.text-muted",
+            "text": "Earn points with every purchase",
+            "foreground": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "p"
+          },
+          {
+            "selector": "footer.px-4.py-6.text-center.text-xs.text-muted.dark:text-gray-400",
+            "text": "All product images are for demonstration purposes and sourced from royalty-free stock photography. Sari-Sari does not cl",
+            "foreground": "rgb(0, 0, 0)",
+            "background": "rgba(0, 0, 0, 0)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "\"Times New Roman\"",
+            "lineHeight": 0,
+            "tagName": "footer"
+          },
+          {
+            "selector": "span.text-base",
+            "text": "🎮",
+            "foreground": "rgb(0, 0, 0)",
+            "background": "rgb(240, 240, 240)",
+            "fontSize": 13.3333,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "Arial",
+            "lineHeight": 0,
+            "tagName": "span"
+          }
+        ]
+      }
+    }
+  ],
+  "wcag": {
+    "totalElements": 84,
+    "failures": [
+      {
+        "selector": "a.sr-only.focus:not-sr-only.focus:fixed.focus:left-4.focus:top-4.focus:z-50.focus:rounded-xl.focus:bg-flag-blue.focus:px-4.focus:py-2.focus:text-sm.focus:font-semibold.focus:text-white.focus:shadow-lg.focus:outline-none",
+        "text": "Skip to main content",
+        "foreground": "#0000ee",
+        "background": "#000000",
+        "contrastRatio": 2.23,
+        "required": 4.5,
+        "fontSize": 16,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "span.text-xl.font-bold.tracking-tight.text-flag-blue",
+        "text": "Sari-Sari",
+        "foreground": "#0000ee",
+        "background": "#000000",
+        "contrastRatio": 2.23,
+        "required": 4.5,
+        "fontSize": 16,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "span.hidden.text-xs.text-muted.sm:inline",
+        "text": "one store, a thousand items",
+        "foreground": "#0000ee",
+        "background": "#000000",
+        "contrastRatio": 2.23,
+        "required": 4.5,
+        "fontSize": 16,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "a.text-sm.font-medium.text-stone-600.transition-colors.hover:text-muted.dark:text-muted.dark:hover:text-muted",
+        "text": "Products",
+        "foreground": "#0000ee",
+        "background": "#000000",
+        "contrastRatio": 2.23,
+        "required": 4.5,
+        "fontSize": 16,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "a.text-sm.font-semibold.text-flag-blue.transition-colors.hover:underline",
+        "text": "Sign In",
+        "foreground": "#0000ee",
+        "background": "#000000",
+        "contrastRatio": 2.23,
+        "required": 4.5,
+        "fontSize": 16,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "span.text-[clamp(6rem,15vw,14rem)].font-black.tracking-[0.3em].text-flag-blue/[0.03]",
+        "text": "SARI-SARI",
+        "foreground": "#000000",
+        "background": "#000000",
+        "contrastRatio": 1,
+        "required": 4.5,
+        "fontSize": 16,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "span.inline-flex.rounded-full.bg-flag-blue/10.px-4.py-1.text-xs.font-semibold.uppercase.tracking-wider.text-flag-blue",
+        "text": "Open na ang Sari-Sari!",
+        "foreground": "#000000",
+        "background": "#000000",
+        "contrastRatio": 1,
+        "required": 4.5,
+        "fontSize": 16,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "span.text-flag-red",
+        "text": "a thousand items",
+        "foreground": "#000000",
+        "background": "#000000",
+        "contrastRatio": 1,
+        "required": 3,
+        "fontSize": 32,
+        "isLarge": true,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "p.mx-auto.mt-4.max-w-xl.text-lg.text-muted.lg:mx-0.dark:text-gray-400",
+        "text": "Nostalgic snacks, pancit canton, and your favorites — straight from the corner store to your door.",
+        "foreground": "#000000",
+        "background": "#000000",
+        "contrastRatio": 1,
+        "required": 4.5,
+        "fontSize": 16,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "a.inline-flex.h-12.items-center.justify-center.rounded-xl.bg-flag-blue.px-8.text-sm.font-semibold.text-white.shadow-lg.shadow-flag-blue/25.transition-all.hover:brightness-90.active:scale-[0.99]",
+        "text": "Shop Now!",
+        "foreground": "#0000ee",
+        "background": "#000000",
+        "contrastRatio": 2.23,
+        "required": 4.5,
+        "fontSize": 16,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "a.inline-flex.h-12.items-center.justify-center.rounded-xl.border.border-subtle.bg-white.px-8.text-sm.font-semibold.text-foreground.transition-all.hover:bg-surface.dark:border-white/30.dark:bg-transparent.dark:text-white",
+        "text": "Snacks",
+        "foreground": "#0000ee",
+        "background": "#000000",
+        "contrastRatio": 2.23,
+        "required": 4.5,
+        "fontSize": 16,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "a.text-sm.font-medium.text-muted.transition-colors.hover:underline",
+        "text": "View all→",
+        "foreground": "#0000ee",
+        "background": "#000000",
+        "contrastRatio": 2.23,
+        "required": 4.5,
+        "fontSize": 16,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "span.text-xl",
+        "text": "🥤",
+        "foreground": "#0000ee",
+        "background": "#000000",
+        "contrastRatio": 2.23,
+        "required": 4.5,
+        "fontSize": 16,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "span.text-sm.font-semibold.text-foreground",
+        "text": "Beverages",
+        "foreground": "#0000ee",
+        "background": "#000000",
+        "contrastRatio": 2.23,
+        "required": 4.5,
+        "fontSize": 16,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "span.text-xs.text-muted",
+        "text": "Inumin",
+        "foreground": "#0000ee",
+        "background": "#000000",
+        "contrastRatio": 2.23,
+        "required": 4.5,
+        "fontSize": 16,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "span.text-2xl",
+        "text": "🛒",
+        "foreground": "#000000",
+        "background": "#000000",
+        "contrastRatio": 1,
+        "required": 4.5,
+        "fontSize": 16,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "h3.mt-3.font-semibold",
+        "text": "Free Delivery",
+        "foreground": "#000000",
+        "background": "#000000",
+        "contrastRatio": 1,
+        "required": 3,
+        "fontSize": 18.72,
+        "isLarge": true,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "p.mt-1.text-sm.text-muted",
+        "text": "Free delivery on orders over ₱499",
+        "foreground": "#000000",
+        "background": "#000000",
+        "contrastRatio": 1,
+        "required": 4.5,
+        "fontSize": 16,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "footer.px-4.py-6.text-center.text-xs.text-muted.dark:text-gray-400",
+        "text": "All product images are for demonstration purposes and sourced from royalty-free stock photography. Sari-Sari does not cl",
+        "foreground": "#000000",
+        "background": "#000000",
+        "contrastRatio": 1,
+        "required": 4.5,
+        "fontSize": 16,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      }
+    ],
+    "passCount": 21,
+    "failCount": 19,
+    "score": 77.4
+  },
+  "design": {
+    "failures": [
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "span.text-base",
+        "description": "Text \"🎮\" has font-size 13.3333px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "13.3333px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "missing-alt",
+        "ruleName": "Images require alt text",
+        "category": "media",
+        "selector": "img",
+        "description": "Image has empty alt text",
+        "severity": "medium",
+        "value": "alt=\"\"",
+        "expected": "descriptive alt text or role=\"presentation\""
+      },
+      {
+        "ruleId": "missing-alt",
+        "ruleName": "Images require alt text",
+        "category": "media",
+        "selector": "img",
+        "description": "Image has empty alt text",
+        "severity": "medium",
+        "value": "alt=\"\"",
+        "expected": "descriptive alt text or role=\"presentation\""
+      },
+      {
+        "ruleId": "missing-alt",
+        "ruleName": "Images require alt text",
+        "category": "media",
+        "selector": "img",
+        "description": "Image has empty alt text",
+        "severity": "medium",
+        "value": "alt=\"\"",
+        "expected": "descriptive alt text or role=\"presentation\""
+      },
+      {
+        "ruleId": "missing-alt",
+        "ruleName": "Images require alt text",
+        "category": "media",
+        "selector": "img",
+        "description": "Image has empty alt text",
+        "severity": "medium",
+        "value": "alt=\"\"",
+        "expected": "descriptive alt text or role=\"presentation\""
+      },
+      {
+        "ruleId": "empty-interactive",
+        "ruleName": "Interactive elements must have accessible name",
+        "category": "interactivity",
+        "selector": "a",
+        "description": "a has no text content or aria-label",
+        "severity": "high",
+        "value": "no accessible name",
+        "expected": "text content or aria-label"
+      },
+      {
+        "ruleId": "horizontal-scroll",
+        "ruleName": "No horizontal scroll at viewport width",
+        "category": "spacing",
+        "selector": "img.aspect-square.h-full.w-full.object-cover",
+        "description": "Page overflows horizontally by 225px at 375px viewport width",
+        "severity": "high",
+        "value": "225px overflow",
+        "expected": "0px overflow"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "span.text-base",
+        "description": "Text \"🎮\" has font-size 13.3333px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "13.3333px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "missing-alt",
+        "ruleName": "Images require alt text",
+        "category": "media",
+        "selector": "img",
+        "description": "Image has empty alt text",
+        "severity": "medium",
+        "value": "alt=\"\"",
+        "expected": "descriptive alt text or role=\"presentation\""
+      },
+      {
+        "ruleId": "missing-alt",
+        "ruleName": "Images require alt text",
+        "category": "media",
+        "selector": "img",
+        "description": "Image has empty alt text",
+        "severity": "medium",
+        "value": "alt=\"\"",
+        "expected": "descriptive alt text or role=\"presentation\""
+      },
+      {
+        "ruleId": "missing-alt",
+        "ruleName": "Images require alt text",
+        "category": "media",
+        "selector": "img",
+        "description": "Image has empty alt text",
+        "severity": "medium",
+        "value": "alt=\"\"",
+        "expected": "descriptive alt text or role=\"presentation\""
+      },
+      {
+        "ruleId": "missing-alt",
+        "ruleName": "Images require alt text",
+        "category": "media",
+        "selector": "img",
+        "description": "Image has empty alt text",
+        "severity": "medium",
+        "value": "alt=\"\"",
+        "expected": "descriptive alt text or role=\"presentation\""
+      },
+      {
+        "ruleId": "empty-interactive",
+        "ruleName": "Interactive elements must have accessible name",
+        "category": "interactivity",
+        "selector": "a",
+        "description": "a has no text content or aria-label",
+        "severity": "high",
+        "value": "no accessible name",
+        "expected": "text content or aria-label"
+      }
+    ],
+    "totalChecks": 13,
+    "passCount": 0,
+    "failCount": 13,
+    "score": 0
+  },
+  "timedOut": false
+}

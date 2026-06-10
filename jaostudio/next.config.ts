@@ -45,6 +45,18 @@ const nextConfig: NextConfig = {
     ],
   },
 
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'motion-utils': path.resolve(__dirname, 'node_modules/motion-utils/dist/cjs/index.js'),
+    }
+    config.module.rules.push({
+      test: /[\\/]node_modules[\\/]motion-utils[\\/]dist[\\/]cjs[\\/]/,
+      type: 'javascript/auto',
+    })
+    return config
+  },
+
   async redirects() {
     return [
       {

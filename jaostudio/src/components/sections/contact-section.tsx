@@ -7,6 +7,7 @@ import { motion } from 'framer-motion'
 import { Section } from '@/components/ui/section'
 import { Badge } from '@/components/typography/badge'
 import { Button } from '@/components/ui/button'
+import { Disclosure } from '@/components/ui/disclosure'
 import { track, EVENTS } from '@/lib/analytics'
 import { PROJECT_TYPES, PROJECT_TYPE_LABELS, PROJECT_TYPE_GROUPS, isOtherProjectType } from '@/lib/project-types'
 
@@ -58,10 +59,6 @@ function ContactForm() {
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) newErrors.email = ct('validationInvalidEmail')
     if (!projectType) newErrors.project_type = t('errorProjectType')
     if (isOtherProjectType(projectType) && !projectTypeOther?.trim()) newErrors.project_type_other = t('errorOther')
-    if (!budget) newErrors.budget = t('errorBudget')
-    if (!timeline) newErrors.timeline = t('errorTimeline')
-    if (!priority) newErrors.priority = t('errorPriority')
-    if (!source) newErrors.source = t('errorSource')
 
     setErrors(newErrors)
     return Object.keys(newErrors).length === 0
@@ -135,7 +132,7 @@ function ContactForm() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-12 flex flex-col gap-5 md:gap-9 items-center text-center"
+            className="mb-6 flex flex-col gap-5 md:gap-9 items-center text-center md:mb-12"
           >
             <Badge variant="accent">{t('badge')}</Badge>
             <h2 className="text-[var(--text-section)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
@@ -146,17 +143,19 @@ function ContactForm() {
             </p>
           </motion.div>
 
-          <form onSubmit={handleSubmit} onFocus={handleFirstInteraction} className="flex flex-col gap-6">
+          <form onSubmit={handleSubmit} onFocus={handleFirstInteraction} className="flex flex-col gap-3 md:gap-6">
             <input type="hidden" name="_gotcha" aria-hidden="true" />
             {source && <input type="hidden" name="source_override" value={source} />}
 
-            <div className="grid gap-6 md:grid-cols-2">
+            <div className="grid gap-4 md:gap-6 md:grid-cols-2">
               <Field label={ct('fieldName')} name="name" required error={errors.name} />
               <Field label={ct('fieldEmail')} name="email" type="email" required error={errors.email} />
             </div>
 
-            <Field label={t('business')} name="business" />
-            <Field label={ct('fieldWebsite')} name="website" placeholder="https://" />
+            <div className="hidden md:block">
+              <Field label={t('business')} name="business" />
+              <Field label={ct('fieldWebsite')} name="website" placeholder="https://" />
+            </div>
 
             <div className="flex flex-col gap-2">
               <label htmlFor="project_type" className="text-xs font-medium text-text-secondary">
@@ -216,21 +215,24 @@ function ContactForm() {
               </div>
             )}
 
-            <SelectField label={t('budget')} name="budget" options={t.raw('budgetRanges') as string[]} required placeholder={t('select')} error={errors.budget} />
-            <SelectField label={t('timeline')} name="timeline" options={t.raw('timelines') as string[]} required placeholder={t('select')} error={errors.timeline} />
-            <SelectField label={t('priority')} name="priority" options={t.raw('priorities') as string[]} required placeholder={t('select')} error={errors.priority} />
-            <SelectField label={t('source')} name="source" options={Object.values(t.raw('sources') as Record<string, string>)} required placeholder={t('select')} error={errors.source} />
-
-            <div className="flex flex-col gap-2">
-              <label htmlFor="business-goal" className="text-xs font-medium text-text-secondary">{t('goal')}</label>
-              <textarea
-                id="business-goal"
-                name="business_goal"
-                rows={3}
-                className="w-full resize-none rounded-xl border border-border bg-bg-surface px-4 py-3 text-sm text-text-primary placeholder-text-tertiary outline-none transition-colors focus:border-border-active"
-                placeholder={t('placeholderGoal')}
-              />
-            </div>
+            <Disclosure title={t('addMoreDetails') || 'Add more details'}>
+              <div className="flex flex-col gap-4 pt-2">
+                <SelectField label={t('budget')} name="budget" options={t.raw('budgetRanges') as string[]} placeholder={t('select')} error={errors.budget} />
+                <SelectField label={t('timeline')} name="timeline" options={t.raw('timelines') as string[]} placeholder={t('select')} error={errors.timeline} />
+                <SelectField label={t('priority')} name="priority" options={t.raw('priorities') as string[]} placeholder={t('select')} error={errors.priority} />
+                <SelectField label={t('source')} name="source" options={Object.values(t.raw('sources') as Record<string, string>)} placeholder={t('select')} error={errors.source} />
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="business-goal" className="text-xs font-medium text-text-secondary">{t('goal')}</label>
+                  <textarea
+                    id="business-goal"
+                    name="business_goal"
+                    rows={3}
+                    className="w-full resize-none rounded-xl border border-border bg-bg-surface px-4 py-3 text-sm text-text-primary placeholder-text-tertiary outline-none transition-colors focus:border-border-active"
+                    placeholder={t('placeholderGoal')}
+                  />
+                </div>
+              </div>
+            </Disclosure>
 
             <div className="flex flex-col gap-2">
               <label htmlFor="message" className="text-xs font-medium text-text-secondary">{ct('fieldMessage')}</label>
@@ -248,7 +250,7 @@ function ContactForm() {
                 {formState.message}
               </p>
             )}
-            <Button type="submit" size="lg" className="self-start" trackingLabel="contact_send_inquiry" loading={formState.status === 'loading'}>
+            <Button type="submit" size="lg" className="w-full md:self-start" trackingLabel="contact_send_inquiry" loading={formState.status === 'loading'}>            
               {formState.status === 'loading' ? t('ctaSending') : t('cta')}
             </Button>
           </form>
@@ -258,7 +260,7 @@ function ContactForm() {
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
               transition={{ staggerChildren: 0.15 }}
-              className="mt-8 grid gap-3 border-t border-border-subtle pt-8 md:grid-cols-3"
+              className="mt-6 grid gap-3 border-t border-border-subtle pt-8 md:grid-cols-3 md:mt-8"
             >
               {[1, 2, 3].map((i) => (
                 <motion.div

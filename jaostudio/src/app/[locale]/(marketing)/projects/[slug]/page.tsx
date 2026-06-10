@@ -90,7 +90,7 @@ export default async function ProjectPage({ params }: Props) {
       />
       <PageScrollTracker eventName={EVENTS.CASE_STUDY_SCROLL} />
       <ProjectViewTracker slug={slug} />
-      <FadeInView><section className="relative flex min-h-[50vh] items-end overflow-hidden pt-20 lg:pt-28">
+      <FadeInView><section className="relative flex min-h-[50vh] items-end overflow-hidden pt-12 md:pt-28">
         <LayeredFrame glow>
           <div className="flex flex-col gap-4 pb-8 md:pb-12">
             <div className="flex items-center gap-3">
@@ -373,31 +373,31 @@ export default async function ProjectPage({ params }: Props) {
               {project.performance && (
                 <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-5">
                   {project.performance.lcp && (
-                    <Card className="p-3">
+                    <Card className="p-3 md:p-4">
                       <p className="text-xs text-text-tertiary">{t('metricLCP')}</p>
                       <p className="mt-0.5 text-sm font-medium text-text-primary">{project.performance.lcp}</p>
                     </Card>
                   )}
                   {project.performance.cls && (
-                    <Card className="p-3">
+                    <Card className="p-3 md:p-4">
                       <p className="text-xs text-text-tertiary">{t('metricCLS')}</p>
                       <p className="mt-0.5 text-sm font-medium text-text-primary">{project.performance.cls}</p>
                     </Card>
                   )}
                   {project.performance.inp && (
-                    <Card className="p-3">
+                    <Card className="p-3 md:p-4">
                       <p className="text-xs text-text-tertiary">{t('metricINP')}</p>
                       <p className="mt-0.5 text-sm font-medium text-text-primary">{project.performance.inp}</p>
                     </Card>
                   )}
                   {project.performance.bundleSize && (
-                    <Card className="p-3">
+                    <Card className="p-3 md:p-4">
                       <p className="text-xs text-text-tertiary">{t('metricBundle')}</p>
                       <p className="mt-0.5 text-sm font-medium text-text-primary">{project.performance.bundleSize}</p>
                     </Card>
                   )}
                   {project.performance.ttfb && (
-                    <Card className="p-3">
+                    <Card className="p-3 md:p-4">
                       <p className="text-xs text-text-tertiary">{t('metricTTFB')}</p>
                       <p className="mt-0.5 text-sm font-medium text-text-primary">{project.performance.ttfb}</p>
                     </Card>

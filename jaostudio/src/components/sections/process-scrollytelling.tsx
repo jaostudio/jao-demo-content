@@ -7,11 +7,12 @@ import { Section } from '@/components/ui/section'
 import { Badge } from '@/components/typography/badge'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/cn'
+import Link from 'next/link'
 import { easeOut, durations } from '@/lib/motion-variants'
 import { useActiveNode } from '@/components/layout/system-provider'
 import { useMediaQuery } from '@/lib/hooks/use-media-query'
-import { track, EVENTS } from '@/lib/analytics'
-import { ProcessMobileAccordion, type ProcessAccordionStep } from './process-mobile-accordion'
+import type { ProcessAccordionStep } from './process-mobile-accordion'
+import { ProcessMobileSlides } from './process-mobile-slides'
 
 const AUTO_ADVANCE_MS = 3600
 
@@ -188,26 +189,6 @@ function ProcessDesktopScrollytelling({
                 </div>
               </div>
 
-              <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-end">
-                <div className="rounded-xl bg-surface-hover p-4 md:p-5">
-                  <p className="text-xs uppercase tracking-[0.28em] text-text-secondary">What happens here</p>
-                  <p className="mt-3 text-[var(--text-body)] leading-[var(--leading-relaxed)] text-text-secondary">
-                    {activeStep.details}
-                  </p>
-                </div>
-
-                <div className="grid gap-2 sm:grid-cols-3 lg:grid-cols-1">
-                  {activeStep.deliverables.map((deliverable) => (
-                    <span
-                      key={deliverable}
-                      className="rounded-2xl border border-border-subtle bg-bg-surface/85 px-3 py-2 text-center text-xs uppercase tracking-[0.22em] text-text-secondary"
-                    >
-                      {deliverable}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
               <div className="grid gap-4 md:grid-cols-[1.1fr_auto] md:items-end">
                 <div>
                   <div className="flex items-center justify-between text-xs uppercase tracking-[0.24em] text-text-secondary">
@@ -234,6 +215,24 @@ function ProcessDesktopScrollytelling({
                 >
                   {ctaLabel}
                 </Button>
+              </div>
+
+              {/* Quality metrics */}
+              <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
+                {[
+                  { value: '102 kB', label: 'Shared JS' },
+                  { value: '22', label: 'Routes' },
+                  { value: '95+', label: 'Lighthouse' },
+                  { value: '<2s', label: 'Deploy' },
+                ].map((m) => (
+                  <div
+                    key={m.label}
+                    className="rounded-xl border border-border-subtle bg-bg-surface/80 px-3 py-3 text-center"
+                  >
+                    <p className="text-lg font-semibold text-text-primary">{m.value}</p>
+                    <p className="mt-0.5 text-[var(--text-meta)] text-text-tertiary">{m.label}</p>
+                  </div>
+                ))}
               </div>
             </motion.div>
           </AnimatePresence>
@@ -324,16 +323,6 @@ export function ProcessScrollytelling() {
     [steps, activeIndex, nodeStepIndex],
   )
 
-  const handleMobileOpenChange = (index: number) => {
-    setActiveIndex(index)
-    setUserInteracted(true)
-    track(EVENTS.PROCESS_STEP_OPENED, {
-      step: index + 1,
-      title: steps[index].title,
-      viewport: 'mobile',
-    })
-  }
-
   const headerBlock = (
     <div className="flex flex-col gap-3 items-center text-center md:max-w-2xl mx-auto md:gap-4">
       <motion.div
@@ -386,13 +375,36 @@ export function ProcessScrollytelling() {
       >
         {headerBlock}
         <div className="mt-6">
-          <ProcessMobileAccordion
+          <ProcessMobileSlides
             steps={steps}
-            openIndex={activeIndex}
-            onOpenChange={handleMobileOpenChange}
-            ctaLabel={t('cta')}
-            ctaHref="/#contact"
+            startYourProjectLabel={t('cta')}
           />
+        </div>
+
+        <div className="mt-6 grid grid-cols-2 gap-2">
+          {[
+            { value: '102 kB', label: 'Shared JS' },
+            { value: '22', label: 'Routes' },
+            { value: '95+', label: 'Lighthouse' },
+            { value: '<2s', label: 'Deploy' },
+          ].map((m) => (
+            <div
+              key={m.label}
+              className="rounded-xl border border-border-subtle bg-bg-surface/80 px-3 py-2 text-center"
+            >
+              <p className="text-sm font-semibold text-text-primary">{m.value}</p>
+              <p className="mt-0.5 text-[var(--text-meta)] text-text-tertiary">{m.label}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-6 text-center">
+          <Link
+            href="/#contact"
+            className="inline-flex items-center justify-center rounded-xl bg-accent px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-accent/90"
+          >
+            {t('cta')} →
+          </Link>
         </div>
       </Section>
     )

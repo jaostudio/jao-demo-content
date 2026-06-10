@@ -40,7 +40,7 @@ export function CapabilitiesSection() {
         </p>
       </div>
 
-      <div className="mt-12 grid gap-6 md:grid-cols-2">
+      <div className="mt-12 grid gap-4 md:gap-6 md:grid-cols-2">
         {capabilities.map((item, index) => {
           const isHighlighted = highlightedIndex === index
           const isDimmed = highlightedIndex !== undefined && !isHighlighted
@@ -49,7 +49,7 @@ export function CapabilitiesSection() {
             <div
               key={index}
               className={cn(
-                'rounded-2xl border p-6 transition-colors duration-500',
+                'rounded-2xl border p-4 md:p-6 transition-colors duration-500',
                 isHighlighted
                   ? 'border-accent/30 bg-accent/8 shadow-[0_0_0_1px_rgba(124,58,237,0.14)]'
                   : isDimmed

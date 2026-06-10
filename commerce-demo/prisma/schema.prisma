@@ -7,51 +7,204 @@ datasource db {
   provider = "sqlite"
 }
 
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  password      String
+  name          String
+  role          String    @default("customer")
+  mobile        String?
+  avatar        String?
+  isActive      Boolean   @default(true)
+  deletedAt     DateTime?
+  sukiPoints    Int       @default(0)
+  createdAt     DateTime  @default(now())
+  orders        Order[]
+  addresses     Address[]
+  likes         UserLike[]
+  notifications Notification[]
+  referrals     Referral[]   @relation("Referrer")
+  usedReferrals Referral[]   @relation("ReferralUsed")
+  reviews       Review[]
+}
+
+model Address {
+  id        String  @id @default(cuid())
+  userId    String
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  label     String
+  region    String
+  province  String
+  city      String
+  barangay  String
+  street    String
+  isDefault Boolean @default(false)
+}
+
 model Category {
   id       String    @id @default(cuid())
-  name     String
+  nameEn   String
+  nameTl   String
   slug     String    @unique
   products Product[]
 }
 
 model Product {
-  id          String   @id @default(cuid())
-  name        String
-  slug        String   @unique
-  description String
-  price       Int
-  currency    String   @default("usd")
-  image       String
-  categoryId  String
-  category    Category @relation(fields: [categoryId], references: [id])
-  inventory   Int      @default(0)
-  createdAt   DateTime @default(now())
+  id            String      @id @default(cuid())
+  nameEn        String
+  nameTl        String
+  slug          String      @unique
+  descriptionEn String
+  descriptionTl String
+  price         Int
+  image         String
+  categoryId    String
+  category      Category    @relation(fields: [categoryId], references: [id])
+  inventory     Int         @default(0)
+    vendorName    String     @default("Aling Nena's Sari-Sari")
+  createdAt     DateTime    @default(now())
+  flashSales    FlashSale[]
+  likes         UserLike[]
+  stockAlerts   StockAlert[]
+  qas           ProductQA[]
+  reviews       Review[]
+}
+
+model FlashSale {
+  id             String   @id @default(cuid())
+  productId      String
+  product        Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  discountPercent Int
+  startTime      DateTime
+  endTime        DateTime
+  createdAt      DateTime @default(now())
+}
+
+model Bundle {
+  id            String  @id @default(cuid())
+  name          String
+  productIds    String
+  discountTotal Int
+  active        Boolean @default(true)
 }
 
 model Order {
-  id                  String     @id @default(cuid())
-  orderNumber         String     @unique
-  status              String     @default("draft")
-  paymentState        String     @default("pending_payment")
-  fulfillmentState    String     @default("unfulfilled")
-  total               Int
-  currency            String     @default("usd")
-  email               String?
-  name                String?
-  address             String?
-  stripePaymentIntentId String?  @unique
-  items               OrderItem[]
-  createdAt           DateTime   @default(now())
-  updatedAt           DateTime   @updatedAt
+  id               String     @id @default(cuid())
+  orderNumber      String     @unique
+  status           String     @default("draft")
+  paymentState     String     @default("pending_payment")
+  fulfillmentState String     @default("unfulfilled")
+  total            Int
+  email            String?
+  name             String?
+  mobile           String?
+  region           String
+  province         String
+  city             String
+  barangay         String
+  paymentMethod    String     @default("cod")
+  paymentRef       String?
+  pointsUsed       Int        @default(0)
+  notes            String?
+  riderName        String?
+  eta              String?
+  deliveryOption   String?
+  scheduledDate    String?
+  userId           String?
+  user             User?      @relation(fields: [userId], references: [id])
+  items            OrderItem[]
+  returnRequests   ReturnRequest[]
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @updatedAt
 }
 
 model OrderItem {
-  id               String  @id @default(cuid())
-  orderId          String
-  order            Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
-  productId        String  @default("")
-  productName      String
-  productImage     String
-  quantity         Int
-  priceAtPurchase  Int
+  id              String  @id @default(cuid())
+  orderId         String
+  order           Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId       String
+  productName     String
+  productImage    String
+  quantity        Int
+  priceAtPurchase Int
+}
+
+model ReturnRequest {
+  id         String   @id @default(cuid())
+  orderId    String
+  order      Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  reason     String
+  status     String   @default("pending")
+  adminNotes String?
+  createdAt  DateTime @default(now())
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  orderId   String?
+  type      String
+  message   String
+  isRead    Boolean  @default(false)
+  link      String?
+  createdAt DateTime @default(now())
+}
+
+model ProductQA {
+  id        String   @id @default(cuid())
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  askerName String
+  question  String
+  answer    String?
+  createdAt DateTime @default(now())
+}
+
+model UserLike {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([userId, productId])
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  rating    Int
+  comment   String
+  author    String
+  createdAt DateTime @default(now())
+}
+
+model Referral {
+  id          String   @id @default(cuid())
+  code        String   @unique
+  referrerId  String
+  referrer    User     @relation("Referrer", fields: [referrerId], references: [id])
+  usedById    String?
+  usedBy      User?    @relation("ReferralUsed", fields: [usedById], references: [id])
+  rewardGiven Boolean  @default(false)
+  createdAt   DateTime @default(now())
+}
+
+model StockAlert {
+  id        String   @id @default(cuid())
+  email     String
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  notified  Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model AppSetting {
+  key   String @id
+  value String
 }

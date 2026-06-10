@@ -1,0 +1,4313 @@
+{
+  "filepath": "C:\\Users\\Jaoce\\AppData\\Roaming\\npm\\node_modules\\audits\\project-isp-1780977838429.png",
+  "filename": "project-isp-1780977838429.png",
+  "timestamp": 1780977838429,
+  "url": "https://jaostudio.vercel.app/projects/isp-platform",
+  "viewport": {
+    "width": 1280,
+    "height": 800
+  },
+  "viewports": [
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "wcag": {
+        "totalElements": 99,
+        "failures": [
+          {
+            "selector": "button.focus-ring.rounded-xl.border.border-border.bg-surface-hover.px-2.5.py-1.5.text-xs.font-medium.uppercase.tracking-wider.text-text-secondary.transition-all.hover:text-text-primary",
+            "text": "TL",
+            "foreground": "#a1a1aa",
+            "background": "#ffffff",
+            "contrastRatio": 2.56,
+            "required": 4.5,
+            "fontSize": 12,
+            "isLarge": false
+          },
+          {
+            "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.min-w-[5rem].justify-center.bg-accent-subtle.text-accent",
+            "text": "Telecommunications",
+            "foreground": "#7c3aed",
+            "background": "#7c3aed",
+            "contrastRatio": 1,
+            "required": 4.5,
+            "fontSize": 12,
+            "isLarge": false
+          },
+          {
+            "selector": "p.truncate.text-center.text-[10px].text-text-tertiary",
+            "text": "https://jao-business-website-sample.vercel.app",
+            "foreground": "#d6d6db",
+            "background": "#ffffff",
+            "contrastRatio": 1.45,
+            "required": 4.5,
+            "fontSize": 10,
+            "isLarge": false
+          },
+          {
+            "selector": "span",
+            "text": "Start a Similar Project",
+            "foreground": "#fafafa",
+            "background": "#ffffff",
+            "contrastRatio": 1.04,
+            "required": 3,
+            "fontSize": 18,
+            "isLarge": true
+          },
+          {
+            "selector": "p.text-xs.text-accent",
+            "text": "→ Zero server costs. Pricing changes are a single text edit. Visitors compare tiers on one screen and reach out pre-qual",
+            "foreground": "#7c3aed",
+            "background": "#050505",
+            "contrastRatio": 3.58,
+            "required": 4.5,
+            "fontSize": 12,
+            "isLarge": false
+          },
+          {
+            "selector": "p.text-xs.text-accent",
+            "text": "→ Sub-1.5s Lighthouse, zero ongoing server costs. Rebuild triggers on git push. The owner has full autonomy over content",
+            "foreground": "#7c3aed",
+            "background": "#050505",
+            "contrastRatio": 3.58,
+            "required": 4.5,
+            "fontSize": 12,
+            "isLarge": false
+          },
+          {
+            "selector": "p.text-xs.text-accent",
+            "text": "→ Zero security patches needed in 12 months of operation. Content changes are a pull request away.",
+            "foreground": "#7c3aed",
+            "background": "#050505",
+            "contrastRatio": 3.58,
+            "required": 4.5,
+            "fontSize": 12,
+            "isLarge": false
+          },
+          {
+            "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+            "text": "The Project",
+            "foreground": "#d6d6db",
+            "background": "#ffffff",
+            "contrastRatio": 1.45,
+            "required": 4.5,
+            "fontSize": 12,
+            "isLarge": false
+          },
+          {
+            "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+            "text": "The Challenge",
+            "foreground": "#d6d6db",
+            "background": "#ffffff",
+            "contrastRatio": 1.45,
+            "required": 4.5,
+            "fontSize": 12,
+            "isLarge": false
+          },
+          {
+            "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+            "text": "What Was Built",
+            "foreground": "#d6d6db",
+            "background": "#ffffff",
+            "contrastRatio": 1.45,
+            "required": 4.5,
+            "fontSize": 12,
+            "isLarge": false
+          },
+          {
+            "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+            "text": "Outcome",
+            "foreground": "#d6d6db",
+            "background": "#ffffff",
+            "contrastRatio": 1.45,
+            "required": 4.5,
+            "fontSize": 12,
+            "isLarge": false
+          },
+          {
+            "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+            "text": "Infrastructure",
+            "foreground": "#d6d6db",
+            "background": "#ffffff",
+            "contrastRatio": 1.45,
+            "required": 4.5,
+            "fontSize": 12,
+            "isLarge": false
+          },
+          {
+            "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+            "text": "Stack",
+            "foreground": "#d6d6db",
+            "background": "#ffffff",
+            "contrastRatio": 1.45,
+            "required": 4.5,
+            "fontSize": 12,
+            "isLarge": false
+          },
+          {
+            "selector": "span.rounded-xl.border.border-border-subtle.bg-surface-hover.px-4.py-2.text-[var(--text-body)].text-text-secondary",
+            "text": "Next.js",
+            "foreground": "#a1a1aa",
+            "background": "#ffffff",
+            "contrastRatio": 2.56,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.rounded-xl.border.border-border-subtle.bg-surface-hover.px-4.py-2.text-[var(--text-body)].text-text-secondary",
+            "text": "TypeScript",
+            "foreground": "#a1a1aa",
+            "background": "#ffffff",
+            "contrastRatio": 2.56,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.rounded-xl.border.border-border-subtle.bg-surface-hover.px-4.py-2.text-[var(--text-body)].text-text-secondary",
+            "text": "Tailwind CSS",
+            "foreground": "#a1a1aa",
+            "background": "#ffffff",
+            "contrastRatio": 2.56,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.rounded-xl.border.border-border-subtle.bg-surface-hover.px-4.py-2.text-[var(--text-body)].text-text-secondary",
+            "text": "Framer Motion",
+            "foreground": "#a1a1aa",
+            "background": "#ffffff",
+            "contrastRatio": 2.56,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.rounded-xl.border.border-border-subtle.bg-surface-hover.px-4.py-2.text-[var(--text-body)].text-text-secondary",
+            "text": "Vercel",
+            "foreground": "#a1a1aa",
+            "background": "#ffffff",
+            "contrastRatio": 2.56,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+            "text": "Metrics",
+            "foreground": "#d6d6db",
+            "background": "#ffffff",
+            "contrastRatio": 1.45,
+            "required": 4.5,
+            "fontSize": 12,
+            "isLarge": false
+          }
+        ],
+        "passCount": 80,
+        "failCount": 19,
+        "score": 80.8,
+        "_elements": [
+          {
+            "selector": "a.fixed.left-4.top-4.z-[9999].-translate-y-full.rounded-xl.bg-accent.px-4.py-3.text-sm.font-medium.text-white.opacity-0.transition-all.focus-visible:translate-y-0.focus-visible:opacity-100.focus-visible:outline-none",
+            "text": "Skip to content",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(124, 58, 237)",
+            "fontSize": 14,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "a"
+          },
+          {
+            "selector": "span.text-[var(--text-body)].font-[var(--weight-medium)].tracking-[var(--tracking-tight)].text-text-primary",
+            "text": "JAOstudio",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 20,
+            "fontWeight": 500,
+            "isLarge": true,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 28,
+            "tagName": "span"
+          },
+          {
+            "selector": "a.focus-ring.text-sm.transition-colors.text-text-secondary.hover:text-text-primary",
+            "text": "Demos",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "a"
+          },
+          {
+            "selector": "a.focus-ring.text-sm.transition-colors.text-text-secondary.hover:text-text-primary",
+            "text": "Services",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "a"
+          },
+          {
+            "selector": "a.focus-ring.text-sm.transition-colors.text-text-secondary.hover:text-text-primary",
+            "text": "About",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "a"
+          },
+          {
+            "selector": "button.focus-ring.rounded-xl.border.border-border.bg-surface-hover.px-2.5.py-1.5.text-xs.font-medium.uppercase.tracking-wider.text-text-secondary.transition-all.hover:text-text-primary",
+            "text": "TL",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgba(255, 255, 255, 0.03)",
+            "fontSize": 12,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "button"
+          },
+          {
+            "selector": "a.focus-ring.rounded-xl.bg-accent.px-4.py-2.text-sm.font-medium.text-white.transition-all.hover:brightness-110.active:scale-[0.99]",
+            "text": "Start a Project",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(124, 58, 237)",
+            "fontSize": 14,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "a"
+          },
+          {
+            "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.min-w-[5rem].justify-center.bg-accent-subtle.text-accent",
+            "text": "Telecommunications",
+            "foreground": "rgb(124, 58, 237)",
+            "background": "rgba(124, 58, 237, 0.22)",
+            "fontSize": 12,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "span"
+          },
+          {
+            "selector": "a.text-[var(--text-meta)].text-text-secondary.transition-colors.hover:text-text-primary",
+            "text": "Back to Projects",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "a"
+          },
+          {
+            "selector": "h1.text-[var(--text-hero)].font-[var(--weight-medium)].leading-[var(--leading-display)].tracking-[var(--tracking-tight)].text-text-primary",
+            "text": "ISP Platform System",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 17.6,
+            "tagName": "h1"
+          },
+          {
+            "selector": "p.max-w-2xl.text-[var(--text-body)].leading-[var(--leading-relaxed)].text-text-secondary",
+            "text": "Customer portal and service website for a regional internet provider.",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 25.6,
+            "tagName": "p"
+          },
+          {
+            "selector": "span",
+            "text": "Telecommunications",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-text-tertiary/40",
+            "text": "·",
+            "foreground": "oklab(0.877547 0.00194478 -0.00651449 / 0.4)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "span"
+          },
+          {
+            "selector": "span",
+            "text": "4 weeks",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-text-tertiary/40",
+            "text": "·",
+            "foreground": "oklab(0.877547 0.00194478 -0.00651449 / 0.4)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "span"
+          },
+          {
+            "selector": "span",
+            "text": "95+ Lighthouse",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-text-tertiary/40",
+            "text": "·",
+            "foreground": "oklab(0.877547 0.00194478 -0.00651449 / 0.4)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "span"
+          },
+          {
+            "selector": "span",
+            "text": "<1.5s load time",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "span"
+          },
+          {
+            "selector": "p.truncate.text-center.text-[10px].text-text-tertiary",
+            "text": "https://jao-business-website-sample.vercel.app",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgba(255, 255, 255, 0.03)",
+            "fontSize": 10,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 15,
+            "tagName": "p"
+          },
+          {
+            "selector": "span",
+            "text": "View Live",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(124, 58, 237)",
+            "fontSize": 18,
+            "fontWeight": 500,
+            "isLarge": true,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 28,
+            "tagName": "span"
+          },
+          {
+            "selector": "span",
+            "text": "Start a Similar Project",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgba(255, 255, 255, 0.03)",
+            "fontSize": 18,
+            "fontWeight": 500,
+            "isLarge": true,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 28,
+            "tagName": "span"
+          },
+          {
+            "selector": "h3.mb-1.text-[10px].font-medium.uppercase.tracking-wider.text-text-tertiary",
+            "text": "Timeline",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 10,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 15,
+            "tagName": "h3"
+          },
+          {
+            "selector": "p.text-[var(--text-body)].text-text-secondary",
+            "text": "4 weeks",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "h3.mb-1.text-[10px].font-medium.uppercase.tracking-wider.text-text-tertiary",
+            "text": "Industry",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 10,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 15,
+            "tagName": "h3"
+          },
+          {
+            "selector": "p.text-[var(--text-body)].text-text-secondary",
+            "text": "Telecommunications",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "h3.mb-1.text-[10px].font-medium.uppercase.tracking-wider.text-text-tertiary",
+            "text": "Architecture",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 10,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 15,
+            "tagName": "h3"
+          },
+          {
+            "selector": "p.text-[var(--text-body)].leading-relaxed.text-text-secondary",
+            "text": "Static generation with tiered pricing model — single-page pricing UI that lets visitors self-qualify before reaching out",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 25.6,
+            "tagName": "p"
+          },
+          {
+            "selector": "h3.mb-1.text-[10px].font-medium.uppercase.tracking-wider.text-text-tertiary",
+            "text": "System Topology",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 10,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 15,
+            "tagName": "h3"
+          },
+          {
+            "selector": "text",
+            "text": "Browser",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 11,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "Geist, system-ui, sans-serif",
+            "lineHeight": 16.5,
+            "tagName": "text"
+          },
+          {
+            "selector": "text",
+            "text": "CDN / Edge",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 11,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "Geist, system-ui, sans-serif",
+            "lineHeight": 16.5,
+            "tagName": "text"
+          },
+          {
+            "selector": "text",
+            "text": "Next.js SSG",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 11,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "Geist, system-ui, sans-serif",
+            "lineHeight": 16.5,
+            "tagName": "text"
+          },
+          {
+            "selector": "text",
+            "text": "Pricing Config",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 11,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "Geist, system-ui, sans-serif",
+            "lineHeight": 16.5,
+            "tagName": "text"
+          },
+          {
+            "selector": "text",
+            "text": "CMS Content",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 11,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "Geist, system-ui, sans-serif",
+            "lineHeight": 16.5,
+            "tagName": "text"
+          },
+          {
+            "selector": "text",
+            "text": "Static Export",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 11,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "Geist, system-ui, sans-serif",
+            "lineHeight": 16.5,
+            "tagName": "text"
+          },
+          {
+            "selector": "text",
+            "text": "Analytics (PostHog)",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 11,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "Geist, system-ui, sans-serif",
+            "lineHeight": 16.5,
+            "tagName": "text"
+          },
+          {
+            "selector": "h3.mb-1.text-[10px].font-medium.uppercase.tracking-wider.text-text-tertiary",
+            "text": "Constraints",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 10,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 15,
+            "tagName": "h3"
+          },
+          {
+            "selector": "h3.mb-1.text-[10px].font-medium.uppercase.tracking-wider.text-text-tertiary",
+            "text": "Key Decisions",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 10,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 15,
+            "tagName": "h3"
+          },
+          {
+            "selector": "p.text-[var(--text-body)].font-medium.text-text-primary",
+            "text": "Single-page pricing UI over multi-step funnel",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-sm.leading-relaxed.text-text-secondary",
+            "text": "The owner maintains the site solo. A multi-step funnel would require ongoing copy and flow updates. A single-page compar",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 22.4,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-xs.text-accent",
+            "text": "→ Zero server costs. Pricing changes are a single text edit. Visitors compare tiers on one screen and reach out pre-qual",
+            "foreground": "rgb(124, 58, 237)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-[var(--text-body)].font-medium.text-text-primary",
+            "text": "Static generation on Next.js",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-sm.leading-relaxed.text-text-secondary",
+            "text": "No real-time data was needed — pricing tiers, service descriptions, and support content are updated infrequently. Static",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 22.4,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-xs.text-accent",
+            "text": "→ Sub-1.5s Lighthouse, zero ongoing server costs. Rebuild triggers on git push. The owner has full autonomy over content",
+            "foreground": "rgb(124, 58, 237)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-[var(--text-body)].font-medium.text-text-primary",
+            "text": "No CMS — markdown-based content",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-sm.leading-relaxed.text-text-secondary",
+            "text": "With a solo owner and infrequent updates, a CMS would add attack surface, database upkeep, and UI training overhead. Pla",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 22.4,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-xs.text-accent",
+            "text": "→ Zero security patches needed in 12 months of operation. Content changes are a pull request away.",
+            "foreground": "rgb(124, 58, 237)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "p"
+          },
+          {
+            "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+            "text": "The Project",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgba(255, 255, 255, 0.03)",
+            "fontSize": 12,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "span"
+          },
+          {
+            "selector": "p.text-[var(--text-body)].leading-relaxed.text-text-secondary",
+            "text": "A regional ISP needed a brand presence that matched its growing fiber infrastructure. The existing site was dated and fa",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 25.6,
+            "tagName": "p"
+          },
+          {
+            "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+            "text": "The Challenge",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgba(255, 255, 255, 0.03)",
+            "fontSize": 12,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "span"
+          },
+          {
+            "selector": "p.text-[var(--text-body)].leading-relaxed.text-text-secondary",
+            "text": "The existing website was dated and failed to convert technical audits into new sign-ups. The owner maintained it alone w",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 25.6,
+            "tagName": "p"
+          },
+          {
+            "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+            "text": "What Was Built",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgba(255, 255, 255, 0.03)",
+            "fontSize": 12,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+            "text": "Outcome",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgba(255, 255, 255, 0.03)",
+            "fontSize": 12,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "span"
+          },
+          {
+            "selector": "p.text-[var(--text-body)].leading-relaxed.text-text-secondary",
+            "text": "Estimated 40% reduction in pricing-related support inquiries. Zero server costs. The owner can update pricing and conten",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 25.6,
+            "tagName": "p"
+          },
+          {
+            "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+            "text": "Infrastructure",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgba(255, 255, 255, 0.03)",
+            "fontSize": 12,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "span"
+          },
+          {
+            "selector": "h3.mb-4.text-[var(--text-card-title)].font-[var(--weight-medium)].tracking-[var(--tracking-tight)].text-text-primary",
+            "text": "Deployment",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "h3"
+          },
+          {
+            "selector": "p.text-[var(--text-body)].leading-relaxed.text-text-secondary",
+            "text": "Vercel + GitHub CI — static deployment with automated Lighthouse checks. Zero server costs, automated rebuilds on conten",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 25.6,
+            "tagName": "p"
+          },
+          {
+            "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+            "text": "Stack",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgba(255, 255, 255, 0.03)",
+            "fontSize": 12,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "span"
+          },
+          {
+            "selector": "h3.mb-4.text-[var(--text-card-title)].font-[var(--weight-medium)].tracking-[var(--tracking-tight)].text-text-primary",
+            "text": "Built With",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "h3"
+          },
+          {
+            "selector": "span.rounded-xl.border.border-border-subtle.bg-surface-hover.px-4.py-2.text-[var(--text-body)].text-text-secondary",
+            "text": "Next.js",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgba(255, 255, 255, 0.03)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.rounded-xl.border.border-border-subtle.bg-surface-hover.px-4.py-2.text-[var(--text-body)].text-text-secondary",
+            "text": "TypeScript",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgba(255, 255, 255, 0.03)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.rounded-xl.border.border-border-subtle.bg-surface-hover.px-4.py-2.text-[var(--text-body)].text-text-secondary",
+            "text": "Tailwind CSS",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgba(255, 255, 255, 0.03)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.rounded-xl.border.border-border-subtle.bg-surface-hover.px-4.py-2.text-[var(--text-body)].text-text-secondary",
+            "text": "Framer Motion",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgba(255, 255, 255, 0.03)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.rounded-xl.border.border-border-subtle.bg-surface-hover.px-4.py-2.text-[var(--text-body)].text-text-secondary",
+            "text": "Vercel",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgba(255, 255, 255, 0.03)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+            "text": "Metrics",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgba(255, 255, 255, 0.03)",
+            "fontSize": 12,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "span"
+          },
+          {
+            "selector": "h3.mb-4.text-[var(--text-card-title)].font-[var(--weight-medium)].tracking-[var(--tracking-tight)].text-text-primary",
+            "text": "Performance",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "h3"
+          },
+          {
+            "selector": "p.text-[var(--text-meta)].text-text-tertiary",
+            "text": "Lighthouse",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(17, 17, 17)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.mt-1.text-[var(--text-card-title)].font-[var(--weight-medium)].text-text-primary",
+            "text": "95+",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(17, 17, 17)",
+            "fontSize": 16,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-[var(--text-meta)].text-text-tertiary",
+            "text": "Load Time",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(17, 17, 17)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.mt-1.text-[var(--text-card-title)].font-[var(--weight-medium)].text-text-primary",
+            "text": "<1.5s load time",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(17, 17, 17)",
+            "fontSize": 16,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-[var(--text-meta)].text-text-tertiary",
+            "text": "SEO",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(17, 17, 17)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.mt-1.text-[var(--text-card-title)].font-[var(--weight-medium)].text-text-primary",
+            "text": "Optimized",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(17, 17, 17)",
+            "fontSize": 16,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-[var(--text-meta)].text-text-tertiary",
+            "text": "Responsive",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(17, 17, 17)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.mt-1.text-[var(--text-card-title)].font-[var(--weight-medium)].text-text-primary",
+            "text": "Yes",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(17, 17, 17)",
+            "fontSize": 16,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-[10px].text-text-tertiary",
+            "text": "LCP",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "oklab(0.177637 0.00000810623 0.00000356138 / 0.5)",
+            "fontSize": 10,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 15,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.mt-0.5.text-sm.font-medium.text-text-primary",
+            "text": "~1.2s",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "oklab(0.177637 0.00000810623 0.00000356138 / 0.5)",
+            "fontSize": 14,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-[10px].text-text-tertiary",
+            "text": "CLS",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "oklab(0.177637 0.00000810623 0.00000356138 / 0.5)",
+            "fontSize": 10,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 15,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.mt-0.5.text-sm.font-medium.text-text-primary",
+            "text": "~0.02",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "oklab(0.177637 0.00000810623 0.00000356138 / 0.5)",
+            "fontSize": 14,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-[10px].text-text-tertiary",
+            "text": "INP",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "oklab(0.177637 0.00000810623 0.00000356138 / 0.5)",
+            "fontSize": 10,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 15,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.mt-0.5.text-sm.font-medium.text-text-primary",
+            "text": "< 100ms",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "oklab(0.177637 0.00000810623 0.00000356138 / 0.5)",
+            "fontSize": 14,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-[10px].text-text-tertiary",
+            "text": "Bundle Size",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "oklab(0.177637 0.00000810623 0.00000356138 / 0.5)",
+            "fontSize": 10,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 15,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.mt-0.5.text-sm.font-medium.text-text-primary",
+            "text": "~85 kB JS",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "oklab(0.177637 0.00000810623 0.00000356138 / 0.5)",
+            "fontSize": 14,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-[10px].text-text-tertiary",
+            "text": "TTFB",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "oklab(0.177637 0.00000810623 0.00000356138 / 0.5)",
+            "fontSize": 10,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 15,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.mt-0.5.text-sm.font-medium.text-text-primary",
+            "text": "< 200ms",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "oklab(0.177637 0.00000810623 0.00000356138 / 0.5)",
+            "fontSize": 14,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-[var(--text-body)].text-text-secondary",
+            "text": "Interested in something similar?",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "span",
+            "text": "Start a Project",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(124, 58, 237)",
+            "fontSize": 18,
+            "fontWeight": 500,
+            "isLarge": true,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 28,
+            "tagName": "span"
+          },
+          {
+            "selector": "p.text-[var(--text-meta)].font-medium.uppercase.tracking-[var(--tracking-wider)].text-text-tertiary",
+            "text": "Related Projects",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-[var(--text-meta)].uppercase.tracking-[0.2em].text-text-tertiary",
+            "text": "Logistics",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(17, 17, 17)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "h3.mt-2.text-[var(--text-card-title)].font-[var(--weight-medium)].tracking-[var(--tracking-tight)].text-text-primary",
+            "text": "Web Application System",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(17, 17, 17)",
+            "fontSize": 16,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "h3"
+          },
+          {
+            "selector": "p.mt-2.text-sm.leading-relaxed.text-text-secondary.line-clamp-2",
+            "text": "Operations dashboard and data visualization tool for a logistics company.",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(17, 17, 17)",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 22.4,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-[var(--text-meta)].uppercase.tracking-[0.2em].text-text-tertiary",
+            "text": "B2B SaaS",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(17, 17, 17)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "h3.mt-2.text-[var(--text-card-title)].font-[var(--weight-medium)].tracking-[var(--tracking-tight)].text-text-primary",
+            "text": "SaaS Product Frontend",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(17, 17, 17)",
+            "fontSize": 16,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "h3"
+          },
+          {
+            "selector": "p.mt-2.text-sm.leading-relaxed.text-text-secondary.line-clamp-2",
+            "text": "Multi-tenant SaaS frontend with progressive onboarding and feature discovery.",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(17, 17, 17)",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 22.4,
+            "tagName": "p"
+          },
+          {
+            "selector": "a.text-sm.font-medium.text-text-primary",
+            "text": "JAOstudio",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 14,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "a"
+          },
+          {
+            "selector": "p.text-xs.text-text-tertiary",
+            "text": "Custom websites, dashboards, and tools.",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "p"
+          },
+          {
+            "selector": "a.focus-ring.text-xs.text-text-secondary.transition-colors.hover:text-text-primary",
+            "text": "Contact",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "a"
+          },
+          {
+            "selector": "a.focus-ring.text-xs.text-text-secondary.transition-colors.hover:text-text-primary",
+            "text": "GitHub",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "a"
+          },
+          {
+            "selector": "a.focus-ring.text-xs.text-text-secondary.transition-colors.hover:text-text-primary",
+            "text": "LinkedIn",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "a"
+          },
+          {
+            "selector": "p.text-xs.text-text-tertiary",
+            "text": "Built with Next.js · Tailwind · Framer Motion",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "p"
+          },
+          {
+            "selector": "title",
+            "text": "ISP Platform System — JAOstudio",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "title"
+          }
+        ]
+      }
+    },
+    {
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "wcag": {
+        "totalElements": 99,
+        "failures": [
+          {
+            "selector": "button.focus-ring.rounded-xl.border.border-border.bg-surface-hover.px-2.5.py-1.5.text-xs.font-medium.uppercase.tracking-wider.text-text-secondary.transition-all.hover:text-text-primary",
+            "text": "TL",
+            "foreground": "#a1a1aa",
+            "background": "#ffffff",
+            "contrastRatio": 2.56,
+            "required": 4.5,
+            "fontSize": 12,
+            "isLarge": false
+          },
+          {
+            "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.min-w-[5rem].justify-center.bg-accent-subtle.text-accent",
+            "text": "Telecommunications",
+            "foreground": "#7c3aed",
+            "background": "#7c3aed",
+            "contrastRatio": 1,
+            "required": 4.5,
+            "fontSize": 12,
+            "isLarge": false
+          },
+          {
+            "selector": "p.truncate.text-center.text-[10px].text-text-tertiary",
+            "text": "https://jao-business-website-sample.vercel.app",
+            "foreground": "#d6d6db",
+            "background": "#ffffff",
+            "contrastRatio": 1.45,
+            "required": 4.5,
+            "fontSize": 10,
+            "isLarge": false
+          },
+          {
+            "selector": "span",
+            "text": "Start a Similar Project",
+            "foreground": "#fafafa",
+            "background": "#ffffff",
+            "contrastRatio": 1.04,
+            "required": 3,
+            "fontSize": 18,
+            "isLarge": true
+          },
+          {
+            "selector": "p.text-xs.text-accent",
+            "text": "→ Zero server costs. Pricing changes are a single text edit. Visitors compare tiers on one screen and reach out pre-qual",
+            "foreground": "#7c3aed",
+            "background": "#050505",
+            "contrastRatio": 3.58,
+            "required": 4.5,
+            "fontSize": 12,
+            "isLarge": false
+          },
+          {
+            "selector": "p.text-xs.text-accent",
+            "text": "→ Sub-1.5s Lighthouse, zero ongoing server costs. Rebuild triggers on git push. The owner has full autonomy over content",
+            "foreground": "#7c3aed",
+            "background": "#050505",
+            "contrastRatio": 3.58,
+            "required": 4.5,
+            "fontSize": 12,
+            "isLarge": false
+          },
+          {
+            "selector": "p.text-xs.text-accent",
+            "text": "→ Zero security patches needed in 12 months of operation. Content changes are a pull request away.",
+            "foreground": "#7c3aed",
+            "background": "#050505",
+            "contrastRatio": 3.58,
+            "required": 4.5,
+            "fontSize": 12,
+            "isLarge": false
+          },
+          {
+            "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+            "text": "The Project",
+            "foreground": "#d6d6db",
+            "background": "#ffffff",
+            "contrastRatio": 1.45,
+            "required": 4.5,
+            "fontSize": 12,
+            "isLarge": false
+          },
+          {
+            "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+            "text": "The Challenge",
+            "foreground": "#d6d6db",
+            "background": "#ffffff",
+            "contrastRatio": 1.45,
+            "required": 4.5,
+            "fontSize": 12,
+            "isLarge": false
+          },
+          {
+            "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+            "text": "What Was Built",
+            "foreground": "#d6d6db",
+            "background": "#ffffff",
+            "contrastRatio": 1.45,
+            "required": 4.5,
+            "fontSize": 12,
+            "isLarge": false
+          },
+          {
+            "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+            "text": "Outcome",
+            "foreground": "#d6d6db",
+            "background": "#ffffff",
+            "contrastRatio": 1.45,
+            "required": 4.5,
+            "fontSize": 12,
+            "isLarge": false
+          },
+          {
+            "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+            "text": "Infrastructure",
+            "foreground": "#d6d6db",
+            "background": "#ffffff",
+            "contrastRatio": 1.45,
+            "required": 4.5,
+            "fontSize": 12,
+            "isLarge": false
+          },
+          {
+            "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+            "text": "Stack",
+            "foreground": "#d6d6db",
+            "background": "#ffffff",
+            "contrastRatio": 1.45,
+            "required": 4.5,
+            "fontSize": 12,
+            "isLarge": false
+          },
+          {
+            "selector": "span.rounded-xl.border.border-border-subtle.bg-surface-hover.px-4.py-2.text-[var(--text-body)].text-text-secondary",
+            "text": "Next.js",
+            "foreground": "#a1a1aa",
+            "background": "#ffffff",
+            "contrastRatio": 2.56,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.rounded-xl.border.border-border-subtle.bg-surface-hover.px-4.py-2.text-[var(--text-body)].text-text-secondary",
+            "text": "TypeScript",
+            "foreground": "#a1a1aa",
+            "background": "#ffffff",
+            "contrastRatio": 2.56,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.rounded-xl.border.border-border-subtle.bg-surface-hover.px-4.py-2.text-[var(--text-body)].text-text-secondary",
+            "text": "Tailwind CSS",
+            "foreground": "#a1a1aa",
+            "background": "#ffffff",
+            "contrastRatio": 2.56,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.rounded-xl.border.border-border-subtle.bg-surface-hover.px-4.py-2.text-[var(--text-body)].text-text-secondary",
+            "text": "Framer Motion",
+            "foreground": "#a1a1aa",
+            "background": "#ffffff",
+            "contrastRatio": 2.56,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.rounded-xl.border.border-border-subtle.bg-surface-hover.px-4.py-2.text-[var(--text-body)].text-text-secondary",
+            "text": "Vercel",
+            "foreground": "#a1a1aa",
+            "background": "#ffffff",
+            "contrastRatio": 2.56,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+            "text": "Metrics",
+            "foreground": "#d6d6db",
+            "background": "#ffffff",
+            "contrastRatio": 1.45,
+            "required": 4.5,
+            "fontSize": 12,
+            "isLarge": false
+          }
+        ],
+        "passCount": 80,
+        "failCount": 19,
+        "score": 80.8,
+        "_elements": [
+          {
+            "selector": "a.fixed.left-4.top-4.z-[9999].-translate-y-full.rounded-xl.bg-accent.px-4.py-3.text-sm.font-medium.text-white.opacity-0.transition-all.focus-visible:translate-y-0.focus-visible:opacity-100.focus-visible:outline-none",
+            "text": "Skip to content",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(124, 58, 237)",
+            "fontSize": 14,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "a"
+          },
+          {
+            "selector": "span.text-[var(--text-body)].font-[var(--weight-medium)].tracking-[var(--tracking-tight)].text-text-primary",
+            "text": "JAOstudio",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 20,
+            "fontWeight": 500,
+            "isLarge": true,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 28,
+            "tagName": "span"
+          },
+          {
+            "selector": "a.focus-ring.text-sm.transition-colors.text-text-secondary.hover:text-text-primary",
+            "text": "Demos",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "a"
+          },
+          {
+            "selector": "a.focus-ring.text-sm.transition-colors.text-text-secondary.hover:text-text-primary",
+            "text": "Services",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "a"
+          },
+          {
+            "selector": "a.focus-ring.text-sm.transition-colors.text-text-secondary.hover:text-text-primary",
+            "text": "About",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "a"
+          },
+          {
+            "selector": "button.focus-ring.rounded-xl.border.border-border.bg-surface-hover.px-2.5.py-1.5.text-xs.font-medium.uppercase.tracking-wider.text-text-secondary.transition-all.hover:text-text-primary",
+            "text": "TL",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgba(255, 255, 255, 0.03)",
+            "fontSize": 12,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "button"
+          },
+          {
+            "selector": "a.focus-ring.rounded-xl.bg-accent.px-4.py-2.text-sm.font-medium.text-white.transition-all.hover:brightness-110.active:scale-[0.99]",
+            "text": "Start a Project",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(124, 58, 237)",
+            "fontSize": 14,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "a"
+          },
+          {
+            "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.min-w-[5rem].justify-center.bg-accent-subtle.text-accent",
+            "text": "Telecommunications",
+            "foreground": "rgb(124, 58, 237)",
+            "background": "rgba(124, 58, 237, 0.22)",
+            "fontSize": 12,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "span"
+          },
+          {
+            "selector": "a.text-[var(--text-meta)].text-text-secondary.transition-colors.hover:text-text-primary",
+            "text": "Back to Projects",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "a"
+          },
+          {
+            "selector": "h1.text-[var(--text-hero)].font-[var(--weight-medium)].leading-[var(--leading-display)].tracking-[var(--tracking-tight)].text-text-primary",
+            "text": "ISP Platform System",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 17.6,
+            "tagName": "h1"
+          },
+          {
+            "selector": "p.max-w-2xl.text-[var(--text-body)].leading-[var(--leading-relaxed)].text-text-secondary",
+            "text": "Customer portal and service website for a regional internet provider.",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 25.6,
+            "tagName": "p"
+          },
+          {
+            "selector": "span",
+            "text": "Telecommunications",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-text-tertiary/40",
+            "text": "·",
+            "foreground": "oklab(0.877547 0.00194478 -0.00651449 / 0.4)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "span"
+          },
+          {
+            "selector": "span",
+            "text": "4 weeks",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-text-tertiary/40",
+            "text": "·",
+            "foreground": "oklab(0.877547 0.00194478 -0.00651449 / 0.4)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "span"
+          },
+          {
+            "selector": "span",
+            "text": "95+ Lighthouse",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.text-text-tertiary/40",
+            "text": "·",
+            "foreground": "oklab(0.877547 0.00194478 -0.00651449 / 0.4)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "span"
+          },
+          {
+            "selector": "span",
+            "text": "<1.5s load time",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "span"
+          },
+          {
+            "selector": "p.truncate.text-center.text-[10px].text-text-tertiary",
+            "text": "https://jao-business-website-sample.vercel.app",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgba(255, 255, 255, 0.03)",
+            "fontSize": 10,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 15,
+            "tagName": "p"
+          },
+          {
+            "selector": "span",
+            "text": "View Live",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(124, 58, 237)",
+            "fontSize": 18,
+            "fontWeight": 500,
+            "isLarge": true,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 28,
+            "tagName": "span"
+          },
+          {
+            "selector": "span",
+            "text": "Start a Similar Project",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgba(255, 255, 255, 0.03)",
+            "fontSize": 18,
+            "fontWeight": 500,
+            "isLarge": true,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 28,
+            "tagName": "span"
+          },
+          {
+            "selector": "h3.mb-1.text-[10px].font-medium.uppercase.tracking-wider.text-text-tertiary",
+            "text": "Timeline",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 10,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 15,
+            "tagName": "h3"
+          },
+          {
+            "selector": "p.text-[var(--text-body)].text-text-secondary",
+            "text": "4 weeks",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "h3.mb-1.text-[10px].font-medium.uppercase.tracking-wider.text-text-tertiary",
+            "text": "Industry",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 10,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 15,
+            "tagName": "h3"
+          },
+          {
+            "selector": "p.text-[var(--text-body)].text-text-secondary",
+            "text": "Telecommunications",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "h3.mb-1.text-[10px].font-medium.uppercase.tracking-wider.text-text-tertiary",
+            "text": "Architecture",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 10,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 15,
+            "tagName": "h3"
+          },
+          {
+            "selector": "p.text-[var(--text-body)].leading-relaxed.text-text-secondary",
+            "text": "Static generation with tiered pricing model — single-page pricing UI that lets visitors self-qualify before reaching out",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 25.6,
+            "tagName": "p"
+          },
+          {
+            "selector": "h3.mb-1.text-[10px].font-medium.uppercase.tracking-wider.text-text-tertiary",
+            "text": "System Topology",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 10,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 15,
+            "tagName": "h3"
+          },
+          {
+            "selector": "text",
+            "text": "Browser",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 11,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "Geist, system-ui, sans-serif",
+            "lineHeight": 16.5,
+            "tagName": "text"
+          },
+          {
+            "selector": "text",
+            "text": "CDN / Edge",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 11,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "Geist, system-ui, sans-serif",
+            "lineHeight": 16.5,
+            "tagName": "text"
+          },
+          {
+            "selector": "text",
+            "text": "Next.js SSG",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 11,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "Geist, system-ui, sans-serif",
+            "lineHeight": 16.5,
+            "tagName": "text"
+          },
+          {
+            "selector": "text",
+            "text": "Pricing Config",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 11,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "Geist, system-ui, sans-serif",
+            "lineHeight": 16.5,
+            "tagName": "text"
+          },
+          {
+            "selector": "text",
+            "text": "CMS Content",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 11,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "Geist, system-ui, sans-serif",
+            "lineHeight": 16.5,
+            "tagName": "text"
+          },
+          {
+            "selector": "text",
+            "text": "Static Export",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 11,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "Geist, system-ui, sans-serif",
+            "lineHeight": 16.5,
+            "tagName": "text"
+          },
+          {
+            "selector": "text",
+            "text": "Analytics (PostHog)",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 11,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "Geist, system-ui, sans-serif",
+            "lineHeight": 16.5,
+            "tagName": "text"
+          },
+          {
+            "selector": "h3.mb-1.text-[10px].font-medium.uppercase.tracking-wider.text-text-tertiary",
+            "text": "Constraints",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 10,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 15,
+            "tagName": "h3"
+          },
+          {
+            "selector": "h3.mb-1.text-[10px].font-medium.uppercase.tracking-wider.text-text-tertiary",
+            "text": "Key Decisions",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 10,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 15,
+            "tagName": "h3"
+          },
+          {
+            "selector": "p.text-[var(--text-body)].font-medium.text-text-primary",
+            "text": "Single-page pricing UI over multi-step funnel",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-sm.leading-relaxed.text-text-secondary",
+            "text": "The owner maintains the site solo. A multi-step funnel would require ongoing copy and flow updates. A single-page compar",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 22.4,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-xs.text-accent",
+            "text": "→ Zero server costs. Pricing changes are a single text edit. Visitors compare tiers on one screen and reach out pre-qual",
+            "foreground": "rgb(124, 58, 237)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-[var(--text-body)].font-medium.text-text-primary",
+            "text": "Static generation on Next.js",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-sm.leading-relaxed.text-text-secondary",
+            "text": "No real-time data was needed — pricing tiers, service descriptions, and support content are updated infrequently. Static",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 22.4,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-xs.text-accent",
+            "text": "→ Sub-1.5s Lighthouse, zero ongoing server costs. Rebuild triggers on git push. The owner has full autonomy over content",
+            "foreground": "rgb(124, 58, 237)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-[var(--text-body)].font-medium.text-text-primary",
+            "text": "No CMS — markdown-based content",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-sm.leading-relaxed.text-text-secondary",
+            "text": "With a solo owner and infrequent updates, a CMS would add attack surface, database upkeep, and UI training overhead. Pla",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 22.4,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-xs.text-accent",
+            "text": "→ Zero security patches needed in 12 months of operation. Content changes are a pull request away.",
+            "foreground": "rgb(124, 58, 237)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "p"
+          },
+          {
+            "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+            "text": "The Project",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgba(255, 255, 255, 0.03)",
+            "fontSize": 12,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "span"
+          },
+          {
+            "selector": "p.text-[var(--text-body)].leading-relaxed.text-text-secondary",
+            "text": "A regional ISP needed a brand presence that matched its growing fiber infrastructure. The existing site was dated and fa",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 25.6,
+            "tagName": "p"
+          },
+          {
+            "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+            "text": "The Challenge",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgba(255, 255, 255, 0.03)",
+            "fontSize": 12,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "span"
+          },
+          {
+            "selector": "p.text-[var(--text-body)].leading-relaxed.text-text-secondary",
+            "text": "The existing website was dated and failed to convert technical audits into new sign-ups. The owner maintained it alone w",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 25.6,
+            "tagName": "p"
+          },
+          {
+            "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+            "text": "What Was Built",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgba(255, 255, 255, 0.03)",
+            "fontSize": 12,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+            "text": "Outcome",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgba(255, 255, 255, 0.03)",
+            "fontSize": 12,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "span"
+          },
+          {
+            "selector": "p.text-[var(--text-body)].leading-relaxed.text-text-secondary",
+            "text": "Estimated 40% reduction in pricing-related support inquiries. Zero server costs. The owner can update pricing and conten",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 25.6,
+            "tagName": "p"
+          },
+          {
+            "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+            "text": "Infrastructure",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgba(255, 255, 255, 0.03)",
+            "fontSize": 12,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "span"
+          },
+          {
+            "selector": "h3.mb-4.text-[var(--text-card-title)].font-[var(--weight-medium)].tracking-[var(--tracking-tight)].text-text-primary",
+            "text": "Deployment",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "h3"
+          },
+          {
+            "selector": "p.text-[var(--text-body)].leading-relaxed.text-text-secondary",
+            "text": "Vercel + GitHub CI — static deployment with automated Lighthouse checks. Zero server costs, automated rebuilds on conten",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 25.6,
+            "tagName": "p"
+          },
+          {
+            "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+            "text": "Stack",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgba(255, 255, 255, 0.03)",
+            "fontSize": 12,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "span"
+          },
+          {
+            "selector": "h3.mb-4.text-[var(--text-card-title)].font-[var(--weight-medium)].tracking-[var(--tracking-tight)].text-text-primary",
+            "text": "Built With",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "h3"
+          },
+          {
+            "selector": "span.rounded-xl.border.border-border-subtle.bg-surface-hover.px-4.py-2.text-[var(--text-body)].text-text-secondary",
+            "text": "Next.js",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgba(255, 255, 255, 0.03)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.rounded-xl.border.border-border-subtle.bg-surface-hover.px-4.py-2.text-[var(--text-body)].text-text-secondary",
+            "text": "TypeScript",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgba(255, 255, 255, 0.03)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.rounded-xl.border.border-border-subtle.bg-surface-hover.px-4.py-2.text-[var(--text-body)].text-text-secondary",
+            "text": "Tailwind CSS",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgba(255, 255, 255, 0.03)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.rounded-xl.border.border-border-subtle.bg-surface-hover.px-4.py-2.text-[var(--text-body)].text-text-secondary",
+            "text": "Framer Motion",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgba(255, 255, 255, 0.03)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.rounded-xl.border.border-border-subtle.bg-surface-hover.px-4.py-2.text-[var(--text-body)].text-text-secondary",
+            "text": "Vercel",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgba(255, 255, 255, 0.03)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+            "text": "Metrics",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgba(255, 255, 255, 0.03)",
+            "fontSize": 12,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "span"
+          },
+          {
+            "selector": "h3.mb-4.text-[var(--text-card-title)].font-[var(--weight-medium)].tracking-[var(--tracking-tight)].text-text-primary",
+            "text": "Performance",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "h3"
+          },
+          {
+            "selector": "p.text-[var(--text-meta)].text-text-tertiary",
+            "text": "Lighthouse",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(17, 17, 17)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.mt-1.text-[var(--text-card-title)].font-[var(--weight-medium)].text-text-primary",
+            "text": "95+",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(17, 17, 17)",
+            "fontSize": 16,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-[var(--text-meta)].text-text-tertiary",
+            "text": "Load Time",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(17, 17, 17)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.mt-1.text-[var(--text-card-title)].font-[var(--weight-medium)].text-text-primary",
+            "text": "<1.5s load time",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(17, 17, 17)",
+            "fontSize": 16,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-[var(--text-meta)].text-text-tertiary",
+            "text": "SEO",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(17, 17, 17)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.mt-1.text-[var(--text-card-title)].font-[var(--weight-medium)].text-text-primary",
+            "text": "Optimized",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(17, 17, 17)",
+            "fontSize": 16,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-[var(--text-meta)].text-text-tertiary",
+            "text": "Responsive",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(17, 17, 17)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.mt-1.text-[var(--text-card-title)].font-[var(--weight-medium)].text-text-primary",
+            "text": "Yes",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(17, 17, 17)",
+            "fontSize": 16,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-[10px].text-text-tertiary",
+            "text": "LCP",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "oklab(0.177637 0.00000810623 0.00000356138 / 0.5)",
+            "fontSize": 10,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 15,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.mt-0.5.text-sm.font-medium.text-text-primary",
+            "text": "~1.2s",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "oklab(0.177637 0.00000810623 0.00000356138 / 0.5)",
+            "fontSize": 14,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-[10px].text-text-tertiary",
+            "text": "CLS",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "oklab(0.177637 0.00000810623 0.00000356138 / 0.5)",
+            "fontSize": 10,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 15,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.mt-0.5.text-sm.font-medium.text-text-primary",
+            "text": "~0.02",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "oklab(0.177637 0.00000810623 0.00000356138 / 0.5)",
+            "fontSize": 14,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-[10px].text-text-tertiary",
+            "text": "INP",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "oklab(0.177637 0.00000810623 0.00000356138 / 0.5)",
+            "fontSize": 10,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 15,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.mt-0.5.text-sm.font-medium.text-text-primary",
+            "text": "< 100ms",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "oklab(0.177637 0.00000810623 0.00000356138 / 0.5)",
+            "fontSize": 14,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-[10px].text-text-tertiary",
+            "text": "Bundle Size",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "oklab(0.177637 0.00000810623 0.00000356138 / 0.5)",
+            "fontSize": 10,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 15,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.mt-0.5.text-sm.font-medium.text-text-primary",
+            "text": "~85 kB JS",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "oklab(0.177637 0.00000810623 0.00000356138 / 0.5)",
+            "fontSize": 14,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-[10px].text-text-tertiary",
+            "text": "TTFB",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "oklab(0.177637 0.00000810623 0.00000356138 / 0.5)",
+            "fontSize": 10,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 15,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.mt-0.5.text-sm.font-medium.text-text-primary",
+            "text": "< 200ms",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "oklab(0.177637 0.00000810623 0.00000356138 / 0.5)",
+            "fontSize": 14,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-[var(--text-body)].text-text-secondary",
+            "text": "Interested in something similar?",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "span",
+            "text": "Start a Project",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(124, 58, 237)",
+            "fontSize": 18,
+            "fontWeight": 500,
+            "isLarge": true,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 28,
+            "tagName": "span"
+          },
+          {
+            "selector": "p.text-[var(--text-meta)].font-medium.uppercase.tracking-[var(--tracking-wider)].text-text-tertiary",
+            "text": "Related Projects",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-[var(--text-meta)].uppercase.tracking-[0.2em].text-text-tertiary",
+            "text": "Logistics",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(17, 17, 17)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "h3.mt-2.text-[var(--text-card-title)].font-[var(--weight-medium)].tracking-[var(--tracking-tight)].text-text-primary",
+            "text": "Web Application System",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(17, 17, 17)",
+            "fontSize": 16,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "h3"
+          },
+          {
+            "selector": "p.mt-2.text-sm.leading-relaxed.text-text-secondary.line-clamp-2",
+            "text": "Operations dashboard and data visualization tool for a logistics company.",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(17, 17, 17)",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 22.4,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-[var(--text-meta)].uppercase.tracking-[0.2em].text-text-tertiary",
+            "text": "B2B SaaS",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(17, 17, 17)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "h3.mt-2.text-[var(--text-card-title)].font-[var(--weight-medium)].tracking-[var(--tracking-tight)].text-text-primary",
+            "text": "SaaS Product Frontend",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(17, 17, 17)",
+            "fontSize": 16,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "h3"
+          },
+          {
+            "selector": "p.mt-2.text-sm.leading-relaxed.text-text-secondary.line-clamp-2",
+            "text": "Multi-tenant SaaS frontend with progressive onboarding and feature discovery.",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(17, 17, 17)",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 22.4,
+            "tagName": "p"
+          },
+          {
+            "selector": "a.text-sm.font-medium.text-text-primary",
+            "text": "JAOstudio",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 14,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "a"
+          },
+          {
+            "selector": "p.text-xs.text-text-tertiary",
+            "text": "Custom websites, dashboards, and tools.",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "p"
+          },
+          {
+            "selector": "a.focus-ring.text-xs.text-text-secondary.transition-colors.hover:text-text-primary",
+            "text": "Contact",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "a"
+          },
+          {
+            "selector": "a.focus-ring.text-xs.text-text-secondary.transition-colors.hover:text-text-primary",
+            "text": "GitHub",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "a"
+          },
+          {
+            "selector": "a.focus-ring.text-xs.text-text-secondary.transition-colors.hover:text-text-primary",
+            "text": "LinkedIn",
+            "foreground": "rgb(161, 161, 170)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "a"
+          },
+          {
+            "selector": "p.text-xs.text-text-tertiary",
+            "text": "Built with Next.js · Tailwind · Framer Motion",
+            "foreground": "rgb(214, 214, 219)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "p"
+          },
+          {
+            "selector": "title",
+            "text": "ISP Platform System — JAOstudio",
+            "foreground": "rgb(250, 250, 250)",
+            "background": "rgb(5, 5, 5)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "title"
+          }
+        ]
+      }
+    }
+  ],
+  "wcag": {
+    "totalElements": 198,
+    "failures": [
+      {
+        "selector": "button.focus-ring.rounded-xl.border.border-border.bg-surface-hover.px-2.5.py-1.5.text-xs.font-medium.uppercase.tracking-wider.text-text-secondary.transition-all.hover:text-text-primary",
+        "text": "TL",
+        "foreground": "#a1a1aa",
+        "background": "#ffffff",
+        "contrastRatio": 2.56,
+        "required": 4.5,
+        "fontSize": 12,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.min-w-[5rem].justify-center.bg-accent-subtle.text-accent",
+        "text": "Telecommunications",
+        "foreground": "#7c3aed",
+        "background": "#7c3aed",
+        "contrastRatio": 1,
+        "required": 4.5,
+        "fontSize": 12,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "p.truncate.text-center.text-[10px].text-text-tertiary",
+        "text": "https://jao-business-website-sample.vercel.app",
+        "foreground": "#d6d6db",
+        "background": "#ffffff",
+        "contrastRatio": 1.45,
+        "required": 4.5,
+        "fontSize": 10,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "span",
+        "text": "Start a Similar Project",
+        "foreground": "#fafafa",
+        "background": "#ffffff",
+        "contrastRatio": 1.04,
+        "required": 3,
+        "fontSize": 18,
+        "isLarge": true,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "p.text-xs.text-accent",
+        "text": "→ Zero server costs. Pricing changes are a single text edit. Visitors compare tiers on one screen and reach out pre-qual",
+        "foreground": "#7c3aed",
+        "background": "#050505",
+        "contrastRatio": 3.58,
+        "required": 4.5,
+        "fontSize": 12,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+        "text": "The Project",
+        "foreground": "#d6d6db",
+        "background": "#ffffff",
+        "contrastRatio": 1.45,
+        "required": 4.5,
+        "fontSize": 12,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "span.rounded-xl.border.border-border-subtle.bg-surface-hover.px-4.py-2.text-[var(--text-body)].text-text-secondary",
+        "text": "Next.js",
+        "foreground": "#a1a1aa",
+        "background": "#ffffff",
+        "contrastRatio": 2.56,
+        "required": 4.5,
+        "fontSize": 16,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      }
+    ],
+    "passCount": 167,
+    "failCount": 7,
+    "score": 96.5
+  },
+  "design": {
+    "failures": [
+      {
+        "ruleId": "heading-hierarchy",
+        "ruleName": "Heading hierarchy not skipped",
+        "category": "typography",
+        "selector": "h3.mb-1.text-[10px].font-medium.uppercase.tracking-wider.text-text-tertiary",
+        "description": "Heading level skipped from h1 to h3 (Timeline)",
+        "severity": "medium",
+        "value": "h1 → h3",
+        "expected": "no skipped levels"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "a.fixed.left-4.top-4.z-[9999].-translate-y-full.rounded-xl.bg-accent.px-4.py-3.text-sm.font-medium.text-white.opacity-0.transition-all.focus-visible:translate-y-0.focus-visible:opacity-100.focus-visible:outline-none",
+        "description": "Text \"Skip to content\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "a.focus-ring.text-sm.transition-colors.text-text-secondary.hover:text-text-primary",
+        "description": "Text \"Demos\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "a.focus-ring.text-sm.transition-colors.text-text-secondary.hover:text-text-primary",
+        "description": "Text \"Services\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "a.focus-ring.text-sm.transition-colors.text-text-secondary.hover:text-text-primary",
+        "description": "Text \"About\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "button.focus-ring.rounded-xl.border.border-border.bg-surface-hover.px-2.5.py-1.5.text-xs.font-medium.uppercase.tracking-wider.text-text-secondary.transition-all.hover:text-text-primary",
+        "description": "Text \"TL\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "button.focus-ring.rounded-xl.border.border-border.bg-surface-hover.px-2.5.py-1.5.text-xs.font-medium.uppercase.tracking-wider.text-text-secondary.transition-all.hover:text-text-primary",
+        "description": "\"TL\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "a.focus-ring.rounded-xl.bg-accent.px-4.py-2.text-sm.font-medium.text-white.transition-all.hover:brightness-110.active:scale-[0.99]",
+        "description": "Text \"Start a Project\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.min-w-[5rem].justify-center.bg-accent-subtle.text-accent",
+        "description": "Text \"Telecommunications\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.min-w-[5rem].justify-center.bg-accent-subtle.text-accent",
+        "description": "\"Telecommunications\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.truncate.text-center.text-[10px].text-text-tertiary",
+        "description": "Text \"https://jao-business-website-sample.verc\" has font-size 10px; minimum for legible body text is 16px",
+        "severity": "high",
+        "value": "10px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-sm.leading-relaxed.text-text-secondary",
+        "description": "Text \"The owner maintains the site solo. A mul\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-xs.text-accent",
+        "description": "Text \"→ Zero server costs. Pricing changes are\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "p.text-xs.text-accent",
+        "description": "\"→ Zero server costs. Pricing changes are\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-xs.text-accent",
+        "description": "Text \"→ Zero server costs. Pricing changes are\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "p.text-xs.text-accent",
+        "description": "\"→ Zero server costs. Pricing changes are\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-sm.leading-relaxed.text-text-secondary",
+        "description": "Text \"No real-time data was needed — pricing t\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-xs.text-accent",
+        "description": "Text \"→ Sub-1.5s Lighthouse, zero ongoing serv\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "p.text-xs.text-accent",
+        "description": "\"→ Sub-1.5s Lighthouse, zero ongoing serv\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-xs.text-accent",
+        "description": "Text \"→ Sub-1.5s Lighthouse, zero ongoing serv\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "p.text-xs.text-accent",
+        "description": "\"→ Sub-1.5s Lighthouse, zero ongoing serv\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-sm.leading-relaxed.text-text-secondary",
+        "description": "Text \"With a solo owner and infrequent updates\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-xs.text-accent",
+        "description": "Text \"→ Zero security patches needed in 12 mon\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "p.text-xs.text-accent",
+        "description": "\"→ Zero security patches needed in 12 mon\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-xs.text-accent",
+        "description": "Text \"→ Zero security patches needed in 12 mon\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "p.text-xs.text-accent",
+        "description": "\"→ Zero security patches needed in 12 mon\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+        "description": "Text \"The Project\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+        "description": "\"The Project\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+        "description": "Text \"The Challenge\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+        "description": "\"The Challenge\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+        "description": "Text \"What Was Built\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+        "description": "\"What Was Built\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+        "description": "Text \"Outcome\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+        "description": "\"Outcome\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+        "description": "Text \"Infrastructure\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+        "description": "\"Infrastructure\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+        "description": "Text \"Stack\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+        "description": "\"Stack\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+        "description": "Text \"Metrics\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+        "description": "\"Metrics\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-[10px].text-text-tertiary",
+        "description": "Text \"LCP\" has font-size 10px; minimum for legible body text is 16px",
+        "severity": "high",
+        "value": "10px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.mt-0.5.text-sm.font-medium.text-text-primary",
+        "description": "Text \"~1.2s\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-[10px].text-text-tertiary",
+        "description": "Text \"CLS\" has font-size 10px; minimum for legible body text is 16px",
+        "severity": "high",
+        "value": "10px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.mt-0.5.text-sm.font-medium.text-text-primary",
+        "description": "Text \"~0.02\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-[10px].text-text-tertiary",
+        "description": "Text \"INP\" has font-size 10px; minimum for legible body text is 16px",
+        "severity": "high",
+        "value": "10px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.mt-0.5.text-sm.font-medium.text-text-primary",
+        "description": "Text \"< 100ms\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-[10px].text-text-tertiary",
+        "description": "Text \"Bundle Size\" has font-size 10px; minimum for legible body text is 16px",
+        "severity": "high",
+        "value": "10px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.mt-0.5.text-sm.font-medium.text-text-primary",
+        "description": "Text \"~85 kB JS\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-[10px].text-text-tertiary",
+        "description": "Text \"TTFB\" has font-size 10px; minimum for legible body text is 16px",
+        "severity": "high",
+        "value": "10px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.mt-0.5.text-sm.font-medium.text-text-primary",
+        "description": "Text \"< 200ms\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.mt-2.text-sm.leading-relaxed.text-text-secondary.line-clamp-2",
+        "description": "Text \"Operations dashboard and data visualizat\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.mt-2.text-sm.leading-relaxed.text-text-secondary.line-clamp-2",
+        "description": "Text \"Multi-tenant SaaS frontend with progress\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "a.text-sm.font-medium.text-text-primary",
+        "description": "Text \"JAOstudio\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-xs.text-text-tertiary",
+        "description": "Text \"Custom websites, dashboards, and tools.\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "p.text-xs.text-text-tertiary",
+        "description": "\"Custom websites, dashboards, and tools.\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "a.focus-ring.text-xs.text-text-secondary.transition-colors.hover:text-text-primary",
+        "description": "Text \"Contact\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "a.focus-ring.text-xs.text-text-secondary.transition-colors.hover:text-text-primary",
+        "description": "\"Contact\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "a.focus-ring.text-xs.text-text-secondary.transition-colors.hover:text-text-primary",
+        "description": "Text \"GitHub\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "a.focus-ring.text-xs.text-text-secondary.transition-colors.hover:text-text-primary",
+        "description": "\"GitHub\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "a.focus-ring.text-xs.text-text-secondary.transition-colors.hover:text-text-primary",
+        "description": "Text \"LinkedIn\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "a.focus-ring.text-xs.text-text-secondary.transition-colors.hover:text-text-primary",
+        "description": "\"LinkedIn\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-xs.text-text-tertiary",
+        "description": "Text \"Built with Next.js · Tailwind · Framer M\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "p.text-xs.text-text-tertiary",
+        "description": "\"Built with Next.js · Tailwind · Framer M\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "heading-hierarchy",
+        "ruleName": "Heading hierarchy not skipped",
+        "category": "typography",
+        "selector": "h3.mb-1.text-[10px].font-medium.uppercase.tracking-wider.text-text-tertiary",
+        "description": "Heading level skipped from h1 to h3 (Timeline)",
+        "severity": "medium",
+        "value": "h1 → h3",
+        "expected": "no skipped levels"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "a.fixed.left-4.top-4.z-[9999].-translate-y-full.rounded-xl.bg-accent.px-4.py-3.text-sm.font-medium.text-white.opacity-0.transition-all.focus-visible:translate-y-0.focus-visible:opacity-100.focus-visible:outline-none",
+        "description": "Text \"Skip to content\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "a.focus-ring.text-sm.transition-colors.text-text-secondary.hover:text-text-primary",
+        "description": "Text \"Demos\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "a.focus-ring.text-sm.transition-colors.text-text-secondary.hover:text-text-primary",
+        "description": "Text \"Services\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "a.focus-ring.text-sm.transition-colors.text-text-secondary.hover:text-text-primary",
+        "description": "Text \"About\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "button.focus-ring.rounded-xl.border.border-border.bg-surface-hover.px-2.5.py-1.5.text-xs.font-medium.uppercase.tracking-wider.text-text-secondary.transition-all.hover:text-text-primary",
+        "description": "Text \"TL\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "button.focus-ring.rounded-xl.border.border-border.bg-surface-hover.px-2.5.py-1.5.text-xs.font-medium.uppercase.tracking-wider.text-text-secondary.transition-all.hover:text-text-primary",
+        "description": "\"TL\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "a.focus-ring.rounded-xl.bg-accent.px-4.py-2.text-sm.font-medium.text-white.transition-all.hover:brightness-110.active:scale-[0.99]",
+        "description": "Text \"Start a Project\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.min-w-[5rem].justify-center.bg-accent-subtle.text-accent",
+        "description": "Text \"Telecommunications\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.min-w-[5rem].justify-center.bg-accent-subtle.text-accent",
+        "description": "\"Telecommunications\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.truncate.text-center.text-[10px].text-text-tertiary",
+        "description": "Text \"https://jao-business-website-sample.verc\" has font-size 10px; minimum for legible body text is 16px",
+        "severity": "high",
+        "value": "10px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-sm.leading-relaxed.text-text-secondary",
+        "description": "Text \"The owner maintains the site solo. A mul\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-xs.text-accent",
+        "description": "Text \"→ Zero server costs. Pricing changes are\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "p.text-xs.text-accent",
+        "description": "\"→ Zero server costs. Pricing changes are\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-xs.text-accent",
+        "description": "Text \"→ Zero server costs. Pricing changes are\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "p.text-xs.text-accent",
+        "description": "\"→ Zero server costs. Pricing changes are\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-sm.leading-relaxed.text-text-secondary",
+        "description": "Text \"No real-time data was needed — pricing t\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-xs.text-accent",
+        "description": "Text \"→ Sub-1.5s Lighthouse, zero ongoing serv\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "p.text-xs.text-accent",
+        "description": "\"→ Sub-1.5s Lighthouse, zero ongoing serv\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-xs.text-accent",
+        "description": "Text \"→ Sub-1.5s Lighthouse, zero ongoing serv\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "p.text-xs.text-accent",
+        "description": "\"→ Sub-1.5s Lighthouse, zero ongoing serv\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-sm.leading-relaxed.text-text-secondary",
+        "description": "Text \"With a solo owner and infrequent updates\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-xs.text-accent",
+        "description": "Text \"→ Zero security patches needed in 12 mon\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "p.text-xs.text-accent",
+        "description": "\"→ Zero security patches needed in 12 mon\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-xs.text-accent",
+        "description": "Text \"→ Zero security patches needed in 12 mon\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "p.text-xs.text-accent",
+        "description": "\"→ Zero security patches needed in 12 mon\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+        "description": "Text \"The Project\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+        "description": "\"The Project\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+        "description": "Text \"The Challenge\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+        "description": "\"The Challenge\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+        "description": "Text \"What Was Built\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+        "description": "\"What Was Built\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+        "description": "Text \"Outcome\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+        "description": "\"Outcome\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+        "description": "Text \"Infrastructure\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+        "description": "\"Infrastructure\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+        "description": "Text \"Stack\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+        "description": "\"Stack\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+        "description": "Text \"Metrics\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "span.inline-flex.items-center.gap-1.5.rounded-full.px-3.py-1.text-xs.font-medium.border.border-border.bg-surface-hover.text-text-tertiary.mb-4",
+        "description": "\"Metrics\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-[10px].text-text-tertiary",
+        "description": "Text \"LCP\" has font-size 10px; minimum for legible body text is 16px",
+        "severity": "high",
+        "value": "10px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.mt-0.5.text-sm.font-medium.text-text-primary",
+        "description": "Text \"~1.2s\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-[10px].text-text-tertiary",
+        "description": "Text \"CLS\" has font-size 10px; minimum for legible body text is 16px",
+        "severity": "high",
+        "value": "10px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.mt-0.5.text-sm.font-medium.text-text-primary",
+        "description": "Text \"~0.02\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-[10px].text-text-tertiary",
+        "description": "Text \"INP\" has font-size 10px; minimum for legible body text is 16px",
+        "severity": "high",
+        "value": "10px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.mt-0.5.text-sm.font-medium.text-text-primary",
+        "description": "Text \"< 100ms\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-[10px].text-text-tertiary",
+        "description": "Text \"Bundle Size\" has font-size 10px; minimum for legible body text is 16px",
+        "severity": "high",
+        "value": "10px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.mt-0.5.text-sm.font-medium.text-text-primary",
+        "description": "Text \"~85 kB JS\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-[10px].text-text-tertiary",
+        "description": "Text \"TTFB\" has font-size 10px; minimum for legible body text is 16px",
+        "severity": "high",
+        "value": "10px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.mt-0.5.text-sm.font-medium.text-text-primary",
+        "description": "Text \"< 200ms\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.mt-2.text-sm.leading-relaxed.text-text-secondary.line-clamp-2",
+        "description": "Text \"Operations dashboard and data visualizat\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.mt-2.text-sm.leading-relaxed.text-text-secondary.line-clamp-2",
+        "description": "Text \"Multi-tenant SaaS frontend with progress\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "a.text-sm.font-medium.text-text-primary",
+        "description": "Text \"JAOstudio\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-xs.text-text-tertiary",
+        "description": "Text \"Custom websites, dashboards, and tools.\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "p.text-xs.text-text-tertiary",
+        "description": "\"Custom websites, dashboards, and tools.\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "a.focus-ring.text-xs.text-text-secondary.transition-colors.hover:text-text-primary",
+        "description": "Text \"Contact\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "a.focus-ring.text-xs.text-text-secondary.transition-colors.hover:text-text-primary",
+        "description": "\"Contact\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "a.focus-ring.text-xs.text-text-secondary.transition-colors.hover:text-text-primary",
+        "description": "Text \"GitHub\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "a.focus-ring.text-xs.text-text-secondary.transition-colors.hover:text-text-primary",
+        "description": "\"GitHub\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "a.focus-ring.text-xs.text-text-secondary.transition-colors.hover:text-text-primary",
+        "description": "Text \"LinkedIn\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "a.focus-ring.text-xs.text-text-secondary.transition-colors.hover:text-text-primary",
+        "description": "\"LinkedIn\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-xs.text-text-tertiary",
+        "description": "Text \"Built with Next.js · Tailwind · Framer M\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "p.text-xs.text-text-tertiary",
+        "description": "\"Built with Next.js · Tailwind · Framer M\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      }
+    ],
+    "totalChecks": 126,
+    "passCount": 0,
+    "failCount": 126,
+    "score": 0
+  },
+  "timedOut": false
+}

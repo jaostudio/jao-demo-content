@@ -140,6 +140,11 @@ export default async function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `'serviceWorker' in navigator && navigator.serviceWorker.getRegistrations().then(r => r.forEach(r => r.unregister()))`,
+          }}
+        />
       </body>
     </html>
   )

@@ -1,0 +1,2005 @@
+{
+  "filepath": "C:\\Users\\Jaoce\\OneDrive\\Documents\\Portfolio contents\\commerce-demo\\audits\\audit-1781026469101.png",
+  "filename": "audit-1781026469101.png",
+  "timestamp": 1781026469101,
+  "url": "http://localhost:3000/products/chocnut",
+  "viewport": {
+    "width": 1280,
+    "height": 800
+  },
+  "viewports": [
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "wcag": {
+        "totalElements": 34,
+        "failures": [
+          {
+            "selector": "span.text-xs.font-medium.uppercase.tracking-wider.text-muted",
+            "text": "Candies & Sweets",
+            "foreground": "#6c757d",
+            "background": "#fff8f0",
+            "contrastRatio": 4.45,
+            "required": 4.5,
+            "fontSize": 12,
+            "isLarge": false
+          },
+          {
+            "selector": "p.mt-1.text-sm.text-muted",
+            "text": "Choc-Nut",
+            "foreground": "#6c757d",
+            "background": "#fff8f0",
+            "contrastRatio": 4.45,
+            "required": 4.5,
+            "fontSize": 14,
+            "isLarge": false
+          },
+          {
+            "selector": "p.mt-4.text-muted",
+            "text": "Classic peanut chocolate bar that defines Filipino childhood.",
+            "foreground": "#6c757d",
+            "background": "#fff8f0",
+            "contrastRatio": 4.45,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "p.mt-2.text-sm.text-muted",
+            "text": "Klasikong peanut chocolate bar na tumatak sa pagkabata ng bawat Pinoy.",
+            "foreground": "#6c757d",
+            "background": "#fff8f0",
+            "contrastRatio": 4.45,
+            "required": 4.5,
+            "fontSize": 14,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-sm.font-semibold.text-flag-yellow",
+            "text": "Sari-Rush!",
+            "foreground": "#f9d400",
+            "background": "#ce1126",
+            "contrastRatio": 3.87,
+            "required": 4.5,
+            "fontSize": 14,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-sm.font-medium.text-leafy-green",
+            "text": "80 in stock",
+            "foreground": "#4caf50",
+            "background": "#fff8f0",
+            "contrastRatio": 2.64,
+            "required": 4.5,
+            "fontSize": 14,
+            "isLarge": false
+          },
+          {
+            "selector": "dt.text-sm.text-muted",
+            "text": "Category",
+            "foreground": "#6c757d",
+            "background": "#fff8f0",
+            "contrastRatio": 4.45,
+            "required": 4.5,
+            "fontSize": 14,
+            "isLarge": false
+          },
+          {
+            "selector": "dt.text-sm.text-muted",
+            "text": "Vendor",
+            "foreground": "#6c757d",
+            "background": "#fff8f0",
+            "contrastRatio": 4.45,
+            "required": 4.5,
+            "fontSize": 14,
+            "isLarge": false
+          },
+          {
+            "selector": "p.text-sm.text-muted",
+            "text": "No reviews yet — be the first!",
+            "foreground": "#6c757d",
+            "background": "#fff8f0",
+            "contrastRatio": 4.45,
+            "required": 4.5,
+            "fontSize": 14,
+            "isLarge": false
+          },
+          {
+            "selector": "p.py-4.text-center.text-sm.text-muted",
+            "text": "Loading...",
+            "foreground": "#6c757d",
+            "background": "#fff8f0",
+            "contrastRatio": 4.45,
+            "required": 4.5,
+            "fontSize": 14,
+            "isLarge": false
+          },
+          {
+            "selector": "footer.px-4.py-6.text-center.text-[10px].text-muted",
+            "text": "All product images are for demonstration purposes and sourced from royalty-free stock photography. Sari-Sari does not cl",
+            "foreground": "#6c757d",
+            "background": "#fff8f0",
+            "contrastRatio": 4.45,
+            "required": 4.5,
+            "fontSize": 10,
+            "isLarge": false
+          }
+        ],
+        "passCount": 23,
+        "failCount": 11,
+        "score": 67.6,
+        "_elements": [
+          {
+            "selector": "span.text-xl.font-bold.tracking-tight.text-flag-blue",
+            "text": "Sari-Sari",
+            "foreground": "rgb(0, 56, 168)",
+            "background": "oklab(0.982348 0.00420091 0.0123213 / 0.9)",
+            "fontSize": 20,
+            "fontWeight": 700,
+            "isLarge": true,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 28,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.hidden.text-xs.text-muted.sm:inline",
+            "text": "one store, a thousand items",
+            "foreground": "rgb(108, 117, 125)",
+            "background": "oklab(0.982348 0.00420091 0.0123213 / 0.9)",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "span"
+          },
+          {
+            "selector": "a.text-sm.font-medium.text-stone-600.transition-colors.hover:text-muted.dark:text-muted.dark:hover:text-muted",
+            "text": "Products",
+            "foreground": "lab(35.5168 1.08606 4.07829)",
+            "background": "oklab(0.982348 0.00420091 0.0123213 / 0.9)",
+            "fontSize": 14,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "a"
+          },
+          {
+            "selector": "a.text-sm.font-medium.text-stone-600.transition-colors.hover:text-muted.dark:text-muted.dark:hover:text-muted",
+            "text": "Orders",
+            "foreground": "lab(35.5168 1.08606 4.07829)",
+            "background": "oklab(0.982348 0.00420091 0.0123213 / 0.9)",
+            "fontSize": 14,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "a"
+          },
+          {
+            "selector": "a.text-sm.font-medium.text-flag-blue.transition-colors.hover:underline",
+            "text": "Sign In",
+            "foreground": "rgb(0, 56, 168)",
+            "background": "oklab(0.982348 0.00420091 0.0123213 / 0.9)",
+            "fontSize": 14,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "a"
+          },
+          {
+            "selector": "span.text-xs.font-medium.uppercase.tracking-wider.text-muted",
+            "text": "Candies & Sweets",
+            "foreground": "rgb(108, 117, 125)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 12,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "span"
+          },
+          {
+            "selector": "h1.mt-2.font-[var(--font-display)].text-3xl.font-bold.tracking-tight",
+            "text": "Choc-Nut (peanut chocolate bar)",
+            "foreground": "rgb(26, 26, 26)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 30,
+            "fontWeight": 700,
+            "isLarge": true,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 36,
+            "tagName": "h1"
+          },
+          {
+            "selector": "p.mt-1.text-sm.text-muted",
+            "text": "Choc-Nut",
+            "foreground": "rgb(108, 117, 125)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.mt-4.text-muted",
+            "text": "Classic peanut chocolate bar that defines Filipino childhood.",
+            "foreground": "rgb(108, 117, 125)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.mt-2.text-sm.text-muted",
+            "text": "Klasikong peanut chocolate bar na tumatak sa pagkabata ng bawat Pinoy.",
+            "foreground": "rgb(108, 117, 125)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-4xl.font-bold",
+            "text": "₱5.00",
+            "foreground": "rgb(26, 26, 26)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 36,
+            "fontWeight": 700,
+            "isLarge": true,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 40,
+            "tagName": "p"
+          },
+          {
+            "selector": "span.text-sm.font-semibold.text-flag-yellow",
+            "text": "Sari-Rush!",
+            "foreground": "rgb(249, 212, 0)",
+            "background": "rgb(206, 17, 38)",
+            "fontSize": 14,
+            "fontWeight": 600,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.font-mono.text-lg.font-bold.text-flag-yellow",
+            "text": "2:00",
+            "foreground": "rgb(249, 212, 0)",
+            "background": "rgb(206, 17, 38)",
+            "fontSize": 18,
+            "fontWeight": 700,
+            "isLarge": true,
+            "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
+            "lineHeight": 28,
+            "tagName": "span"
+          },
+          {
+            "selector": "p.mt-1.text-xs.text-flag-yellow/80",
+            "text": "Sari-Rush window — hurry before it runs out!",
+            "foreground": "oklab(0.875111 -0.019575 0.179052 / 0.8)",
+            "background": "rgb(206, 17, 38)",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "p"
+          },
+          {
+            "selector": "span.text-sm.font-medium.text-leafy-green",
+            "text": "80 in stock",
+            "foreground": "rgb(76, 175, 80)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 14,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.font-semibold",
+            "text": "Vendor:",
+            "foreground": "rgb(26, 26, 26)",
+            "background": "oklab(0.673094 -0.13173 0.0950092 / 0.05)",
+            "fontSize": 12,
+            "fontWeight": 600,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "span"
+          },
+          {
+            "selector": "button.mt-6.inline-flex.h-12.w-full.items-center.justify-center.gap-2.rounded-xl.px-6.text-sm.font-semibold.text-white.shadow-lg.shadow-flag-blue/25.transition-all.active:scale-[0.99].disabled:cursor-not-allowed.disabled:opacity-50.bg-flag-blue.hover:brightness-90",
+            "text": "🛒 Add to Basket",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(0, 56, 168)",
+            "fontSize": 14,
+            "fontWeight": 600,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "button"
+          },
+          {
+            "selector": "dt.text-sm.text-muted",
+            "text": "Category",
+            "foreground": "rgb(108, 117, 125)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "dt"
+          },
+          {
+            "selector": "dd.text-sm",
+            "text": "Matatamis (Candies & Sweets)",
+            "foreground": "rgb(26, 26, 26)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "dd"
+          },
+          {
+            "selector": "dt.text-sm.text-muted",
+            "text": "Vendor",
+            "foreground": "rgb(108, 117, 125)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "dt"
+          },
+          {
+            "selector": "dd.text-sm",
+            "text": "Aling Nena's Sari-Sari",
+            "foreground": "rgb(26, 26, 26)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "dd"
+          },
+          {
+            "selector": "h2.font-[var(--font-display)].text-xl.font-bold",
+            "text": "Reviews &amp; Pictures",
+            "foreground": "rgb(26, 26, 26)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 20,
+            "fontWeight": 700,
+            "isLarge": true,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 28,
+            "tagName": "h2"
+          },
+          {
+            "selector": "p.text-sm.text-muted",
+            "text": "No reviews yet — be the first!",
+            "foreground": "rgb(108, 117, 125)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "p"
+          },
+          {
+            "selector": "h2.font-[var(--font-display)].text-xl.font-bold",
+            "text": "Questions & Answers",
+            "foreground": "rgb(26, 26, 26)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 20,
+            "fontWeight": 700,
+            "isLarge": true,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 28,
+            "tagName": "h2"
+          },
+          {
+            "selector": "p.py-4.text-center.text-sm.text-muted",
+            "text": "Loading...",
+            "foreground": "rgb(108, 117, 125)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "p"
+          },
+          {
+            "selector": "h2.font-[var(--font-display)].text-xl.font-bold",
+            "text": "You might also like&hellip;",
+            "foreground": "rgb(26, 26, 26)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 20,
+            "fontWeight": 700,
+            "isLarge": true,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 28,
+            "tagName": "h2"
+          },
+          {
+            "selector": "p.mt-2.truncate.text-xs.font-medium",
+            "text": "White Rabbit Creamy Candy",
+            "foreground": "rgb(26, 26, 26)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 12,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-sm.font-bold",
+            "text": "₱2.00",
+            "foreground": "rgb(26, 26, 26)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 14,
+            "fontWeight": 700,
+            "isLarge": true,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.mt-2.truncate.text-xs.font-medium",
+            "text": "Yakee! Super Asim Gumballs",
+            "foreground": "rgb(26, 26, 26)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 12,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-sm.font-bold",
+            "text": "₱1.00",
+            "foreground": "rgb(26, 26, 26)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 14,
+            "fontWeight": 700,
+            "isLarge": true,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.mt-2.truncate.text-xs.font-medium",
+            "text": "Mik-Mik (Strawberry)",
+            "foreground": "rgb(26, 26, 26)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 12,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-sm.font-bold",
+            "text": "₱3.00",
+            "foreground": "rgb(26, 26, 26)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 14,
+            "fontWeight": 700,
+            "isLarge": true,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "p"
+          },
+          {
+            "selector": "footer.px-4.py-6.text-center.text-[10px].text-muted",
+            "text": "All product images are for demonstration purposes and sourced from royalty-free stock photography. Sari-Sari does not cl",
+            "foreground": "rgb(108, 117, 125)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 10,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 15,
+            "tagName": "footer"
+          },
+          {
+            "selector": "span.text-base",
+            "text": "🎮",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(0, 56, 168)",
+            "fontSize": 16,
+            "fontWeight": 600,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "span"
+          }
+        ]
+      }
+    },
+    {
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "wcag": {
+        "totalElements": 34,
+        "failures": [
+          {
+            "selector": "span.text-xs.font-medium.uppercase.tracking-wider.text-muted",
+            "text": "Candies & Sweets",
+            "foreground": "#6c757d",
+            "background": "#fff8f0",
+            "contrastRatio": 4.45,
+            "required": 4.5,
+            "fontSize": 12,
+            "isLarge": false
+          },
+          {
+            "selector": "p.mt-1.text-sm.text-muted",
+            "text": "Choc-Nut",
+            "foreground": "#6c757d",
+            "background": "#fff8f0",
+            "contrastRatio": 4.45,
+            "required": 4.5,
+            "fontSize": 14,
+            "isLarge": false
+          },
+          {
+            "selector": "p.mt-4.text-muted",
+            "text": "Classic peanut chocolate bar that defines Filipino childhood.",
+            "foreground": "#6c757d",
+            "background": "#fff8f0",
+            "contrastRatio": 4.45,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "p.mt-2.text-sm.text-muted",
+            "text": "Klasikong peanut chocolate bar na tumatak sa pagkabata ng bawat Pinoy.",
+            "foreground": "#6c757d",
+            "background": "#fff8f0",
+            "contrastRatio": 4.45,
+            "required": 4.5,
+            "fontSize": 14,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-sm.font-semibold.text-flag-yellow",
+            "text": "Sari-Rush!",
+            "foreground": "#f9d400",
+            "background": "#ce1126",
+            "contrastRatio": 3.87,
+            "required": 4.5,
+            "fontSize": 14,
+            "isLarge": false
+          },
+          {
+            "selector": "span.text-sm.font-medium.text-leafy-green",
+            "text": "80 in stock",
+            "foreground": "#4caf50",
+            "background": "#fff8f0",
+            "contrastRatio": 2.64,
+            "required": 4.5,
+            "fontSize": 14,
+            "isLarge": false
+          },
+          {
+            "selector": "dt.text-sm.text-muted",
+            "text": "Category",
+            "foreground": "#6c757d",
+            "background": "#fff8f0",
+            "contrastRatio": 4.45,
+            "required": 4.5,
+            "fontSize": 14,
+            "isLarge": false
+          },
+          {
+            "selector": "dt.text-sm.text-muted",
+            "text": "Vendor",
+            "foreground": "#6c757d",
+            "background": "#fff8f0",
+            "contrastRatio": 4.45,
+            "required": 4.5,
+            "fontSize": 14,
+            "isLarge": false
+          },
+          {
+            "selector": "p.text-sm.text-muted",
+            "text": "No reviews yet — be the first!",
+            "foreground": "#6c757d",
+            "background": "#fff8f0",
+            "contrastRatio": 4.45,
+            "required": 4.5,
+            "fontSize": 14,
+            "isLarge": false
+          },
+          {
+            "selector": "p.py-4.text-center.text-sm.text-muted",
+            "text": "Loading...",
+            "foreground": "#6c757d",
+            "background": "#fff8f0",
+            "contrastRatio": 4.45,
+            "required": 4.5,
+            "fontSize": 14,
+            "isLarge": false
+          },
+          {
+            "selector": "footer.px-4.py-6.text-center.text-[10px].text-muted",
+            "text": "All product images are for demonstration purposes and sourced from royalty-free stock photography. Sari-Sari does not cl",
+            "foreground": "#6c757d",
+            "background": "#fff8f0",
+            "contrastRatio": 4.45,
+            "required": 4.5,
+            "fontSize": 10,
+            "isLarge": false
+          }
+        ],
+        "passCount": 23,
+        "failCount": 11,
+        "score": 67.6,
+        "_elements": [
+          {
+            "selector": "span.text-xl.font-bold.tracking-tight.text-flag-blue",
+            "text": "Sari-Sari",
+            "foreground": "rgb(0, 56, 168)",
+            "background": "oklab(0.982348 0.00420091 0.0123213 / 0.9)",
+            "fontSize": 20,
+            "fontWeight": 700,
+            "isLarge": true,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 28,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.hidden.text-xs.text-muted.sm:inline",
+            "text": "one store, a thousand items",
+            "foreground": "rgb(108, 117, 125)",
+            "background": "oklab(0.982348 0.00420091 0.0123213 / 0.9)",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "span"
+          },
+          {
+            "selector": "a.text-sm.font-medium.text-stone-600.transition-colors.hover:text-muted.dark:text-muted.dark:hover:text-muted",
+            "text": "Products",
+            "foreground": "lab(35.5168 1.08606 4.07829)",
+            "background": "oklab(0.982348 0.00420091 0.0123213 / 0.9)",
+            "fontSize": 14,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "a"
+          },
+          {
+            "selector": "a.text-sm.font-medium.text-stone-600.transition-colors.hover:text-muted.dark:text-muted.dark:hover:text-muted",
+            "text": "Orders",
+            "foreground": "lab(35.5168 1.08606 4.07829)",
+            "background": "oklab(0.982348 0.00420091 0.0123213 / 0.9)",
+            "fontSize": 14,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "a"
+          },
+          {
+            "selector": "a.text-sm.font-medium.text-flag-blue.transition-colors.hover:underline",
+            "text": "Sign In",
+            "foreground": "rgb(0, 56, 168)",
+            "background": "oklab(0.982348 0.00420091 0.0123213 / 0.9)",
+            "fontSize": 14,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "a"
+          },
+          {
+            "selector": "span.text-xs.font-medium.uppercase.tracking-wider.text-muted",
+            "text": "Candies & Sweets",
+            "foreground": "rgb(108, 117, 125)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 12,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "span"
+          },
+          {
+            "selector": "h1.mt-2.font-[var(--font-display)].text-3xl.font-bold.tracking-tight",
+            "text": "Choc-Nut (peanut chocolate bar)",
+            "foreground": "rgb(26, 26, 26)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 30,
+            "fontWeight": 700,
+            "isLarge": true,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 36,
+            "tagName": "h1"
+          },
+          {
+            "selector": "p.mt-1.text-sm.text-muted",
+            "text": "Choc-Nut",
+            "foreground": "rgb(108, 117, 125)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.mt-4.text-muted",
+            "text": "Classic peanut chocolate bar that defines Filipino childhood.",
+            "foreground": "rgb(108, 117, 125)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.mt-2.text-sm.text-muted",
+            "text": "Klasikong peanut chocolate bar na tumatak sa pagkabata ng bawat Pinoy.",
+            "foreground": "rgb(108, 117, 125)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-4xl.font-bold",
+            "text": "₱5.00",
+            "foreground": "rgb(26, 26, 26)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 36,
+            "fontWeight": 700,
+            "isLarge": true,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 40,
+            "tagName": "p"
+          },
+          {
+            "selector": "span.text-sm.font-semibold.text-flag-yellow",
+            "text": "Sari-Rush!",
+            "foreground": "rgb(249, 212, 0)",
+            "background": "rgb(206, 17, 38)",
+            "fontSize": 14,
+            "fontWeight": 600,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.font-mono.text-lg.font-bold.text-flag-yellow",
+            "text": "2:00",
+            "foreground": "rgb(249, 212, 0)",
+            "background": "rgb(206, 17, 38)",
+            "fontSize": 18,
+            "fontWeight": 700,
+            "isLarge": true,
+            "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
+            "lineHeight": 28,
+            "tagName": "span"
+          },
+          {
+            "selector": "p.mt-1.text-xs.text-flag-yellow/80",
+            "text": "Sari-Rush window — hurry before it runs out!",
+            "foreground": "oklab(0.875111 -0.019575 0.179052 / 0.8)",
+            "background": "rgb(206, 17, 38)",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "p"
+          },
+          {
+            "selector": "span.text-sm.font-medium.text-leafy-green",
+            "text": "80 in stock",
+            "foreground": "rgb(76, 175, 80)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 14,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.font-semibold",
+            "text": "Vendor:",
+            "foreground": "rgb(26, 26, 26)",
+            "background": "oklab(0.673094 -0.13173 0.0950092 / 0.05)",
+            "fontSize": 12,
+            "fontWeight": 600,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "span"
+          },
+          {
+            "selector": "button.mt-6.inline-flex.h-12.w-full.items-center.justify-center.gap-2.rounded-xl.px-6.text-sm.font-semibold.text-white.shadow-lg.shadow-flag-blue/25.transition-all.active:scale-[0.99].disabled:cursor-not-allowed.disabled:opacity-50.bg-flag-blue.hover:brightness-90",
+            "text": "🛒 Add to Basket",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(0, 56, 168)",
+            "fontSize": 14,
+            "fontWeight": 600,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "button"
+          },
+          {
+            "selector": "dt.text-sm.text-muted",
+            "text": "Category",
+            "foreground": "rgb(108, 117, 125)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "dt"
+          },
+          {
+            "selector": "dd.text-sm",
+            "text": "Matatamis (Candies & Sweets)",
+            "foreground": "rgb(26, 26, 26)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "dd"
+          },
+          {
+            "selector": "dt.text-sm.text-muted",
+            "text": "Vendor",
+            "foreground": "rgb(108, 117, 125)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "dt"
+          },
+          {
+            "selector": "dd.text-sm",
+            "text": "Aling Nena's Sari-Sari",
+            "foreground": "rgb(26, 26, 26)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "dd"
+          },
+          {
+            "selector": "h2.font-[var(--font-display)].text-xl.font-bold",
+            "text": "Reviews &amp; Pictures",
+            "foreground": "rgb(26, 26, 26)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 20,
+            "fontWeight": 700,
+            "isLarge": true,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 28,
+            "tagName": "h2"
+          },
+          {
+            "selector": "p.text-sm.text-muted",
+            "text": "No reviews yet — be the first!",
+            "foreground": "rgb(108, 117, 125)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "p"
+          },
+          {
+            "selector": "h2.font-[var(--font-display)].text-xl.font-bold",
+            "text": "Questions & Answers",
+            "foreground": "rgb(26, 26, 26)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 20,
+            "fontWeight": 700,
+            "isLarge": true,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 28,
+            "tagName": "h2"
+          },
+          {
+            "selector": "p.py-4.text-center.text-sm.text-muted",
+            "text": "Loading...",
+            "foreground": "rgb(108, 117, 125)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "p"
+          },
+          {
+            "selector": "h2.font-[var(--font-display)].text-xl.font-bold",
+            "text": "You might also like&hellip;",
+            "foreground": "rgb(26, 26, 26)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 20,
+            "fontWeight": 700,
+            "isLarge": true,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 28,
+            "tagName": "h2"
+          },
+          {
+            "selector": "p.mt-2.truncate.text-xs.font-medium",
+            "text": "White Rabbit Creamy Candy",
+            "foreground": "rgb(26, 26, 26)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 12,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-sm.font-bold",
+            "text": "₱2.00",
+            "foreground": "rgb(26, 26, 26)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 14,
+            "fontWeight": 700,
+            "isLarge": true,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.mt-2.truncate.text-xs.font-medium",
+            "text": "Yakee! Super Asim Gumballs",
+            "foreground": "rgb(26, 26, 26)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 12,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-sm.font-bold",
+            "text": "₱1.00",
+            "foreground": "rgb(26, 26, 26)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 14,
+            "fontWeight": 700,
+            "isLarge": true,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.mt-2.truncate.text-xs.font-medium",
+            "text": "Mik-Mik (Strawberry)",
+            "foreground": "rgb(26, 26, 26)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 12,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "p"
+          },
+          {
+            "selector": "p.text-sm.font-bold",
+            "text": "₱3.00",
+            "foreground": "rgb(26, 26, 26)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 14,
+            "fontWeight": 700,
+            "isLarge": true,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "p"
+          },
+          {
+            "selector": "footer.px-4.py-6.text-center.text-[10px].text-muted",
+            "text": "All product images are for demonstration purposes and sourced from royalty-free stock photography. Sari-Sari does not cl",
+            "foreground": "rgb(108, 117, 125)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 10,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 15,
+            "tagName": "footer"
+          },
+          {
+            "selector": "span.text-base",
+            "text": "🎮",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(0, 56, 168)",
+            "fontSize": 16,
+            "fontWeight": 600,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "span"
+          }
+        ]
+      }
+    }
+  ],
+  "wcag": {
+    "totalElements": 68,
+    "failures": [
+      {
+        "selector": "span.text-xs.font-medium.uppercase.tracking-wider.text-muted",
+        "text": "Candies & Sweets",
+        "foreground": "#6c757d",
+        "background": "#fff8f0",
+        "contrastRatio": 4.45,
+        "required": 4.5,
+        "fontSize": 12,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "p.mt-1.text-sm.text-muted",
+        "text": "Choc-Nut",
+        "foreground": "#6c757d",
+        "background": "#fff8f0",
+        "contrastRatio": 4.45,
+        "required": 4.5,
+        "fontSize": 14,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "p.mt-4.text-muted",
+        "text": "Classic peanut chocolate bar that defines Filipino childhood.",
+        "foreground": "#6c757d",
+        "background": "#fff8f0",
+        "contrastRatio": 4.45,
+        "required": 4.5,
+        "fontSize": 16,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "p.mt-2.text-sm.text-muted",
+        "text": "Klasikong peanut chocolate bar na tumatak sa pagkabata ng bawat Pinoy.",
+        "foreground": "#6c757d",
+        "background": "#fff8f0",
+        "contrastRatio": 4.45,
+        "required": 4.5,
+        "fontSize": 14,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "span.text-sm.font-semibold.text-flag-yellow",
+        "text": "Sari-Rush!",
+        "foreground": "#f9d400",
+        "background": "#ce1126",
+        "contrastRatio": 3.87,
+        "required": 4.5,
+        "fontSize": 14,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "span.text-sm.font-medium.text-leafy-green",
+        "text": "80 in stock",
+        "foreground": "#4caf50",
+        "background": "#fff8f0",
+        "contrastRatio": 2.64,
+        "required": 4.5,
+        "fontSize": 14,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "dt.text-sm.text-muted",
+        "text": "Category",
+        "foreground": "#6c757d",
+        "background": "#fff8f0",
+        "contrastRatio": 4.45,
+        "required": 4.5,
+        "fontSize": 14,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "p.text-sm.text-muted",
+        "text": "No reviews yet — be the first!",
+        "foreground": "#6c757d",
+        "background": "#fff8f0",
+        "contrastRatio": 4.45,
+        "required": 4.5,
+        "fontSize": 14,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "p.py-4.text-center.text-sm.text-muted",
+        "text": "Loading...",
+        "foreground": "#6c757d",
+        "background": "#fff8f0",
+        "contrastRatio": 4.45,
+        "required": 4.5,
+        "fontSize": 14,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "footer.px-4.py-6.text-center.text-[10px].text-muted",
+        "text": "All product images are for demonstration purposes and sourced from royalty-free stock photography. Sari-Sari does not cl",
+        "foreground": "#6c757d",
+        "background": "#fff8f0",
+        "contrastRatio": 4.45,
+        "required": 4.5,
+        "fontSize": 10,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          },
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      }
+    ],
+    "passCount": 56,
+    "failCount": 10,
+    "score": 85.3
+  },
+  "design": {
+    "failures": [
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "span.hidden.text-xs.text-muted.sm:inline",
+        "description": "Text \"one store, a thousand items\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "span.hidden.text-xs.text-muted.sm:inline",
+        "description": "\"one store, a thousand items\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "a.text-sm.font-medium.text-stone-600.transition-colors.hover:text-muted.dark:text-muted.dark:hover:text-muted",
+        "description": "Text \"Products\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "a.text-sm.font-medium.text-stone-600.transition-colors.hover:text-muted.dark:text-muted.dark:hover:text-muted",
+        "description": "Text \"Orders\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "a.text-sm.font-medium.text-flag-blue.transition-colors.hover:underline",
+        "description": "Text \"Sign In\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "span.text-xs.font-medium.uppercase.tracking-wider.text-muted",
+        "description": "Text \"Candies & Sweets\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "span.text-xs.font-medium.uppercase.tracking-wider.text-muted",
+        "description": "\"Candies & Sweets\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.mt-1.text-sm.text-muted",
+        "description": "Text \"Choc-Nut\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.mt-2.text-sm.text-muted",
+        "description": "Text \"Klasikong peanut chocolate bar na tumata\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "p.text-4xl.font-bold",
+        "description": "\"₱5.00\" has line-height 1.11 (40px at 36px font)",
+        "severity": "high",
+        "value": "1.11",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "p.text-4xl.font-bold",
+        "description": "\"₱5.00\" has line-height 1.11 (40px at 36px font)",
+        "severity": "high",
+        "value": "1.11",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "span.text-sm.font-semibold.text-flag-yellow",
+        "description": "Text \"Sari-Rush!\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.mt-1.text-xs.text-flag-yellow/80",
+        "description": "Text \"Sari-Rush window — hurry before it runs \" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "p.mt-1.text-xs.text-flag-yellow/80",
+        "description": "\"Sari-Rush window — hurry before it runs \" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "span.text-sm.font-medium.text-leafy-green",
+        "description": "Text \"80 in stock\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "span.font-semibold",
+        "description": "Text \"Vendor:\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "span.font-semibold",
+        "description": "\"Vendor:\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "button.mt-6.inline-flex.h-12.w-full.items-center.justify-center.gap-2.rounded-xl.px-6.text-sm.font-semibold.text-white.shadow-lg.shadow-flag-blue/25.transition-all.active:scale-[0.99].disabled:cursor-not-allowed.disabled:opacity-50.bg-flag-blue.hover:brightness-90",
+        "description": "Text \"🛒 Add to Basket\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "dt.text-sm.text-muted",
+        "description": "Text \"Category\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "dd.text-sm",
+        "description": "Text \"Matatamis (Candies & Sweets)\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "dd.text-sm",
+        "description": "Text \"Matatamis (Candies & Sweets)\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "dd.text-sm",
+        "description": "Text \"Matatamis (Candies & Sweets)\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "dd.text-sm",
+        "description": "Text \"Matatamis (Candies & Sweets)\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "dt.text-sm.text-muted",
+        "description": "Text \"Vendor\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "dd.text-sm",
+        "description": "Text \"Aling Nena's Sari-Sari\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-sm.text-muted",
+        "description": "Text \"No reviews yet — be the first!\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.py-4.text-center.text-sm.text-muted",
+        "description": "Text \"Loading...\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.mt-2.truncate.text-xs.font-medium",
+        "description": "Text \"White Rabbit Creamy Candy\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "p.mt-2.truncate.text-xs.font-medium",
+        "description": "\"White Rabbit Creamy Candy\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.mt-2.truncate.text-xs.font-medium",
+        "description": "Text \"Yakee! Super Asim Gumballs\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "p.mt-2.truncate.text-xs.font-medium",
+        "description": "\"Yakee! Super Asim Gumballs\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.mt-2.truncate.text-xs.font-medium",
+        "description": "Text \"Mik-Mik (Strawberry)\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "p.mt-2.truncate.text-xs.font-medium",
+        "description": "\"Mik-Mik (Strawberry)\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "empty-interactive",
+        "ruleName": "Interactive elements must have accessible name",
+        "category": "interactivity",
+        "selector": "a",
+        "description": "a has no text content or aria-label",
+        "severity": "high",
+        "value": "no accessible name",
+        "expected": "text content or aria-label"
+      },
+      {
+        "ruleId": "empty-interactive",
+        "ruleName": "Interactive elements must have accessible name",
+        "category": "interactivity",
+        "selector": "button",
+        "description": "button has no text content or aria-label",
+        "severity": "high",
+        "value": "no accessible name",
+        "expected": "text content or aria-label"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "span.hidden.text-xs.text-muted.sm:inline",
+        "description": "Text \"one store, a thousand items\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "span.hidden.text-xs.text-muted.sm:inline",
+        "description": "\"one store, a thousand items\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "a.text-sm.font-medium.text-stone-600.transition-colors.hover:text-muted.dark:text-muted.dark:hover:text-muted",
+        "description": "Text \"Products\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "a.text-sm.font-medium.text-stone-600.transition-colors.hover:text-muted.dark:text-muted.dark:hover:text-muted",
+        "description": "Text \"Orders\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "a.text-sm.font-medium.text-flag-blue.transition-colors.hover:underline",
+        "description": "Text \"Sign In\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "span.text-xs.font-medium.uppercase.tracking-wider.text-muted",
+        "description": "Text \"Candies & Sweets\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "span.text-xs.font-medium.uppercase.tracking-wider.text-muted",
+        "description": "\"Candies & Sweets\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.mt-1.text-sm.text-muted",
+        "description": "Text \"Choc-Nut\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.mt-2.text-sm.text-muted",
+        "description": "Text \"Klasikong peanut chocolate bar na tumata\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "p.text-4xl.font-bold",
+        "description": "\"₱5.00\" has line-height 1.11 (40px at 36px font)",
+        "severity": "high",
+        "value": "1.11",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "p.text-4xl.font-bold",
+        "description": "\"₱5.00\" has line-height 1.11 (40px at 36px font)",
+        "severity": "high",
+        "value": "1.11",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "span.text-sm.font-semibold.text-flag-yellow",
+        "description": "Text \"Sari-Rush!\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.mt-1.text-xs.text-flag-yellow/80",
+        "description": "Text \"Sari-Rush window — hurry before it runs \" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "p.mt-1.text-xs.text-flag-yellow/80",
+        "description": "\"Sari-Rush window — hurry before it runs \" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "span.text-sm.font-medium.text-leafy-green",
+        "description": "Text \"80 in stock\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "span.font-semibold",
+        "description": "Text \"Vendor:\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "span.font-semibold",
+        "description": "\"Vendor:\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "button.mt-6.inline-flex.h-12.w-full.items-center.justify-center.gap-2.rounded-xl.px-6.text-sm.font-semibold.text-white.shadow-lg.shadow-flag-blue/25.transition-all.active:scale-[0.99].disabled:cursor-not-allowed.disabled:opacity-50.bg-flag-blue.hover:brightness-90",
+        "description": "Text \"🛒 Add to Basket\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "dt.text-sm.text-muted",
+        "description": "Text \"Category\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "dd.text-sm",
+        "description": "Text \"Matatamis (Candies & Sweets)\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "dd.text-sm",
+        "description": "Text \"Matatamis (Candies & Sweets)\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "dd.text-sm",
+        "description": "Text \"Matatamis (Candies & Sweets)\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "dd.text-sm",
+        "description": "Text \"Matatamis (Candies & Sweets)\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "dt.text-sm.text-muted",
+        "description": "Text \"Vendor\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "dd.text-sm",
+        "description": "Text \"Aling Nena's Sari-Sari\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.text-sm.text-muted",
+        "description": "Text \"No reviews yet — be the first!\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.py-4.text-center.text-sm.text-muted",
+        "description": "Text \"No questions yet. Be the first!\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.mt-2.truncate.text-xs.font-medium",
+        "description": "Text \"White Rabbit Creamy Candy\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "p.mt-2.truncate.text-xs.font-medium",
+        "description": "\"White Rabbit Creamy Candy\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.mt-2.truncate.text-xs.font-medium",
+        "description": "Text \"Yakee! Super Asim Gumballs\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "p.mt-2.truncate.text-xs.font-medium",
+        "description": "\"Yakee! Super Asim Gumballs\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "p.mt-2.truncate.text-xs.font-medium",
+        "description": "Text \"Mik-Mik (Strawberry)\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "p.mt-2.truncate.text-xs.font-medium",
+        "description": "\"Mik-Mik (Strawberry)\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "empty-interactive",
+        "ruleName": "Interactive elements must have accessible name",
+        "category": "interactivity",
+        "selector": "a",
+        "description": "a has no text content or aria-label",
+        "severity": "high",
+        "value": "no accessible name",
+        "expected": "text content or aria-label"
+      },
+      {
+        "ruleId": "empty-interactive",
+        "ruleName": "Interactive elements must have accessible name",
+        "category": "interactivity",
+        "selector": "button",
+        "description": "button has no text content or aria-label",
+        "severity": "high",
+        "value": "no accessible name",
+        "expected": "text content or aria-label"
+      }
+    ],
+    "totalChecks": 70,
+    "passCount": 0,
+    "failCount": 70,
+    "score": 0
+  },
+  "timedOut": false
+}

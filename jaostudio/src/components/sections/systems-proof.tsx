@@ -49,7 +49,7 @@ export function SystemsProof() {
   return (
     <Section id="systems" variant="default" glow density="compact">
       <motion.div
-        className="flex flex-col gap-4 items-center text-center md:max-w-3xl mx-auto"
+        className="flex flex-col gap-3 items-center text-center md:max-w-3xl mx-auto md:gap-4"
         variants={contentVariant}
         initial="hidden"
         whileInView="visible"
@@ -65,24 +65,26 @@ export function SystemsProof() {
         </p>
       </motion.div>
 
-      <div className="mt-10">
-        <SystemsCarousel categories={CATEGORIES} />
-      </div>
+      <div className="flex flex-col gap-4 md:gap-6 mt-4 md:mt-6">
+        <div>
+          <SystemsCarousel categories={CATEGORIES} />
+        </div>
 
-      <motion.div
-        className="mt-10 text-center"
-        variants={contentVariant}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-50px' }}
-      >
-        <Link
-          href="/demos"
-          className="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-base font-medium text-white transition-transform duration-200 hover:brightness-110 active:scale-[0.99] focus-visible:ring-2 focus-visible:ring-accent/50"
+        <motion.div
+          className="text-center"
+          variants={contentVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
         >
-          Explore all systems →
-        </Link>
-      </motion.div>
+          <Link
+            href="/demos"
+            className="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-base font-medium text-white transition-transform duration-200 hover:brightness-110 active:scale-[0.99] focus-visible:ring-2 focus-visible:ring-accent/50"
+          >
+            Explore all systems →
+          </Link>
+        </motion.div>
+      </div>
     </Section>
   )
 }

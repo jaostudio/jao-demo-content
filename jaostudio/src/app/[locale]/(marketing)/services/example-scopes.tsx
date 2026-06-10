@@ -17,10 +17,15 @@ export async function ExampleScopes() {
           {t('exampleScopes')}
         </h2>
       </div>
-      <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div
+        className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+        role="list"
+        aria-label="Example scopes"
+      >
         {examples.map((i) => (
-          <FadeInView key={i} delay={(i - 1) * 0.1}>
-            <Card className="p-5">
+          <div key={i}>
+            <FadeInView delay={(i - 1) * 0.1}>
+            <Card className="p-4 md:p-5">
               <p className="text-sm font-medium text-text-primary">{t(`example${i}Title`)}</p>
               <p className="mt-1 text-xs uppercase tracking-wider text-text-secondary">
                 {t(`example${i}Timeline`)}
@@ -36,6 +41,7 @@ export async function ExampleScopes() {
               </div>
             </Card>
           </FadeInView>
+          </div>
         ))}
       </div>
     </Section>

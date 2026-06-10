@@ -557,11 +557,13 @@ export function StudioContent() {
         </motion.div>
 
         <motion.div
-          className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4"
+          className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4"
           variants={prefersReducedMotion ? stagger(0.01) : stagger(0.08)}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-50px' }}
+          role="list"
+          aria-label="Operational benchmarks"
         >
           {[
             { value: metrics.lighthouseRange, label: 'Lighthouse Range' },

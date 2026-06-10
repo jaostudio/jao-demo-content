@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Shopping bag body (blue) -->
+  <path fill="#0038A8" d="M18 26h28v22a4 4 0 0 1-4 4H22a4 4 0 0 1-4-4V26z"/>
+  <!-- Bag handle (red) -->
+  <path d="M26 26v-6a6 6 0 0 1 12 0v6" stroke="#CE1126" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- Star (yellow) -->
+  <polygon fill="#F9D400" points="32,34 34.5,40 41,40 36,44 38,50 32,46 26,50 28,44 23,40 29.5,40"/>
+</svg>

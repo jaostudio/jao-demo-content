@@ -23,5 +23,9 @@ export async function getProductsByCategory(categorySlug: string) {
 }
 
 export async function getCategories() {
-  return prisma.category.findMany({ orderBy: { name: 'asc' } })
+  return prisma.category.findMany({ orderBy: { nameEn: 'asc' } })
+}
+
+export async function getFeaturedProducts() {
+  return prisma.product.findMany({ take: 4, orderBy: { createdAt: 'desc' } })
 }

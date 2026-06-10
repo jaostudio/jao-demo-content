@@ -16,16 +16,12 @@ interface ProcessMobileAccordionProps {
   steps: readonly ProcessAccordionStep[]
   openIndex: number
   onOpenChange: (index: number) => void
-  ctaLabel: string
-  ctaHref: string
 }
 
 export function ProcessMobileAccordion({
   steps,
   openIndex,
   onOpenChange,
-  ctaLabel,
-  ctaHref,
 }: ProcessMobileAccordionProps) {
   const prefersReduced = useReducedMotion()
   const baseId = useId()
@@ -58,7 +54,7 @@ export function ProcessMobileAccordion({
               >
                 <span
                   className={cn(
-                    'flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border text-xs font-medium transition-colors',
+                    'h-8 w-8 shrink-0 items-center justify-center rounded-xl border text-xs font-medium transition-colors md:h-9 md:w-9',
                     isOpen
                       ? 'border-accent/30 bg-accent-soft text-text-primary'
                       : 'border-border-subtle bg-bg-elevated text-text-secondary',
@@ -75,7 +71,7 @@ export function ProcessMobileAccordion({
                   >
                     {step.title}
                   </span>
-                  <span className="mt-1 block text-[var(--text-meta)] leading-relaxed text-text-secondary">
+                  <span className="mt-1 hidden text-[var(--text-meta)] leading-relaxed text-text-secondary md:block">
                     {step.summary}
                   </span>
                 </span>
@@ -110,33 +106,10 @@ export function ProcessMobileAccordion({
                   transition={{ duration: prefersReduced ? 0 : 0.25, ease: 'easeOut' }}
                   className="overflow-hidden"
                 >
-                  <div className="border-t border-border-subtle px-4 py-4 space-y-4">
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.28em] text-text-secondary">
-                        What happens here
-                      </p>
-                      <p className="mt-2 text-[var(--text-body)] leading-[var(--leading-relaxed)] text-text-secondary">
-                        {step.details}
-                      </p>
-                    </div>
-
-                    <div className="flex flex-wrap gap-2">
-                      {step.deliverables.map((deliverable) => (
-                        <span
-                          key={deliverable}
-                          className="rounded-2xl border border-border-subtle bg-bg-surface/85 px-3 py-1.5 text-center text-xs uppercase tracking-[0.22em] text-text-secondary"
-                        >
-                          {deliverable}
-                        </span>
-                      ))}
-                    </div>
-
-                    <a
-                      href={ctaHref}
-                      className="inline-flex items-center justify-center rounded-xl border border-border bg-surface-hover px-4 py-2 text-sm font-medium text-text-primary transition-colors hover:bg-surface-hover focus-ring"
-                    >
-                      {ctaLabel}
-                    </a>
+                  <div className="border-t border-border-subtle px-4 py-4">
+                    <p className="text-[var(--text-body)] leading-[var(--leading-relaxed)] text-text-secondary">
+                      {step.details}
+                    </p>
                   </div>
                 </motion.div>
               )}

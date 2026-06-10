@@ -6,7 +6,6 @@ import { Navbar } from '../components/layout/Navbar'
 import { IndustryController } from '../components/industry/IndustryController'
 import { IndustrySwitcher } from '../components/industry/IndustrySwitcher'
 import { MobileBottomDock } from '../components/layout/MobileBottomDock'
-import { ThemeToggle } from '../components/layout/ThemeToggle'
 import { Analytics } from '@vercel/analytics/react'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -34,9 +33,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <MobileBottomDock>
               <IndustrySwitcher embedded />
             </MobileBottomDock>
-            <div className="fixed bottom-6 right-6 z-[1000] md:hidden">
-              <ThemeToggle />
-            </div>
           </IndustryController>
         </Providers>
         <Analytics />

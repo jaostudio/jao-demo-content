@@ -11,13 +11,13 @@ export default async function NewArticlePage() {
   if (!author) redirect('/signin')
 
   const [categories, tags] = await Promise.all([
-    (prisma as any).category.findMany({ orderBy: { name: 'asc' } }),
-    (prisma as any).tag.findMany({ orderBy: { name: 'asc' } }),
+    prisma.category.findMany({ orderBy: { name: 'asc' } }),
+    prisma.tag.findMany({ orderBy: { name: 'asc' } }),
   ])
 
   return (
     <div>
-      <h1 className="mb-6 text-2xl font-bold">New Article</h1>
+      <h1 className="mb-6 font-display text-2xl font-bold">New Article</h1>
       <ArticleForm categories={categories} tags={tags} action={createArticle} />
     </div>
   )

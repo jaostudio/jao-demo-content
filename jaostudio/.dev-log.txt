@@ -1,0 +1,88 @@
+
+> jaostudio@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.5.18
+   - Local:        http://localhost:3000
+   - Network:      http://10.2.0.2:3000
+   - Environments: .env.local
+   - Experiments (use with caution):
+     · clientTraceMetadata
+
+ ✓ Starting...
+[@sentry/nextjs] Could not find `onRequestError` hook in instrumentation file. This indicates outdated configuration of the Sentry SDK. Use `Sentry.captureRequestError` to instrument the `onRequestError` hook: https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/#errors-from-nested-react-server-components
+[@sentry/nextjs] DEPRECATION WARNING: It is recommended renaming your `sentry.client.config.ts` file, or moving its content to `instrumentation-client.ts`. When using Turbopack `sentry.client.config.ts` will no longer work. Read more about the `instrumentation-client.ts` file: https://nextjs.org/docs/app/api-reference/file-conventions/instrumentation-client
+ ○ Compiling /instrumentation ...
+ ✓ Compiled /instrumentation in 1615ms (1215 modules)
+---
+[health] System Readiness Report
+[health] Environment: development
+[health] Overall: DEGRADED
+[health] Systems:
+[health]   ✓ Analytics (PostHog)
+[health]   ~ Email (Resend) — RESEND_API_KEY not set — will fall back gracefully
+[health]   ~ Site URL — SITE_URL not set — will fall back gracefully
+[health]   ~ Rate Limiting (Upstash URL) — UPSTASH_REDIS_REST_URL not set — will fall back gracefully
+[health]   ~ Rate Limiting (Upstash Token) — UPSTASH_REDIS_REST_TOKEN not set — will fall back gracefully
+[health]   ~ Error Monitoring (Sentry) — SENTRY_DSN not set — will fall back gracefully
+[health]   ✓ Security Headers (CSP/HSTS)
+[health]   ✓ Architecture SVG System
+[health] System is running in degraded mode — some features may not work.
+---
+ ✓ Ready in 6.8s
+ ○ Compiling /middleware ...
+ ✓ Compiled /middleware in 605ms (1053 modules)
+---
+[health] System Readiness Report
+[health] Environment: development
+[health] Overall: DEGRADED
+[health] Systems:
+[health]   ✓ Analytics (PostHog)
+[health]   ~ Email (Resend) — RESEND_API_KEY not set — will fall back gracefully
+[health]   ~ Site URL — SITE_URL not set — will fall back gracefully
+[health]   ~ Rate Limiting (Upstash URL) — UPSTASH_REDIS_REST_URL not set — will fall back gracefully
+[health]   ~ Rate Limiting (Upstash Token) — UPSTASH_REDIS_REST_TOKEN not set — will fall back gracefully
+[health]   ~ Error Monitoring (Sentry) — SENTRY_DSN not set — will fall back gracefully
+[health]   ✓ Security Headers (CSP/HSTS)
+[health]   ✓ Architecture SVG System
+[health] System is running in degraded mode — some features may not work.
+---
+ ○ Compiling /[locale] ...
+ ✓ Compiled /[locale] in 6.1s (4278 modules)
+ ✓ Compiled in 912ms (1180 modules)
+ ✓ Compiled in 194ms (1166 modules)
+ GET / 200 in 3188ms
+ ✓ Compiled in 575ms (1180 modules)
+ ✓ Compiled in 401ms (1180 modules)
+ ✓ Compiled in 368ms (1180 modules)
+ ✓ Compiled in 356ms (1180 modules)
+ ✓ Compiled in 340ms (1180 modules)
+ ✓ Compiled in 471ms (1180 modules)
+ ✓ Compiled in 316ms (1180 modules)
+ ✓ Compiled in 320ms (1180 modules)
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 2.4s (4269 modules)
+ GET / 404 in 3036ms
+ GET / 200 in 263ms
+ ⨯ Failed to generate static paths for /[locale]:
+[Error: Cannot find module './vendor-chunks/motion-dom.js'
+Require stack:
+- C:\Users\Jaoce\OneDrive\Documents\Portfolio contents\jaostudio\.next\server\webpack-runtime.js
+- C:\Users\Jaoce\OneDrive\Documents\Portfolio contents\jaostudio\.next\server\app\[locale]\page.js
+- C:\Users\Jaoce\OneDrive\Documents\Portfolio contents\jaostudio\node_modules\next\dist\server\require.js
+- C:\Users\Jaoce\OneDrive\Documents\Portfolio contents\jaostudio\node_modules\next\dist\server\load-components.js
+- C:\Users\Jaoce\OneDrive\Documents\Portfolio contents\jaostudio\node_modules\next\dist\build\utils.js
+- C:\Users\Jaoce\OneDrive\Documents\Portfolio contents\jaostudio\node_modules\next\dist\server\dev\static-paths-worker.js
+- C:\Users\Jaoce\OneDrive\Documents\Portfolio contents\jaostudio\node_modules\next\dist\compiled\jest-worker\processChild.js] {
+  type: 'Error',
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ✓ Compiled in 589ms (1180 modules)
+ ✓ Compiled in 356ms (1180 modules)
+ ✓ Compiled in 373ms (1180 modules)
+ ✓ Compiled in 341ms (1180 modules)
+ ✓ Compiled in 296ms (1180 modules)
+[?25h
+
+C:\Users\Jaoce\OneDrive\Documents\Portfolio contents\jaostudio>

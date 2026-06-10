@@ -62,7 +62,7 @@ export default async function ServicesPage() {
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
             <Badge variant="accent">{t('workingStyle')}</Badge>
             <h1 className="text-[var(--text-hero)] font-[var(--weight-medium)] leading-[var(--leading-display)] tracking-[var(--tracking-tight)] text-text-primary">
-              {t('heroBadge')}
+              {t('heroTitle')}
             </h1>
             <p className="max-w-lg text-[var(--text-body)] leading-[var(--leading-relaxed)] text-text-secondary">
               {t('heroDesc')}
@@ -72,10 +72,10 @@ export default async function ServicesPage() {
       </section></FadeInView>
 
       <FadeInView><Section density="compact">
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-4 sm:grid-cols-2">
           {services.map((svc, i) => (
             <FadeInView key={svc.title} delay={i * 0.1}>
-              <Card className="p-5">
+              <Card className="p-4 md:p-5">
                 <p className="text-sm font-medium text-text-primary">{svc.title}</p>
                 <p className="mt-1 text-sm leading-relaxed text-text-secondary">{svc.desc}</p>
               </Card>
@@ -85,7 +85,7 @@ export default async function ServicesPage() {
       </Section></FadeInView>
 
       <FadeInView><Section density="compact">
-        <Card className="border border-accent/20 bg-accent/5 p-6">
+        <Card className="border border-accent/20 bg-accent/5 p-4 md:p-6">
           <Badge variant="accent">{t('candidBadge')}</Badge>
           <p className="mt-3 text-[var(--text-body)] leading-relaxed text-text-secondary">
             {t('candidNote')}

@@ -2,12 +2,13 @@
 
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
-import { transitionOrderFulfillment } from '@/lib/actions/orders'
+import { updateFulfillmentState } from '@/lib/actions/orders'
 
-const transitions: Record<string, { label: string; event: 'process' | 'ship' | 'return_fulfillment' }[]> = {
-  unfulfilled: [{ label: 'Process', event: 'process' }],
-  processing: [{ label: 'Mark Shipped', event: 'ship' }],
-  fulfilled: [{ label: 'Return', event: 'return_fulfillment' }],
+const transitions: Record<string, { label: string; nextState: string }[]> = {
+  unfulfilled: [{ label: 'Process → Nasa tricycle', nextState: 'processing' }],
+  processing: [{ label: 'Ship → Nasa courier na', nextState: 'shipped' }],
+  shipped: [{ label: 'Deliver → Nadeliver na', nextState: 'delivered' }],
+  delivered: [],
   returned: [],
 }
 
@@ -18,11 +19,11 @@ export function FulfillmentActions({ orderId, currentState }: { orderId: string;
 
   const actions = transitions[currentState] ?? []
 
-  async function handleAction(event: 'process' | 'ship' | 'return_fulfillment') {
-    setPending(event)
+  async function handleAction(nextState: string) {
+    setPending(nextState)
     setError('')
     try {
-      await transitionOrderFulfillment(orderId, event)
+      await updateFulfillmentState(orderId, nextState)
       router.refresh()
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Action failed')
@@ -34,21 +35,21 @@ export function FulfillmentActions({ orderId, currentState }: { orderId: string;
   if (actions.length === 0 && !error) return null
 
   return (
-    <div className="mt-6 rounded-xl border border-neutral-200 p-6 dark:border-neutral-800">
-      <h2 className="text-sm font-semibold text-neutral-500 uppercase tracking-wider">Fulfillment Actions</h2>
+    <div className="mt-6 rounded-xl border border-subtle p-6">
+      <h2 className="text-sm font-semibold uppercase tracking-wider text-muted">Fulfillment Actions</h2>
       <div className="mt-3 flex flex-wrap gap-3">
-        {actions.map(({ label, event }) => (
+        {actions.map(({ label, nextState }) => (
           <button
-            key={event}
-            onClick={() => handleAction(event)}
+            key={nextState}
+            onClick={() => handleAction(nextState)}
             disabled={pending !== null}
-            className="inline-flex h-9 items-center justify-center rounded-lg bg-neutral-900 px-4 text-xs font-semibold text-white transition-colors hover:bg-neutral-800 disabled:opacity-50 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200"
+            className="inline-flex h-9 items-center justify-center rounded-lg bg-flag-blue px-4 text-xs font-semibold text-white transition-all hover:brightness-90 disabled:opacity-50"
           >
-            {pending === event ? '...' : label}
+            {pending === nextState ? '...' : label}
           </button>
         ))}
       </div>
-      {error && <p className="mt-2 text-xs text-red-600 dark:text-red-400">{error}</p>}
+      {error && <p className="mt-2 text-xs text-flag-red">{error}</p>}
     </div>
   )
 }

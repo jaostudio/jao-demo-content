@@ -2,15 +2,15 @@ import { PrismaClient } from '@prisma/content-client'
 import { PrismaLibSql } from '@prisma/adapter-libsql'
 import bcrypt from 'bcryptjs'
 
-const adapter = new PrismaLibSql({
-  url: process.env.DATABASE_URL ?? 'file:./dev.db',
-})
+const url = process.env.DATABASE_URL ?? 'file:./dev.db'
+const authToken = process.env.TURSO_AUTH_TOKEN
+const adapter = new PrismaLibSql(authToken ? { url, authToken } : { url })
 const prisma = new PrismaClient({ adapter })
 
 async function main() {
   const password = await bcrypt.hash('password123', 10)
 
-  const admin = await prisma.author.upsert({
+  await prisma.author.upsert({
     where: { email: 'admin@content.dev' },
     update: {},
     create: { name: 'Editor', email: 'admin@content.dev', password, role: 'ADMIN' },

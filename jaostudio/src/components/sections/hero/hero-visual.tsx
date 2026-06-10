@@ -102,7 +102,7 @@ export function HeroVisual() {
 
         <div className="mt-3 md:mt-4">
           <DynamicNodeGraph
-            className={isMobile ? 'h-[220px]' : 'h-[200px] sm:h-[260px] md:h-[340px]'}
+            className={isMobile ? 'h-[160px]' : 'h-[200px] sm:h-[260px] md:h-[340px]'}
             sim={sim}
             compact={isMobile}
           />
@@ -112,7 +112,7 @@ export function HeroVisual() {
           className="mt-3 md:mt-4 grid gap-2 sm:grid-cols-2 transition-opacity duration-300"
           style={{ opacity: isTransitioning ? 0.5 : 1 }}
         >
-          {displayMetrics.slice(0, prefersReducedMotion ? 1 : 2).map((item) => (
+          {displayMetrics.slice(0, isMobile ? 1 : prefersReducedMotion ? 1 : 2).map((item) => (
             <div
               key={`${item.label}-${item.value}`}
               className="rounded-2xl border border-border-subtle bg-bg-surface/80 px-3 py-2 md:px-4 md:py-3"

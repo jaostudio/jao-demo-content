@@ -1,0 +1,62 @@
+
+> jaostudio@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.5.18
+   - Local:        http://localhost:3000
+   - Network:      http://10.2.0.2:3000
+   - Environments: .env.local
+   - Experiments (use with caution):
+     · clientTraceMetadata
+
+ ✓ Starting...
+ ○ Compiling /instrumentation ...
+ ✓ Compiled /instrumentation in 1881ms (1215 modules)
+---
+[health] System Readiness Report
+[health] Environment: development
+[health] Overall: DEGRADED
+[health] Systems:
+[health]   ✓ Analytics (PostHog)
+[health]   ~ Email (Resend) — RESEND_API_KEY not set — will fall back gracefully
+[health]   ~ Site URL — SITE_URL not set — will fall back gracefully
+[health]   ~ Rate Limiting (Upstash URL) — UPSTASH_REDIS_REST_URL not set — will fall back gracefully
+[health]   ~ Rate Limiting (Upstash Token) — UPSTASH_REDIS_REST_TOKEN not set — will fall back gracefully
+[health]   ~ Error Monitoring (Sentry) — SENTRY_DSN not set — will fall back gracefully
+[health]   ✓ Security Headers (CSP/HSTS)
+[health]   ✓ Architecture SVG System
+[health] System is running in degraded mode — some features may not work.
+---
+ ✓ Ready in 7.1s
+ ○ Compiling /middleware ...
+ ✓ Compiled /middleware in 720ms (1053 modules)
+---
+[health] System Readiness Report
+[health] Environment: development
+[health] Overall: DEGRADED
+[health] Systems:
+[health]   ✓ Analytics (PostHog)
+[health]   ~ Email (Resend) — RESEND_API_KEY not set — will fall back gracefully
+[health]   ~ Site URL — SITE_URL not set — will fall back gracefully
+[health]   ~ Rate Limiting (Upstash URL) — UPSTASH_REDIS_REST_URL not set — will fall back gracefully
+[health]   ~ Rate Limiting (Upstash Token) — UPSTASH_REDIS_REST_TOKEN not set — will fall back gracefully
+[health]   ~ Error Monitoring (Sentry) — SENTRY_DSN not set — will fall back gracefully
+[health]   ✓ Security Headers (CSP/HSTS)
+[health]   ✓ Architecture SVG System
+[health] System is running in degraded mode — some features may not work.
+---
+ ○ Compiling /[locale] ...
+ ✓ Compiled /[locale] in 7.3s (4278 modules)
+ ✓ Compiled in 1002ms (1180 modules)
+ ✓ Compiled in 255ms (1166 modules)
+ GET / 200 in 4564ms
+ ✓ Compiled in 660ms (1180 modules)
+ ✓ Compiled in 411ms (1180 modules)
+ ✓ Compiled in 383ms (1180 modules)
+ ✓ Compiled in 528ms (1180 modules)
+ ✓ Compiled in 380ms (1180 modules)
+ ✓ Compiled in 598ms (1180 modules)
+ ✓ Compiled in 345ms (1180 modules)
+ ✓ Compiled in 367ms (1180 modules)
+ ✓ Compiled in 321ms (1180 modules)
+ ✓ Compiled in 297ms (1180 modules)

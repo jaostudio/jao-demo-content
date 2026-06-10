@@ -1,0 +1,609 @@
+{
+  "filepath": "C:\\Users\\Jaoce\\OneDrive\\Documents\\Portfolio contents\\commerce-demo\\audits\\audit-1781026489928.png",
+  "filename": "audit-1781026489928.png",
+  "timestamp": 1781026489928,
+  "url": "http://localhost:3000/cart",
+  "viewport": {
+    "width": 1280,
+    "height": 800
+  },
+  "viewports": [
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "wcag": {
+        "totalElements": 11,
+        "failures": [
+          {
+            "selector": "p.mt-2.text-muted",
+            "text": "Start shopping at Sari-Sari!",
+            "foreground": "#6c757d",
+            "background": "#0d0b0a",
+            "contrastRatio": 4.19,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "footer.px-4.py-6.text-center.text-[10px].text-muted",
+            "text": "All product images are for demonstration purposes and sourced from royalty-free stock photography. Sari-Sari does not cl",
+            "foreground": "#6c757d",
+            "background": "#0d0b0a",
+            "contrastRatio": 4.19,
+            "required": 4.5,
+            "fontSize": 10,
+            "isLarge": false
+          }
+        ],
+        "passCount": 9,
+        "failCount": 2,
+        "score": 81.8,
+        "_elements": [
+          {
+            "selector": "span.text-xl.font-bold.tracking-tight.text-flag-blue",
+            "text": "Sari-Sari",
+            "foreground": "rgb(0, 56, 168)",
+            "background": "oklab(0.982348 0.00420091 0.0123213 / 0.9)",
+            "fontSize": 20,
+            "fontWeight": 700,
+            "isLarge": true,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 28,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.hidden.text-xs.text-muted.sm:inline",
+            "text": "one store, a thousand items",
+            "foreground": "rgb(108, 117, 125)",
+            "background": "oklab(0.982348 0.00420091 0.0123213 / 0.9)",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "span"
+          },
+          {
+            "selector": "a.text-sm.font-medium.text-stone-600.transition-colors.hover:text-muted.dark:text-muted.dark:hover:text-muted",
+            "text": "Products",
+            "foreground": "lab(35.5168 1.08606 4.07829)",
+            "background": "oklab(0.982348 0.00420091 0.0123213 / 0.9)",
+            "fontSize": 14,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "a"
+          },
+          {
+            "selector": "a.text-sm.font-medium.text-stone-600.transition-colors.hover:text-muted.dark:text-muted.dark:hover:text-muted",
+            "text": "Orders",
+            "foreground": "lab(35.5168 1.08606 4.07829)",
+            "background": "oklab(0.982348 0.00420091 0.0123213 / 0.9)",
+            "fontSize": 14,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "a"
+          },
+          {
+            "selector": "a.text-sm.font-medium.text-flag-blue.transition-colors.hover:underline",
+            "text": "Sign In",
+            "foreground": "rgb(29, 78, 216)",
+            "background": "oklab(0.982348 0.00420091 0.0123213 / 0.9)",
+            "fontSize": 14,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "a"
+          },
+          {
+            "selector": "span.text-6xl",
+            "text": "🛒",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(13, 11, 10)",
+            "fontSize": 60,
+            "fontWeight": 400,
+            "isLarge": true,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 60,
+            "tagName": "span"
+          },
+          {
+            "selector": "h1.mt-6.text-2xl.font-bold",
+            "text": "Your cart is empty.",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(13, 11, 10)",
+            "fontSize": 24,
+            "fontWeight": 700,
+            "isLarge": true,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 32,
+            "tagName": "h1"
+          },
+          {
+            "selector": "p.mt-2.text-muted",
+            "text": "Start shopping at Sari-Sari!",
+            "foreground": "rgb(108, 117, 125)",
+            "background": "rgb(13, 11, 10)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "a.mt-6.inline-flex.h-11.items-center.justify-center.rounded-xl.bg-flag-blue.px-6.text-sm.font-semibold.text-white.shadow-lg.shadow-flag-blue/25.transition-all.hover:brightness-90",
+            "text": "Shop Now!",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(29, 78, 216)",
+            "fontSize": 14,
+            "fontWeight": 600,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "a"
+          },
+          {
+            "selector": "footer.px-4.py-6.text-center.text-[10px].text-muted",
+            "text": "All product images are for demonstration purposes and sourced from royalty-free stock photography. Sari-Sari does not cl",
+            "foreground": "rgb(108, 117, 125)",
+            "background": "rgb(13, 11, 10)",
+            "fontSize": 10,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 15,
+            "tagName": "footer"
+          },
+          {
+            "selector": "span.text-base",
+            "text": "🎮",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(29, 78, 216)",
+            "fontSize": 16,
+            "fontWeight": 600,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "span"
+          }
+        ]
+      }
+    },
+    {
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "wcag": {
+        "totalElements": 11,
+        "failures": [
+          {
+            "selector": "p.mt-2.text-muted",
+            "text": "Start shopping at Sari-Sari!",
+            "foreground": "#6c757d",
+            "background": "#fff8f0",
+            "contrastRatio": 4.45,
+            "required": 4.5,
+            "fontSize": 16,
+            "isLarge": false
+          },
+          {
+            "selector": "footer.px-4.py-6.text-center.text-[10px].text-muted",
+            "text": "All product images are for demonstration purposes and sourced from royalty-free stock photography. Sari-Sari does not cl",
+            "foreground": "#6c757d",
+            "background": "#fff8f0",
+            "contrastRatio": 4.45,
+            "required": 4.5,
+            "fontSize": 10,
+            "isLarge": false
+          }
+        ],
+        "passCount": 9,
+        "failCount": 2,
+        "score": 81.8,
+        "_elements": [
+          {
+            "selector": "span.text-xl.font-bold.tracking-tight.text-flag-blue",
+            "text": "Sari-Sari",
+            "foreground": "rgb(0, 56, 168)",
+            "background": "oklab(0.982348 0.00420091 0.0123213 / 0.9)",
+            "fontSize": 20,
+            "fontWeight": 700,
+            "isLarge": true,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 28,
+            "tagName": "span"
+          },
+          {
+            "selector": "span.hidden.text-xs.text-muted.sm:inline",
+            "text": "one store, a thousand items",
+            "foreground": "rgb(108, 117, 125)",
+            "background": "oklab(0.982348 0.00420091 0.0123213 / 0.9)",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 16,
+            "tagName": "span"
+          },
+          {
+            "selector": "a.text-sm.font-medium.text-stone-600.transition-colors.hover:text-muted.dark:text-muted.dark:hover:text-muted",
+            "text": "Products",
+            "foreground": "lab(35.5168 1.08606 4.07829)",
+            "background": "oklab(0.982348 0.00420091 0.0123213 / 0.9)",
+            "fontSize": 14,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "a"
+          },
+          {
+            "selector": "a.text-sm.font-medium.text-stone-600.transition-colors.hover:text-muted.dark:text-muted.dark:hover:text-muted",
+            "text": "Orders",
+            "foreground": "lab(35.5168 1.08606 4.07829)",
+            "background": "oklab(0.982348 0.00420091 0.0123213 / 0.9)",
+            "fontSize": 14,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "a"
+          },
+          {
+            "selector": "a.text-sm.font-medium.text-flag-blue.transition-colors.hover:underline",
+            "text": "Sign In",
+            "foreground": "rgb(0, 56, 168)",
+            "background": "oklab(0.982348 0.00420091 0.0123213 / 0.9)",
+            "fontSize": 14,
+            "fontWeight": 500,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "a"
+          },
+          {
+            "selector": "span.text-6xl",
+            "text": "🛒",
+            "foreground": "rgb(26, 26, 26)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 60,
+            "fontWeight": 400,
+            "isLarge": true,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 60,
+            "tagName": "span"
+          },
+          {
+            "selector": "h1.mt-6.text-2xl.font-bold",
+            "text": "Your cart is empty.",
+            "foreground": "rgb(26, 26, 26)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 24,
+            "fontWeight": 700,
+            "isLarge": true,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 32,
+            "tagName": "h1"
+          },
+          {
+            "selector": "p.mt-2.text-muted",
+            "text": "Start shopping at Sari-Sari!",
+            "foreground": "rgb(108, 117, 125)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "p"
+          },
+          {
+            "selector": "a.mt-6.inline-flex.h-11.items-center.justify-center.rounded-xl.bg-flag-blue.px-6.text-sm.font-semibold.text-white.shadow-lg.shadow-flag-blue/25.transition-all.hover:brightness-90",
+            "text": "Shop Now!",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(0, 56, 168)",
+            "fontSize": 14,
+            "fontWeight": 600,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 20,
+            "tagName": "a"
+          },
+          {
+            "selector": "footer.px-4.py-6.text-center.text-[10px].text-muted",
+            "text": "All product images are for demonstration purposes and sourced from royalty-free stock photography. Sari-Sari does not cl",
+            "foreground": "rgb(108, 117, 125)",
+            "background": "rgb(255, 248, 240)",
+            "fontSize": 10,
+            "fontWeight": 400,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 15,
+            "tagName": "footer"
+          },
+          {
+            "selector": "span.text-base",
+            "text": "🎮",
+            "foreground": "rgb(255, 255, 255)",
+            "background": "rgb(0, 56, 168)",
+            "fontSize": 16,
+            "fontWeight": 600,
+            "isLarge": false,
+            "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "lineHeight": 24,
+            "tagName": "span"
+          }
+        ]
+      }
+    }
+  ],
+  "wcag": {
+    "totalElements": 22,
+    "failures": [
+      {
+        "selector": "p.mt-2.text-muted",
+        "text": "Start shopping at Sari-Sari!",
+        "foreground": "#6c757d",
+        "background": "#0d0b0a",
+        "contrastRatio": 4.19,
+        "required": 4.5,
+        "fontSize": 16,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          }
+        ]
+      },
+      {
+        "selector": "footer.px-4.py-6.text-center.text-[10px].text-muted",
+        "text": "All product images are for demonstration purposes and sourced from royalty-free stock photography. Sari-Sari does not cl",
+        "foreground": "#6c757d",
+        "background": "#0d0b0a",
+        "contrastRatio": 4.19,
+        "required": 4.5,
+        "fontSize": 10,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 1280,
+            "height": 800
+          }
+        ]
+      },
+      {
+        "selector": "p.mt-2.text-muted",
+        "text": "Start shopping at Sari-Sari!",
+        "foreground": "#6c757d",
+        "background": "#fff8f0",
+        "contrastRatio": 4.45,
+        "required": 4.5,
+        "fontSize": 16,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      },
+      {
+        "selector": "footer.px-4.py-6.text-center.text-[10px].text-muted",
+        "text": "All product images are for demonstration purposes and sourced from royalty-free stock photography. Sari-Sari does not cl",
+        "foreground": "#6c757d",
+        "background": "#fff8f0",
+        "contrastRatio": 4.45,
+        "required": 4.5,
+        "fontSize": 10,
+        "isLarge": false,
+        "viewports": [
+          {
+            "width": 375,
+            "height": 812
+          }
+        ]
+      }
+    ],
+    "passCount": 22,
+    "failCount": 4,
+    "score": 81.8
+  },
+  "design": {
+    "failures": [
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "span.hidden.text-xs.text-muted.sm:inline",
+        "description": "Text \"one store, a thousand items\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "span.hidden.text-xs.text-muted.sm:inline",
+        "description": "\"one store, a thousand items\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "a.text-sm.font-medium.text-stone-600.transition-colors.hover:text-muted.dark:text-muted.dark:hover:text-muted",
+        "description": "Text \"Products\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "a.text-sm.font-medium.text-stone-600.transition-colors.hover:text-muted.dark:text-muted.dark:hover:text-muted",
+        "description": "Text \"Orders\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "a.text-sm.font-medium.text-flag-blue.transition-colors.hover:underline",
+        "description": "Text \"Sign In\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "span.text-6xl",
+        "description": "\"🛒\" has line-height 1.00 (60px at 60px font)",
+        "severity": "high",
+        "value": "1.00",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "a.mt-6.inline-flex.h-11.items-center.justify-center.rounded-xl.bg-flag-blue.px-6.text-sm.font-semibold.text-white.shadow-lg.shadow-flag-blue/25.transition-all.hover:brightness-90",
+        "description": "Text \"Shop Now!\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "empty-interactive",
+        "ruleName": "Interactive elements must have accessible name",
+        "category": "interactivity",
+        "selector": "a",
+        "description": "a has no text content or aria-label",
+        "severity": "high",
+        "value": "no accessible name",
+        "expected": "text content or aria-label"
+      },
+      {
+        "ruleId": "empty-interactive",
+        "ruleName": "Interactive elements must have accessible name",
+        "category": "interactivity",
+        "selector": "button",
+        "description": "button has no text content or aria-label",
+        "severity": "high",
+        "value": "no accessible name",
+        "expected": "text content or aria-label"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "span.hidden.text-xs.text-muted.sm:inline",
+        "description": "Text \"one store, a thousand items\" has font-size 12px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "12px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "span.hidden.text-xs.text-muted.sm:inline",
+        "description": "\"one store, a thousand items\" has line-height 1.33 (16px at 12px font)",
+        "severity": "medium",
+        "value": "1.33",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "a.text-sm.font-medium.text-stone-600.transition-colors.hover:text-muted.dark:text-muted.dark:hover:text-muted",
+        "description": "Text \"Products\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "a.text-sm.font-medium.text-stone-600.transition-colors.hover:text-muted.dark:text-muted.dark:hover:text-muted",
+        "description": "Text \"Orders\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "a.text-sm.font-medium.text-flag-blue.transition-colors.hover:underline",
+        "description": "Text \"Sign In\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "line-height-readable",
+        "ruleName": "Line height between 1.4 and 1.6",
+        "category": "typography",
+        "selector": "span.text-6xl",
+        "description": "\"🛒\" has line-height 1.00 (60px at 60px font)",
+        "severity": "high",
+        "value": "1.00",
+        "expected": "1.4–1.6"
+      },
+      {
+        "ruleId": "font-size-legible",
+        "ruleName": "Body text minimum 16px",
+        "category": "typography",
+        "selector": "a.mt-6.inline-flex.h-11.items-center.justify-center.rounded-xl.bg-flag-blue.px-6.text-sm.font-semibold.text-white.shadow-lg.shadow-flag-blue/25.transition-all.hover:brightness-90",
+        "description": "Text \"Shop Now!\" has font-size 14px; minimum for legible body text is 16px",
+        "severity": "medium",
+        "value": "14px",
+        "expected": "≥ 16px"
+      },
+      {
+        "ruleId": "empty-interactive",
+        "ruleName": "Interactive elements must have accessible name",
+        "category": "interactivity",
+        "selector": "a",
+        "description": "a has no text content or aria-label",
+        "severity": "high",
+        "value": "no accessible name",
+        "expected": "text content or aria-label"
+      },
+      {
+        "ruleId": "empty-interactive",
+        "ruleName": "Interactive elements must have accessible name",
+        "category": "interactivity",
+        "selector": "button",
+        "description": "button has no text content or aria-label",
+        "severity": "high",
+        "value": "no accessible name",
+        "expected": "text content or aria-label"
+      }
+    ],
+    "totalChecks": 18,
+    "passCount": 0,
+    "failCount": 18,
+    "score": 0
+  },
+  "timedOut": false
+}

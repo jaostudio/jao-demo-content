@@ -8,7 +8,7 @@ export async function Hero() {
   const t = await getTranslations('hero')
 
   return (
-    <section className="relative flex min-h-[100svh] items-center overflow-hidden">
+    <section className="relative pt-20 lg:pt-28 lg:min-h-[100svh] lg:flex lg:items-center">
       <div
         className="pointer-events-none absolute inset-0"
         style={{
@@ -17,28 +17,30 @@ export async function Hero() {
         }}
       />
 
-      <LayeredFrame className="pt-20 lg:pt-28" glow>
+      <LayeredFrame glow>
         <div className="grid gap-6 lg:gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
-          <div className="flex flex-col gap-5 md:gap-9">
-            <div>
+          <div className="order-1 lg:order-2">
+            <HeroVisual />
+          </div>
+
+          <div className="order-2 lg:hidden flex flex-wrap gap-2 justify-center">
+            <span className="rounded-full border border-accent-warm/20 bg-accent-warm-soft px-3 py-1 text-sm text-accent-warm">
+              {t('availability')}
+            </span>
+          </div>
+
+          <div className="flex flex-col gap-4 md:gap-9 order-3 lg:order-1 text-center items-center lg:text-left lg:items-start">
+            <div className="hidden md:block">
               <Badge variant="accent">{t('badge')}</Badge>
             </div>
 
-            <div className="flex flex-col gap-3 md:gap-4">
+            <div className="flex flex-col gap-2 md:gap-4">
               <h1 className="max-w-4xl text-[var(--text-hero)] font-[var(--weight-medium)] leading-[var(--leading-display)] tracking-[var(--tracking-tight)] text-text-primary">
                 {t('headline')}
               </h1>
               <p className="max-w-2xl text-[var(--text-body)] leading-[var(--leading-relaxed)] text-text-secondary">
                 {t('subtitle')}
               </p>
-              <div className="flex flex-wrap gap-2 max-sm:hidden">
-                <span className="rounded-full border border-accent-warm/20 bg-accent-warm-soft px-3 py-1 text-sm text-accent-warm">
-                  {t('availability')}
-                </span>
-                <span className="rounded-full border border-border bg-surface-hover px-3 py-1 text-sm text-text-tertiary">
-                  {t('notForEveryoneBadge')}
-                </span>
-              </div>
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
@@ -61,12 +63,16 @@ export async function Hero() {
               </Button>
             </div>
 
+            <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
+              <span className="rounded-full border border-border bg-surface-hover px-3 py-1 text-sm text-text-tertiary">
+                {t('notForEveryoneBadge')}
+              </span>
+            </div>
+
             <p className="max-w-lg text-xs leading-relaxed text-text-tertiary/70">
               {t('notForEveryoneDetail')}
             </p>
           </div>
-
-          <HeroVisual />
         </div>
       </LayeredFrame>
     </section>

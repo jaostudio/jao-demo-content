@@ -169,6 +169,7 @@ export interface StudioContract {
 
 export interface ServicesContract {
   heroBadge: string
+  heroTitle: string
   heroDesc: string
   stage1: string
   stage1Timeline: string
