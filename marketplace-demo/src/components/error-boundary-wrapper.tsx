@@ -11,10 +11,10 @@ function Fallback({ error, resetErrorBoundary }: FallbackProps) {
         <Leaf className="h-8 w-8 text-red-500" />
       </div>
       <h2 className="mt-6 font-serif text-2xl font-bold text-neutral-800 dark:text-neutral-100">
-        Something went wrong
+        Oops, something went wrong
       </h2>
       <p className="mt-2 text-sm text-neutral-500">
-        {(error instanceof Error ? error.message : 'An unexpected error occurred.')}
+        {(error instanceof Error ? error.message : "That wasn't supposed to happen. Want to try again?")}
       </p>
       <div className="mt-6 flex gap-3">
         <button

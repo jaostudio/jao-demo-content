@@ -2,6 +2,13 @@ import { getSessionUser } from '@/lib/auth'
 import { redirect } from 'next/navigation'
 import { getVendorBookings } from '@/lib/actions/booking'
 import { BookingActions } from './booking-actions'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Bookings | Palengkee',
+  description: 'View and manage your service bookings.',
+  robots: { index: false, follow: false },
+}
 
 function StatusBadge({ status }: { status: string }) {
   const styles: Record<string, string> = {

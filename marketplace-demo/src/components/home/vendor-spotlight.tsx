@@ -73,7 +73,7 @@ export function VendorSpotlight({ vendors }: VendorSpotlightProps) {
             The hands behind every piece
           </h2>
           <p className="mt-2 max-w-xl text-sm text-neutral-600 dark:text-neutral-400">
-            Six artisan families. Generations of craft. Direct from the Philippines.
+            Local sellers from across the Philippines. Fresh produce, pantry staples, and home essentials.
           </p>
         </div>
         <div className="flex shrink-0 items-center gap-2">
@@ -140,7 +140,7 @@ function VendorCard({
         <div className="flex items-start gap-4">
           {vendor.avatarUrl ? (
             <Image
-              src={vendor.avatarUrl}
+              src={`${vendor.avatarUrl}?v=3`}
               alt={vendor.name}
               width={64}
               height={64}
@@ -172,7 +172,7 @@ function VendorCard({
 
         <div className="mt-4 flex items-center justify-between border-t border-neutral-100 pt-4 dark:border-neutral-800">
           <p className="text-xs font-semibold text-neutral-700 dark:text-neutral-300">
-            {vendor.listingCount} {vendor.listingCount === 1 ? 'piece' : 'pieces'}
+            {vendor.listingCount} {vendor.listingCount === 1 ? 'product' : 'products'}
           </p>
           <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary-600 transition-transform group-hover:translate-x-0.5 dark:text-primary-400">
             Visit store

@@ -2,6 +2,13 @@ import { getSessionUser } from '@/lib/auth'
 import { redirect } from 'next/navigation'
 import { prisma } from '@/lib/prisma'
 import { Download } from 'lucide-react'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Reports | Palengkee Admin',
+  description: 'View marketplace analytics and reports.',
+  robots: { index: false, follow: false },
+}
 
 export default async function AdminReportsPage() {
   const user = await getSessionUser()
@@ -71,7 +78,7 @@ export default async function AdminReportsPage() {
         <div className="rounded-2xl border border-neutral-200 bg-white p-5 dark:border-neutral-800 dark:bg-neutral-900">
           <p className="text-xs text-neutral-500">Avg order value</p>
           <p className="mt-1 font-serif text-2xl font-bold text-neutral-800 dark:text-neutral-100">
-            {orders.length ? `₱${(totalRevenue / orders.length / 100).toLocaleString()}` : '—'}
+            {orders.length ? `₱${(totalRevenue / orders.length / 100).toLocaleString()}` : ' - '}
           </p>
         </div>
         <div className="rounded-2xl border border-neutral-200 bg-white p-5 dark:border-neutral-800 dark:bg-neutral-900">

@@ -4,8 +4,14 @@ import { prisma } from '@/lib/prisma'
 import { ListingCard, type ListingCardData } from '@/components/listing-card'
 import Link from 'next/link'
 import { Heart } from 'lucide-react'
+import type { Metadata } from 'next'
 
 export const dynamic = 'force-dynamic'
+
+export const metadata: Metadata = {
+  title: 'Wishlist | Palengkee',
+  description: 'View your saved products and favorites.',
+}
 
 export default async function WishlistPage() {
   const user = await getSessionUser()
@@ -70,22 +76,22 @@ export default async function WishlistPage() {
         <div className="rounded-2xl border border-dashed border-neutral-300 bg-neutral-50 p-12 text-center dark:border-neutral-700 dark:bg-neutral-900">
           <Heart className="mx-auto h-12 w-12 text-neutral-300 dark:text-neutral-600" />
           <p className="mt-4 font-serif text-xl font-semibold text-neutral-700 dark:text-neutral-300">
-            Your wishlist is empty
+            Your wishlist is feeling empty
           </p>
           <p className="mt-2 text-sm text-neutral-500">
-            Save crafts you love by tapping the heart icon on any product.
+            Tap the heart on any product to save it here.
           </p>
           <Link
             href="/listings"
             className="mt-6 inline-flex h-10 items-center justify-center rounded-xl bg-primary-500 px-5 text-sm font-semibold text-white hover:bg-primary-600"
           >
-            Browse crafts
+            Browse products
           </Link>
         </div>
       ) : (
         <div className="grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3 lg:grid-cols-4">
-          {cardData.map((listing) => (
-            <ListingCard key={listing.id} listing={listing} />
+          {cardData.map((listing, i) => (
+            <ListingCard key={listing.id} listing={listing} priority={i < 4} />
           ))}
         </div>
       )}

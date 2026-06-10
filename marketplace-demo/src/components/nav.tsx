@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useSession, signOut } from 'next-auth/react'
 import { useTheme } from 'next-themes'
 import {
-  Leaf,
+  ShoppingBasket,
   ShoppingCart,
   PlusCircle,
   LayoutDashboard,
@@ -29,8 +29,10 @@ import { LanguageSwitcher } from './language-switcher'
 import { NotificationDropdown } from './notification-dropdown'
 import { MessageUnreadBadge } from './message-unread-badge'
 import { PwaInstallPrompt } from './pwa-install-prompt'
+import { useTranslations } from 'next-intl'
 
 export function Nav() {
+  const t = useTranslations('nav')
   const { data: session } = useSession()
   const realUser = session?.user as any
   const { simulatedUserId, demoUserName, demoUserRole, demoUserAvatar } = useDemoControl()
@@ -64,39 +66,39 @@ export function Nav() {
           {/* Brand */}
           <Link href="/" className="flex items-center gap-2 group">
             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary-500 text-white shadow-warm-sm transition-transform group-hover:scale-105">
-              <Leaf className="h-5 w-5" strokeWidth={2.25} />
+              <ShoppingBasket className="h-5 w-5" strokeWidth={2.25} />
             </div>
             <div className="flex flex-col leading-none">
               <span className="font-bold text-lg tracking-tight text-neutral-800 dark:text-neutral-100">
-                Likha
+                Palengkee
               </span>
               <span className="hidden sm:block text-[10px] uppercase tracking-widest text-primary-600 dark:text-primary-400 font-medium">
-                Filipino Craft
+                Fresh from your community
               </span>
             </div>
           </Link>
 
           {/* Desktop nav links */}
           <nav className="hidden md:flex items-center gap-1">
-            <NavLink href="/listings">Browse</NavLink>
+            <NavLink href="/listings">{t('browse')}</NavLink>
             {isVendor && (
               <NavLink href="/listings/create" icon={<PlusCircle className="h-4 w-4" />}>
-                Sell
+                {t('sell')}
               </NavLink>
             )}
             {user && !isVendor && !isAdmin && (
               <NavLink href="/orders" icon={<Package className="h-4 w-4" />}>
-                My Orders
+                {t('orders')}
               </NavLink>
             )}
             {(isVendor || isAdmin) && (
               <NavLink href="/dashboard" icon={<LayoutDashboard className="h-4 w-4" />}>
-                Dashboard
+                {t('dashboard')}
               </NavLink>
             )}
             {isAdmin && (
               <NavLink href="/admin" icon={<ShieldCheck className="h-4 w-4" />}>
-                Admin Panel
+                {t('admin')}
               </NavLink>
             )}
           </nav>
@@ -134,7 +136,7 @@ export function Nav() {
             {/* Cart */}
             <Link
               href="/cart"
-              aria-label="Cart"
+              aria-label="Basket"
               className="relative flex h-10 w-10 items-center justify-center rounded-xl text-neutral-600 hover:bg-neutral-100 hover:text-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-neutral-100 transition-colors"
             >
               <ShoppingCart className="h-5 w-5" />
@@ -177,25 +179,25 @@ export function Nav() {
                       </p>
                     </div>
                     <UserMenuLink href="/profile" icon={<UserIcon className="h-4 w-4" />}>
-                      My Profile
+                      {t('profile')}
                     </UserMenuLink>
                     <UserMenuLink href="/wishlist" icon={<Heart className="h-4 w-4" />}>
-                      Wishlist
+                      {t('wishlist')}
                     </UserMenuLink>
                     <UserMenuLink href="/messages" icon={<MessageSquare className="h-4 w-4" />}>
-                      Messages
+                      {t('messages')}
                     </UserMenuLink>
                     <UserMenuLink href="/orders" icon={<Package className="h-4 w-4" />}>
-                      My Orders
+                      {t('orders')}
                     </UserMenuLink>
                     {(isVendor || isAdmin) && (
                       <UserMenuLink href="/dashboard" icon={<LayoutDashboard className="h-4 w-4" />}>
-                        Dashboard
-                      </UserMenuLink>
+                      {t('dashboard')}
+                    </UserMenuLink>
                     )}
                     {isAdmin && (
                       <UserMenuLink href="/admin" icon={<ShieldCheck className="h-4 w-4" />}>
-                        Admin Panel
+                        {t('admin')}
                       </UserMenuLink>
                     )}
                     <div className="my-1 border-t border-neutral-100 dark:border-neutral-800" />
@@ -212,7 +214,7 @@ export function Nav() {
                       className="flex w-full items-center gap-2 px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-50 dark:text-neutral-300 dark:hover:bg-neutral-800 transition-colors"
                     >
                       <LogOut className="h-4 w-4" />
-                      Sign Out
+                      {t('signOut')}
                     </button>
                   </div>
                 )}
@@ -223,13 +225,13 @@ export function Nav() {
                   href="/auth/signin"
                   className="h-10 px-4 inline-flex items-center justify-center rounded-xl text-sm font-medium text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-800 transition-colors"
                 >
-                  Sign In
+                  {t('signIn')}
                 </Link>
                 <Link
                   href="/auth/register"
                   className="h-10 px-4 inline-flex items-center justify-center rounded-xl bg-primary-500 text-sm font-semibold text-white hover:bg-primary-600 shadow-warm-sm transition-colors"
                 >
-                  Join Likha
+                  {t('join')}
                 </Link>
               </div>
             )}

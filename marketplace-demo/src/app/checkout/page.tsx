@@ -113,13 +113,13 @@ export default function CheckoutPage() {
           Your cart is empty
         </h1>
         <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
-          Add some pieces before checking out.
+          Add some products before checking out.
         </p>
         <Link
           href="/listings"
           className="mt-6 inline-flex h-11 items-center justify-center rounded-xl bg-primary-500 px-6 text-sm font-semibold text-white"
         >
-          Browse crafts
+          Continue shopping
         </Link>
       </div>
     )
@@ -164,7 +164,7 @@ export default function CheckoutPage() {
         cardLast4 = card.number.replace(/\s+/g, '').slice(-4)
       } else if (paymentMethod === 'gcash') {
         if (!gcashRef || gcashRef.length < 6) {
-          setError('Please enter a valid GCash reference number')
+          setError('That GCash number doesn\'t look right')
           setPending(false)
           return
         }
@@ -201,7 +201,7 @@ export default function CheckoutPage() {
       const firstId = orderResult.orderIds[0]
       router.push(`/orders/${firstId}?success=1`)
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Something went wrong')
+      setError(err instanceof Error ? err.message : 'Oops, something went wrong')
       setPending(false)
     }
   }
@@ -465,7 +465,7 @@ export default function CheckoutPage() {
               {paymentMethod === 'gcash' && (
                 <div className="grid gap-4 rounded-xl border border-neutral-200 bg-white p-4 sm:grid-cols-[140px_1fr] dark:border-neutral-700 dark:bg-neutral-900">
                   <div className="flex flex-col items-center justify-center gap-2 rounded-xl bg-neutral-50 p-4 dark:bg-neutral-800">
-                    <div className="grid h-32 w-32 grid-cols-8 gap-px rounded-lg bg-white p-2 dark:bg-neutral-900">
+                    <div className="grid h-32 w-32 grid-cols-8 gap-px rounded-lg bg-white p-2">
                       {Array.from({ length: 64 }).map((_, i) => (
                         <div
                           key={i}
@@ -534,7 +534,7 @@ export default function CheckoutPage() {
             ) : (
               <>
                 <Lock className="h-4 w-4" />
-                Place order — <Price amountCents={grandTotal} />
+                Place order - <Price amountCents={grandTotal} />
               </>
             )}
           </button>
@@ -548,7 +548,7 @@ export default function CheckoutPage() {
             </h2>
             <p className="mt-1 text-xs text-neutral-500">
               {cartItems.length} {cartItems.length === 1 ? 'item' : 'items'} from{' '}
-              {distinctVendorCount} {distinctVendorCount === 1 ? 'artisan' : 'artisans'}
+              {distinctVendorCount} {distinctVendorCount === 1 ? 'vendor' : 'vendors'}
             </p>
 
             <ul className="mt-4 space-y-3 max-h-72 overflow-y-auto pr-1">

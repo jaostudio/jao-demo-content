@@ -12,14 +12,14 @@ interface Stat {
 }
 
 interface StatsCounterProps {
-  artisanCount: number
+  vendorCount: number
   productCount: number
   regionCount: number
   buyerCount: number
 }
 
 export function StatsCounter({
-  artisanCount,
+  vendorCount,
   productCount,
   regionCount,
   buyerCount,
@@ -27,10 +27,10 @@ export function StatsCounter({
   const reduce = useReducedMotion()
 
   const stats: Stat[] = [
-    { value: artisanCount, label: 'Artisan families', icon: Users },
-    { value: productCount, label: 'Unique pieces', icon: Package },
-    { value: regionCount, label: 'Regions of PH', icon: MapPin },
-    { value: buyerCount, label: 'Happy buyers', suffix: '+', icon: Heart },
+    { value: vendorCount, label: 'Active vendors', icon: Users },
+    { value: productCount, label: 'Products available', icon: Package },
+    { value: regionCount, label: 'Cities covered', icon: MapPin },
+    { value: buyerCount, label: 'Happy customers', suffix: '+', icon: Heart },
   ]
 
   return (

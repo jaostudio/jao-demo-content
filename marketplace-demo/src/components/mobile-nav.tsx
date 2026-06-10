@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useSession, signOut } from 'next-auth/react'
@@ -16,11 +17,12 @@ import {
   LogIn,
   UserPlus,
   LogOut,
-  Leaf,
+  ShoppingBasket,
 } from 'lucide-react'
 import { useCart } from '@/lib/store/cart'
 import { useDemoControl } from '@/lib/store/demo-control'
 import { LanguageSwitcher } from './language-switcher'
+import { useTranslations } from 'next-intl'
 
 interface MobileNavProps {
   open: boolean
@@ -33,6 +35,16 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
   const { simulatedUserId, demoUserName, demoUserRole, demoUserAvatar } = useDemoControl()
   const user = realUser ?? (simulatedUserId ? { name: demoUserName, role: demoUserRole, email: simulatedUserId, image: demoUserAvatar } : null)
   const itemCount = useCart((s) => s.itemCount())
+  const t = useTranslations('nav')
+
+  useEffect(() => {
+    if (!open) return
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose()
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [open, onClose])
 
   const isVendor = user?.role === 'VENDOR'
   const isAdmin = user?.role === 'ADMIN'
@@ -58,9 +70,9 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
         <div className="flex h-16 items-center justify-between border-b border-neutral-200 px-4 dark:border-neutral-800">
           <Link href="/" onClick={onClose} className="flex items-center gap-2">
             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary-500 text-white">
-              <Leaf className="h-5 w-5" strokeWidth={2.25} />
+              <ShoppingBasket className="h-5 w-5" strokeWidth={2.25} />
             </div>
-            <span className="font-bold text-lg text-neutral-800 dark:text-neutral-100">Likha</span>
+            <span className="font-bold text-lg text-neutral-800 dark:text-neutral-100">Palengkee</span>
           </Link>
           <button
             onClick={onClose}
@@ -97,13 +109,13 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
 
           <nav className="space-y-0.5">
             <MobileNavLink href="/" onClick={onClose} icon={<Home className="h-5 w-5" />}>
-              Home
+              {t('home')}
             </MobileNavLink>
             <MobileNavLink href="/listings" onClick={onClose} icon={<Package className="h-5 w-5" />}>
-              Browse Crafts
+              {t('browse')}
             </MobileNavLink>
             <MobileNavLink href="/cart" onClick={onClose} icon={<ShoppingCart className="h-5 w-5" />}>
-              <span className="flex-1">Cart</span>
+              <span className="flex-1">{t('cart')}</span>
               {itemCount > 0 && (
                 <span className="rounded-full bg-primary-500 px-2 py-0.5 text-[10px] font-bold text-white">
                   {itemCount}
@@ -112,36 +124,36 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
             </MobileNavLink>
             {user && (
               <MobileNavLink href="/wishlist" onClick={onClose} icon={<Heart className="h-5 w-5" />}>
-                Wishlist
+                {t('wishlist')}
               </MobileNavLink>
             )}
             {user && (
               <MobileNavLink href="/messages" onClick={onClose} icon={<MessageSquare className="h-5 w-5" />}>
-                Messages
+                {t('messages')}
               </MobileNavLink>
             )}
             {user && !isVendor && !isAdmin && (
               <MobileNavLink href="/orders" onClick={onClose} icon={<Package className="h-5 w-5" />}>
-                My Orders
+                {t('orders')}
               </MobileNavLink>
             )}
             {isVendor && (
               <>
                 <MobileNavLink href="/listings/create" onClick={onClose} icon={<PlusCircle className="h-5 w-5" />}>
-                  Create Listing
+                  {t('sell')}
                 </MobileNavLink>
                 <MobileNavLink href="/dashboard" onClick={onClose} icon={<LayoutDashboard className="h-5 w-5" />}>
-                  Dashboard
+                  {t('dashboard')}
                 </MobileNavLink>
               </>
             )}
             {isAdmin && (
               <>
                 <MobileNavLink href="/dashboard" onClick={onClose} icon={<LayoutDashboard className="h-5 w-5" />}>
-                  Dashboard
+                  {t('dashboard')}
                 </MobileNavLink>
                 <MobileNavLink href="/admin" onClick={onClose} icon={<ShieldCheck className="h-5 w-5" />}>
-                  Admin Panel
+                  {t('admin')}
                 </MobileNavLink>
               </>
             )}
@@ -171,7 +183,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
               className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-800"
             >
               <LogOut className="h-5 w-5" />
-              Sign Out
+              {t('signOut')}
             </button>
           ) : (
             <div className="space-y-2">
@@ -181,7 +193,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
                 className="flex items-center justify-center gap-2 rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm font-semibold text-neutral-800 hover:bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-100 dark:hover:bg-neutral-900"
               >
                 <LogIn className="h-4 w-4" />
-                Sign In
+                {t('signIn')}
               </Link>
               <Link
                 href="/auth/register"
@@ -189,7 +201,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
                 className="flex items-center justify-center gap-2 rounded-xl bg-primary-500 px-4 py-3 text-sm font-semibold text-white hover:bg-primary-600 shadow-warm-sm"
               >
                 <UserPlus className="h-4 w-4" />
-                Join Likha
+                {t('join')}
               </Link>
             </div>
           )}

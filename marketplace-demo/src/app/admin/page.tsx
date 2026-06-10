@@ -3,6 +3,13 @@ import { redirect } from 'next/navigation'
 import { prisma } from '@/lib/prisma'
 import Link from 'next/link'
 import { Users, ShoppingBag, Package, TrendingUp, ListOrdered, Tag, Settings, Percent, Zap, FileText } from 'lucide-react'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Admin | Palengkee',
+  description: 'Admin dashboard for managing the marketplace.',
+  robots: { index: false, follow: false },
+}
 
 export default async function AdminDashboardPage() {
   const user = await getSessionUser()

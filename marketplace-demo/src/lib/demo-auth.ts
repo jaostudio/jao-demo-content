@@ -8,7 +8,8 @@ export async function getDemoSession(): Promise<SessionUser | null> {
   if (!DEMO_MODE) return null
 
   const c = await cookies()
-  const userEmail = c.get('demo_user_email')?.value
+  const raw = c.get('demo_user_email')?.value
+  const userEmail = raw ? decodeURIComponent(raw) : null
 
   if (userEmail) {
     const user = await prisma.user.findUnique({

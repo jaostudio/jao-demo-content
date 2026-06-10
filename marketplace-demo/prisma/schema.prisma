@@ -115,6 +115,12 @@ model Listing {
   wishlist  WishlistItem[]
   bundleItems BundleItem[]
   variants    ListingVariant[]
+
+  @@index([vendorId])
+  @@index([status, categoryId])
+  @@index([status, price])
+  @@index([status, createdAt])
+  @@index([vendorId, stock])
 }
 
 model ListingImage {
@@ -169,6 +175,7 @@ model Review {
   createdAt DateTime @default(now())
 
   @@unique([listingId, authorId])
+  @@index([listingId, rating])
 }
 
 model Booking {
@@ -212,6 +219,10 @@ model Order {
   createdAt        DateTime         @default(now())
 
   items OrderItem[]
+
+  @@index([vendorId])
+  @@index([vendorId, paymentState])
+  @@index([vendorId, createdAt])
 }
 
 model OrderItem {
@@ -327,4 +338,5 @@ model Message {
   createdAt      DateTime     @default(now())
 
   @@index([conversationId, createdAt])
+  @@index([conversationId, senderId, isRead])
 }

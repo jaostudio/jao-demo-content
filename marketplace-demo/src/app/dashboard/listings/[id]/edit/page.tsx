@@ -2,6 +2,13 @@ import { getSessionUser } from '@/lib/auth'
 import { redirect, notFound } from 'next/navigation'
 import { prisma } from '@/lib/prisma'
 import { EditListingForm } from '@/components/vendor/edit-listing-form'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Edit Listing | Palengkee',
+  description: 'Edit your product listing.',
+  robots: { index: false, follow: false },
+}
 
 export default async function EditListingPage({
   params,

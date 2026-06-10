@@ -2,6 +2,12 @@ import { notFound } from 'next/navigation'
 import { prisma } from '@/lib/prisma'
 import { getSessionUser } from '@/lib/auth'
 import { BookingForm } from './booking-form'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Book a Service | Palengkee',
+  description: 'Schedule a service booking.',
+}
 
 export default async function BookingPage({ params }: { params: Promise<{ listingId: string }> }) {
   const { listingId } = await params

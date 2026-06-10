@@ -55,7 +55,7 @@ export function FlashSaleManager({ listings }: { listings: ListingItem[] }) {
                 {l.isFlashSale && <span className="ml-2 rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-medium text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">On sale</span>}
               </p>
               <p className="text-xs text-neutral-500">
-                ₱{(l.price / 100).toFixed(2)} — {l.vendorName}
+                ₱{(l.price / 100).toFixed(2)} - {l.vendorName}
                 {l.flashSalePrice && <span className="ml-2 text-amber-600">Flash: ₱{(l.flashSalePrice / 100).toFixed(2)}</span>}
                 {l.flashSaleEnds && <span className="ml-2">until {new Date(l.flashSaleEnds).toLocaleDateString()}</span>}
               </p>

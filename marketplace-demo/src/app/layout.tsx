@@ -9,13 +9,13 @@ import { AuthProvider } from '@/components/auth-provider'
 import { IntlProvider } from '@/components/intl-provider'
 import { Nav } from '@/components/nav'
 import { Footer } from '@/components/footer'
-import { PageViewTracker } from '@/components/page-view-tracker'
 import { DemoBanner } from '@/components/demo-banner'
 import { Toaster } from 'sonner'
 import { ErrorBoundaryWrapper } from '@/components/error-boundary-wrapper'
-import { AbandonedCartTracker } from '@/components/abandoned-cart-tracker'
-import { ServiceWorkerRegister } from '@/components/service-worker-register'
 
+const PageViewTracker = dynamic(() => import('@/components/page-view-tracker').then(m => m.PageViewTracker))
+const AbandonedCartTracker = dynamic(() => import('@/components/abandoned-cart-tracker').then(m => m.AbandonedCartTracker))
+const ServiceWorkerRegister = dynamic(() => import('@/components/service-worker-register').then(m => m.ServiceWorkerRegister))
 const DemoControlPanel = dynamic(() => import('@/components/demo-control-panel').then(m => m.DemoControlPanel))
 const LiveChatWidget = dynamic(() => import('@/components/live-chat-widget').then(m => m.LiveChatWidget))
 
@@ -23,25 +23,34 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair' })
 
 export const metadata: Metadata = {
-  title: 'Likha — Discover Filipino Craft',
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL ?? 'https://palengkee.com'),
+  title: 'Palengkee - Fresh from your community',
   description:
-    'A multi-vendor marketplace for authentic Filipino artisan goods. Handwoven textiles, pottery, woodcraft, artisan food, and more — direct from island makers.',
-  keywords: ['marketplace', 'Filipino', 'artisan', 'handmade', 'Philippines', 'craft'],
-  authors: [{ name: 'Likha' }],
+    'Multi-vendor marketplace for fresh produce, local essentials, and everyday goods - direct from Filipino communities to your door.',
+  keywords: ['marketplace', 'Philippines', 'fresh produce', 'local', 'sari-sari', 'groceries', 'delivery'],
+  authors: [{ name: 'Palengkee' }],
   robots: { index: true, follow: true },
   openGraph: {
-    title: 'Likha — Discover Filipino Craft',
-    description: 'Authentic artisanal goods, straight from the islands.',
+    title: 'Palengkee - Fresh from your community',
+    description: 'Local produce, everyday essentials, and honest prices - delivered to your door.',
     type: 'website',
     locale: 'en_PH',
-    siteName: 'Likha',
+    siteName: 'Palengkee',
+    url: 'https://palengkee.com',
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Palengkee - Fresh from your community',
+    description: 'Local produce, everyday essentials, and honest prices - delivered to your door.',
+    images: ['/og-image.png'],
   },
 }
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#FDF8F2' },
-    { media: '(prefers-color-scheme: dark)', color: '#0D0A07' },
+    { media: '(prefers-color-scheme: light)', color: '#F8F6F2' },
+    { media: '(prefers-color-scheme: dark)', color: '#12100E' },
   ],
 }
 
@@ -58,13 +67,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link rel="manifest" href="/manifest.json" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <Script
-          id="suppress-react-theme-warning"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html: 'if(!console._themeSuppressed){console._themeSuppressed=true;var _ce=console.error;console.error=function(){if(arguments[0]&&typeof arguments[0]==="string"&&arguments[0].indexOf("Encountered a script tag while rendering React component")!==-1)return;_ce.apply(console,arguments)}}',
-          }}
-        />
+        {/* suppress-react-theme-warning removed — the Script caused the very console.error it tried to hide */}
       </head>
       <body className={`${inter.variable} ${playfair.variable} font-sans min-h-screen bg-neutral-50 text-neutral-800 antialiased dark:bg-neutral-950 dark:text-neutral-100`}>
         <a

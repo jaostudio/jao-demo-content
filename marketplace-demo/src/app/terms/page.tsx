@@ -1,4 +1,10 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Terms of Service | Palengkee',
+  description: 'Palengkee terms of service and conditions for buyers and vendors.',
+}
 
 export default function TermsPage() {
   return (

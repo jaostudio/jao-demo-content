@@ -28,13 +28,13 @@ function openPackingSlip({ orderNumber, buyerName, buyerEmail, items }: { orderN
   </style></head><body>
     <h1>Packing Slip</h1>
     <p>Order #${orderNumber}</p>
-    <p class="meta">Ship to: ${buyerName ?? '—'}${buyerEmail ? ` (${buyerEmail})` : ''}</p>
+    <p class="meta">Ship to: ${buyerName ?? ' - '}${buyerEmail ? ` (${buyerEmail})` : ''}</p>
     <table><thead><tr><th>Item</th><th>Qty</th></tr></thead><tbody>
     ${(items ?? []).map(i => `<tr><td>${i.name}</td><td>${i.quantity}</td></tr>`).join('')}
     </tbody></table>
     <div class="checklist"><p><strong>Packing checklist:</strong></p>
     <ul>${(items ?? []).map(i => `<li>☐ ${i.name} × ${i.quantity}</li>`).join('')}</ul></div>
-    <div class="footer"><p>Likha Marketplace &middot; Packing slip &middot; Demo</p></div>
+    <div class="footer"><p>Palengkee &middot; Packing slip &middot; Demo</p></div>
   </body></html>`
 
   const w = window.open('', '_blank')

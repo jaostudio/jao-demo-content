@@ -6,6 +6,12 @@ import { getWishlistIds } from '@/lib/actions/wishlist'
 import { ListingCard, type ListingCardData } from '@/components/listing-card'
 import { Search, SlidersHorizontal, X } from 'lucide-react'
 import { SortSelect } from '@/components/sort-select'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Browse Products | Palengkee',
+  description: 'Browse fresh produce, local delicacies, home essentials, and more from Filipino vendors.',
+}
 
 interface ListingsPageProps {
   searchParams: Promise<{
@@ -56,6 +62,8 @@ export default async function ListingsPage({ searchParams }: ListingsPageProps) 
           by: ['listingId'],
           _avg: { rating: true },
           having: { rating: { _avg: { gte: ratingVal } } },
+          take: 200,
+          orderBy: { listingId: 'asc' },
         })
       ).map((r) => r.listingId)
       where.id = { in: listingIds }
@@ -75,6 +83,7 @@ export default async function ListingsPage({ searchParams }: ListingsPageProps) 
   const listings = await prisma.listing.findMany({
     where,
     orderBy,
+    take: 100,
     include: {
       vendor: {
         select: {
@@ -124,11 +133,11 @@ export default async function ListingsPage({ searchParams }: ListingsPageProps) 
           Browse the Marketplace
         </p>
         <h1 className="mt-2 font-serif text-4xl font-bold text-neutral-800 dark:text-neutral-100 sm:text-5xl">
-          All crafts
+          All products
         </h1>
         <p className="mt-2 text-base text-neutral-600 dark:text-neutral-400">
-          {listings.length} {listings.length === 1 ? 'piece' : 'pieces'} from
-          our artisan families.
+          {listings.length} {listings.length === 1 ? 'product' : 'products'} from
+          our vendor families.
         </p>
       </div>
 
@@ -140,7 +149,7 @@ export default async function ListingsPage({ searchParams }: ListingsPageProps) 
           <input
             name="q"
             defaultValue={q}
-          placeholder="Search crafts..."
+          placeholder="Search products..."
           className="h-12 w-full rounded-xl border border-neutral-200 bg-white pl-11 pr-4 text-sm placeholder:text-neutral-400 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-400/30 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-100"
         />
         </div>
@@ -253,7 +262,7 @@ export default async function ListingsPage({ searchParams }: ListingsPageProps) 
       {listings.length === 0 ? (
         <div className="rounded-2xl border border-dashed border-neutral-300 bg-neutral-50 p-12 text-center dark:border-neutral-700 dark:bg-neutral-900">
           <p className="font-serif text-xl font-semibold text-neutral-700 dark:text-neutral-300">
-            No crafts found
+            No products found
           </p>
           <p className="mt-2 text-sm text-neutral-500">
             Try a different search term or browse all categories.
@@ -267,8 +276,8 @@ export default async function ListingsPage({ searchParams }: ListingsPageProps) 
         </div>
       ) : (
         <div className="grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3 lg:grid-cols-4">
-          {cardData.map((listing) => (
-            <ListingCard key={listing.id} listing={listing} />
+          {cardData.map((listing, i) => (
+            <ListingCard key={listing.id} listing={listing} priority={i < 4} />
           ))}
         </div>
       )}

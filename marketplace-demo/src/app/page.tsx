@@ -4,16 +4,23 @@ import { getWishlistIds } from '@/lib/actions/wishlist'
 import nextDynamic from 'next/dynamic'
 import { HeroSection } from '@/components/home/hero-section'
 import { CategoryGrid } from '@/components/home/category-grid'
-import { FeaturedListings } from '@/components/home/featured-listings'
 import { VendorSpotlight } from '@/components/home/vendor-spotlight'
 import { RecentlyViewed } from '@/components/recently-viewed'
 import type { ListingCardData } from '@/components/listing-card'
+import type { Metadata } from 'next'
 
+const FeaturedListings = nextDynamic(() => import('@/components/home/featured-listings').then(m => m.FeaturedListings))
 const StatsCounter = nextDynamic(() => import('@/components/home/stats-counter').then(m => m.StatsCounter))
-const WhyLikha = nextDynamic(() => import('@/components/home/why-likha').then(m => m.WhyLikha))
+const WhyPalengkee = nextDynamic(() => import('@/components/home/why-palengkee').then(m => m.WhyPalengkee))
 const NewsletterCta = nextDynamic(() => import('@/components/home/newsletter-cta').then(m => m.NewsletterCta))
 
-export const dynamic = 'force-dynamic'
+export const revalidate = 60
+
+export const metadata: Metadata = {
+  title: 'Palengkee - Fresh from your community',
+  description:
+    'Multi-vendor marketplace for fresh produce, local essentials, and everyday goods - direct from Filipino communities to your door.',
+}
 
 export default async function HomePage() {
   const [sessionUser, categoriesRaw, featuredRaw, vendorsRaw, buyerCount, allListingsRaw] =
@@ -54,6 +61,7 @@ export default async function HomePage() {
       prisma.user.count({ where: { role: 'BUYER' } }),
       prisma.listing.findMany({
         where: { status: 'APPROVED' },
+        take: 100,
         select: { id: true, slug: true, title: true, price: true, images: { orderBy: { sortOrder: 'asc' }, take: 1, select: { url: true } } },
       }),
     ])
@@ -121,12 +129,12 @@ export default async function HomePage() {
       <RecentlyViewed listings={recentListings} />
       <VendorSpotlight vendors={vendors} />
       <StatsCounter
-        artisanCount={vendors.length}
+        vendorCount={vendors.length}
         productCount={featuredRaw.length}
         regionCount={Math.max(distinctLocations.size, 1) + 4}
         buyerCount={Math.max(buyerCount, 1000) * 5}
       />
-      <WhyLikha />
+      <WhyPalengkee />
       <NewsletterCta />
     </>
   )

@@ -59,7 +59,7 @@ export function AddToCartButton({ listing, isService, variants = [] }: AddToCart
       listingId: listing.id,
       vendorId: listing.vendorId,
       vendorName: listing.vendorName,
-      name: selectedVariant ? `${listing.title} — ${selectedVariant}` : listing.title,
+      name: selectedVariant ? `${listing.title} - ${selectedVariant}` : listing.title,
       price: effectivePrice,
       imageUrl: listing.imageUrl,
       quantity: 1,
@@ -68,7 +68,7 @@ export function AddToCartButton({ listing, isService, variants = [] }: AddToCart
     setTimeout(() => {
       setAdded(true)
       setPending(false)
-      toast.success('Added to cart')
+      toast.success('Added to basket')
       setTimeout(() => setAdded(false), 1800)
     }, 200)
   }
@@ -162,7 +162,7 @@ export function AddToCartButton({ listing, isService, variants = [] }: AddToCart
         ) : added ? (
           <>
             <Check className="h-5 w-5" />
-            Added to cart
+            Added to basket
           </>
         ) : (
           <>
@@ -171,7 +171,7 @@ export function AddToCartButton({ listing, isService, variants = [] }: AddToCart
               ? 'Select an option'
               : outOfStock
                 ? 'Out of stock'
-                : 'Add to cart'}
+                : 'Add to basket'}
           </>
         )}
       </button>
@@ -179,7 +179,7 @@ export function AddToCartButton({ listing, isService, variants = [] }: AddToCart
         href="/cart"
         className="inline-flex h-11 w-full items-center justify-center rounded-2xl border border-neutral-300 bg-white text-sm font-semibold text-neutral-800 transition-colors hover:bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100 dark:hover:bg-neutral-800"
       >
-        View cart
+        View basket
       </Link>
     </motion.div>
   )

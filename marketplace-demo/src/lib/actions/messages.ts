@@ -124,17 +124,20 @@ export async function getUnreadMessageCount() {
     where: {
       OR: [{ participantAId: user.id }, { participantBId: user.id }],
     },
-    select: { id: true, participantAId: true, participantBId: true },
+    select: { id: true },
   })
 
-  let count = 0
-  for (const conv of conversations) {
-    const otherId = conv.participantAId === user.id ? conv.participantBId : conv.participantAId
-    const unread = await prisma.message.count({
-      where: { conversationId: conv.id, senderId: otherId, isRead: false },
-    })
-    count += unread
-  }
+  if (conversations.length === 0) return 0
 
-  return count
+  const unreadCounts = await prisma.message.groupBy({
+    by: ['conversationId'],
+    where: {
+      conversationId: { in: conversations.map(c => c.id) },
+      senderId: { not: user.id },
+      isRead: false,
+    },
+    _count: { id: true },
+  })
+
+  return unreadCounts.reduce((sum, g) => sum + g._count.id, 0)
 }

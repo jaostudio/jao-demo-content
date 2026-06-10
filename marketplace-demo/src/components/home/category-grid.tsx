@@ -42,10 +42,10 @@ export function CategoryGrid({ categories }: CategoryGridProps) {
         >
           <div>
             <p className="text-xs font-bold uppercase tracking-widest text-primary-600 dark:text-primary-400">
-              Shop by Craft
+              Shop by Category
             </p>
             <h2 className="mt-2 font-serif text-3xl font-bold text-neutral-800 dark:text-neutral-100 sm:text-4xl">
-              Find your favorite tradition
+              Everything you need, fresh daily
             </h2>
           </div>
           <Link

@@ -3,9 +3,16 @@ import { redirect } from 'next/navigation'
 import { prisma } from '@/lib/prisma'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
+import type { Metadata } from 'next'
 import { MetricsCards } from '@/components/vendor/metrics-cards'
 
 const RevenueChart = dynamic(() => import('@/components/vendor/revenue-chart').then(m => m.RevenueChart))
+
+export const metadata: Metadata = {
+  title: 'Dashboard | Palengkee',
+  description: 'Manage your listings, orders, and store performance.',
+  robots: { index: false, follow: false },
+}
 
 export default async function DashboardPage() {
   const user = await getSessionUser()
@@ -84,7 +91,7 @@ export default async function DashboardPage() {
                 <Link href={`/dashboard/listings/${l.id}/edit`} className="underline underline-offset-2 hover:no-underline">
                   {l.title}
                 </Link>
-                <span className="text-amber-600 dark:text-amber-500"> — {l.stock} left</span>
+                <span className="text-amber-600 dark:text-amber-500"> - {l.stock} left</span>
               </li>
             ))}
           </ul>

@@ -2,6 +2,13 @@ import { getSessionUser } from '@/lib/auth'
 import { redirect } from 'next/navigation'
 import { prisma } from '@/lib/prisma'
 import { ProfileEditor } from '@/components/vendor/profile-editor'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Profile | Palengkee',
+  description: 'Edit your vendor profile.',
+  robots: { index: false, follow: false },
+}
 
 export default async function ProfilePage() {
   const user = await getSessionUser()

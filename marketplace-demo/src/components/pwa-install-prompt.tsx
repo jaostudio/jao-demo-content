@@ -31,7 +31,7 @@ export function PwaInstallPrompt() {
   return (
     <button
       onClick={handleInstall}
-      aria-label="Install Likha"
+      aria-label="Install Palengkee"
       className="flex h-10 w-10 items-center justify-center rounded-xl text-neutral-600 hover:bg-neutral-100 hover:text-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-neutral-100 transition-colors"
     >
       <Download className="h-5 w-5" />

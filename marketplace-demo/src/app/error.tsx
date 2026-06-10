@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Leaf } from 'lucide-react'
+import { ShoppingBasket } from 'lucide-react'
 
 export default function Error({
   error,
@@ -13,13 +13,13 @@ export default function Error({
   return (
     <div className="mx-auto flex min-h-[60vh] max-w-md flex-col items-center justify-center px-4 text-center">
       <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-red-50 dark:bg-red-900/20">
-        <Leaf className="h-8 w-8 text-red-500" />
+        <ShoppingBasket className="h-8 w-8 text-red-500" />
       </div>
       <h2 className="mt-6 font-serif text-2xl font-bold text-neutral-800 dark:text-neutral-100">
-        Something went wrong
+        Oops, something went wrong
       </h2>
       <p className="mt-2 text-sm text-neutral-500">
-        {error.message || 'An unexpected error occurred.'}
+        {error.message || "That wasn't supposed to happen. Want to try again?"}
       </p>
       <div className="mt-6 flex gap-3">
         <button

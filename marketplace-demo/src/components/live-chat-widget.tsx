@@ -1,12 +1,21 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { MessageCircle, X, Send } from 'lucide-react'
 import { toast } from 'sonner'
 
 export function LiveChatWidget() {
   const [open, setOpen] = useState(false)
   const [message, setMessage] = useState('')
+
+  useEffect(() => {
+    if (!open) return
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false)
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [open])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -21,11 +30,11 @@ export function LiveChatWidget() {
   return (
     <>
       {open && (
-        <div className="fixed bottom-24 right-6 z-50 w-80 rounded-2xl border border-neutral-200 bg-white shadow-warm-xl dark:border-neutral-700 dark:bg-neutral-900">
+        <div className="fixed bottom-24 right-4 z-50 w-72 max-w-[85vw] rounded-2xl border border-neutral-200 bg-white shadow-warm-xl sm:right-6 sm:w-80 dark:border-neutral-700 dark:bg-neutral-900">
           <div className="flex items-center justify-between rounded-t-2xl bg-primary-500 px-4 py-3 text-white">
             <div className="flex items-center gap-2">
               <MessageCircle className="h-4 w-4" />
-              <span className="text-sm font-semibold">Chat with Likha</span>
+              <span className="text-sm font-semibold">Chat with Palengkee</span>
             </div>
             <button onClick={() => setOpen(false)} className="rounded-full p-1 hover:bg-white/20">
               <X className="h-4 w-4" />

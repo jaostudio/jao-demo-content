@@ -2,6 +2,13 @@ import { getSessionUser } from '@/lib/auth'
 import { redirect } from 'next/navigation'
 import { prisma } from '@/lib/prisma'
 import { ModerateActions } from './moderate-actions'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Manage Listings | Palengkee Admin',
+  description: 'Review and manage all marketplace listings.',
+  robots: { index: false, follow: false },
+}
 
 export default async function AdminListingsPage() {
   const user = await getSessionUser()
@@ -23,7 +30,7 @@ export default async function AdminListingsPage() {
               <div>
                 <p className="font-semibold">{l.title}</p>
                 <p className="text-sm text-neutral-500">
-                  {l.category.name} — ${(l.price / 100).toFixed(2)} — by {l.vendor.name}
+                  {l.category.name} - ${(l.price / 100).toFixed(2)} - by {l.vendor.name}
                 </p>
               </div>
               <span className={`rounded-full px-3 py-1 text-xs font-medium ${

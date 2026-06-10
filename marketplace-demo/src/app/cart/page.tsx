@@ -42,7 +42,7 @@ export default function CartPage() {
   } | null = (() => {
     if (!appliedCouponCode) return null
     const mocks: Record<string, { kind: 'percent' | 'fixed'; value: number; label: string }> = {
-      LIKHA10: { kind: 'percent', value: 10, label: '10% off your order' },
+      PALENGKEE10: { kind: 'percent', value: 10, label: '10% off your order' },
       WELCOME: { kind: 'fixed', value: 20000, label: '₱200 off your first order' },
     }
     const c = mocks[appliedCouponCode]
@@ -60,7 +60,7 @@ export default function CartPage() {
       return
     }
     const mocks: Record<string, { kind: 'percent' | 'fixed'; value: number; label: string }> = {
-      LIKHA10: { kind: 'percent', value: 10, label: '10% off your order' },
+      PALENGKEE10: { kind: 'percent', value: 10, label: '10% off your order' },
       WELCOME: { kind: 'fixed', value: 20000, label: '₱200 off your first order' },
     }
     if (!mocks[code]) {
@@ -69,7 +69,7 @@ export default function CartPage() {
     }
     setCoupon(code)
     setCouponInput('')
-    toast.success(`Coupon "${code}" applied`)
+    toast.success('Coupon applied!')
   }
 
   if (cartGroups.length === 0) {
@@ -79,10 +79,10 @@ export default function CartPage() {
           <ShoppingBag className="h-9 w-9 text-primary-500" />
         </div>
         <h1 className="font-serif text-3xl font-bold text-neutral-800 dark:text-neutral-100">
-          Your cart is empty
+          Your basket is feeling light
         </h1>
         <p className="mt-3 text-base text-neutral-600 dark:text-neutral-400">
-          Discover handcrafted pieces from Filipino artisan families.
+          Let's fix that - browse the market and add something good!
         </p>
         <Link
           href="/listings"
@@ -101,14 +101,14 @@ export default function CartPage() {
     <div className="mx-auto max-w-7xl px-4 py-10 sm:py-14">
       <div className="mb-8">
         <p className="text-xs font-bold uppercase tracking-widest text-primary-600 dark:text-primary-400">
-          Cart
+          Basket
         </p>
         <h1 className="mt-2 font-serif text-4xl font-bold text-neutral-800 dark:text-neutral-100">
           Your selections
         </h1>
         <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
           {cartItemCount} {cartItemCount === 1 ? 'item' : 'items'} from {cartGroups.length}{' '}
-          {cartGroups.length === 1 ? 'artisan' : 'artisans'}.
+          {cartGroups.length === 1 ? 'vendor' : 'vendors'}.
         </p>
       </div>
 
@@ -123,7 +123,7 @@ export default function CartPage() {
               onRemove={removeItem}
               onSaveForLater={async (listingId) => {
                 setSaving(listingId)
-                // Mock — would call wishlist server action in real flow
+                // Mock - would call wishlist server action in real flow
                 await new Promise((r) => setTimeout(r, 400))
                 removeItem(listingId)
                 setSaving(null)
@@ -202,7 +202,7 @@ export default function CartPage() {
                         setCouponInput(e.target.value)
                         if (couponError) setCouponError('')
                       }}
-                      placeholder="LIKHA10"
+                      placeholder="PALENGKEE10"
                       className="h-10 flex-1 rounded-xl border border-neutral-200 bg-white px-3 text-sm focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-400/30 dark:border-neutral-700 dark:bg-neutral-950"
                     />
                     <button
@@ -216,7 +216,7 @@ export default function CartPage() {
                     <p className="mt-1.5 text-xs text-red-600 dark:text-red-400">{couponError}</p>
                   )}
                   <p className="mt-1.5 text-[11px] text-neutral-500">
-                    Try <code className="font-mono">LIKHA10</code> for 10% off
+                    Try <code className="font-mono">PALENGKEE10</code> for 10% off
                   </p>
                 </>
               )}
@@ -226,7 +226,7 @@ export default function CartPage() {
               href="/checkout"
               className="mt-6 inline-flex h-12 w-full items-center justify-center gap-2 rounded-2xl bg-primary-500 text-sm font-semibold text-white shadow-warm-md transition-colors hover:bg-primary-600"
             >
-              <span>Proceed to checkout</span>
+              <span>Continue to checkout</span>
               <ArrowRight className="h-4 w-4" />
             </Link>
             <p className="mt-3 text-center text-[11px] text-neutral-500">

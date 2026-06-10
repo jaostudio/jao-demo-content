@@ -71,13 +71,13 @@ export const SHIPPING_METHODS = [
   {
     value: 'standard',
     label: 'Standard delivery',
-    description: '5–7 business days',
+    description: '5-7 business days',
     fee: 10000,
   },
   {
     value: 'express',
     label: 'Express delivery',
-    description: '1–3 business days',
+    description: '1-3 business days',
     fee: 25000,
   },
 ] as const
@@ -105,7 +105,7 @@ export const PAYMENT_METHODS = [
 export type PaymentMethod = (typeof PAYMENT_METHODS)[number]['value']
 
 export const MOCK_COUPONS: Record<string, { kind: 'percent' | 'fixed'; value: number; label: string }> = {
-  LIKHA10: { kind: 'percent', value: 10, label: '10% off your order' },
+  PALENGKEE10: { kind: 'percent', value: 10, label: '10% off your order' },
   WELCOME: { kind: 'fixed', value: 20000, label: '₱200 off your first order' },
   FREESHIP: { kind: 'fixed', value: 0, label: 'Free shipping discount' },
 }

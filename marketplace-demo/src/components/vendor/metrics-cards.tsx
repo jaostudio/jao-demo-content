@@ -39,7 +39,7 @@ export function MetricsCards({
     {
       icon: <Star className="h-5 w-5" />,
       label: 'Average Rating',
-      value: averageRating > 0 ? `${averageRating.toFixed(1)} / 5` : '—',
+      value: averageRating > 0 ? `${averageRating.toFixed(1)} / 5` : ' - ',
       color: 'text-rose-600 bg-rose-100 dark:text-rose-400 dark:bg-rose-900/30',
     },
   ]

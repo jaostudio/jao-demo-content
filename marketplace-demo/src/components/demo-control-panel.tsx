@@ -1,13 +1,14 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useTheme } from 'next-themes'
 import { useDemoControl, type DemoUserId } from '@/lib/store/demo-control'
 import { DEMO_USERS } from '@/lib/demo-users'
 import { Sun, Moon, Zap, X, User as UserIcon, Monitor } from 'lucide-react'
+import { toast } from 'sonner'
 
 function setCookie(name: string, value: string) {
-  document.cookie = `${name}=${encodeURIComponent(value)}; path=/; max-age=86400`
+  document.cookie = `${name}=${value}; path=/; max-age=86400`
 }
 
 function clearCookie() {
@@ -19,8 +20,19 @@ export function DemoControlPanel() {
   const { setTheme, resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const [expanded, setExpanded] = useState(false)
+  const [pulse, setPulse] = useState(false)
 
-  useEffect(() => { setMounted(true) }, [])
+  useEffect(() => {
+    setMounted(true)
+    if (!localStorage.getItem('demo_tooltip_seen')) {
+      localStorage.setItem('demo_tooltip_seen', '1')
+      setTimeout(() => {
+        toast.info('Demo mode - tap the orange button to switch users, change theme, or try Tagalog.')
+      }, 1500)
+      setPulse(true)
+      setTimeout(() => setPulse(false), 10000)
+    }
+  }, [])
 
   const handleUserSwitch = (email: DemoUserId) => {
     setSimulatedUser(email)
@@ -102,7 +114,7 @@ export function DemoControlPanel() {
       ) : (
         <button
           onClick={() => setExpanded(true)}
-          className="flex items-center gap-2 rounded-xl bg-primary-500 px-3 py-2 text-xs font-semibold text-white shadow-md transition-all hover:bg-primary-600 hover:shadow-lg"
+          className={`flex items-center gap-2 rounded-xl bg-primary-500 px-3 py-2 text-xs font-semibold text-white shadow-md transition-all hover:bg-primary-600 hover:shadow-lg ${pulse ? 'animate-pulse' : ''}`}
         >
           <Zap className="h-3.5 w-3.5" />
           {mounted && collapsedLabel !== 'Not logged in' ? collapsedLabel : 'Demo'}

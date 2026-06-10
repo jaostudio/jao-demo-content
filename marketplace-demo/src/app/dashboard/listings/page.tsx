@@ -3,6 +3,13 @@ import { redirect } from 'next/navigation'
 import { prisma } from '@/lib/prisma'
 import Link from 'next/link'
 import { ListingActions } from '@/components/vendor/listing-actions'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'My Listings | Palengkee',
+  description: 'Manage your product listings.',
+  robots: { index: false, follow: false },
+}
 
 function StatusBadge({ status }: { status: string }) {
   const styles: Record<string, string> = {
@@ -82,7 +89,7 @@ export default async function DashboardListingsPage() {
               No listings yet
             </p>
             <p className="mt-2 text-sm text-neutral-500">
-              Create your first listing to start selling on Likha.
+              Create your first listing to start selling on Palengkee.
             </p>
             <Link
               href="/listings/create"

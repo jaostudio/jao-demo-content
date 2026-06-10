@@ -5,7 +5,7 @@ import { saveSiteSettings } from '@/lib/actions/admin'
 import { Loader2, Save } from 'lucide-react'
 
 export default function AdminSettingsPage() {
-  const [form, setForm] = useState({ tagline: 'Discover authentic Filipino craftsmanship', contactEmail: 'hello@likha.ph', defaultShippingFee: '150', aboutText: 'Likha connects you with skilled Filipino artisans. Every purchase supports local craftspeople and preserves traditional techniques.' })
+  const [form, setForm] = useState({ tagline: 'Fresh from your community', contactEmail: 'hello@palengkee.ph', defaultShippingFee: '150', aboutText: 'Palengkee connects you with local vendors across the Philippines. Every purchase supports local livelihoods and brings fresh goods to your door.' })
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
 
@@ -22,7 +22,7 @@ export default function AdminSettingsPage() {
       <div className="mb-8">
         <p className="text-xs font-bold uppercase tracking-widest text-primary-600 dark:text-primary-400">Admin</p>
         <h1 className="mt-1 font-serif text-3xl font-bold text-neutral-800 dark:text-neutral-100">Site Settings</h1>
-        <p className="mt-1 text-sm text-neutral-500">Configure site-wide options (demo — values are not persisted to DB)</p>
+        <p className="mt-1 text-sm text-neutral-500">Configure site-wide options (demo - values are not persisted to DB)</p>
       </div>
 
       <div className="space-y-5 rounded-2xl border border-neutral-200 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900">

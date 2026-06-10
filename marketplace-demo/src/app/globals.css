@@ -7,53 +7,55 @@ html, body { overflow-x: hidden; width: 100%; }
 @source "../../packages/ui/src/**/*.tsx";
 
 /* =========================================================
-   LIKHA — Brand tokens
-   Terracotta primary, ochre gold secondary, deep green accent
+   PALENGKEE — Brand tokens
+   Market Orange primary, Leafy Green secondary, Neutral Brown warm neutral
    ========================================================= */
 
 @theme {
-  --color-primary-50: #FBF1EA;
-  --color-primary-100: #F5DCC8;
-  --color-primary-200: #EDB98E;
-  --color-primary-300: #E29761;
-  --color-primary-400: #D17D43;
-  --color-primary-500: #B2542A;
-  --color-primary-600: #A4512D;
-  --color-primary-700: #824025;
-  --color-primary-800: #5F2F1C;
-  --color-primary-900: #3D1F13;
+  --color-primary-50: #FFF4ED;
+  --color-primary-100: #FFE8D0;
+  --color-primary-200: #FFD0A0;
+  --color-primary-300: #FFB06B;
+  --color-primary-400: #FF9842;
+  --color-primary-500: #FF8C42;
+  --color-primary-600: #E87A38;
+  --color-primary-700: #C45F2A;
+  --color-primary-800: #98451E;
+  --color-primary-900: #733317;
 
-  --color-secondary-50: #FBF4E5;
-  --color-secondary-100: #F5E2B5;
-  --color-secondary-200: #EBC985;
-  --color-secondary-300: #E1B25B;
-  --color-secondary-400: #DDA848;
-  --color-secondary-500: #D4A352;
-  --color-secondary-600: #B58A3D;
-  --color-secondary-700: #8C6A2E;
+  --color-secondary-50: #E8F5E9;
+  --color-secondary-100: #C8E6C9;
+  --color-secondary-200: #A5D6A7;
+  --color-secondary-300: #81C784;
+  --color-secondary-400: #66BB6A;
+  --color-secondary-500: #2E7D32;
+  --color-secondary-600: #27682A;
+  --color-secondary-700: #1B4D1E;
+  --color-secondary-800: #123514;
+  --color-secondary-900: #091E0A;
 
-  --color-accent-50: #E8F1ED;
-  --color-accent-100: #C4DCCF;
-  --color-accent-200: #8FBDA5;
-  --color-accent-300: #5B9D7A;
-  --color-accent-400: #3F8062;
-  --color-accent-500: #2D6A4F;
-  --color-accent-600: #245840;
-  --color-accent-700: #1B4332;
-  --color-accent-800: #122E22;
-  --color-accent-900: #0A1A13;
+  --color-accent-50: #F5EFE8;
+  --color-accent-100: #E8DCC8;
+  --color-accent-200: #D0C0A0;
+  --color-accent-300: #B8A078;
+  --color-accent-400: #A08858;
+  --color-accent-500: #8B5A2B;
+  --color-accent-600: #734822;
+  --color-accent-700: #58361A;
+  --color-accent-800: #3E2611;
+  --color-accent-900: #261708;
 
-  --color-neutral-50: #FDF8F2;
-  --color-neutral-100: #F5EFE6;
-  --color-neutral-200: #E8DFD1;
-  --color-neutral-300: #D2C5B0;
-  --color-neutral-400: #A89B85;
-  --color-neutral-500: #6B5E52;
-  --color-neutral-600: #4A4137;
-  --color-neutral-700: #3A322A;
-  --color-neutral-800: #2C241B;
-  --color-neutral-900: #1A140E;
-  --color-neutral-950: #0D0A07;
+  --color-neutral-50: #F8F6F2;
+  --color-neutral-100: #EEE8DD;
+  --color-neutral-200: #DCD2C4;
+  --color-neutral-300: #C4B8A8;
+  --color-neutral-400: #9E9080;
+  --color-neutral-500: #7A6E60;
+  --color-neutral-600: #5E544A;
+  --color-neutral-700: #484038;
+  --color-neutral-800: #363028;
+  --color-neutral-900: #24201C;
+  --color-neutral-950: #12100E;
 
   /* Keep brand alias for backward compat */
   --color-brand-50: var(--color-primary-50);
@@ -68,12 +70,12 @@ html, body { overflow-x: hidden; width: 100%; }
   --color-brand-900: var(--color-primary-900);
 
   /* Tailwind v4 tree-shake bypass — keep CSS vars in output */
-  --color-primary-500-hex: #B2542A;
-  --color-primary-600-hex: #A4512D;
-  --color-secondary-500-hex: #D4A352;
-  --color-secondary-600-hex: #B58A3D;
-  --color-accent-500-hex: #2D6A4F;
-  --color-accent-600-hex: #245840;
+  --color-primary-500-hex: #FF8C42;
+  --color-primary-600-hex: #E87A38;
+  --color-secondary-500-hex: #2E7D32;
+  --color-secondary-600-hex: #27682A;
+  --color-accent-500-hex: #8B5A2B;
+  --color-accent-600-hex: #734822;
 }
 
 /* =========================================================
@@ -81,10 +83,10 @@ html, body { overflow-x: hidden; width: 100%; }
    ========================================================= */
 
 :root {
-  --shadow-warm-sm: 0 1px 2px 0 rgba(194, 105, 61, 0.05);
-  --shadow-warm-md: 0 4px 6px -1px rgba(194, 105, 61, 0.1), 0 2px 4px -1px rgba(194, 105, 61, 0.06);
-  --shadow-warm-lg: 0 10px 15px -3px rgba(194, 105, 61, 0.1), 0 4px 6px -2px rgba(194, 105, 61, 0.05);
-  --shadow-warm-xl: 0 20px 25px -5px rgba(194, 105, 61, 0.1), 0 10px 10px -5px rgba(194, 105, 61, 0.04);
+  --shadow-warm-sm: 0 1px 2px 0 rgba(255, 140, 66, 0.08);
+  --shadow-warm-md: 0 4px 6px -1px rgba(255, 140, 66, 0.12), 0 2px 4px -1px rgba(255, 140, 66, 0.07);
+  --shadow-warm-lg: 0 10px 15px -3px rgba(255, 140, 66, 0.12), 0 4px 6px -2px rgba(255, 140, 66, 0.06);
+  --shadow-warm-xl: 0 20px 25px -5px rgba(255, 140, 66, 0.12), 0 10px 10px -5px rgba(255, 140, 66, 0.05);
 }
 
 /* =========================================================

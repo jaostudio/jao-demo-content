@@ -110,7 +110,7 @@ export function ProfileEditor({ vendor }: ProfileEditorProps) {
           name="bio"
           rows={3}
           defaultValue={vendor.bio ?? ''}
-          placeholder="Tell customers about your craft..."
+          placeholder="Tell customers about your products..."
           className="mt-1 block w-full rounded-xl border border-neutral-200 bg-white px-4 py-2.5 text-sm placeholder:text-neutral-400 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-400/30 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-100"
         />
       </div>

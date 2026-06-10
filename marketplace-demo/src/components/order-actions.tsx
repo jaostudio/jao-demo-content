@@ -32,14 +32,14 @@ function openInvoice(data: OrderActionsProps) {
     <h1>Invoice</h1>
     <p>Order #${data.orderNumber}</p>
     <p class="meta">${date} &middot; ${data.vendorName}</p>
-    <p><strong>Bill to:</strong> ${data.name ?? '—'}<br>${data.address ?? ''}</p>
+    <p><strong>Bill to:</strong> ${data.name ?? ' - '}<br>${data.address ?? ''}</p>
     <table><thead><tr><th>Item</th><th>Qty</th><th>Price</th><th>Subtotal</th></tr></thead><tbody>
     ${data.items.map(i => `<tr><td>${i.productName}</td><td>${i.quantity}</td><td>₱${(i.priceAtPurchase / 100).toFixed(2)}</td><td>₱${((i.priceAtPurchase * i.quantity) / 100).toFixed(2)}</td></tr>`).join('')}
     </tbody></table>
     <p class="total">Total: ₱${totalPhp}</p>
     <p><strong>Payment:</strong> ${data.paymentState.replace(/_/g, ' ')}</p>
     <p><strong>Fulfillment:</strong> ${data.fulfillmentState.replace(/_/g, ' ')}</p>
-    <div class="footer"><p>Likha Marketplace &middot; Demo invoice &middot; Not a real document</p></div>
+    <div class="footer"><p>Palengkee &middot; Demo invoice &middot; Not a real document</p></div>
   </body></html>`
 
   const w = window.open('', '_blank')
@@ -56,7 +56,7 @@ const TRACKING_STEPS = [
 
 export function OrderActions(props: OrderActionsProps) {
   const [trackingOpen, setTrackingOpen] = useState(false)
-  const trackingNum = `LKH-${props.orderNumber.slice(-6).toUpperCase()}`
+  const trackingNum = `PLG-${props.orderNumber.slice(-6).toUpperCase()}`
 
   return (
     <>

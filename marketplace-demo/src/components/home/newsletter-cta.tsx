@@ -18,7 +18,7 @@ export function NewsletterCta() {
       return
     }
     setState('loading')
-    // Simulate network — no backend for newsletter in demo
+    // Simulate network - no backend for newsletter in demo
     await new Promise((r) => setTimeout(r, 800))
     setState('success')
     setEmail('')
@@ -45,11 +45,10 @@ export function NewsletterCta() {
             <Mail className="h-7 w-7" />
           </div>
           <h2 className="font-serif text-3xl font-bold text-white sm:text-4xl">
-            Discover new makers
+            Get the freshest deals
           </h2>
           <p className="mt-3 text-base text-neutral-300">
-            Get a monthly note from us — featured artisans, new arrivals, and
-            the stories behind the craft.
+            Weekly picks, flash sales, and vendor stories - straight to your inbox.
           </p>
 
           {state === 'success' ? (
@@ -59,7 +58,7 @@ export function NewsletterCta() {
               className="mx-auto mt-8 inline-flex items-center gap-2 rounded-full bg-accent-500/20 px-6 py-3 text-sm font-semibold text-accent-200"
             >
               <Check className="h-4 w-4" />
-              Thanks — you&apos;re on the list.
+              Thanks - you&apos;re on the list.
             </motion.div>
           ) : (
             <form
@@ -101,7 +100,7 @@ export function NewsletterCta() {
 
           {state === 'error' && (
             <p className="mt-2 text-sm text-red-300">
-              Please enter a valid email address.
+              Hmm, that doesn't look like an email.
             </p>
           )}
 

@@ -1,4 +1,4 @@
-const CACHE = 'likha-v2'
+const CACHE = 'likha-v3'
 
 const STATIC_ASSETS = [
   '/',
@@ -30,6 +30,12 @@ self.addEventListener('fetch', (event) => {
   const { request } = event
   const url = new URL(request.url)
 
+  // Skip Next.js internal paths — let the browser handle them normally
+  if (url.pathname.startsWith('/_next/')) return
+
+  // Skip non-GET requests (Server Actions, form submissions — Cache API only supports GET)
+  if (request.method !== 'GET') return
+
   // API calls — network first
   if (url.pathname.startsWith('/api/')) {
     event.respondWith(networkFirst(request))
@@ -57,15 +63,27 @@ self.addEventListener('fetch', (event) => {
 })
 
 async function cacheFirst(request) {
-  const cached = await caches.match(request)
-  return cached || fetch(request)
+  try {
+    const cached = await caches.match(request)
+    if (cached) return cached
+    const response = await fetch(request)
+    if (response?.status === 200) {
+      const cache = await caches.open(CACHE)
+      cache.put(request, response.clone())
+    }
+    return response
+  } catch {
+    return new Response('', { status: 408 })
+  }
 }
 
 async function networkFirst(request) {
   try {
     const response = await fetch(request)
-    const cache = await caches.open(CACHE)
-    cache.put(request, response.clone())
+    if (request.method === 'GET' && response?.status === 200) {
+      const cache = await caches.open(CACHE)
+      cache.put(request, response.clone())
+    }
     return response
   } catch {
     const cached = await caches.match(request)

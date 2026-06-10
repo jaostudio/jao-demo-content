@@ -71,7 +71,7 @@ export const authOptions: NextAuthOptions = {
 }
 
 // =====================================================
-// Auth helpers — used by every protected server action
+// Auth helpers - used by every protected server action
 // =====================================================
 
 export type SessionUser = {

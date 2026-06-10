@@ -3,8 +3,15 @@ import Image from 'next/image'
 import { getSessionUser } from '@/lib/auth'
 import { getUserConversations } from '@/lib/actions/messages'
 import { MessageSquare } from 'lucide-react'
+import type { Metadata } from 'next'
 
 export const dynamic = 'force-dynamic'
+
+export const metadata: Metadata = {
+  title: 'Messages | Palengkee',
+  description: 'Your conversations with vendors and buyers.',
+  robots: { index: false, follow: false },
+}
 
 export default async function MessagesPage() {
   const user = await getSessionUser()
@@ -26,7 +33,7 @@ export default async function MessagesPage() {
             <Link
               key={conv.id}
               href={`/messages/${conv.id}`}
-              className="flex items-start gap-4 rounded-xl border border-neutral-200 bg-white p-4 transition-colors hover:bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:bg-neutral-850"
+              className="flex items-start gap-4 rounded-xl border border-neutral-200 bg-white p-4 transition-colors hover:bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:bg-neutral-800"
             >
               <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-neutral-200 dark:bg-neutral-700">
                 {other.avatarUrl ? (

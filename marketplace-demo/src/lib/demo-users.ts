@@ -1,4 +1,4 @@
-export type DemoEmail = 'admin@likha.ph' | 'maria@likha.ph' | 'isabel@test.ph' | null
+export type DemoEmail = 'admin@palengkee.ph' | 'nena@palengkee.ph' | 'isabel@test.ph' | null
 
 export interface DemoUserInfo {
   email: DemoEmail
@@ -10,8 +10,8 @@ export interface DemoUserInfo {
 
 export const DEMO_USERS: DemoUserInfo[] = [
   { email: null, label: 'Not logged in', name: '', role: '', avatarUrl: null },
-  { email: 'admin@likha.ph', label: 'Admin', name: 'Admin', role: 'ADMIN', avatarUrl: null },
-  { email: 'maria@likha.ph', label: 'Maria (Vendor)', name: 'Maria Santos', role: 'VENDOR', avatarUrl: '/avatars/maria-santos.jpg' },
+  { email: 'admin@palengkee.ph', label: 'Admin', name: 'Admin', role: 'ADMIN', avatarUrl: null },
+  { email: 'nena@palengkee.ph', label: "Aling Nena (Vendor)", name: "Aling Nena's Fish & Veggies", role: 'VENDOR', avatarUrl: '/avatars/aling-nena.jpg' },
   { email: 'isabel@test.ph', label: 'Isabel (Buyer)', name: 'Isabel Reyes', role: 'BUYER', avatarUrl: null },
 ]
 

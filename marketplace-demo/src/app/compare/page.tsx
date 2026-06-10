@@ -2,6 +2,12 @@ import { prisma } from '@/lib/prisma'
 import Link from 'next/link'
 import Image from 'next/image'
 import { BarChart3 } from 'lucide-react'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Compare Products | Palengkee',
+  description: 'Compare products side by side to find the best deals on Palengkee.',
+}
 
 export default async function ComparePage({
   searchParams,
@@ -29,10 +35,10 @@ export default async function ComparePage({
       case 'Price': return `₱${(l.price / 100).toFixed(2)}`
       case 'Category': return l.category.name
       case 'Vendor': return l.vendor.name
-      case 'Location': return l.vendor.location ?? '—'
+      case 'Location': return l.vendor.location ?? '-'
       case 'Rating': {
-        const avg = l.reviews.length ? (l.reviews.reduce((s, r) => s + r.rating, 0) / l.reviews.length).toFixed(1) : '—'
-        return avg === '—' ? '—' : `${avg} ⭐`
+        const avg = l.reviews.length ? (l.reviews.reduce((s, r) => s + r.rating, 0) / l.reviews.length).toFixed(1) : '-'
+        return avg === '-' ? '-' : `${avg} ⭐`
       }
       case 'Stock': return String(l.stock)
     }
@@ -60,7 +66,7 @@ export default async function ComparePage({
             href="/listings"
             className="mt-6 inline-flex h-10 items-center rounded-xl bg-primary-500 px-5 text-sm font-semibold text-white hover:bg-primary-600"
           >
-            Browse crafts
+            Browse products
           </Link>
         </div>
       ) : (

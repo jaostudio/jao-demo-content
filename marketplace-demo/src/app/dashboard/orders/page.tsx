@@ -3,6 +3,13 @@ import { redirect } from 'next/navigation'
 import { prisma } from '@/lib/prisma'
 import Link from 'next/link'
 import { FulfillmentActions } from '@/components/vendor/fulfillment-actions'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Orders | Palengkee',
+  description: 'View and manage your orders.',
+  robots: { index: false, follow: false },
+}
 
 function FulfillmentBadge({ state }: { state: string }) {
   const styles: Record<string, string> = {

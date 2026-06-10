@@ -36,7 +36,7 @@ export function BookingForm({ listing, userId }: BookingFormProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!date) { setError('Please select a date'); return }
+    if (!date) { setError('Pick a date to continue'); return }
     setPending(true)
     setError('')
     try {
@@ -44,7 +44,7 @@ export function BookingForm({ listing, userId }: BookingFormProps) {
       setDone(true)
       setTimeout(() => router.push('/orders'), 2000)
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Something went wrong')
+      setError(err instanceof Error ? err.message : 'Oops, something went wrong')
       setPending(false)
     }
   }

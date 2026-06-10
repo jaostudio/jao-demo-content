@@ -157,7 +157,7 @@ interface CreateOrderInput {
 
 export async function createOrder(input: CreateOrderInput) {
   const user = await requireUser()
-  if (!DEMO_MODE) throw new Error('Production mode not yet configured — run in DEMO_MODE=true')
+  if (!DEMO_MODE) throw new Error('Production mode not yet configured - run in DEMO_MODE=true')
 
   if (!input.items.length) throw new Error('Cart is empty')
 
@@ -198,7 +198,7 @@ export async function createOrder(input: CreateOrderInput) {
     }
   }
 
-  // Shipping: 1 fee per vendor (capped at 2× if many vendors — simplified: 1 per vendor)
+  // Shipping: 1 fee per vendor (capped at 2× if many vendors - simplified: 1 per vendor)
   const shippingFee = input.shipping.fee * itemsByVendor.size
   const total = Math.max(0, subtotal - discount) + shippingFee
 
@@ -218,7 +218,7 @@ export async function createOrder(input: CreateOrderInput) {
     const vendorDiscount = Math.floor((vendorSubtotal / subtotal) * discount)
     const vendorTotal = Math.max(0, vendorSubtotal - vendorDiscount) + input.shipping.fee
 
-    const orderNumber = `LIKHA-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`
+    const orderNumber = `PLG-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`
 
     const order = await prisma.order.create({
       data: {
@@ -292,7 +292,7 @@ export async function markOrderPaid(orderId: string) {
 }
 
 export async function markOrderCod(orderId: string) {
-  // For Cash on Delivery — order stays PENDING_PAYMENT until delivery
+  // For Cash on Delivery - order stays PENDING_PAYMENT until delivery
   // but FULFILLMENT goes to PROCESSING
   const user = await requireUser()
   const order = await prisma.order.findUnique({ where: { id: orderId } })
@@ -303,7 +303,7 @@ export async function markOrderCod(orderId: string) {
 }
 
 export async function markOrdersProcessing(orderIds: string[]) {
-  // Used immediately after order creation for COD orders — transitions
+  // Used immediately after order creation for COD orders - transitions
   // fulfillment to PROCESSING so the vendor can start picking & packing.
   // Payment stays PENDING_PAYMENT (cash on delivery).
   const user = await requireUser()

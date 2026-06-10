@@ -9,6 +9,13 @@ import { CancelOrderButton } from './cancel-order-button'
 import { ReorderButton } from '@/components/reorder-button'
 import { OrderActions } from '@/components/order-actions'
 import { MessageMakerButton } from '@/components/message-maker-button'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Order Details | Palengkee',
+  description: 'View order details and status.',
+  robots: { index: false, follow: false },
+}
 
 export default async function OrderDetailPage({
   params,

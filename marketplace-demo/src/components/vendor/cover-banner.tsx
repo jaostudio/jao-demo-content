@@ -35,7 +35,7 @@ export function CoverBanner({ vendor, metrics, isOwner }: CoverBannerProps) {
           <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-2xl border-4 border-white bg-white shadow-warm-md sm:h-32 sm:w-32 dark:border-neutral-900">
             {vendor.avatarUrl ? (
               <Image
-                src={vendor.avatarUrl}
+                src={`${vendor.avatarUrl}?v=3`}
                 alt={vendor.name}
                 fill
                 sizes="128px"

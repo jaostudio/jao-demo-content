@@ -9,7 +9,7 @@ export function BookingActions({ bookingId, status }: { bookingId: string; statu
   const router = useRouter()
   const [pending, startTransition] = useTransition()
 
-  if (status !== 'PENDING') return <span className="text-xs text-neutral-400">—</span>
+  if (status !== 'PENDING') return <span className="text-xs text-neutral-400"> - </span>
 
   const handleConfirm = () => {
     startTransition(async () => {

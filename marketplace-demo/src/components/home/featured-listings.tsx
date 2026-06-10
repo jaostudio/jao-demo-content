@@ -39,10 +39,10 @@ export function FeaturedListings({ listings }: FeaturedListingsProps) {
                 Hand-picked
               </p>
               <h2 className="mt-2 font-serif text-3xl font-bold text-neutral-800 dark:text-neutral-100 sm:text-4xl">
-                Featured crafts
+                Featured products
               </h2>
               <p className="mt-2 max-w-xl text-sm text-neutral-600 dark:text-neutral-400">
-                A curated selection from our makers — pieces we especially love this week.
+                A curated selection from our vendors - products we especially love this week.
               </p>
             </div>
             <Link
@@ -72,7 +72,7 @@ export function FeaturedListings({ listings }: FeaturedListingsProps) {
               href="/listings"
               className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-neutral-300 bg-white px-6 text-sm font-semibold text-neutral-800 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100"
             >
-              View all crafts
+              View all products
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>

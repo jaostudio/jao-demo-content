@@ -62,7 +62,7 @@ export function WishlistButton({
     startTransition(async () => {
       try {
         await toggleWishlistItem(listingId, !wished)
-        toast.success(wished ? 'Removed from wishlist' : 'Saved to wishlist')
+        toast.success(wished ? 'Removed from wishlist' : 'Saved for later')
       } catch {
         setWished((w) => !w)
       }

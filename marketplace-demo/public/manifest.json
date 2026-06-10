@@ -1,11 +1,11 @@
 {
-  "name": "Likha — Filipino Artisan Marketplace",
-  "short_name": "Likha",
-  "description": "Multi-vendor marketplace for authentic Filipino artisan goods — handwoven textiles, pottery, woodcraft, and more.",
+  "name": "Palengkee — Fresh from your community",
+  "short_name": "Palengkee",
+  "description": "Multi-vendor marketplace for fresh produce, local essentials, and everyday goods — direct from Filipino communities to your door.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#FDF8F2",
-  "theme_color": "#C2693D",
+  "background_color": "#F8F6F2",
+  "theme_color": "#FF8C42",
   "orientation": "portrait-primary",
   "icons": [
     {

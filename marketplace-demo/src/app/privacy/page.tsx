@@ -1,4 +1,10 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy | Palengkee',
+  description: 'Palengkee privacy policy explaining how we handle your data.',
+}
 
 export default function PrivacyPage() {
   return (

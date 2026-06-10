@@ -82,7 +82,7 @@ export default async function VendorStorefrontPage({
               No products yet
             </h3>
             <p className="mt-1 text-sm text-neutral-500">
-              This artisan hasn&apos;t published any products.
+              This vendor hasn&apos;t published any products yet.
             </p>
             <Link
               href="/listings"

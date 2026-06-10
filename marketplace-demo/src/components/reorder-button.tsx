@@ -28,7 +28,7 @@ export function ReorderButton({ items }: ReorderButtonProps) {
         quantity: item.quantity,
       })
     }
-    toast.success('Items added to cart')
+    toast.success('Added to your basket!')
     setTimeout(() => {
       router.push('/cart')
     }, 500)

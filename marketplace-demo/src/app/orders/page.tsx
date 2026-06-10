@@ -5,8 +5,15 @@ import { prisma } from '@/lib/prisma'
 import { getSessionUser } from '@/lib/auth'
 import { Price } from '@/components/price'
 import { ShoppingBag } from 'lucide-react'
+import type { Metadata } from 'next'
 
 export const dynamic = 'force-dynamic'
+
+export const metadata: Metadata = {
+  title: 'My Orders | Palengkee',
+  description: 'Track and manage your orders.',
+  robots: { index: false, follow: false },
+}
 
 export default async function OrdersPage() {
   const user = await getSessionUser()

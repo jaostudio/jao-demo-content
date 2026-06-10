@@ -5,8 +5,10 @@ import Image from 'next/image'
 import { motion, useReducedMotion, useScroll, useTransform, type Variants } from 'framer-motion'
 import { useRef } from 'react'
 import { ArrowRight, Sparkles } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 export function HeroSection() {
+  const t = useTranslations('hero')
   const reduce = useReducedMotion()
   const heroRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
@@ -29,11 +31,11 @@ export function HeroSection() {
       ref={heroRef}
       className="relative isolate overflow-hidden bg-neutral-100 dark:bg-neutral-950"
     >
-      {/* Background image — outside motion for instant LCP */}
+      {/* Background image - outside motion for instant LCP */}
       <div className="absolute inset-0 -z-10">
         <Image
           src="/hero-banner.jpg"
-          alt="Filipino artisan at work"
+          alt="Filipino vendor at work"
           fill
           priority
           sizes="100vw"
@@ -67,7 +69,7 @@ export function HeroSection() {
         <motion.div variants={reduce ? undefined : itemVariants}>
           <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white/90 backdrop-blur-md">
             <Sparkles className="h-3 w-3 text-secondary-300" />
-            <span>Filipino Artisan Marketplace</span>
+            <span>{t('community')}</span>
           </span>
         </motion.div>
 
@@ -76,16 +78,15 @@ export function HeroSection() {
           className="mt-6 max-w-3xl font-serif text-5xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl"
           style={{ fontFamily: 'var(--font-playfair)' }}
         >
-          Discover{' '}
-          <span className="italic text-white/90 drop-shadow-sm">Filipino</span> Craft
+          Fresh from your{' '}
+          <span className="italic text-white/90 drop-shadow-sm">community</span>
         </motion.h1>
 
         <motion.p
           variants={reduce ? undefined : itemVariants}
           className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl"
         >
-          Authentic artisanal goods — handwoven textiles, wood-fired pottery,
-          single-origin coffee — straight from the islands to your door.
+          Local produce, everyday essentials, and honest prices - delivered to your door.
         </motion.p>
 
         <motion.div
@@ -96,14 +97,14 @@ export function HeroSection() {
             href="/listings"
             className="group inline-flex h-14 items-center justify-center gap-2 rounded-2xl bg-primary-500 px-7 text-base font-semibold text-white shadow-warm-lg transition-all hover:bg-primary-600 hover:shadow-warm-xl"
           >
-            <span>Browse Crafts</span>
+            <span>{t('shopNow')}</span>
             <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5" />
           </Link>
           <Link
             href="#meet-the-makers"
             className="inline-flex h-14 items-center justify-center gap-2 rounded-2xl border border-white/30 bg-white/5 px-7 text-base font-semibold text-white backdrop-blur-md transition-all hover:bg-white/15"
           >
-            <span>Meet the Makers</span>
+            <span>{t('becomeVendor')}</span>
           </Link>
         </motion.div>
 
@@ -114,15 +115,15 @@ export function HeroSection() {
         >
           <span className="inline-flex items-center gap-1.5">
             <span className="h-1.5 w-1.5 rounded-full bg-accent-400" />
-            Direct from 6 artisan families
+            Zero commission for basic sellers
           </span>
           <span className="inline-flex items-center gap-1.5">
             <span className="h-1.5 w-1.5 rounded-full bg-accent-400" />
-            Secure payments
+            Cash on delivery preferred
           </span>
           <span className="inline-flex items-center gap-1.5">
             <span className="h-1.5 w-1.5 rounded-full bg-accent-400" />
-            Island-wide delivery
+            No hidden fees
           </span>
         </motion.div>
       </motion.div>

@@ -2,6 +2,13 @@ import { getSessionUser } from '@/lib/auth'
 import { redirect } from 'next/navigation'
 import { prisma } from '@/lib/prisma'
 import { CategoryManager } from './category-manager'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Categories | Palengkee Admin',
+  description: 'Manage product categories.',
+  robots: { index: false, follow: false },
+}
 
 export default async function AdminCategoriesPage() {
   const user = await getSessionUser()
@@ -22,7 +29,7 @@ export default async function AdminCategoriesPage() {
           Categories
         </h1>
         <p className="mt-1 text-sm text-neutral-500">
-          {categories.length} {categories.length === 1 ? 'category' : 'categories'} — add, edit, or remove them
+          {categories.length} {categories.length === 1 ? 'category' : 'categories'} - add, edit, or remove them
         </p>
       </div>
       <CategoryManager categories={categories} />

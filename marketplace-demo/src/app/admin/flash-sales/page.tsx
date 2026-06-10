@@ -2,6 +2,13 @@ import { getSessionUser } from '@/lib/auth'
 import { redirect } from 'next/navigation'
 import { prisma } from '@/lib/prisma'
 import { FlashSaleManager } from './flash-sale-manager'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Flash Sales | Palengkee Admin',
+  description: 'Manage flash sale events.',
+  robots: { index: false, follow: false },
+}
 
 export default async function AdminFlashSalesPage() {
   const user = await getSessionUser()

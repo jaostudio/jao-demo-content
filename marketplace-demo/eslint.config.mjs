@@ -2,7 +2,7 @@ import tseslint from 'typescript-eslint'
 import nextPlugin from '@next/eslint-plugin-next'
 
 export default tseslint.config(
-  { ignores: ['.next/**', 'dist/**', 'node_modules/**', 'scripts/**'] },
+  { ignores: ['.next/**', 'dist/**', 'node_modules/**', 'scripts/**', 'download-images.js', 'download-manual.js', 'download-pexels.js', 'download-vendors-categories.js'] },
   ...tseslint.configs.recommended,
   {
     plugins: nextPlugin.configs['core-web-vitals'].plugins,

@@ -2,6 +2,13 @@ import { getSessionUser } from '@/lib/auth'
 import { redirect } from 'next/navigation'
 import { prisma } from '@/lib/prisma'
 import { CreateListingForm } from '@/components/vendor/create-listing-form'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Create Listing | Palengkee',
+  description: 'Create a new product listing.',
+  robots: { index: false, follow: false },
+}
 
 export default async function CreateListingPage() {
   const user = await getSessionUser()

@@ -4,8 +4,15 @@ import { notFound } from 'next/navigation'
 import { getSessionUser } from '@/lib/auth'
 import { getConversation } from '@/lib/actions/messages'
 import { MessageForm } from './message-form'
+import type { Metadata } from 'next'
 
 export const dynamic = 'force-dynamic'
+
+export const metadata: Metadata = {
+  title: 'Conversation | Palengkee',
+  description: 'View your conversation.',
+  robots: { index: false, follow: false },
+}
 
 export default async function ConversationPage({
   params,

@@ -27,28 +27,28 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       vendor: { select: { name: true } },
     },
   })
-  if (!listing) return { title: 'Not Found — Likha' }
+  if (!listing) return { title: 'Not Found - Palengkee' }
   const ogImage = listing.images[0]?.url || `${BASE_URL}/hero-banner.jpg`
   const description = listing.description
     ? listing.description.length > 160
       ? listing.description.slice(0, 157) + '...'
       : listing.description
-    : `Shop ${listing.title} on Likha`
+    : `Shop ${listing.title} on Palengkee`
   return {
-    title: `${listing.title} — Likha`,
+    title: `${listing.title} - Palengkee`,
     description,
     openGraph: {
-      title: `${listing.title} — Likha`,
+      title: `${listing.title} - Palengkee`,
       description,
       type: 'website',
       locale: 'en_PH',
-      siteName: 'Likha',
+      siteName: 'Palengkee',
       url: `${BASE_URL}/listings/${slug}`,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${listing.title} — Likha`,
+      title: `${listing.title} - Palengkee`,
       description,
       images: [ogImage],
     },
@@ -120,7 +120,7 @@ export default async function ListingDetailPage({
       {/* Breadcrumb */}
       <nav className="mb-4 text-xs text-neutral-500">
         <Link href="/listings" className="hover:text-primary-600">
-          All crafts
+          All products
         </Link>
         <span className="mx-1.5">/</span>
         <Link
