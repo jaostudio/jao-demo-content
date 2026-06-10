@@ -116,22 +116,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <head>
-        <link
-          rel="preload"
-          href="/_next/static/media/22a5144ee8d83bca-s.p.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/_next/static/media/f5271587012faf78-s.p.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-      </head>
+
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-bg-primary`}>
         <div className="noise-overlay" />
         <Providers>
