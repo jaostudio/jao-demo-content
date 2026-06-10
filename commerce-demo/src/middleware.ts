@@ -1,13 +1,14 @@
-import { auth } from '@/lib/auth'
-import { NextResponse } from 'next/server'
+import { getToken } from 'next-auth/jwt'
+import { NextRequest, NextResponse } from 'next/server'
 
-export default auth((req) => {
-  if (!req.auth && req.nextUrl.pathname.startsWith('/admin')) {
+export default async function middleware(req: NextRequest) {
+  const token = await getToken({ req })
+  if (!token && req.nextUrl.pathname.startsWith('/admin')) {
     const signin = new URL('/signin', req.url)
     signin.searchParams.set('callbackUrl', req.nextUrl.pathname)
     return NextResponse.redirect(signin)
   }
-})
+}
 
 export const config = {
   matcher: ['/admin/:path*'],
