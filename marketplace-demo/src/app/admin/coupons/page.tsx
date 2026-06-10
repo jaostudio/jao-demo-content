@@ -4,6 +4,8 @@ import { prisma } from '@/lib/prisma'
 import { CouponManager } from './coupon-manager'
 import type { Metadata } from 'next'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: 'Coupons | Palengkee Admin',
   description: 'Manage discount coupons.',

@@ -4,6 +4,8 @@ import { prisma } from '@/lib/prisma'
 import { ModerateActions } from './moderate-actions'
 import type { Metadata } from 'next'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: 'Manage Listings | Palengkee Admin',
   description: 'Review and manage all marketplace listings.',

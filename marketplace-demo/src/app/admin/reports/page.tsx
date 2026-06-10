@@ -4,6 +4,8 @@ import { prisma } from '@/lib/prisma'
 import { Download } from 'lucide-react'
 import type { Metadata } from 'next'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: 'Reports | Palengkee Admin',
   description: 'View marketplace analytics and reports.',

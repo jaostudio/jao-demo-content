@@ -4,6 +4,8 @@ import { prisma } from '@/lib/prisma'
 import { FlashSaleManager } from './flash-sale-manager'
 import type { Metadata } from 'next'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: 'Flash Sales | Palengkee Admin',
   description: 'Manage flash sale events.',

@@ -5,6 +5,8 @@ import { UserRoleManager } from './user-role-manager'
 import { UserSuspendToggle } from './user-suspend-toggle'
 import type { Metadata } from 'next'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: 'Manage Users | Palengkee Admin',
   description: 'Manage marketplace users.',

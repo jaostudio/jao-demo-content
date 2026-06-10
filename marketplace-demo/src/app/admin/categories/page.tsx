@@ -4,6 +4,8 @@ import { prisma } from '@/lib/prisma'
 import { CategoryManager } from './category-manager'
 import type { Metadata } from 'next'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: 'Categories | Palengkee Admin',
   description: 'Manage product categories.',

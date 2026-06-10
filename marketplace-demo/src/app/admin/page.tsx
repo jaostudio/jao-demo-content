@@ -5,6 +5,8 @@ import Link from 'next/link'
 import { Users, ShoppingBag, Package, TrendingUp, ListOrdered, Tag, Settings, Percent, Zap, FileText } from 'lucide-react'
 import type { Metadata } from 'next'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: 'Admin | Palengkee',
   description: 'Admin dashboard for managing the marketplace.',
