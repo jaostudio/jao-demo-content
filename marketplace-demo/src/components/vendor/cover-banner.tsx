@@ -21,11 +21,7 @@ export function CoverBanner({ vendor, metrics, isOwner }: CoverBannerProps) {
     <header className="relative">
       {/* Cover gradient */}
       <div
-        className="h-44 w-full sm:h-56 md:h-64"
-        style={{
-          background:
-            'linear-gradient(135deg, #C2693D 0%, #D4884F 45%, #8B3A1F 100%)',
-        }}
+        className="h-44 w-full sm:h-56 md:h-64 bg-gradient-to-br from-[#C2693D] via-[#D4884F] to-[#8B3A1F]"
         aria-hidden
       />
 

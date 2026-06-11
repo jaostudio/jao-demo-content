@@ -307,10 +307,9 @@ function FulfillmentTimeline({
               </div>
               {i < steps.length - 1 && (
                 <div
-                  className={`absolute left-1/2 top-5 sm:top-6 -z-0 h-0.5 w-[calc(100%-1.5rem)] sm:w-[calc(100%-2.5rem)] ${
+                  className={`absolute left-1/2 top-5 sm:top-6 -z-0 h-0.5 w-[calc(100%-1.5rem)] sm:w-[calc(100%-2.5rem)] translate-x-1/2 ${
                     s.done ? 'bg-primary-500' : 'bg-neutral-200 dark:bg-neutral-700'
                   }`}
-                  style={{ transform: 'translateX(50%)' }}
                 />
               )}
             </li>

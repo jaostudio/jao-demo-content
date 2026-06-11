@@ -24,14 +24,17 @@ const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfa
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL ?? 'https://palengkee.com'),
-  title: 'Palengkee - Fresh from your community',
+  title: 'Palengkee - Fresh Filipino Marketplace & Local Community Delivery',
   description:
     'Multi-vendor marketplace for fresh produce, local essentials, and everyday goods - direct from Filipino communities to your door.',
   keywords: ['marketplace', 'Philippines', 'fresh produce', 'local', 'sari-sari', 'groceries', 'delivery'],
   authors: [{ name: 'Palengkee' }],
   robots: { index: true, follow: true },
+  alternates: {
+    canonical: process.env.NEXT_PUBLIC_BASE_URL ?? 'https://palengkee.com',
+  },
   openGraph: {
-    title: 'Palengkee - Fresh from your community',
+    title: 'Palengkee - Fresh Filipino Marketplace & Local Community Delivery',
     description: 'Local produce, everyday essentials, and honest prices - delivered to your door.',
     type: 'website',
     locale: 'en_PH',
@@ -41,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Palengkee - Fresh from your community',
+    title: 'Palengkee - Fresh Filipino Marketplace & Local Community Delivery',
     description: 'Local produce, everyday essentials, and honest prices - delivered to your door.',
     images: ['/og-image.png'],
   },
@@ -67,7 +70,38 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link rel="manifest" href="/manifest.json" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* suppress-react-theme-warning removed — the Script caused the very console.error it tried to hide */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              {
+                '@context': 'https://schema.org',
+                '@type': 'Organization',
+                name: 'Palengkee',
+                url: 'https://palengkee.com',
+                logo: 'https://palengkee.com/favicon.svg',
+                description:
+                  'Multi-vendor marketplace for fresh produce, local essentials, and everyday goods - direct from Filipino communities to your door.',
+              },
+              {
+                '@context': 'https://schema.org',
+                '@type': 'WebSite',
+                name: 'Palengkee',
+                url: 'https://palengkee.com',
+                description:
+                  'Multi-vendor marketplace for fresh produce, local essentials, and everyday goods - direct from Filipino communities to your door.',
+                potentialAction: {
+                  '@type': 'SearchAction',
+                  target: {
+                    '@type': 'EntryPoint',
+                    urlTemplate: 'https://palengkee.com/listings?q={search_term_string}',
+                  },
+                  'query-input': 'required name=search_term_string',
+                },
+              },
+            ]),
+          }}
+        />
       </head>
       <body className={`${inter.variable} ${playfair.variable} font-sans min-h-screen bg-neutral-50 text-neutral-800 antialiased dark:bg-neutral-950 dark:text-neutral-100`}>
         <a

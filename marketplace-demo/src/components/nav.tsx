@@ -157,7 +157,7 @@ export function Nav() {
                   aria-expanded={userMenuOpen}
                 >
                   {user?.avatarUrl ? (
-                    <Image src={user.avatarUrl} alt="" width={28} height={28} className="h-7 w-7 rounded-full object-cover" />
+                    <Image src={user.avatarUrl} alt={user.name} width={28} height={28} className="h-7 w-7 rounded-full object-cover" />
                   ) : (
                     <div className="flex h-7 w-7 items-center justify-center rounded-full bg-primary-100 text-xs font-bold text-primary-700 dark:bg-primary-900/40 dark:text-primary-300">
                       {user?.name?.charAt(0).toUpperCase() ?? 'U'}

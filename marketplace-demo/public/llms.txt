@@ -1,0 +1,22 @@
+# Palengkee
+
+> Multi-vendor marketplace for fresh produce, local essentials, and everyday goods - direct from Filipino communities to your door.
+
+## Key features
+- Browse fresh produce, local essentials, and everyday goods from Filipino vendors
+- Multi-vendor marketplace platform with vendor storefronts
+- Real-time messaging between buyers and vendors
+- Order tracking and management
+- Secure checkout with cash on delivery
+- Vendor dashboard for managing listings, orders, and analytics
+
+## Pages
+- Homepage: / — Overview of marketplace, featured listings, vendor spotlight
+- Listings: /listings — Browse all products with search and filters
+- Vendors: /vendors/[id] — Individual vendor storefronts
+- About: /about — About Palengkee
+- Cart: /cart — Shopping cart
+- Checkout: /checkout — Order checkout
+
+## Tech stack
+Next.js 16, Prisma ORM, SQLite/Turso, next-intl (EN/TL), Tailwind CSS v4, Framer Motion

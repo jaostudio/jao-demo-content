@@ -43,7 +43,7 @@ export function StatsCounter({
           transition={{ duration: 0.6 }}
           className="mb-10 text-center"
         >
-          <p className="text-xs font-bold uppercase tracking-widest text-white/70">
+          <p className="text-xs font-bold uppercase tracking-widest text-white/85">
             By the numbers
           </p>
           <h2 className="mt-2 font-serif text-3xl font-bold text-white sm:text-4xl">
@@ -121,7 +121,7 @@ function StatItem({
         {display.toLocaleString()}
         {stat.suffix}
       </p>
-      <p className="mt-2 text-sm font-medium text-white/80">{stat.label}</p>
+      <p className="mt-2 text-sm font-medium text-white/90">{stat.label}</p>
     </motion.div>
   )
 }

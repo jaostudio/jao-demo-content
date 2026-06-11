@@ -52,13 +52,7 @@ export function HeroSection() {
       </motion.div>
 
       {/* Subtle paper grain texture overlay */}
-      <div
-        className="absolute inset-0 -z-10 opacity-[0.04] mix-blend-overlay pointer-events-none"
-        style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
-        }}
-      />
+      <div className="absolute inset-0 -z-10 opacity-[0.04] mix-blend-overlay pointer-events-none bg-grain" />
 
       <motion.div
         variants={reduce ? undefined : containerVariants}
@@ -67,7 +61,7 @@ export function HeroSection() {
         className="relative mx-auto flex min-h-[640px] max-w-7xl flex-col items-start justify-center px-4 py-24 sm:min-h-[680px] sm:py-32"
       >
         <motion.div variants={reduce ? undefined : itemVariants}>
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white/90 backdrop-blur-md">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur-md">
             <Sparkles className="h-3 w-3 text-secondary-300" />
             <span>{t('community')}</span>
           </span>
@@ -79,12 +73,12 @@ export function HeroSection() {
           style={{ fontFamily: 'var(--font-playfair)' }}
         >
           Fresh from your{' '}
-          <span className="italic text-white/90 drop-shadow-sm">community</span>
+          <span className="italic text-white drop-shadow-sm">community</span>
         </motion.h1>
 
         <motion.p
           variants={reduce ? undefined : itemVariants}
-          className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl"
+          className="mt-6 max-w-2xl text-lg leading-relaxed text-white sm:text-xl"
         >
           Local produce, everyday essentials, and honest prices - delivered to your door.
         </motion.p>
@@ -111,7 +105,7 @@ export function HeroSection() {
         {/* Trust strip */}
         <motion.div
           variants={reduce ? undefined : itemVariants}
-          className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/70"
+          className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/85"
         >
           <span className="inline-flex items-center gap-1.5">
             <span className="h-1.5 w-1.5 rounded-full bg-accent-400" />

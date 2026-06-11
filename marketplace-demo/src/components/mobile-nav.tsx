@@ -88,7 +88,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
             <div className="mb-4 rounded-xl bg-neutral-50 p-4 dark:bg-neutral-900">
               <div className="flex items-center gap-3">
                 {user.avatarUrl ? (
-                  <Image src={user.avatarUrl} alt="" width={40} height={40} className="h-10 w-10 rounded-full object-cover" />
+                  <Image src={user.avatarUrl} alt={user.name} width={40} height={40} className="h-10 w-10 rounded-full object-cover" />
                 ) : (
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-100 text-sm font-bold text-primary-700 dark:bg-primary-900/40 dark:text-primary-300">
                     {user.name?.charAt(0).toUpperCase() ?? 'U'}
