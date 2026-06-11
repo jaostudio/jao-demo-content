@@ -133,7 +133,7 @@ export default async function ContactPage() {
             <p className="text-[var(--text-body)] font-medium text-text-primary">
               {t('ctaDirect')}
             </p>
-            <Button href="/contact" variant="secondary" size="lg" trackingLabel="direct_contact_cta">
+            <Button href="mailto:jameson.olitoquit@gmail.com" variant="secondary" size="lg" trackingLabel="direct_contact_cta">
               {t('ctaEmail')}
             </Button>
           </Card>

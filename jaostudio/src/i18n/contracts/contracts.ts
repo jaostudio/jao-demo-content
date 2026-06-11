@@ -21,6 +21,8 @@ export interface HeroContract {
   live: string
   metaTitle: string
   metaDescription: string
+  notForEveryoneBadge: string
+  notForEveryoneDetail: string
 }
 
 export interface FooterContract {
@@ -201,8 +203,11 @@ export interface ServicesContract {
   model4Desc: string
   processBadge: string
   deliveryStages: string
+  engagementBadge: string
   engagementModel: string
   workingStyle: string
+  candidBadge: string
+  candidNote: string
   service1Title: string
   service1Desc: string
   service2Title: string
@@ -212,6 +217,7 @@ export interface ServicesContract {
   service4Title: string
   service4Desc: string
   exampleScopes: string
+  exampleScopesBadge: string
   example1Title: string
   example1Timeline: string
   example1Scope: string
@@ -221,6 +227,7 @@ export interface ServicesContract {
   example3Title: string
   example3Timeline: string
   example3Scope: string
+  availabilityBadge: string
   availabilityNote: string
   availabilityIntro: string
   availabilityNote1: string

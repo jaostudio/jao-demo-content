@@ -1,15 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
   <defs>
-    <radialGradient id="sg" cx="50%" cy="50%" r="35%">
+    <radialGradient id="starGlow" cx="50%" cy="50%" r="35%">
       <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.35" />
       <stop offset="60%" stop-color="#7C3AED" stop-opacity="0.08" />
       <stop offset="100%" stop-color="#7C3AED" stop-opacity="0" />
     </radialGradient>
-    <filter id="g" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="8" result="b" />
-      <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
     </filter>
   </defs>
+
+  <!-- Background starfield -->
   <circle cx="80" cy="72" r="1.5" fill="#A1A1AA" opacity="0.3" />
   <circle cx="420" cy="56" r="1" fill="#A1A1AA" opacity="0.2" />
   <circle cx="64" cy="400" r="1.2" fill="#A1A1AA" opacity="0.25" />
@@ -18,18 +23,36 @@
   <circle cx="384" cy="480" r="0.8" fill="#D97706" opacity="0.25" />
   <circle cx="480" cy="160" r="1" fill="#A1A1AA" opacity="0.2" />
   <circle cx="32" cy="256" r="1.2" fill="#A1A1AA" opacity="0.15" />
-  <circle cx="256" cy="256" r="180" fill="url(#sg)" />
-  <ellipse cx="256" cy="256" rx="130" ry="55" transform="rotate(-20 256 256)" stroke="#A1A1AA" stroke-width="1.5" opacity="0.15" fill="none" />
-  <ellipse cx="256" cy="256" rx="190" ry="80" transform="rotate(15 256 256)" stroke="#A1A1AA" stroke-width="1.2" opacity="0.1" fill="none" />
-  <circle cx="256" cy="256" r="38" fill="#7C3AED" filter="url(#g)" opacity="0.95" />
+  <circle cx="320" cy="32" r="0.8" fill="#A1A1AA" opacity="0.2" />
+  <circle cx="480" cy="320" r="1" fill="#D97706" opacity="0.2" />
+
+  <!-- Radial glow behind star -->
+  <circle cx="256" cy="256" r="180" fill="url(#starGlow)" />
+
+  <!-- Orbital ring 1 (inner, tilted) -->
+  <ellipse cx="256" cy="256" rx="130" ry="55" transform="rotate(-20 256 256)"
+    stroke="#A1A1AA" stroke-width="1.5" opacity="0.15" fill="none" />
+
+  <!-- Orbital ring 2 (outer, tilted opposite) -->
+  <ellipse cx="256" cy="256" rx="190" ry="80" transform="rotate(15 256 256)"
+    stroke="#A1A1AA" stroke-width="1.2" opacity="0.1" fill="none" />
+
+  <!-- Central star -->
+  <circle cx="256" cy="256" r="38" fill="#7C3AED" filter="url(#glow)" opacity="0.95" />
   <circle cx="256" cy="256" r="22" fill="#8B5CF6" opacity="0.6" />
+
+  <!-- Orbiting nodes — ring 1 -->
   <circle cx="152" cy="220" r="14" fill="#7C3AED" opacity="0.55" />
   <circle cx="370" cy="200" r="11" fill="#D97706" opacity="0.6" />
   <circle cx="340" cy="310" r="16" fill="#7C3AED" opacity="0.35" />
+
+  <!-- Orbiting nodes — ring 2 -->
   <circle cx="90" cy="310" r="9" fill="#D97706" opacity="0.45" />
   <circle cx="410" cy="140" r="7" fill="#D97706" opacity="0.4" />
   <circle cx="110" cy="170" r="6" fill="#A1A1AA" opacity="0.3" />
   <circle cx="420" cy="360" r="8" fill="#A1A1AA" opacity="0.25" />
+
+  <!-- Connecting lines from star to close nodes -->
   <line x1="236" y1="244" x2="160" y2="224" stroke="#A1A1AA" stroke-width="1" opacity="0.15" />
   <line x1="276" y1="244" x2="362" y2="206" stroke="#A1A1AA" stroke-width="1" opacity="0.15" />
   <line x1="272" y1="274" x2="332" y2="304" stroke="#A1A1AA" stroke-width="1" opacity="0.12" />

@@ -1,11 +1,13 @@
 'use client'
 
 import NextLink from 'next/link'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { Container } from '@/components/ui/container'
 
 export function Footer() {
   const t = useTranslations('footer')
+  const locale = useLocale()
+  const contactHref = locale === 'en' ? '/#contact' : '/tl/#contact'
 
   return (
     <footer className="border-t border-border-subtle">
@@ -21,7 +23,7 @@ export function Footer() {
 
         <div className="flex items-center gap-6">
           <NextLink
-            href="/contact"
+            href={contactHref}
             className="focus-ring text-sm leading-relaxed text-text-secondary transition-colors hover:text-text-primary"
           >
             {t('contact')}

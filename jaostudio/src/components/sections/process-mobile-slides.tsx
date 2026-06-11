@@ -69,18 +69,20 @@ export function ProcessMobileSlides({ steps, startYourProjectLabel }: ProcessMob
       </div>
 
       <div className="flex items-center justify-between border-t border-border-subtle px-4 py-3">
-        <div className="flex gap-1.5">
+        <div className="flex items-center gap-2">
           {steps.map((_, i) => (
             <button
               key={i}
               type="button"
               onClick={() => setPage([i, i > current ? 1 : -1])}
               aria-label={`Go to step ${i + 1}`}
-              className={cn(
+              className="flex items-center justify-center min-w-[24px] min-h-[24px]"
+            >
+              <span className={cn(
                 'h-1.5 rounded-full transition-all duration-300',
                 i === current ? 'w-6 bg-accent' : 'w-1.5 bg-border-subtle',
-              )}
-            />
+              )} />
+            </button>
           ))}
         </div>
 

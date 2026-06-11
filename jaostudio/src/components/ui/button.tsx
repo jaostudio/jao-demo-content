@@ -2,6 +2,7 @@
 
 import { forwardRef } from 'react'
 import { motion } from 'framer-motion'
+import NextLink from 'next/link'
 import { cn } from '@/lib/cn'
 import { trackCTA } from '@/lib/analytics'
 import { easeOut } from '@/lib/motion-variants'
@@ -48,18 +49,35 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     if (href) {
       const isExternal = href.startsWith('http://') || href.startsWith('https://') || href.startsWith('//')
+      if (isExternal) {
+        return (
+          <motion.a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={baseStyles}
+            whileHover={{ scale: 1.02, transition: { duration: 0.3, ease: easeOut } }}
+            whileTap={{ scale: 0.97, transition: { duration: 0.3, ease: easeOut } }}
+            onClick={() => { if (trackingLabel) trackCTA(trackingLabel, typeof window !== 'undefined' ? window.location.pathname : '') }}
+          >
+            {content}
+          </motion.a>
+        )
+      }
+
       return (
-        <motion.a
-          href={href}
-          target={isExternal ? '_blank' : undefined}
-          rel={isExternal ? 'noopener noreferrer' : undefined}
-          className={baseStyles}
+        <motion.div
           whileHover={{ scale: 1.02, transition: { duration: 0.3, ease: easeOut } }}
           whileTap={{ scale: 0.97, transition: { duration: 0.3, ease: easeOut } }}
-          onClick={() => { if (trackingLabel) trackCTA(trackingLabel, typeof window !== 'undefined' ? window.location.pathname : '') }}
         >
-          {content}
-        </motion.a>
+          <NextLink
+            href={href}
+            className={baseStyles}
+            onClick={() => { if (trackingLabel) trackCTA(trackingLabel, typeof window !== 'undefined' ? window.location.pathname : '') }}
+          >
+            {content}
+          </NextLink>
+        </motion.div>
       )
     }
 

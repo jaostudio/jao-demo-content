@@ -19,7 +19,9 @@
     "ctaPrimary": "Tingnan ang Systems",
     "ctaSecondary": "Tingnan ang Services",
     "systemTopology": "System topology",
-    "live": "Live"
+    "live": "Live",
+    "notForEveryoneBadge": "Not for everyone",
+    "notForEveryoneDetail": "Hindi ako gumagamit ng page builders, templates, o white-label. Purong code, naaayon sa iyong pangangailangan."
   },
   "footer": {
     "brand": "JAOstudio",
@@ -171,6 +173,8 @@
     "heroBadge": "Services",
     "heroTitle": "Business Systems That Automate Operations",
     "heroDesc": "We design and build custom platforms, dashboards, and internal tools that reduce manual work, automate workflows, and create measurable business outcomes — for founders, agencies, and operations teams.",
+    "candidBadge": "Not for everyone",
+    "candidNote": "Hindi ako gumagamit ng page builders, templates, o white-label. Bawat proyekto ay isinusulat mula sa simula — production code na naaayon sa iyong operasyon.",
     "metaTitle": "Services — JAOstudio",
     "metaDescription": "Custom websites, web applications, dashboards, performance optimization, at technical consulting. Binuo para sa conversion, bilis, at maintainability.",
     "stage1Title": "Discovery at Strategy",
