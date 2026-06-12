@@ -18,7 +18,7 @@ export function Card({ children, className, hover = true, glow, onClick }: CardP
       className={cn(
         'relative rounded-2xl border border-border-subtle bg-bg-surface p-6 md:p-8 focus:outline-none',
         hover && 'transition-colors duration-300 hover:bg-surface-hover hover:border-accent/30',
-        'focus-visible:ring-4 focus-visible:ring-accent/25 focus-visible:ring-offset-2 focus-visible:ring-offset-bg',
+        'focus-visible:ring-4 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg',
         glow && 'shadow-card',
         className,
       )}
