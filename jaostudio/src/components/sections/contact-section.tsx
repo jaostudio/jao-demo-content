@@ -143,6 +143,10 @@ function ContactForm() {
             </p>
           </motion.div>
 
+          <p className="text-sm leading-relaxed text-text-tertiary -mt-4 mb-6">
+            Need to talk to someone I&apos;ve worked with? I can connect you with former colleagues from GoDaddy or Wix (subject to their availability).
+          </p>
+
           <form onSubmit={handleSubmit} onFocus={handleFirstInteraction} className="flex flex-col gap-3 md:gap-6">
             <input type="hidden" name="_gotcha" aria-hidden="true" />
             {source && <input type="hidden" name="source_override" value={source} />}
@@ -254,6 +258,10 @@ function ContactForm() {
               {formState.status === 'loading' ? t('ctaSending') : t('cta')}
             </Button>
           </form>
+
+          <p className="mt-4 text-sm leading-relaxed text-text-tertiary">
+            You&apos;re not just getting a coder. You&apos;re getting someone who has solved hundreds of real-world website problems. Tell me about your project — I&apos;ll respond within 24 hours with honest feedback.
+          </p>
 
             <motion.div
               initial="hidden"

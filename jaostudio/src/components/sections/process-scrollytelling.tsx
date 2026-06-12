@@ -220,10 +220,10 @@ function ProcessDesktopScrollytelling({
               {/* Quality metrics */}
               <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
                 {[
-                  { value: '102 kB', label: 'Shared JS' },
-                  { value: '22', label: 'Routes' },
-                  { value: '95+', label: 'Lighthouse' },
-                  { value: '<2s', label: 'Deploy' },
+                  { value: '102 kB', label: 'Shared JS (demo)' },
+                  { value: '22', label: 'Routes (demo)' },
+                  { value: '95+', label: 'Lighthouse (demo)' },
+                  { value: '<2s', label: 'Deploy (demo)' },
                 ].map((m) => (
                   <div
                     key={m.label}
@@ -383,10 +383,10 @@ export function ProcessScrollytelling() {
 
         <div className="mt-6 grid grid-cols-2 gap-2">
           {[
-            { value: '102 kB', label: 'Shared JS' },
-            { value: '22', label: 'Routes' },
-            { value: '95+', label: 'Lighthouse' },
-            { value: '<2s', label: 'Deploy' },
+            { value: '102 kB', label: 'Shared JS (demo)' },
+            { value: '22', label: 'Routes (demo)' },
+            { value: '95+', label: 'Lighthouse (demo)' },
+            { value: '<2s', label: 'Deploy (demo)' },
           ].map((m) => (
             <div
               key={m.label}

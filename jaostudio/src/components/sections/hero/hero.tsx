@@ -36,7 +36,7 @@ export async function Hero() {
 
             <div className="flex flex-col gap-2 md:gap-4">
               <h1 className="max-w-4xl text-[var(--text-hero)] font-[var(--weight-medium)] leading-[var(--leading-display)] tracking-[var(--tracking-tight)] text-text-primary">
-                {t('headline')}
+                {t('headline1')}<br />{t('headline2')}
               </h1>
               <p className="max-w-2xl text-[var(--text-body)] leading-[var(--leading-relaxed)] text-text-secondary">
                 {t('subtitle')}

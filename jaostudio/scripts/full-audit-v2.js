@@ -15,7 +15,6 @@ const ROUTES = [
   '/', '/studio', '/contact', '/cv', '/demos', '/docs/demo-credentials',
   '/playground', '/projects', '/services',
   '/projects/isp-platform', '/projects/landing-page', '/projects/web-application',
-  '/case-studies',
 ]
 
 const stamp = new Date().toISOString().split('T')[0]

@@ -26,14 +26,14 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'JAOstudio — Custom Websites & Web Applications',
+  title: 'JAOstudio — Web Developer',
   description:
-    'Custom websites, web applications, and dashboards built for startups, agencies, and established businesses. Focus on performance, clarity, and measurable results.',
+    "I've fixed hundreds of broken websites. Now I build new ones from scratch. No templates, no page builders — just clean, working code.",
   metadataBase: new URL('https://jaostudio.dev'),
   openGraph: {
-    title: 'JAOstudio — Custom Websites & Web Applications',
+    title: 'JAOstudio — Web Developer',
     description:
-      'Custom websites, web applications, and dashboards built for startups, agencies, and established businesses. Focus on performance, clarity, and measurable results.',
+      "I've fixed hundreds of broken websites. Now I build new ones from scratch. No templates, no page builders — just clean, working code.",
     url: 'https://jaostudio.dev',
     siteName: 'JAOstudio',
     locale: 'en_US',
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'JAOstudio — Custom Websites & Web Applications',
+    title: 'JAOstudio — Web Developer',
     description:
-      'Custom websites, web applications, and dashboards built for startups, agencies, and established businesses. Focus on performance, clarity, and measurable results.',
+      "I've fixed hundreds of broken websites. Now I build new ones from scratch. No templates, no page builders — just clean, working code.",
   },
   robots: {
     index: true,
@@ -75,7 +75,7 @@ export default async function RootLayout({
         name: 'JAOstudio',
         url: 'https://jaostudio.dev',
         description:
-          'Custom websites, web applications, and dashboards for startups, agencies, and established businesses.',
+          "I've fixed hundreds of broken websites. Now I build new ones from scratch.",
         logo: 'https://jaostudio.dev/favicon.svg',
         sameAs: [
           'https://github.com/jaoce',
@@ -88,7 +88,7 @@ export default async function RootLayout({
         name: 'JAOstudio',
         url: 'https://jaostudio.dev',
         description:
-          'Custom websites, dashboards, and tools built for performance.',
+          "Custom websites, dashboards, and tools built from scratch — no templates.",
         areaServed: 'Worldwide',
         serviceType: 'Web Development',
         provider: { '@id': ORG_ID },

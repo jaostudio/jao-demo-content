@@ -16,7 +16,6 @@ const VIEWPORTS = [
 const ROUTES = [
   { path: '/', label: 'home' },
   { path: '/studio', label: 'studio' },
-  { path: '/case-studies', label: 'case-studies' },
   { path: '/contact', label: 'contact' },
   { path: '/cv', label: 'cv' },
   { path: '/demos', label: 'demos' },
@@ -27,7 +26,6 @@ const ROUTES = [
   { path: '/projects/isp-platform', label: 'project-isp' },
   { path: '/projects/landing-page', label: 'project-landing' },
   { path: '/projects/web-application', label: 'project-webapp' },
-  { path: '/case-studies', label: 'case-studies' },
 ]
 
 const stampDate = new Date().toISOString().split('T')[0]

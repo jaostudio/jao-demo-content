@@ -17,7 +17,6 @@ import { PageScrollTracker } from '@/components/layout/page-scroll-tracker'
 import { ProjectViewTracker } from '@/components/projects/project-view-tracker'
 import { EVENTS } from '@/lib/analytics'
 import { getProject, getRelatedProjects, projects } from '@/lib/projects'
-import { getCaseStudiesByProject } from '@/lib/case-studies'
 import { getService } from '@/lib/services'
 import { SYSTEMS } from '@/lib/systems'
 import { PERSON_ID } from '@/lib/json-ld-ids'
@@ -88,7 +87,7 @@ export default async function ProjectPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(projectJsonLd) }}
       />
-      <PageScrollTracker eventName={EVENTS.CASE_STUDY_SCROLL} />
+      <PageScrollTracker eventName={EVENTS.SCROLL_DEPTH} />
       <ProjectViewTracker slug={slug} />
       <FadeInView><section className="relative flex min-h-[50vh] items-end overflow-hidden pt-12 md:pt-28">
         <LayeredFrame glow>
@@ -161,10 +160,10 @@ export default async function ProjectPage({ params }: Props) {
 
       <FadeInView><Container className="pb-8">
         <div className="flex flex-wrap justify-center gap-4">
-          <Button href={project.liveUrl} size="lg" trackingLabel="case_study_view_live">
+          <Button href={project.liveUrl} size="lg" trackingLabel="project_view_live">
             {t('ctaViewLive')}
           </Button>
-          <Button href={contactHref} variant="secondary" size="lg" trackingLabel="case_study_start_similar">
+          <Button href={contactHref} variant="secondary" size="lg" trackingLabel="project_start_similar">
             {t('ctaStartSimilar')}
           </Button>
         </div>
@@ -240,22 +239,6 @@ export default async function ProjectPage({ params }: Props) {
                 </div>
               </div>
             )}
-
-            {(() => {
-              const relatedCs = getCaseStudiesByProject(slug)
-              if (relatedCs.length === 0) return null
-              return (
-                <div>
-                  <h2 className="mb-1 text-xs font-medium uppercase tracking-wider text-text-primary">Related Case Study</h2>
-                  <Link
-                    href={`/case-studies/${relatedCs[0].slug}`}
-                    className="mt-2 block py-1 text-sm font-medium text-text-primary underline-offset-4 transition-colors hover:text-accent hover:underline"
-                  >
-                    {relatedCs[0].title} →
-                  </Link>
-                </div>
-              )
-            })()}
 
             {(() => {
               const relatedDemos = SYSTEMS.filter((sys) =>
@@ -410,7 +393,7 @@ export default async function ProjectPage({ params }: Props) {
               <p className="text-[var(--text-body)] text-text-secondary">
                 {t('ctaSimilarInterest')}
               </p>
-              <Button href={contactHref} variant="primary" size="lg" trackingLabel="case_study_final_cta">
+              <Button href={contactHref} variant="primary" size="lg" trackingLabel="project_final_cta">
                 {t('ctaStartProject')}
               </Button>
             </div>

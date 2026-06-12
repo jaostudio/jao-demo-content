@@ -42,10 +42,4 @@ export const ogContent = {
     items: ["Client Portals", "Business Automation", "Internal Systems", "Custom Platforms"],
     footer: "jaostudio.dev",
   },
-  caseStudies: {
-    badge: "Case Studies",
-    title: "Real Projects, Measurable Outcomes",
-    subtitle: "How we build systems that solve business problems.",
-    footer: "Case Studies",
-  },
 } as const

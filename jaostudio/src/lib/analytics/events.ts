@@ -13,7 +13,6 @@ export const EVENTS = {
   AUDIT_FORM_STARTED: 'audit_form_started',
   AUDIT_VALIDATION_FAILED: 'audit_validation_failed',
   AUDIT_SUBMITTED: 'audit_request_submitted',
-  CASE_STUDY_SCROLL: 'case_study_scroll_depth',
   PLAYGROUND_CARD_CLICK: 'playground_card_click',
   PROCESS_STEP_OPENED: 'process_step_opened',
   SERVICES_VIEW: 'services_view',
@@ -37,7 +36,6 @@ export interface EventPayloadMap {
   [EVENTS.AUDIT_FORM_STARTED]: { source: string }
   [EVENTS.AUDIT_VALIDATION_FAILED]: { step: string }
   [EVENTS.AUDIT_SUBMITTED]: { status: 'success' | 'error'; latency_ms: number; error_type?: string }
-  [EVENTS.CASE_STUDY_SCROLL]: { depth: number }
   [EVENTS.PLAYGROUND_CARD_CLICK]: { demo: string; category: string }
   [EVENTS.PROCESS_STEP_OPENED]: { step: number; title: string; viewport: string }
   [EVENTS.SERVICES_VIEW]: { locale: string }

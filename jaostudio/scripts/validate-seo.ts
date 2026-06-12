@@ -9,14 +9,13 @@
  *   - Graph completeness: every indexable route is discoverable
  *   - Canonical ↔ hreflang alignment
  *   - Route config completeness
- *   - Relationship completeness: case studies, projects, systems
+ *   - Relationship completeness: projects, systems
  */
 
 import { readFileSync, readdirSync } from 'fs'
 import { join } from 'path'
 import { fileURLToPath } from 'url'
 import { SEO_ROUTES, SITE_URL } from '../src/lib/seo-config'
-import { getPublishedCaseStudies } from '../src/lib/case-studies'
 import { projects } from '../src/lib/projects'
 import { SYSTEMS } from '../src/lib/systems'
 
@@ -152,7 +151,7 @@ function main() {
     audit: '[locale]/(marketing)/audit',
     projects: '[locale]/(marketing)/projects',
     demos: '[locale]/demos',
-    caseStudies: '[locale]/(marketing)/case-studies',
+    liveProjects: '[locale]/live-projects',
   }
 
   const expectedOGPaths = ['', ...new Set(Object.values(routeOGAlias))]
@@ -166,7 +165,7 @@ function main() {
   // ── 8. Route config completeness ─────────────────────────────
   const expectedKeys = [
     'home', 'projects', 'services', 'demos', 'studio',
-    'contact', 'audit', 'cv', 'caseStudies', 'playground',
+    'contact', 'audit', 'cv', 'liveProjects', 'playground',
     'demoCredentials',
   ]
   const configuredKeys = routeEntries.map((r) => r.key)
@@ -192,43 +191,7 @@ function main() {
     }
   }
 
-  // ── 10. Case study relationship completeness ─────────────────
-  const publishedCaseStudies = getPublishedCaseStudies()
-  const projectsMap = new Map(projects.map((p) => [p.slug, p]))
-  const systemsMap = new Map(SYSTEMS.map((s) => [s.id, s]))
-
-  for (const cs of publishedCaseStudies) {
-    // relatedProject must exist
-    if (!projectsMap.has(cs.relatedProject)) {
-      console.error(`✗ [cs] ${cs.slug}: relatedProject "${cs.relatedProject}" not found in projects`)
-      errors++
-    }
-
-    // relatedServices must be valid ServiceIds
-    for (const sid of cs.relatedServices) {
-      // ServiceId type cannot be checked at runtime, but we can validate all services exist
-      // by checking the services registry — skip runtime check here as type system handles it
-    }
-
-    // relatedDemos must exist in SYSTEMS
-    for (const did of cs.relatedDemos) {
-      if (!systemsMap.has(did)) {
-        console.error(`✗ [cs] ${cs.slug}: relatedDemo "${did}" not found in SYSTEMS`)
-        errors++
-      }
-    }
-
-    // featured must have a flagship or production project
-    if (cs.featured) {
-      const project = projectsMap.get(cs.relatedProject)
-      if (project && project.projectTier === 'concept') {
-        console.error(`✗ [cs] ${cs.slug}: featured case study references a concept-tier project`)
-        errors++
-      }
-    }
-  }
-
-  // ── 11. Project relationship completeness ────────────────────
+  // ── 10. Project relationship completeness ────────────────────
   for (const p of projects) {
     // relatedServices must be non-empty
     if (!p.relatedServices || p.relatedServices.length === 0) {
@@ -237,7 +200,7 @@ function main() {
     }
   }
 
-  // ── 12. System relationship completeness ─────────────────────
+  // ── 10. System relationship completeness ─────────────────────
   for (const s of SYSTEMS) {
     if (!s.relatedServices || s.relatedServices.length === 0) {
       console.error(`✗ [system] ${s.id}: no relatedServices defined`)
@@ -253,7 +216,6 @@ function main() {
     console.log(`  - ${ogFiles.size} OG image files found`)
     console.log(`  - ${indexableRoutes.length} indexable routes`)
     console.log(`  - ${nonIndexableRoutes.length} non-indexable routes`)
-    console.log(`  - ${publishedCaseStudies.length} published case studies`)
   } else {
     console.error(`\n✗ ${errors} validation error(s) found`)
     process.exit(1)

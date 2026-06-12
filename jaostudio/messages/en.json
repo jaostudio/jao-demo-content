@@ -10,11 +10,12 @@
     "themeLight": "Switch to light mode"
   },
   "hero": {
-    "metaTitle": "JAOstudio — Websites, Dashboards & Tools for Performance",
-    "metaDescription": "Custom web development for startups, agencies, and established businesses — from landing pages to full SaaS platforms. Performance-first, clarity-driven.",
+    "metaTitle": "JAOstudio — Web Developer, No Templates",
+    "metaDescription": "I've fixed hundreds of broken websites. Now I build new ones from scratch. No templates. No page builders. Just clean, working code.",
     "badge": "JAOstudio",
-    "headline": "I build custom software that generates revenue and scales operations.",
-    "subtitle": "Customer-facing platforms, internal operations systems, and compliance-ready portals — from lead gen to audit trails. One project at a time, written by hand.",
+    "headline1": "I've fixed hundreds of broken websites.",
+    "headline2": "Now I build new ones from scratch.",
+    "subtitle": "For 5+ years I was the person you called when your site broke — at GoDaddy and Wix. I've debugged, consulted, and trained. Today I build full-stack apps, ecommerce, marketplaces, and internal tools. No templates. Just clean, working code.",
     "availability": "Currently accepting Q3 2026 projects",
     "notForEveryoneBadge": "Not for everyone",
     "notForEveryoneDetail": "I don't use page builders, templates, or white-label. Just production code, tailored to what you need.",
@@ -25,7 +26,7 @@
   },
   "footer": {
     "brand": "JAOstudio",
-    "tagline": "Custom websites, dashboards, and tools.",
+    "tagline": "I've fixed hundreds of broken websites. Now I build new ones from scratch. No templates. No shortcuts.",
     "contact": "Contact",
     "github": "GitHub",
     "linkedin": "LinkedIn",
@@ -93,7 +94,7 @@
   },
   "contact": {
     "badge": "Start a Project",
-    "heading": "Tell us about your project",
+    "heading": "Tell me about your project",
     "description": "Currently accepting projects for Q3 2026 and beyond. Tell me about your project and I'll get back to you within 24 hours.",
     "business": "Business Name",
     "projectType": "Project Type",
@@ -135,7 +136,7 @@
     "errorBudget": "Select a budget range",
     "errorTimeline": "Select a timeline",
     "errorPriority": "Select a priority",
-    "errorSource": "Select how you heard about us",
+    "errorSource": "Select how you heard about me",
     "errorOther": "Please specify your project type",
     "errorSubmit": "Something went wrong. Please email me directly at hello@jaostudio.dev.",
     "placeholderGoal": "What are you trying to achieve? Who is this for?",
@@ -145,38 +146,36 @@
   },
   "studio": {
     "metaTitle": "About — JAOstudio",
-    "metaDescription": "How I work, what I value, and what you can expect when we build together. Operating principles, engagement models, and production standards.",
+    "metaDescription": "I've fixed hundreds of broken websites. Now I build new ones from scratch. My background, how I operate, and what makes me different.",
     "badge": "About",
-    "heading": "How I work, what I value, and what you can expect.",
-    "description": "This page explains how I approach projects, the principles I follow, and what it's like to work together.",
-    "principle1Label": "Clarity over complexity",
-    "principle1Implication": "Every project starts with structured discovery — not assumptions.",
-    "principle1Outcome": "You get a clear scope with no hidden surprises.",
-    "principle2Label": "Performance is a feature",
-    "principle2Implication": "Every component is built with performance budgets and measurable metrics.",
-    "principle2Outcome": "Sites ship fast and stay fast under real traffic.",
-    "principle3Label": "Transparency by default",
-    "principle3Implication": "You'll see progress in real time — no black boxes or silent delays.",
-    "principle3Outcome": "You're never left wondering where things stand.",
-    "principle4Label": "Own your output",
-    "principle4Implication": "Source code, design files, and documentation are delivered at the end.",
-    "principle4Outcome": "You can take your project anywhere — no lock-in.",
-    "principle5Label": "Designed for longevity",
-    "principle5Implication": "Code is structured for maintenance, not just first launch.",
-    "principle5Outcome": "Updates and additions stay inexpensive over time.",
-    "principle6Label": "No fluff. No over-engineering.",
-    "principle6Implication": "Every feature is justified by user need, not trend.",
-    "principle6Outcome": "You get a focused product without unnecessary complexity.",
+    "heading": "I've fixed hundreds of broken websites. Now I build new ones from scratch.",
+    "description": "This page explains where I came from, how I operate, and what you can expect when working with me.",
+    "storyHeading": "Where I started",
+    "storyP1": "I didn't start as a developer. I started at GoDaddy, answering calls at 2 AM from people whose websites were down, hacked, or broken. Ecommerce stores that stopped taking orders in the middle of Black Friday. WordPress sites that wouldn't load because of a plugin conflict. Small business owners who just wanted their site to work.",
+    "storyP2": "After GoDaddy, I moved to Wix — enterprise support, technical escalations. Same problems, bigger scale. I spent years inside the support silos of some of the biggest web platforms in the world. I know how sites break. I know what causes performance issues. I know when a platform is the problem.",
+    "storyP3": "That experience shaped how I build today. I don't use templates. I don't use page builders. I write production code from scratch — because I've seen what happens when shortcuts fail at scale.",
+    "liveViewerTitle": "See live proof of the systems I run",
+    "liveViewerDesc": "Instead of talking about it, I built a live dashboard that shows every project I run. Each system appears automatically when it's online — real status, real metrics, real architecture.",
+    "liveViewerCTA": "Explore Live Projects",
+    "howIOperateTitle": "How I Operate",
+    "operate1": "I start every project by understanding your business, your users, and your constraints. The goal isn't to start coding fast — it's to build the right thing.",
+    "operate2": "I work async-first during business hours (Philippine time, UTC+8). You get regular updates, a working preview environment, and clear milestones.",
+    "operate3": "Every project includes performance budgets, accessibility checks, Lighthouse audits, and responsive testing before launch. I ship code that passes production standards, not just design mockups.",
+    "operate4": "After launch, I provide a 30-day minor fixes window. For ongoing work, retainers are available.",
+    "whatIDontDoTitle": "What I Don't Do",
+    "dontDo1": "Page builders or drag-and-drop — those are the reason I had a job at GoDaddy in the first place.",
+    "dontDo2": "Templates or white-label — every project is written from scratch for what you need.",
+    "dontDo3": "MVP-speed builds — I work on production systems meant to last, not experiments meant to pitch.",
     "cta": "Start a Project"
   },
   "services": {
     "heroBadge": "Services",
-    "heroTitle": "Business Systems That Automate Operations",
-    "heroDesc": "I design and build custom platforms, dashboards, and internal tools that reduce manual work, automate workflows, and create measurable business outcomes — for founders, agencies, and operations teams.",
+    "heroTitle": "Platforms, Dashboards & Systems",
+    "heroDesc": "I build custom platforms, dashboards, and internal tools. I spent 5+ years at GoDaddy and Wix fixing broken sites — now I build new ones from scratch. No templates. No page builders. Just production code.",
     "candidBadge": "Not for everyone",
     "candidNote": "I don't build with page builders, templates, or white-label. Every project is written from scratch — production code tailored to your specific operations.",
     "metaTitle": "Services — JAOstudio",
-    "metaDescription": "Custom websites, web applications, dashboards, performance optimization, and technical consulting. Built for conversion, speed, and maintainability.",
+    "metaDescription": "I build custom platforms, dashboards, and internal tools. 5+ years of experience at GoDaddy and Wix. No templates. Just production code.",
     "stage1Title": "Discovery & Strategy",
     "stage1Timeline": "3–7 days",
     "stage1Output": "Project brief, sitemap, tech recommendations",
@@ -225,14 +224,14 @@
     "whoForNotFit1": "MVP-stage startups needing rapid experimentation",
     "whoForNotFit2": "One-off landing page or brochure site projects",
     "whoForNotFit3": "Template-based or pre-built theme customizations",
-    "service1Title": "Web Development",
-    "service1Desc": "Custom websites, web applications, and dashboards — built from scratch for performance, accessibility, and conversion.",
-    "service2Title": "Consulting & Architecture",
-    "service2Desc": "Technical guidance, system design, code review, and architecture planning for teams building or scaling their products.",
-    "service3Title": "Performance & SEO",
-    "service3Desc": "Lighthouse optimization, Core Web Vitals, SEO audits, and load-time reduction to ship fast and rank well.",
-    "service4Title": "Support & Maintenance",
-    "service4Desc": "Ongoing updates, monitoring, security patches, and iterative improvements for live products.",
+    "service1Title": "Custom Web Development",
+    "service1Desc": "I build websites, web applications, and dashboards from scratch. No page builders, no templates. Just clean, accessible code tailored to what you need.",
+    "service2Title": "Technical Consulting & Support",
+    "service2Desc": "I help teams who are stuck — debugging, code review, architecture planning. I spent years doing technical escalations at GoDaddy and Wix. I know how to find what's wrong.",
+    "service3Title": "Performance & SEO Optimization",
+    "service3Desc": "Lighthouse audits, Core Web Vitals fixes, load-time reduction, and SEO improvements. I've optimized hundreds of sites — I know what makes them slow.",
+    "service4Title": "Maintenance & Support",
+    "service4Desc": "Ongoing updates, monitoring, security patches, and improvements for live sites. Post-launch support with a 30-day minor fixes window included in every project.",
     "registry": {
       "customWebsites": {
         "title": "Custom Websites",
@@ -304,7 +303,7 @@
     "trust4": "Scalable, isolated architecture",
     "timeline": "Timeline",
     "output": "Output",
-    "result": "Business result",
+    "result": "Business outcome",
     "bestFor": "Best for",
     "fromYou": "From you",
     "ctaSubtitle": "Tell me about what you're building. I'll respond within 24 hours with a project brief.",
@@ -337,7 +336,7 @@
     "fit4": "You have a budget that supports quality work.",
     "step1": "Share your project details",
     "step2": "I'll review and respond within 24 hours",
-    "step3": "We align on scope, timeline, and next steps",
+    "step3": "I'll share a project brief outlining scope, timeline, and next steps",
     "model1": "Full Project",
     "model1Desc": "End-to-end delivery from strategy to launch. You provide the vision, I handle the execution.",
     "model2": "Phase-Based",
@@ -359,7 +358,7 @@
     "faq1Question": "What does a typical project cost?",
     "faq1Answer": "It depends on scope. Small business sites typically fall in a lower range, custom dashboards in a mid range, and full platform builds at a higher tier. I'll provide a clear estimate during the project brief phase — no commitment needed.",
     "faq2Question": "How long does a project take?",
-    "faq2Answer": "Most projects take 2–6 weeks depending on complexity. The timeline is defined during the brief phase after we've aligned on scope.",
+    "faq2Answer": "Most projects take 2–6 weeks depending on complexity. I define the timeline during the brief phase after we've aligned on scope.",
     "faq3Question": "What do you need from me to get started?",
     "faq3Answer": "Clear goals, any existing brand materials or content, and a 30-minute call to align on scope. I handle the design, development, and deployment.",
     "faq4Question": "Do you offer post-launch support?",
@@ -422,27 +421,8 @@
     "metricBundle": "Bundle Size",
     "metricTTFB": "TTFB"
   },
-  "caseStudies": {
-    "badge": "Case Studies",
-    "heading": "Real Projects, Measurable Outcomes",
-    "description": "Detailed walkthroughs of projects we've built — the problem, the constraints, the solution, and the results.",
-    "readCaseStudy": "Read Case Study",
-    "backLink": "All Case Studies",
-    "sectionChallenge": "The Challenge",
-    "sectionConstraints": "Constraints",
-    "sectionSolution": "The Solution",
-    "sectionFeatures": "Key Features",
-    "sectionLessons": "Lessons & Decisions",
-    "lessonLabel": "Lesson",
-    "architectureLabel": "System Architecture",
-    "relatedServices": "Related Services",
-    "relatedDemos": "Related Demos",
-    "relatedProject": "Related Project",
-    "ctaTitle": "Need a similar system for your business?",
-    "ctaButton": "Start a Project"
-  },
   "socialProof": {
-    "item1": "95+ Lighthouse",
+    "item1": "Lighthouse Audited",
     "item2": "SEO-optimized",
     "item3": "Responsive-first",
     "item4": "Production-ready",
@@ -497,8 +477,20 @@
   },
   "demos": {
     "badge": "Live Demos",
-    "heading": "Business Systems Built to Run Real Operations",
-    "description": "Generate leads without manual follow-up. Increase revenue without platform chaos. Run operations without spreadsheets. Six production-ready platforms, each independently deployed and fully functional."
+    "heading": "Production Systems You Can Actually Explore",
+    "description": "Six independently deployed platforms — lead generation, commerce, marketplace, editorial, operations, and compliance. Each one is running live code. Explore them, break them, tell me what you think."
+  },
+  "liveProjects": {
+    "metaTitle": "Live Projects — JAOstudio",
+    "metaDescription": "Live tools and systems I maintain — real products running in production. Explore LiveViewer, my all-in-one website audit platform.",
+    "badge": "Live Projects",
+    "heading": "Live Tools I Build and Maintain",
+    "description": "These are real products I built and actively maintain. Not demos. Not prototypes. Running live code, serving real users.",
+    "liveviewer": {
+      "title": "LiveViewer",
+      "description": "An all-in-one website audit tool I built because I got tired of using five different services. Enter a URL, get a full audit — performance, SEO, accessibility, security, and tech stack analysis. No sign-up required.",
+      "cta": "Open LiveViewer →"
+    }
   },
   "playground": {
     "metaTitle": "Playground — JAOstudio",
@@ -533,40 +525,36 @@
   },
   "seo": {
     "home": {
-      "title": "JAOstudio — Websites, Dashboards & Tools for Performance",
-      "description": "Custom web development for startups, agencies, and established businesses — from landing pages to full SaaS platforms. Performance-first, clarity-driven."
+      "title": "JAOstudio — Web Developer, No Templates",
+      "description": "I've fixed hundreds of broken websites. Now I build new ones from scratch. No templates. No page builders. Just clean, working code."
     },
     "services": {
       "title": "Services — JAOstudio",
-      "description": "Custom websites, web applications, dashboards, performance optimization, and technical consulting. Built for conversion, speed, and maintainability."
+      "description": "Custom web development services — I build websites, dashboards, and applications from scratch. No page builders. Just production code."
     },
     "demos": {
-      "title": "Business Systems for Real Operations — JAOstudio",
-      "description": "Six production-ready platforms for lead generation, revenue operations, multi-vendor marketplaces, editorial workflow, internal operations, and compliance."
+      "title": "Live Demos — JAOstudio",
+      "description": "Six independently deployed production systems — lead generation, commerce, marketplace, editorial, operations, and compliance. Running live code, ready to explore."
     },
     "projects": {
       "title": "Projects — JAOstudio",
-      "description": "A selection of recent projects — business websites, web applications, dashboards, and e-commerce storefronts built for real clients."
+      "description": "A selection of recent projects — business websites, web applications, dashboards, and e-commerce storefronts built from scratch."
     },
     "contact": {
       "title": "Contact — JAOstudio",
-      "description": "Start a project or get in touch with JAOstudio. Tell me about your project and I'll respond within 24 hours."
+      "description": "Start a project or get in touch. Tell me about your project and I'll respond within 24 hours with a project brief."
     },
     "audit": {
       "title": "Free Website Audit — JAOstudio",
-      "description": "Get a free website audit with actionable recommendations to improve performance, SEO, and user experience."
-    },
-    "caseStudies": {
-      "title": "Case Studies — JAOstudio",
-      "description": "Real-world projects and outcomes — from construction operations platforms to ecommerce storefronts. See how we build systems that solve business problems."
+      "description": "Get a free website audit. I'll review your current site and provide actionable recommendations to improve performance, SEO, and user experience."
     },
     "playground": {
       "title": "Playground — JAOstudio",
       "description": "Interactive demos and experiments built with Next.js, Framer Motion, and modern web technologies."
     },
     "studio": {
-      "title": "Studio — JAOstudio",
-      "description": "How I work, what I value, and what you can expect when we build together. Operating principles, engagement models, and production standards."
+      "title": "About — JAOstudio",
+      "description": "I've fixed hundreds of broken websites. Now I build new ones from scratch. My background, how I operate, and what makes me different."
     },
     "cv": {
       "title": "CV — JAOstudio",
@@ -575,11 +563,15 @@
     "demoCredentials": {
       "title": "Demo Credentials — JAOstudio",
       "description": "Access credentials for all six demo systems — lead generation, commerce, marketplace, editorial, operations, and compliance."
+    },
+    "liveProjects": {
+      "title": "Live Projects — JAOstudio",
+      "description": "Live tools and systems I build and maintain — including LiveViewer, my all-in-one website audit platform. Real products, running live code."
     }
   },
   "intent": {
     "hero": {
-      "value": "We build scalable web applications for growing businesses"
+      "value": "I build custom software that generates revenue and scales operations"
     },
     "trust": {
       "statement": "Production-grade systems with measurable performance outcomes"

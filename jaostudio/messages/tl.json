@@ -10,11 +10,12 @@
     "themeLight": "Gawing light mode"
   },
   "hero": {
-    "metaTitle": "JAOstudio — Website, Dashboard at Tool para sa Performance",
-    "metaDescription": "Custom web development para sa startups, agencies, at established businesses — mula landing pages hanggang full SaaS platforms. Performance-first at malinaw.",
+    "metaTitle": "JAOstudio — Web Developer, Walang Templates",
+    "metaDescription": "Naka-fix na ako ng daan-daang sirang website. Ngayon, gumagawa ako ng bago mula sa simula. Walang templates. Walang page builders. Purong code.",
     "badge": "JAOstudio",
-    "headline": "Websites, dashboards, at tools para sa modern brands",
-    "subtitle": "Custom web development para sa startups at growing businesses.",
+    "headline1": "Naka-fix na ako ng daan-daang sirang website.",
+    "headline2": "Ngayon, gumagawa ako ng bago — mula sa simula.",
+    "subtitle": "Sa loob ng 5+ taon, ako ang tinatawagan mo kapag sira ang site mo — sa GoDaddy at Wix. Nag-debug, nag-consult, at nag-train ako. Ngayon, gumagawa ako ng full-stack apps, ecommerce, marketplaces, at internal tools. Walang templates. Purong code.",
     "availability": "Tumatanggap ng Q3 2026 projects",
     "ctaPrimary": "Tingnan ang Systems",
     "ctaSecondary": "Tingnan ang Services",
@@ -25,7 +26,7 @@
   },
   "footer": {
     "brand": "JAOstudio",
-    "tagline": "Custom websites, dashboards, at tools para sa modern brands.",
+    "tagline": "Naka-fix na ako ng daan-daang website. Ngayon, gumagawa ako ng bago — mula sa simula.",
     "contact": "Kontak",
     "github": "GitHub",
     "linkedin": "LinkedIn",
@@ -144,39 +145,37 @@
     "skeletonHeading": "Magsimula ng project kasama ang JAOstudio"
   },
   "studio": {
-    "metaTitle": "Studio — JAOstudio",
-    "metaDescription": "Paano ako nagtatrabaho, ano ang aking pinahahalagahan, at ano ang iyong maaasahan. Mga prinsipyo sa operasyon, engagement models, at production standards.",
-    "badge": "About",
-    "heading": "Studio na naka-focus sa systems, hindi lang basta websites",
-    "description": "Ang thinking ko ay architecture, hindi lang pages. Ito ang aking approach sa projects, principles na sinusunod, at kung ano ang aasahan mo sa pagtutulungan natin.",
-    "principle1Label": "Kalinawan kaysa complexity",
-    "principle1Implication": "Ang bawat project ay nagsisimula sa structured discovery — hindi assumptions.",
-    "principle1Outcome": "Makakatanggap ka ng malinaw na scope na walang hidden surprises.",
-    "principle2Label": "Ang performance ay feature",
-    "principle2Implication": "Ang bawat component ay binuo na may performance budgets at measurable metrics.",
-    "principle2Outcome": "Mabilis mag-load ang sites at nananatiling mabilis kahit sa real traffic.",
-    "principle3Label": "Transparency mula sa simula",
-    "principle3Implication": "Makikita mo ang progress sa real time — walang black boxes o silent delays.",
-    "principle3Outcome": "Hindi ka magtataka kung nasaan na ang project.",
-    "principle4Label": "Iyong output, iyo",
-    "principle4Implication": "Source code, design files, at documentation ay ibinibigay pagkatapos.",
-    "principle4Outcome": "Maaari mong dalhin ang project kahit saan — walang lock-in.",
-    "principle5Label": "Designed para sa pangmatagalan",
-    "principle5Implication": "Ang code ay naka-structure para sa maintenance, hindi lang para sa unang launch.",
-    "principle5Outcome": "Ang updates at additions ay mananatiling mura sa paglipas ng panahon.",
-    "principle6Label": "No fluff. No over-engineering.",
-    "principle6Implication": "Ang bawat feature ay justified ng user need, hindi ng trend.",
-    "principle6Outcome": "Makakatanggap ka ng focused product na walang unnecessary complexity.",
+    "metaTitle": "Tungkol — JAOstudio",
+    "metaDescription": "5+ taon akong nag-ayos ng sirang website sa GoDaddy at Wix. Ngayon, gumagawa ako ng bago mula sa simula. Narito ang aking proseso at kung ano ang aasahan mo.",
+    "badge": "Tungkol",
+    "heading": "Naka-fix na ako ng daan-daang sirang website. Ngayon, gumagawa ako ng bago — mula sa simula.",
+    "description": "Ipinapaliwanag ng page na ito kung saan ako nanggaling, paano ako gumagawa, at kung ano ang aasahan mo sa pagtatrabaho sa akin.",
+    "storyHeading": "Saan ako nagsimula",
+    "storyP1": "Hindi ako nagsimula bilang developer. Nagsimula ako sa GoDaddy, sumasagot ng tawag sa 2 AM galing sa mga taong ang website ay down, hacked, o sira. Ecommerce stores na biglang tumigil sa pag-accept ng orders sa gitna ng Black Friday. WordPress sites na hindi mag-load dahil sa plugin conflict. Maliit na negosyo na gusto lang gumana ang site nila.",
+    "storyP2": "Pagkatapos ng GoDaddy, lumipat ako sa Wix — enterprise support, technical escalations. Parehas na problema, mas malaking scale. Ilang taon akong nasa support silos ng ilan sa pinakamalaking web platforms sa mundo. Alam ko kung paano nasisira ang mga site. Alam ko kung ano ang nagiging sanhi ng performance issues. Alam ko kung kailan ang platform mismo ang problema.",
+    "storyP3": "Ang karanasang iyon ang humubog sa pag-build ko ngayon. Hindi ako gumagamit ng templates. Hindi ako gumagamit ng page builders. Nagsusulat ako ng production code mula sa simula — dahil nakita ko na kung ano ang mangyayari kapag nag-shortcut sa scale.",
+    "liveViewerTitle": "Tingnan ang live proof ng mga system na pinapatakbo ko",
+    "liveViewerDesc": "Sa halip na magsalita, gumawa ako ng live dashboard na nagpapakita ng bawat project na pinapatakbo ko. Bawat system ay lalabas nang automatic kapag online ito — real status, real metrics, real architecture.",
+    "liveViewerCTA": "I-explore ang Live Projects",
+    "howIOperateTitle": "Paano Ako Gumagawa",
+    "operate1": "Sinisimulan ko ang bawat project sa pag-intindi ng business, users, at constraints mo. Ang goal ay hindi mag-code nang mabilis — ito ay mag-build ng tamang bagay.",
+    "operate2": "Async-first ang trabaho ko tuwing business hours (Philippine time, UTC+8). Makakatanggap ka ng regular updates, working preview environment, at malinaw na milestones.",
+    "operate3": "Bawat project ay may kasamang performance budgets, accessibility checks, Lighthouse audits, at responsive testing bago ang launch. Nagshi-ship ako ng code na pumapasa sa production standards, hindi lang disenyo.",
+    "operate4": "Pagkatapos ng launch, may 30-day minor fixes window. Para sa ongoing work, available ang retainers.",
+    "whatIDontDoTitle": "Mga Hindi Ko Ginagawa",
+    "dontDo1": "Page builders o drag-and-drop — iyon ang dahilan kung bakit ako nagkaroon ng trabaho sa GoDaddy sa simula pa lang.",
+    "dontDo2": "Templates o white-label — bawat project ay isinusulat mula sa simula para sa kung ano ang kailangan mo.",
+    "dontDo3": "MVP-speed builds — gumagawa ako ng production systems na pangmatagalan, hindi experiments na pang-pitch lang.",
     "cta": "Simulan ang Proyekto"
   },
   "services": {
     "heroBadge": "Services",
-    "heroTitle": "Business Systems That Automate Operations",
-    "heroDesc": "We design and build custom platforms, dashboards, and internal tools that reduce manual work, automate workflows, and create measurable business outcomes — for founders, agencies, and operations teams.",
+    "heroTitle": "Ano talaga ang ginagawa ko para sa iyo",
+    "heroDesc": "Gumagawa ako ng custom websites, web applications, at dashboards — mula sa simula, may malinis na code, at iniisip ang pangmatagalang maintenance mo. Walang templates, walang page builders, walang white-label.",
     "candidBadge": "Not for everyone",
     "candidNote": "Hindi ako gumagamit ng page builders, templates, o white-label. Bawat proyekto ay isinusulat mula sa simula — production code na naaayon sa iyong operasyon.",
     "metaTitle": "Services — JAOstudio",
-    "metaDescription": "Custom websites, web applications, dashboards, performance optimization, at technical consulting. Binuo para sa conversion, bilis, at maintainability.",
+    "metaDescription": "Gumagawa ako ng custom platforms, dashboards, at internal tools. 5+ taon sa GoDaddy at Wix. Walang templates. Purong production code.",
     "stage1Title": "Discovery at Strategy",
     "stage1Timeline": "3–7 araw",
     "stage1Output": "Project brief, sitemap, at tech recommendations",
@@ -225,14 +224,14 @@
     "whoForNotFit1": "MVP-stage startups na nangangailangan ng rapid experimentation",
     "whoForNotFit2": "One-off landing page o brochure site projects",
     "whoForNotFit3": "Template-based o pre-built theme customizations",
-    "service1Title": "Web Development",
-    "service1Desc": "Custom websites, web applications, at dashboards — gawa mula sa simula para sa performance, accessibility, at conversion.",
-    "service2Title": "Consulting at Architecture",
-    "service2Desc": "Technical guidance, system design, code review, at architecture planning para sa mga team na nagbu-build o nagpapalaki ng kanilang products.",
+    "service1Title": "Web development — mula sa simula",
+    "service1Desc": "Walang themes, walang drag-and-drop. Bawat linya ng code ay ako ang sumusulat. Mabilis, secure, at eksakto sa kailangan mo ang site mo — hindi kung ano ang ibibigay ng template.",
+    "service2Title": "Consulting at architecture",
+    "service2Desc": "May kalat ang system mo? Nakakita na ako ng mas malala. Susuriin ko ang system mo, hahanapin ang bottlenecks, at bibigyan ka ng malinaw na plano. Walang jargon, walang upselling.",
     "service3Title": "Performance at SEO",
-    "service3Desc": "Lighthouse optimization, Core Web Vitals, SEO audits, at load-time reduction para mabilis at mataas ang rank.",
-    "service4Title": "Support at Maintenance",
-    "service4Desc": "Patuloy na updates, monitoring, security patches, at iterative improvements para sa live products.",
+    "service3Desc": "Ang mabagal na site ay pagkawala ng pera. Ilang taon akong nagpabilis ng pages — sa shared hosting, VPS, at serverless. Gagawin ko rin iyan para sa iyo.",
+    "service4Title": "Maintenance at suporta",
+    "service4Desc": "Live na ang site mo. Ano ngayon? Ako na ang bahala — security updates, bug fixes, at maliliit na improvements. Wala kang dapat ipag-alala.",
     "registry": {
       "customWebsites": {
         "title": "Custom Websites",
@@ -304,7 +303,7 @@
     "trust4": "Scalable, isolated architecture",
     "timeline": "Timeline",
     "output": "Output",
-    "result": "Business Result",
+    "result": "Business outcome",
     "bestFor": "Best para sa",
     "fromYou": "Mula sa Iyo",
     "ctaSubtitle": "Sabihin mo sa akin ang iyong ginagawa. Magre-respond ako sa loob ng 24 oras na may project brief.",
@@ -422,27 +421,8 @@
     "metricBundle": "Bundle Size",
     "metricTTFB": "TTFB"
   },
-  "caseStudies": {
-    "badge": "Case Studies",
-    "heading": "Totoong Proyekto, Nasusukat na Resulta",
-    "description": "Detalyadong walkthrough ng mga proyekto — ang problema, ang constraints, ang solusyon, at ang mga resulta.",
-    "readCaseStudy": "Basahin ang Case Study",
-    "backLink": "Lahat ng Case Studies",
-    "sectionChallenge": "Ang Hamon",
-    "sectionConstraints": "Mga Constraints",
-    "sectionSolution": "Ang Solusyon",
-    "sectionFeatures": "Mga Pangunahing Feature",
-    "sectionLessons": "Mga Aral at Desisyon",
-    "lessonLabel": "Aral",
-    "architectureLabel": "System Architecture",
-    "relatedServices": "Kaugnay na Services",
-    "relatedDemos": "Kaugnay na Demos",
-    "relatedProject": "Kaugnay na Project",
-    "ctaTitle": "Kailangan mo ng katulad na system para sa iyong negosyo?",
-    "ctaButton": "Magsimula ng Proyekto"
-  },
   "socialProof": {
-    "item1": "95+ Lighthouse",
+    "item1": "Lighthouse Audited",
     "item2": "SEO-optimized",
     "item3": "Responsive-first",
     "item4": "Production-ready",
@@ -451,11 +431,11 @@
   },
   "notFound": {
     "metaTitle": "404 — Hindi nakita ang page | JAOstudio",
-    "heading": "Hindi nakita ang page",
-    "description": "Walang ganitong page o nailipat na ito. Balik tayo sa isang mas kapaki-pakinabang na lugar.",
-    "home": "Bumalik sa Home",
-    "projects": "Tingnan ang Projects",
-    "contact": "Naghahanap pa rin? Mag-start ng usapan →"
+    "heading": "Nakakita ka ng sirang link.",
+    "description": "Nakapag-ayos na ako ng daan-daang ganyan — ito lang ang hindi ko pa naaayos. Balik tayo sa tamang direksyon.",
+    "home": "Pumunta sa homepage",
+    "projects": "Tingnan ang aking gawa",
+    "contact": "Sabihin mo kung ano ang hinahanap mo"
   },
   "errorPage": {
     "heading": "May nangyaring mali",
@@ -497,8 +477,20 @@
   },
   "demos": {
     "badge": "Live Demos",
-    "heading": "Business Systems Built to Run Real Operations",
-    "description": "Generate leads without manual follow-up. Increase revenue without platform chaos. Run operations without spreadsheets. Six production-ready platforms, each independently deployed and fully functional."
+    "heading": "Production Systems na Pwedeng Mo Talagang I-explore",
+    "description": "Anim na independently deployed platforms — lead generation, commerce, marketplace, editorial, operations, at compliance. Bawat isa ay running live code. I-explore mo sila, sirain mo, sabihin mo sa akin ang tingin mo."
+  },
+  "liveProjects": {
+    "metaTitle": "Live Projects — JAOstudio",
+    "metaDescription": "Live tools at systems na ako mismo ang nagma-maintain — tunay na produkto na tumatakbo sa production. I-explore ang LiveViewer, all-in-one website audit platform.",
+    "badge": "Live Projects",
+    "heading": "Live Tools na Ako ang Gumawa at Nagma-maintain",
+    "description": "Ito ay tunay na produkto na ako ang gumawa at aktibong nagma-maintain. Hindi demo. Hindi prototype. Live code, tumatakbo para sa totoong users.",
+    "liveviewer": {
+      "title": "LiveViewer",
+      "description": "All-in-one website audit tool na ginawa ko dahil napagod ako sa paggamit ng limang magkakaibang serbisyo. I-type mo ang URL, makakakuha ka ng full audit — performance, SEO, accessibility, security, at tech stack analysis. Walang sign-up na kailangan.",
+      "cta": "Buksan ang LiveViewer →"
+    }
   },
   "playground": {
     "metaTitle": "Playground — JAOstudio",
@@ -533,40 +525,36 @@
   },
   "seo": {
     "home": {
-      "title": "JAOstudio — Website, Dashboard at Tool para sa Performance",
-      "description": "Custom web development para sa startups, agencies, at established businesses — mula landing pages hanggang full SaaS platforms. Performance-first at malinaw."
+      "title": "JAOstudio — Web Developer, Walang Templates",
+      "description": "Naka-fix na ako ng daan-daang sirang website sa GoDaddy at Wix. Ngayon, gumagawa ako ng bago — full-stack apps, ecommerce, marketplaces, at internal tools. Walang templates."
     },
     "services": {
       "title": "Services — JAOstudio",
-      "description": "Custom websites, web applications, dashboards, performance optimization, at technical consulting. Binuo para sa conversion, bilis, at maintainability."
+      "description": "Custom web development, architecture consulting, performance optimization, at ongoing maintenance. Gawa mula sa simula — walang page builders o white-label."
     },
     "demos": {
-      "title": "Demos — JAOstudio",
-      "description": "Anim na production-ready platforms para sa lead generation, commerce, marketplace, editorial, operations, at compliance."
+      "title": "Live Demos — JAOstudio",
+      "description": "Anim na ganap na functional na demo system na ginawa ko para ipakita ang aking kaya — lead generation, commerce, marketplace, editorial, operations, at compliance."
     },
     "projects": {
-      "title": "Projects — JAOstudio",
-      "description": "Mga piniling projects — business websites, web applications, dashboards, at e-commerce storefronts na binuo para sa real clients."
+      "title": "Demo Projects — JAOstudio",
+      "description": "Mga project na ginawa ko bilang demostrasyon — websites, web applications, dashboards, at e-commerce storefronts. Bawat isa ay kumakatawan sa kalidad at architecture na makukuha mo."
     },
     "contact": {
       "title": "Contact — JAOstudio",
-      "description": "Magsimula ng project o makipag-ugnayan sa JAOstudio. Sabihin mo ang tungkol sa project mo at magre-respond ako sa loob ng 24 oras."
+      "description": "Magsimula ng project o makipag-ugnayan. Sabihin mo ang project mo at magre-respond ako sa loob ng 24 oras na may honest na feedback."
     },
     "audit": {
       "title": "Free Website Audit — JAOstudio",
       "description": "Kumuha ng libreng website audit na may mga rekomendasyon para sa performance, SEO, at user experience."
-    },
-    "caseStudies": {
-      "title": "Case Studies — JAOstudio",
-      "description": "Totoong proyekto at resulta — mula construction operations platforms hanggang ecommerce storefronts. Tingnan kung paano kami gumagawa ng systems na lumulutas ng business problems."
     },
     "playground": {
       "title": "Playground — JAOstudio",
       "description": "Interactive demos at experiments na binuo gamit ang Next.js, Framer Motion, at modern web technologies."
     },
     "studio": {
-      "title": "Studio — JAOstudio",
-      "description": "Paano ako nagtatrabaho, ano ang aking pinahahalagahan, at ano ang iyong maaasahan. Mga prinsipyo sa operasyon, engagement models, at production standards."
+      "title": "Tungkol — JAOstudio",
+      "description": "5+ taon akong nag-ayos ng sirang website sa GoDaddy at Wix. Ngayon, gumagawa ako ng bago mula sa simula. Narito ang aking proseso at kung ano ang aasahan mo."
     },
     "cv": {
       "title": "CV — JAOstudio",
@@ -575,11 +563,15 @@
     "demoCredentials": {
       "title": "Demo Credentials — JAOstudio",
       "description": "Access credentials para sa lahat ng anim na demo systems — lead generation, commerce, marketplace, editorial, operations, at compliance."
+    },
+    "liveProjects": {
+      "title": "Live Projects — JAOstudio",
+      "description": "Live tools at systems na ako ang gumagawa at nagma-maintain — kabilang ang LiveViewer, all-in-one website audit platform. Tunay na produkto, live code."
     }
   },
   "intent": {
     "hero": {
-      "value": "Gumagawa kami ng scalable na web apps para sa lumalaking negosyo"
+      "value": "Gumagawa ako ng custom software na kumikita at nagpapalaki ng operations"
     },
     "trust": {
       "statement": "Matibay na systems na may sukat na performance improvements"

@@ -26,13 +26,10 @@ export default async function NotFound() {
           <Button href="/projects" variant="secondary">
             {t('projects')}
           </Button>
+          <Button href="/#contact" variant="secondary">
+            {t('contact')}
+          </Button>
         </div>
-        <Link
-          href="/#contact"
-          className="text-sm text-text-secondary underline underline-offset-4 transition-colors hover:text-text-primary"
-        >
-          {t('contact')}
-        </Link>
       </div>
     </Container>
   )

@@ -8,10 +8,10 @@ import { Card } from '@/components/ui/card'
 import { fadeUp, fadeUpReduced, scaleFade, slideInLeft, slideInReduced, stagger } from '@/lib/motion-variants'
 
 const metrics = [
-  { value: '102 kB', label: 'Shared JS Bundle' },
-  { value: '22', label: 'Static Routes' },
-  { value: '95+', label: 'Lighthouse Score' },
-  { value: '<2s', label: 'Vercel Deploy' },
+  { value: '102 kB', label: 'Shared JS Bundle (demo)' },
+  { value: '22', label: 'Static Routes (demo)' },
+  { value: '95+', label: 'Lighthouse Score (demo)' },
+  { value: '<2s', label: 'Vercel Deploy (demo)' },
 ]
 
 export function TechCredibility() {

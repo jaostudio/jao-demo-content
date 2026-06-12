@@ -33,7 +33,10 @@ const nextConfig: NextConfig = {
     inlineCss: true,
   },
   turbopack: {
-    root: path.resolve(__dirname, '..'),
+    root: __dirname,
+    resolveAlias: {
+      'motion-utils': 'motion-utils/dist/cjs/index.js',
+    },
   },
   images: {
     formats: ['image/avif', 'image/webp'],
@@ -62,6 +65,16 @@ const nextConfig: NextConfig = {
       {
         source: '/about',
         destination: '/studio',
+        permanent: true,
+      },
+      {
+        source: '/case-studies',
+        destination: '/projects',
+        permanent: true,
+      },
+      {
+        source: '/case-studies/:slug',
+        destination: '/projects',
         permanent: true,
       },
     ]

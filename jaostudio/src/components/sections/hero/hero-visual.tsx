@@ -23,30 +23,30 @@ const nodeMetrics: Record<
   { label: string; value: string; metric: string }[]
 > = {
   orchestrator: [
-    { label: 'Control Plane', value: 'All systems nominal', metric: '99.9% uptime' },
-    { label: 'Throughput', value: '1.2k req/s', metric: '+12% this week' },
+    { label: 'Control Plane', value: 'API gateway & routing', metric: 'Request handling' },
+    { label: 'Throughput', value: 'Load-balanced traffic', metric: 'Horizontal scaling' },
   ],
   platform: [
-    { label: 'Deployments', value: '3 active environments', metric: '99.8% uptime' },
-    { label: 'Health', value: 'All checks passing', metric: '12ms avg latency' },
+    { label: 'Deployments', value: 'Preview & production', metric: 'CI/CD pipeline' },
+    { label: 'Health', value: 'Automated monitoring', metric: 'Error tracking active' },
   ],
   pipeline: [
-    { label: 'Workflows', value: '4 pipelines running', metric: '98.5% pass rate' },
-    { label: 'Throughput', value: '840 ops/min', metric: '2 queued' },
+    { label: 'Workflows', value: 'Build, test, deploy', metric: 'Automated pipeline' },
+    { label: 'Throughput', value: 'Concurrent builds', metric: 'Parallel processing' },
   ],
   inference: [
-    { label: 'Models', value: '3 deployed', metric: '12ms avg latency' },
-    { label: 'Load', value: '65% capacity', metric: '+8% this week' },
+    { label: 'Models', value: 'Server-side logic', metric: 'API-driven' },
+    { label: 'Load', value: 'On-demand scaling', metric: 'Usage-based' },
   ],
   data: [
-    { label: 'Storage', value: '2.4 TB managed', metric: '72% utilized' },
-    { label: 'Cache', value: '340 req/s', metric: '99.7% hit rate' },
+    { label: 'Storage', value: 'PostgreSQL database', metric: 'Managed by Vercel' },
+    { label: 'Cache', value: 'CDN edge caching', metric: 'Global distribution' },
   ],
 }
 
 const defaultMetrics = [
-  { label: 'Orchestration', value: 'Multi-service automation workflow', metric: '3 active services' },
-  { label: 'Infrastructure', value: 'Scale-aware deployment pipeline', metric: '99.9% uptime' },
+  { label: 'Orchestration', value: 'Multi-service architecture', metric: 'Demo topology' },
+  { label: 'Infrastructure', value: 'Vercel edge network', metric: 'Global deployment' },
 ]
 
 export function HeroVisual() {
