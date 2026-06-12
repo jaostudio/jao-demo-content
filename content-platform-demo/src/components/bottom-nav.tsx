@@ -13,11 +13,11 @@ export function BottomNav() {
   const showWrite = effectiveRole === 'ADMIN' || effectiveRole === 'AUTHOR'
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-40 border-t-2 border-black bg-cream dark:border-white dark:bg-[#1A1A1A] md:hidden">
-      <div className="flex items-center justify-around px-4 pb-3 pt-2">
+    <nav className="fixed bottom-0 left-0 right-0 z-40 border-t border-border bg-card dark:border-border-dark dark:bg-card-dark md:hidden">
+      <div className="flex items-center justify-around px-4 pb-2 pt-1.5">
         <Link
           href="/"
-          className={`flex flex-col items-center gap-0.5 text-xs font-bold ${pathname === '/' ? 'text-saffron-600 dark:text-saffron-400' : 'text-neutral-500 dark:text-neutral-400'}`}
+          className={`flex flex-col items-center gap-0.5 text-[10px] font-medium ${pathname === '/' ? 'text-primary' : 'text-text-muted'}`}
         >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5">
             <path fillRule="evenodd" d="M9.293 2.293a1 1 0 0 1 1.414 0l7 7A1 1 0 0 1 17 11h-1v6a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6H3a1 1 0 0 1-.707-1.707l7-7Z" clipRule="evenodd" />
@@ -26,7 +26,7 @@ export function BottomNav() {
         </Link>
         <Link
           href="/category"
-          className={`flex flex-col items-center gap-0.5 text-xs font-bold ${pathname.startsWith('/category') ? 'text-saffron-600 dark:text-saffron-400' : 'text-neutral-500 dark:text-neutral-400'}`}
+          className={`flex flex-col items-center gap-0.5 text-[10px] font-medium ${pathname.startsWith('/category') ? 'text-primary' : 'text-text-muted'}`}
         >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5">
             <path fillRule="evenodd" d="M2 3.75A.75.75 0 0 1 2.75 3h4.5a.75.75 0 0 1 .75.75v4.5a.75.75 0 0 1-.75.75h-4.5a.75.75 0 0 1-.75-.75v-4.5Z" clipRule="evenodd" />
@@ -40,22 +40,22 @@ export function BottomNav() {
         {showWrite ? (
           <Link
             href="/admin/articles/new"
-            className="flex flex-col items-center gap-0.5 text-xs font-bold text-neutral-500 dark:text-neutral-400"
+            className="flex flex-col items-center gap-0.5 text-[10px] font-medium text-text-muted"
           >
-            <div className="-mt-6 flex h-11 w-11 items-center justify-center rounded-full border-2 border-black bg-coral-400 text-black nb-shadow transition-all hover:nb-shadow-lg dark:border-white dark:text-black">
-              <PenLine className="h-5 w-5" />
+            <div className="-mt-5 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white shadow-md transition-colors hover:bg-primary-hover">
+              <PenLine className="h-4 w-4" />
             </div>
             <span>Write</span>
           </Link>
         ) : (
-          <div className="w-14" />
+          <div className="w-12" />
         )}
 
-        <div className="flex flex-col items-center gap-0.5 text-xs font-bold text-neutral-500 dark:text-neutral-400">
+        <div className="flex flex-col items-center gap-0.5 text-[10px] font-medium text-text-muted">
           <ThemeToggle />
           <span>Theme</span>
         </div>
-        <div className="flex flex-col items-center gap-0.5 text-xs font-bold text-neutral-500 dark:text-neutral-400">
+        <div className="flex flex-col items-center gap-0.5 text-[10px] font-medium text-text-muted">
           <LocaleSwitcher />
           <span>Language</span>
         </div>

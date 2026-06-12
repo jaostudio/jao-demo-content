@@ -272,7 +272,7 @@ function ContactForm() {
                   <span className="mt-0.5 text-xs text-accent-warm">✓</span>
                   <div>
                     <p className="text-sm font-medium text-text-primary">{t(`responseTitle${i}`)}</p>
-                    <p className="mt-0.5 text-sm text-text-secondary">{t(`responseDesc${i}`)}</p>
+                    <p className="mt-0.5 text-base text-text-secondary">{t(`responseDesc${i}`)}</p>
                   </div>
                 </motion.div>
               ))}

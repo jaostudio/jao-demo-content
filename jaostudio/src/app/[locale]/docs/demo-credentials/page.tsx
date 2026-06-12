@@ -79,7 +79,7 @@ export default async function DemoCredentialsPage() {
 
       <div className="mt-4 grid gap-4 sm:grid-cols-2">
         <Card className="p-4">
-          <p className="text-xs font-medium uppercase tracking-wider text-accent">{t('whatThisIs')}</p>
+          <p className="text-xs font-medium uppercase tracking-wider text-text-primary">{t('whatThisIs')}</p>
           <p className="mt-1 text-sm leading-relaxed text-text-secondary">{t('whatThisIsDesc')}</p>
         </Card>
         <Card className="p-4">
@@ -92,7 +92,7 @@ export default async function DemoCredentialsPage() {
         {t('purpose')}
       </p>
 
-      <p className="mt-4 rounded-lg border border-border-subtle bg-accent-subtle/50 px-4 py-3 text-sm text-accent">
+      <p className="mt-4 rounded-lg border border-border-subtle bg-accent-subtle/50 px-4 py-3 text-sm text-text-primary">
         {t('allPassword')}: <code className="rounded bg-bg-surface px-2 py-0.5 font-mono text-sm">password123</code>
       </p>
 

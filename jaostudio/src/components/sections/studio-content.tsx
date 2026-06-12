@@ -217,7 +217,7 @@ export function StudioContent() {
                   {p.principle}
                 </p>
                 <p className="text-[var(--text-body)] leading-relaxed text-text-secondary">{p.implication}</p>
-                <p className="mt-auto text-xs text-accent">{p.outcome}</p>
+                <p className="mt-auto text-xs text-text-primary">{p.outcome}</p>
               </Card>
             </motion.div>
           ))}
@@ -227,7 +227,7 @@ export function StudioContent() {
           {principles.map((p) => (
             <Disclosure key={p.principle} title={p.principle}>
               <p className="text-text-primary">{p.implication}</p>
-              <p className="mt-2 text-xs text-accent">{p.outcome}</p>
+              <p className="mt-2 text-xs text-text-primary">{p.outcome}</p>
             </Disclosure>
           ))}
         </div>

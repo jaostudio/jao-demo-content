@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { getCategories, getFeaturedProducts } from '@/lib/products'
 import { getLang } from '@/lib/lang'
@@ -74,12 +75,15 @@ export default async function SariSariHome() {
                   key={p.slug}
                   className={`overflow-hidden rounded-xl border border-subtle/50 shadow-lg transition-transform hover:scale-[1.02] ${COLLAGE[i].rotation} ${COLLAGE[i].y}`}
                 >
-                  <img
+                  <Image
                     src={p.image}
                     alt=""
                     className="aspect-square h-full w-full object-cover"
                     aria-hidden
-                    loading="eager"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                    priority={i < 2}
+                    width={600}
+                    height={400}
                   />
                 </div>
               ))}

@@ -18,7 +18,7 @@ export async function AvailabilitySection() {
       </div>
       <ul className="mt-6 space-y-2">
         {[1, 2, 3].map((i) => (
-          <li key={i} className="flex items-start gap-2 text-sm text-text-secondary">
+          <li key={i} className="flex items-start gap-2 text-base text-text-secondary">
             <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-accent" />
             {t(`availabilityNote${i}`)}
           </li>

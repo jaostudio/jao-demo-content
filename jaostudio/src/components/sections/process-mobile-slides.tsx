@@ -58,7 +58,7 @@ export function ProcessMobileSlides({ steps, startYourProjectLabel }: ProcessMob
               </span>
               <p className="font-medium text-text-primary">{step.title}</p>
             </div>
-            <p className="text-sm leading-relaxed text-text-secondary">
+            <p className="text-base leading-relaxed text-text-secondary">
               {step.summary}
             </p>
             <p className="mt-3 text-[var(--text-meta)] leading-relaxed text-text-secondary/80">

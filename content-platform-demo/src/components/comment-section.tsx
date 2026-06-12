@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { toast } from 'sonner'
 import { useTranslations } from 'next-intl'
+import { MessageSquare } from 'lucide-react'
 
 interface Comment {
   id: string
@@ -11,11 +12,11 @@ interface Comment {
   createdAt: string
 }
 
-const commentAvatars = ['🐱', '🐶', '🦊', '🐻', '🐼', '🐨', '🦁', '🐸', '🐵', '🐧']
+const avatarColors = ['bg-primary', 'bg-secondary', 'bg-accent', 'bg-rose-500', 'bg-violet-500']
 
-function getCommentAvatar(name: string) {
+function getAvatarColor(name: string) {
   const index = name.split('').reduce((acc, c) => acc + c.charCodeAt(0), 0)
-  return commentAvatars[index % commentAvatars.length]
+  return avatarColors[index % avatarColors.length]
 }
 
 export function CommentSection({ articleId, initialComments }: { articleId: string; initialComments: Comment[] }) {
@@ -45,7 +46,7 @@ export function CommentSection({ articleId, initialComments }: { articleId: stri
       setName('')
       setEmail('')
       setBody('')
-      toast.success('Salamat! Comment posted.')
+      toast.success('Comment posted')
     } catch {
       toast.error(err('network_error'))
     } finally {
@@ -54,43 +55,50 @@ export function CommentSection({ articleId, initialComments }: { articleId: stri
   }
 
   return (
-    <div className="mt-12 border-t-2 border-dashed border-black pt-8 dark:border-white">
-      <h2 className="mb-6 font-display text-xl font-bold">{t('title')} ({comments.length})</h2>
+    <div className="border-t border-border pt-6 dark:border-border-dark">
+      <h2 className="mb-4 flex items-center gap-2 text-sm font-bold text-text-primary dark:text-slate-100">
+        <MessageSquare className="h-4 w-4" />
+        {t('title')} ({comments.length})
+      </h2>
 
-      <form onSubmit={handleSubmit} className="mb-8 space-y-3 border-2 border-black bg-cream p-4 nb-shadow dark:border-white dark:bg-black">
-        <div className="grid grid-cols-2 gap-3">
+      <form onSubmit={handleSubmit} className="mb-6 space-y-2.5">
+        <div className="grid grid-cols-2 gap-2.5">
           <input
             placeholder={t('name_placeholder')} required value={name} onChange={(e) => setName(e.target.value)}
-            className="w-full border-2 border-black bg-white px-3 py-2 text-sm font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-saffron-500 dark:border-white dark:bg-[#1A1A1A]"
+            className="w-full rounded-lg border border-border bg-card px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-border-dark dark:bg-card-dark"
           />
           <input
             type="email" placeholder={t('email_placeholder')} required value={email} onChange={(e) => setEmail(e.target.value)}
-            className="w-full border-2 border-black bg-white px-3 py-2 text-sm font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-saffron-500 dark:border-white dark:bg-[#1A1A1A]"
+            className="w-full rounded-lg border border-border bg-card px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-border-dark dark:bg-card-dark"
           />
         </div>
         <textarea
           placeholder={t('body_placeholder')} required value={body} onChange={(e) => setBody(e.target.value)} rows={3}
-          className="w-full border-2 border-black bg-white px-3 py-2 text-sm font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-saffron-500 dark:border-white dark:bg-[#1A1A1A]"
+          className="w-full rounded-lg border border-border bg-card px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-border-dark dark:bg-card-dark"
         />
         <button type="submit" disabled={submitting}
-          className="rounded-none border-2 border-black bg-black px-4 py-2 text-sm font-bold text-saffron-500 hover:nb-shadow disabled:opacity-50 dark:border-white dark:bg-white dark:text-black">
+          className="rounded-full bg-primary px-4 py-1.5 text-sm font-medium text-white transition-colors hover:bg-primary-hover disabled:opacity-50">
           {submitting ? t('posting') : t('post')}
         </button>
       </form>
 
       {comments.length === 0 && (
-        <p className="text-sm text-neutral-500">{t('empty')}</p>
+        <p className="py-4 text-center text-sm text-text-muted">{t('empty')}</p>
       )}
 
-      <div className="space-y-4">
+      <div className="space-y-3">
         {comments.map((c) => (
-          <div key={c.id} className="border-t-2 border-dashed border-black/20 pt-4 dark:border-white/20">
-            <div className="mb-1 flex items-center gap-2">
-              <span className="text-lg">{getCommentAvatar(c.authorName)}</span>
-              <span className="text-sm font-bold">{c.authorName}</span>
-              <span className="text-xs text-neutral-500">{new Date(c.createdAt).toLocaleDateString()}</span>
+          <div key={c.id} className="flex gap-2.5">
+            <div className={`mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-[10px] font-bold text-white ${getAvatarColor(c.authorName)}`}>
+              {c.authorName.charAt(0).toUpperCase()}
             </div>
-            <p className="text-sm text-neutral-700 dark:text-neutral-300">{c.body}</p>
+            <div className="min-w-0 flex-1">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-semibold text-text-primary dark:text-slate-100">{c.authorName}</span>
+                <span className="text-[10px] text-text-muted">{new Date(c.createdAt).toLocaleDateString()}</span>
+              </div>
+              <p className="mt-0.5 text-sm text-text-body">{c.body}</p>
+            </div>
           </div>
         ))}
       </div>

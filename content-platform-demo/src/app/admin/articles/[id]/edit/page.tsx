@@ -33,11 +33,11 @@ export default async function EditArticlePage({ params }: { params: Promise<{ id
 
   return (
     <div>
-      <div className="mb-6 flex items-center justify-between">
-        <h1 className="font-display text-2xl font-bold">Edit Article</h1>
+      <div className="mb-4 flex items-center justify-between">
+        <h1 className="text-lg font-bold text-text-primary dark:text-slate-100">Edit Article</h1>
         <Link
           href={`/admin/articles/${articleId}/versions`}
-          className="text-sm font-bold text-neutral-500 underline hover:text-saffron-600"
+          className="text-xs font-medium text-text-muted hover:text-primary"
         >
           Version History
         </Link>

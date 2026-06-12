@@ -23,8 +23,9 @@
     "demo_reader": "Reader (Mambabasa)",
     "demo_author": "Author (Manunulat)",
     "demo_admin": "Admin (Tagapamahala)",
-    "empty_default": "Wala pang artikulo dito.",
-    "empty_sub": "Ikaw ba ang unang magsusulat?"
+    "empty_default": "Wala pang kwento dito.",
+    "empty_sub": "Ikaw ba ang unang magsusulat?",
+    "search_placeholder": "Maghanap ng kwento..."
   },
   "article": {
     "title": "Pamagat",
@@ -33,10 +34,10 @@
     "category": "Kategorya",
     "select_category": "Pumili...",
     "create": "Gumawa ng Artikulo",
-    "update": "I-update ang Artikulo",
+    "update": "Update Artikulo",
     "no_articles": "Wala pang artikulo.",
-    "no_published": "Wala pang nai-publish na artikulo.",
-    "submit_for_review": "I-submit for review",
+    "no_published": "Wala pang published na artikulo.",
+    "submit_for_review": "I-submit for Review",
     "approve": "Aprubahan",
     "reject": "I-reject",
     "archive": "I-archive",
@@ -45,12 +46,12 @@
   },
   "status": {
     "draft": "Draft",
-    "pending_review": "Pending Review",
+    "pending_review": "For Review",
     "published": "Published",
     "archived": "Archived"
   },
   "dashboard": {
-    "title": "Dashboard (Pangkalahatang view)",
+    "title": "Pangkalahatang View",
     "drafts": "Mga Draft",
     "pending_review": "Naka-pending na Review",
     "published": "Nai-publish"
@@ -61,27 +62,30 @@
     "email": "Email",
     "password": "Password",
     "name": "Pangalan",
-    "no_account": "Wala pang account? Mag-register",
-    "has_account": "May account na? Mag-sign in",
-    "invalid_credentials": "Mali ang email o password",
-    "register_failed": "Hindi na-process ang registration"
+    "no_account": "Wala pang account?",
+    "has_account": "May account na?",
+    "invalid_credentials": "Mali ang email o password. Try ulit?",
+    "register_failed": "Hindi na-process ang registration. Check your details."
   },
   "errors": {
-    "cannot_edit_pending": "Hindi mo ma-edit ang artikulong nasa review. Makipag-ugnayan sa admin.",
-    "unauthorized": "Kailangan mong mag-sign in para gumawa ng artikulo",
-    "forbidden": "Wala kang permiso para i-edit ang artikulong ito",
-    "not_found": "Hindi mahanap ang artikulo",
+    "cannot_edit_pending": "Hindi mo ma-edit ang article na nasa review — ask an admin.",
+    "unauthorized": "Kailangan mo munang mag-sign in para gumawa ng articles",
+    "forbidden": "Wala kang permiso para i-edit ang article na ito",
+    "not_found": "Hindi mahanap ang article — baka na-archive na?",
     "transition_not_allowed": "Hindi allowed ang transition na ito",
-    "network_error": "Network error. Pakicheck ang iyong connection.",
-    "something_wrong": "May maling nangyari"
+    "network_error": "Network error. Check your connection?",
+    "title_short": "Title needs at least 3 characters — kulang pa",
+    "content_empty": "Content cannot be empty — may sasabihin ka naman diba?",
+    "something_wrong": "May maling nangyari. Try again?"
   },
   "toast": {
-    "article_approved": "Na-approve at nai-publish na ang artikulo",
-    "article_archived": "Na-archive na ang artikulo",
-    "article_rejected": "Na-reject ang artikulo",
-    "article_updated": "Na-update ang artikulo",
+    "article_approved": "Na-approve na ang article! Live na siya.",
+    "article_archived": "Na-archive na ang article. Pwedeng i-restore later.",
+    "article_rejected": "Na-reject ang article — back to draft.",
+    "article_updated": "Na-update na ang article.",
+    "article_created": "Article created! Gawa na ulit?",
     "demo_title": "Demo mode",
-    "demo_message": "You would have {action} this article. Log in to perform real changes."
+    "demo_message": "You would have {action} this article. Log in for real changes."
   },
   "roles": {
     "author": "Author (Manunulat)",
@@ -89,21 +93,21 @@
     "reader": "Reader (Mambabasa)"
   },
   "confirm": {
-    "archive_title": "I-archive ang artikulong ito?",
-    "archive_desc": "Mawawala ito sa public pages. Pwedeng i-restore mamaya.",
-    "reject_title": "I-reject ang artikulong ito?",
-    "reject_desc": "Babalik ito sa draft. Pwedeng mag-resubmit ang author pagkatapos mag-edit.",
+    "archive_title": "I-archive ang article na ito?",
+    "archive_desc": "Mawawala ito sa public pages. Pwedeng i-restore later.",
+    "reject_title": "I-reject ang article na ito?",
+    "reject_desc": "Babalik ito sa draft. Pwedeng mag-resubmit ang author after changes.",
     "cancel": "Kanselahin",
     "archive_btn": "I-archive",
     "reject_btn": "I-reject"
   },
   "comments": {
-    "title": "Mga Komento",
+    "title": "Usapan",
     "name_placeholder": "Pangalan mo",
     "email_placeholder": "Email mo",
-    "body_placeholder": "Magsulat ng komento...",
-    "post": "Mag-post ng Komento",
+    "body_placeholder": "Magsulat ng comment...",
+    "post": "Mag-post ng Comment",
     "posting": "Nagpo-post...",
-    "empty": "Wala pang komento. Ikaw na ang mag-una."
+    "empty": "Wala pang comments. Ikaw na ang mag-una."
   }
 }

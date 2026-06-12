@@ -93,7 +93,7 @@ export function ProjectsGrid({ projects }: Props) {
               {project.systems.architecture}
             </p>
           )}
-          <p className="text-sm text-text-tertiary line-clamp-2 min-h-[96px]">
+          <p className="text-base text-text-tertiary line-clamp-2 min-h-[96px]">
             {project.summary}
           </p>
         </div>

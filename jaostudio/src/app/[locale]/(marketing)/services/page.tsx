@@ -77,7 +77,7 @@ export default async function ServicesPage() {
             <FadeInView key={svc.title} delay={i * 0.1}>
               <Card className="p-4 md:p-5">
                 <p className="text-sm font-medium text-text-primary">{svc.title}</p>
-                <p className="mt-1 text-sm leading-relaxed text-text-secondary">{svc.desc}</p>
+                <p className="mt-1 text-base leading-relaxed text-text-secondary">{svc.desc}</p>
               </Card>
             </FadeInView>
           ))}

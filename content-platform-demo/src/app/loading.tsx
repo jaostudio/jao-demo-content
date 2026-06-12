@@ -1,18 +1,17 @@
 export default function Loading() {
   return (
-    <main className="mx-auto max-w-5xl px-4 py-12">
-      <div className="mb-12 text-center">
-        <div className="mx-auto mb-3 h-10 w-48 animate-pulse rounded-none border-2 border-black bg-saffron-100 dark:border-white dark:bg-saffron-900/20" />
-        <div className="mx-auto h-5 w-80 animate-pulse rounded-none border border-black/10 bg-cream dark:border-white/10 dark:bg-[#1A1A1A]" />
-      </div>
-      <div className="mb-8 flex flex-wrap gap-2">
-        {[1, 2, 3].map((i) => (
-          <div key={i} className="h-8 w-24 animate-pulse rounded-none border-2 border-black bg-cream dark:border-white dark:bg-[#1A1A1A]" />
-        ))}
-      </div>
-      <div className="grid gap-6 sm:grid-cols-2">
+    <main className="mx-auto max-w-5xl px-4 py-4">
+      <div className="space-y-3">
+        <div className="mb-4 h-4 w-32 animate-pulse rounded bg-slate-200 dark:bg-slate-700" />
         {[1, 2, 3, 4].map((i) => (
-          <div key={i} className="h-48 animate-pulse rounded-none border-2 border-black bg-cream dark:border-white dark:bg-[#1A1A1A]" />
+          <div key={i} className="flex gap-3 rounded-lg border border-border bg-card p-3 dark:border-border-dark dark:bg-card-dark">
+            <div className="h-16 w-16 shrink-0 animate-pulse rounded-lg bg-slate-200 dark:bg-slate-700" />
+            <div className="flex-1 space-y-2">
+              <div className="h-3 w-24 animate-pulse rounded bg-slate-200 dark:bg-slate-700" />
+              <div className="h-4 w-3/4 animate-pulse rounded bg-slate-200 dark:bg-slate-700" />
+              <div className="h-3 w-1/2 animate-pulse rounded bg-slate-100 dark:bg-slate-700" />
+            </div>
+          </div>
         ))}
       </div>
     </main>

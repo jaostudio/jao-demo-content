@@ -1,13 +1,13 @@
 export default function CategoryLoading() {
   return (
-    <div className="mx-auto max-w-5xl px-4 py-12">
-      <div className="mb-8 animate-pulse space-y-2">
-        <div className="h-9 w-48 rounded-none border-2 border-black bg-saffron-100 dark:border-white dark:bg-saffron-900/20" />
-        <div className="h-4 w-24 rounded-none border border-black/10 bg-cream dark:border-white/10 dark:bg-[#1A1A1A]" />
+    <div className="mx-auto max-w-5xl px-4 py-4">
+      <div className="mb-4 space-y-2">
+        <div className="h-6 w-40 animate-pulse rounded bg-slate-200 dark:bg-slate-700" />
+        <div className="h-3 w-20 animate-pulse rounded bg-slate-100 dark:bg-slate-700" />
       </div>
-      <div className="grid animate-pulse gap-6 sm:grid-cols-2">
+      <div className="space-y-3">
         {[1, 2].map((i) => (
-          <div key={i} className="h-40 rounded-none border-2 border-black bg-cream dark:border-white dark:bg-[#1A1A1A]" />
+          <div key={i} className="h-24 animate-pulse rounded-lg border border-border bg-card dark:border-border-dark dark:bg-card-dark" />
         ))}
       </div>
     </div>

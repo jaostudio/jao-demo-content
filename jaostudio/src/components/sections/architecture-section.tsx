@@ -19,7 +19,7 @@ export function ArchitectureSection({
           </h2>
           {activeSystem && (
             <p className="mt-1 text-sm text-text-tertiary">
-              Current system: <span className="text-accent">{activeSystem.uiLabel}</span> · {activeSystem.name}
+              Current system: <span className="text-text-primary">{activeSystem.uiLabel}</span> · {activeSystem.name}
             </p>
           )}
           <p className="mt-2 max-w-xl text-[var(--text-body)] leading-relaxed text-text-secondary">
@@ -29,19 +29,19 @@ export function ArchitectureSection({
         </div>
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           <Card className="p-5 text-left">
-            <p className="text-xs font-medium uppercase tracking-wider text-accent">Monorepo</p>
+            <p className="text-xs font-medium uppercase tracking-wider text-text-primary">Monorepo</p>
             <p className="mt-1.5 text-sm leading-relaxed text-text-secondary">
               Shared packages for state machines, auth, UI components, and analytics. One version of every dependency.
             </p>
           </Card>
           <Card className="p-5 text-left">
-            <p className="text-xs font-medium uppercase tracking-wider text-accent">Independent Deployments</p>
+            <p className="text-xs font-medium uppercase tracking-wider text-text-primary">Independent Deployments</p>
             <p className="mt-1.5 text-sm leading-relaxed text-text-secondary">
               Each system deploys independently on Vercel with its own environment variables and preview URLs.
             </p>
           </Card>
           <Card className="p-5 text-left">
-            <p className="text-xs font-medium uppercase tracking-wider text-accent">Data Isolation</p>
+            <p className="text-xs font-medium uppercase tracking-wider text-text-primary">Data Isolation</p>
             <p className="mt-1.5 text-sm leading-relaxed text-text-secondary">
               Separate data stores per system. No cross-system data coupling. Tenant boundaries enforced at the database level.
             </p>

@@ -65,15 +65,15 @@ export function TechCredibility() {
             {t('description')}
           </p>
           <div className="flex flex-wrap items-center gap-2 text-[var(--text-meta)] text-text-secondary">
-            <span className="rounded-md bg-accent/10 px-2.5 py-1 text-accent">{t('pipeline1')}</span>
+            <span className="rounded-md bg-accent/10 px-2.5 py-1 text-text-primary">{t('pipeline1')}</span>
             <span className="text-text-tertiary">→</span>
-            <span className="rounded-md bg-accent/10 px-2.5 py-1 text-accent">{t('pipeline2')}</span>
+            <span className="rounded-md bg-accent/10 px-2.5 py-1 text-text-primary">{t('pipeline2')}</span>
             <span className="text-text-tertiary">→</span>
-            <span className="rounded-md bg-accent/10 px-2.5 py-1 text-accent">{t('pipeline3')}</span>
+            <span className="rounded-md bg-accent/10 px-2.5 py-1 text-text-primary">{t('pipeline3')}</span>
             <span className="text-text-tertiary">→</span>
-            <span className="rounded-md bg-accent/10 px-2.5 py-1 text-accent">{t('pipeline4')}</span>
+            <span className="rounded-md bg-accent/10 px-2.5 py-1 text-text-primary">{t('pipeline4')}</span>
             <span className="text-text-tertiary">→</span>
-            <span className="rounded-md bg-accent/10 px-2.5 py-1 text-accent">{t('pipeline5')}</span>
+            <span className="rounded-md bg-accent/10 px-2.5 py-1 text-text-primary">{t('pipeline5')}</span>
           </div>
           <p className="text-xs text-text-tertiary mt-1">{t('timeline')}</p>
           <motion.ul

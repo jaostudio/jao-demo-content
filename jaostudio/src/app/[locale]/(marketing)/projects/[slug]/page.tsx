@@ -154,7 +154,7 @@ export default async function ProjectPage({ params }: Props) {
         <Container className="pb-12">
           <div className="rounded-2xl border border-border-subtle bg-bg-surface/50 p-8 text-center">
             <p className="text-sm font-medium text-text-primary">{t('galleryEmptyTitle')}</p>
-            <p className="mt-1 text-sm text-text-secondary">{t('galleryEmptyDesc')}</p>
+            <p className="mt-1 text-base text-text-secondary">{t('galleryEmptyDesc')}</p>
           </div>
         </Container>
       )}
@@ -215,7 +215,7 @@ export default async function ProjectPage({ params }: Props) {
                   {project.keyDecisions.map((kd) => (
                     <li key={kd.decision} className="flex flex-col gap-1">
                       <p className="text-[var(--text-body)] font-medium text-text-primary">{kd.decision}</p>
-                      <p className="text-sm leading-relaxed text-text-secondary">{kd.rationale || kd.tradeoff}</p>
+                      <p className="text-base leading-relaxed text-text-secondary">{kd.rationale || kd.tradeoff}</p>
                       {kd.outcome && (
                         <p className="text-xs text-text-primary">→ {kd.outcome}</p>
                       )}
@@ -431,7 +431,7 @@ export default async function ProjectPage({ params }: Props) {
                           <h3 className="mt-2 text-[var(--text-card-title)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
                             {r.title}
                           </h3>
-                          <p className="mt-2 text-sm leading-relaxed text-text-secondary line-clamp-2">{r.summary}</p>
+                          <p className="mt-2 text-base leading-relaxed text-text-secondary line-clamp-2">{r.summary}</p>
                         </Card>
                       </Link></FadeInView>
                     ))}

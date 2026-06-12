@@ -11,12 +11,12 @@ export function IllustratedEmptyState({
 }: IllustratedEmptyStateProps) {
   return (
     <div className="flex flex-col items-center py-16 text-center">
-      <div className="mb-4 flex h-16 w-16 animate-float items-center justify-center border-2 border-black bg-saffron-100 dark:border-white dark:bg-saffron-900/30">
-        <FileText className="h-8 w-8 text-saffron-600 dark:text-saffron-400" />
+      <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-primary-light dark:bg-primary/10">
+        <FileText className="h-6 w-6 text-primary" />
       </div>
-      <p className="text-sm font-bold text-neutral-700 dark:text-neutral-300">{message}</p>
+      <p className="text-sm font-medium text-text-secondary">{message}</p>
       {submessage && (
-        <p className="mt-1 text-xs text-neutral-400">{submessage}</p>
+        <p className="mt-1 text-xs text-text-muted">{submessage}</p>
       )}
     </div>
   )

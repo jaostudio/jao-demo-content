@@ -8,21 +8,21 @@ import { useEffectiveRole } from '@/hooks/use-effective-role'
 
 const actionMap: Record<string, { action: string; label: string; variant: string; destructive?: boolean }[]> = {
   DRAFT: [
-    { action: 'submit', label: 'Submit', variant: 'blue' },
-    { action: 'delete', label: 'Delete', variant: 'red', destructive: true },
+    { action: 'submit', label: 'Submit', variant: 'primary' },
+    { action: 'delete', label: 'Delete', variant: 'danger', destructive: true },
   ],
   PENDING_REVIEW: [
-    { action: 'approve', label: 'Approve', variant: 'green' },
-    { action: 'reject', label: 'Reject', variant: 'red', destructive: true },
-    { action: 'delete', label: 'Delete', variant: 'red', destructive: true },
+    { action: 'approve', label: 'Approve', variant: 'success' },
+    { action: 'reject', label: 'Reject', variant: 'danger', destructive: true },
+    { action: 'delete', label: 'Delete', variant: 'danger', destructive: true },
   ],
   PUBLISHED: [
-    { action: 'archive', label: 'Archive', variant: 'red', destructive: true },
-    { action: 'delete', label: 'Delete', variant: 'red', destructive: true },
+    { action: 'archive', label: 'Archive', variant: 'danger', destructive: true },
+    { action: 'delete', label: 'Delete', variant: 'danger', destructive: true },
   ],
   ARCHIVED: [
-    { action: 'restore', label: 'Restore', variant: 'blue' },
-    { action: 'delete', label: 'Delete', variant: 'red', destructive: true },
+    { action: 'restore', label: 'Restore', variant: 'primary' },
+    { action: 'delete', label: 'Delete', variant: 'danger', destructive: true },
   ],
 }
 
@@ -99,9 +99,9 @@ export function TransitionButtons({ articleId, status }: { articleId: string; st
   }
 
   const variantClasses: Record<string, string> = {
-    blue: 'bg-saffron-100 text-saffron-700 hover:bg-saffron-200 dark:bg-saffron-900/30 dark:text-saffron-300',
-    green: 'bg-green-100 text-green-700 hover:bg-green-200 dark:bg-green-900/30 dark:text-green-300',
-    red: 'bg-coral-100 text-coral-700 hover:bg-coral-200 dark:bg-coral-900/30 dark:text-coral-300',
+    primary: 'bg-primary text-white hover:bg-primary-hover',
+    success: 'bg-emerald-500 text-white hover:bg-emerald-600',
+    danger: 'bg-danger text-white hover:bg-red-600',
   }
 
   return (
@@ -118,7 +118,7 @@ export function TransitionButtons({ articleId, status }: { articleId: string; st
               }
             }}
             disabled={loading === a.action}
-            className={`rounded-none border border-black px-2 py-1 text-xs font-bold transition-colors ${variantClasses[a.variant]} disabled:opacity-50 dark:border-white`}
+            className={`rounded-full px-2.5 py-1 text-[11px] font-medium transition-colors ${variantClasses[a.variant]} disabled:opacity-50`}
           >
             {loading === a.action ? '...' : a.label}
           </button>

@@ -24,15 +24,15 @@ export function WelcomeBanner() {
   }
 
   return (
-    <div className="relative border-2 border-black bg-saffron-100 px-5 py-4 nb-shadow dark:border-white dark:bg-saffron-900/30">
+    <div className="relative mb-4 rounded-lg border border-primary-light bg-primary-light px-4 py-3 dark:border-primary/20 dark:bg-primary/10">
       <button
         onClick={handleDismiss}
-        className="absolute right-3 top-3 rounded-full border border-black p-0.5 text-black hover:bg-saffron-200 dark:border-white dark:text-white dark:hover:bg-saffron-800/50"
+        className="absolute right-2 top-2 rounded-full p-0.5 text-text-muted hover:text-text-secondary"
         aria-label="Dismiss"
       >
-        <X className="h-4 w-4" />
+        <X className="h-3.5 w-3.5" />
       </button>
-      <p className="pr-6 text-sm font-bold text-black dark:text-white">
+      <p className="pr-6 text-sm text-primary">
         Magandang araw! Narito ang mga bagong kwento mula sa inyong komunidad. Basahin, matuto, at makibahagi.
       </p>
     </div>

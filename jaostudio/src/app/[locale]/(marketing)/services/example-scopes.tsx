@@ -30,12 +30,12 @@ export async function ExampleScopes() {
               <p className="mt-1 text-sm uppercase tracking-wider text-text-secondary">
                 {t(`example${i}Timeline`)}
               </p>
-              <p className="mt-2 text-sm leading-relaxed text-text-secondary">
+              <p className="mt-2 text-base leading-relaxed text-text-secondary">
                 {t(`example${i}Scope`)}
               </p>
               <div className="mt-3 border-t border-border-subtle pt-3">
                 <p className="text-sm font-medium text-text-secondary">{t('result')}</p>
-                <p className="mt-0.5 text-sm leading-relaxed text-text-primary">
+                <p className="mt-0.5 text-base leading-relaxed text-text-primary">
                   {t(`example${i}Result`)}
                 </p>
               </div>

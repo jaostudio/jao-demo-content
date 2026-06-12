@@ -80,7 +80,7 @@ export default async function CaseStudiesPage() {
                     {cs.title}
                   </h2>
 
-                  <p className="mt-2 text-sm leading-relaxed text-text-secondary line-clamp-3">
+                  <p className="mt-2 text-base leading-relaxed text-text-secondary line-clamp-3">
                     {cs.outcome}
                   </p>
 

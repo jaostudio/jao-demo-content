@@ -25,7 +25,7 @@ export function Sidebar() {
 
   return (
     <aside className="hidden w-48 shrink-0 md:block">
-      <nav className="space-y-1">
+      <nav className="space-y-0.5">
         {links.map((link) => {
           const Icon = link.icon
           const active = pathname === link.href || (link.href !== '/admin' && pathname.startsWith(link.href))
@@ -33,10 +33,10 @@ export function Sidebar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`flex items-center gap-2 border-l-4 px-3 py-2 text-sm font-bold transition-colors ${
+              className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                 active
-                  ? 'border-saffron-500 bg-saffron-100 text-black dark:bg-saffron-900/30 dark:text-white'
-                  : 'border-transparent text-neutral-600 hover:border-black hover:bg-black/5 dark:text-neutral-400 dark:hover:border-white dark:hover:bg-white/5'
+                  ? 'bg-primary-light text-primary dark:bg-primary/10 dark:text-primary'
+                  : 'text-text-secondary hover:bg-slate-100 hover:text-text-primary dark:hover:bg-slate-700 dark:hover:text-slate-100'
               }`}
             >
               <Icon className="h-4 w-4" />

@@ -17,7 +17,7 @@ export default async function NewArticlePage() {
 
   return (
     <div>
-      <h1 className="mb-6 font-display text-2xl font-bold">New Article</h1>
+      <h1 className="mb-4 text-lg font-bold text-text-primary dark:text-slate-100">New Article</h1>
       <ArticleForm categories={categories} tags={tags} action={createArticle} />
     </div>
   )

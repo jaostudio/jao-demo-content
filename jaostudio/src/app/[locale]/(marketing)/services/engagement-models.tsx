@@ -30,7 +30,7 @@ export async function EngagementModels() {
               <p className="mt-1 text-sm uppercase tracking-wider text-text-secondary">
                 {t('bestFor')}: {t(`model${i}BestFor`)}
               </p>
-              <p className="mt-2 text-sm leading-relaxed text-text-secondary">
+              <p className="mt-2 text-base leading-relaxed text-text-secondary">
                 {t(`model${i}Desc`)}
               </p>
             </Card>

@@ -3,7 +3,7 @@ import remarkGfm from 'remark-gfm'
 
 export function MarkdownRenderer({ content }: { content: string }) {
   return (
-    <div className="prose prose-gray max-w-none font-body">
+    <div className="prose prose-sm prose-slate max-w-none dark:prose-invert">
       <ReactMarkdown remarkPlugins={[remarkGfm]}>
         {content}
       </ReactMarkdown>

@@ -1,10 +1,7 @@
 {
   "name": "@jaostudio/analytics",
   "version": "0.1.0",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jaostudio/jaostudio-platform.git"
-  },
+  "repository": { "type": "git", "url": "git+https://github.com/jaostudio/jaostudio-platform.git" },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },

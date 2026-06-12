@@ -6,10 +6,10 @@ import { ChartSection } from '@/components/chart-section'
 export const dynamic = 'force-dynamic'
 
 const COLORS = {
-  draft: '#94a3b8',
-  pending: '#F79F1F',
-  published: '#0D9488',
-  archived: '#64748b',
+  draft: '#94A3B8',
+  pending: '#F59E0B',
+  published: '#22C55E',
+  archived: '#64748B',
 }
 
 export default async function AnalyticsPage() {
@@ -57,48 +57,29 @@ export default async function AnalyticsPage() {
 
   return (
     <div>
-      <h1 className="mb-6 font-display text-2xl font-bold text-black dark:text-white">Analytics</h1>
+      <h1 className="mb-4 text-lg font-bold text-text-primary dark:text-slate-100">Analytics</h1>
 
-      <div className="mb-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
+      <div className="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
         <MetricCard label="Total Articles" value={totalArticles} />
         <MetricCard label="Drafts" value={draftsCount} />
-        <MetricCard label="Pending Review" value={pendingCount} />
         <MetricCard label="Published" value={publishedCount} />
-        <MetricCard label="Archived" value={archivedCount} />
         <MetricCard label="Authors" value={totalAuthors} />
         <MetricCard label="Categories" value={totalCategories} />
         <MetricCard label="Tags" value={totalTags} />
+        <MetricCard label="Comments" value={totalComments} />
+        <MetricCard label="Archived" value={archivedCount} />
       </div>
 
       <ChartSection categoryData={categoryChartData} statusData={statusData.filter((d) => d.value > 0)} />
-
-      <div className="mb-8 border-2 border-black bg-cream p-6 nb-shadow dark:border-white dark:bg-black">
-        <h2 className="mb-2 font-display text-sm font-bold text-black dark:text-white">Community</h2>
-        <p className="text-sm text-neutral-500">{totalComments} comments across all articles</p>
-      </div>
-
-      <div className="border-2 border-black bg-white nb-shadow dark:border-white dark:bg-black">
-        <div className="border-b-2 border-black px-6 py-4 dark:border-white">
-          <h2 className="font-display text-sm font-bold text-black dark:text-white">Articles per Category (Detailed)</h2>
-        </div>
-        <div className="divide-y-2 divide-black dark:divide-white">
-          {categoryBreakdown.map((cat) => (
-            <div key={cat.id} className="flex items-center justify-between px-6 py-3">
-              <span className="text-sm font-bold text-black dark:text-white">{cat.name}</span>
-              <span className="text-sm text-neutral-500">{cat._count.articles} articles</span>
-            </div>
-          ))}
-        </div>
-      </div>
     </div>
   )
 }
 
 function MetricCard({ label, value }: { label: string; value: number }) {
   return (
-    <div className="border-2 border-black bg-cream p-4 nb-shadow dark:border-white dark:bg-black">
-      <p className="font-display text-2xl font-bold text-black dark:text-white">{value}</p>
-      <p className="text-sm text-neutral-500">{label}</p>
+    <div className="rounded-lg border border-border bg-card p-3 dark:border-border-dark dark:bg-card-dark">
+      <p className="text-xl font-bold text-text-primary dark:text-slate-100">{value}</p>
+      <p className="text-[11px] text-text-muted">{label}</p>
     </div>
   )
 }

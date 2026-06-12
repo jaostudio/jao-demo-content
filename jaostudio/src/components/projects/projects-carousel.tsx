@@ -39,7 +39,7 @@ function ProjectCarouselCard({ project, relevant = false }: { project: ProjectMe
             </h3>
           </div>
 
-          <p className="text-sm leading-relaxed text-text-secondary">{project.summary}</p>
+          <p className="text-base leading-relaxed text-text-secondary">{project.summary}</p>
         </div>
 
         <div className="space-y-2 transition-opacity duration-300 opacity-60 group-hover:opacity-100">

@@ -80,7 +80,7 @@ export default async function ContactPage() {
             ].map((s, i) => (
               <FadeInView key={s.step} delay={i * 0.1}>
                 <Card>
-                  <span className="text-xs font-mono uppercase tracking-[0.2em] text-accent">{s.step}</span>
+                  <span className="text-xs font-mono uppercase tracking-[0.2em] text-text-primary">{s.step}</span>
                   <h2 className="mt-2 text-sm font-medium text-text-primary">{s.title}</h2>
                 </Card>
               </FadeInView>
@@ -106,7 +106,7 @@ export default async function ContactPage() {
               <FadeInView key={item.title} delay={(i % 2) * 0.1}>
                 <Card>
                   <p className="text-sm font-medium text-text-primary">{item.title}</p>
-                  <p className="mt-1 text-sm leading-relaxed text-text-secondary">{item.desc}</p>
+                  <p className="mt-1 text-base leading-relaxed text-text-secondary">{item.desc}</p>
                 </Card>
               </FadeInView>
             ))}

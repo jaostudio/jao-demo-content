@@ -2,13 +2,15 @@ import { getCurrentAuthor } from '@/lib/auth/getSession'
 import { prisma } from '@/lib/prisma'
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
+import { NEW_LAYOUT_ENABLED } from '@/lib/new/flags'
+import { AdminDashboard } from '@/components/new/pages/admin/dashboard'
 import { StatusBadge } from '@/components/status-badge'
 import { TransitionButtons } from '@/components/transition-buttons'
 import { IllustratedEmptyState } from '@/components/illustrated-empty-state'
 
 export const dynamic = 'force-dynamic'
 
-export default async function AdminDashboard() {
+export default async function AdminDashboardPage() {
   const author = await getCurrentAuthor()
   if (!author) redirect('/signin')
 
@@ -26,45 +28,63 @@ export default async function AdminDashboard() {
     ? articles
     : articles.filter((a) => a.authorId === author.id)
 
+  if (NEW_LAYOUT_ENABLED) {
+    return (
+      <AdminDashboard
+        draftCount={draftCount}
+        pendingCount={pendingCount}
+        publishedCount={publishedCount}
+        articles={myArticles.map((a) => ({
+          id: a.id,
+          title: a.title,
+          status: a.status,
+          authorName: a.author.name,
+          createdAt: a.createdAt,
+          category: { slug: a.category.slug, name: a.category.name },
+        }))}
+      />
+    )
+  }
+
   return (
     <div>
-      <div className="mb-8">
-        <h1 className="font-display text-2xl font-bold text-black dark:text-white">Dashboard</h1>
-        <p className="text-sm text-neutral-500">
+      <div className="mb-4">
+        <h1 className="text-lg font-bold text-text-primary dark:text-slate-100">Dashboard</h1>
+        <p className="text-xs text-text-muted">
           {author.role === 'ADMIN' ? 'Administrator' : 'Author'} — {author.name}
         </p>
       </div>
 
-      <div className="mb-8 grid grid-cols-3 gap-4">
-        <div className="border-2 border-black bg-cream p-4 nb-shadow dark:border-white dark:bg-black">
-          <p className="font-display text-2xl font-bold text-black dark:text-white">{draftCount}</p>
-          <p className="text-sm text-neutral-500">Drafts</p>
+      <div className="mb-4 grid grid-cols-3 gap-3">
+        <div className="rounded-lg border border-border bg-card p-3 dark:border-border-dark dark:bg-card-dark">
+          <p className="text-xl font-bold text-text-primary dark:text-slate-100">{draftCount}</p>
+          <p className="text-[11px] text-text-muted">Drafts</p>
         </div>
-        <div className="border-2 border-black bg-saffron-100 p-4 nb-shadow dark:border-white dark:bg-saffron-900/30">
-          <p className="font-display text-2xl font-bold text-black dark:text-white">{pendingCount}</p>
-          <p className="text-sm text-neutral-500">Pending Review</p>
+        <div className="rounded-lg border border-amber-200 bg-amber-50 p-3 dark:border-amber-800 dark:bg-amber-900/20">
+          <p className="text-xl font-bold text-amber-700 dark:text-amber-400">{pendingCount}</p>
+          <p className="text-[11px] text-amber-600 dark:text-amber-500">Pending</p>
         </div>
-        <div className="border-2 border-black bg-cream p-4 nb-shadow dark:border-white dark:bg-black">
-          <p className="font-display text-2xl font-bold text-black dark:text-white">{publishedCount}</p>
-          <p className="text-sm text-neutral-500">Published</p>
+        <div className="rounded-lg border border-emerald-200 bg-emerald-50 p-3 dark:border-emerald-800 dark:bg-emerald-900/20">
+          <p className="text-xl font-bold text-emerald-700 dark:text-emerald-400">{publishedCount}</p>
+          <p className="text-[11px] text-emerald-600 dark:text-emerald-500">Published</p>
         </div>
       </div>
 
-      <div className="border-2 border-black bg-white nb-shadow dark:border-white dark:bg-black">
-        <div className="border-b-2 border-black px-4 py-3 dark:border-white">
-          <h2 className="font-display font-bold">Articles</h2>
+      <div className="overflow-hidden rounded-lg border border-border bg-card dark:border-border-dark dark:bg-card-dark">
+        <div className="border-b border-border px-4 py-2.5 dark:border-border-dark">
+          <h2 className="text-sm font-bold text-text-primary dark:text-slate-100">Articles</h2>
         </div>
-        <div className="divide-y-2 divide-black dark:divide-white">
+        <div className="divide-y divide-border dark:divide-border-dark">
           {myArticles.length === 0 && (
             <IllustratedEmptyState message="No articles yet." submessage="Gumawa ng bago!" />
           )}
           {myArticles.map((article) => (
-            <div key={article.id} className="flex items-center justify-between px-4 py-3">
+            <div key={article.id} className="flex items-center justify-between px-4 py-2.5">
               <div className="min-w-0 flex-1">
-                <Link href={`/admin/articles/${article.id}/edit`} className="font-bold hover:underline">
+                <Link href={`/admin/articles/${article.id}/edit`} className="text-sm font-medium text-text-primary hover:text-primary dark:text-slate-100">
                   {article.title}
                 </Link>
-                <p className="text-xs text-neutral-500">
+                <p className="text-[11px] text-text-muted">
                   {article.author.name} · {article.category.name} · {new Date(article.updatedAt).toLocaleDateString()}
                 </p>
               </div>
