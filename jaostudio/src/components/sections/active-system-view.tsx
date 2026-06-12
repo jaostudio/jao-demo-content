@@ -113,7 +113,7 @@ export function ActiveSystemView({
                     className={`shrink-0 rounded-full px-4 py-2 text-sm font-medium whitespace-nowrap transition-[transform,opacity,background-color] duration-200 inline-flex items-center gap-1.5 ${
                       isActive
                         ? 'bg-accent text-white shadow-md scale-[1.03]'
-                        : 'bg-bg-surface text-text-secondary border border-border-subtle opacity-70 hover:opacity-100'
+                        : 'bg-bg-surface text-text-secondary border border-border-subtle hover:opacity-100'
                     }`}
                   >
                     {Icon && <Icon className={`h-5 w-5 ${!isActive ? 'opacity-60' : ''}`} />}

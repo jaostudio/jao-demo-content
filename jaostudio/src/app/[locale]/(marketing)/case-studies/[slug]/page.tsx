@@ -130,7 +130,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
           {project.systems?.architecture && (
             <Card className="mt-6">
-              <p className="text-xs font-medium uppercase tracking-wider text-accent">{t('architectureLabel')}</p>
+              <p className="text-xs font-medium uppercase tracking-wider text-text-primary">{t('architectureLabel')}</p>
               <p className="mt-2 text-sm leading-relaxed text-text-secondary">
                 {cs.architectureSummary || project.systems.architecture}
               </p>
@@ -158,7 +158,7 @@ export default async function CaseStudyPage({ params }: Props) {
             {cs.lessons.map((l, i) => (
               <FadeInView key={i} delay={i * 0.1}>
                 <Card>
-                  <p className="text-xs font-medium text-accent">{t('lessonLabel')} {i + 1}</p>
+                  <p className="text-xs font-medium text-text-primary">{t('lessonLabel')} {i + 1}</p>
                   <p className="mt-2 text-sm leading-relaxed text-text-secondary">{l}</p>
                 </Card>
               </FadeInView>
@@ -171,7 +171,7 @@ export default async function CaseStudyPage({ params }: Props) {
           <div className="grid gap-8 md:grid-cols-3">
             {services.length > 0 && (
               <div>
-                <p className="text-xs font-medium uppercase tracking-wider text-accent">{t('relatedServices')}</p>
+                <p className="text-xs font-medium uppercase tracking-wider text-text-primary">{t('relatedServices')}</p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {services.map((s) => (
                     <span
@@ -187,7 +187,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
             {demos.length > 0 && (
               <div>
-                <p className="text-xs font-medium uppercase tracking-wider text-accent">{t('relatedDemos')}</p>
+                <p className="text-xs font-medium uppercase tracking-wider text-text-primary">{t('relatedDemos')}</p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {demos.map((d) => (
                     <Link
@@ -203,7 +203,7 @@ export default async function CaseStudyPage({ params }: Props) {
             )}
 
             <div>
-              <p className="text-xs font-medium uppercase tracking-wider text-accent">{t('relatedProject')}</p>
+              <p className="text-xs font-medium uppercase tracking-wider text-text-primary">{t('relatedProject')}</p>
               <Link
                 href={`/projects/${project.slug}`}
                 className="mt-3 block text-sm font-medium text-text-primary underline-offset-4 transition-colors hover:text-accent hover:underline"

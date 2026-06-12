@@ -217,7 +217,7 @@ export default async function ProjectPage({ params }: Props) {
                       <p className="text-[var(--text-body)] font-medium text-text-primary">{kd.decision}</p>
                       <p className="text-sm leading-relaxed text-text-secondary">{kd.rationale || kd.tradeoff}</p>
                       {kd.outcome && (
-                        <p className="text-xs text-accent">→ {kd.outcome}</p>
+                        <p className="text-xs text-text-primary">→ {kd.outcome}</p>
                       )}
                     </li>
                   ))}
@@ -227,7 +227,7 @@ export default async function ProjectPage({ params }: Props) {
 
             {project.relatedServices.length > 0 && (
               <div>
-                <h2 className="mb-1 text-xs font-medium uppercase tracking-wider text-accent">Related Services</h2>
+                <h2 className="mb-1 text-xs font-medium uppercase tracking-wider text-text-primary">Related Services</h2>
                 <div className="flex flex-wrap gap-2 mt-2">
                   {project.relatedServices.map((sid) => {
                     const s = getService(sid)
@@ -246,7 +246,7 @@ export default async function ProjectPage({ params }: Props) {
               if (relatedCs.length === 0) return null
               return (
                 <div>
-                  <h2 className="mb-1 text-xs font-medium uppercase tracking-wider text-accent">Related Case Study</h2>
+                  <h2 className="mb-1 text-xs font-medium uppercase tracking-wider text-text-primary">Related Case Study</h2>
                   <Link
                     href={`/case-studies/${relatedCs[0].slug}`}
                     className="mt-2 block text-sm font-medium text-text-primary underline-offset-4 transition-colors hover:text-accent hover:underline"
@@ -264,7 +264,7 @@ export default async function ProjectPage({ params }: Props) {
               if (relatedDemos.length === 0) return null
               return (
                 <div>
-                  <h2 className="mb-1 text-xs font-medium uppercase tracking-wider text-accent">Related Demo</h2>
+                  <h2 className="mb-1 text-xs font-medium uppercase tracking-wider text-text-primary">Related Demo</h2>
                   <Link
                     href={`/demos#${relatedDemos[0].id}`}
                     className="mt-2 block text-sm font-medium text-text-primary underline-offset-4 transition-colors hover:text-accent hover:underline"

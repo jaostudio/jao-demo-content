@@ -86,13 +86,13 @@ export default async function CaseStudiesPage() {
 
                   {cs.metrics && cs.metrics.length > 0 && (
                     <div className="mt-4 flex items-center gap-3 border-t border-border-subtle pt-4">
-                      <span className="text-lg font-medium text-accent">{cs.metrics[0].value}</span>
+                      <span className="text-lg font-medium text-text-primary">{cs.metrics[0].value}</span>
                       <span className="text-xs text-text-tertiary">{cs.metrics[0].label}</span>
                     </div>
                   )}
 
                   <div className="mt-auto pt-4">
-                    <span className="text-xs font-medium text-accent group-hover:underline underline-offset-4">
+                    <span className="text-xs font-medium text-text-primary group-hover:underline underline-offset-4">
                       {t('readCaseStudy')} →
                     </span>
                   </div>
