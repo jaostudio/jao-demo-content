@@ -54,6 +54,7 @@ export default async function ProjectsPage() {
       </section>
 
       <Container className="pb-32 md:pb-40">
+        <h2 className="sr-only">{t('pageHeading')}</h2>
         <ProjectsGrid
           projects={projects.filter((p) => p.projectTier !== 'concept')}
         />

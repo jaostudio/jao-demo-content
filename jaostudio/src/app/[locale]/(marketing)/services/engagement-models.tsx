@@ -27,7 +27,7 @@ export async function EngagementModels() {
             <FadeInView delay={(i - 1) * 0.1}>
             <Card className="p-4 md:p-5">
               <p className="text-sm font-medium text-text-primary">{t(`model${i}Title`)}</p>
-              <p className="mt-1 text-xs uppercase tracking-wider text-text-secondary">
+              <p className="mt-1 text-sm uppercase tracking-wider text-text-secondary">
                 {t('bestFor')}: {t(`model${i}BestFor`)}
               </p>
               <p className="mt-2 text-sm leading-relaxed text-text-secondary">

@@ -91,11 +91,11 @@ export function HeroVisual() {
       >
         <div className="flex items-center justify-between gap-4">
           <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-text-secondary">
+            <p className="text-sm uppercase tracking-[0.3em] text-text-secondary">
               {t('systemTopology')}
             </p>
           </div>
-          <span className="rounded-full border border-accent-warm/20 bg-accent-warm-soft px-3 py-1 text-xs uppercase tracking-[0.25em] text-accent-warm">
+          <span className="rounded-full border border-accent-warm/30 bg-surface-hover px-3 py-1 text-xs uppercase tracking-[0.25em] text-accent-warm">
             {t('live')}
           </span>
         </div>
@@ -117,9 +117,9 @@ export function HeroVisual() {
               key={`${item.label}-${item.value}`}
               className="rounded-2xl border border-border-subtle bg-bg-surface/80 px-3 py-2 md:px-4 md:py-3"
             >
-              <p className="text-xs uppercase tracking-[0.28em] text-text-secondary">{item.label}</p>
+              <p className="text-sm uppercase tracking-[0.28em] text-text-secondary">{item.label}</p>
               <p className="mt-1 text-base text-text-secondary">{item.value}</p>
-              <p className="mt-0.5 text-xs text-text-tertiary/60">{item.metric}</p>
+              <p className="mt-0.5 text-sm text-text-tertiary">{item.metric}</p>
             </div>
           ))}
         </div>

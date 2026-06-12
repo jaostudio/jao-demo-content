@@ -145,9 +145,9 @@ export default function PlaygroundPage() {
                   onClick={() => track(EVENTS.PLAYGROUND_CARD_CLICK, { demo: demo.title, category: demo.category })}
                 >
                   <Badge>{demo.category}</Badge>
-                  <h3 className="text-[var(--text-card-title)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
+                  <h2 className="text-[var(--text-card-title)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
                     {demo.title}
-                  </h3>
+                  </h2>
                   <p className="text-[var(--text-body)] leading-[var(--leading-relaxed)] text-text-secondary">{demo.description}</p>
                   <div className="mt-auto flex h-32 items-center justify-center rounded-xl border border-border-subtle bg-bg-elevated">
                     <p className="text-[var(--text-meta)] text-text-tertiary">{t('demoComingSoon')}</p>
@@ -175,9 +175,9 @@ export default function PlaygroundPage() {
                 onClick={() => track(EVENTS.PLAYGROUND_CARD_CLICK, { demo: demo.title, category: demo.category })}
               >
                 <Badge>{demo.category}</Badge>
-                <h3 className="text-[var(--text-card-title)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
+                <h2 className="text-[var(--text-card-title)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
                   {demo.title}
-                </h3>
+                </h2>
                 <p className="text-[var(--text-body)] leading-[var(--leading-relaxed)] text-text-secondary">{demo.description}</p>
                 <div className="mt-auto flex h-32 items-center justify-center rounded-xl border border-border-subtle bg-bg-elevated">
                   <p className="text-[var(--text-meta)] text-text-tertiary">{t('demoComingSoon')}</p>

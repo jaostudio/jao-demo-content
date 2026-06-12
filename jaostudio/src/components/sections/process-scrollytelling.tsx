@@ -114,7 +114,7 @@ function ProcessDesktopScrollytelling({
                   step.selected
                     ? 'border-accent/30 bg-accent-soft text-text-primary'
                     : step.contextual
-                      ? 'border-accent-warm/20 bg-accent-warm-soft/10 text-accent-warm'
+                      ? 'border-accent-warm/30 bg-surface-hover text-accent-warm'
                       : 'border-border-subtle bg-bg-elevated text-text-secondary',
                 )}
               >

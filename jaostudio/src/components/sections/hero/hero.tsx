@@ -24,7 +24,7 @@ export async function Hero() {
           </div>
 
           <div className="order-2 lg:hidden flex flex-wrap gap-2 justify-center">
-            <span className="rounded-full border border-accent-warm/20 bg-accent-warm-soft px-3 py-1 text-sm text-accent-warm">
+            <span className="rounded-full border border-accent-warm/30 bg-surface-hover px-3 py-1 text-sm text-accent-warm">
               {t('availability')}
             </span>
           </div>
@@ -69,7 +69,7 @@ export async function Hero() {
               </span>
             </div>
 
-            <p className="max-w-lg text-xs leading-relaxed text-text-tertiary/70">
+            <p className="max-w-lg text-sm leading-relaxed text-text-tertiary">
               {t('notForEveryoneDetail')}
             </p>
           </div>

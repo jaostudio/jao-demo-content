@@ -174,16 +174,16 @@ export default async function ProjectPage({ params }: Props) {
         <div className="grid gap-16 lg:grid-cols-[1fr_2fr]">
           <FadeInView><aside className="flex flex-col gap-8">
             <div>
-              <h3 className="mb-1 text-xs font-medium uppercase tracking-wider text-text-tertiary">{t('asideTimeline')}</h3>
+              <h2 className="mb-1 text-xs font-medium uppercase tracking-wider text-text-tertiary">{t('asideTimeline')}</h2>
               <p className="text-[var(--text-body)] text-text-secondary">{project.timeline}</p>
             </div>
             <div>
-              <h3 className="mb-1 text-xs font-medium uppercase tracking-wider text-text-tertiary">{t('asideIndustry')}</h3>
+              <h2 className="mb-1 text-xs font-medium uppercase tracking-wider text-text-tertiary">{t('asideIndustry')}</h2>
               <p className="text-[var(--text-body)] text-text-secondary">{project.industry}</p>
             </div>
             {project.systems?.architecture && (
               <div>
-                <h3 className="mb-1 text-xs font-medium uppercase tracking-wider text-text-tertiary">{t('asideArchitecture')}</h3>
+                <h2 className="mb-1 text-xs font-medium uppercase tracking-wider text-text-tertiary">{t('asideArchitecture')}</h2>
                 <p className="text-[var(--text-body)] leading-relaxed text-text-secondary">
                   {project.systems.architecture}
                 </p>
@@ -191,13 +191,13 @@ export default async function ProjectPage({ params }: Props) {
             )}
             {project.architecture && (
               <div>
-                <h3 className="mb-1 text-xs font-medium uppercase tracking-wider text-text-tertiary">{t('asideSystemTopology')}</h3>
+                <h2 className="mb-1 text-xs font-medium uppercase tracking-wider text-text-tertiary">{t('asideSystemTopology')}</h2>
                 <Diagram data={project.architecture} />
               </div>
             )}
             {project.constraints.length > 0 && (
               <div>
-                <h3 className="mb-1 text-xs font-medium uppercase tracking-wider text-text-tertiary">{t('asideConstraints')}</h3>
+                <h2 className="mb-1 text-xs font-medium uppercase tracking-wider text-text-tertiary">{t('asideConstraints')}</h2>
                 <ul className="flex flex-col gap-2">
                   {project.constraints.map((c) => (
                     <li key={c} className="flex items-start gap-2 text-[var(--text-body)] text-text-secondary">
@@ -210,7 +210,7 @@ export default async function ProjectPage({ params }: Props) {
             )}
             {project.keyDecisions.length > 0 && (
               <div>
-                <h3 className="mb-1 text-xs font-medium uppercase tracking-wider text-text-tertiary">{t('asideKeyDecisions')}</h3>
+                <h2 className="mb-1 text-xs font-medium uppercase tracking-wider text-text-tertiary">{t('asideKeyDecisions')}</h2>
                 <ul className="flex flex-col gap-4">
                   {project.keyDecisions.map((kd) => (
                     <li key={kd.decision} className="flex flex-col gap-1">
@@ -227,7 +227,7 @@ export default async function ProjectPage({ params }: Props) {
 
             {project.relatedServices.length > 0 && (
               <div>
-                <h3 className="mb-1 text-xs font-medium uppercase tracking-wider text-accent">Related Services</h3>
+                <h2 className="mb-1 text-xs font-medium uppercase tracking-wider text-accent">Related Services</h2>
                 <div className="flex flex-wrap gap-2 mt-2">
                   {project.relatedServices.map((sid) => {
                     const s = getService(sid)
@@ -246,7 +246,7 @@ export default async function ProjectPage({ params }: Props) {
               if (relatedCs.length === 0) return null
               return (
                 <div>
-                  <h3 className="mb-1 text-xs font-medium uppercase tracking-wider text-accent">Related Case Study</h3>
+                  <h2 className="mb-1 text-xs font-medium uppercase tracking-wider text-accent">Related Case Study</h2>
                   <Link
                     href={`/case-studies/${relatedCs[0].slug}`}
                     className="mt-2 block text-sm font-medium text-text-primary underline-offset-4 transition-colors hover:text-accent hover:underline"
@@ -264,7 +264,7 @@ export default async function ProjectPage({ params }: Props) {
               if (relatedDemos.length === 0) return null
               return (
                 <div>
-                  <h3 className="mb-1 text-xs font-medium uppercase tracking-wider text-accent">Related Demo</h3>
+                  <h2 className="mb-1 text-xs font-medium uppercase tracking-wider text-accent">Related Demo</h2>
                   <Link
                     href={`/demos#${relatedDemos[0].id}`}
                     className="mt-2 block text-sm font-medium text-text-primary underline-offset-4 transition-colors hover:text-accent hover:underline"
@@ -324,9 +324,9 @@ export default async function ProjectPage({ params }: Props) {
             {project.systems?.infrastructure && (
               <div>
                 <Badge variant="accent" className="mb-4">{t('badgeInfrastructure')}</Badge>
-                <h3 className="mb-4 text-[var(--text-card-title)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
+                <h2 className="mb-4 text-[var(--text-card-title)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
                   {t('sectionDeployment')}
-                </h3>
+                </h2>
                 <p className="text-[var(--text-body)] leading-relaxed text-text-secondary">
                   {project.systems.infrastructure}
                 </p>
@@ -335,9 +335,9 @@ export default async function ProjectPage({ params }: Props) {
 
             <div>
               <Badge variant="accent" className="mb-4">{t('badgeStack')}</Badge>
-              <h3 className="mb-4 text-[var(--text-card-title)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
+              <h2 className="mb-4 text-[var(--text-card-title)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
                 {t('sectionBuiltWith')}
-              </h3>
+              </h2>
               <div className="flex flex-wrap gap-3">
                 {project.stack.map((tech) => (
                   <span
@@ -352,9 +352,9 @@ export default async function ProjectPage({ params }: Props) {
 
             <div>
               <Badge variant="accent" className="mb-4">{t('badgeMetrics')}</Badge>
-              <h3 className="mb-4 text-[var(--text-card-title)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
+              <h2 className="mb-4 text-[var(--text-card-title)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
                 {t('sectionPerformance')}
-              </h3>
+              </h2>
               <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
                 {[
                   { label: t('metricLabelLighthouse'), value: `${project.metrics.lighthouse}+` },
@@ -420,9 +420,9 @@ export default async function ProjectPage({ params }: Props) {
               if (!related.length) return null
               return (
                 <div className="flex flex-col gap-6 border-t border-border-subtle pt-12">
-                  <p className="text-[var(--text-meta)] font-medium uppercase tracking-[var(--tracking-wider)] text-text-tertiary">
+                  <h2 className="text-[var(--text-meta)] font-medium uppercase tracking-[var(--tracking-wider)] text-text-tertiary">
                     {t('metaRelatedProjects')}
-                  </p>
+                  </h2>
                   <div className="grid gap-4 md:grid-cols-2">
                     {related.map((r, i) => (
                       <FadeInView key={r.slug} delay={i * 0.1}><Link href={`/projects/${r.slug}`}>

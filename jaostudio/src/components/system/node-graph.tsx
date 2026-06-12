@@ -235,7 +235,7 @@ export function NodeGraph({
           <circle cx="75" cy="60" r="11" fill={colors.compactNodeFill} stroke="rgba(217,119,6,0.6)" strokeWidth="0.8" />
           <text x="75" y="60" textAnchor="middle" dominantBaseline="central" fill={colors.compactNodeTextDim} fontSize={4.5} fontWeight="500" fontFamily="Geist Sans, system-ui, sans-serif">Pipeline</text>
         </svg>
-        <p className="mt-2 text-center text-[10px] uppercase tracking-[0.2em] text-text-secondary/50">
+        <p className="mt-2 text-center text-xs uppercase tracking-[0.2em] text-text-secondary/60">
           Operational system topology
         </p>
       </div>
@@ -276,7 +276,7 @@ export function NodeGraph({
           />
         ))}
       </svg>
-      <p className="mt-2 text-center text-[10px] uppercase tracking-[0.2em] text-text-secondary/50">
+      <p className="mt-2 text-center text-xs uppercase tracking-[0.2em] text-text-secondary/60">
         Operational system topology
       </p>
     </div>

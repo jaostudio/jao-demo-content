@@ -53,14 +53,14 @@ export function Footer() {
         </p>
 
         <div className="flex flex-col items-center gap-1 md:items-end">
-          <p className="text-xs text-text-tertiary/60">
+          <p className="text-xs text-text-secondary">
             Updated June 2026
           </p>
           <a
             href="https://github.com/jaoce/jaostudio/issues"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs text-text-tertiary/60 transition-colors hover:text-text-secondary"
+            className="text-xs text-text-secondary transition-colors hover:text-text-primary"
           >
             Report an issue
           </a>

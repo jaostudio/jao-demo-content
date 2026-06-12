@@ -21,7 +21,7 @@ export function ScreenshotPreview({ src, alt, className }: ScreenshotPreviewProp
         <div className="h-3 w-3 rounded-full bg-amber-500/60" />
         <div className="h-3 w-3 rounded-full bg-emerald-500/60" />
         <div className="ml-3 flex-1 rounded-md bg-surface-hover px-3 py-1.5">
-          <p className="truncate text-center text-[10px] text-text-tertiary">{alt}</p>
+          <p className="truncate text-center text-xs text-text-tertiary">{alt}</p>
         </div>
       </div>
       <div className="relative aspect-[16/10] bg-bg-surface">

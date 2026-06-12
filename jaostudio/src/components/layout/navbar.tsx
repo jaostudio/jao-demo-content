@@ -291,14 +291,14 @@ export function Navbar() {
               <button
                 onClick={toggleLocale}
                 data-anim-locale
-                className="focus-ring rounded-xl border border-border bg-surface-hover px-3 py-2.5 text-sm font-medium uppercase tracking-wider text-text-secondary transition-colors hover:text-text-primary"
+                className="focus-ring rounded-xl border border-border bg-bg-secondary px-3 py-2.5 text-sm font-medium uppercase tracking-wider text-text-primary transition-colors hover:text-text-secondary"
                 aria-label={`Switch language to ${locale === 'en' ? 'Tagalog' : 'English'}`}
               >
                 {locale === 'en' ? 'TL' : 'EN'}
               </button>
               <button
                 onClick={handleThemeToggle}
-                className="focus-ring rounded-xl border border-border bg-surface-hover p-3 text-text-secondary transition-colors hover:text-text-primary"
+                className="focus-ring rounded-xl border border-border bg-bg-secondary p-3 text-text-primary transition-colors hover:text-text-secondary"
                 aria-label={theme === 'dark' ? t('themeLight') : t('themeDark')}
               >
                 {mounted && (theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />)}

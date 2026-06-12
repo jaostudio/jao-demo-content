@@ -33,7 +33,7 @@ function ProjectCarouselCard({ project, relevant = false }: { project: ProjectMe
 
         <div className="flex flex-1 flex-col gap-2">
           <div>
-            <p className="text-[10px] uppercase tracking-widest text-text-secondary">Project</p>
+            <p className="text-xs uppercase tracking-widest text-text-secondary">Project</p>
             <h3 className="mt-0.5 text-[var(--text-card-title)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
               {project.title}
             </h3>
@@ -51,14 +51,14 @@ function ProjectCarouselCard({ project, relevant = false }: { project: ProjectMe
             {project.stack.slice(0, 4).map((tech) => (
               <span
                 key={tech}
-                className="rounded-md border border-border-subtle bg-surface-hover px-2 py-0.5 text-[10px] text-text-secondary"
+                className="rounded-md border border-border-subtle bg-surface-hover px-2 py-0.5 text-xs text-text-secondary"
               >
                 {tech}
               </span>
             ))}
           </div>
 
-          <div className="flex items-center gap-3 text-[11px] text-text-secondary">
+          <div className="flex items-center gap-3 text-xs text-text-secondary">
             <span>{project.metrics.lighthouse}+ Lighthouse</span>
             <span>{project.metrics.performance}</span>
           </div>

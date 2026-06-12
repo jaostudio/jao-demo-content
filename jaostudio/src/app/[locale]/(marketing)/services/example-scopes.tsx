@@ -27,15 +27,15 @@ export async function ExampleScopes() {
             <FadeInView delay={(i - 1) * 0.1}>
             <Card className="p-4 md:p-5">
               <p className="text-sm font-medium text-text-primary">{t(`example${i}Title`)}</p>
-              <p className="mt-1 text-xs uppercase tracking-wider text-text-secondary">
+              <p className="mt-1 text-sm uppercase tracking-wider text-text-secondary">
                 {t(`example${i}Timeline`)}
               </p>
               <p className="mt-2 text-sm leading-relaxed text-text-secondary">
                 {t(`example${i}Scope`)}
               </p>
               <div className="mt-3 border-t border-border-subtle pt-3">
-                <p className="text-xs font-medium text-text-secondary">{t('result')}</p>
-                <p className="mt-0.5 text-xs leading-relaxed text-text-primary">
+                <p className="text-sm font-medium text-text-secondary">{t('result')}</p>
+                <p className="mt-0.5 text-sm leading-relaxed text-text-primary">
                   {t(`example${i}Result`)}
                 </p>
               </div>

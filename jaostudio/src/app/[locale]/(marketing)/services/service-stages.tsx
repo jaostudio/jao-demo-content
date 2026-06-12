@@ -122,24 +122,24 @@ export function DeliveryStages() {
               className="flex w-[75vw] shrink-0 flex-col gap-2 p-3"
             >
               <div className="flex items-center gap-2">
-                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent text-[11px] font-medium text-white">
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent text-xs font-medium text-white">
                   {i}
                 </span>
-                <p className="text-xs font-medium text-text-primary">{t(`stage${i}Title`)}</p>
+                <p className="text-sm font-medium text-text-primary">{t(`stage${i}Title`)}</p>
               </div>
               <div className="border-t border-border-subtle" />
               <div className="grid grid-cols-3 gap-1.5">
                 <div>
-                  <p className="text-[10px] uppercase tracking-wider text-text-tertiary">{t('timeline')}</p>
-                  <p className="mt-0.5 text-[11px] text-text-tertiary">{t(`stage${i}Timeline`)}</p>
+                  <p className="text-xs uppercase tracking-wider text-text-tertiary">{t('timeline')}</p>
+                  <p className="mt-0.5 text-xs text-text-tertiary">{t(`stage${i}Timeline`)}</p>
                 </div>
                 <div>
-                  <p className="text-[10px] uppercase tracking-wider text-text-secondary">{t('output')}</p>
-                  <p className="mt-0.5 text-[11px] text-text-tertiary leading-tight">{t(`stage${i}Output`)}</p>
+                  <p className="text-xs uppercase tracking-wider text-text-secondary">{t('output')}</p>
+                  <p className="mt-0.5 text-xs text-text-tertiary leading-tight">{t(`stage${i}Output`)}</p>
                 </div>
                 <div>
-                  <p className="text-[10px] uppercase tracking-wider text-text-secondary">{t('fromYou')}</p>
-                  <p className="mt-0.5 text-[11px] text-text-tertiary leading-tight">{t(`stage${i}Input`)}</p>
+                  <p className="text-xs uppercase tracking-wider text-text-secondary">{t('fromYou')}</p>
+                  <p className="mt-0.5 text-xs text-text-tertiary leading-tight">{t(`stage${i}Input`)}</p>
                 </div>
               </div>
             </Card>

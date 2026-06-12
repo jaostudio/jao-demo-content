@@ -287,7 +287,7 @@ export function StudioContent() {
                 variants={prefersReducedMotion ? slideInReduced : slideInLeft}
                 className="relative flex gap-6 pb-10 last:pb-0"
               >
-                <div className="relative z-10 mt-1 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full border border-border bg-bg-primary text-[10px] font-medium text-text-tertiary">
+                <div className="relative z-10 mt-1 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full border border-border bg-bg-primary text-xs font-medium text-text-tertiary">
                   {i + 1}
                 </div>
                 <div className="flex flex-col gap-1 pt-0.5">
@@ -451,13 +451,13 @@ export function StudioContent() {
           viewport={{ once: true, margin: '-50px' }}
         >
           <div className="grid grid-cols-[1fr_1.5fr_2fr] gap-0 text-sm">
-            <div className="border-b border-border-subtle bg-bg-surface px-4 py-3 text-[10px] font-medium uppercase tracking-wider text-text-tertiary">
+            <div className="border-b border-border-subtle bg-bg-surface px-4 py-3 text-xs font-medium uppercase tracking-wider text-text-tertiary">
               Concern
             </div>
-            <div className="border-b border-border-subtle bg-bg-surface px-4 py-3 text-[10px] font-medium uppercase tracking-wider text-text-tertiary">
+            <div className="border-b border-border-subtle bg-bg-surface px-4 py-3 text-xs font-medium uppercase tracking-wider text-text-tertiary">
               Choice
             </div>
-            <div className="border-b border-border-subtle bg-bg-surface px-4 py-3 text-[10px] font-medium uppercase tracking-wider text-text-tertiary">
+            <div className="border-b border-border-subtle bg-bg-surface px-4 py-3 text-xs font-medium uppercase tracking-wider text-text-tertiary">
               Reasoning
             </div>
             {stackChoices.map((s, i) => (

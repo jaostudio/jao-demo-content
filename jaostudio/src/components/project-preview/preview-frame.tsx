@@ -69,7 +69,7 @@ export function PreviewFrame({ url, title, className }: PreviewFrameProps) {
         <div className="h-3 w-3 rounded-full bg-amber-500/60" />
         <div className="h-3 w-3 rounded-full bg-emerald-500/60" />
         <div className="ml-3 flex-1 rounded-md bg-surface-hover px-3 py-1.5">
-          <p className="truncate text-center text-[10px] text-text-tertiary">{url}</p>
+          <p className="truncate text-center text-xs text-text-tertiary">{url}</p>
         </div>
       </div>
       <div ref={containerRef} className="relative" style={{ aspectRatio: '16 / 10' }}>
