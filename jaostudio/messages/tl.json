@@ -21,12 +21,12 @@
     "ctaSecondary": "Tingnan ang Services",
     "systemTopology": "System topology",
     "live": "Live",
-    "notForEveryoneBadge": "Not for everyone",
-    "notForEveryoneDetail": "Hindi ako gumagamit ng page builders, templates, o white-label. Purong code, naaayon sa iyong pangangailangan."
+    "notForEveryoneBadge": "Built with care.",
+    "notForEveryoneDetail": "Walang page builders, walang templates, walang white-label. Purong production code, naaayon sa iyong pangangailangan."
   },
   "footer": {
     "brand": "JAOstudio",
-    "tagline": "Naka-fix na ako ng daan-daang website. Ngayon, gumagawa ako ng bago — mula sa simula. Walang templates. Walang shortcut.",
+    "tagline": "Built with care.",
     "contact": "Kontak",
     "github": "GitHub",
     "linkedin": "LinkedIn",
@@ -172,8 +172,8 @@
     "heroBadge": "Services",
     "heroTitle": "Ano talaga ang ginagawa ko para sa iyo",
     "heroDesc": "Gumagawa ako ng custom websites, web applications, at dashboards — mula sa simula, may malinis na code, at iniisip ang pangmatagalang maintenance mo. Walang templates, walang page builders, walang white-label.",
-    "candidBadge": "Not for everyone",
-    "candidNote": "Hindi ako gumagamit ng page builders, templates, o white-label. Bawat proyekto ay isinusulat mula sa simula — production code na naaayon sa iyong operasyon.",
+    "candidBadge": "Built with care.",
+    "candidNote": "Walang page builders, walang templates, walang white-label. Purong production code, naaayon sa iyong pangangailangan.",
     "metaTitle": "Services — JAOstudio",
     "metaDescription": "Gumagawa ako ng custom platforms, dashboards, at internal tools. 5+ taon sa GoDaddy at Wix. Walang templates. Purong production code.",
     "stage1Title": "Discovery at Strategy",
