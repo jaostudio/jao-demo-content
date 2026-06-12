@@ -17,7 +17,7 @@
     "headline2": "Ngayon, gumagawa ako ng bago — mula sa simula.",
     "subtitle": "Sa loob ng 5+ taon, ako ang tinatawagan mo kapag sira ang site mo — sa GoDaddy at Wix. Nag-debug, nag-consult, at nag-train ako. Ngayon, gumagawa ako ng full-stack apps, ecommerce, marketplaces, at internal tools. Walang templates. Purong code.",
     "availability": "Tumatanggap ng Q3 2026 projects",
-    "ctaPrimary": "Tingnan ang Systems",
+    "ctaPrimary": "Magsimula tayo",
     "ctaSecondary": "Tingnan ang Services",
     "systemTopology": "System topology",
     "live": "Live",
@@ -26,18 +26,18 @@
   },
   "footer": {
     "brand": "JAOstudio",
-    "tagline": "Naka-fix na ako ng daan-daang website. Ngayon, gumagawa ako ng bago — mula sa simula.",
+    "tagline": "Naka-fix na ako ng daan-daang website. Ngayon, gumagawa ako ng bago — mula sa simula. Walang templates. Walang shortcut.",
     "contact": "Kontak",
     "github": "GitHub",
     "linkedin": "LinkedIn",
     "credit": "Ginawa ng JAOstudio"
   },
   "projects": {
-    "badge": "Projects",
-    "heading": "Mga Featured Projects",
-    "description": "Recent projects — websites, dashboards, at applications na binuo para sa real businesses.",
-    "pageHeading": "Projects",
-    "pageDescription": "A selection of recent projects — websites, web applications, dashboards, at e-commerce storefronts na binuo para sa iba't ibang clients."
+    "badge": "Demo Projects",
+    "heading": "Mga Featured Demo Projects",
+    "description": "Mga demo project na ginawa ko para ipakita ang kaya kong gawin — mula ecommerce hanggang marketplace. Walang fake clients, totoong code lang.",
+    "pageHeading": "Demo Projects",
+    "pageDescription": "Mga demo project na ginawa ko para ipakita ang kaya kong gawin — websites, web applications, dashboards, at e-commerce storefronts."
   },
   "capabilities": {
     "badge": "Kakayahan",
@@ -94,7 +94,7 @@
   },
   "contact": {
     "badge": "Magsimula ng Proyekto",
-    "heading": "Tara, build tayo ng something",
+    "heading": "Ikwento mo ang project mo",
     "description": "Tumatanggap ng projects para sa Q3 2026 pataas. Ikwento mo ang project mo at magre-respond ako sa loob ng 24 oras.",
     "business": "Pangalan ng Business",
     "projectType": "Uri ng Project",
@@ -336,7 +336,7 @@
     "fit4": "May budget ka na sumusuporta sa quality work.",
     "step1": "I-share ang detalye ng project mo",
     "step2": "Susuriin ko at magre-respond sa loob ng 24 oras",
-    "step3": "Mag-a-align tayo sa scope, timeline, at next steps",
+    "step3": "Magpapadala ako ng project brief na may scope, timeline, at next steps",
     "model1": "Buong Proyekto",
     "model1Desc": "End-to-end delivery mula strategy hanggang launch. Ikaw ang may vision, ako ang bahala sa execution.",
     "model2": "Naka-Fase",
@@ -537,8 +537,8 @@
       "description": "Anim na ganap na functional na demo system na ginawa ko para ipakita ang aking kaya — lead generation, commerce, marketplace, editorial, operations, at compliance."
     },
     "projects": {
-      "title": "Demo Projects — JAOstudio",
-      "description": "Mga project na ginawa ko bilang demostrasyon — websites, web applications, dashboards, at e-commerce storefronts. Bawat isa ay kumakatawan sa kalidad at architecture na makukuha mo."
+      "title": "Mga Demo Project — JAOstudio",
+      "description": "Mga demo project na ginawa ko para ipakita ang kaya kong gawin — mula ecommerce hanggang marketplace. Walang fake clients, totoong code lang."
     },
     "contact": {
       "title": "Contact — JAOstudio",

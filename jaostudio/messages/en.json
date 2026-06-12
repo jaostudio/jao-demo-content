@@ -33,11 +33,11 @@
     "credit": "Built with Next.js · Tailwind · Framer Motion"
   },
   "projects": {
-    "badge": "Projects",
-    "heading": "Featured Projects",
-    "description": "Recent projects — websites, dashboards, and applications built for real businesses.",
-    "pageHeading": "Projects",
-    "pageDescription": "A selection of recent projects — websites, web applications, dashboards, and e-commerce storefronts."
+    "badge": "Demo Projects",
+    "heading": "Featured Demo Projects",
+    "description": "Demo projects I built to show what I can do — from ecommerce to marketplaces. No fake clients, just real code.",
+    "pageHeading": "Demo Projects",
+    "pageDescription": "Demo projects I built to show what I can do — websites, web applications, dashboards, and e-commerce storefronts."
   },
   "capabilities": {
     "badge": "Capabilities",
@@ -537,8 +537,8 @@
       "description": "Six independently deployed production systems — lead generation, commerce, marketplace, editorial, operations, and compliance. Running live code, ready to explore."
     },
     "projects": {
-      "title": "Projects — JAOstudio",
-      "description": "A selection of recent projects — business websites, web applications, dashboards, and e-commerce storefronts built from scratch."
+      "title": "Demo Projects — JAOstudio",
+      "description": "These are demo projects I built to show what I can do — from ecommerce to marketplaces. No fake clients, just real code."
     },
     "contact": {
       "title": "Contact — JAOstudio",
