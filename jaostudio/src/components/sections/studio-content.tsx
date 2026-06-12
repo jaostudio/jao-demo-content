@@ -137,7 +137,7 @@ export function StudioContent() {
           <p className="max-w-xl text-[var(--text-body)] leading-[var(--leading-relaxed)] text-text-secondary">
             {t('liveviewerDesc')}
           </p>
-          <Button href="https://jao-liveviewer.vercel.app" size="lg" trackingLabel="studio_liveviewer_cta">
+          <Button href="/live-projects" size="lg" trackingLabel="studio_live_projects_cta">
             {t('liveviewerCta')}
           </Button>
         </motion.div>

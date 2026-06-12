@@ -55,7 +55,7 @@ export function SystemsProof() {
         whileInView="visible"
         viewport={{ once: true, margin: '-50px' }}
       >
-        <Badge variant="accent">What We Build</Badge>
+        <Badge variant="accent">What I Build</Badge>
         <h2 className="text-[var(--text-display)] font-[var(--weight-medium)] leading-[var(--leading-display)] tracking-[var(--tracking-tight)] text-text-primary">
           Systems that solve real business problems
         </h2>

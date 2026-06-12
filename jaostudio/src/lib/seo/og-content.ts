@@ -13,7 +13,7 @@ export const ogContent = {
   },
   studio: {
     badge: "Studio",
-    title: "How We Build",
+    title: "How I Build",
     items: ["Clarity over Complexity", "Performance is a Feature", "Transparency by Default", "Built for Longevity"],
     footer: "jaostudio.dev",
   },
