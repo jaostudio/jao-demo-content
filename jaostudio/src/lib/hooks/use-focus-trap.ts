@@ -1,10 +1,10 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, type RefObject } from 'react'
 
 const FOCUSABLE = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
 
-export function useFocusTrap(active: boolean) {
+export function useFocusTrap(active: boolean, returnRef?: RefObject<HTMLElement | null>) {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -12,6 +12,7 @@ export function useFocusTrap(active: boolean) {
 
     const container = ref.current
     const previouslyFocused = document.activeElement as HTMLElement | null
+    const focusTarget = returnRef?.current || previouslyFocused
 
     const focusable = container.querySelectorAll<HTMLElement>(FOCUSABLE)
     const first = focusable[0]
@@ -45,9 +46,9 @@ export function useFocusTrap(active: boolean) {
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown)
-      previouslyFocused?.focus()
+      focusTarget?.focus()
     }
-  }, [active])
+  }, [active, returnRef])
 
   return ref
 }

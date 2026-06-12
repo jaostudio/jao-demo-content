@@ -24,7 +24,7 @@ export function Footer() {
         <div className="flex items-center gap-6">
           <NextLink
             href={contactHref}
-            className="focus-ring text-sm leading-relaxed text-text-secondary transition-colors hover:text-text-primary"
+            className="focus-ring py-1 text-sm leading-relaxed text-text-secondary transition-colors hover:text-text-primary"
           >
             {t('contact')}
           </NextLink>
@@ -32,7 +32,7 @@ export function Footer() {
             href="https://github.com/jaoce"
             target="_blank"
             rel="noopener noreferrer"
-            className="focus-ring text-sm leading-relaxed text-text-secondary transition-colors hover:text-text-primary"
+            className="focus-ring py-1 text-sm leading-relaxed text-text-secondary transition-colors hover:text-text-primary"
             aria-label={`JAOstudio ${t('github')}`}
           >
             {t('github')}
@@ -41,7 +41,7 @@ export function Footer() {
             href="https://linkedin.com/in/jamesonolitoquit"
             target="_blank"
             rel="noopener noreferrer"
-            className="focus-ring text-sm leading-relaxed text-text-secondary transition-colors hover:text-text-primary"
+            className="focus-ring py-1 text-sm leading-relaxed text-text-secondary transition-colors hover:text-text-primary"
             aria-label={`Jameson Olitoquit ${t('linkedin')}`}
           >
             {t('linkedin')}
@@ -60,7 +60,7 @@ export function Footer() {
             href="https://github.com/jaoce/jaostudio/issues"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs text-text-secondary transition-colors hover:text-text-primary"
+            className="py-1 text-xs text-text-secondary transition-colors hover:text-text-primary"
           >
             Report an issue
           </a>

@@ -64,11 +64,11 @@ export default async function DemoCredentialsPage() {
     <main>
       <Container className="pb-32 md:pb-40">
         <div className="mb-8 flex items-center gap-2 text-sm text-text-secondary">
-        <Link href="/demos" className="underline underline-offset-4 transition-colors hover:text-text-primary">
+        <Link href="/demos" className="py-1 underline underline-offset-4 transition-colors hover:text-text-primary">
           {t('backToDemos')}
         </Link>
         <span className="opacity-30">·</span>
-        <Link href="/services" className="underline underline-offset-4 transition-colors hover:text-text-primary">
+        <Link href="/services" className="py-1 underline underline-offset-4 transition-colors hover:text-text-primary">
           {t('backToServices')}
         </Link>
       </div>

@@ -26,8 +26,9 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
   const navigatingRef = useRef(false)
+  const hamburgerRef = useRef<HTMLButtonElement>(null)
   const pathname = usePathname()
-  const menuRef = useFocusTrap(mobileOpen)
+  const menuRef = useFocusTrap(mobileOpen, hamburgerRef)
   const locale = useLocale()
   const { theme, setTheme } = useTheme()
   const t = useTranslations('navbar')
@@ -222,7 +223,8 @@ export function Navbar() {
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           data-close-menu
-          className="relative z-50 flex items-center justify-center md:hidden"
+          ref={hamburgerRef}
+          className="relative z-50 flex items-center justify-center p-2 md:hidden"
           aria-label={t('toggleMenu')}
         >
           {mobileOpen ? (

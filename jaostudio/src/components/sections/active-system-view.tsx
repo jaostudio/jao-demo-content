@@ -254,7 +254,7 @@ export function ActiveSystemView({
               <div className="mt-6">
                 <a
                   href="#architecture"
-                  className="text-sm font-medium text-text-secondary underline underline-offset-4 transition-colors hover:text-text-primary"
+                  className="py-1 text-sm font-medium text-text-secondary underline underline-offset-4 transition-colors hover:text-text-primary"
                 >
                   View Architecture →
                 </a>

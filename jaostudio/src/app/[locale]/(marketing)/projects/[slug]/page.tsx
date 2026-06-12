@@ -249,7 +249,7 @@ export default async function ProjectPage({ params }: Props) {
                   <h2 className="mb-1 text-xs font-medium uppercase tracking-wider text-text-primary">Related Case Study</h2>
                   <Link
                     href={`/case-studies/${relatedCs[0].slug}`}
-                    className="mt-2 block text-sm font-medium text-text-primary underline-offset-4 transition-colors hover:text-accent hover:underline"
+                    className="mt-2 block py-1 text-sm font-medium text-text-primary underline-offset-4 transition-colors hover:text-accent hover:underline"
                   >
                     {relatedCs[0].title} →
                   </Link>
@@ -267,7 +267,7 @@ export default async function ProjectPage({ params }: Props) {
                   <h2 className="mb-1 text-xs font-medium uppercase tracking-wider text-text-primary">Related Demo</h2>
                   <Link
                     href={`/demos#${relatedDemos[0].id}`}
-                    className="mt-2 block text-sm font-medium text-text-primary underline-offset-4 transition-colors hover:text-accent hover:underline"
+                    className="mt-2 block py-1 text-sm font-medium text-text-primary underline-offset-4 transition-colors hover:text-accent hover:underline"
                   >
                     {relatedDemos[0].name} →
                   </Link>
