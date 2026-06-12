@@ -24,7 +24,7 @@ export async function Hero() {
           </div>
 
           <div className="order-2 lg:hidden flex flex-wrap gap-2 justify-center">
-            <span className="rounded-full border border-accent-warm/30 bg-surface-hover px-3 py-1 text-sm text-accent-warm">
+            <span className="rounded-full border border-accent-warm/30 bg-bg-elevated px-3 py-1 text-sm text-accent-warm">
               {t('availability')}
             </span>
           </div>
@@ -64,7 +64,7 @@ export async function Hero() {
             </div>
 
             <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
-              <span className="rounded-full border border-border bg-surface-hover px-3 py-1 text-sm text-text-tertiary">
+              <span className="rounded-full border border-border bg-bg-elevated px-3 py-1 text-sm text-text-tertiary">
                 {t('notForEveryoneBadge')}
               </span>
             </div>

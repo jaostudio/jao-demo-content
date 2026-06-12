@@ -43,7 +43,7 @@ function SystemCarouselCard({ category }: { category: SystemCategory }) {
             {category.includes.map((item) => (
               <span
                 key={item}
-                className="rounded-md border border-border-subtle bg-surface-hover px-2 py-0.5 text-xs text-text-secondary"
+                className="rounded-md border border-border-subtle bg-bg-elevated px-2 py-0.5 text-xs text-text-secondary"
               >
                 {item}
               </span>

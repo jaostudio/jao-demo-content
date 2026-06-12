@@ -93,7 +93,7 @@ export default async function CVPage() {
                       {group.skills.map((s) => (
                         <span
                           key={s}
-                          className="rounded-md bg-surface-hover px-2 py-1 text-[var(--text-meta)] text-text-secondary"
+                          className="rounded-md bg-bg-elevated px-2 py-1 text-[var(--text-meta)] text-text-secondary"
                         >
                           {s}
                         </span>

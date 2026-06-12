@@ -12,7 +12,7 @@ export function Badge({ children, className, variant = 'default' }: BadgeProps) 
       className={cn(
         'inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium leading-relaxed',
         variant === 'default'
-          ? 'border border-border bg-surface-hover text-text-secondary'
+          ? 'border border-border bg-bg-elevated text-text-secondary'
           : 'min-w-[5rem] justify-center bg-accent-subtle text-text-primary',
         className,
       )}

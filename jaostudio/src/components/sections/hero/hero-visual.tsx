@@ -95,7 +95,7 @@ export function HeroVisual() {
               {t('systemTopology')}
             </p>
           </div>
-          <span className="rounded-full border border-accent-warm/30 bg-surface-hover px-3 py-1 text-xs uppercase tracking-[0.25em] text-accent-warm">
+          <span className="rounded-full border border-accent-warm/30 bg-bg-elevated px-3 py-1 text-xs uppercase tracking-[0.25em] text-accent-warm">
             {t('live')}
           </span>
         </div>

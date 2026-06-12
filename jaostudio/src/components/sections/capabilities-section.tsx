@@ -67,7 +67,7 @@ export function CapabilitiesSection() {
                 {item.tech.map((t) => (
                   <span
                     key={t}
-                    className="rounded-md border border-border-subtle bg-surface-hover px-2 py-0.5 text-xs text-text-tertiary"
+                    className="rounded-md border border-border-subtle bg-bg-elevated px-2 py-0.5 text-xs text-text-tertiary"
                   >
                     {t}
                   </span>

@@ -342,7 +342,7 @@ export default async function ProjectPage({ params }: Props) {
                 {project.stack.map((tech) => (
                   <span
                     key={tech}
-                    className="rounded-xl border border-border-subtle bg-surface-hover px-4 py-2 text-[var(--text-body)] text-text-secondary"
+                    className="rounded-xl border border-border-subtle bg-bg-elevated px-4 py-2 text-[var(--text-body)] text-text-secondary"
                   >
                     {tech}
                   </span>
