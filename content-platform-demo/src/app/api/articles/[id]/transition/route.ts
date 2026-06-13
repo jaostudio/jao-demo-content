@@ -1,11 +1,50 @@
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth/auth'
 import { prisma } from '@/lib/prisma'
-import { transitionContent } from '@jaostudio/core/state-machines'
 import { transitionSchema } from '@/lib/validations/article'
 import { revalidateArticlePaths } from '@/lib/revalidation'
 
-const dbStatusToMachine: Record<string, string> = {
+type ContentState = 'draft' | 'pending_review' | 'published' | 'archived'
+type ContentEvent = 'submit' | 'approve' | 'publish' | 'reject' | 'archive' | 'schedule' | 'unpublish'
+
+interface ContentContext {
+  actor: 'author' | 'admin' | 'system'
+  role: 'admin' | 'user'
+  hasRequiredSections: boolean
+  isReviewed: boolean
+}
+
+const contentMachineConfig = {
+  initial: 'draft' as ContentState,
+  states: {
+    draft: { on: { submit: 'pending_review' as ContentState } },
+    pending_review: {
+      on: { approve: 'published' as ContentState, publish: 'published' as ContentState, reject: 'draft' as ContentState },
+    },
+    published: { on: { archive: 'archived' as ContentState, unpublish: 'draft' as ContentState } },
+    archived: { on: { schedule: 'pending_review' as ContentState } },
+  },
+}
+
+function transitionContent(
+  state: ContentState,
+  event: ContentEvent,
+  context: ContentContext
+): ContentState {
+  if (event === 'submit' && context.actor !== 'author') return state
+  if (event === 'approve' && !(context.actor === 'admin' || context.actor === 'system')) return state
+  if (event === 'reject' && !(context.actor === 'admin' || context.actor === 'system')) return state
+  if (event === 'publish' && !(context.actor === 'admin' || context.actor === 'system')) return state
+  if (event === 'publish' && !context.isReviewed) return 'pending_review'
+  if (event === 'approve' && !context.isReviewed) return state
+  if (event === 'archive' && !(context.actor === 'admin' || context.actor === 'system')) return state
+  if (event === 'schedule' && !(context.actor === 'admin' || context.actor === 'system')) return state
+  if (event === 'unpublish' && !(context.actor === 'admin' || context.actor === 'system')) return state
+  const next = (contentMachineConfig.states[state]?.on as Record<string, ContentState | undefined>)[event] ?? null
+  return next ?? state
+}
+
+const dbStatusToMachine: Record<string, ContentState> = {
   DRAFT: 'draft',
   PENDING_REVIEW: 'pending_review',
   PUBLISHED: 'published',
@@ -64,8 +103,8 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
   }
 
   const result = transitionContent(
-    currentState as 'draft' | 'pending_review' | 'published' | 'archived',
-    action as 'submit' | 'approve' | 'reject' | 'archive',
+    currentState,
+    action as ContentEvent,
     {
       role: isAdmin ? 'admin' : 'user',
       actor,
@@ -74,7 +113,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
     },
   )
 
-  const newDbStatus = machineToDbStatus[result as string]
+  const newDbStatus = machineToDbStatus[result]
   if (!newDbStatus || newDbStatus === article.status) {
     return Response.json({ error: 'Transition not allowed' }, { status: 400 })
   }
