@@ -26,7 +26,7 @@ export function HeroSection({ stats }: { stats: HeroStats }) {
             <p className="mb-4 inline-flex w-fit border-2 border-black bg-cream px-3 py-1 text-xs font-bold uppercase tracking-wider dark:border-white dark:bg-[#1A1A1A]">
               Community Information Hub
             </p>
-            <h1 className="mb-4 font-display text-4xl font-extrabold tracking-tight text-black md:text-5xl dark:text-white">
+            <h1 className="mb-4 text-4xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
               Magkwento. Magbahagi.{' '}
               <span className="squiggle-underline">Mag-aral.</span>
             </h1>
@@ -60,7 +60,7 @@ export function HeroSection({ stats }: { stats: HeroStats }) {
                 >
                   <span className="flex h-3 w-3 animate-pulse-dot rounded-full bg-coral-400" />
                   <div className="flex-1">
-                    <p className="font-display text-2xl font-bold text-black dark:text-white">{item.value}</p>
+                    <p className="text-2xl font-bold text-black dark:text-white">{item.value}</p>
                     <p className="text-sm text-black/60 dark:text-white/60">{item.label}</p>
                   </div>
                 </div>

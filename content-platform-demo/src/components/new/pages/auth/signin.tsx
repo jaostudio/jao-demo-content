@@ -36,7 +36,8 @@ export function SignInPage() {
       <main className="container-likha py-16">
         <div className="mx-auto max-w-sm">
           <div className="text-center mb-8">
-            <h1 className="text-2xl font-display font-bold text-text-primary">{t('sign_in_title')}</h1>
+            <p className="text-xs font-medium text-text-muted tracking-wider uppercase mb-4">Likha</p>
+            <h1 className="text-2xl font-semibold text-text-primary">{t('sign_in_title')}</h1>
             <p className="text-sm text-text-muted mt-2">Magkwento. Magbahagi. Mag-aral.</p>
           </div>
 

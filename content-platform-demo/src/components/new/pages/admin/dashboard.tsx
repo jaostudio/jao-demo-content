@@ -46,7 +46,7 @@ export function AdminDashboard({ draftCount, pendingCount, publishedCount, artic
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-lg font-display font-bold text-text-primary">Pangkalahatang View</h1>
+          <h1 className="text-lg font-semibold text-text-primary">Pangkalahatang View</h1>
           <p className="text-xs text-text-muted mt-0.5">All articles in the system</p>
         </div>
         <Link href="/admin/articles/new">
@@ -70,7 +70,7 @@ export function AdminDashboard({ draftCount, pendingCount, publishedCount, artic
             </div>
           </div>
         </Card>
-        <Card className="p-4 border-warning/30">
+        <Card className="p-4">
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-warning-light">
               <Clock className="h-4 w-4 text-amber-600" />
@@ -81,7 +81,7 @@ export function AdminDashboard({ draftCount, pendingCount, publishedCount, artic
             </div>
           </div>
         </Card>
-        <Card className="p-4 border-success/30">
+        <Card className="p-4">
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-success-light">
               <CheckCircle className="h-4 w-4 text-green-600" />

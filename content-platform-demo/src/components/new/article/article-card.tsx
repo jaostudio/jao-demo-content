@@ -80,7 +80,7 @@ export function ArticleCard({
               )}
               {aiFreeDeclaration && <AiFreeBadge />}
             </div>
-            <h2 className="mb-1.5 text-lg font-display font-bold text-text-primary leading-snug">
+            <h2 className="mb-1.5 text-lg font-semibold text-text-primary leading-snug">
               {title}
             </h2>
             {excerpt && (

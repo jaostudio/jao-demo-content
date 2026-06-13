@@ -27,7 +27,7 @@ export function CategoryPage({ categoryName, articles }: CategoryPageProps) {
       <Header />
       <main className="container-likha py-4">
         <div className="mb-6">
-          <h1 className="text-xl font-display font-bold text-text-primary">{categoryName}</h1>
+          <h1 className="text-xl font-semibold text-text-primary">{categoryName}</h1>
           <p className="text-xs text-text-muted mt-1">{articles.length} articles</p>
         </div>
 

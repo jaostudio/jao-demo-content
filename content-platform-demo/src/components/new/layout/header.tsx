@@ -34,7 +34,7 @@ export function Header({ onMenuClick }: HeaderProps) {
             <Menu className="h-4 w-4" />
           </button>
           <Link href="/" className="flex items-center gap-1.5">
-            <span className="text-base font-display font-bold text-text-primary">
+            <span className="text-base font-semibold text-text-primary">
               Likha
             </span>
           </Link>
@@ -64,7 +64,7 @@ export function Header({ onMenuClick }: HeaderProps) {
                 </Link>
               )}
               <Link href="/admin/articles/new">
-                <Button variant="accent" size="sm">
+                <Button variant="dark" size="sm">
                   <PenLine className="h-3 w-3" />
                   <span className="hidden md:inline">{t('new_article')}</span>
                 </Button>

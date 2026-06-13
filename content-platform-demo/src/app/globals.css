@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -62,10 +62,21 @@
   --color-text-muted-dark: #4d4d4d;
 
   /* ── Typography ── */
-  --font-display: 'Fraunces', Georgia, serif;
   --font-body: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Zora type scale */
+  --text-caption: 11px;
+  --leading-caption: 1.25;
+  --text-body-sm: 13px;
+  --leading-body-sm: 1.25;
+  --text-body: 15px;
+  --leading-body: 1.25;
+  --text-body-lg: 16px;
+  --leading-body-lg: 1.25;
+  --text-heading-sm: 17px;
+  --leading-heading-sm: 1.25;
 
   /* ── Zora Spacing (4px base) ── */
   --spacing-4: 4px;
@@ -98,10 +109,12 @@ body {
 .kard {
   background-color: var(--color-card);
   border-radius: 12px;
+  border: 1px solid var(--color-hairline);
 }
 
 .dark .kard {
   background-color: var(--color-card-dark);
+  border-color: var(--color-border-dark);
 }
 
 /* ── Button System ── */
@@ -182,6 +195,7 @@ body {
 .btn-sm { padding: 6px 12px; font-size: 0.75rem; }
 .btn-md { padding: 8px 16px; font-size: 0.8125rem; }
 .btn-lg { padding: 10px 20px; font-size: 0.875rem; }
+.btn-pill { border-radius: 9999px; }
 
 .dark .btn-outline {
   color: var(--color-text-body-dark);

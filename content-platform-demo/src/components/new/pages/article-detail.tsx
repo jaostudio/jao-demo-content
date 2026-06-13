@@ -95,7 +95,7 @@ export function ArticleDetail({
               {aiFreeDeclaration && <AiFreeBadge />}
             </div>
 
-            <h1 className="text-3xl font-display font-bold text-text-primary leading-tight mb-3">
+            <h1 className="text-3xl font-semibold text-text-primary leading-tight mb-3">
               {title}
             </h1>
 
@@ -162,7 +162,7 @@ export function ArticleDetail({
             />
 
             <Card className="p-4">
-              <h3 className="text-xs font-display font-bold text-text-primary mb-3">Article Info</h3>
+              <h3 className="text-xs font-semibold text-text-primary mb-3">Article Info</h3>
               <div className="space-y-2 text-xs text-text-secondary">
                 <div className="flex justify-between">
                   <span className="text-text-muted">Reading time</span>
@@ -187,7 +187,7 @@ export function ArticleDetail({
 
             {relatedArticles.length > 0 && (
               <Card className="p-4">
-                <h3 className="text-xs font-display font-bold text-text-primary mb-3">Related Kwento</h3>
+                <h3 className="text-xs font-semibold text-text-primary mb-3">Related</h3>
                 <div className="space-y-2">
                   {relatedArticles.map((r) => (
                     <Link

@@ -56,7 +56,7 @@ export function CommentThread({ articleId, initialComments }: CommentThreadProps
 
   return (
     <div className="border-t border-border pt-6 dark:border-border-dark">
-      <h2 className="mb-4 flex items-center gap-2 text-sm font-display font-bold text-text-primary">
+      <h2 className="mb-4 flex items-center gap-2 text-sm font-semibold text-text-primary">
         <MessageSquare className="h-4 w-4 text-primary" />
         {t('title')} ({comments.length})
       </h2>
