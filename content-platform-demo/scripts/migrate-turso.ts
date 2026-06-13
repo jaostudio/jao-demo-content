@@ -17,6 +17,10 @@ async function main() {
     `ALTER TABLE Article ADD COLUMN format TEXT NOT NULL DEFAULT 'WRITING'`,
     `ALTER TABLE Article ADD COLUMN aiFreeDeclaration BOOLEAN NOT NULL DEFAULT false`,
     `ALTER TABLE Article ADD COLUMN likes INTEGER NOT NULL DEFAULT 0`,
+    `ALTER TABLE Article ADD COLUMN imageUrl TEXT`,
+    `ALTER TABLE Article ADD COLUMN metaTitle TEXT`,
+    `ALTER TABLE Article ADD COLUMN metaDescription TEXT`,
+    `ALTER TABLE Article ADD COLUMN canonicalUrl TEXT`,
   ]
 
   for (const sql of statements) {
