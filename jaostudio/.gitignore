@@ -58,6 +58,9 @@ tmp_home.html
 # analytics baseline (local change tracking)
 .analytics-baseline.json
 
+# liveviewer audit outputs
+/audits/
+
 # portfolio v2 experiments
 .portfolio-v2/
 .env.local

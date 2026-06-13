@@ -67,7 +67,7 @@ export function Navbar() {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
     if (!main || reduced) {
-      document.cookie = `NEXT_LOCALE=${nextLocale};path=/;max-age=31536000;SameSite=Lax`
+      document.cookie = `NEXT_LOCALE=${nextLocale};path=/;max-age=31536000;SameSite=Lax;Secure`
       window.location.href = href
       return
     }
@@ -84,7 +84,7 @@ export function Navbar() {
       await runExitAnimation(main)
 
       localeState.current = 'navigating'
-      document.cookie = `NEXT_LOCALE=${nextLocale};path=/;max-age=31536000;SameSite=Lax`
+      document.cookie = `NEXT_LOCALE=${nextLocale};path=/;max-age=31536000;SameSite=Lax;Secure`
       markPendingEntry()
       window.location.href = href
     } catch {
