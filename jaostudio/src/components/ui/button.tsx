@@ -1,11 +1,9 @@
 'use client'
 
 import { forwardRef } from 'react'
-import { motion } from 'framer-motion'
 import NextLink from 'next/link'
 import { cn } from '@/lib/cn'
 import { trackCTA } from '@/lib/analytics'
-import { easeOut } from '@/lib/motion-variants'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'ghost'
@@ -29,19 +27,16 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         'h-12 px-6 text-base': size === 'md',
         'h-14 px-8 text-lg': size === 'lg',
       },
+      'hover:scale-[1.02] transition-transform duration-300',
       className,
     )
 
     const content = (
       <>
         {loading && (
-          <motion.span
-            className="absolute inset-0 flex items-center justify-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-          >
+          <span className="absolute inset-0 flex items-center justify-center">
             <span className="h-4 w-4 animate-spin rounded-full border-2 border-border-hover border-t-accent" />
-          </motion.span>
+          </span>
         )}
         <span className={cn(loading && 'invisible')}>{children}</span>
       </>
@@ -51,50 +46,41 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       const isExternal = href.startsWith('http://') || href.startsWith('https://') || href.startsWith('//')
       if (isExternal) {
         return (
-          <motion.a
+          <a
             href={href}
             target="_blank"
             rel="noopener noreferrer"
             className={baseStyles}
-            whileHover={{ scale: 1.02, transition: { duration: 0.3, ease: easeOut } }}
-            whileTap={{ scale: 0.97, transition: { duration: 0.3, ease: easeOut } }}
             onClick={() => { if (trackingLabel) trackCTA(trackingLabel, typeof window !== 'undefined' ? window.location.pathname : '') }}
           >
             {content}
-          </motion.a>
+          </a>
         )
       }
 
       return (
-        <motion.div
-          whileHover={{ scale: 1.02, transition: { duration: 0.3, ease: easeOut } }}
-          whileTap={{ scale: 0.97, transition: { duration: 0.3, ease: easeOut } }}
+        <NextLink
+          href={href}
+          className={baseStyles}
+          onClick={() => { if (trackingLabel) trackCTA(trackingLabel, typeof window !== 'undefined' ? window.location.pathname : '') }}
         >
-          <NextLink
-            href={href}
-            className={baseStyles}
-            onClick={() => { if (trackingLabel) trackCTA(trackingLabel, typeof window !== 'undefined' ? window.location.pathname : '') }}
-          >
-            {content}
-          </NextLink>
-        </motion.div>
+          {content}
+        </NextLink>
       )
     }
 
     return (
-      <motion.button
+      <button
         ref={ref}
         className={baseStyles}
-        whileHover={{ scale: 1.02, transition: { duration: 0.3, ease: easeOut } }}
-        whileTap={{ scale: 0.97, transition: { duration: 0.3, ease: easeOut } }}
         onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
           if (trackingLabel) trackCTA(trackingLabel, window.location.pathname)
           props.onClick?.(e)
         }}
-        {...(props as React.ComponentProps<typeof motion.button>)}
+        {...(props as React.ComponentProps<'button'>)}
       >
         {content}
-      </motion.button>
+      </button>
     )
   },
 )

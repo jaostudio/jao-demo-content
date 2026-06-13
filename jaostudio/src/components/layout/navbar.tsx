@@ -1,15 +1,13 @@
 'use client'
 
 import { useState, useEffect, useRef, useCallback } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { createPortal } from 'react-dom'
+import dynamic from 'next/dynamic'
 import NextLink from 'next/link'
 import { useTheme } from 'next-themes'
 import { useTranslations, useLocale } from 'next-intl'
 import { Menu, X, Sun, Moon } from 'lucide-react'
 import { cn } from '@/lib/cn'
 import { Logo } from '@/components/layout/logo'
-import { easeOut } from '@/lib/motion-variants'
 import { scrollToHash, updateUrlHash } from '@/lib/scroll-to-hash'
 import { NavHashLink } from '@/components/layout/nav-hash-link'
 import { useFocusTrap } from '@/lib/hooks/use-focus-trap'
@@ -18,6 +16,8 @@ import { usePathname } from 'next/navigation'
 import { buildLocaleHref } from '@/lib/build-locale-href'
 import { runTextMorph } from '@/animations/engines/textMorph'
 import { runExitAnimation, markPendingEntry } from '@/lib/locale-transition'
+
+const MobileMenu = dynamic(() => import('@/components/layout/mobile-menu'), { ssr: false })
 
 const MENU_EXIT_MS = 350
 
@@ -235,106 +235,34 @@ export function Navbar() {
         </button>
       </nav>
 
-      {mounted && mobileOpen && createPortal(
-        <AnimatePresence>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3, ease: easeOut }}
-            role="dialog"
-            aria-modal="true"
-            aria-label={t('closeMenu')}
-            ref={menuRef}
-            className="fixed inset-0 z-[60] flex flex-col items-center justify-center gap-8 bg-bg-primary md:hidden pb-[env(safe-area-inset-bottom)] pt-[env(safe-area-inset-top)]"
+      <MobileMenu
+        open={mounted && mobileOpen}
+        navLinks={navLinks}
+        onClose={closeMenu}
+        locale={locale}
+        menuRef={menuRef}
+        onNavigate={() => { navigatingRef.current = true }}
+        localizeHref={localizeHref}
+        localeButton={
+          <button
+            onClick={toggleLocale}
+            data-anim-locale
+            className="focus-ring rounded-xl border border-border bg-bg-secondary px-3 py-2.5 text-sm font-medium uppercase tracking-wider text-text-primary transition-colors hover:text-text-secondary"
+            aria-label={`Switch language to ${locale === 'en' ? 'Tagalog' : 'English'}`}
           >
-            {navLinks.map((link, i) => (
-              <motion.div
-                key={link.href}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 + i * 0.05 }}
-              >
-                <NextLink
-                  href={link.href}
-                  scroll={!link.href.includes('#')}
-                  onClick={(e) => {
-                    const isSamePageHash = link.href.includes('#') && (pathname === '/' || pathname === '/tl')
-                    const isCurrentPage = !link.href.includes('#') && pathname === link.href
-                    if (isCurrentPage) {
-                      e.preventDefault()
-                      closeMenu()
-                      return
-                    }
-                    if (isSamePageHash) {
-                      e.preventDefault()
-                      closeMenu()
-                      updateUrlHash(link.href)
-                      setTimeout(() => scrollToHash(link.href), MENU_EXIT_MS)
-                      return
-                    }
-                    navigatingRef.current = true
-                    closeMenu()
-                  }}
-                  className={`focus-ring text-2xl font-medium transition-colors py-2 ${
-                    pathname === link.href ? 'text-accent' : 'text-text-primary hover:text-text-secondary'
-                  }`}
-                >
-                {link.label}
-              </NextLink>
-            </motion.div>
-          ))}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.25 }}
-              className="flex items-center gap-3"
-            >
-              <button
-                onClick={toggleLocale}
-                data-anim-locale
-                className="focus-ring rounded-xl border border-border bg-bg-secondary px-3 py-2.5 text-sm font-medium uppercase tracking-wider text-text-primary transition-colors hover:text-text-secondary"
-                aria-label={`Switch language to ${locale === 'en' ? 'Tagalog' : 'English'}`}
-              >
-                {locale === 'en' ? 'TL' : 'EN'}
-              </button>
-              <button
-                onClick={handleThemeToggle}
-                className="focus-ring rounded-xl border border-border bg-bg-secondary p-3 text-text-primary transition-colors hover:text-text-secondary"
-                aria-label={theme === 'dark' ? t('themeLight') : t('themeDark')}
-              >
-                {mounted && (theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />)}
-              </button>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-            >
-              <NextLink
-                href={localizeHref('/#contact')}
-                onClick={(e) => {
-                  e.preventDefault()
-                  closeMenu()
-                  if (pathname === '/' || pathname === '/tl') {
-                    updateUrlHash(localizeHref('/#contact'))
-                    setTimeout(() => scrollToHash(localizeHref('/#contact')), MENU_EXIT_MS)
-                    return
-                  }
-                  navigatingRef.current = true
-                  setTimeout(() => {
-                    window.location.href = localizeHref('/#contact')
-                  }, MENU_EXIT_MS)
-                }}
-                className="focus-ring mt-4 inline-block rounded-xl bg-accent px-6 py-3 text-base font-medium text-white"
-              >
-                {t('cta')}
-              </NextLink>
-            </motion.div>
-          </motion.div>
-        </AnimatePresence>,
-        document.body,
-      )}
+            {locale === 'en' ? 'TL' : 'EN'}
+          </button>
+        }
+        themeContent={
+          <button
+            onClick={handleThemeToggle}
+            className="focus-ring rounded-xl border border-border bg-bg-secondary p-3 text-text-primary transition-colors hover:text-text-secondary"
+            aria-label={theme === 'dark' ? t('themeLight') : t('themeDark')}
+          >
+            {mounted && (theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />)}
+          </button>
+        }
+      />
     </header>
   )
 }

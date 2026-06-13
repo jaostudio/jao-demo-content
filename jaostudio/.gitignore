@@ -60,6 +60,7 @@ tmp_home.html
 
 # liveviewer audit outputs
 /audits/
+.liveviewer-cache/
 
 # portfolio v2 experiments
 .portfolio-v2/
