@@ -31,7 +31,9 @@ export default async function HomePage() {
       categoryName: articles[0].category.name,
       readingTime: Math.ceil(articles[0].content.split(/\s+/).length / 200),
       commentCount: articles[0]._count.comments,
-      image: articles[0].image,
+      image: articles[0].imageUrl,
+      format: articles[0].format,
+      aiFreeDeclaration: articles[0].aiFreeDeclaration,
       publishAt: articles[0].publishAt?.toISOString() ?? null,
     } : null
 
@@ -43,7 +45,9 @@ export default async function HomePage() {
       categoryName: a.category.name,
       readingTime: Math.ceil(a.content.split(/\s+/).length / 200),
       commentCount: a._count.comments,
-      image: a.image,
+      image: a.imageUrl,
+      format: a.format,
+      aiFreeDeclaration: a.aiFreeDeclaration,
       publishAt: a.publishAt?.toISOString() ?? null,
     }))
 
@@ -103,7 +107,7 @@ export default async function HomePage() {
                 categoryName={articles[0].category.name}
                 publishAt={articles[0].publishAt?.toISOString() ?? null}
                 tags={articles[0].tags.map((t) => ({ name: t.tag.name, slug: t.tag.slug }))}
-                image={articles[0].image}
+                image={articles[0].imageUrl}
                 variant="featured"
                 commentCount={articles[0]._count.comments}
               />
@@ -121,7 +125,7 @@ export default async function HomePage() {
                 categoryName={article.category.name}
                 publishAt={article.publishAt?.toISOString() ?? null}
                 tags={article.tags.map((t) => ({ name: t.tag.name, slug: t.tag.slug }))}
-                image={article.image}
+                image={article.imageUrl}
                 commentCount={article._count.comments}
               />
             ))}

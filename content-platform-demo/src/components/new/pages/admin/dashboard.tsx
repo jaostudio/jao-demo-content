@@ -1,12 +1,14 @@
 import { Card } from '../../ui/card'
 import { Button } from '../../ui/button'
-import { FileText, Clock, CheckCircle, Archive, Plus, ExternalLink } from 'lucide-react'
+import { FileText, Clock, CheckCircle, Archive, Plus, ExternalLink, Sparkles } from 'lucide-react'
 import Link from 'next/link'
 
 interface ArticleSummary {
   id: string
   title: string
   status: string
+  format: string
+  aiFreeDeclaration: boolean
   authorName: string
   createdAt: Date | string
   category: { slug: string; name: string }
@@ -48,7 +50,7 @@ export function AdminDashboard({ draftCount, pendingCount, publishedCount, artic
           <p className="text-xs text-text-muted mt-0.5">All articles in the system</p>
         </div>
         <Link href="/admin/articles/new">
-          <Button variant="primary" size="sm">
+          <Button variant="accent" size="sm">
             <Plus className="h-3.5 w-3.5" />
             New Article
           </Button>
@@ -99,6 +101,7 @@ export function AdminDashboard({ draftCount, pendingCount, publishedCount, artic
             <thead>
               <tr className="border-b border-border bg-surface-alt">
                 <th className="px-4 py-3 text-left font-medium text-text-muted">Title</th>
+                <th className="px-4 py-3 text-left font-medium text-text-muted hidden md:table-cell">Format</th>
                 <th className="px-4 py-3 text-left font-medium text-text-muted hidden md:table-cell">Author</th>
                 <th className="px-4 py-3 text-left font-medium text-text-muted">Status</th>
                 <th className="px-4 py-3 text-left font-medium text-text-muted hidden md:table-cell">Date</th>
@@ -109,8 +112,16 @@ export function AdminDashboard({ draftCount, pendingCount, publishedCount, artic
               {articles.map((a) => (
                 <tr key={a.id} className="hover:bg-surface-alt transition-colors">
                   <td className="px-4 py-3">
-                    <p className="font-medium text-text-primary line-clamp-1">{a.title}</p>
+                    <div className="flex items-center gap-2">
+                      <p className="font-medium text-text-primary line-clamp-1">{a.title}</p>
+                      {a.aiFreeDeclaration && (
+                        <Sparkles className="h-3 w-3 shrink-0 text-reactor-green" />
+                      )}
+                    </div>
                     <p className="text-[10px] text-text-muted mt-0.5 md:hidden">{a.authorName} · {a.category.name}</p>
+                  </td>
+                  <td className="px-4 py-3 text-text-secondary hidden md:table-cell">
+                    <span className="text-[11px]">{a.format}</span>
                   </td>
                   <td className="px-4 py-3 text-text-secondary hidden md:table-cell">{a.authorName}</td>
                   <td className="px-4 py-3">

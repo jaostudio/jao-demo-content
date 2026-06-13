@@ -3,12 +3,14 @@ import { Footer } from '../layout/footer'
 import { CategoryPill } from '../article/category-pill'
 import { AuthorCard } from '../article/author-card'
 import { CommentThread } from '../article/comment-thread'
+import { AiFreeBadge } from '../article/ai-free-badge'
+import { LikeButton } from '@/components/like-button'
 import { Card } from '../ui/card'
 import { Badge } from '../ui/badge'
 import { Tatak } from '../ui/tatak'
 import { ArticleContent } from '@/components/block-editor/public/article-content'
 import { JsonLd } from '@/components/json-ld'
-import { Clock, Calendar, ArrowLeft } from 'lucide-react'
+import { Clock, Calendar, ArrowLeft, Image, PenLine, Video, Music } from 'lucide-react'
 import Link from 'next/link'
 
 interface RelatedArticle {
@@ -16,6 +18,20 @@ interface RelatedArticle {
   slug: string
   readingTime: number
   commentCount: number
+}
+
+const FORMAT_ICONS: Record<string, typeof Image> = {
+  DRAWING: Image,
+  WRITING: PenLine,
+  VIDEO: Video,
+  AUDIO: Music,
+}
+
+const FORMAT_LABELS: Record<string, string> = {
+  DRAWING: 'Drawing',
+  WRITING: 'Writing',
+  VIDEO: 'Video',
+  AUDIO: 'Audio',
 }
 
 interface ArticleDetailProps {
@@ -34,6 +50,9 @@ interface ArticleDetailProps {
   relatedArticles: RelatedArticle[]
   comments: { id: string; authorName: string; body: string; createdAt: string }[]
   articleId: string
+  format: string
+  aiFreeDeclaration: boolean
+  likes: number
   jsonLd: Record<string, unknown>
   image?: string | null
 }
@@ -41,14 +60,16 @@ interface ArticleDetailProps {
 export function ArticleDetail({
   title, excerpt, content, authorName, authorRole, authorArticleCount,
   categorySlug, categoryName, status, readingTime, publishAt, tags,
-  relatedArticles, comments, articleId, jsonLd, image,
+  relatedArticles, comments, articleId, format, aiFreeDeclaration, likes, jsonLd, image,
 }: ArticleDetailProps) {
+  const FormatIcon = FORMAT_ICONS[format] || null
+
   return (
     <>
       <JsonLd data={jsonLd} />
       <Header />
       <main className="container-likha py-4">
-        <Link href="/" className="inline-flex items-center gap-1 text-xs text-text-muted hover:text-primary transition-colors mb-4">
+        <Link href="/" className="inline-flex items-center gap-1 text-xs text-text-muted hover:text-text-primary transition-colors mb-4">
           <ArrowLeft className="h-3 w-3" />
           Back to kwento
         </Link>
@@ -63,8 +84,15 @@ export function ArticleDetail({
               </div>
             )}
 
-            <div className="mb-3">
+            <div className="mb-3 flex items-center gap-1.5">
               <CategoryPill slug={categorySlug} name={categoryName} />
+              {FormatIcon && (
+                <span className="inline-flex items-center gap-1 rounded bg-surface-alt px-1.5 py-0.5 text-[9px] font-medium text-text-secondary leading-none">
+                  <FormatIcon className="h-2.5 w-2.5" />
+                  {FORMAT_LABELS[format]}
+                </span>
+              )}
+              {aiFreeDeclaration && <AiFreeBadge />}
             </div>
 
             <h1 className="text-3xl font-display font-bold text-text-primary leading-tight mb-3">
@@ -77,7 +105,7 @@ export function ArticleDetail({
 
             <div className="flex flex-wrap items-center gap-3 text-xs text-text-muted mb-8 pb-6 border-b border-border">
               <div className="flex items-center gap-1.5">
-                <div className="avatar avatar-sm bg-primary text-white text-[10px]">
+                <div className="avatar avatar-sm bg-void-black text-white text-[10px]">
                   {authorName.charAt(0).toUpperCase()}
                 </div>
                 <span className="font-medium text-text-secondary">{authorName}</span>
@@ -108,13 +136,16 @@ export function ArticleDetail({
               <ArticleContent content={content} />
             </div>
 
-            {tags.length > 0 && (
-              <div className="mt-8 flex flex-wrap gap-1.5">
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <div className="flex flex-wrap gap-1.5">
                 {tags.map((tag) => (
                   <Badge key={tag.id} variant="default">{tag.name}</Badge>
                 ))}
               </div>
-            )}
+              <div className="ml-auto">
+                <LikeButton articleId={articleId} initialLikes={likes} />
+              </div>
+            </div>
 
             {/* Comments */}
             <div className="mt-10">
@@ -162,9 +193,9 @@ export function ArticleDetail({
                     <Link
                       key={r.slug}
                       href={`/articles/${r.slug}`}
-                      className="block rounded px-1.5 py-1.5 hover:bg-primary-light transition-colors group"
+                      className="block rounded px-1.5 py-1.5 hover:bg-secondary-light transition-colors group"
                     >
-                      <p className="text-xs font-medium text-text-primary group-hover:text-primary transition-colors line-clamp-2">
+                      <p className="text-xs font-medium text-text-primary group-hover:text-text-primary transition-colors line-clamp-2">
                         {r.title}
                       </p>
                       <p className="text-[10px] text-text-muted mt-0.5">{r.readingTime} min</p>

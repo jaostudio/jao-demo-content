@@ -22,8 +22,8 @@ export function Header({ onMenuClick }: HeaderProps) {
   const showAuthorActions = effectiveRole === 'ADMIN' || effectiveRole === 'AUTHOR'
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-card/95 backdrop-blur-sm">
-      <div className="container-likha flex h-14 items-center justify-between gap-3">
+    <header className="sticky top-0 z-40 border-b border-border bg-surface">
+      <div className="container-likha flex h-12 items-center justify-between gap-2">
         {/* Left: Hamburger + Logo */}
         <div className="flex items-center gap-3">
           <button
@@ -34,10 +34,9 @@ export function Header({ onMenuClick }: HeaderProps) {
             <Menu className="h-4 w-4" />
           </button>
           <Link href="/" className="flex items-center gap-1.5">
-            <span className="text-lg font-display font-bold tracking-tight text-primary">
+            <span className="text-base font-display font-bold text-text-primary">
               Likha
             </span>
-            <span className="hidden text-[10px] text-text-muted md:inline font-body">· PH</span>
           </Link>
         </div>
 
@@ -48,24 +47,24 @@ export function Header({ onMenuClick }: HeaderProps) {
             <input
               type="search"
               placeholder={t('search_placeholder') || 'Search kwento...'}
-              className="input h-9 rounded-full pl-9 text-xs"
+              className="input h-8 rounded-lg pl-8 text-xs"
             />
           </div>
         </div>
 
         {/* Right: Actions */}
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-1">
           <ThemeToggle />
           <LocaleSwitcher />
           {showAuthorActions ? (
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5">
               {effectiveRole === 'ADMIN' && (
                 <Link href="/admin">
-                  <Button variant="primary" size="sm">{t('admin')}</Button>
+                  <Button variant="dark" size="sm">{t('admin')}</Button>
                 </Link>
               )}
               <Link href="/admin/articles/new">
-                <Button variant="secondary" size="sm">
+                <Button variant="accent" size="sm">
                   <PenLine className="h-3 w-3" />
                   <span className="hidden md:inline">{t('new_article')}</span>
                 </Button>
@@ -76,7 +75,7 @@ export function Header({ onMenuClick }: HeaderProps) {
             </div>
           ) : (
             <Link href="/signin">
-              <Button variant="primary" size="sm">{t('sign_in')}</Button>
+              <Button variant="ghost" size="sm">{t('sign_in')}</Button>
             </Link>
           )}
         </div>

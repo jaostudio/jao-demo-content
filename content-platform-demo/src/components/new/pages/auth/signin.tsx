@@ -66,7 +66,7 @@ export function SignInPage() {
               </div>
             )}
 
-            <Button type="submit" variant="primary" size="lg" className="w-full">
+            <Button type="submit" variant="accent" size="lg" className="w-full">
               {t('sign_in_title')}
             </Button>
           </form>

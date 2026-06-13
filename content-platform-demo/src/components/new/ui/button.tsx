@@ -1,6 +1,6 @@
 import { forwardRef, type ButtonHTMLAttributes } from 'react'
 
-type Variant = 'primary' | 'secondary' | 'outline' | 'ghost' | 'danger'
+type Variant = 'accent' | 'dark' | 'outline' | 'ghost' | 'danger'
 type Size = 'sm' | 'md' | 'lg'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -9,8 +9,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const variantClasses: Record<Variant, string> = {
-  primary: 'btn btn-primary',
-  secondary: 'btn btn-secondary',
+  accent: 'btn btn-accent',
+  dark: 'btn btn-dark',
   outline: 'btn btn-outline',
   ghost: 'btn btn-ghost',
   danger: 'btn btn-danger',
@@ -23,7 +23,7 @@ const sizeClasses: Record<Size, string> = {
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ variant = 'primary', size = 'md', className = '', children, ...props }, ref) => (
+  ({ variant = 'accent', size = 'md', className = '', children, ...props }, ref) => (
     <button
       ref={ref}
       className={`${variantClasses[variant]} ${sizeClasses[size]} ${className}`}

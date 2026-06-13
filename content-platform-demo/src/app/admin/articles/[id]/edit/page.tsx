@@ -34,10 +34,10 @@ export default async function EditArticlePage({ params }: { params: Promise<{ id
   return (
     <div>
       <div className="mb-4 flex items-center justify-between">
-        <h1 className="text-lg font-bold text-text-primary dark:text-slate-100">Edit Article</h1>
+        <h1 className="text-lg font-bold text-text-primary">Edit Article</h1>
         <Link
           href={`/admin/articles/${articleId}/versions`}
-          className="text-xs font-medium text-text-muted hover:text-primary"
+          className="text-xs font-medium text-text-muted hover:text-text-primary"
         >
           Version History
         </Link>
@@ -51,6 +51,8 @@ export default async function EditArticlePage({ params }: { params: Promise<{ id
           excerpt: article.excerpt,
           content: article.content,
           categoryId: article.categoryId,
+          format: article.format,
+          imageUrl: article.imageUrl,
           tags: article.tags.map((t) => ({ tagId: t.tagId })),
         }}
         action={updateAction}

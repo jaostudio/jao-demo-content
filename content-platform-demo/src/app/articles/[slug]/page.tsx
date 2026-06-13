@@ -107,6 +107,9 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           createdAt: c.createdAt.toISOString(),
         }))}
         articleId={article.id}
+        format={article.format}
+        aiFreeDeclaration={article.aiFreeDeclaration}
+        likes={article.likes}
         jsonLd={{
           '@context': 'https://schema.org',
           '@type': 'Article',
@@ -116,9 +119,9 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           datePublished: article.publishAt?.toISOString(),
           dateModified: article.updatedAt.toISOString(),
           url: `${SITE_URL}/articles/${article.slug}`,
-          image: article.image ?? undefined,
+          image: article.imageUrl ?? undefined,
         }}
-        image={article.image}
+        image={article.imageUrl}
       />
     )
   }
@@ -135,7 +138,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           datePublished: article.publishAt?.toISOString(),
           dateModified: article.updatedAt.toISOString(),
           url: `${SITE_URL}/articles/${article.slug}`,
-          image: article.image ?? undefined,
+          image: article.imageUrl ?? undefined,
         }}
       />
       <Header />

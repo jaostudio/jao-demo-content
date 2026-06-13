@@ -11,6 +11,8 @@ interface ArticleSummary {
   readingTime: number
   commentCount: number
   image: string | null
+  format: string
+  aiFreeDeclaration: boolean
   publishAt: Date | string | null
 }
 

@@ -79,7 +79,7 @@ export function CommentThread({ articleId, initialComments }: CommentThreadProps
           onChange={(e) => setBody(e.target.value)} rows={3}
           className="input resize-none text-xs"
         />
-        <Button type="submit" variant="primary" size="md" disabled={submitting}>
+        <Button type="submit" variant="accent" size="md" disabled={submitting}>
           {submitting ? t('posting') : t('post')}
         </Button>
       </form>

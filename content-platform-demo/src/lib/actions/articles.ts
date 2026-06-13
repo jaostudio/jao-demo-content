@@ -17,7 +17,10 @@ export async function createArticle(_prevState: { error?: string } | null, formD
 
   const parsed = articleSchema.safeParse({
     title: formData.get('title'),
-    content: formData.get('content'),
+    format: formData.get('format') || 'WRITING',
+    content: formData.get('content') || '',
+    imageUrl: formData.get('imageUrl') || null,
+    aiFreeDeclaration: formData.get('aiFreeDeclaration') === 'true',
     excerpt: formData.get('excerpt'),
     categoryId: formData.get('categoryId'),
     tagIds: formData.getAll('tagIds'),
@@ -28,7 +31,7 @@ export async function createArticle(_prevState: { error?: string } | null, formD
     return { error: first?.message ?? 'Invalid form data' }
   }
 
-  const { title, content, excerpt, categoryId, tagIds } = parsed.data
+  const { title, format, content, imageUrl, aiFreeDeclaration, excerpt, categoryId, tagIds } = parsed.data
 
   const slug = slugify(title)
   const existing = await prisma.article.findUnique({ where: { slug } })
@@ -38,8 +41,11 @@ export async function createArticle(_prevState: { error?: string } | null, formD
     data: {
       title,
       slug: finalSlug,
+      format: format as 'DRAWING' | 'WRITING' | 'VIDEO' | 'AUDIO',
       excerpt: excerpt || null,
-      content,
+      content: content || '',
+      imageUrl: imageUrl || null,
+      aiFreeDeclaration,
       status: 'DRAFT',
       authorId: (session.user as { id: string }).id,
       categoryId,
@@ -71,7 +77,7 @@ export async function updateArticle(id: string, _prevState: { error?: string } |
     return { error: first?.message ?? 'Invalid form data' }
   }
 
-  const { title, content, excerpt, categoryId, tagIds } = parsed.data
+  const { title, format, content, imageUrl, aiFreeDeclaration, excerpt, categoryId, tagIds } = parsed.data
 
   const article = await prisma.article.findUnique({ where: { id } })
   if (!article) return { error: 'Article not found' }
@@ -94,8 +100,11 @@ export async function updateArticle(id: string, _prevState: { error?: string } |
       data: {
         title,
         slug: finalSlug,
+        format: format as 'DRAWING' | 'WRITING' | 'VIDEO' | 'AUDIO',
         excerpt: excerpt || null,
-        content,
+        content: content || '',
+        imageUrl: imageUrl || null,
+        aiFreeDeclaration,
         categoryId,
         tags: {
           deleteMany: {},

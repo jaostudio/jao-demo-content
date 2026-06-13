@@ -48,7 +48,9 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
           categoryName: a.category.name,
           readingTime: Math.ceil(a.content.split(/\s+/).length / 200),
           commentCount: a._count.comments,
-          image: a.image,
+          image: a.imageUrl,
+          format: a.format,
+          aiFreeDeclaration: a.aiFreeDeclaration,
           publishAt: a.publishAt?.toISOString() ?? null,
         }))}
       />
@@ -77,7 +79,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
               categoryName={article.category.name}
               publishAt={article.publishAt?.toISOString() ?? null}
               tags={article.tags.map((t) => ({ name: t.tag.name, slug: t.tag.slug }))}
-              image={article.image}
+              image={article.imageUrl}
               commentCount={article._count.comments}
             />
           ))}

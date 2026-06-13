@@ -9,7 +9,7 @@ interface CategoryPillProps {
 export function CategoryPill({ slug, name }: CategoryPillProps) {
   return (
     <Link href={`/category/${slug}`}>
-      <Badge variant="primary">{name}</Badge>
+      <Badge variant="default">{name}</Badge>
     </Link>
   )
 }

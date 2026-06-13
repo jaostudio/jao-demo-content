@@ -1,12 +1,8 @@
 import type { HTMLAttributes } from 'react'
 
-interface CardProps extends HTMLAttributes<HTMLDivElement> {
-  noise?: boolean
-}
-
-export function Card({ noise = true, className = '', children, ...props }: CardProps) {
+export function Card({ className = '', children, ...props }: HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={`kard ${noise ? 'kard-noise' : ''} ${className}`} {...props}>
+    <div className={`kard ${className}`} {...props}>
       {children}
     </div>
   )

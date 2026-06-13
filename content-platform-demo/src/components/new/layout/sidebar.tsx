@@ -2,9 +2,7 @@
 
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
-import { Card } from '../ui/card'
 import { Button } from '../ui/button'
-import { TrendingUp, Hash } from 'lucide-react'
 
 interface SidebarProps {
   categories: { slug: string; name: string }[]
@@ -18,13 +16,13 @@ export function Sidebar({ categories, totalArticles = 0, totalAuthors = 0, total
   const t = useTranslations('common')
 
   return (
-    <aside className="space-y-3">
+    <aside className="space-y-6">
       {/* About Likha */}
-      <Card className="p-0 overflow-hidden">
-        <div className="bg-primary px-4 py-2.5">
-          <h3 className="text-xs font-display font-bold text-white tracking-wide">About Likha</h3>
+      <div>
+        <div className="mb-3 rounded-lg bg-void-black px-3 py-2">
+          <h3 className="text-[11px] font-medium tracking-wide text-white">About Likha</h3>
         </div>
-        <div className="p-4 space-y-3">
+        <div className="space-y-3">
           <p className="text-xs text-text-secondary leading-relaxed">
             {t('hero_subtitle')}
           </p>
@@ -43,50 +41,44 @@ export function Sidebar({ categories, totalArticles = 0, totalAuthors = 0, total
             </div>
           </div>
           <Link href="/register" className="block">
-            <Button variant="secondary" size="sm" className="w-full">
+            <Button variant="dark" size="sm" className="w-full">
               Join Likha
             </Button>
           </Link>
         </div>
-      </Card>
+      </div>
 
       {/* Popular Categories */}
-      <Card className="p-4">
-        <h3 className="mb-3 flex items-center gap-1.5 text-xs font-display font-bold text-text-primary">
-          <Hash className="h-3.5 w-3.5 text-primary" />
-          Popular Categories
-        </h3>
-        <div className="space-y-0.5">
+      <div>
+        <h3 className="mb-3 text-[11px] font-medium text-text-primary">Popular Categories</h3>
+        <div className="space-y-px">
           {categories.map((cat) => (
             <Link
               key={cat.slug}
               href={`/category/${cat.slug}`}
-              className="flex items-center justify-between rounded px-2 py-1.5 text-xs text-text-secondary hover:bg-primary-light hover:text-primary transition-colors"
+              className="flex items-center justify-between rounded px-2 py-1.5 text-xs text-text-secondary hover:bg-secondary-light hover:text-text-primary transition-colors"
             >
               <span>{cat.name}</span>
               <span className="text-text-muted">&rarr;</span>
             </Link>
           ))}
         </div>
-      </Card>
+      </div>
 
       {/* Trending */}
       {trending.length > 0 && (
-        <Card className="p-4">
-          <h3 className="mb-3 flex items-center gap-1.5 text-xs font-display font-bold text-text-primary">
-            <TrendingUp className="h-3.5 w-3.5 text-accent" />
-            Trending
-          </h3>
-          <div className="space-y-0">
+        <div>
+          <h3 className="mb-3 text-[11px] font-medium text-accent">Trending</h3>
+          <div className="space-y-px">
             {trending.map((item, i) => (
               <Link
                 key={item.slug}
                 href={`/articles/${item.slug}`}
-                className="flex items-start gap-2 rounded px-2 py-1.5 hover:bg-primary-light transition-colors group"
+                className="flex items-start gap-2 rounded px-2 py-1.5 hover:bg-secondary-light transition-colors group"
               >
                 <span className="mt-0.5 text-[10px] font-bold text-text-muted shrink-0">{i + 1}</span>
                 <div className="min-w-0">
-                  <p className="text-xs font-medium text-text-primary group-hover:text-primary transition-colors line-clamp-2">
+                  <p className="text-xs font-medium text-text-primary line-clamp-2">
                     {item.title}
                   </p>
                   <p className="mt-0.5 text-[10px] text-text-muted">{item.commentCount} comments</p>
@@ -94,7 +86,7 @@ export function Sidebar({ categories, totalArticles = 0, totalAuthors = 0, total
               </Link>
             ))}
           </div>
-        </Card>
+        </div>
       )}
     </aside>
   )

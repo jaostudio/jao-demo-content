@@ -38,6 +38,8 @@ export default async function AdminDashboardPage() {
           id: a.id,
           title: a.title,
           status: a.status,
+          format: a.format,
+          aiFreeDeclaration: a.aiFreeDeclaration,
           authorName: a.author.name,
           createdAt: a.createdAt,
           category: { slug: a.category.slug, name: a.category.name },

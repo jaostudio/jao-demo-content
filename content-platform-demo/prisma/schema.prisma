@@ -12,6 +12,13 @@ enum AuthorRole {
   ADMIN
 }
 
+enum MediaFormat {
+  DRAWING
+  WRITING
+  VIDEO
+  AUDIO
+}
+
 enum ArticleStatus {
   DRAFT
   PENDING_REVIEW
@@ -50,9 +57,12 @@ model Article {
   id             String        @id @default(cuid())
   title          String
   slug           String        @unique
+  format         MediaFormat   @default(WRITING)
+  imageUrl       String?
   excerpt        String?
   content        String
-  image          String?
+  aiFreeDeclaration Boolean   @default(false)
+  likes          Int           @default(0)
   status         ArticleStatus @default(DRAFT)
   metaTitle      String?
   metaDescription String?
