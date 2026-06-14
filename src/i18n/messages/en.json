@@ -1,0 +1,113 @@
+{
+  "common": {
+    "site_name": "Likha",
+    "tagline": "A publishing platform with editorial workflows and SEO optimization.",
+    "hero_tagline": "Magkwento. Magbahagi. Mag-aral.",
+    "hero_subtitle": "The Philippine Community Information Hub — opinyon, kwento, at impormasyon para sa bawat Pilipino.",
+    "hero_accent": "Kwentong Barangay",
+    "sign_in": "Sign In",
+    "sign_out": "Sign Out",
+    "register": "Sumali sa Likha",
+    "admin": "Admin",
+    "dashboard": "Dashboard",
+    "new_article": "New Article",
+    "home": "Home",
+    "articles": "Articles",
+    "categories": "Categories",
+    "tags": "Tags",
+    "footer_tagline": "Para sa bawat Pilipino",
+    "footer_thanks": "Salamat sa pagbisita",
+    "welcome_reader": "Magandang araw! Narito ang mga bagong kwento mula sa inyong komunidad. Basahin, matuto, at makibahagi.",
+    "reset_welcome": "Reset welcome",
+    "demo_label": "Demo:",
+    "demo_reader": "Reader",
+    "demo_author": "Author",
+    "demo_admin": "Admin",
+    "empty_default": "Wala pang kwento dito.",
+    "empty_sub": "Ikaw ba ang unang magsusulat?",
+    "search_placeholder": "Search kwento..."
+  },
+  "article": {
+    "title": "Title",
+    "excerpt": "Excerpt",
+    "content": "Content (Markdown)",
+    "category": "Category",
+    "select_category": "Select...",
+    "create": "Create Article",
+    "update": "Update Article",
+    "no_articles": "No articles yet.",
+    "no_published": "No published articles yet.",
+    "submit_for_review": "I-submit for Review",
+    "approve": "Approve",
+    "reject": "Reject",
+    "archive": "Archive",
+    "restore": "Restore",
+    "delete_permanently": "Delete Permanently"
+  },
+  "status": {
+    "draft": "Draft",
+    "pending_review": "For Review",
+    "published": "Published",
+    "archived": "Archived"
+  },
+  "dashboard": {
+    "title": "Pangkalahatang View",
+    "drafts": "Drafts",
+    "pending_review": "Pending Review",
+    "published": "Published"
+  },
+  "auth": {
+    "sign_in_title": "Sign In",
+    "register_title": "Register",
+    "email": "Email",
+    "password": "Password",
+    "name": "Name",
+    "no_account": "Wala pang account?",
+    "has_account": "May account na?",
+    "invalid_credentials": "Invalid email or password. Try again?",
+    "register_failed": "Hindi na-process ang registration. Check your details."
+  },
+  "errors": {
+    "cannot_edit_pending": "Hindi mo ma-edit ang article na nasa review — ask an admin.",
+    "unauthorized": "You need to sign in to create articles",
+    "forbidden": "You don't have permission to edit this article",
+    "not_found": "Article not found — baka na-archive na?",
+    "transition_not_allowed": "Transition not allowed for this status",
+    "network_error": "Network error. Check your connection?",
+    "title_short": "Title needs at least 3 characters — kulang pa",
+    "content_empty": "Content cannot be empty — may sasabihin ka naman diba?",
+    "something_wrong": "Something went wrong. Try again?"
+  },
+  "toast": {
+    "article_approved": "Article approved! It's now live.",
+    "article_archived": "Article archived. You can restore it later.",
+    "article_rejected": "Article rejected — back to draft.",
+    "article_updated": "Article updated successfully.",
+    "article_created": "Article created! Gawa na ulit?",
+    "demo_title": "Demo mode",
+    "demo_message": "You would have {action} this article. Log in for real changes."
+  },
+  "roles": {
+    "author": "Author",
+    "admin": "Admin",
+    "reader": "Reader"
+  },
+  "confirm": {
+    "archive_title": "Archive this article?",
+    "archive_desc": "It will be hidden from public pages. You can restore it later.",
+    "reject_title": "Reject this article?",
+    "reject_desc": "Babalik ito sa draft. The author can resubmit after changes.",
+    "cancel": "Cancel",
+    "archive_btn": "Archive",
+    "reject_btn": "Reject"
+  },
+  "comments": {
+    "title": "Usapan",
+    "name_placeholder": "Your name",
+    "email_placeholder": "Your email",
+    "body_placeholder": "Write a comment...",
+    "post": "Post Comment",
+    "posting": "Posting...",
+    "empty": "Wala pang comments. Ikaw na ang mag-una."
+  }
+}
