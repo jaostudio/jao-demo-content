@@ -39,7 +39,7 @@ export default function RegisterForm() {
 
   return (
     <div className="mx-auto mt-16 max-w-sm px-4">
-      <h1 className="mb-6 text-center text-xl font-bold text-text-primary dark:text-slate-100">{t('register_title')}</h1>
+      <h1 className="mb-6 text-center text-xl font-semibold text-text-primary dark:text-slate-100">{t('register_title')}</h1>
       <form onSubmit={handleSubmit} className="space-y-3">
         <div>
           <label htmlFor="name" className="mb-1 block text-sm font-medium text-text-secondary">{t('name')}</label>

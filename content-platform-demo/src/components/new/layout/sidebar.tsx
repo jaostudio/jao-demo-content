@@ -28,15 +28,15 @@ export function Sidebar({ categories, totalArticles = 0, totalAuthors = 0, total
           </p>
           <div className="grid grid-cols-3 gap-2 border-t border-border pt-3 text-center">
             <div>
-              <p className="text-sm font-bold text-text-primary">{totalArticles}</p>
+              <p className="text-sm font-semibold text-text-primary">{totalArticles}</p>
               <p className="text-[10px] text-text-muted">Articles</p>
             </div>
             <div>
-              <p className="text-sm font-bold text-text-primary">{totalAuthors}</p>
+              <p className="text-sm font-semibold text-text-primary">{totalAuthors}</p>
               <p className="text-[10px] text-text-muted">Authors</p>
             </div>
             <div>
-              <p className="text-sm font-bold text-text-primary">{totalComments}</p>
+              <p className="text-sm font-semibold text-text-primary">{totalComments}</p>
               <p className="text-[10px] text-text-muted">Comments</p>
             </div>
           </div>
@@ -76,7 +76,7 @@ export function Sidebar({ categories, totalArticles = 0, totalAuthors = 0, total
                 href={`/articles/${item.slug}`}
                 className="flex items-start gap-2 rounded px-2 py-1.5 hover:bg-secondary-light transition-colors group"
               >
-                <span className="mt-0.5 text-[10px] font-bold text-text-muted shrink-0">{i + 1}</span>
+                <span className="mt-0.5 text-[10px] font-semibold text-text-muted shrink-0">{i + 1}</span>
                 <div className="min-w-0">
                   <p className="text-xs font-medium text-text-primary line-clamp-2">
                     {item.title}

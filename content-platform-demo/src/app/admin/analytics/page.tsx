@@ -57,7 +57,7 @@ export default async function AnalyticsPage() {
 
   return (
     <div>
-      <h1 className="mb-4 text-lg font-bold text-text-primary dark:text-slate-100">Analytics</h1>
+      <h1 className="mb-4 text-lg font-semibold text-text-primary dark:text-slate-100">Analytics</h1>
 
       <div className="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
         <MetricCard label="Total Articles" value={totalArticles} />
@@ -78,7 +78,7 @@ export default async function AnalyticsPage() {
 function MetricCard({ label, value }: { label: string; value: number }) {
   return (
     <div className="rounded-lg border border-border bg-card p-3 dark:border-border-dark dark:bg-card-dark">
-      <p className="text-xl font-bold text-text-primary dark:text-slate-100">{value}</p>
+      <p className="text-xl font-semibold text-text-primary dark:text-slate-100">{value}</p>
       <p className="text-[11px] text-text-muted">{label}</p>
     </div>
   )

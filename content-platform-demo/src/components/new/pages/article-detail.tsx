@@ -1,5 +1,5 @@
+import { LeftRail } from '../layout/left-rail'
 import { Header } from '../layout/header'
-import { Footer } from '../layout/footer'
 import { CategoryPill } from '../article/category-pill'
 import { AuthorCard } from '../article/author-card'
 import { CommentThread } from '../article/comment-thread'
@@ -67,147 +67,150 @@ export function ArticleDetail({
   return (
     <>
       <JsonLd data={jsonLd} />
-      <Header />
-      <main className="container-likha py-4">
-        <Link href="/" className="inline-flex items-center gap-1 text-xs text-text-muted hover:text-text-primary transition-colors mb-4">
-          <ArrowLeft className="h-3 w-3" />
-          Back to kwento
-        </Link>
+      <div className="min-h-screen bg-surface dark:bg-surface-dark">
+        <LeftRail />
+        <div className="lg:ml-[56px]">
+          <Header />
+          <main className="container-likha py-4">
+            <Link href="/" className="inline-flex items-center gap-1 text-[11px] text-fog-gray hover:text-text-primary transition-colors mb-4">
+              <ArrowLeft className="h-3 w-3" />
+              Back
+            </Link>
 
-        <div className="grid gap-8 lg:grid-cols-[1fr_280px]">
-          {/* Main Content */}
-          <article>
-            {image && (
-              <div className="mb-6 overflow-hidden rounded-lg bg-surface-alt">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={image} alt={title} className="w-full h-64 object-cover" />
-              </div>
-            )}
-
-            <div className="mb-3 flex items-center gap-1.5">
-              <CategoryPill slug={categorySlug} name={categoryName} />
-              {FormatIcon && (
-                <span className="inline-flex items-center gap-1 rounded bg-surface-alt px-1.5 py-0.5 text-[9px] font-medium text-text-secondary leading-none">
-                  <FormatIcon className="h-2.5 w-2.5" />
-                  {FORMAT_LABELS[format]}
-                </span>
-              )}
-              {aiFreeDeclaration && <AiFreeBadge />}
-            </div>
-
-            <h1 className="text-3xl font-semibold text-text-primary leading-tight mb-3">
-              {title}
-            </h1>
-
-            {excerpt && (
-              <p className="text-sm text-text-secondary leading-relaxed mb-4">{excerpt}</p>
-            )}
-
-            <div className="flex flex-wrap items-center gap-3 text-xs text-text-muted mb-8 pb-6 border-b border-border">
-              <div className="flex items-center gap-1.5">
-                <div className="avatar avatar-sm bg-void-black text-white text-[10px]">
-                  {authorName.charAt(0).toUpperCase()}
-                </div>
-                <span className="font-medium text-text-secondary">{authorName}</span>
-              </div>
-              <span className="text-border">·</span>
-              <span className="flex items-center gap-1">
-                <Clock className="h-3 w-3" />
-                {readingTime} min read
-              </span>
-              {publishAt && (
-                <>
-                  <span className="text-border">·</span>
-                  <span className="flex items-center gap-1">
-                    <Calendar className="h-3 w-3" />
-                    {new Date(publishAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
-                  </span>
-                </>
-              )}
-              {status !== 'PUBLISHED' && (
-                <>
-                  <span className="text-border">·</span>
-                  <Tatak status={status as 'DRAFT' | 'PENDING_REVIEW' | 'PUBLISHED' | 'ARCHIVED'} />
-                </>
-              )}
-            </div>
-
-            <div className="prose prose-sm max-w-none dark:prose-invert">
-              <ArticleContent content={content} />
-            </div>
-
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <div className="flex flex-wrap gap-1.5">
-                {tags.map((tag) => (
-                  <Badge key={tag.id} variant="default">{tag.name}</Badge>
-                ))}
-              </div>
-              <div className="ml-auto">
-                <LikeButton articleId={articleId} initialLikes={likes} />
-              </div>
-            </div>
-
-            {/* Comments */}
-            <div className="mt-10">
-              <CommentThread articleId={articleId} initialComments={comments} />
-            </div>
-          </article>
-
-          {/* Sidebar */}
-          <aside className="hidden lg:block space-y-4">
-            <AuthorCard
-              name={authorName}
-              role={authorRole}
-              articleCount={authorArticleCount}
-            />
-
-            <Card className="p-4">
-              <h3 className="text-xs font-semibold text-text-primary mb-3">Article Info</h3>
-              <div className="space-y-2 text-xs text-text-secondary">
-                <div className="flex justify-between">
-                  <span className="text-text-muted">Reading time</span>
-                  <span>{readingTime} min</span>
-                </div>
-                {publishAt && (
-                  <div className="flex justify-between">
-                    <span className="text-text-muted">Published</span>
-                    <span>{new Date(publishAt).toLocaleDateString()}</span>
+            <div className="grid gap-8 lg:grid-cols-[1fr_280px]">
+              {/* Main Content */}
+              <article>
+                {image && (
+                  <div className="mb-4 overflow-hidden rounded-lg bg-surface-alt dark:bg-surface-dark">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={image} alt={title} className="w-full h-64 object-cover" />
                   </div>
                 )}
-                <div className="flex justify-between">
-                  <span className="text-text-muted">Category</span>
-                  <CategoryPill slug={categorySlug} name={categoryName} />
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-text-muted">Status</span>
-                  <Tatak status={status as 'DRAFT' | 'PENDING_REVIEW' | 'PUBLISHED' | 'ARCHIVED'} />
-                </div>
-              </div>
-            </Card>
 
-            {relatedArticles.length > 0 && (
-              <Card className="p-4">
-                <h3 className="text-xs font-semibold text-text-primary mb-3">Related</h3>
-                <div className="space-y-2">
-                  {relatedArticles.map((r) => (
-                    <Link
-                      key={r.slug}
-                      href={`/articles/${r.slug}`}
-                      className="block rounded px-1.5 py-1.5 hover:bg-secondary-light transition-colors group"
-                    >
-                      <p className="text-xs font-medium text-text-primary group-hover:text-text-primary transition-colors line-clamp-2">
-                        {r.title}
-                      </p>
-                      <p className="text-[10px] text-text-muted mt-0.5">{r.readingTime} min</p>
-                    </Link>
-                  ))}
+                <div className="mb-2 flex items-center gap-1.5">
+                  <CategoryPill slug={categorySlug} name={categoryName} />
+                  {FormatIcon && (
+                    <span className="inline-flex items-center gap-1 text-[11px] font-medium text-fog-gray">
+                      <FormatIcon className="h-3 w-3" />
+                      {FORMAT_LABELS[format]}
+                    </span>
+                  )}
+                  {aiFreeDeclaration && <AiFreeBadge />}
                 </div>
-              </Card>
-            )}
-          </aside>
+
+                <h1 className="text-[17px] font-semibold text-text-primary leading-snug mb-2">
+                  {title}
+                </h1>
+
+                {excerpt && (
+                  <p className="text-[13px] text-graphite leading-relaxed mb-3">{excerpt}</p>
+                )}
+
+                <div className="flex flex-wrap items-center gap-2 text-[11px] text-fog-gray mb-6 pb-4 border-b border-hairline">
+                  <div className="flex items-center gap-1.5">
+                    <div className="avatar avatar-sm bg-void-black text-white text-[10px]">
+                      {authorName.charAt(0).toUpperCase()}
+                    </div>
+                    <span className="font-medium text-graphite text-[13px]">{authorName}</span>
+                  </div>
+                  <span className="text-ash">&middot;</span>
+                  <span className="flex items-center gap-1">
+                    <Clock className="h-3 w-3" />
+                    {readingTime} min
+                  </span>
+                  {publishAt && (
+                    <>
+                      <span className="text-ash">&middot;</span>
+                      <span className="flex items-center gap-1">
+                        <Calendar className="h-3 w-3" />
+                        {new Date(publishAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                      </span>
+                    </>
+                  )}
+                  {status !== 'PUBLISHED' && (
+                    <>
+                      <span className="text-ash">&middot;</span>
+                      <Tatak status={status as 'DRAFT' | 'PENDING_REVIEW' | 'PUBLISHED' | 'ARCHIVED'} />
+                    </>
+                  )}
+                </div>
+
+                <div className="prose prose-sm max-w-none">
+                  <ArticleContent content={content} />
+                </div>
+
+                <div className="mt-6 flex flex-wrap items-center gap-2">
+                  <div className="flex flex-wrap gap-1">
+                    {tags.map((tag) => (
+                      <Badge key={tag.id} variant="default">{tag.name}</Badge>
+                    ))}
+                  </div>
+                  <div className="ml-auto">
+                    <LikeButton articleId={articleId} initialLikes={likes} />
+                  </div>
+                </div>
+
+                <div className="mt-8">
+                  <CommentThread articleId={articleId} initialComments={comments} />
+                </div>
+              </article>
+
+              {/* Sidebar */}
+              <aside className="hidden lg:block space-y-4">
+                <AuthorCard
+                  name={authorName}
+                  role={authorRole}
+                  articleCount={authorArticleCount}
+                />
+
+                <Card className="p-3">
+                  <h3 className="text-[11px] font-semibold text-text-primary mb-2">Info</h3>
+                  <div className="space-y-1.5 text-[11px] text-graphite">
+                    <div className="flex justify-between">
+                      <span className="text-fog-gray">Reading time</span>
+                      <span>{readingTime} min</span>
+                    </div>
+                    {publishAt && (
+                      <div className="flex justify-between">
+                        <span className="text-fog-gray">Published</span>
+                        <span>{new Date(publishAt).toLocaleDateString()}</span>
+                      </div>
+                    )}
+                    <div className="flex justify-between">
+                      <span className="text-fog-gray">Category</span>
+                      <CategoryPill slug={categorySlug} name={categoryName} />
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-fog-gray">Status</span>
+                      <Tatak status={status as 'DRAFT' | 'PENDING_REVIEW' | 'PUBLISHED' | 'ARCHIVED'} />
+                    </div>
+                  </div>
+                </Card>
+
+                {relatedArticles.length > 0 && (
+                  <Card className="p-3">
+                    <h3 className="text-[11px] font-semibold text-text-primary mb-2">Related</h3>
+                    <div className="space-y-1">
+                      {relatedArticles.map((r) => (
+                        <Link
+                          key={r.slug}
+                          href={`/articles/${r.slug}`}
+                          className="block rounded px-2 py-1.5 hover:bg-surface-alt transition-colors group"
+                        >
+                          <p className="text-[13px] font-medium text-text-primary group-hover:text-text-primary transition-colors line-clamp-2">
+                            {r.title}
+                          </p>
+                          <p className="text-[10px] text-fog-gray mt-0.5">{r.readingTime} min</p>
+                        </Link>
+                      ))}
+                    </div>
+                  </Card>
+                )}
+              </aside>
+            </div>
+          </main>
         </div>
-      </main>
-      <Footer />
+      </div>
     </>
   )
 }

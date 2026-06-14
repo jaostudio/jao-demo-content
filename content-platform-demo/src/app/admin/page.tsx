@@ -51,7 +51,7 @@ export default async function AdminDashboardPage() {
   return (
     <div>
       <div className="mb-4">
-        <h1 className="text-lg font-bold text-text-primary dark:text-slate-100">Dashboard</h1>
+        <h1 className="text-lg font-semibold text-text-primary dark:text-slate-100">Dashboard</h1>
         <p className="text-xs text-text-muted">
           {author.role === 'ADMIN' ? 'Administrator' : 'Author'} — {author.name}
         </p>
@@ -59,22 +59,22 @@ export default async function AdminDashboardPage() {
 
       <div className="mb-4 grid grid-cols-3 gap-3">
         <div className="rounded-lg border border-border bg-card p-3 dark:border-border-dark dark:bg-card-dark">
-          <p className="text-xl font-bold text-text-primary dark:text-slate-100">{draftCount}</p>
+          <p className="text-xl font-semibold text-text-primary dark:text-slate-100">{draftCount}</p>
           <p className="text-[11px] text-text-muted">Drafts</p>
         </div>
         <div className="rounded-lg border border-amber-200 bg-amber-50 p-3 dark:border-amber-800 dark:bg-amber-900/20">
-          <p className="text-xl font-bold text-amber-700 dark:text-amber-400">{pendingCount}</p>
+          <p className="text-xl font-semibold text-amber-700 dark:text-amber-400">{pendingCount}</p>
           <p className="text-[11px] text-amber-600 dark:text-amber-500">Pending</p>
         </div>
         <div className="rounded-lg border border-emerald-200 bg-emerald-50 p-3 dark:border-emerald-800 dark:bg-emerald-900/20">
-          <p className="text-xl font-bold text-emerald-700 dark:text-emerald-400">{publishedCount}</p>
+          <p className="text-xl font-semibold text-emerald-700 dark:text-emerald-400">{publishedCount}</p>
           <p className="text-[11px] text-emerald-600 dark:text-emerald-500">Published</p>
         </div>
       </div>
 
       <div className="overflow-hidden rounded-lg border border-border bg-card dark:border-border-dark dark:bg-card-dark">
         <div className="border-b border-border px-4 py-2.5 dark:border-border-dark">
-          <h2 className="text-sm font-bold text-text-primary dark:text-slate-100">Articles</h2>
+          <h2 className="text-sm font-semibold text-text-primary dark:text-slate-100">Articles</h2>
         </div>
         <div className="divide-y divide-border dark:divide-border-dark">
           {myArticles.length === 0 && (

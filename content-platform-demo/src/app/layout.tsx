@@ -1,9 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Providers } from '@/components/provider'
-import { BottomNav } from '@/components/bottom-nav'
-import { DemoRoleSwitcher } from '@/components/demo-role-switcher'
 import { Toaster } from '@/components/ui/toaster'
+import { DemoRoleSwitcher } from '@/components/demo-role-switcher'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -31,12 +30,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} min-h-screen bg-surface text-text-body antialiased dark:bg-bg-dark dark:text-slate-200`}>
+      <body className={`${inter.className} min-h-screen bg-surface text-text-body antialiased`}>
         <Providers>
-          <div className="pb-16 md:pb-0">
-            {children}
-          </div>
-          <BottomNav />
+          {children}
           <DemoRoleSwitcher />
           <Toaster />
         </Providers>

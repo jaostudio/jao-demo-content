@@ -149,12 +149,12 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               <div className="mb-2">
                 <CategoryBadge slug={article.category.slug} name={article.category.name} />
               </div>
-              <h1 className="text-2xl font-bold text-text-primary dark:text-slate-100">{article.title}</h1>
+              <h1 className="text-2xl font-semibold text-text-primary dark:text-slate-100">{article.title}</h1>
               {article.excerpt && (
                 <p className="mt-2 text-sm text-text-secondary">{article.excerpt}</p>
               )}
               <div className="mt-3 flex items-center gap-2 text-xs text-text-muted">
-                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-white">
+                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-[10px] font-semibold text-white">
                   {article.author.name.charAt(0).toUpperCase()}
                 </div>
                 <span className="font-medium text-text-secondary">{article.author.name}</span>

@@ -33,7 +33,7 @@ export default function SignInForm() {
 
   return (
     <div className="mx-auto mt-16 max-w-sm px-4">
-      <h1 className="mb-6 text-center text-xl font-bold text-text-primary dark:text-slate-100">{t('sign_in_title')}</h1>
+      <h1 className="mb-6 text-center text-xl font-semibold text-text-primary dark:text-slate-100">{t('sign_in_title')}</h1>
       <form onSubmit={handleSubmit} className="space-y-3">
         <div>
           <label htmlFor="email" className="mb-1 block text-sm font-medium text-text-secondary">{t('email')}</label>

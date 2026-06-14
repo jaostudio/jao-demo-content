@@ -22,7 +22,7 @@ export default async function ArticleVersionsPage({ params }: { params: Promise<
   return (
     <div>
       <Link href={`/admin/articles/${id}/edit`} className="text-xs font-medium text-text-muted hover:text-primary">&larr; Back to editor</Link>
-      <h1 className="mb-1 mt-3 text-lg font-bold text-text-primary dark:text-slate-100">Version History</h1>
+      <h1 className="mb-1 mt-3 text-lg font-semibold text-text-primary dark:text-slate-100">Version History</h1>
       <p className="mb-4 text-xs text-text-muted">{article.title}</p>
 
       {article.versions.length === 0 && (

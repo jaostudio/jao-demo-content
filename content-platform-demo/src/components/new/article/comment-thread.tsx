@@ -55,8 +55,8 @@ export function CommentThread({ articleId, initialComments }: CommentThreadProps
   }
 
   return (
-    <div className="border-t border-border pt-6 dark:border-border-dark">
-      <h2 className="mb-4 flex items-center gap-2 text-sm font-semibold text-text-primary">
+    <div className="border-t border-border pt-6">
+      <h2 className="mb-4 flex items-center gap-2 text-[13px] font-semibold text-text-primary">
         <MessageSquare className="h-4 w-4 text-primary" />
         {t('title')} ({comments.length})
       </h2>
@@ -66,18 +66,18 @@ export function CommentThread({ articleId, initialComments }: CommentThreadProps
           <input
             placeholder={t('name_placeholder')} required value={name}
             onChange={(e) => setName(e.target.value)}
-            className="input h-9 text-xs"
+            className="input h-9 text-[13px]"
           />
           <input
             type="email" placeholder={t('email_placeholder')} required value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="input h-9 text-xs"
+            className="input h-9 text-[13px]"
           />
         </div>
         <textarea
           placeholder={t('body_placeholder')} required value={body}
           onChange={(e) => setBody(e.target.value)} rows={3}
-          className="input resize-none text-xs"
+          className="input resize-none text-[13px]"
         />
         <Button type="submit" variant="accent" size="md" disabled={submitting}>
           {submitting ? t('posting') : t('post')}

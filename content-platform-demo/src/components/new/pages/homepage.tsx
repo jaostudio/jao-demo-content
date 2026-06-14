@@ -1,6 +1,6 @@
+import { LeftRail } from '../layout/left-rail'
 import { Header } from '../layout/header'
-import { Footer } from '../layout/footer'
-import { Sidebar } from '../layout/sidebar'
+import { RightPanel } from '../layout/right-panel'
 import { ArticleCard } from '../article/article-card'
 
 interface ArticleSummary {
@@ -29,59 +29,45 @@ interface HomepageProps {
 
 export function Homepage({ articles, featuredArticle, categories, totalArticles, totalAuthors, totalComments, trending }: HomepageProps) {
   return (
-    <>
-      <Header />
-      <main className="container-likha py-4">
-        <div className="grid gap-6 lg:grid-cols-[1fr_300px]">
-          {/* Main Feed */}
-          <div className="space-y-4">
-            {/* Sort Bar */}
-            <div className="flex items-center gap-3 border-b border-border pb-2 text-xs text-text-muted">
-              <span className="font-medium text-text-primary">Hot</span>
-              <span className="text-border">·</span>
-              <span className="cursor-pointer hover:text-text-primary transition-colors">New</span>
-              <span className="text-border">·</span>
-              <span className="cursor-pointer hover:text-text-primary transition-colors">Top</span>
-            </div>
-
-            {/* Featured Article */}
-            {featuredArticle && (
-              <div className="animate-fade-in-up stagger-1">
-                <ArticleCard {...featuredArticle} isFeatured />
+    <div className="min-h-screen bg-surface dark:bg-surface-dark">
+      <LeftRail />
+      <div className="lg:ml-[56px]">
+        <Header />
+        <main className="mx-auto max-w-[1080px] px-5 py-5">
+          <div className="grid gap-8 lg:grid-cols-[1fr_320px]">
+            {/* Center Feed */}
+            <div className="space-y-4">
+              {/* Sort Bar */}
+              <div className="flex items-center gap-4 pb-3 text-[13px]">
+                <span className="font-medium text-text-primary">Hot</span>
+                <span className="text-ash">&middot;</span>
+                <span className="cursor-pointer text-graphite hover:text-text-primary transition-colors">New</span>
+                <span className="text-ash">&middot;</span>
+                <span className="cursor-pointer text-graphite hover:text-text-primary transition-colors">Top</span>
               </div>
-            )}
 
-            {/* Article List */}
-            <div className="space-y-3">
+              {/* Article List */}
               {articles.length === 0 && (
                 <div className="py-16 text-center">
-                  <p className="text-sm text-text-muted">Wala pang kwento dito.</p>
-                  <p className="text-xs text-text-muted mt-1">Ikaw ba ang unang magsusulat?</p>
+                  <p className="text-[14px] text-fog-gray">Wala pang kwento dito.</p>
+                  <p className="text-[12px] text-ash mt-1">Ikaw ba ang unang magsusulat?</p>
                 </div>
               )}
-              {articles.map((article, i) => (
-                <div key={article.slug} className={`animate-fade-in-up stagger-${(i % 6) + 1}`}>
-                  <ArticleCard {...article} />
-                </div>
+              {articles.map((article) => (
+                <ArticleCard key={article.slug} {...article} />
               ))}
             </div>
-          </div>
 
-          {/* Sidebar */}
-          <div className="hidden lg:block">
-            <div className="animate-fade-in-up stagger-2">
-              <Sidebar
+            {/* Right Panel */}
+            <div className="hidden lg:block">
+              <RightPanel
                 categories={categories.map((c) => ({ slug: c.slug, name: c.name }))}
-                totalArticles={totalArticles}
-                totalAuthors={totalAuthors}
-                totalComments={totalComments}
                 trending={trending}
               />
             </div>
           </div>
-        </div>
-      </main>
-      <Footer />
-    </>
+        </main>
+      </div>
+    </div>
   )
 }

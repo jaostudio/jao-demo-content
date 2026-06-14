@@ -89,6 +89,30 @@ export function StudioContent() {
         </motion.div>
       </Section>
 
+      <Section id="story" className="" density="compact">
+        <motion.div
+          className="mx-auto flex max-w-3xl flex-col gap-6"
+          variants={fade}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+        >
+          <Badge variant="accent">{t('badge')}</Badge>
+          <h2 className="text-[var(--text-section)] font-[var(--weight-medium)] tracking-[var(--tracking-tight)] text-text-primary">
+            {t('storyHeading')}
+          </h2>
+          <p className="text-[var(--text-body)] leading-[var(--leading-relaxed)] text-text-secondary">
+            {t('storyP1')}
+          </p>
+          <p className="text-[var(--text-body)] leading-[var(--leading-relaxed)] text-text-secondary">
+            {t('storyP2')}
+          </p>
+          <p className="text-[var(--text-body)] leading-[var(--leading-relaxed)] text-text-secondary">
+            {t('storyP3')}
+          </p>
+        </motion.div>
+      </Section>
+
       <Section id="value" className="" density="normal">
         <motion.div
           className="flex flex-col gap-4"
