@@ -1,6 +1,8 @@
 import { getCurrentAuthor } from '@/lib/auth/getSession'
-import { prisma } from '@/lib/prisma'
+import { fetchAPI } from '@/lib/api/server'
+import type { AdminStatsResponse } from '@content-platform/shared'
 import { redirect } from 'next/navigation'
+import { cookies } from 'next/headers'
 import { ChartSection } from '@/components/chart-section'
 
 export const dynamic = 'force-dynamic'
@@ -17,42 +19,23 @@ export default async function AnalyticsPage() {
   if (!author) redirect('/signin')
   if (author.role !== 'ADMIN') redirect('/admin')
 
-  const [
-    totalArticles,
-    draftsCount,
-    pendingCount,
-    publishedCount,
-    archivedCount,
-    totalAuthors,
-    totalCategories,
-    totalTags,
-    totalComments,
-    categoryBreakdown,
-  ] = await Promise.all([
-    prisma.article.count(),
-    prisma.article.count({ where: { status: 'DRAFT' } }),
-    prisma.article.count({ where: { status: 'PENDING_REVIEW' } }),
-    prisma.article.count({ where: { status: 'PUBLISHED' } }),
-    prisma.article.count({ where: { status: 'ARCHIVED' } }),
-    prisma.author.count(),
-    prisma.category.count(),
-    prisma.tag.count(),
-    prisma.comment.count(),
-    prisma.category.findMany({
-      include: { _count: { select: { articles: true } } },
-    }),
-  ])
+  const cookieStore = await cookies()
+  const token = cookieStore.get('likha-token')?.value
+  const authHeaders: Record<string, string> = {}
+  if (token) authHeaders['Authorization'] = `Bearer ${token}`
+
+  const stats = await fetchAPI<AdminStatsResponse>('/api/admin/stats', { headers: authHeaders })
 
   const statusData = [
-    { name: 'Draft', value: draftsCount, color: COLORS.draft },
-    { name: 'Pending', value: pendingCount, color: COLORS.pending },
-    { name: 'Published', value: publishedCount, color: COLORS.published },
-    { name: 'Archived', value: archivedCount, color: COLORS.archived },
+    { name: 'Draft', value: stats.draftArticles, color: COLORS.draft },
+    { name: 'Pending', value: stats.pendingReview, color: COLORS.pending },
+    { name: 'Published', value: stats.publishedArticles, color: COLORS.published },
+    { name: 'Archived', value: stats.archivedArticles, color: COLORS.archived },
   ]
 
-  const categoryChartData = categoryBreakdown.map((cat) => ({
+  const categoryChartData = (stats.categories ?? []).map((cat) => ({
     name: cat.name,
-    articles: cat._count.articles,
+    articles: cat._count?.articles ?? 0,
   }))
 
   return (
@@ -60,14 +43,14 @@ export default async function AnalyticsPage() {
       <h1 className="mb-4 text-lg font-semibold text-text-primary dark:text-slate-100">Analytics</h1>
 
       <div className="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        <MetricCard label="Total Articles" value={totalArticles} />
-        <MetricCard label="Drafts" value={draftsCount} />
-        <MetricCard label="Published" value={publishedCount} />
-        <MetricCard label="Authors" value={totalAuthors} />
-        <MetricCard label="Categories" value={totalCategories} />
-        <MetricCard label="Tags" value={totalTags} />
-        <MetricCard label="Comments" value={totalComments} />
-        <MetricCard label="Archived" value={archivedCount} />
+        <MetricCard label="Total Articles" value={stats.totalArticles} />
+        <MetricCard label="Drafts" value={stats.draftArticles} />
+        <MetricCard label="Published" value={stats.publishedArticles} />
+        <MetricCard label="Authors" value={stats.totalAuthors} />
+        <MetricCard label="Categories" value={stats.totalCategories} />
+        <MetricCard label="Tags" value={stats.totalTags} />
+        <MetricCard label="Comments" value={stats.totalComments} />
+        <MetricCard label="Archived" value={stats.archivedArticles} />
       </div>
 
       <ChartSection categoryData={categoryChartData} statusData={statusData.filter((d) => d.value > 0)} />

@@ -1,12 +1,12 @@
-import { useSession } from 'next-auth/react'
+import { useAuth } from '@/hooks/useAuth'
 import { useDemoRoleStore } from '@/store/demo-role-store'
 
 export function useEffectiveRole() {
-  const { data: session } = useSession()
+  const { user } = useAuth()
   const { enabled, role: demoRole } = useDemoRoleStore()
 
-  if (session?.user) {
-    return { role: (session.user as { role?: string }).role ?? 'READER', isDemoMode: false }
+  if (user) {
+    return { role: user.role ?? 'READER', isDemoMode: false }
   }
 
   if (enabled) {

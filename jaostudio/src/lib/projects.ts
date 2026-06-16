@@ -55,7 +55,7 @@ export const projects: ProjectMetadata[] = [
     context:
       'A regional ISP needed a brand presence that matched its growing fiber infrastructure. The existing site was dated and failing to convert technical audits into sign-ups.',
     constraints: [
-      'No design team — the owner maintained the site solo',
+      'No design team - the owner maintained the site solo',
       'Content had to communicate complex technical details to non-technical visitors',
       'Budget required a lean, framework-driven build',
     ],
@@ -70,12 +70,12 @@ export const projects: ProjectMetadata[] = [
       {
         decision: 'Static generation on Next.js',
         tradeoff: 'Near-instant loads and zero server costs, but no real-time data on the site',
-        rationale: 'No real-time data was needed — pricing tiers, service descriptions, and support content are updated infrequently. Static generation eliminated server costs entirely and gave sub-1.5s loads on 3G.',
+        rationale: 'No real-time data was needed - pricing tiers, service descriptions, and support content are updated infrequently. Static generation eliminated server costs entirely and gave sub-1.5s loads on 3G.',
         rejectedAlternatives: 'WordPress with caching plugin, traditional PHP site',
         outcome: 'Sub-1.5s Lighthouse, zero ongoing server costs. Rebuild triggers on git push. The owner has full autonomy over content.',
       },
       {
-        decision: 'No CMS — markdown-based content',
+        decision: 'No CMS - markdown-based content',
         tradeoff: 'Slightly higher initial setup effort, but eliminates CMS security patching and database maintenance',
         rationale: 'With a solo owner and infrequent updates, a CMS would add attack surface, database upkeep, and UI training overhead. Plain markdown files with git-based workflow gave version control for free.',
         rejectedAlternatives: 'WordPress, Sanity, Contentful',
@@ -96,8 +96,8 @@ export const projects: ProjectMetadata[] = [
     githubUrl: 'https://github.com/jaoce/business-website-sample',
     architecture: architectureRegistry['isp-platform'],
     systems: {
-      architecture: 'Static generation with tiered pricing model — single-page pricing UI that lets visitors self-qualify before reaching out. Component-driven layout optimized for solo maintainability.',
-      infrastructure: 'Vercel + GitHub CI — static deployment with automated Lighthouse checks. Zero server costs, automated rebuilds on content changes.',
+      architecture: 'Static generation with tiered pricing model - single-page pricing UI that lets visitors self-qualify before reaching out. Component-driven layout optimized for solo maintainability.',
+      infrastructure: 'Vercel + GitHub CI - static deployment with automated Lighthouse checks. Zero server costs, automated rebuilds on content changes.',
     },
   },
   {
@@ -136,7 +136,7 @@ export const projects: ProjectMetadata[] = [
     context:
       'A startup launching a B2B SaaS product needed a landing page that could stand alone as their primary demand-capture surface before a full site was built.',
     constraints: [
-      'Single page had to do everything — inform, qualify, convert',
+      'Single page had to do everything - inform, qualify, convert',
       'No budget for A/B testing infra, so every layout decision had to be defensible from first principles',
       'Launch deadline was three weeks from kickoff',
     ],
@@ -146,19 +146,19 @@ export const projects: ProjectMetadata[] = [
         tradeoff: 'Stronger emotional hook but requires the headline to carry the entire value prop',
         rationale: 'With no A/B testing budget, every layout decision had to be defensible from first principles. A hero-first layout leads the eye to the core value proposition before any feature list can distract. This prioritizes conversion over information density.',
         rejectedAlternatives: 'Feature-grid hero, carousel hero, video hero',
-        outcome: 'Single headline carries the entire value proposition. Visitors who scroll past the hero are pre-qualified — they already understand the core offer.',
+        outcome: 'Single headline carries the entire value proposition. Visitors who scroll past the hero are pre-qualified - they already understand the core offer.',
       },
       {
         decision: 'Mobile-first over desktop-first',
         tradeoff: 'Better performance on 70%+ mobile traffic, but the desktop layout needed additional polish to not feel sparse',
-        rationale: 'Analytics from similar SaaS landing pages showed 70%+ mobile traffic. Starting with mobile constraints forced prioritization — only the essential conversion elements survived. Desktop was then enhanced, not ported.',
+        rationale: 'Analytics from similar SaaS landing pages showed 70%+ mobile traffic. Starting with mobile constraints forced prioritization - only the essential conversion elements survived. Desktop was then enhanced, not ported.',
         rejectedAlternatives: 'Desktop-first with responsive breakpoints',
         outcome: 'Sub-1.2s loads on mobile where the majority of traffic originates. Desktop layout required additional spacing polish but avoided the common trap of "desktop page that shrinks badly."',
       },
       {
         decision: 'Static export with no backend dependency',
         tradeoff: 'Zero operational overhead but no server-side personalization',
-        rationale: 'The page needed to be a standalone demand-capture surface with no backend. Static export meant the page could live anywhere — Vercel, S3, Netlify — and survive any traffic spike without provisioning.',
+        rationale: 'The page needed to be a standalone demand-capture surface with no backend. Static export meant the page could live anywhere - Vercel, S3, Netlify - and survive any traffic spike without provisioning.',
         rejectedAlternatives: 'Node.js server, PHP backend',
         outcome: 'Instant rollback, zero server costs, survives traffic spikes from viral social posts without degradation.',
       },
@@ -168,7 +168,7 @@ export const projects: ProjectMetadata[] = [
     businessContext: {
       who: 'A B2B SaaS startup needing a pre-launch demand-capture surface',
       problem: 'No full website yet. A single page had to inform, qualify, and convert visitors with three weeks to launch and no A/B testing budget.',
-      solution: 'A mobile-first landing page with hero-first narrative. Every layout decision was defensible from first principles — no decorative content, only credibility and objection-removal sections.',
+      solution: 'A mobile-first landing page with hero-first narrative. Every layout decision was defensible from first principles - no decorative content, only credibility and objection-removal sections.',
       result: 'Sub-1.2s load times on mobile where 70%+ of traffic originates. The page handled the entire conversion funnel until the full site launched.',
     },
     gallery: ['/projects/landing-page/hero.webp', '/projects/landing-page/detail.webp'],
@@ -176,8 +176,8 @@ export const projects: ProjectMetadata[] = [
     liveUrl: 'https://jao-landingpage-website-sample.vercel.app',
     githubUrl: 'https://github.com/jaoce/landingpage-website-sample',
     systems: {
-      architecture: 'Hero-first narrative scroll — mobile-first responsive layout optimized for 70%+ mobile traffic. Every section either builds credibility or removes a buying objection.',
-      infrastructure: 'Vercel static deployment — edge-cached for global low-latency delivery. No backend dependency, instant rollback capability.',
+      architecture: 'Hero-first narrative scroll - mobile-first responsive layout optimized for 70%+ mobile traffic. Every section either builds credibility or removes a buying objection.',
+      infrastructure: 'Vercel static deployment - edge-cached for global low-latency delivery. No backend dependency, instant rollback capability.',
     },
   },
   {
@@ -217,21 +217,21 @@ export const projects: ProjectMetadata[] = [
       'An internal tool for a logistics company needed a modern dashboard to replace their spreadsheet-based operations tracking.',
     constraints: [
       'Real-time data sync was required for inventory accuracy',
-      'Team had no dedicated designer — the frontend had to ship with built-in UX patterns',
+      'Team had no dedicated designer - the frontend had to ship with built-in UX patterns',
       'Legacy API shape was fixed, so the frontend had to adapt, not the backend',
     ],
     keyDecisions: [
       {
         decision: 'Server-side data fetching over client-side state management',
         tradeoff: 'Simpler architecture with reliable initial loads, but less interactive real-time updating',
-        rationale: 'The legacy API shape was fixed. Server-side fetching meant we could transform and normalize data before the client saw it, avoiding complex client-side state synchronization. Initial page loads were instantly consistent — no loading spinners for primary data.',
+        rationale: 'The legacy API shape was fixed. Server-side fetching meant we could transform and normalize data before the client saw it, avoiding complex client-side state synchronization. Initial page loads were instantly consistent - no loading spinners for primary data.',
         rejectedAlternatives: 'Redux with thunks, React Query with client caching, WebSocket-backed state',
         outcome: 'Dashboard loads with data already rendered. Login-to-decision time reduced. No client-state synchronization bugs in production.',
       },
       {
         decision: 'Shared component library over custom-built tables',
         tradeoff: 'Shipped faster with consistent patterns, but the data table needed heavy customization to feel purpose-built',
-        rationale: 'Without a dedicated designer, every pixel decision would have to be made ad-hoc. A component library enforced visual consistency across all views. The tradeoff was that the primary data table — the most-used interface — needed significant customization to handle complex sorting and filtering.',
+        rationale: 'Without a dedicated designer, every pixel decision would have to be made ad-hoc. A component library enforced visual consistency across all views. The tradeoff was that the primary data table - the most-used interface - needed significant customization to handle complex sorting and filtering.',
         rejectedAlternatives: 'Fully custom CSS per view, Material UI',
         outcome: 'Consistent UI across all dashboard views. The data table was customized but retained library compatibility. Future views ship faster by composing existing primitives.',
       },
@@ -250,8 +250,8 @@ export const projects: ProjectMetadata[] = [
     githubUrl: 'https://github.com/jaoce/web-application-sample',
     architecture: architectureRegistry['web-application'],
     systems: {
-      architecture: 'Server-side data fetching with role-based access — Next.js dashboard pattern adapting to a fixed legacy API shape. Customized data tables built on a shared component library.',
-      infrastructure: 'Vercel + PostgreSQL — server-side rendering for initial dashboard loads, client-side fetching for interactive data exploration.',
+      architecture: 'Server-side data fetching with role-based access - Next.js dashboard pattern adapting to a fixed legacy API shape. Customized data tables built on a shared component library.',
+      infrastructure: 'Vercel + PostgreSQL - server-side rendering for initial dashboard loads, client-side fetching for interactive data exploration.',
     },
   },
   {
@@ -302,7 +302,7 @@ export const projects: ProjectMetadata[] = [
       {
         decision: 'Edge caching for public assets',
         tradeoff: 'Faster load times at cost of more complex deployment checks',
-        rationale: 'With a global B2B audience, every millisecond of latency mattered for trial user retention. Edge caching placed static assets at 100+ PoPs. The complexity was in cache invalidation — we added a hash-based asset versioning scheme to avoid stale-content bugs.',
+        rationale: 'With a global B2B audience, every millisecond of latency mattered for trial user retention. Edge caching placed static assets at 100+ PoPs. The complexity was in cache invalidation - we added a hash-based asset versioning scheme to avoid stale-content bugs.',
         rejectedAlternatives: 'Origin-only serving, CDN passthrough',
         outcome: 'Global sub-100ms asset delivery. Zero stale-content incidents. Cache hit rate above 90% on public assets.',
       },
@@ -328,7 +328,7 @@ export const projects: ProjectMetadata[] = [
     githubUrl: 'https://github.com/jaoce/saas-frontend-sample',
     architecture: architectureRegistry['saas-frontend'],
     systems: {
-      architecture: 'Progressive disclosure onboarding with feature flag-driven UI — modular bundle strategy preserving performance while enabling feature discovery. Edge-cached public assets.',
+      architecture: 'Progressive disclosure onboarding with feature flag-driven UI - modular bundle strategy preserving performance while enabling feature discovery. Edge-cached public assets.',
       infrastructure: 'Vercel edge caching for static assets, API routes for dynamic features. Multi-tenant isolation through Next.js middleware.',
     },
   },
@@ -359,7 +359,7 @@ export const projects: ProjectMetadata[] = [
       {
         decision: 'Automated image optimization pipeline',
         tradeoff: 'Extra build complexity for significantly better LCP',
-        rationale: 'Social traffic arrives with high intent but low patience — every 100ms of load time directly impacts conversion. The image pipeline automatically resizes, converts to WebP/AVIF, and serves responsive variants. The build-time cost was worth the runtime gain.',
+        rationale: 'Social traffic arrives with high intent but low patience - every 100ms of load time directly impacts conversion. The image pipeline automatically resizes, converts to WebP/AVIF, and serves responsive variants. The build-time cost was worth the runtime gain.',
         rejectedAlternatives: 'Manual image optimization, runtime image resizing, third-party image CDN',
         outcome: 'LCP improved from ~3.2s to ~1.4s. Bounce rate from social channels decreased measurably. Large product catalog no longer penalizes performance.',
       },
@@ -383,8 +383,8 @@ export const projects: ProjectMetadata[] = [
     liveUrl: 'https://jao-ecommerce-sample.vercel.app',
     githubUrl: 'https://github.com/jaoce/ecommerce-store-sample',
     systems: {
-      architecture: 'Image optimization pipeline with smart merchandising blocks — quick-add checkout reduces friction between discovery and purchase. Third-party checkout integration preserved.',
-      infrastructure: 'Vercel + Shopify integration — optimized images served via CDN with automatic format negotiation.',
+      architecture: 'Image optimization pipeline with smart merchandising blocks - quick-add checkout reduces friction between discovery and purchase. Third-party checkout integration preserved.',
+      infrastructure: 'Vercel + Shopify integration - optimized images served via CDN with automatic format negotiation.',
     },
   },
   {
@@ -413,14 +413,14 @@ export const projects: ProjectMetadata[] = [
       {
         decision: 'Token-first theming over component-scoped variables',
         tradeoff: 'Higher initial abstraction cost, but eliminates cross-team style fragmentation',
-        rationale: 'Multi-platform targets (web, mobile web, email) needed visual consistency without forcing every team to use the same framework. A token layer abstracted design decisions from implementation details — spacing, color, and typography were defined once and consumed everywhere.',
+        rationale: 'Multi-platform targets (web, mobile web, email) needed visual consistency without forcing every team to use the same framework. A token layer abstracted design decisions from implementation details - spacing, color, and typography were defined once and consumed everywhere.',
         rejectedAlternatives: 'CSS custom properties per project, styled-components theme per app',
         outcome: 'Design token adoption across 3 platform teams. New features ship faster because primitives are pre-built and accessible. Visual inconsistency dropped to near zero.',
       },
       {
         decision: 'CI-enforced accessibility checks',
         tradeoff: 'Slower initial component creation, but eliminates manual audit cycles',
-        rationale: 'Without automation, accessibility becomes an audit-after-the-fact problem. By running axe-core in CI on every component, violations were caught at pull request time — before any UI reached production.',
+        rationale: 'Without automation, accessibility becomes an audit-after-the-fact problem. By running axe-core in CI on every component, violations were caught at pull request time - before any UI reached production.',
         rejectedAlternatives: 'Quarterly manual audits, runtime a11y checker only',
         outcome: 'Zero accessibility regressions in production over 6 months. Component authors learn a11y patterns by fixing CI failures rather than attending training.',
       },
@@ -437,7 +437,7 @@ export const projects: ProjectMetadata[] = [
     liveUrl: 'https://jao-design-system-sample.vercel.app',
     githubUrl: 'https://github.com/jaoce/design-system-sample',
     systems: {
-      architecture: 'Token-first theming with accessible React primitives — Storybook documentation enforces consistency across teams. Multi-platform targets share the same token layer.',
+      architecture: 'Token-first theming with accessible React primitives - Storybook documentation enforces consistency across teams. Multi-platform targets share the same token layer.',
       infrastructure: 'Storybook documentation deployed alongside component library. Automated accessibility checks in CI pipeline.',
     },
   },
@@ -473,7 +473,7 @@ export const projects: ProjectMetadata[] = [
       {
         decision: 'Static shell with dynamic content hydration',
         tradeoff: 'Slower initial setup but ensures critical content is always visible',
-        rationale: 'A fully static shell renders instantly — the navigation, layout, and frame are visible before any dynamic content loads. Content then hydrates progressively. This means the user sees something useful within the first 500ms even on slow connections.',
+        rationale: 'A fully static shell renders instantly - the navigation, layout, and frame are visible before any dynamic content loads. Content then hydrates progressively. This means the user sees something useful within the first 500ms even on slow connections.',
         rejectedAlternatives: 'Full SSR with streaming, client-only SPA, AMP',
         outcome: 'First paint within 500ms on 3G. Content is interactive within 1.4s. Static shell never fails to render regardless of network quality.',
       },
@@ -481,7 +481,7 @@ export const projects: ProjectMetadata[] = [
     outcome: 'Stable mobile experience with improved engagement on low-bandwidth networks.',
     businessContext: {
       who: 'A media startup targeting social audiences in markets with variable connectivity',
-      problem: 'Traditional responsive design wasn\'t enough — users on mid-range devices with poor networks couldn\'t reliably load the site, causing engagement drops.',
+      problem: 'Traditional responsive design wasn\'t enough - users on mid-range devices with poor networks couldn\'t reliably load the site, causing engagement drops.',
       solution: 'A service worker cache-first strategy that delivers content even offline. Compact navigation optimized for constrained bandwidth. Static shell with dynamic content hydration.',
       result: 'Stable experience on low-bandwidth networks where competitors failed to load. Improved engagement from social-sourced traffic. Offline support enabled content consumption without continuous connectivity.',
     },
@@ -490,8 +490,8 @@ export const projects: ProjectMetadata[] = [
     liveUrl: 'https://jao-mobile-webapp-sample.vercel.app',
     githubUrl: 'https://github.com/jaoce/mobile-webapp-sample',
     systems: {
-      architecture: 'Service worker cache-first strategy with offline resilience — compact navigation optimized for constrained bandwidth. Push-friendly UX layer enables re-engagement.',
-      infrastructure: 'Vercel with Service Worker caching — static shell with dynamic content hydration. Offline-ready by default.',
+      architecture: 'Service worker cache-first strategy with offline resilience - compact navigation optimized for constrained bandwidth. Push-friendly UX layer enables re-engagement.',
+      infrastructure: 'Vercel with Service Worker caching - static shell with dynamic content hydration. Offline-ready by default.',
     },
   },
 ]

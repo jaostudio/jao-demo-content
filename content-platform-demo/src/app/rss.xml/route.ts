@@ -1,19 +1,14 @@
-import { prisma } from '@/lib/prisma'
+import { fetchAPI } from '@/lib/api/server'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://jaostudio.dev'
 
 export async function GET() {
-  const articles = await prisma.article.findMany({
-    where: { status: 'PUBLISHED' },
-    include: { author: true, category: true },
-    orderBy: { publishAt: 'desc' },
-    take: 20,
-  })
+  const articles = await fetchAPI<any[]>('/api/articles')
 
   const items = articles
     .map(
       (a) => {
-        const pubDate = a.publishAt ? a.publishAt.toUTCString() : new Date(a.createdAt).toUTCString()
+        const pubDate = a.publishAt ? new Date(a.publishAt).toUTCString() : new Date(a.createdAt).toUTCString()
         const url = `${SITE_URL}/articles/${a.slug}`
         return `    <item>
       <title>${escapeXml(a.title)}</title>
@@ -21,8 +16,8 @@ export async function GET() {
       <guid>${escapeXml(url)}</guid>
       <description>${escapeXml(a.excerpt ?? '')}</description>
       <pubDate>${pubDate}</pubDate>
-      <dc:creator>${escapeXml(a.author.name)}</dc:creator>
-      <category>${escapeXml(a.category.name)}</category>
+      <dc:creator>${escapeXml(a.authorName)}</dc:creator>
+      <category>${escapeXml(a.categoryName)}</category>
     </item>`
       },
     )

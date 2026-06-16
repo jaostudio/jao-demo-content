@@ -1,7 +1,7 @@
 export const ogContent = {
   home: {
     badge: "JAOstudio",
-    title: "Custom Websites — Web Applications — Automation Systems",
+    title: "Custom Websites | Web Applications | Automation Systems",
     subtitle: "Built for businesses that need more than templates.",
     footer: "Custom Websites & Web Applications",
   },

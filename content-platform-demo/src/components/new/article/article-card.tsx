@@ -44,7 +44,7 @@ export function ArticleCard({
         {/* Creator Header */}
         <div className="flex items-center gap-2.5 px-4 py-3">
           <Avatar name={authorName} size="md" />
-          <span className="text-[14px] font-medium text-text-primary">{authorName}</span>
+          <span className="text-[13px] font-medium text-text-primary">{authorName}</span>
           <span className="text-[12px] text-fog-gray">&middot;</span>
           <span className="text-[12px] text-fog-gray">{publishAt ? timeAgo(publishAt) : ''}</span>
         </div>
@@ -64,11 +64,11 @@ export function ArticleCard({
 
         {/* Content */}
         <div className="px-4 py-2">
-          <h3 className="text-[17px] font-medium text-text-primary leading-snug line-clamp-2">
+          <h3 className="text-[15px] font-medium text-text-primary leading-snug line-clamp-2" style={{ letterSpacing: '-0.02em' }}>
             {title}
           </h3>
           {excerpt && (
-            <p className="mt-1 text-[14px] text-graphite line-clamp-2">{excerpt}</p>
+            <p className="mt-1 text-[13px] text-graphite line-clamp-2">{excerpt}</p>
           )}
         </div>
 

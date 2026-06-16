@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { LeftRail } from '../layout/left-rail'
 import { Header } from '../layout/header'
 import { ArticleCard } from '../article/article-card'
@@ -21,17 +22,20 @@ interface SearchResult {
 }
 
 export function SearchPage() {
-  const [query, setQuery] = useState('')
+  const searchParams = useSearchParams()
+  const initialQuery = searchParams.get('q') || ''
+
+  const [query, setQuery] = useState(initialQuery)
   const [results, setResults] = useState<SearchResult[]>([])
   const [loading, setLoading] = useState(false)
   const [searched, setSearched] = useState(false)
 
-  const handleSearch = useCallback(async () => {
-    if (!query.trim()) return
+  const handleSearch = useCallback(async (q: string) => {
+    if (!q.trim()) return
     setLoading(true)
     setSearched(true)
     try {
-      const res = await fetch(`/api/search?q=${encodeURIComponent(query.trim())}`)
+      const res = await fetch(`/api/search?q=${encodeURIComponent(q.trim())}`)
       if (res.ok) {
         const data = await res.json()
         setResults(data.articles || [])
@@ -41,25 +45,32 @@ export function SearchPage() {
     } finally {
       setLoading(false)
     }
-  }, [query])
+  }, [])
+
+  // Auto-search on mount if URL has query
+  useEffect(() => {
+    if (initialQuery) {
+      handleSearch(initialQuery)
+    }
+  }, [initialQuery, handleSearch])
 
   return (
     <div className="min-h-screen bg-surface dark:bg-surface-dark">
       <LeftRail />
-      <div className="lg:ml-[56px]">
+      <div className="lg:ml-[68px]">
         <Header />
         <main className="container-likha py-4">
           <div className="mb-6 max-w-[520px]">
             <h1 className="text-[17px] font-semibold text-text-primary mb-3">Search</h1>
             <div className="relative">
-              <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-fog-gray" />
+              <Search className="absolute left-3.5 top-1/2 h-5 w-5 -translate-y-1/2 text-fog-gray" />
               <input
                 type="search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+                onKeyDown={(e) => e.key === 'Enter' && handleSearch(query)}
                 placeholder="Search articles..."
-                className="input h-10 w-full pl-10 pr-4 text-[14px]"
+                className="input h-11 w-full pl-11 pr-4 text-[14px]"
                 autoFocus
               />
             </div>

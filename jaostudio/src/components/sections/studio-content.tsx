@@ -29,18 +29,18 @@ const individualApproach = [
   },
   {
     label: 'Production mindset',
-    detail: 'Every project — regardless of size — ships with CI/CD, analytics, error monitoring, and documentation.',
+    detail: 'Every project - regardless of size - ships with CI/CD, analytics, error monitoring, and documentation.',
   },
 ]
 
 const noGoItems = [
-  'WordPress customization or template-based builds — custom architecture only',
-  'Rushed overnight delivery — quality requires structured timelines',
-  'SEO guarantees — measurable improvements yes, guarantees no',
+  'WordPress customization or template-based builds - custom architecture only',
+  'Rushed overnight delivery - quality requires structured timelines',
+  'SEO guarantees - measurable improvements yes, guarantees no',
   'Maintenance for legacy PHP or unmaintained stacks',
-  'Unmanaged scope creep — changes handled through structured process',
+  'Unmanaged scope creep - changes handled through structured process',
   'Unpaid discovery or speculative design work',
-  'Multi-channel communication sprawl — async-first, organized',
+  'Multi-channel communication sprawl - async-first, organized',
 ]
 
 export function StudioContent() {

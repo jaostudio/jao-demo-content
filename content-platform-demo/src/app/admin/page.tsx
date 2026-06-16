@@ -1,7 +1,9 @@
 import { getCurrentAuthor } from '@/lib/auth/getSession'
-import { prisma } from '@/lib/prisma'
+import { fetchAPI } from '@/lib/api/server'
+import type { ArticleSummary, AdminStatsResponse } from '@content-platform/shared'
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
+import { cookies } from 'next/headers'
 import { NEW_LAYOUT_ENABLED } from '@/lib/new/flags'
 import { AdminDashboard } from '@/components/new/pages/admin/dashboard'
 import { StatusBadge } from '@/components/status-badge'
@@ -14,35 +16,31 @@ export default async function AdminDashboardPage() {
   const author = await getCurrentAuthor()
   if (!author) redirect('/signin')
 
-  const [articles, draftCount, pendingCount, publishedCount] = await Promise.all([
-    prisma.article.findMany({
-      include: { author: true, category: true },
-      orderBy: { updatedAt: 'desc' },
-    }),
-    prisma.article.count({ where: { status: 'DRAFT' } }),
-    prisma.article.count({ where: { status: 'PENDING_REVIEW' } }),
-    prisma.article.count({ where: { status: 'PUBLISHED' } }),
-  ])
+  const cookieStore = await cookies()
+  const token = cookieStore.get('likha-token')?.value
+  const authHeaders: Record<string, string> = {}
+  if (token) authHeaders['Authorization'] = `Bearer ${token}`
 
-  const myArticles = author.role === 'ADMIN'
-    ? articles
-    : articles.filter((a) => a.authorId === author.id)
+  const [articles, stats] = await Promise.all([
+    fetchAPI<ArticleSummary[]>('/api/admin/articles', { headers: authHeaders }),
+    fetchAPI<AdminStatsResponse>('/api/admin/stats', { headers: authHeaders }),
+  ])
 
   if (NEW_LAYOUT_ENABLED) {
     return (
       <AdminDashboard
-        draftCount={draftCount}
-        pendingCount={pendingCount}
-        publishedCount={publishedCount}
-        articles={myArticles.map((a) => ({
+        draftCount={stats.draftArticles}
+        pendingCount={stats.pendingReview}
+        publishedCount={stats.publishedArticles}
+        articles={articles.map((a) => ({
           id: a.id,
           title: a.title,
           status: a.status,
           format: a.format,
           aiFreeDeclaration: a.aiFreeDeclaration,
-          authorName: a.author.name,
+          authorName: a.authorName,
           createdAt: a.createdAt,
-          category: { slug: a.category.slug, name: a.category.name },
+          category: { slug: a.categoryId, name: a.categoryName },
         }))}
       />
     )
@@ -59,15 +57,15 @@ export default async function AdminDashboardPage() {
 
       <div className="mb-4 grid grid-cols-3 gap-3">
         <div className="rounded-lg border border-border bg-card p-3 dark:border-border-dark dark:bg-card-dark">
-          <p className="text-xl font-semibold text-text-primary dark:text-slate-100">{draftCount}</p>
+          <p className="text-xl font-semibold text-text-primary dark:text-slate-100">{stats.draftArticles}</p>
           <p className="text-[11px] text-text-muted">Drafts</p>
         </div>
         <div className="rounded-lg border border-amber-200 bg-amber-50 p-3 dark:border-amber-800 dark:bg-amber-900/20">
-          <p className="text-xl font-semibold text-amber-700 dark:text-amber-400">{pendingCount}</p>
+          <p className="text-xl font-semibold text-amber-700 dark:text-amber-400">{stats.pendingReview}</p>
           <p className="text-[11px] text-amber-600 dark:text-amber-500">Pending</p>
         </div>
         <div className="rounded-lg border border-emerald-200 bg-emerald-50 p-3 dark:border-emerald-800 dark:bg-emerald-900/20">
-          <p className="text-xl font-semibold text-emerald-700 dark:text-emerald-400">{publishedCount}</p>
+          <p className="text-xl font-semibold text-emerald-700 dark:text-emerald-400">{stats.publishedArticles}</p>
           <p className="text-[11px] text-emerald-600 dark:text-emerald-500">Published</p>
         </div>
       </div>
@@ -77,17 +75,17 @@ export default async function AdminDashboardPage() {
           <h2 className="text-sm font-semibold text-text-primary dark:text-slate-100">Articles</h2>
         </div>
         <div className="divide-y divide-border dark:divide-border-dark">
-          {myArticles.length === 0 && (
+          {articles.length === 0 && (
             <IllustratedEmptyState message="No articles yet." submessage="Gumawa ng bago!" />
           )}
-          {myArticles.map((article) => (
+          {articles.map((article) => (
             <div key={article.id} className="flex items-center justify-between px-4 py-2.5">
               <div className="min-w-0 flex-1">
                 <Link href={`/admin/articles/${article.id}/edit`} className="text-sm font-medium text-text-primary hover:text-primary dark:text-slate-100">
                   {article.title}
                 </Link>
                 <p className="text-[11px] text-text-muted">
-                  {article.author.name} · {article.category.name} · {new Date(article.updatedAt).toLocaleDateString()}
+                  {article.authorName} · {article.categoryName} · {new Date(article.createdAt).toLocaleDateString()}
                 </p>
               </div>
               <div className="flex items-center gap-2">

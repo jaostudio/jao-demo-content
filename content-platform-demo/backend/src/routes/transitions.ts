@@ -1,8 +1,9 @@
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/lib/auth/auth'
-import { prisma } from '@/lib/prisma'
-import { transitionSchema } from '@/lib/validations/article'
-import { revalidateArticlePaths } from '@/lib/revalidation'
+import { Hono } from 'hono'
+import { z } from 'zod'
+import { prisma } from '../lib/prisma'
+import { authMiddleware } from '../middleware/auth'
+
+const transitions = new Hono()
 
 type ContentState = 'draft' | 'pending_review' | 'published' | 'archived'
 type ContentEvent = 'submit' | 'approve' | 'publish' | 'reject' | 'archive' | 'schedule' | 'unpublish'
@@ -26,11 +27,7 @@ const contentMachineConfig = {
   },
 }
 
-function transitionContent(
-  state: ContentState,
-  event: ContentEvent,
-  context: ContentContext
-): ContentState {
+function transitionContent(state: ContentState, event: ContentEvent, context: ContentContext): ContentState {
   if (event === 'submit' && context.actor !== 'author') return state
   if (event === 'approve' && !(context.actor === 'admin' || context.actor === 'system')) return state
   if (event === 'reject' && !(context.actor === 'admin' || context.actor === 'system')) return state
@@ -58,33 +55,35 @@ const machineToDbStatus: Record<string, string> = {
   archived: 'ARCHIVED',
 }
 
-export async function POST(req: Request, { params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params
-  const session = await getServerSession(authOptions)
-  if (!session?.user) {
-    return Response.json({ error: 'Unauthorized' }, { status: 401 })
-  }
+const transitionSchema = z.object({
+  action: z.enum(['submit', 'approve', 'reject', 'archive', 'restore']),
+})
 
-  const body = await req.json()
+// POST /api/articles/:id/transition
+transitions.post('/:id/transition', authMiddleware, async (c) => {
+  const id = c.req.param('id')
+  const userId = c.var.userId
+  const userRole = c.var.userRole
+  const body = await c.req.json()
+
   const parsed = transitionSchema.safeParse(body)
   if (!parsed.success) {
-    return Response.json({ error: 'Invalid action' }, { status: 400 })
+    return c.json({ error: 'VALIDATION', message: 'Invalid action' }, 400)
   }
 
   const { action } = parsed.data
-  const user = session.user as { id: string; role: string }
-  const isAdmin = user.role === 'ADMIN'
+  const isAdmin = userRole === 'ADMIN'
 
   const article = await prisma.article.findUnique({
     where: { id },
     include: { category: true },
   })
   if (!article) {
-    return Response.json({ error: 'Article not found' }, { status: 404 })
+    return c.json({ error: 'NOT_FOUND', message: 'Article not found' }, 404)
   }
 
-  if (!isAdmin && article.authorId !== user.id) {
-    return Response.json({ error: 'You do not own this article' }, { status: 403 })
+  if (!isAdmin && article.authorId !== userId) {
+    return c.json({ error: 'FORBIDDEN', message: 'You do not own this article' }, 403)
   }
 
   const currentState = dbStatusToMachine[article.status] ?? 'draft'
@@ -92,41 +91,36 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
 
   if (action === 'restore') {
     if (article.status !== 'ARCHIVED') {
-      return Response.json({ error: 'Only archived articles can be restored' }, { status: 400 })
+      return c.json({ error: 'BAD_REQUEST', message: 'Only archived articles can be restored' }, 400)
     }
     await prisma.article.update({
       where: { id },
       data: { status: 'DRAFT' },
     })
-    revalidateArticlePaths(article)
-    return Response.json({ ok: true })
+    return c.json({ ok: true })
   }
 
-  const result = transitionContent(
-    currentState,
-    action as ContentEvent,
-    {
-      role: isAdmin ? 'admin' : 'user',
-      actor,
-      hasRequiredSections: true,
-      isReviewed: action === 'approve' || action === 'reject',
-    },
-  )
+  const result = transitionContent(currentState, action as ContentEvent, {
+    role: isAdmin ? 'admin' : 'user',
+    actor,
+    hasRequiredSections: true,
+    isReviewed: action === 'approve' || action === 'reject',
+  })
 
   const newDbStatus = machineToDbStatus[result]
   if (!newDbStatus || newDbStatus === article.status) {
-    return Response.json({ error: 'Transition not allowed' }, { status: 400 })
+    return c.json({ error: 'BAD_REQUEST', message: 'Transition not allowed' }, 400)
   }
 
   const updateData: Record<string, unknown> = { status: newDbStatus }
   if (action === 'approve') {
     updateData.moderatedAt = new Date()
-    updateData.moderatedById = user.id
+    updateData.moderatedById = userId
     updateData.publishAt = article.publishAt ?? new Date()
   }
   if (action === 'reject') {
     updateData.moderatedAt = new Date()
-    updateData.moderatedById = user.id
+    updateData.moderatedById = userId
   }
 
   await prisma.article.update({
@@ -134,7 +128,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
     data: updateData as never,
   })
 
-  revalidateArticlePaths(article)
+  return c.json({ ok: true })
+})
 
-  return Response.json({ ok: true })
-}
+export default transitions

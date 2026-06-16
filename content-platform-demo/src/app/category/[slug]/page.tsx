@@ -1,4 +1,5 @@
-import { prisma } from '@/lib/prisma'
+import { fetchAPI } from '@/lib/api/server'
+import type { ArticleSummary, CategoryResponse } from '@content-platform/shared'
 import { notFound } from 'next/navigation'
 import { NEW_LAYOUT_ENABLED } from '@/lib/new/flags'
 import { Header } from '@/components/header'
@@ -11,13 +12,18 @@ import type { Metadata } from 'next'
 export const revalidate = 60
 
 export async function generateStaticParams() {
-  const categories = await prisma.category.findMany({ select: { slug: true } })
-  return categories.map((c) => ({ slug: c.slug }))
+  try {
+    const categories = await fetchAPI<CategoryResponse[]>('/api/categories')
+    return categories.map((c) => ({ slug: c.slug }))
+  } catch {
+    return []
+  }
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
-  const category = await prisma.category.findUnique({ where: { slug } })
+  const categories = await fetchAPI<CategoryResponse[]>('/api/categories')
+  const category = categories.find((c) => c.slug === slug)
   if (!category) return {}
   return {
     title: category.name,
@@ -27,31 +33,39 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const category = await prisma.category.findUnique({ where: { slug } })
+  let categories: CategoryResponse[] = []
+  try {
+    categories = await fetchAPI<CategoryResponse[]>('/api/categories')
+  } catch {
+    // backend unavailable
+  }
+  const category = categories.find((c) => c.slug === slug)
   if (!category) notFound()
 
-  const articles = await prisma.article.findMany({
-    where: { categoryId: category.id, status: 'PUBLISHED' },
-    include: { author: true, category: true, tags: { include: { tag: true } }, _count: { select: { comments: true } } },
-    orderBy: { publishAt: 'desc' },
-  })
+  let articles: ArticleSummary[] = []
+  try {
+    articles = await fetchAPI<ArticleSummary[]>('/api/articles')
+  } catch {
+    // backend unavailable
+  }
+  const filteredArticles = articles.filter((a) => a.categoryName === category.name)
 
   if (NEW_LAYOUT_ENABLED) {
     return (
       <NewCategoryPage
         categoryName={category.name}
-        articles={articles.map((a) => ({
+        articles={filteredArticles.map((a) => ({
           title: a.title,
           slug: a.slug,
           excerpt: a.excerpt,
-          authorName: a.author.name,
-          categoryName: a.category.name,
-          readingTime: Math.ceil(a.content.split(/\s+/).length / 200),
-          commentCount: a._count.comments,
-          image: a.imageUrl,
+          authorName: a.authorName,
+          categoryName: a.categoryName,
+          readingTime: a.readingTime,
+          commentCount: a.commentCount,
+          image: a.image,
           format: a.format,
           aiFreeDeclaration: a.aiFreeDeclaration,
-          publishAt: a.publishAt?.toISOString() ?? null,
+          publishAt: a.publishAt,
         }))}
       />
     )
@@ -63,29 +77,29 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
       <main className="mx-auto max-w-5xl px-4 py-4">
         <div className="mb-4 border-b border-border pb-4 dark:border-border-dark">
           <h1 className="text-xl font-semibold text-text-primary dark:text-slate-100">{category.name}</h1>
-          <p className="text-xs text-text-muted">{articles.length} article{articles.length !== 1 ? 's' : ''}</p>
+          <p className="text-xs text-text-muted">{filteredArticles.length} article{filteredArticles.length !== 1 ? 's' : ''}</p>
         </div>
 
         <div className="space-y-3">
-          {articles.map((article) => (
+          {filteredArticles.map((article) => (
             <ArticleCard
               key={article.id}
               title={article.title}
               slug={article.slug}
               excerpt={article.excerpt}
               content={article.content}
-              authorName={article.author.name}
-              categorySlug={article.category.slug}
-              categoryName={article.category.name}
-              publishAt={article.publishAt?.toISOString() ?? null}
-              tags={article.tags.map((t) => ({ name: t.tag.name, slug: t.tag.slug }))}
-              image={article.imageUrl}
-              commentCount={article._count.comments}
+              authorName={article.authorName}
+              categorySlug=""
+              categoryName={article.categoryName}
+              publishAt={article.publishAt}
+              tags={[]}
+              image={article.image}
+              commentCount={article.commentCount}
             />
           ))}
         </div>
 
-        {articles.length === 0 && (
+        {filteredArticles.length === 0 && (
           <IllustratedEmptyState message="Wala pang artikulo sa kategoryang ito." submessage="Balikan mo kami sa susunod!" />
         )}
       </main>

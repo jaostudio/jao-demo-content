@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useSession } from 'next-auth/react'
+import { useAuth } from '@/hooks/useAuth'
 
 interface HeroStats {
   articles: number
@@ -10,7 +10,7 @@ interface HeroStats {
 }
 
 export function HeroSection({ stats }: { stats: HeroStats }) {
-  const { data: session } = useSession()
+  const { user } = useAuth()
 
   const statItems = [
     { label: 'Articles published', value: stats.articles },
@@ -33,7 +33,7 @@ export function HeroSection({ stats }: { stats: HeroStats }) {
             <p className="mb-8 text-lg text-black/70 dark:text-white/70">
               The Philippine Community Information Hub — opinyon, kwento, at impormasyon para sa bawat Pilipino.
             </p>
-            {!session && (
+            {!user && (
               <div className="flex gap-3">
                 <Link
                   href="/register"

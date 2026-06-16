@@ -35,7 +35,7 @@ const CATEGORIES: SystemCategory[] = [
   {
     icon: '🔒',
     title: 'Compliance & Access Systems',
-    description: 'Who did what, when — and who allowed it.',
+    description: 'Who did what, when - and who allowed it.',
     includes: ['Audit trails', 'Role systems', 'Data portals'],
     usedFor: ['Access control', 'Regulatory compliance'],
     systemId: 'security',

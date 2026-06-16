@@ -15,7 +15,7 @@ export function confirmationEmail(data: ContactSubmission): string {
       </p>
       <hr style="border: none; border-top: 1px solid #eee; margin: 24px 0;" />
       <p style="font-size: 12px; color: #999; margin: 0;">
-        JAOstudio — jameson.olitoquit@gmail.com
+        JAOstudio - jameson.olitoquit@gmail.com
       </p>
     </td></tr>
   </table>
@@ -36,15 +36,15 @@ export function internalNotification(data: ContactSubmission, score: number): st
       <table style="width: 100%; border-collapse: collapse;">
         ${row('Name', data.name)}
         ${row('Email', data.email)}
-        ${row('Business', data.business || '—')}
-        ${row('Website', data.website || '—')}
+        ${row('Business', data.business || '-')}
+        ${row('Website', data.website || '-')}
         ${row('Project Type', data.project_type === 'other' ? data.project_type_other || 'Other' : data.project_type)}
         ${row('Budget', data.budget)}
         ${row('Timeline', data.timeline)}
         ${row('Priority', data.priority)}
         ${row('Source', data.source_override || data.source)}
-        ${row('Goal', data.business_goal || '—')}
-        ${row('Message', data.message || '—')}
+        ${row('Goal', data.business_goal || '-')}
+        ${row('Message', data.message || '-')}
       </table>
     </td></tr>
   </table>

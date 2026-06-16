@@ -1,7 +1,7 @@
 'use client'
 
 import { useDemoRoleStore, type DemoRole } from '@/store/demo-role-store'
-import { useSession } from 'next-auth/react'
+import { useAuth } from '@/hooks/useAuth'
 
 const roleLabels: Record<DemoRole, string> = {
   READER: 'Reader',
@@ -12,10 +12,10 @@ const roleLabels: Record<DemoRole, string> = {
 const roles: DemoRole[] = ['READER', 'AUTHOR', 'ADMIN']
 
 export function DemoRoleSwitcher() {
-  const { data: session } = useSession()
+  const { user } = useAuth()
   const { enabled, role, enableDemoMode, disableDemoMode, setRole } = useDemoRoleStore()
 
-  if (session?.user) return null
+  if (user) return null
 
   return (
     <div className="fixed bottom-20 left-2 z-50 md:bottom-4 md:left-4">

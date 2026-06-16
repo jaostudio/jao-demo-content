@@ -1,4 +1,5 @@
-import { prisma } from '@/lib/prisma'
+import { fetchAPI } from '@/lib/api/server'
+import type { ArticleSummary, CategoryResponse } from '@content-platform/shared'
 import { NEW_LAYOUT_ENABLED } from '@/lib/new/flags'
 import { Header } from '@/components/header'
 import { ArticleCard } from '@/components/article-card'
@@ -11,53 +12,56 @@ import { Homepage as NewHomepage } from '@/components/new/pages/homepage'
 export const revalidate = 60
 
 export default async function HomePage() {
-  const [articles, categories] = await Promise.all([
-    prisma.article.findMany({
-      where: { status: 'PUBLISHED' },
-      include: { author: true, category: true, tags: { include: { tag: true } }, _count: { select: { comments: true } } },
-      orderBy: { publishAt: 'desc' },
-    }),
-    prisma.category.findMany({
-      include: { _count: { select: { articles: { where: { status: 'PUBLISHED' } } } } },
-    }),
-  ])
+  let articles: ArticleSummary[] = []
+  let categories: CategoryResponse[] = []
+  try {
+    const results = await Promise.all([
+      fetchAPI<ArticleSummary[]>('/api/articles'),
+      fetchAPI<CategoryResponse[]>('/api/categories'),
+    ])
+    articles = results[0]
+    categories = results[1]
+  } catch {
+    // backend unavailable during build
+  }
 
   if (NEW_LAYOUT_ENABLED) {
     const featuredArticle = articles.length > 0 ? {
       title: articles[0].title,
       slug: articles[0].slug,
       excerpt: articles[0].excerpt,
-      authorName: articles[0].author.name,
-      categoryName: articles[0].category.name,
-      readingTime: Math.ceil(articles[0].content.split(/\s+/).length / 200),
-      commentCount: articles[0]._count.comments,
-      image: articles[0].imageUrl,
+      authorName: articles[0].authorName,
+      categoryName: articles[0].categoryName,
+      readingTime: articles[0].readingTime,
+      commentCount: articles[0].commentCount,
+      image: articles[0].image,
       format: articles[0].format,
       aiFreeDeclaration: articles[0].aiFreeDeclaration,
-      publishAt: articles[0].publishAt?.toISOString() ?? null,
+      publishAt: articles[0].publishAt,
     } : null
 
     const remainingArticles = articles.slice(1).map((a) => ({
       title: a.title,
       slug: a.slug,
       excerpt: a.excerpt,
-      authorName: a.author.name,
-      categoryName: a.category.name,
-      readingTime: Math.ceil(a.content.split(/\s+/).length / 200),
-      commentCount: a._count.comments,
-      image: a.imageUrl,
+      authorName: a.authorName,
+      categoryName: a.categoryName,
+      readingTime: a.readingTime,
+      commentCount: a.commentCount,
+      image: a.image,
       format: a.format,
       aiFreeDeclaration: a.aiFreeDeclaration,
-      publishAt: a.publishAt?.toISOString() ?? null,
+      publishAt: a.publishAt,
     }))
 
     const totalArticles = articles.length
     const totalAuthors = new Set(articles.map((a) => a.authorId)).size
-    const totalComments = articles.reduce((sum, a) => sum + a._count.comments, 0)
+    const totalComments = articles.reduce((sum, a) => sum + a.commentCount, 0)
 
     let trendingArticles = articles
-      .filter((a) => a._count.comments > 0)
-      .map((a) => ({ slug: a.slug, title: a.title, commentCount: a._count.comments }))
+      .filter((a) => a.commentCount > 0)
+      .sort((a, b) => b.likes - a.likes)
+      .map((a) => ({ slug: a.slug, title: a.title, commentCount: a.commentCount }))
       .slice(0, 5)
 
     if (trendingArticles.length === 0) {
@@ -70,7 +74,7 @@ export default async function HomePage() {
       <NewHomepage
         articles={remainingArticles}
         featuredArticle={featuredArticle}
-        categories={categories}
+        categories={categories.map((c) => ({ slug: c.slug, name: c.name, _count: { articles: c._count?.articles ?? 0 } }))}
         totalArticles={totalArticles}
         totalAuthors={totalAuthors}
         totalComments={totalComments}
@@ -102,14 +106,14 @@ export default async function HomePage() {
                 slug={articles[0].slug}
                 excerpt={articles[0].excerpt}
                 content={articles[0].content}
-                authorName={articles[0].author.name}
-                categorySlug={articles[0].category.slug}
-                categoryName={articles[0].category.name}
-                publishAt={articles[0].publishAt?.toISOString() ?? null}
-                tags={articles[0].tags.map((t) => ({ name: t.tag.name, slug: t.tag.slug }))}
-                image={articles[0].imageUrl}
+                authorName={articles[0].authorName}
+                categorySlug={categories.find(c => c.name === articles[0].categoryName)?.slug ?? ''}
+                categoryName={articles[0].categoryName}
+                publishAt={articles[0].publishAt}
+                tags={[]}
+                image={articles[0].image}
                 variant="featured"
-                commentCount={articles[0]._count.comments}
+                commentCount={articles[0].commentCount}
               />
             )}
 
@@ -120,13 +124,13 @@ export default async function HomePage() {
                 slug={article.slug}
                 excerpt={article.excerpt}
                 content={article.content}
-                authorName={article.author.name}
-                categorySlug={article.category.slug}
-                categoryName={article.category.name}
-                publishAt={article.publishAt?.toISOString() ?? null}
-                tags={article.tags.map((t) => ({ name: t.tag.name, slug: t.tag.slug }))}
-                image={article.imageUrl}
-                commentCount={article._count.comments}
+                authorName={article.authorName}
+                categorySlug={categories.find(c => c.name === article.categoryName)?.slug ?? ''}
+                categoryName={article.categoryName}
+                publishAt={article.publishAt}
+                tags={[]}
+                image={article.image}
+                commentCount={article.commentCount}
               />
             ))}
 

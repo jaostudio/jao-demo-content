@@ -14,8 +14,8 @@ interface HealthReport {
 function checkEnv(envVar: string, label: string, optional = false): SystemCheck {
   const exists = !!process.env[envVar]
   if (exists) return { name: label, status: 'ok' }
-  if (optional) return { name: label, status: 'degraded', detail: `${envVar} not set — will fall back gracefully` }
-  return { name: label, status: 'missing', detail: `${envVar} not set — feature disabled` }
+  if (optional) return { name: label, status: 'degraded', detail: `${envVar} not set - will fall back gracefully` }
+  return { name: label, status: 'missing', detail: `${envVar} not set - feature disabled` }
 }
 
 export function generateHealthReport(): HealthReport {
@@ -54,11 +54,11 @@ export function logHealthReport(): void {
 
   for (const s of report.systems) {
     const icon = s.status === 'ok' ? '  ✓' : s.status === 'degraded' ? '  ~' : '  ✗'
-    console.log(`[health] ${icon} ${s.name}${s.detail ? ` — ${s.detail}` : ''}`)
+    console.log(`[health] ${icon} ${s.name}${s.detail ? ` - ${s.detail}` : ''}`)
   }
 
   if (report.overall !== 'healthy') {
-    console.log('[health] System is running in degraded mode — some features may not work.')
+    console.log('[health] System is running in degraded mode - some features may not work.')
   }
 
   console.log('---')

@@ -28,7 +28,7 @@ const jsonLd = {
       '@type': 'ProfilePage',
       '@id': `${PERSON_ID}/#profilepage`,
       url: 'https://jaostudio.dev/cv',
-      name: 'CV — JAOstudio',
+      name: 'CV | JAOstudio',
       isPartOf: { '@id': WEBSITE_ID },
       mainEntity: { '@id': PERSON_ID },
     },

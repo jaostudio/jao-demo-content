@@ -1,4 +1,5 @@
-import { prisma } from '@/lib/prisma'
+import { fetchAPI } from '@/lib/api/server'
+import type { CategoryResponse } from '@content-platform/shared'
 import { NEW_LAYOUT_ENABLED } from '@/lib/new/flags'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
@@ -13,10 +14,12 @@ export const metadata: Metadata = {
 }
 
 export default async function CategoryIndexPage() {
-  const categories = await prisma.category.findMany({
-    include: { _count: { select: { articles: { where: { status: 'PUBLISHED' } } } } },
-    orderBy: { name: 'asc' },
-  })
+  let categories: CategoryResponse[] = []
+  try {
+    categories = await fetchAPI<CategoryResponse[]>('/api/categories')
+  } catch {
+    // backend unavailable during build
+  }
 
   if (NEW_LAYOUT_ENABLED) {
     return (
@@ -24,7 +27,7 @@ export default async function CategoryIndexPage() {
         <div className="hidden lg:block">
           {/* LeftRail is rendered in layout.tsx for new layout — skip here */}
         </div>
-        <div className="lg:ml-[56px]">
+        <div className="lg:ml-[68px]">
           <Header />
           <main className="container-likha py-4">
             <h1 className="text-[17px] font-semibold text-text-primary mb-4">Categories</h1>
@@ -37,7 +40,7 @@ export default async function CategoryIndexPage() {
                 >
                   <h2 className="text-[14px] font-semibold text-text-primary">{cat.name}</h2>
                   <p className="text-[12px] text-fog-gray mt-1">
-                    {cat._count.articles} article{cat._count.articles !== 1 ? 's' : ''}
+                    {cat._count?.articles ?? 0} article{(cat._count?.articles ?? 0) !== 1 ? 's' : ''}
                   </p>
                 </Link>
               ))}
@@ -67,7 +70,7 @@ export default async function CategoryIndexPage() {
             >
               <h2 className="text-sm font-semibold text-text-primary dark:text-slate-100">{cat.name}</h2>
               <p className="text-xs text-text-muted mt-1">
-                {cat._count.articles} article{cat._count.articles !== 1 ? 's' : ''}
+                {cat._count?.articles ?? 0} article{(cat._count?.articles ?? 0) !== 1 ? 's' : ''}
               </p>
             </Link>
           ))}

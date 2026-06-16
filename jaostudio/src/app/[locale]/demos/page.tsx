@@ -11,7 +11,7 @@ import { ORG_ID, WEBSITE_ID } from '@/lib/json-ld-ids'
 
 export async function generateMetadata() {
   return {
-    title: 'Business Systems for Real Operations — JAOstudio',
+    title: 'Business Systems for Real Operations | JAOstudio',
     description: 'Six production-ready platforms for lead generation, revenue operations, multi-vendor marketplaces, editorial workflow, internal operations, and compliance.',
   }
 }
@@ -21,9 +21,9 @@ const SYSTEM_DETAILS: Record<string, Omit<SystemContent, 'proof'>> = {
     uiLabel: 'Get More Customers',
     name: 'Lead Generation Platform',
     category: 'growth',
-    outcome: 'Convert website traffic into qualified leads and booked appointments across multiple service verticals — without manual follow-up.',
+    outcome: 'Convert website traffic into qualified leads and booked appointments across multiple service verticals - without manual follow-up.',
     description: 'Turn visitors into booked appointments. A multi-industry lead generation system with vertical-specific engines.',
-    useCase: 'Service businesses — dental, construction, real estate — that need to convert website visitors into qualified leads and booked appointments.',
+    useCase: 'Service businesses - dental, construction, real estate - that need to convert website visitors into qualified leads and booked appointments.',
     features: ['Industry vertical engine', 'Lead capture forms', 'SEO-optimized content', '7-section conversion funnel', 'Appointment scheduling integration'],
     url: 'https://jao-demo-landing.vercel.app',
     screenshot: '/images/demos/landing-hero.png',
@@ -43,7 +43,7 @@ const SYSTEM_DETAILS: Record<string, Omit<SystemContent, 'proof'>> = {
     uiLabel: 'Sell Online',
     name: 'Multi-Vendor Commerce Platform',
     category: 'platform',
-    outcome: 'Run a marketplace business from a single dashboard — onboard vendors, manage listings, and process multi-vendor transactions.',
+    outcome: 'Run a marketplace business from a single dashboard - onboard vendors, manage listings, and process multi-vendor transactions.',
     description: 'Run a marketplace, not a spreadsheet of vendors. A multi-tenant platform connecting buyers with independent vendors.',
     useCase: 'Platform businesses that need to onboard vendors, manage listings, and process multi-vendor transactions.',
     features: ['Vendor onboarding workflow', 'Multi-vendor cart', 'Listing moderation', 'Role-based dashboards', 'Commission tracking'],
@@ -77,7 +77,7 @@ const SYSTEM_DETAILS: Record<string, Omit<SystemContent, 'proof'>> = {
     name: 'Compliance & Audit Platform',
     category: 'governance',
     outcome: 'Track every action, permission change, and access event across your organization with immutable audit trails and role-based controls.',
-    description: 'Who did what, when — and who allowed it. A compliance system with audit trails, role hierarchy, and data isolation.',
+    description: 'Who did what, when - and who allowed it. A compliance system with audit trails, role hierarchy, and data isolation.',
     useCase: 'Compliance officers and IT administrators who need granular access control and immutable audit trails.',
     features: ['Immutable audit trail', 'Role hierarchy', 'Data isolation per tenant', 'Security headers', 'Access request workflow'],
     url: 'https://jao-demo-security.vercel.app',
@@ -127,7 +127,7 @@ const jsonLd = {
       '@type': 'WebPage',
       '@id': `${ORG_ID}/#demos`,
       url: 'https://jaostudio.dev/demos',
-      name: 'Business Systems for Real Operations — JAOstudio',
+      name: 'Business Systems for Real Operations | JAOstudio',
       isPartOf: { '@id': WEBSITE_ID },
     },
     {

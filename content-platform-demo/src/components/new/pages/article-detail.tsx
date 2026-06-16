@@ -69,7 +69,7 @@ export function ArticleDetail({
       <JsonLd data={jsonLd} />
       <div className="min-h-screen bg-surface dark:bg-surface-dark">
         <LeftRail />
-        <div className="lg:ml-[56px]">
+        <div className="lg:ml-[68px]">
           <Header />
           <main className="container-likha py-4">
             <Link href="/" className="inline-flex items-center gap-1 text-[11px] text-fog-gray hover:text-text-primary transition-colors mb-4">
@@ -98,7 +98,7 @@ export function ArticleDetail({
                   {aiFreeDeclaration && <AiFreeBadge />}
                 </div>
 
-                <h1 className="text-[17px] font-semibold text-text-primary leading-snug mb-2">
+                <h1 className="text-[21px] font-semibold text-text-primary leading-snug mb-2" style={{ letterSpacing: '-0.03em' }}>
                   {title}
                 </h1>
 

@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { useSession, signOut } from 'next-auth/react'
 import { usePathname } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { Search, PenLine } from 'lucide-react'
@@ -10,6 +9,7 @@ import { MobileDrawer } from '@/components/ui/mobile-drawer'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { LocaleSwitcher } from '@/components/locale-switcher'
 import { useEffectiveRole } from '@/hooks/use-effective-role'
+import { useAuth } from '@/hooks/useAuth'
 
 const avatarColors = ['bg-primary', 'bg-secondary', 'bg-accent', 'bg-rose-500', 'bg-violet-500']
 
@@ -19,7 +19,7 @@ function getAvatarColor(name: string) {
 }
 
 export function Header() {
-  const { data: session } = useSession()
+  const { user, signOut } = useAuth()
   const pathname = usePathname()
   const { role: effectiveRole } = useEffectiveRole()
   const isAuthenticated = effectiveRole === 'ADMIN' || effectiveRole === 'AUTHOR'
@@ -56,14 +56,14 @@ export function Header() {
               {t('new_article')}
             </Link>
           )}
-          {session?.user ? (
+          {user ? (
             <>
               <button
                 onClick={() => setConfirmingSignOut(true)}
-                className={`flex h-7 w-7 items-center justify-center rounded-full text-xs font-bold text-white ${getAvatarColor((session.user as { name?: string }).name ?? 'U')}`}
+                className={`flex h-7 w-7 items-center justify-center rounded-full text-xs font-bold text-white ${getAvatarColor(user.name ?? 'U')}`}
                 aria-label="Sign out"
               >
-                {((session.user as { name?: string }).name ?? 'U').charAt(0).toUpperCase()}
+                {(user.name ?? 'U').charAt(0).toUpperCase()}
               </button>
               {confirmingSignOut && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40" onClick={() => setConfirmingSignOut(false)}>

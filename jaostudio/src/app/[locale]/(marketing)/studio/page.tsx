@@ -18,7 +18,7 @@ const jsonLd = {
       '@type': 'AboutPage',
       '@id': `${ORG_ID}/#aboutpage`,
       url: 'https://jaostudio.dev/studio',
-      name: 'Studio — JAOstudio',
+      name: 'Studio | JAOstudio',
       isPartOf: { '@id': WEBSITE_ID },
       mainEntity: { '@id': ORG_ID },
     },

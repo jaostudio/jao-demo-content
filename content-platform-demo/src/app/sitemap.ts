@@ -1,25 +1,31 @@
-import { prisma } from '@/lib/prisma'
+import { fetchAPI } from '@/lib/api/server'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://jaostudio.dev'
 
 export default async function sitemap() {
-  const articles = await prisma.article.findMany({
-    where: { status: 'PUBLISHED' },
-    select: { slug: true, updatedAt: true },
-  })
+  let articleSlugs: { slug: string; updatedAt: string }[] = []
+  let categorySlugs: { slug: string }[] = []
 
-  const categories = await prisma.category.findMany({
-    select: { slug: true },
-  })
+  try {
+    articleSlugs = await fetchAPI<{ slug: string; updatedAt: string }[]>('/api/articles?select=slug')
+  } catch {
+    // backend unavailable
+  }
 
-  const articleUrls = articles.map((a) => ({
+  try {
+    categorySlugs = await fetchAPI<{ slug: string }[]>('/api/categories')
+  } catch {
+    // backend unavailable
+  }
+
+  const articleUrls = articleSlugs.map((a) => ({
     url: `${SITE_URL}/articles/${a.slug}`,
-    lastModified: a.updatedAt,
+    lastModified: new Date(a.updatedAt),
     changeFrequency: 'weekly' as const,
     priority: 0.8,
   }))
 
-  const categoryUrls = categories.map((c) => ({
+  const categoryUrls = categorySlugs.map((c) => ({
     url: `${SITE_URL}/category/${c.slug}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
@@ -32,3 +38,5 @@ export default async function sitemap() {
     ...categoryUrls,
   ]
 }
+
+

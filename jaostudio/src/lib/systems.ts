@@ -50,7 +50,7 @@ export const SYSTEMS: readonly SystemEntry[] = [
     id: 'security',
     name: 'Compliance & Audit Platform',
     category: 'governance',
-    outcome: 'Who did what, when — and who allowed it',
+    outcome: 'Who did what, when - and who allowed it',
     relatedServices: ['web-applications'],
   },
 ] as const

@@ -5,7 +5,7 @@ import { X } from 'lucide-react'
 import Link from 'next/link'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { LocaleSwitcher } from '@/components/locale-switcher'
-import { useSession } from 'next-auth/react'
+import { useAuth } from '@/hooks/useAuth'
 
 interface MobileDrawerProps {
   open: boolean
@@ -13,7 +13,7 @@ interface MobileDrawerProps {
 }
 
 export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
-  const { data: session } = useSession()
+  const { user } = useAuth()
 
   return (
     <Dialog.Root open={open} onOpenChange={(v) => !v && onClose()}>
@@ -23,7 +23,7 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
           <div className="flex items-center justify-between border-b border-hairline px-4 py-3">
             <span className="text-sm font-semibold text-text-primary">Likha</span>
             <Dialog.Close className="p-1 text-graphite hover:text-text-primary transition-colors" aria-label="Close menu">
-              <X className="h-4 w-4" />
+              <X className="h-5 w-5" />
             </Dialog.Close>
           </div>
           <nav className="flex flex-col gap-px p-2">
@@ -37,7 +37,7 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
                 Trending
               </Link>
             </Dialog.Close>
-            {session?.user && (
+            {user && (
               <>
                 <Dialog.Close asChild>
                   <Link href="/admin" className="rounded px-3 py-2 text-[13px] font-medium text-text-secondary hover:bg-surface-alt hover:text-text-primary transition-colors">

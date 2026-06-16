@@ -31,7 +31,7 @@ export function Homepage({ articles, featuredArticle, categories, totalArticles,
   return (
     <div className="min-h-screen bg-surface dark:bg-surface-dark">
       <LeftRail />
-      <div className="lg:ml-[56px]">
+      <div className="lg:ml-[68px]">
         <Header />
         <main className="mx-auto max-w-[1080px] px-5 py-5">
           <div className="grid gap-8 lg:grid-cols-[1fr_320px]">

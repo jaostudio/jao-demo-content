@@ -8,9 +8,9 @@ import { ORG_ID, WEBSITE_ID } from '@/lib/json-ld-ids'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Projects — JAOstudio',
+  title: 'Projects | JAOstudio',
   description:
-    'A selection of recent projects — business websites, web applications, dashboards, and e-commerce storefronts built for real clients.',
+    'A selection of recent projects - business websites, web applications, dashboards, and e-commerce storefronts built for real clients.',
   alternates: { canonical: 'https://jaostudio.dev/projects' },
 }
 
@@ -21,7 +21,7 @@ const jsonLd = {
       '@type': 'CollectionPage',
       '@id': `${ORG_ID}/#collectionpage`,
       url: 'https://jaostudio.dev/projects',
-      name: 'Projects — JAOstudio',
+      name: 'Projects | JAOstudio',
       isPartOf: { '@id': WEBSITE_ID },
     },
     {

@@ -15,7 +15,7 @@ const jsonLd = {
     {
       '@type': 'WebPage',
       url: 'https://jaostudio.dev/audit',
-      name: 'Free Website Audit — JAOstudio',
+      name: 'Free Website Audit | JAOstudio',
     },
     {
       '@type': 'BreadcrumbList',

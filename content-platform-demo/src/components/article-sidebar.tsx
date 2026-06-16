@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { prisma } from '@/lib/prisma'
+import { fetchAPI } from '@/lib/api/server'
+import type { ArticleSummary } from '@content-platform/shared'
 import { CategoryBadge } from '@/components/category-badge'
 import { StatusBadge } from '@/components/status-badge'
 
@@ -10,7 +11,7 @@ interface ArticleSidebarProps {
   categoryName: string
   status: string
   readingTime: number
-  publishAt: Date | null
+  publishAt: Date | string | null
 }
 
 const avatarColors = ['bg-primary', 'bg-secondary', 'bg-accent', 'bg-rose-500', 'bg-violet-500']
@@ -21,11 +22,16 @@ function getAvatarColor(name: string) {
 }
 
 export async function ArticleSidebar({ currentSlug, authorName, categorySlug, categoryName, status, readingTime, publishAt }: ArticleSidebarProps) {
-  const related = await prisma.article.findMany({
-    where: { category: { slug: categorySlug }, slug: { not: currentSlug }, status: 'PUBLISHED' },
-    select: { title: true, slug: true },
-    take: 3,
-  })
+  let related: { title: string; slug: string }[] = []
+  try {
+    const articles = await fetchAPI<ArticleSummary[]>('/api/articles')
+    related = articles
+      .filter((a) => a.slug !== currentSlug)
+      .slice(0, 3)
+      .map((a) => ({ title: a.title, slug: a.slug }))
+  } catch {
+    // fallback
+  }
 
   return (
     <aside className="space-y-3">

@@ -20,7 +20,7 @@ export default function OG() {
     >
       <div style={{ fontSize: 48, fontWeight: 600, letterSpacing: '-0.02em' }}>Live Projects</div>
       <div style={{ marginTop: 16, fontSize: 24, color: '#A1A1AA', textAlign: 'center', maxWidth: 600 }}>
-        Tools I build and maintain — running live code
+        Tools I build and maintain - running live code
       </div>
     </div>,
     { ...size },

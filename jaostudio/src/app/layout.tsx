@@ -28,14 +28,14 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'JAOstudio — Web Developer',
+  title: 'JAOstudio | Web Developer',
   description:
-    "I've fixed hundreds of broken websites. Now I build new ones from scratch. No templates, no page builders — just clean, working code.",
+    "I've fixed hundreds of broken websites. Now I build new ones from scratch. No templates, no page builders - just clean, working code.",
   metadataBase: new URL('https://jaostudio.dev'),
   openGraph: {
-    title: 'JAOstudio — Web Developer',
+    title: 'JAOstudio | Web Developer',
     description:
-      "I've fixed hundreds of broken websites. Now I build new ones from scratch. No templates, no page builders — just clean, working code.",
+      "I've fixed hundreds of broken websites. Now I build new ones from scratch. No templates, no page builders - just clean, working code.",
     url: 'https://jaostudio.dev',
     siteName: 'JAOstudio',
     locale: 'en_US',
@@ -43,9 +43,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'JAOstudio — Web Developer',
+    title: 'JAOstudio | Web Developer',
     description:
-      "I've fixed hundreds of broken websites. Now I build new ones from scratch. No templates, no page builders — just clean, working code.",
+      "I've fixed hundreds of broken websites. Now I build new ones from scratch. No templates, no page builders - just clean, working code.",
   },
   robots: {
     index: true,
@@ -90,7 +90,7 @@ export default async function RootLayout({
         name: 'JAOstudio',
         url: 'https://jaostudio.dev',
         description:
-          "Custom websites, dashboards, and tools built from scratch — no templates.",
+          "Custom websites, dashboards, and tools built from scratch - no templates.",
         areaServed: 'Worldwide',
         serviceType: 'Web Development',
         provider: { '@id': ORG_ID },

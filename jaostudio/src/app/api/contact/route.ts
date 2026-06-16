@@ -15,7 +15,7 @@ function requestId(): string {
 
 async function sendEmails(data: Record<string, string>, type: 'contact' | 'audit') {
   if (!RESEND_API_KEY) {
-    console.log('[contact] Resend not configured — skipping email delivery')
+    console.log('[contact] Resend not configured - skipping email delivery')
     return
   }
 
@@ -27,8 +27,8 @@ async function sendEmails(data: Record<string, string>, type: 'contact' | 'audit
       from: FROM_ADDRESS,
       to: data.email,
       subject: type === 'contact'
-        ? 'Thanks for reaching out — JAOstudio'
-        : 'Audit request received — JAOstudio',
+        ? 'Thanks for reaching out - JAOstudio'
+        : 'Audit request received - JAOstudio',
       html: confirmationEmail(data as any),
     })
   } catch (err) {
@@ -42,7 +42,7 @@ async function sendEmails(data: Record<string, string>, type: 'contact' | 'audit
     await resend.emails.send({
       from: FROM_ADDRESS,
       to: CONTACT_EMAIL,
-      subject: `New ${type} from ${data.name}${type === 'contact' ? ` — Score: ${score}` : ''}`,
+      subject: `New ${type} from ${data.name}${type === 'contact' ? ` - Score: ${score}` : ''}`,
       html: internalNotification(data as any, score),
     })
   } catch (err) {

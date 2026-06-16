@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = projects.find((p) => p.slug === slug)
   if (!project) return {}
 
-  const title = `${project.title} — JAOstudio`
+  const title = `${project.title} | JAOstudio`
   const description = project.summary
 
   return {

@@ -1,8 +1,9 @@
 import { getCurrentAuthor } from '@/lib/auth/getSession'
-import { prisma } from '@/lib/prisma'
+import { fetchAPI } from '@/lib/api/server'
+import type { CategoryResponse } from '@content-platform/shared'
 import { redirect } from 'next/navigation'
 import { ArticleForm } from '../article-form'
-import { createArticle } from '@/lib/actions/articles'
+import { createArticle } from '@/lib/actions/article-actions'
 
 export const dynamic = 'force-dynamic'
 
@@ -11,8 +12,8 @@ export default async function NewArticlePage() {
   if (!author) redirect('/signin')
 
   const [categories, tags] = await Promise.all([
-    prisma.category.findMany({ orderBy: { name: 'asc' } }),
-    prisma.tag.findMany({ orderBy: { name: 'asc' } }),
+    fetchAPI<CategoryResponse[]>('/api/categories'),
+    fetchAPI<{ id: string; name: string }[]>('/api/tags').catch(() => []),
   ])
 
   return (

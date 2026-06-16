@@ -20,7 +20,7 @@ const jsonLd = {
       '@type': 'WebPage',
       '@id': `${ORG_ID}/#live-projects`,
       url: 'https://jaostudio.dev/live-projects',
-      name: 'Live Projects — JAOstudio',
+      name: 'Live Projects | JAOstudio',
       isPartOf: { '@id': WEBSITE_ID },
     },
     {

@@ -1,10 +1,12 @@
 import { getCurrentAuthor } from '@/lib/auth/getSession'
-import { prisma } from '@/lib/prisma'
+import { fetchAPI } from '@/lib/api/server'
+import type { ArticleSummary, CategoryResponse } from '@content-platform/shared'
 import { redirect } from 'next/navigation'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import { cookies } from 'next/headers'
 import { ArticleForm } from '../../article-form'
-import { updateArticle } from '@/lib/actions/articles'
+import { updateArticle } from '@/lib/actions/article-actions'
 
 export const dynamic = 'force-dynamic'
 
@@ -13,11 +15,23 @@ export default async function EditArticlePage({ params }: { params: Promise<{ id
   if (!author) redirect('/signin')
 
   const { id: articleId } = await params
-  const article = await prisma.article.findUnique({
-    where: { id: articleId },
-    include: { tags: true },
-  })
-  if (!article) notFound()
+
+  const cookieStore = await cookies()
+  const token = cookieStore.get('likha-token')?.value
+  const authHeaders: Record<string, string> = {}
+  if (token) authHeaders['Authorization'] = `Bearer ${token}`
+
+  let article: ArticleSummary
+  try {
+    article = await fetchAPI<ArticleSummary>(`/api/admin/articles`, { headers: authHeaders })
+      .then((articles) => {
+        const found = (articles as unknown as ArticleSummary[]).find((a) => a.id === articleId)
+        if (!found) throw new Error('not found')
+        return found
+      })
+  } catch {
+    notFound()
+  }
 
   if (article.authorId !== author.id && author.role !== 'ADMIN') redirect('/admin')
   if (article.status === 'PENDING_REVIEW' && author.role !== 'ADMIN') {
@@ -25,8 +39,8 @@ export default async function EditArticlePage({ params }: { params: Promise<{ id
   }
 
   const [categories, tags] = await Promise.all([
-    prisma.category.findMany({ orderBy: { name: 'asc' } }),
-    prisma.tag.findMany({ orderBy: { name: 'asc' } }),
+    fetchAPI<CategoryResponse[]>('/api/categories'),
+    fetchAPI<{ id: string; name: string }[]>('/api/tags').catch(() => []),
   ])
 
   const updateAction = updateArticle.bind(null, articleId)
@@ -52,8 +66,8 @@ export default async function EditArticlePage({ params }: { params: Promise<{ id
           content: article.content,
           categoryId: article.categoryId,
           format: article.format,
-          imageUrl: article.imageUrl,
-          tags: article.tags.map((t) => ({ tagId: t.tagId })),
+          imageUrl: article.image,
+          tags: [],
         }}
         action={updateAction}
       />

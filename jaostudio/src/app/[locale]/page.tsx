@@ -20,7 +20,7 @@ const jsonLd = {
       '@type': 'WebPage',
       '@id': `${ORG_ID}/#webpage`,
       url: 'https://jaostudio.dev',
-      name: 'JAOstudio — Custom Websites & Web Applications',
+      name: 'JAOstudio | Custom Websites & Web Applications',
       isPartOf: { '@id': WEBSITE_ID },
       about: { '@id': ORG_ID },
     },

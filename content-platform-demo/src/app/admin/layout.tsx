@@ -9,7 +9,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     return (
       <div className="min-h-screen bg-surface dark:bg-surface-dark">
         <LeftRail />
-        <div className="lg:ml-[56px]">
+        <div className="lg:ml-[68px]">
           <NewHeader />
           <div className="mx-auto flex max-w-5xl gap-6 px-4 py-4">
             <Sidebar />

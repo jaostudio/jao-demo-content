@@ -3,8 +3,8 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { signIn } from 'next-auth/react'
 import { useTranslations } from 'next-intl'
+import { useAuth } from '@/hooks/useAuth'
 
 export default function RegisterForm() {
   const router = useRouter()
@@ -13,6 +13,7 @@ export default function RegisterForm() {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const t = useTranslations('auth')
+  const { signIn } = useAuth()
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -30,8 +31,8 @@ export default function RegisterForm() {
       return
     }
 
-    const result = await signIn('credentials', { email, password, redirect: false })
-    if (result?.ok) {
+    const result = await signIn(email, password)
+    if (!result.error) {
       router.push('/admin')
       router.refresh()
     }

@@ -1,11 +1,11 @@
 'use client'
 
 import { useState } from 'react'
-import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 import { Button } from '../../ui/button'
+import { useAuth } from '@/hooks/useAuth'
 
 export function SignInPage() {
   const router = useRouter()
@@ -13,14 +13,15 @@ export function SignInPage() {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const t = useTranslations('auth')
+  const { signIn } = useAuth()
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     setError('')
 
-    const result = await signIn('credentials', { email, password, redirect: false })
+    const result = await signIn(email, password)
 
-    if (result?.error) {
+    if (result.error) {
       setError(t('invalid_credentials'))
     } else {
       router.push('/admin')

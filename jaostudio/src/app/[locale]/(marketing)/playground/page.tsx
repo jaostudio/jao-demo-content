@@ -16,7 +16,7 @@ const jsonLd = {
     {
       '@type': 'WebPage',
       url: 'https://jaostudio.dev/playground',
-      name: 'Playground — JAOstudio',
+      name: 'Playground | JAOstudio',
     },
     {
       '@type': 'BreadcrumbList',

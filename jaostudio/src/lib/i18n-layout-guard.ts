@@ -8,7 +8,7 @@ export function warnLayoutRisk(text: string, context: 'button' | 'label', key?: 
   const limit = LIMITS[context]
   if (text.length > limit) {
     console.warn(
-      `[i18n] ${key || text} (${text.length} chars) exceeds ${context} limit (${limit}) — may cause layout overflow.`,
+      `[i18n] ${key || text} (${text.length} chars) exceeds ${context} limit (${limit}) - may cause layout overflow.`,
     )
   }
 }

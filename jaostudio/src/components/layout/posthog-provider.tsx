@@ -13,7 +13,7 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (!POSTHOG_KEY) {
       if (process.env.NODE_ENV === 'development') {
-        console.warn('[PostHog] Missing NEXT_PUBLIC_POSTHOG_KEY — analytics disabled')
+        console.warn('[PostHog] Missing NEXT_PUBLIC_POSTHOG_KEY - analytics disabled')
       }
       return
     }

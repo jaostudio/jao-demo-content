@@ -1,4 +1,5 @@
-import { prisma } from '@/lib/prisma'
+import { fetchAPI } from '@/lib/api/server'
+import type { ArticleSummary } from '@content-platform/shared'
 import { NEW_LAYOUT_ENABLED } from '@/lib/new/flags'
 import { Header } from '@/components/header'
 import { ArticleCard } from '@/components/article-card'
@@ -14,19 +15,12 @@ export const metadata: Metadata = {
 }
 
 export default async function TrendingPage() {
-  const articles = await prisma.article.findMany({
-    where: { status: 'PUBLISHED' },
-    include: {
-      author: true,
-      category: true,
-      tags: { include: { tag: true } },
-      _count: { select: { comments: true } },
-    },
-    orderBy: [
-      { likes: 'desc' },
-      { publishAt: 'desc' },
-    ],
-  })
+  let articles: ArticleSummary[] = []
+  try {
+    articles = await fetchAPI<ArticleSummary[]>('/api/trending')
+  } catch {
+    // backend unavailable during build
+  }
 
   if (NEW_LAYOUT_ENABLED) {
     return (
@@ -35,14 +29,14 @@ export default async function TrendingPage() {
           title: a.title,
           slug: a.slug,
           excerpt: a.excerpt,
-          authorName: a.author.name,
-          categoryName: a.category.name,
-          readingTime: Math.ceil(a.content.split(/\s+/).length / 200),
-          commentCount: a._count.comments,
-          image: a.imageUrl,
+          authorName: a.authorName,
+          categoryName: a.categoryName,
+          readingTime: a.readingTime,
+          commentCount: a.commentCount,
+          image: a.image,
           format: a.format,
           aiFreeDeclaration: a.aiFreeDeclaration,
-          publishAt: a.publishAt?.toISOString() ?? null,
+          publishAt: a.publishAt,
           likes: a.likes,
         }))}
       />
@@ -65,13 +59,13 @@ export default async function TrendingPage() {
               slug={article.slug}
               excerpt={article.excerpt}
               content={article.content}
-              authorName={article.author.name}
-              categorySlug={article.category.slug}
-              categoryName={article.category.name}
-              publishAt={article.publishAt?.toISOString() ?? null}
-              tags={article.tags.map((t) => ({ name: t.tag.name, slug: t.tag.slug }))}
-              image={article.imageUrl}
-              commentCount={article._count.comments}
+              authorName={article.authorName}
+              categorySlug=""
+              categoryName={article.categoryName}
+              publishAt={article.publishAt}
+              tags={[]}
+              image={article.image}
+              commentCount={article.commentCount}
             />
           ))}
           {articles.length === 0 && (

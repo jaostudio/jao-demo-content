@@ -1,21 +1,30 @@
 import Link from 'next/link'
-import { prisma } from '@/lib/prisma'
+import { fetchAPI } from '@/lib/api/server'
+import type { ArticleSummary, CategoryResponse } from '@content-platform/shared'
 
 interface HomeSidebarProps {
-  categories: { name: string; slug: string; _count: { articles: number } }[]
+  categories: CategoryResponse[]
 }
 
 export async function HomeSidebar({ categories }: HomeSidebarProps) {
-  const trending = await prisma.article.findMany({
-    where: { status: 'PUBLISHED' },
-    select: { title: true, slug: true, _count: { select: { comments: true } } },
-    orderBy: { publishAt: 'desc' },
-    take: 5,
-  })
+  let trending: { title: string; slug: string; commentCount: number }[] = []
+  let totalArticles = 0
+  let totalAuthors = 0
+  let totalComments = 0
 
-  const totalArticles = await prisma.article.count({ where: { status: 'PUBLISHED' } })
-  const totalAuthors = await prisma.author.count()
-  const totalComments = await prisma.comment.count()
+  try {
+    const articles = await fetchAPI<ArticleSummary[]>('/api/trending')
+    trending = articles.slice(0, 5).map((a) => ({
+      title: a.title,
+      slug: a.slug,
+      commentCount: a.commentCount,
+    }))
+    totalArticles = articles.length
+    totalAuthors = new Set(articles.map((a) => a.authorId)).size
+    totalComments = articles.reduce((sum, a) => sum + a.commentCount, 0)
+  } catch {
+    // fallback
+  }
 
   return (
     <aside className="space-y-3">
@@ -53,7 +62,7 @@ export async function HomeSidebar({ categories }: HomeSidebarProps) {
           {categories.map((cat) => (
             <Link key={cat.slug} href={`/category/${cat.slug}`} className="flex items-center justify-between py-1.5 text-xs transition-colors hover:text-primary">
               <span className="text-text-secondary">{cat.name}</span>
-              <span className="text-text-muted">{cat._count.articles}</span>
+              <span className="text-text-muted">{cat._count?.articles ?? 0}</span>
             </Link>
           ))}
         </div>
@@ -68,7 +77,7 @@ export async function HomeSidebar({ categories }: HomeSidebarProps) {
               <span className="mt-0.5 text-[10px] font-bold text-text-muted">{i + 1}</span>
               <div className="min-w-0 flex-1">
                 <p className="text-xs font-medium text-text-primary line-clamp-2 dark:text-slate-100">{article.title}</p>
-                <p className="mt-0.5 text-[10px] text-text-muted">{article._count.comments} comments</p>
+                <p className="mt-0.5 text-[10px] text-text-muted">{article.commentCount} comments</p>
               </div>
             </Link>
           ))}

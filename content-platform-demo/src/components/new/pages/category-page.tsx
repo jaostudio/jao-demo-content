@@ -25,7 +25,7 @@ export function CategoryPage({ categoryName, articles }: CategoryPageProps) {
   return (
     <div className="min-h-screen bg-surface dark:bg-surface-dark">
       <LeftRail />
-      <div className="lg:ml-[56px]">
+      <div className="lg:ml-[68px]">
         <Header />
         <main className="container-likha py-4">
           <div className="mb-4">

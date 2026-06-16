@@ -260,7 +260,7 @@ function ContactForm() {
           </form>
 
           <p className="mt-4 text-sm leading-relaxed text-text-tertiary">
-            You&apos;re not just getting a coder. You&apos;re getting someone who has solved hundreds of real-world website problems. Tell me about your project — I&apos;ll respond within 24 hours with honest feedback.
+            You&apos;re not just getting a coder. You&apos;re getting someone who has solved hundreds of real-world website problems. Tell me about your project - I&apos;ll respond within 24 hours with honest feedback.
           </p>
 
             <motion.div

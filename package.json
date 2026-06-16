@@ -6,6 +6,8 @@
     "commerce-demo",
     "marketplace-demo",
     "content-platform-demo",
+    "content-platform-demo/shared",
+    "content-platform-demo/backend",
     "landingpage-demo",
     "database-security-demo",
     "web-application-demo"
