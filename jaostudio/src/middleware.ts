@@ -15,7 +15,6 @@ export default function middleware(request: NextRequest) {
       maxAge: 31536000,
       sameSite: 'lax',
       secure: true,
-      httpOnly: true,
     })
   }
   return response
