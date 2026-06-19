@@ -31,12 +31,12 @@ export const metadata: Metadata = {
   title: 'JAOstudio | Web Developer',
   description:
     "I've fixed hundreds of broken websites. Now I build new ones from scratch. No templates, no page builders - just clean, working code.",
-  metadataBase: new URL('https://jaostudio.dev'),
+  metadataBase: new URL('https://jaostudio.vercel.app'),
   openGraph: {
     title: 'JAOstudio | Web Developer',
     description:
       "I've fixed hundreds of broken websites. Now I build new ones from scratch. No templates, no page builders - just clean, working code.",
-    url: 'https://jaostudio.dev',
+    url: 'https://jaostudio.vercel.app',
     siteName: 'JAOstudio',
     locale: 'en_US',
     type: 'website',
@@ -75,10 +75,10 @@ export default async function RootLayout({
         '@type': 'Organization',
         '@id': ORG_ID,
         name: 'JAOstudio',
-        url: 'https://jaostudio.dev',
+        url: 'https://jaostudio.vercel.app',
         description:
           "I've fixed hundreds of broken websites. Now I build new ones from scratch.",
-        logo: 'https://jaostudio.dev/favicon.svg',
+        logo: 'https://jaostudio.vercel.app/favicon.svg',
         sameAs: [
           'https://github.com/jaoce',
           'https://linkedin.com/in/jamesonolitoquit',
@@ -88,7 +88,7 @@ export default async function RootLayout({
         '@type': 'ProfessionalService',
         '@id': SERVICE_ID,
         name: 'JAOstudio',
-        url: 'https://jaostudio.dev',
+        url: 'https://jaostudio.vercel.app',
         description:
           "Custom websites, dashboards, and tools built from scratch - no templates.",
         areaServed: 'Worldwide',
@@ -100,7 +100,7 @@ export default async function RootLayout({
         '@id': PERSON_ID,
         name: 'Jameson Olitoquit',
         jobTitle: 'Independent Web Developer',
-        url: 'https://jaostudio.dev',
+        url: 'https://jaostudio.vercel.app',
         sameAs: [
           'https://github.com/jaoce',
           'https://linkedin.com/in/jamesonolitoquit',
@@ -111,7 +111,7 @@ export default async function RootLayout({
         '@type': 'WebSite',
         '@id': WEBSITE_ID,
         name: 'JAOstudio',
-        url: 'https://jaostudio.dev',
+        url: 'https://jaostudio.vercel.app',
       },
     ],
   }
