@@ -1,14 +1,13 @@
 import { ImageResponse } from 'next/og'
-import fs from 'fs'
-import path from 'path'
 
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
+export const runtime = 'nodejs'
+export const dynamic = 'force-dynamic'
 
 const BG = '#050505'
 const FRAME_BG = '#1A1A1A'
 const FRAME_BORDER = '#333333'
-const FG = '#FAFAFA'
 const MUTED = '#A1A1AA'
 const ACCENT = '#7C3AED'
 
@@ -18,26 +17,9 @@ function getBaseUrl(): string {
   return 'https://jaostudio.dev'
 }
 
-function getScreenshotUrl(): string {
-  try {
-    const cwd = process.cwd()
-    const candidates = [
-      path.join(cwd, 'jaostudio', 'public', 'images', 'og', 'og-home.png'),
-      path.join(cwd, 'public', 'images', 'og', 'og-home.png'),
-    ]
-    for (const fp of candidates) {
-      if (fs.existsSync(fp)) {
-        const buf = fs.readFileSync(fp)
-        return `data:image/png;base64,${buf.toString('base64')}`
-      }
-    }
-  } catch { /* */ }
-  const base = getBaseUrl()
-  return `${base}/images/og/og-home.png`
-}
-
 export default function RootOGImage() {
-  const imgSrc = getScreenshotUrl()
+  const baseUrl = getBaseUrl()
+  const screenshotSrc = `${baseUrl}/images/og/og-home.png`
 
   return new ImageResponse(
     (
@@ -105,7 +87,7 @@ export default function RootOGImage() {
             </div>
           </div>
           <img
-            src={imgSrc}
+            src={screenshotSrc}
             style={{
               width: '100%',
               flex: 1,
