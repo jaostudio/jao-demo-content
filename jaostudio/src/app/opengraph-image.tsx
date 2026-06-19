@@ -11,14 +11,28 @@ export default function RootOGImage() {
           width: '100%',
           height: '100%',
           display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
           background: '#050505',
+          color: '#FAFAFA',
+          fontFamily: 'system-ui',
+          fontSize: '64px',
+          fontWeight: 500,
+          gap: '24px',
+          padding: '40px',
+          textAlign: 'center',
         }}
       >
-        <img
-          src="https://jaostudio.vercel.app/images/og/og-home.png"
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-          alt=""
-        />
+        <span style={{ color: '#7C3AED', letterSpacing: '0.3em', textTransform: 'uppercase', fontSize: '24px' }}>
+          jaostudio
+        </span>
+        <span>
+          OGs {process.env.VERCEL_URL || 'local'}
+        </span>
+        <span style={{ fontSize: '20px', color: '#A1A1AA' }}>
+          {process.env.NEXT_PUBLIC_VERCEL_ENV || 'dev'}
+        </span>
       </div>
     ),
     { ...size },
