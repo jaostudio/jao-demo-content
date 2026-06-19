@@ -23,7 +23,7 @@ function getScreenshotDataUri(): string | null {
   }
 }
 
-export default function OpenGraphImage() {
+export default function TwitterImage() {
   const screenshotUri = getScreenshotDataUri()
 
   return new ImageResponse(

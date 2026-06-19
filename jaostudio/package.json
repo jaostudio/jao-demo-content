@@ -24,6 +24,7 @@
     "i18n:funnel": "node ./scripts/funnel-qa.js",
     "i18n:cta": "node ./scripts/cta-consistency.js",
     "i18n:orphans": "node ./scripts/orphan-detection.js",
+    "capture:og": "node scripts/capture-og.js",
     "test:e2e": "playwright test"
   },
   "dependencies": {
