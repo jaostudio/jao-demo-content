@@ -13,14 +13,20 @@ const MUTED = '#A1A1AA'
 const ACCENT = '#7C3AED'
 
 function getScreenshotDataUri(): string | null {
-  try {
-    const filePath = path.join(process.cwd(), 'public', 'images', 'og', 'og-home.png')
-    const buffer = fs.readFileSync(filePath)
-    const base64 = buffer.toString('base64')
-    return `data:image/png;base64,${base64}`
-  } catch {
-    return null
+  const cwd = process.cwd()
+  const candidates = [
+    path.join(cwd, 'jaostudio', 'public', 'images', 'og', 'og-home.png'),
+    path.join(cwd, 'public', 'images', 'og', 'og-home.png'),
+  ]
+  for (const filePath of candidates) {
+    try {
+      if (fs.existsSync(filePath)) {
+        const buffer = fs.readFileSync(filePath)
+        return `data:image/png;base64,${buffer.toString('base64')}`
+      }
+    } catch { /* continue */ }
   }
+  return null
 }
 
 export default function TwitterImage() {
