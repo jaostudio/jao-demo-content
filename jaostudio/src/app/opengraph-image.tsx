@@ -4,25 +4,6 @@ import path from 'path'
 
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
-export const runtime = 'nodejs'
-export const dynamic = 'force-dynamic'
-
-function tryReadScreenshot(): string | null {
-  const cwd = process.cwd()
-  const candidates = [
-    path.join(cwd, 'jaostudio', 'public', 'images', 'og', 'og-home.png'),
-    path.join(cwd, 'public', 'images', 'og', 'og-home.png'),
-  ]
-  for (const fp of candidates) {
-    try {
-      if (fs.existsSync(fp)) {
-        const buf = fs.readFileSync(fp)
-        return `data:image/png;base64,${buf.toString('base64')}`
-      }
-    } catch { /* */ }
-  }
-  return null
-}
 
 const BG = '#050505'
 const FRAME_BG = '#1A1A1A'
@@ -31,8 +12,32 @@ const FG = '#FAFAFA'
 const MUTED = '#A1A1AA'
 const ACCENT = '#7C3AED'
 
+function getBaseUrl(): string {
+  const vercelUrl = process.env.VERCEL_URL
+  if (vercelUrl) return `https://${vercelUrl}`
+  return 'https://jaostudio.dev'
+}
+
+function getScreenshotUrl(): string {
+  try {
+    const cwd = process.cwd()
+    const candidates = [
+      path.join(cwd, 'jaostudio', 'public', 'images', 'og', 'og-home.png'),
+      path.join(cwd, 'public', 'images', 'og', 'og-home.png'),
+    ]
+    for (const fp of candidates) {
+      if (fs.existsSync(fp)) {
+        const buf = fs.readFileSync(fp)
+        return `data:image/png;base64,${buf.toString('base64')}`
+      }
+    }
+  } catch { /* */ }
+  const base = getBaseUrl()
+  return `${base}/images/og/og-home.png`
+}
+
 export default function RootOGImage() {
-  const screenshotUri = tryReadScreenshot()
+  const imgSrc = getScreenshotUrl()
 
   return new ImageResponse(
     (
@@ -99,37 +104,16 @@ export default function RootOGImage() {
               </div>
             </div>
           </div>
-          {screenshotUri ? (
-            <img
-              src={screenshotUri}
-              style={{
-                width: '100%',
-                flex: 1,
-                objectFit: 'cover',
-                display: 'flex',
-              }}
-              alt=""
-            />
-          ) : (
-            <div
-              style={{
-                flex: 1,
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '12px',
-                padding: '40px',
-              }}
-            >
-              <span style={{ fontSize: '20px', color: ACCENT, letterSpacing: '0.3em', textTransform: 'uppercase' }}>
-                JAOstudio
-              </span>
-              <h1 style={{ fontSize: '42px', color: FG, fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 1.2, margin: 0, textAlign: 'center', maxWidth: '700px' }}>
-                Custom Websites | Web Applications | Automation Systems
-              </h1>
-            </div>
-          )}
+          <img
+            src={imgSrc}
+            style={{
+              width: '100%',
+              flex: 1,
+              objectFit: 'cover',
+              display: 'flex',
+            }}
+            alt=""
+          />
         </div>
         <div
           style={{

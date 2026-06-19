@@ -12,25 +12,32 @@ const FG = '#FAFAFA'
 const MUTED = '#A1A1AA'
 const ACCENT = '#7C3AED'
 
-function getScreenshotDataUri(): string | null {
-  const cwd = process.cwd()
-  const candidates = [
-    path.join(cwd, 'jaostudio', 'public', 'images', 'og', 'og-home.png'),
-    path.join(cwd, 'public', 'images', 'og', 'og-home.png'),
-  ]
-  for (const filePath of candidates) {
-    try {
-      if (fs.existsSync(filePath)) {
-        const buffer = fs.readFileSync(filePath)
-        return `data:image/png;base64,${buffer.toString('base64')}`
+function getBaseUrl(): string {
+  const vercelUrl = process.env.VERCEL_URL
+  if (vercelUrl) return `https://${vercelUrl}`
+  return 'https://jaostudio.dev'
+}
+
+function getScreenshotUrl(): string {
+  try {
+    const cwd = process.cwd()
+    const candidates = [
+      path.join(cwd, 'jaostudio', 'public', 'images', 'og', 'og-home.png'),
+      path.join(cwd, 'public', 'images', 'og', 'og-home.png'),
+    ]
+    for (const fp of candidates) {
+      if (fs.existsSync(fp)) {
+        const buf = fs.readFileSync(fp)
+        return `data:image/png;base64,${buf.toString('base64')}`
       }
-    } catch { /* continue */ }
-  }
-  return null
+    }
+  } catch { /* */ }
+  const base = getBaseUrl()
+  return `${base}/images/og/og-home.png`
 }
 
 export default function TwitterImage() {
-  const screenshotUri = getScreenshotDataUri()
+  const imgSrc = getScreenshotUrl()
 
   return new ImageResponse(
     (
@@ -93,44 +100,20 @@ export default function TwitterImage() {
                   color: MUTED,
                 }}
               >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="#A1A1AA"/>
-                </svg>
                 <span>jaostudio.dev</span>
               </div>
             </div>
           </div>
-          {screenshotUri ? (
-            <img
-              src={screenshotUri}
-              style={{
-                width: '100%',
-                flex: 1,
-                objectFit: 'cover',
-                display: 'flex',
-              }}
-              alt=""
-            />
-          ) : (
-            <div
-              style={{
-                flex: 1,
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '12px',
-                padding: '40px',
-              }}
-            >
-              <span style={{ fontSize: '20px', color: ACCENT, letterSpacing: '0.3em', textTransform: 'uppercase' }}>
-                JAOstudio
-              </span>
-              <h1 style={{ fontSize: '42px', color: FG, fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 1.2, margin: 0, textAlign: 'center', maxWidth: '700px' }}>
-                Custom Websites | Web Applications | Automation Systems
-              </h1>
-            </div>
-          )}
+          <img
+            src={imgSrc}
+            style={{
+              width: '100%',
+              flex: 1,
+              objectFit: 'cover',
+              display: 'flex',
+            }}
+            alt=""
+          />
         </div>
         <div
           style={{
