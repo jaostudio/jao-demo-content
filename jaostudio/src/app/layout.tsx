@@ -40,9 +40,11 @@ export const metadata: Metadata = {
     siteName: 'JAOstudio',
     locale: 'en_US',
     type: 'website',
+    images: [{ url: '/api/og', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
+    images: ['/api/og'],
     title: 'JAOstudio | Web Developer',
     description:
       "I've fixed hundreds of broken websites. Now I build new ones from scratch. No templates, no page builders - just clean, working code.",
