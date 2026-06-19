@@ -19,15 +19,25 @@ function getScreenshotDataUri(): string | null {
   const candidates = [
     path.join(cwd, 'jaostudio', 'public', 'images', 'og', 'og-home.png'),
     path.join(cwd, 'public', 'images', 'og', 'og-home.png'),
+    path.resolve('/var/task', 'public', 'images', 'og', 'og-home.png'),
+    path.resolve('/var/task', 'jaostudio', 'public', 'images', 'og', 'og-home.png'),
   ]
   for (const filePath of candidates) {
     try {
       if (fs.existsSync(filePath)) {
+        process.stdout.write('[OG] FOUND at ' + filePath + '\n')
         const buffer = fs.readFileSync(filePath)
         return `data:image/png;base64,${buffer.toString('base64')}`
       }
-    } catch { /* continue */ }
+      process.stdout.write('[OG] MISS at ' + filePath + '\n')
+    } catch (e) {
+      process.stdout.write('[OG] ERROR at ' + filePath + ': ' + (e as Error).message + '\n')
+    }
   }
+  process.stdout.write('[OG] CWD=' + cwd + '\n')
+  try {
+    process.stdout.write('[OG] LS=' + fs.readdirSync(cwd).join(',') + '\n')
+  } catch { /* */ }
   return null
 }
 
