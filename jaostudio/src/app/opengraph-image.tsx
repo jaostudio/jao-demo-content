@@ -21,11 +21,15 @@ function getScreenshotDataUri(): string | null {
   for (const filePath of candidates) {
     try {
       if (fs.existsSync(filePath)) {
+        console.log('[OG] Found screenshot at:', filePath)
         const buffer = fs.readFileSync(filePath)
         return `data:image/png;base64,${buffer.toString('base64')}`
       }
+      console.log('[OG] Not found:', filePath)
     } catch { /* continue */ }
   }
+  console.log('[OG] CWD:', cwd)
+  console.log('[OG] Dir listing:', fs.readdirSync(cwd).slice(0, 10))
   return null
 }
 
