@@ -1,13 +1,14 @@
 import { fetchAPI } from '@/lib/api/server'
 import type { ArticleSummary } from '@content-platform/shared'
-import { LeftRail } from '@/components/new/layout/left-rail'
-import { Header } from '@/components/new/layout/header'
+import { AppShell } from '@/components/new/layout/app-shell'
+import { RightPanel } from '@/components/new/layout/right-panel'
 import { ArticleCard } from '@/components/new/article/article-card'
 import { Avatar } from '@/components/new/ui/avatar'
+import { EmptyState } from '@/components/new/ui/empty-state'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 
-export const revalidate = 60
+export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Explore',
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
 export default async function ExplorePage() {
   let articles: ArticleSummary[] = []
   let categories: { slug: string; name: string }[] = []
+  let error = false
   try {
     const [arts, cats] = await Promise.all([
       fetchAPI<ArticleSummary[]>('/api/articles'),
@@ -25,7 +27,19 @@ export default async function ExplorePage() {
     articles = arts
     categories = cats
   } catch {
-    // backend unavailable
+    error = true
+  }
+
+  if (error && articles.length === 0) {
+    return (
+      <AppShell rightPanel={<RightPanel categories={categories} />}>
+        <EmptyState
+          title="Could not load works"
+          description="Something went wrong. Try again."
+          action={<Link href="/" className="btn btn-accent btn-sm">Home</Link>}
+        />
+      </AppShell>
+    )
   }
 
   const humanMade = articles.filter((a) => a.aiFreeDeclaration)
@@ -37,16 +51,20 @@ export default async function ExplorePage() {
   ).slice(0, 6)
 
   return (
-    <div className="min-h-screen bg-surface dark:bg-surface-dark">
-      <LeftRail />
-      <div className="lg:ml-[68px]">
-        <Header />
-        <main className="mx-auto max-w-[1080px] px-5 py-5">
-          <div className="mb-6">
-            <h1 className="text-[17px] font-semibold text-text-primary">Explore</h1>
-            <p className="text-[12px] text-fog-gray mt-1">Discover artists, process notes, and live works.</p>
-          </div>
+    <AppShell rightPanel={<RightPanel categories={categories} />}>
+      <div className="mb-6">
+        <h1 className="text-[17px] font-semibold text-text-primary">Explore</h1>
+        <p className="text-[12px] text-fog-gray mt-1">Discover artists, process notes, and live works.</p>
+      </div>
 
+      {articles.length === 0 ? (
+        <EmptyState
+          title="No works to explore yet"
+          description="Be the first to publish."
+          action={<Link href="/admin/articles/new" className="btn btn-accent btn-sm">New Work</Link>}
+        />
+      ) : (
+        <>
           {/* Featured Works */}
           {featured.length > 0 && (
             <section className="mb-8">
@@ -170,15 +188,8 @@ export default async function ExplorePage() {
               </div>
             </section>
           )}
-
-          {articles.length === 0 && (
-            <div className="py-16 text-center">
-              <p className="text-[14px] text-fog-gray">No works to explore yet.</p>
-              <p className="text-[12px] text-ash mt-1">Be the first to publish.</p>
-            </div>
-          )}
-        </main>
-      </div>
-    </div>
+        </>
+      )}
+    </AppShell>
   )
 }

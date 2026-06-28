@@ -23,10 +23,10 @@ export function RightPanel({ categories, trending = [], suggestedAuthors = [] }:
 
   return (
     <aside className="space-y-6">
-      {/* Suggested Follows */}
+      {/* Featured Artists */}
       {suggestedAuthors.length > 0 && (
         <div>
-          <h3 className="mb-3 text-[14px] font-semibold text-text-primary">Suggested follows</h3>
+          <h3 className="mb-3 text-[14px] font-semibold text-text-primary">Featured Artists</h3>
           <div className="space-y-4">
             {suggestedAuthors.map((user) => (
               <div key={user.id} className="flex items-center gap-3">
@@ -48,7 +48,7 @@ export function RightPanel({ categories, trending = [], suggestedAuthors = [] }:
 
       {/* Categories */}
       <div>
-        <h3 className="mb-3 text-[14px] font-semibold text-text-primary">Explore</h3>
+        <h3 className="mb-3 text-[14px] font-semibold text-text-primary">Discover Categories</h3>
         <div className="space-y-px">
           {categories.map((cat) => (
             <Link
@@ -79,7 +79,7 @@ export function RightPanel({ categories, trending = [], suggestedAuthors = [] }:
                   <p className="text-[14px] font-medium text-text-primary line-clamp-2">
                     {item.title}
                   </p>
-                  <p className="mt-0.5 text-[12px] text-fog-gray">{item.commentCount} comments</p>
+                  <p className="mt-0.5 text-[12px] text-fog-gray">{item.commentCount} conversations</p>
                 </div>
               </Link>
             ))}

@@ -2,6 +2,8 @@ import { fetchAPI } from '@/lib/api/server'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://jaostudio.dev'
 
+export const dynamic = 'force-dynamic'
+
 export default async function sitemap() {
   let articles: { slug: string; createdAt: string }[] = []
   let categorySlugs: { slug: string }[] = []

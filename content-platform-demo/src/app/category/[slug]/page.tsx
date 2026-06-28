@@ -1,24 +1,12 @@
 import { fetchAPI } from '@/lib/api/server'
 import type { ArticleSummary, CategoryResponse } from '@content-platform/shared'
 import { notFound } from 'next/navigation'
-import { NEW_LAYOUT_ENABLED } from '@/lib/new/flags'
-import { Header } from '@/components/header'
-import { ArticleCard } from '@/components/article-card'
-import { IllustratedEmptyState } from '@/components/illustrated-empty-state'
-import { Footer } from '@/components/footer'
-import { CategoryPage as NewCategoryPage } from '@/components/new/pages/category-page'
+import { AppShell } from '@/components/new/layout/app-shell'
+import { ArticleCard } from '@/components/new/article/article-card'
+import { EmptyState } from '@/components/new/ui/empty-state'
 import type { Metadata } from 'next'
 
-export const revalidate = 60
-
-export async function generateStaticParams() {
-  try {
-    const categories = await fetchAPI<CategoryResponse[]>('/api/categories')
-    return categories.map((c) => ({ slug: c.slug }))
-  } catch {
-    return []
-  }
-}
+export const dynamic = 'force-dynamic'
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
@@ -43,67 +31,56 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
   if (!category) notFound()
 
   let articles: ArticleSummary[] = []
+  let error = false
   try {
     articles = await fetchAPI<ArticleSummary[]>('/api/articles')
   } catch {
-    // backend unavailable
+    error = true
   }
   const filteredArticles = articles.filter((a) => a.categoryName === category.name)
 
-  if (NEW_LAYOUT_ENABLED) {
+  if (error && filteredArticles.length === 0) {
     return (
-      <NewCategoryPage
-        categoryName={category.name}
-        articles={filteredArticles.map((a) => ({
-          title: a.title,
-          slug: a.slug,
-          excerpt: a.excerpt,
-          authorName: a.authorName,
-          categoryName: a.categoryName,
-          readingTime: a.readingTime,
-          commentCount: a.commentCount,
-          image: a.image,
-          format: a.format,
-          aiFreeDeclaration: a.aiFreeDeclaration,
-          publishAt: a.publishAt,
-        }))}
-      />
+      <AppShell>
+        <EmptyState
+          title="Could not load works"
+          description="Something went wrong. Try again."
+          action={<a href={`/category/${slug}`} className="btn btn-accent btn-sm">Retry</a>}
+        />
+      </AppShell>
     )
   }
 
   return (
-    <>
-      <Header />
-      <main className="mx-auto max-w-5xl px-4 py-4">
-        <div className="mb-4 border-b border-border pb-4 dark:border-border-dark">
-          <h1 className="text-xl font-semibold text-text-primary dark:text-slate-100">{category.name}</h1>
-          <p className="text-xs text-text-muted">{filteredArticles.length} work{filteredArticles.length !== 1 ? 's' : ''}</p>
-        </div>
+    <AppShell>
+      <div className="mb-6">
+        <h1 className="text-[17px] font-semibold text-text-primary">{category.name}</h1>
+        <p className="text-[12px] text-fog-gray mt-1">{filteredArticles.length} work{filteredArticles.length !== 1 ? 's' : ''}</p>
+      </div>
 
-        <div className="space-y-3">
+      {filteredArticles.length === 0 ? (
+        <EmptyState title="No works in this category yet" description="Check back later for new works." />
+      ) : (
+        <div className="space-y-4">
           {filteredArticles.map((article) => (
             <ArticleCard
-              key={article.id}
+              key={article.slug}
               title={article.title}
               slug={article.slug}
               excerpt={article.excerpt}
-              content={article.content}
               authorName={article.authorName}
-              categorySlug=""
               categoryName={article.categoryName}
-              publishAt={article.publishAt}
-              tags={[]}
-              image={article.image}
+              readingTime={article.readingTime}
               commentCount={article.commentCount}
+              image={article.image}
+              format={article.format}
+              aiFreeDeclaration={article.aiFreeDeclaration}
+              provenanceStatus={article.provenanceStatus}
+              publishAt={article.publishAt}
             />
           ))}
         </div>
-
-        {filteredArticles.length === 0 && (
-          <IllustratedEmptyState message="Wala pang work sa kategoryang ito." submessage="Balikan mo kami sa susunod!" />
-        )}
-      </main>
-      <Footer />
-    </>
+      )}
+    </AppShell>
   )
 }
