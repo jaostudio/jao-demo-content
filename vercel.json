@@ -1,5 +1,6 @@
 {
-  "installCommand": "npm install",
-  "buildCommand": "npm run build -w content-platform-demo",
-  "outputDirectory": "content-platform-demo/.next"
+  "rootDirectory": "content-platform-demo",
+  "buildCommand": "cd .. && npm install && npm run build -w content-platform-demo",
+  "outputDirectory": ".next",
+  "installCommand": "cd .. && npm install"
 }
