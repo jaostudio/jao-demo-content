@@ -1,5 +1,6 @@
 import { Hono } from 'hono'
 import { prisma } from '../lib/prisma'
+import { canEngageWithArticle } from '../lib/visibility'
 
 const likes = new Hono()
 
@@ -10,10 +11,10 @@ likes.post('/:id/like', async (c) => {
 
   const article = await prisma.article.findUnique({
     where: { id },
-    select: { slug: true, likes: true },
+    select: { status: true, likes: true },
   })
-  if (!article) {
-    return c.json({ error: 'NOT_FOUND', message: 'Article not found' }, 404)
+  if (!article || !canEngageWithArticle(article)) {
+    return c.json({ error: 'NOT_FOUND', message: 'Work not found' }, 404)
   }
 
   const delta = action === 'unlike' ? -1 : 1

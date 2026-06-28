@@ -20,6 +20,8 @@ trending.get('/', async (c) => {
     image: a.imageUrl,
     format: a.format,
     aiFreeDeclaration: a.aiFreeDeclaration,
+    provenanceStatus: a.provenanceStatus,
+    provenanceNote: a.provenanceNote,
     readingTime: Math.ceil(a.content.split(/\s+/).length / 200),
     status: a.status,
     publishAt: a.publishAt?.toISOString() ?? null,

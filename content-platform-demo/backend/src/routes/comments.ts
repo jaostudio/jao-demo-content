@@ -1,6 +1,8 @@
 import { Hono } from 'hono'
 import { z } from 'zod'
 import { prisma } from '../lib/prisma'
+import { canViewArticle } from '../lib/visibility'
+import { verifyJwt } from '../lib/jwt'
 
 const comments = new Hono()
 
@@ -13,6 +15,28 @@ const commentSchema = z.object({
 // GET /api/articles/:id/comments
 comments.get('/:id/comments', async (c) => {
   const id = c.req.param('id')
+
+  const article = await prisma.article.findUnique({
+    where: { id },
+    select: { status: true, authorId: true },
+  })
+  if (!article) {
+    return c.json({ error: 'NOT_FOUND', message: 'Article not found' }, 404)
+  }
+
+  let user: { id: string; role: string } | null = null
+  const authHeader = c.req.header('Authorization')
+  if (authHeader?.startsWith('Bearer ')) {
+    const payload = verifyJwt(authHeader.slice(7))
+    if (payload) {
+      user = { id: payload.id as string, role: payload.role as string }
+    }
+  }
+
+  if (!canViewArticle({ article, user })) {
+    return c.json({ error: 'NOT_FOUND', message: 'Article not found' }, 404)
+  }
+
   const all = await prisma.comment.findMany({
     where: { articleId: id },
     orderBy: { createdAt: 'desc' },

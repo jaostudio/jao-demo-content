@@ -37,6 +37,7 @@ export default async function HomePage() {
       image: articles[0].image,
       format: articles[0].format,
       aiFreeDeclaration: articles[0].aiFreeDeclaration,
+      provenanceStatus: articles[0].provenanceStatus,
       publishAt: articles[0].publishAt,
     } : null
 
@@ -51,12 +52,15 @@ export default async function HomePage() {
       image: a.image,
       format: a.format,
       aiFreeDeclaration: a.aiFreeDeclaration,
+      provenanceStatus: a.provenanceStatus,
       publishAt: a.publishAt,
     }))
 
     const totalArticles = articles.length
     const totalAuthors = new Set(articles.map((a) => a.authorId)).size
     const totalComments = articles.reduce((sum, a) => sum + a.commentCount, 0)
+
+    const uniqueAuthors = Array.from(new Map(articles.map((a) => [a.authorId, { id: a.authorId, name: a.authorName, role: 'Artist' }])).values())
 
     let trendingArticles = articles
       .filter((a) => a.commentCount > 0)
@@ -79,6 +83,7 @@ export default async function HomePage() {
         totalAuthors={totalAuthors}
         totalComments={totalComments}
         trending={trendingArticles}
+        suggestedAuthors={uniqueAuthors}
       />
     )
   }

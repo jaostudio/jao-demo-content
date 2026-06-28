@@ -2,43 +2,38 @@
 
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 import { toast } from 'sonner'
 import { AlertDialog } from '@/components/ui/alert-dialog'
 import { useEffectiveRole } from '@/hooks/use-effective-role'
 
-const actionMap: Record<string, { action: string; label: string; variant: string; destructive?: boolean }[]> = {
-  DRAFT: [
-    { action: 'submit', label: 'Submit', variant: 'primary' },
-    { action: 'delete', label: 'Delete', variant: 'danger', destructive: true },
-  ],
-  PENDING_REVIEW: [
-    { action: 'approve', label: 'Approve', variant: 'success' },
-    { action: 'reject', label: 'Reject', variant: 'danger', destructive: true },
-    { action: 'delete', label: 'Delete', variant: 'danger', destructive: true },
-  ],
-  PUBLISHED: [
-    { action: 'archive', label: 'Archive', variant: 'danger', destructive: true },
-    { action: 'delete', label: 'Delete', variant: 'danger', destructive: true },
-  ],
-  ARCHIVED: [
-    { action: 'restore', label: 'Restore', variant: 'primary' },
-    { action: 'delete', label: 'Delete', variant: 'danger', destructive: true },
-  ],
+const ACTION_KEYS: Record<string, string> = {
+  submit: 'article.submit_for_review',
+  approve: 'article.approve',
+  reject: 'article.reject',
+  archive: 'article.archive',
+  restore: 'article.restore',
+  delete: 'article.delete_permanently',
 }
 
-const confirmMessages: Record<string, { title: string; description: string }> = {
-  archive: {
-    title: 'Archive this article?',
-    description: 'It will be hidden from public pages. You can restore it later.',
-  },
-  reject: {
-    title: 'Reject this article?',
-    description: 'It will be sent back to draft. The author can resubmit after making changes.',
-  },
-  delete: {
-    title: 'Delete this article permanently?',
-    description: 'This action cannot be undone. The article and all its data will be removed.',
-  },
+const actionMap: Record<string, { action: string; labelKey: string; variant: string; destructive?: boolean }[]> = {
+  DRAFT: [
+    { action: 'submit', labelKey: 'article.submit_for_review', variant: 'primary' },
+    { action: 'delete', labelKey: 'article.delete_permanently', variant: 'danger', destructive: true },
+  ],
+  PENDING_REVIEW: [
+    { action: 'approve', labelKey: 'article.approve', variant: 'success' },
+    { action: 'reject', labelKey: 'article.reject', variant: 'danger', destructive: true },
+    { action: 'delete', labelKey: 'article.delete_permanently', variant: 'danger', destructive: true },
+  ],
+  PUBLISHED: [
+    { action: 'archive', labelKey: 'article.archive', variant: 'danger', destructive: true },
+    { action: 'delete', labelKey: 'article.delete_permanently', variant: 'danger', destructive: true },
+  ],
+  ARCHIVED: [
+    { action: 'restore', labelKey: 'article.restore', variant: 'primary' },
+    { action: 'delete', labelKey: 'article.delete_permanently', variant: 'danger', destructive: true },
+  ],
 }
 
 export function TransitionButtons({ articleId, status }: { articleId: string; status: string }) {
@@ -46,16 +41,27 @@ export function TransitionButtons({ articleId, status }: { articleId: string; st
   const [loading, setLoading] = useState<string | null>(null)
   const [confirmAction, setConfirmAction] = useState<string | null>(null)
   const { isDemoMode } = useEffectiveRole()
+  const t = useTranslations()
+  const err = useTranslations('errors')
+  const toastT = useTranslations('toast')
 
   const actions = actionMap[status]
   if (!actions) return null
+
+  const verbMap: Record<string, string> = {
+    delete: 'deleted',
+    approve: 'approved',
+    reject: 'rejected',
+    archive: 'archived',
+    restore: 'restored',
+  }
 
   async function handle(action: string) {
     setConfirmAction(null)
 
     if (isDemoMode) {
-      const verb = action === 'delete' ? 'deleted' : action === 'approve' ? 'approved' : action === 'reject' ? 'rejected' : action === 'archive' ? 'archived' : action === 'restore' ? 'restored' : 'updated'
-      toast('Demo mode', { description: `You would have ${verb} this article. Log in to perform real changes.` })
+      const verb = verbMap[action] || 'updated'
+      toast(toastT('demo_title'), { description: toastT('demo_message', { action: verb }) })
       return
     }
 
@@ -65,10 +71,10 @@ export function TransitionButtons({ articleId, status }: { articleId: string; st
         const res = await fetch(`/api/articles/${articleId}`, { method: 'DELETE' })
         const data = await res.json()
         if (!res.ok) {
-          toast.error(data.error || 'Delete failed')
+          toast.error(data.error || err('something_wrong'))
           return
         }
-        toast.success('Article permanently deleted')
+        toast.success(toastT('article_archived'))
         router.refresh()
         return
       }
@@ -80,19 +86,18 @@ export function TransitionButtons({ articleId, status }: { articleId: string; st
       })
       const data = await res.json()
       if (!res.ok) {
-        toast.error(data.error || 'Something went wrong')
+        toast.error(data.error || err('something_wrong'))
         return
       }
-      toast.success(
-        action === 'approve' ? 'Article approved and published' :
-        action === 'archive' ? 'Article archived' :
-        action === 'reject' ? 'Article rejected' :
-        action === 'restore' ? 'Article restored to draft' :
-        'Article updated',
-      )
+      const toastKey =
+        action === 'approve' ? 'article_approved' :
+        action === 'archive' ? 'article_archived' :
+        action === 'reject' ? 'article_rejected' :
+        'article_updated'
+      toast.success(toastT(toastKey))
       router.refresh()
     } catch {
-      toast.error('Network error. Check your connection.')
+      toast.error(err('network_error'))
     } finally {
       setLoading(null)
     }
@@ -120,21 +125,18 @@ export function TransitionButtons({ articleId, status }: { articleId: string; st
             disabled={loading === a.action}
             className={`rounded-full px-2.5 py-1 text-[11px] font-medium transition-colors ${variantClasses[a.variant]} disabled:opacity-50`}
           >
-            {loading === a.action ? '...' : a.label}
+            {loading === a.action ? '...' : t(a.labelKey)}
           </button>
         ))}
       </div>
 
-      {confirmAction && confirmMessages[confirmAction] && (
+      {confirmAction && ['archive', 'reject'].includes(confirmAction) && (
         <AlertDialog
           open={true}
           onOpenChange={(open) => { if (!open) setConfirmAction(null) }}
-          title={confirmMessages[confirmAction].title}
-          description={confirmMessages[confirmAction].description}
-          confirmLabel={
-            confirmAction === 'delete' ? 'Delete Permanently' :
-            confirmAction === 'archive' ? 'Archive' : 'Reject'
-          }
+          title={t(`confirm.${confirmAction}_title`)}
+          description={t(`confirm.${confirmAction}_desc`)}
+          confirmLabel={t(`confirm.${confirmAction}_btn`)}
           onConfirm={() => handle(confirmAction)}
           variant="danger"
         />

@@ -2,16 +2,18 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Home, Search, PenLine, TrendingUp, Menu } from 'lucide-react'
+import { Home, Search, PenLine, TrendingUp, Compass, Menu } from 'lucide-react'
 import { Avatar } from '../ui/avatar'
 import { useAuth } from '@/hooks/useAuth'
 import { useState } from 'react'
 import { MobileDrawer } from './mobile-drawer'
+import { MobileBottomNav } from './mobile-bottom-nav'
 
 const NAV_ITEMS = [
   { href: '/', icon: Home, label: 'Home' },
-  { href: '/search', icon: Search, label: 'Search' },
+  { href: '/explore', icon: Compass, label: 'Explore' },
   { href: '/trending', icon: TrendingUp, label: 'Trending' },
+  { href: '/search', icon: Search, label: 'Search' },
 ]
 
 export function LeftRail() {
@@ -81,6 +83,7 @@ export function LeftRail() {
       </nav>
 
       <MobileDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
+      <MobileBottomNav />
     </>
   )
 }

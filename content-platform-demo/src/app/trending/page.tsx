@@ -11,7 +11,7 @@ export const revalidate = 60
 
 export const metadata: Metadata = {
   title: 'Trending',
-  description: 'Trending articles on Likha.',
+  description: 'Trending works on Likha.',
 }
 
 export default async function TrendingPage() {
@@ -36,6 +36,7 @@ export default async function TrendingPage() {
           image: a.image,
           format: a.format,
           aiFreeDeclaration: a.aiFreeDeclaration,
+          provenanceStatus: a.provenanceStatus,
           publishAt: a.publishAt,
           likes: a.likes,
         }))}
@@ -49,7 +50,7 @@ export default async function TrendingPage() {
       <main className="mx-auto max-w-5xl px-4 py-4">
         <div className="mb-4 border-b border-border pb-4 dark:border-border-dark">
           <h1 className="text-xl font-semibold text-text-primary dark:text-slate-100">Trending</h1>
-          <p className="text-xs text-text-muted">Most liked and discussed articles</p>
+          <p className="text-xs text-text-muted">Most liked and discussed works</p>
         </div>
         <div className="space-y-3">
           {articles.map((article) => (
@@ -70,7 +71,7 @@ export default async function TrendingPage() {
           ))}
           {articles.length === 0 && (
             <div className="py-16 text-center">
-              <p className="text-sm text-text-muted">Wala pang trending articles.</p>
+              <p className="text-sm text-text-muted">Wala pang trending works.</p>
             </div>
           )}
         </div>

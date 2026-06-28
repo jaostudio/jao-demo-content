@@ -1,4 +1,37 @@
-export default function Loading() {
+import { Skeleton, SkeletonCard } from '@/components/new/ui/skeleton'
+import { LeftRail } from '@/components/new/layout/left-rail'
+import { Header } from '@/components/new/layout/header'
+import { NEW_LAYOUT_ENABLED } from '@/lib/new/flags'
+
+function NewLayoutLoading() {
+  return (
+    <div className="min-h-screen bg-surface dark:bg-surface-dark">
+      <LeftRail />
+      <div className="lg:ml-[68px]">
+        <Header />
+        <main className="mx-auto max-w-[1080px] px-5 py-5">
+          <div className="grid gap-8 lg:grid-cols-[1fr_320px]">
+            <div className="space-y-4">
+              <div className="flex items-center gap-4 pb-3">
+                <Skeleton className="h-4 w-10" />
+                <Skeleton className="h-4 w-10" />
+                <Skeleton className="h-4 w-10" />
+              </div>
+              <SkeletonCard />
+              <SkeletonCard />
+              <SkeletonCard />
+            </div>
+            <div className="hidden lg:block">
+              <Skeleton className="h-80 w-full rounded-lg" />
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  )
+}
+
+function OldLayoutLoading() {
   return (
     <main className="mx-auto max-w-5xl px-4 py-4">
       <div className="space-y-3">
@@ -16,4 +49,9 @@ export default function Loading() {
       </div>
     </main>
   )
+}
+
+export default function Loading() {
+  if (NEW_LAYOUT_ENABLED) return <NewLayoutLoading />
+  return <OldLayoutLoading />
 }

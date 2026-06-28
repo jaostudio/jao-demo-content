@@ -46,13 +46,13 @@ export function AdminDashboard({ draftCount, pendingCount, publishedCount, artic
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-[17px] font-semibold text-text-primary">Pangkalahatang View</h1>
-          <p className="text-[11px] text-fog-gray mt-0.5">All articles in the system</p>
+          <h1 className="text-[17px] font-semibold text-text-primary">Studio Overview</h1>
+          <p className="text-[11px] text-fog-gray mt-0.5">All works in the system</p>
         </div>
         <Link href="/admin/articles/new">
           <Button variant="dark" size="sm">
             <Plus className="h-3.5 w-3.5" />
-            New Article
+            New Work
           </Button>
         </Link>
       </div>
@@ -66,7 +66,7 @@ export function AdminDashboard({ draftCount, pendingCount, publishedCount, artic
             </div>
             <div>
               <p className="text-[17px] font-semibold text-text-primary">{draftCount}</p>
-              <p className="text-[11px] text-fog-gray">Drafts</p>
+              <p className="text-[11px] text-fog-gray">Studio Drafts</p>
             </div>
           </div>
         </Card>
@@ -77,7 +77,7 @@ export function AdminDashboard({ draftCount, pendingCount, publishedCount, artic
             </div>
             <div>
               <p className="text-[17px] font-semibold text-text-primary">{pendingCount}</p>
-              <p className="text-[11px] text-fog-gray">Pending Review</p>
+              <p className="text-[11px] text-fog-gray">In Review</p>
             </div>
           </div>
         </Card>
@@ -88,13 +88,13 @@ export function AdminDashboard({ draftCount, pendingCount, publishedCount, artic
             </div>
             <div>
               <p className="text-[17px] font-semibold text-text-primary">{publishedCount}</p>
-              <p className="text-[11px] text-fog-gray">Published</p>
+              <p className="text-[11px] text-fog-gray">Live</p>
             </div>
           </div>
         </Card>
       </div>
 
-      {/* Article Table */}
+      {/* Works Table */}
       <Card className="overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-xs">
@@ -127,7 +127,7 @@ export function AdminDashboard({ draftCount, pendingCount, publishedCount, artic
                   <td className="px-3 py-2">
                     <span className={`inline-flex items-center gap-1 rounded px-2 py-0.5 text-[10px] font-medium border ${statusColor(a.status)}`}>
                       {statusIcon(a.status)}
-                      {a.status === 'PENDING_REVIEW' ? 'For Review' : a.status.charAt(0) + a.status.slice(1).toLowerCase()}
+                      {a.status === 'PENDING_REVIEW' ? 'In Review' : a.status.charAt(0) + a.status.slice(1).toLowerCase()}
                     </span>
                   </td>
                   <td className="px-3 py-2 text-fog-gray hidden md:table-cell">

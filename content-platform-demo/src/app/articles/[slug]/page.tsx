@@ -1,5 +1,5 @@
 import { fetchAPI } from '@/lib/api/server'
-import type { ArticleDetail } from '@content-platform/shared'
+import type { ArticleDetail, ArticleVersionResponse } from '@content-platform/shared'
 import { notFound } from 'next/navigation'
 import { NEW_LAYOUT_ENABLED } from '@/lib/new/flags'
 import { Header } from '@/components/header'
@@ -74,6 +74,13 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     // comments unavailable
   }
 
+  let versions: ArticleVersionResponse[] = []
+  try {
+    versions = await fetchAPI<ArticleVersionResponse[]>(`/api/articles/${detail.id}/versions`)
+  } catch {
+    // versions unavailable
+  }
+
   if (NEW_LAYOUT_ENABLED) {
     return (
       <NewArticleDetail
@@ -99,9 +106,11 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         articleId={detail.id}
         format={detail.format}
         aiFreeDeclaration={detail.aiFreeDeclaration}
+        provenanceStatus={detail.provenanceStatus}
         likes={detail.likes}
         jsonLd={detail.jsonLd}
         image={detail.image}
+        versions={versions}
       />
     )
   }

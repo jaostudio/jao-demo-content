@@ -2,6 +2,7 @@ import { Hono } from 'hono'
 import { z } from 'zod'
 import { prisma } from '../lib/prisma'
 import { authMiddleware, adminMiddleware } from '../middleware/auth'
+import { canViewArticle } from '../lib/visibility'
 
 const articles = new Hono()
 
@@ -23,6 +24,8 @@ function mapArticle(a: any) {
     image: a.imageUrl,
     format: a.format,
     aiFreeDeclaration: a.aiFreeDeclaration,
+    provenanceStatus: a.provenanceStatus,
+    provenanceNote: a.provenanceNote,
     readingTime: readingTime(a.content),
     status: a.status,
     publishAt: a.publishAt?.toISOString() ?? null,
@@ -44,6 +47,36 @@ articles.get('/', async (c) => {
     orderBy: { publishAt: 'desc' },
   })
   return c.json(all.map(mapArticle))
+})
+
+// GET /api/articles/:id/versions - version history (auth required)
+articles.get('/:id/versions', authMiddleware, async (c) => {
+  const id = c.req.param('id')
+  const userId = c.var.userId
+  const userRole = c.var.userRole
+
+  const article = await prisma.article.findUnique({
+    where: { id },
+    select: { status: true, authorId: true },
+  })
+  if (!article || !canViewArticle({ article, user: { id: userId, role: userRole } })) {
+    return c.json({ error: 'NOT_FOUND', message: 'Article not found' }, 404)
+  }
+
+  const versions = await prisma.articleVersion.findMany({
+    where: { articleId: id },
+    orderBy: { version: 'desc' },
+  })
+
+  return c.json(versions.map((v) => ({
+    id: v.id,
+    title: `Version ${v.version}`,
+    content: v.content,
+    changeNote: v.changeNote,
+    mediaUrl: v.mediaUrl,
+    createdAt: v.createdAt.toISOString(),
+    version: v.version,
+  })))
 })
 
 // GET /api/articles/:slug - public detail
@@ -136,6 +169,59 @@ articles.post('/', authMiddleware, async (c) => {
   })
 
   return c.json(mapArticle(article), 201)
+})
+
+// POST /api/articles/:id/collect - save to collection
+articles.post('/:id/collect', authMiddleware, async (c) => {
+  const userId = c.var.userId as string
+  const articleId = c.req.param('id')
+
+  const article = await prisma.article.findUnique({
+    where: { id: articleId },
+    select: { status: true },
+  })
+  if (!article || article.status !== 'PUBLISHED') {
+    return c.json({ error: 'NOT_FOUND', message: 'Work not found' }, 404)
+  }
+
+  let col = await prisma.collection.findFirst({
+    where: { ownerId: userId, slug: 'default' },
+  })
+  if (!col) {
+    col = await prisma.collection.create({
+      data: { ownerId: userId, slug: 'default', title: 'Saved Works' },
+    })
+  }
+
+  const existing = await prisma.collectionItem.findUnique({
+    where: { collectionId_articleId: { collectionId: col.id, articleId } },
+  })
+  if (existing) {
+    return c.json({ message: 'Already saved' }, 200)
+  }
+
+  await prisma.collectionItem.create({
+    data: { collectionId: col.id, articleId },
+  })
+
+  return c.json({ message: 'Saved to collection' }, 201)
+})
+
+// DELETE /api/articles/:id/collect - remove from collection
+articles.delete('/:id/collect', authMiddleware, async (c) => {
+  const userId = c.var.userId as string
+  const articleId = c.req.param('id')
+
+  const col = await prisma.collection.findFirst({
+    where: { ownerId: userId, slug: 'default' },
+  })
+  if (!col) return c.json({ message: 'Not saved' }, 200)
+
+  await prisma.collectionItem.deleteMany({
+    where: { collectionId: col.id, articleId },
+  })
+
+  return c.json({ message: 'Removed from collection' })
 })
 
 // DELETE /api/articles/:id - admin only

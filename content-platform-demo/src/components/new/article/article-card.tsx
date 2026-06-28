@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { Card } from '../ui/card'
 import { Avatar } from '../ui/avatar'
+import { ProvenanceBadge } from '@/components/provenance-badge'
 import { Heart, MessageCircle, Share2, Clock } from 'lucide-react'
 
 interface ArticleCardProps {
@@ -17,6 +18,7 @@ interface ArticleCardProps {
   image?: string | null
   format?: string
   aiFreeDeclaration?: boolean
+  provenanceStatus?: string
   publishAt: Date | string | null
 }
 
@@ -36,11 +38,11 @@ function timeAgo(date: Date | string): string {
 
 export function ArticleCard({
   title, slug, excerpt, authorName, categoryName,
-  readingTime, commentCount, image, format, publishAt,
+  readingTime, commentCount, image, format, aiFreeDeclaration, provenanceStatus, publishAt, isFeatured,
 }: ArticleCardProps) {
   return (
     <Link href={`/articles/${slug}`} className="block group">
-      <Card className="overflow-hidden">
+      <Card className={`overflow-hidden ${isFeatured ? 'border-reactor-green/20' : ''}`}>
         {/* Creator Header */}
         <div className="flex items-center gap-2.5 px-4 py-3">
           <Avatar name={authorName} size="md" />
@@ -51,7 +53,7 @@ export function ArticleCard({
 
         {/* Media */}
         {image && (
-          <div className="relative w-full aspect-[4/3] overflow-hidden">
+          <div className={`relative w-full ${isFeatured ? 'aspect-[16/9]' : 'aspect-[4/3]'} overflow-hidden`}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={image}
@@ -70,6 +72,16 @@ export function ArticleCard({
           {excerpt && (
             <p className="mt-1 text-[13px] text-graphite line-clamp-2">{excerpt}</p>
           )}
+        </div>
+
+        {/* Provenance Badge */}
+        <div className="px-4 pt-1">
+          <span className="inline-flex items-center gap-1.5">
+            {aiFreeDeclaration && <ProvenanceBadge status="DECLARED_HUMAN_MADE" />}
+            {provenanceStatus && provenanceStatus !== 'UNDECLARED' && provenanceStatus !== 'DECLARED_HUMAN_MADE' && (
+              <ProvenanceBadge status={provenanceStatus} />
+            )}
+          </span>
         </div>
 
         {/* Action Bar */}

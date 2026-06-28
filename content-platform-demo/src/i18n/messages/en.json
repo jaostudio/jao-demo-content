@@ -9,10 +9,10 @@
     "sign_out": "Sign Out",
     "register": "Sumali sa Likha",
     "admin": "Admin",
-    "dashboard": "Dashboard",
-    "new_article": "New Article",
+    "dashboard": "Studio",
+    "new_article": "New Work",
     "home": "Home",
-    "articles": "Articles",
+    "articles": "Works",
     "categories": "Categories",
     "tags": "Tags",
     "footer_tagline": "Para sa bawat Pilipino",
@@ -33,10 +33,10 @@
     "content": "Content (Markdown)",
     "category": "Category",
     "select_category": "Select...",
-    "create": "Create Article",
-    "update": "Update Article",
-    "no_articles": "No articles yet.",
-    "no_published": "No published articles yet.",
+    "create": "Create Work",
+    "update": "Update Work",
+    "no_articles": "No works yet.",
+    "no_published": "No published works yet.",
     "submit_for_review": "I-submit for Review",
     "approve": "Approve",
     "reject": "Reject",
@@ -45,16 +45,16 @@
     "delete_permanently": "Delete Permanently"
   },
   "status": {
-    "draft": "Draft",
-    "pending_review": "For Review",
-    "published": "Published",
+    "draft": "Studio Draft",
+    "pending_review": "In Review",
+    "published": "Live",
     "archived": "Archived"
   },
   "dashboard": {
-    "title": "Pangkalahatang View",
-    "drafts": "Drafts",
-    "pending_review": "Pending Review",
-    "published": "Published"
+    "title": "Studio Overview",
+    "drafts": "Studio Drafts",
+    "pending_review": "In Review",
+    "published": "Live"
   },
   "auth": {
     "sign_in_title": "Sign In",
@@ -68,10 +68,10 @@
     "register_failed": "Hindi na-process ang registration. Check your details."
   },
   "errors": {
-    "cannot_edit_pending": "Hindi mo ma-edit ang article na nasa review — ask an admin.",
-    "unauthorized": "You need to sign in to create articles",
-    "forbidden": "You don't have permission to edit this article",
-    "not_found": "Article not found — baka na-archive na?",
+    "cannot_edit_pending": "You cannot edit a work that is under review — ask an admin.",
+    "unauthorized": "You need to sign in to create works",
+    "forbidden": "You don't have permission to edit this work",
+    "not_found": "Work not found — baka na-archive na?",
     "transition_not_allowed": "Transition not allowed for this status",
     "network_error": "Network error. Check your connection?",
     "title_short": "Title needs at least 3 characters — kulang pa",
@@ -79,13 +79,13 @@
     "something_wrong": "Something went wrong. Try again?"
   },
   "toast": {
-    "article_approved": "Article approved! It's now live.",
-    "article_archived": "Article archived. You can restore it later.",
-    "article_rejected": "Article rejected — back to draft.",
-    "article_updated": "Article updated successfully.",
-    "article_created": "Article created! Gawa na ulit?",
+    "article_approved": "Work approved! It's now live.",
+    "article_archived": "Work archived. You can restore it later.",
+    "article_rejected": "Work rejected — back to draft.",
+    "article_updated": "Work updated successfully.",
+    "article_created": "Work created! Gawa na ulit?",
     "demo_title": "Demo mode",
-    "demo_message": "You would have {action} this article. Log in for real changes."
+    "demo_message": "You would have {action} this work. Log in for real changes."
   },
   "roles": {
     "author": "Author",
@@ -93,9 +93,9 @@
     "reader": "Reader"
   },
   "confirm": {
-    "archive_title": "Archive this article?",
+    "archive_title": "Archive this work?",
     "archive_desc": "It will be hidden from public pages. You can restore it later.",
-    "reject_title": "Reject this article?",
+    "reject_title": "Reject this work?",
     "reject_desc": "Babalik ito sa draft. The author can resubmit after changes.",
     "cancel": "Cancel",
     "archive_btn": "Archive",

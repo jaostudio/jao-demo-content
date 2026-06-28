@@ -15,6 +15,7 @@ interface TrendingArticle {
   image: string | null
   format: string
   aiFreeDeclaration: boolean
+  provenanceStatus?: string
   publishAt: Date | string | null
   likes: number
 }

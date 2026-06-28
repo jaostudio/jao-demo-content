@@ -3,6 +3,7 @@
 import * as Dialog from '@radix-ui/react-dialog'
 import { X } from 'lucide-react'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { LocaleSwitcher } from '@/components/locale-switcher'
 import { useAuth } from '@/hooks/useAuth'
@@ -13,6 +14,7 @@ interface MobileDrawerProps {
 }
 
 export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
+  const t = useTranslations('common')
   const { user } = useAuth()
 
   return (
@@ -29,7 +31,7 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
           <nav className="flex flex-col gap-px p-2">
             <Dialog.Close asChild>
               <Link href="/" className="rounded px-3 py-2 text-[13px] font-medium text-text-secondary hover:bg-surface-alt hover:text-text-primary transition-colors">
-                Home
+                {t('home')}
               </Link>
             </Dialog.Close>
             <Dialog.Close asChild>
@@ -41,12 +43,12 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
               <>
                 <Dialog.Close asChild>
                   <Link href="/admin" className="rounded px-3 py-2 text-[13px] font-medium text-text-secondary hover:bg-surface-alt hover:text-text-primary transition-colors">
-                    Dashboard
+                    {t('dashboard')}
                   </Link>
                 </Dialog.Close>
                 <Dialog.Close asChild>
                   <Link href="/admin/articles/new" className="rounded px-3 py-2 text-[13px] font-medium text-text-secondary hover:bg-surface-alt hover:text-text-primary transition-colors">
-                    New Article
+                    {t('new_article')}
                   </Link>
                 </Dialog.Close>
               </>

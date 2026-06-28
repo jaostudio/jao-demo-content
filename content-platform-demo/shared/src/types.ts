@@ -17,6 +17,8 @@ export interface ArticleSummary {
   image: string | null
   format: MediaFormat
   aiFreeDeclaration: boolean
+  provenanceStatus: string
+  provenanceNote: string | null
   readingTime: number
   status: ArticleStatus
   publishAt: string | null
@@ -35,6 +37,7 @@ export interface ArticleDetail extends ArticleSummary {
   authorArticleCount: number
   relatedArticles: { title: string; slug: string; readingTime: number; commentCount: number }[]
   jsonLd: Record<string, unknown>
+  versions?: { version: number; title: string; changeNote: string | null; createdAt: string }[]
 }
 
 export interface CommentResponse {
@@ -126,6 +129,8 @@ export interface ArticleVersionResponse {
   id: string
   title: string
   content: string
+  changeNote: string | null
+  mediaUrl: string | null
   createdAt: string
   version: number
 }

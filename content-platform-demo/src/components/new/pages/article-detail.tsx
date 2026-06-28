@@ -3,13 +3,14 @@ import { Header } from '../layout/header'
 import { CategoryPill } from '../article/category-pill'
 import { AuthorCard } from '../article/author-card'
 import { CommentThread } from '../article/comment-thread'
-import { AiFreeBadge } from '../article/ai-free-badge'
+import { ProvenanceBadge } from '@/components/provenance-badge'
 import { LikeButton } from '@/components/like-button'
 import { Card } from '../ui/card'
 import { Badge } from '../ui/badge'
 import { Tatak } from '../ui/tatak'
 import { ArticleContent } from '@/components/block-editor/public/article-content'
 import { JsonLd } from '@/components/json-ld'
+import { ProcessTimeline } from '@/components/process-timeline'
 import { Clock, Calendar, ArrowLeft, Image, PenLine, Video, Music } from 'lucide-react'
 import Link from 'next/link'
 
@@ -52,15 +53,17 @@ interface ArticleDetailProps {
   articleId: string
   format: string
   aiFreeDeclaration: boolean
+  provenanceStatus?: string
   likes: number
   jsonLd: Record<string, unknown>
   image?: string | null
+  versions?: { version: number; title: string; changeNote: string | null; createdAt: string }[]
 }
 
 export function ArticleDetail({
   title, excerpt, content, authorName, authorRole, authorArticleCount,
   categorySlug, categoryName, status, readingTime, publishAt, tags,
-  relatedArticles, comments, articleId, format, aiFreeDeclaration, likes, jsonLd, image,
+  relatedArticles, comments, articleId, format, aiFreeDeclaration, provenanceStatus, likes, jsonLd, image, versions,
 }: ArticleDetailProps) {
   const FormatIcon = FORMAT_ICONS[format] || null
 
@@ -95,7 +98,11 @@ export function ArticleDetail({
                       {FORMAT_LABELS[format]}
                     </span>
                   )}
-                  {aiFreeDeclaration && <AiFreeBadge />}
+                  {provenanceStatus && provenanceStatus !== 'UNDECLARED' ? (
+                    <ProvenanceBadge status={provenanceStatus} />
+                  ) : aiFreeDeclaration ? (
+                    <ProvenanceBadge status="DECLARED_HUMAN_MADE" />
+                  ) : null}
                 </div>
 
                 <h1 className="text-[21px] font-semibold text-text-primary leading-snug mb-2" style={{ letterSpacing: '-0.03em' }}>
@@ -186,6 +193,12 @@ export function ArticleDetail({
                     </div>
                   </div>
                 </Card>
+
+                {versions && versions.length > 0 && (
+                  <Card className="p-3">
+                    <ProcessTimeline entries={versions} />
+                  </Card>
+                )}
 
                 {relatedArticles.length > 0 && (
                   <Card className="p-3">

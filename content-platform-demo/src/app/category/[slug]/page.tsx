@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!category) return {}
   return {
     title: category.name,
-    description: `Browse articles in the ${category.name} category on Likha.`,
+    description: `Browse works in the ${category.name} category on Likha.`,
   }
 }
 
@@ -77,7 +77,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
       <main className="mx-auto max-w-5xl px-4 py-4">
         <div className="mb-4 border-b border-border pb-4 dark:border-border-dark">
           <h1 className="text-xl font-semibold text-text-primary dark:text-slate-100">{category.name}</h1>
-          <p className="text-xs text-text-muted">{filteredArticles.length} article{filteredArticles.length !== 1 ? 's' : ''}</p>
+          <p className="text-xs text-text-muted">{filteredArticles.length} work{filteredArticles.length !== 1 ? 's' : ''}</p>
         </div>
 
         <div className="space-y-3">
@@ -100,7 +100,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
         </div>
 
         {filteredArticles.length === 0 && (
-          <IllustratedEmptyState message="Wala pang artikulo sa kategoryang ito." submessage="Balikan mo kami sa susunod!" />
+          <IllustratedEmptyState message="Wala pang work sa kategoryang ito." submessage="Balikan mo kami sa susunod!" />
         )}
       </main>
       <Footer />

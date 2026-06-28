@@ -13,7 +13,7 @@ export function HeroSection({ stats }: { stats: HeroStats }) {
   const { user } = useAuth()
 
   const statItems = [
-    { label: 'Articles published', value: stats.articles },
+    { label: 'Works published', value: stats.articles },
     { label: 'Active authors', value: stats.authors },
     { label: 'Categories', value: stats.categories },
   ]

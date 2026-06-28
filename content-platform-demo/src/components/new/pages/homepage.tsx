@@ -14,7 +14,14 @@ interface ArticleSummary {
   image: string | null
   format: string
   aiFreeDeclaration: boolean
+  provenanceStatus?: string
   publishAt: Date | string | null
+}
+
+interface AuthorEntry {
+  id: string
+  name: string
+  role: string
 }
 
 interface HomepageProps {
@@ -25,9 +32,10 @@ interface HomepageProps {
   totalAuthors: number
   totalComments: number
   trending: { slug: string; title: string; commentCount: number }[]
+  suggestedAuthors?: AuthorEntry[]
 }
 
-export function Homepage({ articles, featuredArticle, categories, totalArticles, totalAuthors, totalComments, trending }: HomepageProps) {
+export function Homepage({ articles, featuredArticle, categories, totalArticles, totalAuthors, totalComments, trending, suggestedAuthors = [] }: HomepageProps) {
   return (
     <div className="min-h-screen bg-surface dark:bg-surface-dark">
       <LeftRail />
@@ -63,6 +71,7 @@ export function Homepage({ articles, featuredArticle, categories, totalArticles,
               <RightPanel
                 categories={categories.map((c) => ({ slug: c.slug, name: c.name }))}
                 trending={trending}
+                suggestedAuthors={suggestedAuthors}
               />
             </div>
           </div>

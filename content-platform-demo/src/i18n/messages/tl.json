@@ -9,10 +9,10 @@
     "sign_out": "Mag-sign Out",
     "register": "Sumali sa Likha",
     "admin": "Admin",
-    "dashboard": "Dashboard (Pangkalahatang view)",
-    "new_article": "Bagong Artikulo",
+    "dashboard": "Studio",
+    "new_article": "Bagong Work",
     "home": "Home",
-    "articles": "Mga Artikulo",
+    "articles": "Mga Work",
     "categories": "Mga Kategorya",
     "tags": "Mga Tag",
     "footer_tagline": "Para sa bawat Pilipino",
@@ -33,10 +33,10 @@
     "content": "Nilalaman (Markdown)",
     "category": "Kategorya",
     "select_category": "Pumili...",
-    "create": "Gumawa ng Artikulo",
-    "update": "Update Artikulo",
-    "no_articles": "Wala pang artikulo.",
-    "no_published": "Wala pang published na artikulo.",
+    "create": "Gumawa ng Work",
+    "update": "Update Work",
+    "no_articles": "Wala pang work.",
+    "no_published": "Wala pang published na work.",
     "submit_for_review": "I-submit for Review",
     "approve": "Aprubahan",
     "reject": "I-reject",
@@ -45,16 +45,16 @@
     "delete_permanently": "Burahin nang permanente"
   },
   "status": {
-    "draft": "Draft",
-    "pending_review": "For Review",
-    "published": "Published",
+    "draft": "Studio Draft",
+    "pending_review": "In Review",
+    "published": "Live",
     "archived": "Archived"
   },
   "dashboard": {
-    "title": "Pangkalahatang View",
-    "drafts": "Mga Draft",
-    "pending_review": "Naka-pending na Review",
-    "published": "Nai-publish"
+    "title": "Studio Overview",
+    "drafts": "Studio Drafts",
+    "pending_review": "In Review",
+    "published": "Live"
   },
   "auth": {
     "sign_in_title": "Mag-sign In",
@@ -68,10 +68,10 @@
     "register_failed": "Hindi na-process ang registration. Check your details."
   },
   "errors": {
-    "cannot_edit_pending": "Hindi mo ma-edit ang article na nasa review — ask an admin.",
-    "unauthorized": "Kailangan mo munang mag-sign in para gumawa ng articles",
-    "forbidden": "Wala kang permiso para i-edit ang article na ito",
-    "not_found": "Hindi mahanap ang article — baka na-archive na?",
+    "cannot_edit_pending": "Hindi mo ma-edit ang work na nasa review — ask an admin.",
+    "unauthorized": "Kailangan mo munang mag-sign in para gumawa ng works",
+    "forbidden": "Wala kang permiso para i-edit ang work na ito",
+    "not_found": "Hindi mahanap ang work — baka na-archive na?",
     "transition_not_allowed": "Hindi allowed ang transition na ito",
     "network_error": "Network error. Check your connection?",
     "title_short": "Title needs at least 3 characters — kulang pa",
@@ -79,13 +79,13 @@
     "something_wrong": "May maling nangyari. Try again?"
   },
   "toast": {
-    "article_approved": "Na-approve na ang article! Live na siya.",
-    "article_archived": "Na-archive na ang article. Pwedeng i-restore later.",
-    "article_rejected": "Na-reject ang article — back to draft.",
-    "article_updated": "Na-update na ang article.",
-    "article_created": "Article created! Gawa na ulit?",
+    "article_approved": "Na-approve na ang work! Live na siya.",
+    "article_archived": "Na-archive na ang work. Pwedeng i-restore later.",
+    "article_rejected": "Na-reject ang work — back to draft.",
+    "article_updated": "Na-update na ang work.",
+    "article_created": "Work created! Gawa na ulit?",
     "demo_title": "Demo mode",
-    "demo_message": "You would have {action} this article. Log in for real changes."
+    "demo_message": "You would have {action} this work. Log in for real changes."
   },
   "roles": {
     "author": "Author (Manunulat)",
@@ -93,9 +93,9 @@
     "reader": "Reader (Mambabasa)"
   },
   "confirm": {
-    "archive_title": "I-archive ang article na ito?",
+    "archive_title": "I-archive ang work na ito?",
     "archive_desc": "Mawawala ito sa public pages. Pwedeng i-restore later.",
-    "reject_title": "I-reject ang article na ito?",
+    "reject_title": "I-reject ang work na ito?",
     "reject_desc": "Babalik ito sa draft. Pwedeng mag-resubmit ang author after changes.",
     "cancel": "Kanselahin",
     "archive_btn": "I-archive",

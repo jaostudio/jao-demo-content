@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Search',
-  description: 'Search articles on Likha.',
+  description: 'Search works on Likha.',
 }
 
 export default function SearchRoutePage() {

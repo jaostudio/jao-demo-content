@@ -12,7 +12,10 @@ updates.put('/:id', authMiddleware, async (c) => {
   const userRole = c.var.userRole
   const body = await c.req.json()
 
-  const article = await prisma.article.findUnique({ where: { id } })
+  const article = await prisma.article.findUnique({
+    where: { id },
+    include: { versions: { select: { id: true } } },
+  })
   if (!article) {
     return c.json({ error: 'NOT_FOUND', message: 'Article not found' }, 404)
   }
@@ -33,7 +36,7 @@ updates.put('/:id', authMiddleware, async (c) => {
 
   await prisma.$transaction([
     prisma.articleVersion.create({
-      data: { articleId: id, content: article.content, version: article.versions ? article.versions.length + 1 : 1 },
+      data: { articleId: id, content: article.content, version: article.versions.length + 1 },
     }),
     prisma.article.update({
       where: { id },

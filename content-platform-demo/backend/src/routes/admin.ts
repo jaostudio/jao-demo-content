@@ -1,11 +1,12 @@
 import { Hono } from 'hono'
 import { prisma } from '../lib/prisma'
-import { authMiddleware } from '../middleware/auth'
+import { adminMiddleware } from '../middleware/auth'
 
-const admin = new Hono()
+type Variables = { userId: string; userRole: string; userName: string; userEmail: string }
 
-// All admin routes require auth (any role)
-admin.use('/*', authMiddleware)
+const admin = new Hono<{ Variables: Variables }>()
+
+admin.use('/*', adminMiddleware)
 
 // GET /api/admin/stats
 admin.get('/stats', async (c) => {

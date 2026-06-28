@@ -15,6 +15,7 @@ export const dynamic = 'force-dynamic'
 export default async function AdminDashboardPage() {
   const author = await getCurrentAuthor()
   if (!author) redirect('/signin')
+  if (author.role !== 'ADMIN') redirect('/studio')
 
   const cookieStore = await cookies()
   const token = cookieStore.get('likha-token')?.value

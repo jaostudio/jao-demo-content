@@ -3,40 +3,48 @@
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 import { Avatar } from '../ui/avatar'
-import { Button } from '../ui/button'
+import { FollowButton } from '@/components/follow-button'
+
+interface AuthorEntry {
+  id: string
+  name: string
+  role: string
+  username?: string
+}
 
 interface SuggestedFollowsPanelProps {
   categories: { slug: string; name: string }[]
   trending?: { slug: string; title: string; commentCount: number }[]
+  suggestedAuthors?: AuthorEntry[]
 }
 
-export function RightPanel({ categories, trending = [] }: SuggestedFollowsPanelProps) {
+export function RightPanel({ categories, trending = [], suggestedAuthors = [] }: SuggestedFollowsPanelProps) {
   const t = useTranslations('common')
 
   return (
     <aside className="space-y-6">
       {/* Suggested Follows */}
-      <div>
-        <h3 className="mb-3 text-[14px] font-semibold text-text-primary">Suggested follows</h3>
-        <div className="space-y-4">
-          {[
-            { name: 'Sarah Chen', role: 'Writer' },
-            { name: 'Marcus Rivera', role: 'Creator' },
-            { name: 'Likha Editorial', role: 'Curator' },
-          ].map((user) => (
-            <div key={user.name} className="flex items-center gap-3">
-              <Avatar name={user.name} size="md" />
-              <div className="min-w-0 flex-1">
-                <p className="text-[14px] font-medium text-text-primary truncate">{user.name}</p>
-                <p className="text-[12px] text-graphite">{user.role}</p>
+      {suggestedAuthors.length > 0 && (
+        <div>
+          <h3 className="mb-3 text-[14px] font-semibold text-text-primary">Suggested follows</h3>
+          <div className="space-y-4">
+            {suggestedAuthors.map((user) => (
+              <div key={user.id} className="flex items-center gap-3">
+                <Link href={user.username ? `/artist/${user.username}` : '#'} className="shrink-0">
+                  <Avatar name={user.name} size="md" />
+                </Link>
+                <div className="min-w-0 flex-1">
+                  <Link href={user.username ? `/artist/${user.username}` : '#'}>
+                    <p className="text-[14px] font-medium text-text-primary truncate">{user.name}</p>
+                  </Link>
+                  <p className="text-[12px] text-graphite">{user.role}</p>
+                </div>
+                <FollowButton authorId={user.id} />
               </div>
-              <Button variant="dark" size="sm" className="shrink-0 rounded-full px-3 py-1 text-[11px]">
-                Follow
-              </Button>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Categories */}
       <div>

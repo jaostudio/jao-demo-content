@@ -3,11 +3,11 @@ import { fetchAPI } from '@/lib/api/server'
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://jaostudio.dev'
 
 export default async function sitemap() {
-  let articleSlugs: { slug: string; updatedAt: string }[] = []
+  let articles: { slug: string; createdAt: string }[] = []
   let categorySlugs: { slug: string }[] = []
 
   try {
-    articleSlugs = await fetchAPI<{ slug: string; updatedAt: string }[]>('/api/articles?select=slug')
+    articles = await fetchAPI<{ slug: string; createdAt: string }[]>('/api/articles')
   } catch {
     // backend unavailable
   }
@@ -18,9 +18,9 @@ export default async function sitemap() {
     // backend unavailable
   }
 
-  const articleUrls = articleSlugs.map((a) => ({
+  const articleUrls = articles.map((a) => ({
     url: `${SITE_URL}/articles/${a.slug}`,
-    lastModified: new Date(a.updatedAt),
+    lastModified: new Date(a.createdAt),
     changeFrequency: 'weekly' as const,
     priority: 0.8,
   }))
