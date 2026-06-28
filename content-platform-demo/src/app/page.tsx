@@ -14,24 +14,18 @@ export default async function HomePage() {
   let feedError = false
 
   try {
-    const results = await Promise.allSettled([
+    const [feedResult, categoriesResult] = await Promise.all([
       fetchAPI<ArticleSummary[]>('/api/feed'),
-      fetchAPI<CategoryResponse[]>('/api/categories'),
+      fetchAPI<CategoryResponse[]>('/api/categories').catch(() => [] as CategoryResponse[]),
     ])
-
-    if (results[0].status === 'fulfilled') {
-      articles = results[0].value
-    } else {
-      const fallback = await fetchAPI<ArticleSummary[]>('/api/articles').catch(() => null)
-      if (fallback) articles = fallback
-      else feedError = true
+    articles = feedResult
+    categories = categoriesResult.map((c: CategoryResponse) => ({ slug: c.slug, name: c.name }))
+  } catch (e) {
+    try {
+      articles = await fetchAPI<ArticleSummary[]>('/api/articles')
+    } catch {
+      feedError = true
     }
-
-    if (results[1].status === 'fulfilled') {
-      categories = results[1].value.map((c: CategoryResponse) => ({ slug: c.slug, name: c.name }))
-    }
-  } catch {
-    feedError = true
   }
 
   if (feedError && articles.length === 0) {
