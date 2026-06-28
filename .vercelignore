@@ -1,6 +1,5 @@
 node_modules
 .turbo
-.git
 **/.next
 *.db
 *.db-journal
