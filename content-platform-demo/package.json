@@ -2,6 +2,10 @@
   "name": "content-platform-demo",
   "version": "0.1.0",
   "private": true,
+  "workspaces": [
+    "shared",
+    "backend"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
