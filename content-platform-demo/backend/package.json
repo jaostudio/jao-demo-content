@@ -25,6 +25,7 @@
     "bcryptjs": "^3.0.3",
     "hono": "^4.7.0",
     "jsonwebtoken": "^9.0.2",
+    "next": "^16.2.9",
     "zod": "^4.4.3"
   },
   "devDependencies": {
