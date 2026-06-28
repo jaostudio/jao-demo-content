@@ -1,7 +1,8 @@
-const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3001'
+const BACKEND_URL = process.env.BACKEND_URL
 
 export async function fetchAPI<T>(path: string, options?: RequestInit): Promise<T> {
-  const res = await fetch(`${BACKEND_URL}${path}`, {
+  const base = BACKEND_URL || ''
+  const res = await fetch(`${base}${path}`, {
     ...options,
     headers: {
       'Content-Type': 'application/json',
