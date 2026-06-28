@@ -95,6 +95,17 @@
   --spacing-36: 36px;
 }
 
+/* ── Motion Tokens ── */
+:root {
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-snap: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 140ms;
+  --duration-base: 220ms;
+  --duration-slow: 420ms;
+  --duration-page: 640ms;
+}
+
 /* ── Dark mode token overrides ── */
 .dark {
   --color-surface: #0f0f0f;
@@ -380,7 +391,7 @@ body {
   --tw-prose-pre-code: #e6e6e6;
 }
 
-/* ── Animations ── */
+  /* ── Animations ── */
 @keyframes fade-in-up {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
@@ -447,10 +458,13 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-fade-in-up,
-  .animate-slide-up,
-  .animate-pulse-dot {
-    animation: none !important;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
   }
 }
 

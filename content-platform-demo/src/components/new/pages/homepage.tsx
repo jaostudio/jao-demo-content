@@ -1,5 +1,5 @@
 import { AppShell } from '../layout/app-shell'
-import { ArticleCard } from '../article/article-card'
+import { WorkCard } from '../work/work-card'
 
 interface ArticleSummary {
   title: string
@@ -28,10 +28,10 @@ export function Homepage({ articles, rightPanel }: HomepageProps) {
     <AppShell rightPanel={rightPanel}>
       <div className="space-y-4">
         {articles.map((article, i) => (
-          <ArticleCard
+          <WorkCard
             key={article.slug}
             {...article}
-            isFeatured={i === 0}
+            variant={i === 0 ? 'featured' : 'feed'}
           />
         ))}
       </div>

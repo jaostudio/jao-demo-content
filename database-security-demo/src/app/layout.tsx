@@ -6,14 +6,14 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: { default: 'Security Portal — Secure B2B Portal', template: '%s | Security Portal' },
-  description: 'A secure B2B client portal with audit trails, RBAC, data isolation, and security headers.',
+  title: { default: 'IslaVault — Secure client portals for distributed organizations', template: '%s | IslaVault' },
+  description: 'IslaVault is a fictional Philippine-inspired security platform demonstrating tenant isolation, role-based access control, immutable audit trails, and Turso-backed database security.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} min-h-screen bg-white text-neutral-900 antialiased`}>
+    <html lang="en" className="dark" data-scroll-behavior="smooth">
+      <body className={`${inter.className} min-h-screen bg-isla-obsidian text-isla-white antialiased`}>
         <Providers>{children}</Providers>
       </body>
     </html>

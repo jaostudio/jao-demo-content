@@ -1,9 +1,12 @@
 import { fetchAPI } from '@/lib/api/server'
 import type { ArticleSummary, CategoryResponse } from '@content-platform/shared'
 import { AppShell } from '@/components/new/layout/app-shell'
-import { ArticleCard } from '@/components/new/article/article-card'
+import { WorkCard } from '@/components/new/work/work-card'
 import { RightPanel } from '@/components/new/layout/right-panel'
 import { EmptyState } from '@/components/new/ui/empty-state'
+import { FeedHero } from '@/components/new/home/feed-hero'
+import { FeedTabs } from '@/components/new/home/feed-tabs'
+import { Reveal } from '@/components/new/motion/reveal'
 import Link from 'next/link'
 
 export const dynamic = 'force-dynamic'
@@ -72,24 +75,27 @@ export default async function HomePage() {
         <RightPanel categories={categories} trending={trending} suggestedAuthors={uniqueAuthors} />
       }
     >
+      <FeedHero />
+      <FeedTabs />
       <div className="space-y-4">
         {articles.map((article, i) => (
-          <ArticleCard
-            key={article.slug}
-            title={article.title}
-            slug={article.slug}
-            excerpt={article.excerpt}
-            authorName={article.authorName}
-            categoryName={article.categoryName}
-            readingTime={article.readingTime}
-            commentCount={article.commentCount}
-            image={article.image}
-            format={article.format}
-            aiFreeDeclaration={article.aiFreeDeclaration}
-            provenanceStatus={article.provenanceStatus}
-            publishAt={article.publishAt}
-            isFeatured={i === 0}
-          />
+          <Reveal key={article.slug}>
+            <WorkCard
+              title={article.title}
+              slug={article.slug}
+              excerpt={article.excerpt}
+              authorName={article.authorName}
+              categoryName={article.categoryName}
+              readingTime={article.readingTime}
+              commentCount={article.commentCount}
+              image={article.image}
+              format={article.format}
+              aiFreeDeclaration={article.aiFreeDeclaration}
+              provenanceStatus={article.provenanceStatus}
+              publishAt={article.publishAt}
+              variant={i === 0 ? 'featured' : 'feed'}
+            />
+          </Reveal>
         ))}
       </div>
     </AppShell>

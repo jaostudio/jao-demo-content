@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
 import { LeftRail } from '@/components/new/layout/left-rail'
 import { Header } from '@/components/new/layout/header'
-import { ArticleCard } from '@/components/new/article/article-card'
+import { WorkCard } from '@/components/new/work/work-card'
 import { Skeleton, SkeletonCard } from '@/components/new/ui/skeleton'
 import Link from 'next/link'
 
@@ -111,7 +111,7 @@ export default function CollectionPage() {
                   </div>
                 )}
                 {collection.items.map((item) => (
-                  <ArticleCard
+                  <WorkCard
                     key={item.id}
                     title={item.title}
                     slug={item.slug}

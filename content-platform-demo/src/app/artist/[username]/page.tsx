@@ -5,7 +5,7 @@ import { FollowButton } from '@/components/follow-button'
 import { LeftRail } from '@/components/new/layout/left-rail'
 import { Header } from '@/components/new/layout/header'
 import { RightPanel } from '@/components/new/layout/right-panel'
-import { ArticleCard } from '@/components/new/article/article-card'
+import { WorkCard } from '@/components/new/work/work-card'
 import type { Metadata } from 'next'
 
 export const revalidate = 60
@@ -87,7 +87,7 @@ export default async function ArtistPage({ params }: { params: Promise<{ usernam
 
               <div className="space-y-4">
                 {author.articles.map((a) => (
-                  <ArticleCard
+                  <WorkCard
                     key={a.id}
                     title={a.title}
                     slug={a.slug}

@@ -2,9 +2,12 @@ import { fetchAPI } from '@/lib/api/server'
 import type { ArticleSummary } from '@content-platform/shared'
 import { AppShell } from '@/components/new/layout/app-shell'
 import { RightPanel } from '@/components/new/layout/right-panel'
-import { ArticleCard } from '@/components/new/article/article-card'
-import { Avatar } from '@/components/new/ui/avatar'
+import { WorkCard } from '@/components/new/work/work-card'
 import { EmptyState } from '@/components/new/ui/empty-state'
+import { ExploreHero } from '@/components/new/explore/explore-hero'
+import { FeaturedWorksMosaic } from '@/components/new/explore/featured-works-mosaic'
+import { FeaturedArtistsRail } from '@/components/new/explore/featured-artists-rail'
+import { Reveal } from '@/components/new/motion/reveal'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 
@@ -52,10 +55,7 @@ export default async function ExplorePage() {
 
   return (
     <AppShell rightPanel={<RightPanel categories={categories} />}>
-      <div className="mb-6">
-        <h1 className="text-[17px] font-semibold text-text-primary">Explore</h1>
-        <p className="text-[12px] text-fog-gray mt-1">Discover artists, process notes, and live works.</p>
-      </div>
+      <ExploreHero />
 
       {articles.length === 0 ? (
         <EmptyState
@@ -65,128 +65,93 @@ export default async function ExplorePage() {
         />
       ) : (
         <>
-          {/* Featured Works */}
-          {featured.length > 0 && (
-            <section className="mb-8">
-              <h2 className="text-[13px] font-semibold text-text-primary mb-3">Featured Works</h2>
-              <div className="grid gap-4 md:grid-cols-3">
-                {featured.map((a) => (
-                  <ArticleCard
-                    key={a.slug}
-                    title={a.title}
-                    slug={a.slug}
-                    excerpt={a.excerpt}
-                    authorName={a.authorName}
-                    categoryName={a.categoryName}
-                    readingTime={a.readingTime}
-                    commentCount={a.commentCount}
-                    image={a.image}
-                    format={a.format}
-                    aiFreeDeclaration={a.aiFreeDeclaration}
-                    provenanceStatus={a.provenanceStatus}
-                    publishAt={a.publishAt}
-                    isFeatured={true}
-                  />
-                ))}
-              </div>
-            </section>
-          )}
+          <Reveal>
+            <FeaturedWorksMosaic featured={featured} />
+          </Reveal>
 
-          {/* Featured Artists */}
-          {uniqueArtists.length > 0 && (
-            <section className="mb-8">
-              <h2 className="text-[13px] font-semibold text-text-primary mb-3">Featured Artists</h2>
-              <div className="flex flex-wrap gap-3">
-                {uniqueArtists.map((artist) => (
-                  <Link
-                    key={artist.id}
-                    href={`/artist/${artist.name.toLowerCase().replace(/\s+/g, '-')}`}
-                    className="flex items-center gap-2 rounded-lg border border-hairline bg-card px-3 py-2 hover:bg-surface-alt transition-colors"
-                  >
-                    <Avatar name={artist.name} size="sm" />
-                    <span className="text-[13px] font-medium text-text-primary">{artist.name}</span>
-                  </Link>
-                ))}
-              </div>
-            </section>
-          )}
+          <Reveal>
+            <FeaturedArtistsRail artists={uniqueArtists} />
+          </Reveal>
 
-          {/* Declared Human-Made */}
           {humanMade.length > 2 && (
-            <section className="mb-8">
-              <h2 className="text-[13px] font-semibold text-text-primary mb-3">Declared Human-Made</h2>
-              <div className="space-y-3">
-                {humanMade.slice(0, 3).map((a) => (
-                  <ArticleCard
-                    key={a.slug}
-                    title={a.title}
-                    slug={a.slug}
-                    excerpt={a.excerpt}
-                    authorName={a.authorName}
-                    categoryName={a.categoryName}
-                    readingTime={a.readingTime}
-                    commentCount={a.commentCount}
-                    image={a.image}
-                    format={a.format}
-                    aiFreeDeclaration={a.aiFreeDeclaration}
-                    provenanceStatus={a.provenanceStatus}
-                    publishAt={a.publishAt}
-                  />
-                ))}
-              </div>
-            </section>
+            <Reveal>
+              <section className="mb-8">
+                <h2 className="text-[13px] font-semibold text-text-primary mb-3 uppercase tracking-wider">Declared Human-Made</h2>
+                <div className="space-y-3">
+                  {humanMade.slice(0, 3).map((a) => (
+                    <WorkCard
+                      key={a.slug}
+                      title={a.title}
+                      slug={a.slug}
+                      excerpt={a.excerpt}
+                      authorName={a.authorName}
+                      categoryName={a.categoryName}
+                      readingTime={a.readingTime}
+                      commentCount={a.commentCount}
+                      image={a.image}
+                      format={a.format}
+                      aiFreeDeclaration={a.aiFreeDeclaration}
+                      provenanceStatus={a.provenanceStatus}
+                      publishAt={a.publishAt}
+                    />
+                  ))}
+                </div>
+              </section>
+            </Reveal>
           )}
 
-          {/* Process Documented */}
           {processDoc.length > 0 && (
-            <section className="mb-8">
-              <h2 className="text-[13px] font-semibold text-text-primary mb-3">Process Documented</h2>
-              <div className="space-y-3">
-                {processDoc.slice(0, 3).map((a) => (
-                  <ArticleCard
-                    key={a.slug}
-                    title={a.title}
-                    slug={a.slug}
-                    excerpt={a.excerpt}
-                    authorName={a.authorName}
-                    categoryName={a.categoryName}
-                    readingTime={a.readingTime}
-                    commentCount={a.commentCount}
-                    image={a.image}
-                    format={a.format}
-                    aiFreeDeclaration={a.aiFreeDeclaration}
-                    provenanceStatus={a.provenanceStatus}
-                    publishAt={a.publishAt}
-                  />
-                ))}
-              </div>
-            </section>
+            <Reveal>
+              <section className="mb-8">
+                <h2 className="text-[13px] font-semibold text-text-primary mb-3 uppercase tracking-wider">Process Documented</h2>
+                <div className="space-y-3">
+                  {processDoc.slice(0, 3).map((a) => (
+                    <WorkCard
+                      key={a.slug}
+                      title={a.title}
+                      slug={a.slug}
+                      excerpt={a.excerpt}
+                      authorName={a.authorName}
+                      categoryName={a.categoryName}
+                      readingTime={a.readingTime}
+                      commentCount={a.commentCount}
+                      image={a.image}
+                      format={a.format}
+                      aiFreeDeclaration={a.aiFreeDeclaration}
+                      provenanceStatus={a.provenanceStatus}
+                      publishAt={a.publishAt}
+                    />
+                  ))}
+                </div>
+              </section>
+            </Reveal>
           )}
 
-          {/* Recent */}
           {rest.length > 0 && (
-            <section className="mb-8">
-              <h2 className="text-[13px] font-semibold text-text-primary mb-3">Recent</h2>
-              <div className="space-y-3">
-                {rest.map((a) => (
-                  <ArticleCard
-                    key={a.slug}
-                    title={a.title}
-                    slug={a.slug}
-                    excerpt={a.excerpt}
-                    authorName={a.authorName}
-                    categoryName={a.categoryName}
-                    readingTime={a.readingTime}
-                    commentCount={a.commentCount}
-                    image={a.image}
-                    format={a.format}
-                    aiFreeDeclaration={a.aiFreeDeclaration}
-                    provenanceStatus={a.provenanceStatus}
-                    publishAt={a.publishAt}
-                  />
-                ))}
-              </div>
-            </section>
+            <Reveal>
+              <section className="mb-8">
+                <h2 className="text-[13px] font-semibold text-text-primary mb-3 uppercase tracking-wider">Recent</h2>
+                <div className="space-y-3">
+                  {rest.map((a) => (
+                    <WorkCard
+                      key={a.slug}
+                      title={a.title}
+                      slug={a.slug}
+                      excerpt={a.excerpt}
+                      authorName={a.authorName}
+                      categoryName={a.categoryName}
+                      readingTime={a.readingTime}
+                      commentCount={a.commentCount}
+                      image={a.image}
+                      format={a.format}
+                      aiFreeDeclaration={a.aiFreeDeclaration}
+                      provenanceStatus={a.provenanceStatus}
+                      publishAt={a.publishAt}
+                    />
+                  ))}
+                </div>
+              </section>
+            </Reveal>
           )}
         </>
       )}

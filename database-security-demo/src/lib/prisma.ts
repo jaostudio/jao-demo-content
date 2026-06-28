@@ -5,8 +5,16 @@ import path from 'path'
 const globalForPrisma = globalThis as unknown as { prisma: PrismaClient | undefined }
 
 function createPrismaClient() {
-  const url = process.env.DATABASE_URL ?? `file:${path.join(process.cwd(), 'dev.db')}`
-  const adapter = new PrismaLibSql({ url })
+  const tursoUrl = process.env.TURSO_DATABASE_URL
+  const tursoToken = process.env.TURSO_AUTH_TOKEN
+
+  if (tursoUrl && tursoToken) {
+    const adapter = new PrismaLibSql({ url: tursoUrl, authToken: tursoToken })
+    return new PrismaClient({ adapter })
+  }
+
+  const localUrl = process.env.DATABASE_URL ?? `file:${path.join(process.cwd(), 'dev.db')}`
+  const adapter = new PrismaLibSql({ url: localUrl })
   return new PrismaClient({ adapter })
 }
 

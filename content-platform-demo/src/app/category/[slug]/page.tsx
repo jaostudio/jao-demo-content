@@ -2,7 +2,7 @@ import { fetchAPI } from '@/lib/api/server'
 import type { ArticleSummary, CategoryResponse } from '@content-platform/shared'
 import { notFound } from 'next/navigation'
 import { AppShell } from '@/components/new/layout/app-shell'
-import { ArticleCard } from '@/components/new/article/article-card'
+import { WorkCard } from '@/components/new/work/work-card'
 import { EmptyState } from '@/components/new/ui/empty-state'
 import type { Metadata } from 'next'
 
@@ -63,7 +63,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
       ) : (
         <div className="space-y-4">
           {filteredArticles.map((article) => (
-            <ArticleCard
+            <WorkCard
               key={article.slug}
               title={article.title}
               slug={article.slug}

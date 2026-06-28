@@ -5,6 +5,7 @@ import { authOptions } from '@/lib/auth/auth'
 import { prisma } from '@/lib/prisma'
 import { revalidatePath } from 'next/cache'
 import bcrypt from 'bcryptjs'
+import { AuditActions } from '@/lib/audit-actions'
 
 async function getAuthUser() {
   const session = await getServerSession(authOptions)
@@ -23,12 +24,6 @@ function requireSystemAdmin(user: { role: string }) {
   if (user.role !== 'SYSTEM_ADMIN') throw new Error('Forbidden')
 }
 
-function requireOrgAccess(user: { role: string; orgId: string | null }, orgId: string) {
-  if (user.role === 'SYSTEM_ADMIN') return
-  if (user.orgId !== orgId) throw new Error('Forbidden')
-  if (!user.orgId) throw new Error('No organization')
-}
-
 // ── Organization ──
 
 export async function createOrganization(formData: FormData) {
@@ -38,14 +33,14 @@ export async function createOrganization(formData: FormData) {
   const name = formData.get('name') as string
   const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
   const org = await (prisma as any).organization.create({ data: { name, slug } })
-  await logAudit(org.id, user.id, 'organization.created', 'organization', org.id)
+  await logAudit(org.id, user.id, AuditActions.ADMIN_ORGANIZATION_CREATED, 'organization', org.id)
   revalidatePath('/admin/organizations')
 }
 
 export async function deleteOrganization(orgId: string) {
   const user = await getAuthUser()
   requireSystemAdmin(user)
-  await logAudit(orgId, user.id, 'organization.deleted', 'organization', orgId)
+  await logAudit(orgId, user.id, AuditActions.ADMIN_ORGANIZATION_DELETED, 'organization', orgId)
   await (prisma as any).organization.delete({ where: { id: orgId } })
   revalidatePath('/admin/organizations')
 }
@@ -61,18 +56,23 @@ export async function createDocument(formData: FormData) {
   const doc = await (prisma as any).document.create({
     data: { title, body, organizationId: user.orgId, uploadedById: user.id },
   })
-  await logAudit(user.orgId, user.id, 'document.created', 'document', doc.id, { title })
+  await logAudit(user.orgId, user.id, AuditActions.DOCUMENT_CREATED, 'document', doc.id, { title })
   revalidatePath('/documents')
 }
 
 export async function deleteDocument(docId: string) {
   const user = await getAuthUser()
-  const doc = await (prisma as any).document.findUnique({ where: { id: docId } })
-  if (!doc) throw new Error('Not found')
-  requireOrgAccess(user, doc.organizationId)
+
+  const doc = await (prisma as any).document.findFirst({
+    where: { id: docId, organizationId: user.orgId },
+  })
+  if (!doc) {
+    await logAudit(user.orgId ?? '(unknown)', user.id, AuditActions.DOCUMENT_CROSS_TENANT_DENIED, 'document', docId, { reason: 'Cross-tenant document delete blocked' })
+    throw new Error('Not found')
+  }
 
   await (prisma as any).document.delete({ where: { id: docId } })
-  await logAudit(user.orgId, user.id, 'document.deleted', 'document', docId, { title: doc.title })
+  await logAudit(user.orgId, user.id, AuditActions.DOCUMENT_DELETED, 'document', docId, { title: doc.title })
   revalidatePath('/documents')
 }
 
@@ -104,7 +104,7 @@ export async function createOrgUser(formData: FormData) {
   const newUser = await (prisma as any).user.create({
     data: { name, email, password, role, organizationId: orgId || null },
   })
-  await logAudit(orgId ?? '(none)', user.id, 'user.created', 'user', newUser.id, { email, role })
+  await logAudit(orgId ?? '(none)', user.id, AuditActions.ADMIN_USER_CREATED, 'user', newUser.id, { email, role })
   revalidatePath('/admin/users')
 }
 
@@ -112,5 +112,5 @@ export async function deleteUser(userId: string) {
   const user = await getAuthUser()
   requireSystemAdmin(user)
   await (prisma as any).user.delete({ where: { id: userId } })
-  revalidatePath('/admin/users')
+  revalidatePath('/app/admin/users')
 }
