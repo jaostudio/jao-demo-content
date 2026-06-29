@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://jao-demo-security-jamesonolitoquits-projects.vercel.app'),
-  title: { default: 'IslaVault — Secure client portals for distributed organizations', template: '%s | IslaVault' },
+  title: { default: 'IslaVault | Secure client portals for distributed organizations', template: '%s | IslaVault' },
   description: 'IslaVault is a fictional Philippine-inspired security platform demonstrating tenant isolation, role-based access control, immutable audit trails, and Turso-backed database security.',
   icons: {
     icon: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: 'IslaVault — Secure client portals for distributed organizations',
+    title: 'IslaVault | Secure client portals for distributed organizations',
     description: 'IslaVault is a fictional Philippine-inspired security platform demonstrating tenant isolation, role-based access control, immutable audit trails, and Turso-backed database security.',
     url: 'https://jao-demo-security-jamesonolitoquits-projects.vercel.app',
     siteName: 'IslaVault',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'IslaVault — Secure client portals',
+    title: 'IslaVault | Secure client portals',
     description: 'IslaVault: Tenancy, RBAC, audit trails & Turso-backed database security demo.',
     images: ['/opengraph-image.png'],
   },

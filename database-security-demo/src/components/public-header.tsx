@@ -18,6 +18,7 @@ export function PublicHeader() {
         <nav className="flex items-center gap-6 text-sm">
           <Link href="/security" className="text-isla-muted hover:text-isla-white transition-colors">Security</Link>
           <Link href="/architecture" className="text-isla-muted hover:text-isla-white transition-colors">Architecture</Link>
+          <Link href="/case-study" className="text-isla-muted hover:text-isla-white transition-colors">Case Study</Link>
           <Link href="/demo" className="text-isla-muted hover:text-isla-white transition-colors">Demo</Link>
           {session ? (
             <Link href="/dashboard" className="px-4 py-1.5 rounded-lg text-sm font-medium bg-isla-amethyst text-white hover:bg-isla-amethyst/90 transition-colors">

@@ -36,8 +36,8 @@ export default function SecurityPage() {
         <Badge variant="admin" className="mb-4">Security Model</Badge>
         <h1 className="text-3xl font-bold text-isla-white">How IslaVault protects data</h1>
         <p className="mt-3 text-isla-muted max-w-2xl">
-          IslaVault uses defense-in-depth across five layers. Every request is authenticated,
-          authorized, scoped, logged, and hardened against common attack vectors.
+          Five layers of defense. Every request is checked against your session and role before
+          it reaches the database.
         </p>
 
         <div className="mt-12 space-y-8">
@@ -71,17 +71,17 @@ export default function SecurityPage() {
               </thead>
               <tbody className="text-isla-white">
                 {[
-                  ['Create Organization', '✓', '—', '—'],
-                  ['Delete Organization', '✓', '—', '—'],
-                  ['View All Orgs', '✓', '—', '—'],
-                  ['Create Users', '✓', '—', '—'],
-                  ['Delete Users', '✓', '—', '—'],
+                  ['Create Organization', '✓', '-', '-'],
+                  ['Delete Organization', '✓', '-', '-'],
+                  ['View All Orgs', '✓', '-', '-'],
+                  ['Create Users', '✓', '-', '-'],
+                  ['Delete Users', '✓', '-', '-'],
                   ['Create Documents', '✓', '✓', '✓'],
-                  ['Delete Documents', '✓', '✓', '—'],
+                  ['Delete Documents', '✓', '✓', '-'],
                   ['View Audit (org)', '✓', '✓', '✓'],
-                  ['View Audit (all)', '✓', '—', '—'],
-                  ['Manage Settings', '✓', '✓', '—'],
-                  ['Cross-Tenant Read', '✓', '—', '—'],
+                  ['View Audit (all)', '✓', '-', '-'],
+                  ['Manage Settings', '✓', '✓', '-'],
+                  ['Cross-Tenant Read', '✓', '-', '-'],
                 ].map((row) => (
                   <tr key={row[0]} className="border-b border-isla-border/50">
                     <td className="py-1.5 pr-4">{row[0]}</td>
@@ -96,9 +96,6 @@ export default function SecurityPage() {
         </div>
       </div>
 
-      <footer className="border-t border-isla-border py-6 text-center text-xs text-isla-muted">
-        IslaVault — A fictional Philippine-inspired secure client portal. Not a real product.
-      </footer>
     </main>
   )
 }

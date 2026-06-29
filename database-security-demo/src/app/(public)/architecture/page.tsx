@@ -165,9 +165,6 @@ export default function ArchitecturePage() {
         </section>
       </div>
 
-      <footer className="border-t border-isla-border py-6 text-center text-xs text-isla-muted">
-        IslaVault — A fictional Philippine-inspired secure client portal. Not a real product.
-      </footer>
     </main>
   )
 }

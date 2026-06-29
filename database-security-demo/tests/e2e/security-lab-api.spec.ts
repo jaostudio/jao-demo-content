@@ -19,7 +19,7 @@ async function simulate(page: any, type: string) {
   }, type)
 }
 
-test.describe('Security Lab API — Org-scoped user (Jao)', () => {
+test.describe('Security Lab API: Org-scoped user (Jao)', () => {
   test.beforeEach(async ({ page }) => {
     await signInAs(page, 'jao@luntian.demo')
   })
@@ -82,7 +82,7 @@ test.describe('Security Lab API — Org-scoped user (Jao)', () => {
   })
 })
 
-test.describe('Security Lab API — SYSTEM_ADMIN (Grace)', () => {
+test.describe('Security Lab API: SYSTEM_ADMIN (Grace)', () => {
   test.beforeEach(async ({ page }) => {
     await signInAs(page, 'grace@pulodata.demo')
   })
@@ -133,7 +133,7 @@ test.describe('Security Lab API — SYSTEM_ADMIN (Grace)', () => {
   })
 })
 
-test.describe('Security Lab API — Unauthenticated', () => {
+test.describe('Security Lab API: Unauthenticated', () => {
   test('Returns 401 without session', async ({ request }) => {
     const res = await request.post('/api/security-lab/simulate', { data: { type: 'cross-tenant' } })
     expect(res.status()).toBe(401)

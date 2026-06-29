@@ -90,7 +90,7 @@ export default async function AuditPage({ searchParams }: { searchParams: Promis
       <div>
         <h1 className="text-xl font-bold text-isla-white">Audit Trail</h1>
         <p className="text-sm text-isla-muted mt-1">
-          Security telemetry — every mutation and denied access is recorded. Showing {events.length} of {hasMore ? `${limit}+` : events.length} events (page limit: {limit}).
+          Security telemetry. Every mutation and denied access is recorded. Showing {events.length} of {hasMore ? `${limit}+` : events.length} events (page limit: {limit}).
         </p>
       </div>
 

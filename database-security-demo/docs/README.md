@@ -2,9 +2,9 @@
 
 Secure client portals for distributed organizations.
 
-A fictional Philippine-inspired secure client portal demonstrating **tenant isolation**, **RBAC**, **immutable audit trails**, and **Turso-backed database security** for multi-enterprise B2B systems. Built as a portfolio proof-of-concept showcasing security-first full-stack architecture.
+A fictional Philippine-inspired secure client portal demonstrating **tenant isolation**, **RBAC**, **immutable audit trails**, and **Turso-backed database security** for multi-enterprise B2B systems. Built with care by **JAOstudio** as a portfolio proof-of-concept showcasing security-first full-stack architecture.
 
-> **Live Demo:** _coming soon_ <!-- update after deploy -->
+> **Live Demo:** [jao-demo-security.vercel.app](https://jao-demo-security.vercel.app)
 
 ## Reviewer Script
 

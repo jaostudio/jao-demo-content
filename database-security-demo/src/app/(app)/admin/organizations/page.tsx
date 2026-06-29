@@ -21,7 +21,7 @@ export default async function AdminOrganizationsPage() {
     <div className="p-6 space-y-6">
       <div>
         <h1 className="text-xl font-bold text-isla-white">Organizations</h1>
-        <p className="text-sm text-isla-muted mt-1">System administration — manage tenants.</p>
+        <p className="text-sm text-isla-muted mt-1">System administration. Manage tenants.</p>
       </div>
 
       <GlassCard hover={false}>

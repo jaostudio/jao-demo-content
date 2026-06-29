@@ -43,15 +43,29 @@ export default function DemoPage() {
         </div>
         <h1 className="text-3xl font-bold text-isla-white">Launch Security Demo</h1>
         <p className="mt-3 text-isla-muted max-w-2xl">
-          Select a demo identity to explore tenant boundaries, test RBAC enforcement, and inspect
+          Select a demo account to explore tenant boundaries, test RBAC enforcement, and inspect
           the audit trail.
         </p>
         <p className="mt-2 text-xs text-isla-warning/80">
           This public demo runs in sandbox mode. Every interaction hits real server code, but writes
-          are contained to an ephemeral database — production Turso data is never touched.
+          are contained to an ephemeral database. Production Turso data is never touched.
         </p>
 
-        <div className="mt-10">
+        <div className="mt-8 glass-card-static p-5">
+          <h2 className="text-sm font-semibold text-isla-white mb-3">Suggested reviewer path</h2>
+          <ol className="text-xs text-isla-muted space-y-1.5 list-decimal pl-4">
+            <li>Sign in as <strong className="text-isla-white">Jao</strong> (ORG_ADMIN, Luntian Health). Open Documents and inspect the tenant scope.</li>
+            <li>Run Cross-Tenant Access in Security Lab to see enforcement in action.</li>
+            <li>Open Audit Trail and inspect the logged event with hash chain verification.</li>
+            <li>Switch to <strong className="text-isla-white">Kiko</strong> (ORG_USER, Bayani Freight) and confirm restricted navigation.</li>
+            <li>Switch to <strong className="text-isla-white">Grace</strong> (SYSTEM_ADMIN) and open Admin to see cross-tenant management.</li>
+          </ol>
+          <p className="mt-3 text-xs text-isla-muted/70">
+            Each account demonstrates a different tenant or permission boundary.
+          </p>
+        </div>
+
+        <div className="mt-8">
           <h2 className="text-lg font-semibold text-isla-white mb-4">Demo Accounts</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {DEMO_ACCOUNTS.map((account) => (
@@ -101,9 +115,6 @@ export default function DemoPage() {
         </div>
       </div>
 
-      <footer className="border-t border-isla-border py-6 text-center text-xs text-isla-muted">
-        IslaVault — A fictional Philippine-inspired secure client portal. Not a real product.
-      </footer>
     </main>
   )
 }

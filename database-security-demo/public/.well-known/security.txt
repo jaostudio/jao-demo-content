@@ -1,3 +1,3 @@
 Contact: mailto:security@example.invalid
-Policy: https://jao-demo-security-jamesonolitoquits-projects.vercel.app/security
+Policy: https://jao-demo-security.vercel.app/security-policy
 Preferred-Languages: en

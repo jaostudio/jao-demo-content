@@ -51,7 +51,7 @@ const simulationHandlers: Record<string, (user: { id: string; role: string; orgI
     ]
 
     if (user.role === 'SYSTEM_ADMIN') {
-      steps.push(step('Tenant scope applied', true, 'SYSTEM_ADMIN bypass — cross-tenant allowed'))
+      steps.push(step('Tenant scope applied', true, 'SYSTEM_ADMIN bypass: cross-tenant allowed'))
       return logAndReturn(AuditActions.SECURITY_LAB_CROSS_TENANT_DOCUMENT_ACCESS, 'SUCCESS', user.id, user.orgId, { simulation: 'cross-tenant', note: 'SYSTEM_ADMIN has global access' }, steps, 200)
     }
 
@@ -65,7 +65,7 @@ const simulationHandlers: Record<string, (user: { id: string; role: string; orgI
 
     if (!sessionOrgId || sessionOrgId !== targetOrgId) {
       steps.push(step('Cross-tenant check', false, `Session org (${sessionOrgId}) ≠ Target org (${targetOrgId})`))
-      steps.push(step('Response', false, '404 Not Found — resource not visible in current scope'))
+      steps.push(step('Response', false, '404 Not Found: resource not visible in current scope'))
 
       return logAndReturn(AuditActions.DOCUMENT_CROSS_TENANT_DENIED, 'DENIED', user.id, sessionOrgId, {
         simulation: 'cross-tenant',
@@ -81,7 +81,7 @@ const simulationHandlers: Record<string, (user: { id: string; role: string; orgI
     const steps: any[] = [
       step('Request received', true, `POST /api/organizations { name: "Rogue Org" }`),
       step('Session resolved', true, `User: ${user.id}, Role: ${user.role}`),
-      step('RBAC guard invoked', false, `requireSystemAdmin() — current role: ${user.role}`),
+      step('RBAC guard invoked', false, `requireSystemAdmin(): current role is ${user.role}`),
     ]
 
     if (user.role !== 'SYSTEM_ADMIN') {
@@ -98,11 +98,11 @@ const simulationHandlers: Record<string, (user: { id: string; role: string; orgI
       step('Request received', true, `POST /api/documents { title: "...", organizationId: "org_talapay" }`),
       step('Session resolved', true, `User: ${user.id}, Role: ${user.role}`),
       step('Client body parsed', true, `Found organizationId: org_talapay in request body`),
-      step('Server enforcement', true, `Client orgId IGNORED — using session orgId: ${user.orgId ?? 'none'}`),
+      step('Server enforcement', true, `Client orgId IGNORED. Using session orgId: ${user.orgId ?? 'none'}`),
     ]
 
     if (user.role === 'SYSTEM_ADMIN') {
-      steps.push(step('Effective query', true, 'SYSTEM_ADMIN — no tenant scope restriction'))
+      steps.push(step('Effective query', true, 'SYSTEM_ADMIN: no tenant scope restriction'))
       return logAndReturn(AuditActions.SECURITY_LAB_FAKE_ORG_ID_INJECTION, 'SUCCESS', user.id, null, { simulation: 'org-id-injection', note: 'SYSTEM_ADMIN has global scope' }, steps, 200)
     }
 

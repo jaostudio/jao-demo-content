@@ -28,7 +28,7 @@ const tabs = [
     label: 'Audit Trail',
     request: 'PATCH /audit_events/evt_001',
     session: 'no direct write access',
-    dbScope: 'AuditEvent table — append only',
+    dbScope: 'AuditEvent table: append only',
     result: '405 METHOD NOT ALLOWED',
     audit: 'AUDIT_TAMPER_DENIED',
   },

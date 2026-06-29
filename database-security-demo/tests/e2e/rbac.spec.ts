@@ -8,7 +8,7 @@ async function signInAs(page: any, email: string) {
   await page.waitForURL('**/dashboard')
 }
 
-test.describe('RBAC — ORG_USER (Kiko)', () => {
+test.describe('RBAC: ORG_USER (Kiko)', () => {
   test.beforeEach(async ({ page }) => {
     await signInAs(page, 'kiko@bayani.demo')
   })
@@ -41,7 +41,7 @@ test.describe('RBAC — ORG_USER (Kiko)', () => {
   })
 })
 
-test.describe('RBAC — ORG_ADMIN (Gina)', () => {
+test.describe('RBAC: ORG_ADMIN (Gina)', () => {
   test.beforeEach(async ({ page }) => {
     await signInAs(page, 'gina@talapay.demo')
   })
@@ -61,7 +61,7 @@ test.describe('RBAC — ORG_ADMIN (Gina)', () => {
   })
 })
 
-test.describe('RBAC — SYSTEM_ADMIN (Grace)', () => {
+test.describe('RBAC: SYSTEM_ADMIN (Grace)', () => {
   test.beforeEach(async ({ page }) => {
     await signInAs(page, 'grace@pulodata.demo')
   })

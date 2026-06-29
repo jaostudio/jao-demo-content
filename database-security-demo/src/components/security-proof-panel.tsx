@@ -72,8 +72,8 @@ const pageLabels: Record<string, string> = {
   '/audit': 'Audit Trail',
   '/security-lab': 'Security Lab',
   '/settings': 'Settings',
-  '/admin/users': 'Admin — Users',
-  '/admin/organizations': 'Admin — Organizations',
+  '/admin/users': 'Admin | Users',
+  '/admin/organizations': 'Admin | Organizations',
 }
 
 function getPageLabel(path: string) {
@@ -143,18 +143,18 @@ function SecurityProofPanel({ isOpen, onClose }: { isOpen: boolean; onClose: () 
 
             <div className="p-4 space-y-5 text-xs">
               <Section title="User" icon={<User className="w-3 h-3" />}>
-                <Row label="Name" value={currentUser?.name ?? '—'} />
-                <Row label="Email" value={currentUser?.email ?? '—'} />
+                <Row label="Name" value={currentUser?.name ?? '-'} />
+                <Row label="Email" value={currentUser?.email ?? '-'} />
               </Section>
 
               <Section title="Role" icon={<Shield className="w-3 h-3" />}>
-                <Row label="Role" value={currentUser?.role ?? '—'} />
+                <Row label="Role" value={currentUser?.role ?? '-'} />
                 <Row label="Tenant" value={currentUser?.orgName ?? 'Global Control Plane'} />
               </Section>
 
               <Section title="Session" icon={<Fingerprint className="w-3 h-3" />}>
                 <Row label="orgId" value={currentUser?.orgId ?? '(none)'} mono />
-                <Row label="Source" value={loading ? 'Loading...' : (data?.sessionSource ?? '—')} />
+                <Row label="Source" value={loading ? 'Loading...' : (data?.sessionSource ?? '-')} />
               </Section>
 
               <Section title="Access" icon={perms.denied.length > 0 ? <Lock className="w-3 h-3" /> : <Unlock className="w-3 h-3" />}>
@@ -168,7 +168,7 @@ function SecurityProofPanel({ isOpen, onClose }: { isOpen: boolean; onClose: () 
                   <div className="mt-2">
                     <div className="text-isla-danger mb-1">Denied:</div>
                     {perms.denied.map((a) => (
-                      <div key={a} className="text-isla-muted pl-3">— {a}</div>
+                      <div key={a} className="text-isla-muted pl-3">- {a}</div>
                     ))}
                   </div>
                 )}

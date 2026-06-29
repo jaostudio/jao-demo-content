@@ -28,8 +28,9 @@ export default function IslaVaultHome() {
               Secure portals for every island of your organization.
             </h1>
             <p className="mt-4 text-lg text-isla-muted max-w-lg leading-relaxed">
-              IslaVault is a fictional Philippine-inspired security platform demonstrating tenant isolation,
-              role-based access control, immutable audit trails, and Turso-backed database security.
+              IslaVault is a fictional secure portal demo. Each organization only sees its own
+              documents, users, settings, and audit history. Every operation is checked against
+              your role and tenant before the database is queried.
             </p>
             <div className="mt-8 flex gap-4">
               <Link
@@ -61,7 +62,7 @@ export default function IslaVaultHome() {
       <section className="mx-auto max-w-6xl px-4 pb-16">
         <div className="text-center mb-8">
           <h2 className="text-2xl font-bold text-isla-white">How enforcement works</h2>
-          <p className="mt-2 text-sm text-isla-muted">Select a security layer to see the server-side enforcement in action.</p>
+          <p className="mt-2 text-sm text-isla-muted">Pick a security layer below to see the server-side enforcement.</p>
         </div>
         <div className="max-w-2xl mx-auto">
           <InteractiveProductPreview />
@@ -140,7 +141,7 @@ export default function IslaVaultHome() {
       <section className="mx-auto max-w-6xl px-4 pb-16">
         <div className="text-center mb-8">
           <h2 className="text-2xl font-bold text-isla-white">Try IslaVault</h2>
-          <p className="mt-2 text-sm text-isla-muted">Select a demo identity to explore tenant boundaries.</p>
+          <p className="mt-2 text-sm text-isla-muted">Choose a demo account to see how tenant isolation works.</p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {DEMO_ACCOUNTS.map((account) => (
@@ -154,8 +155,8 @@ export default function IslaVaultHome() {
         <div className="glass-card-static p-10">
           <h2 className="text-2xl font-bold text-isla-white">Built to demonstrate database security.</h2>
           <p className="mt-3 text-sm text-isla-muted max-w-lg mx-auto">
-            Tenant isolation works. RBAC works. Audit logging works. Client-supplied tenant IDs are ignored.
-            Unauthorized access is blocked. Denied attempts are recorded.
+            Each tenant sees only its own data. Cross-tenant requests return 404. Every denied
+            attempt is recorded in the audit trail. You can verify the hash chain yourself.
           </p>
           <div className="mt-6 flex justify-center gap-4">
             <Link
@@ -172,14 +173,11 @@ export default function IslaVaultHome() {
             </Link>
           </div>
           <p className="mt-4 text-xs text-isla-muted">
-            Built to demonstrate privacy-first architecture, tenant isolation, RBAC, auditability, and secure database access patterns.
+            Designed to show how tenant isolation, RBAC, audit trails, and secure database access work in practice.
           </p>
         </div>
       </section>
 
-      <footer className="border-t border-isla-border py-6 text-center text-xs text-isla-muted">
-        IslaVault — A fictional Philippine-inspired secure client portal. Not a real product.
-      </footer>
     </main>
   )
 }
