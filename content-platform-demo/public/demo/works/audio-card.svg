@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <title>Creative Block and Audio Diaries — Audio Art</title>
+  <rect width="800" height="600" fill="#11110f"/>
+  <rect width="800" height="600" fill="url(#grid)" opacity="0.06"/>
+  <defs>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <rect width="24" height="24" fill="none"/>
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#f2eee3" strokeWidth="0.5"/>
+    </pattern>
+  </defs>
+  <path d="M 30 30 L 30 14 L 14 14 L 14 30 Z" fill="none" stroke="#302d26" strokeWidth="1.5"/>
+  <path d="M 770 570 L 770 586 L 786 586 L 786 570 Z" fill="none" stroke="#302d26" strokeWidth="1.5"/>
+  <circle cx="400" cy="280" r="100" fill="none" stroke="#ff00f0" strokeWidth="1" opacity="0.15"/>
+  <circle cx="400" cy="280" r="60" fill="none" stroke="#ff00f0" strokeWidth="1" opacity="0.1"/>
+  <circle cx="400" cy="280" r="30" fill="none" stroke="#ff00f0" strokeWidth="1" opacity="0.08"/>
+  <circle cx="400" cy="280" r="8" fill="#ff00f0" opacity="0.2"/>
+  <line x1="360" y1="200" x2="440" y2="200" stroke="#ff00f0" strokeWidth="2" opacity="0.08"/>
+  <line x1="360" y1="360" x2="440" y2="360" stroke="#ff00f0" strokeWidth="2" opacity="0.08"/>
+  <text x="400" y="540" fontFamily="system-ui, sans-serif" fontWeight="500" fontSize="24" fill="#f2eee3" textAnchor="middle" opacity="0.12">AUDIO DIARIES</text>
+  <g opacity="0.1" transform="translate(720, 540)">
+    <path d="M 5 5 v 14 h 14" stroke="#f2eee3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <line x1="17.5" y1="6.5" x2="8.5" y2="15.5" stroke="#f2eee3" strokeWidth="2" strokeLinecap="round"/>
+    <circle cx="19.5" cy="19.5" r="1.5" fill="#ff00f0"/>
+  </g>
+</svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <title>Process-Documented Works — Collection</title>
+  <rect width="800" height="600" fill="#f7f3ea"/>
+  <rect width="800" height="600" fill="url(#grid)" opacity="0.04"/>
+  <defs>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <rect width="24" height="24" fill="none"/>
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#14130f" strokeWidth="0.5"/>
+    </pattern>
+  </defs>
+  <path d="M 30 30 L 30 14 L 14 14 L 14 30 Z" fill="none" stroke="#d8cfbf" strokeWidth="1.5"/>
+  <path d="M 770 570 L 770 586 L 786 586 L 786 570 Z" fill="none" stroke="#d8cfbf" strokeWidth="1.5"/>
+  <path d="M 200 100 L 600 100 L 600 500 L 200 500 Z" fill="none" stroke="#00df00" strokeWidth="1.5" opacity="0.12" rx="4"/>
+  <circle cx="300" cy="200" r="20" fill="none" stroke="#00df00" strokeWidth="1" opacity="0.2"/>
+  <circle cx="300" cy="300" r="20" fill="none" stroke="#00df00" strokeWidth="1" opacity="0.15"/>
+  <circle cx="300" cy="400" r="20" fill="none" stroke="#00df00" strokeWidth="1" opacity="0.1"/>
+  <line x1="300" y1="220" x2="300" y2="280" stroke="#00df00" strokeWidth="1" opacity="0.12"/>
+  <line x1="300" y1="320" x2="300" y2="380" stroke="#00df00" strokeWidth="1" opacity="0.12"/>
+  <text x="450" y="220" fontFamily="system-ui, sans-serif" fontWeight="700" fontSize="28" fill="#14130f" opacity="0.1">PROCESS</text>
+  <text x="450" y="310" fontFamily="system-ui, sans-serif" fontWeight="700" fontSize="28" fill="#14130f" opacity="0.08">DOCUMENTED</text>
+  <text x="450" y="400" fontFamily="system-ui, sans-serif" fontWeight="500" fontSize="16" fill="#14130f" opacity="0.06">6 works</text>
+  <circle cx="620" cy="150" r="5" fill="#00df00" opacity="0.3"/>
+  <g opacity="0.08" transform="translate(720, 540)">
+    <path d="M 5 5 v 14 h 14" stroke="#14130f" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <line x1="17.5" y1="6.5" x2="8.5" y2="15.5" stroke="#14130f" strokeWidth="2" strokeLinecap="round"/>
+    <circle cx="19.5" cy="19.5" r="1.5" fill="#ff00f0"/>
+  </g>
+</svg>

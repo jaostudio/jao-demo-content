@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <title>The Art of Letterpress — Plate Process</title>
+  <rect width="800" height="600" fill="#eee8dc"/>
+  <rect width="800" height="600" fill="url(#grid)" opacity="0.05"/>
+  <defs>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <rect width="24" height="24" fill="none"/>
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#14130f" strokeWidth="0.5"/>
+    </pattern>
+  </defs>
+  <path d="M 30 30 L 30 14 L 14 14 L 14 30 Z" fill="none" stroke="#d8cfbf" strokeWidth="1.5"/>
+  <path d="M 770 570 L 770 586 L 786 586 L 786 570 Z" fill="none" stroke="#d8cfbf" strokeWidth="1.5"/>
+  <rect x="150" y="120" width="500" height="360" fill="none" stroke="#14130f" strokeWidth="1" opacity="0.08" rx="4"/>
+  <text x="400" y="220" fontFamily="system-ui, sans-serif" fontWeight="700" fontSize="72" fill="#14130f" textAnchor="middle" opacity="0.08">A B C</text>
+  <text x="400" y="310" fontFamily="system-ui, sans-serif" fontWeight="500" fontSize="48" fill="#14130f" textAnchor="middle" opacity="0.06">1 2 3</text>
+  <text x="400" y="460" fontFamily="system-ui, sans-serif" fontWeight="400" fontSize="14" fill="#14130f" textAnchor="middle" opacity="0.06">PLATE PROOF 02</text>
+  <circle cx="300" cy="500" r="4" fill="#ff00f0" opacity="0.2"/>
+  <g opacity="0.08" transform="translate(720, 540)">
+    <path d="M 5 5 v 14 h 14" stroke="#14130f" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <line x1="17.5" y1="6.5" x2="8.5" y2="15.5" stroke="#14130f" strokeWidth="2" strokeLinecap="round"/>
+    <circle cx="19.5" cy="19.5" r="1.5" fill="#ff00f0"/>
+  </g>
+</svg>

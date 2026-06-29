@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <title>Marcus Rivera — Avatar</title>
+  <rect width="400" height="400" fill="#eee8dc"/>
+  <rect width="400" height="400" fill="url(#grid)" opacity="0.04"/>
+  <defs>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <rect width="24" height="24" fill="none"/>
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#14130f" strokeWidth="0.5"/>
+    </pattern>
+  </defs>
+  <path d="M 40 40 L 40 14 L 14 14 L 14 40 Z" fill="none" stroke="#d8cfbf" strokeWidth="1.5"/>
+  <path d="M 360 360 L 360 386 L 386 386 L 386 360 Z" fill="none" stroke="#d8cfbf" strokeWidth="1.5"/>
+  <circle cx="160" cy="160" r="8" fill="#00df00" opacity="0.3"/>
+  <circle cx="240" cy="160" r="8" fill="#00df00" opacity="0.3"/>
+  <circle cx="160" cy="200" r="8" fill="#00df00" opacity="0.3"/>
+  <circle cx="240" cy="200" r="8" fill="#00df00" opacity="0.3"/>
+  <line x1="168" y1="160" x2="232" y2="160" stroke="#00df00" strokeWidth="1" opacity="0.2"/>
+  <line x1="168" y1="200" x2="232" y2="200" stroke="#00df00" strokeWidth="1" opacity="0.2"/>
+  <line x1="160" y1="168" x2="160" y2="192" stroke="#00df00" strokeWidth="1" opacity="0.2"/>
+  <line x1="240" y1="168" x2="240" y2="192" stroke="#00df00" strokeWidth="1" opacity="0.2"/>
+  <text x="200" y="195" fontFamily="system-ui, sans-serif" fontWeight="700" fontSize="64" fill="#14130f" textAnchor="middle" opacity="0.85">M</text>
+  <g opacity="0.12" transform="translate(320, 340)">
+    <path d="M 5 5 v 14 h 14" stroke="#14130f" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <line x1="17.5" y1="6.5" x2="8.5" y2="15.5" stroke="#14130f" strokeWidth="2" strokeLinecap="round"/>
+    <circle cx="19.5" cy="19.5" r="1.5" fill="#ff00f0"/>
+  </g>
+</svg>
