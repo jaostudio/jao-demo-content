@@ -35,24 +35,26 @@ export function SecurityLabSuite() {
 
     for (const type of simulationTypes) {
       setCurrent(collected.length + 1)
+      let statusCode = 0
       try {
         const res = await fetch('/api/security-lab/simulate', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ type }),
         })
+        statusCode = res.status
         const data = await res.json()
         collected.push({
           type,
           result: data.result ?? (res.ok ? 'ALLOWED' : 'BLOCKED'),
-          responseCode: data.simulatedResponseCode ?? res.status,
+          responseCode: data.simulatedResponseCode ?? statusCode,
           auditRecorded: data.auditRecorded ?? false,
         })
-        if (data.auditEvent) {
-          setLastEventId(data.auditEvent)
+        if (data.auditEventId) {
+          setLastEventId(data.auditEventId)
         }
       } catch {
-        collected.push({ type, result: 'BLOCKED', responseCode: 0, auditRecorded: false })
+        collected.push({ type, result: 'BLOCKED', responseCode: statusCode || 0, auditRecorded: false })
       }
     }
 
@@ -61,7 +63,7 @@ export function SecurityLabSuite() {
   }
 
   const blocked = results.filter((r) => r.result === 'BLOCKED').length
-  const sanitized = results.filter((r) => r.type === 'org-id-injection').length
+  const allowed = results.filter((r) => r.result === 'ALLOWED').length
   const auditEvents = results.filter((r) => r.auditRecorded).length
 
   return (
@@ -119,12 +121,12 @@ export function SecurityLabSuite() {
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
                 <ResultStat label="Attempted" value={results.length} color="text-isla-white" />
                 <ResultStat label="Blocked" value={blocked} color="text-isla-danger" />
-                <ResultStat label="Sanitized" value={sanitized} color="text-isla-warning" />
-                <ResultStat label="Audit Events" value={auditEvents} color="text-isla-success" />
+                <ResultStat label="Allowed" value={allowed} color="text-isla-success" />
+                <ResultStat label="Audit Events" value={auditEvents} color="text-isla-warning" />
               </div>
 
-              <div className="text-xs text-isla-success mb-4">
-                Cross-tenant records exposed: 0
+              <div className="text-xs text-isla-muted mb-4">
+                Cross-tenant records exposed: {results.find((r) => r.type === 'cross-tenant' && r.result === 'ALLOWED') ? 1 : 0}
               </div>
 
               <div className="space-y-2">

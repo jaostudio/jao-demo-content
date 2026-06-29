@@ -1,10 +1,20 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useSession } from 'next-auth/react'
+import { cn } from '@/lib/utils'
 
 export function PublicHeader() {
   const { data: session } = useSession()
+  const pathname = usePathname()
+
+  const navLinks = [
+    { href: '/security', label: 'Security' },
+    { href: '/architecture', label: 'Architecture' },
+    { href: '/case-study', label: 'Case Study' },
+    { href: '/demo', label: 'Demo' },
+  ]
 
   return (
     <header className="sticky top-0 z-50 border-b border-isla-border bg-isla-obsidian/80 backdrop-blur-md">
@@ -16,10 +26,20 @@ export function PublicHeader() {
           <span className="font-semibold text-sm text-isla-white">IslaVault</span>
         </Link>
         <nav className="flex items-center gap-6 text-sm">
-          <Link href="/security" className="text-isla-muted hover:text-isla-white transition-colors">Security</Link>
-          <Link href="/architecture" className="text-isla-muted hover:text-isla-white transition-colors">Architecture</Link>
-          <Link href="/case-study" className="text-isla-muted hover:text-isla-white transition-colors">Case Study</Link>
-          <Link href="/demo" className="text-isla-muted hover:text-isla-white transition-colors">Demo</Link>
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={cn(
+                'transition-colors',
+                pathname === link.href
+                  ? 'text-isla-white border-b-2 border-isla-amethyst pb-0.5'
+                  : 'text-isla-muted hover:text-isla-white',
+              )}
+            >
+              {link.label}
+            </Link>
+          ))}
           {session ? (
             <Link href="/dashboard" className="px-4 py-1.5 rounded-lg text-sm font-medium bg-isla-amethyst text-white hover:bg-isla-amethyst/90 transition-colors">
               Dashboard

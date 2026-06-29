@@ -24,7 +24,7 @@ function resultCode(responseCode: number) {
 }
 
 async function logAndReturn(type: string, outcome: 'SUCCESS' | 'DENIED', userId: string | null, orgId: string | null, metadata: Record<string, unknown>, steps: any[], responseCode: number) {
-  await writeAuditEvent({
+  const auditRecord = await writeAuditEvent({
     action: type,
     outcome,
     entityType: 'security_lab',
@@ -39,6 +39,7 @@ async function logAndReturn(type: string, outcome: 'SUCCESS' | 'DENIED', userId:
     simulatedResponseCode: responseCode,
     result: resultCode(responseCode),
     auditEvent: type,
+    auditEventId: auditRecord?.id ?? null,
     auditRecorded: true,
   })
 }

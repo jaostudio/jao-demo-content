@@ -73,17 +73,38 @@ export default async function AuditPage({ searchParams }: { searchParams: Promis
   const limit = parseAuditLimit(limitStr)
 
   const where = user.role === 'SYSTEM_ADMIN' ? {} : { organizationId: user.orgId }
-  const rows = await (prisma as any).auditEvent.findMany({
-    where,
-    include: { user: { select: { name: true } } },
-    orderBy: [{ createdAt: 'desc' }, { id: 'desc' }],
-    take: limit + 1,
-    ...(before ? { cursor: { id: before }, skip: 1 } : {}),
-  })
+
+  let rows: any[] = []
+  let queryError = false
+  try {
+    rows = await (prisma as any).auditEvent.findMany({
+      where,
+      include: { user: { select: { name: true } } },
+      orderBy: [{ createdAt: 'desc' }, { id: 'desc' }],
+      take: limit + 1,
+      ...(before ? { cursor: { id: before }, skip: 1 } : {}),
+    })
+  } catch {
+    queryError = true
+  }
 
   const hasMore = rows.length > limit
   const events = hasMore ? rows.slice(0, limit) : rows
   const nextCursor = hasMore ? events[events.length - 1].id : null
+
+  if (queryError) {
+    return (
+      <div className="p-6 space-y-6">
+        <div>
+          <h1 className="text-xl font-bold text-isla-white">Audit Trail</h1>
+          <p className="text-sm text-isla-muted mt-1">Could not load audit events. The database may be initializing.</p>
+        </div>
+        <div className="glass-card-static p-6 text-center">
+          <p className="text-sm text-isla-muted">Try again in a moment. If the issue persists, reset the demo data.</p>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="p-6 space-y-6">
