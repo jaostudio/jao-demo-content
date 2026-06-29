@@ -14,7 +14,7 @@ export default async function StudioLayout({ children }: { children: React.React
   }
 
   return (
-    <AppShell rightPanel={<RightPanel categories={categories} />}>
+    <AppShell rightPanel={<RightPanel categories={categories} />} hideFooter>
       <StudioShell>
         {children}
       </StudioShell>

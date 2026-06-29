@@ -7,6 +7,7 @@ import { Header } from '@/components/new/layout/header'
 import { WorkCard } from '@/components/new/work/work-card'
 import { Reveal } from '@/components/new/motion/reveal'
 import { Skeleton, SkeletonCard } from '@/components/new/ui/skeleton'
+import { Footer } from '@/components/new/layout/footer'
 import Link from 'next/link'
 
 interface CollectionItem {
@@ -158,6 +159,7 @@ export default function CollectionPage() {
             </>
           )}
         </main>
+        <Footer />
       </div>
     </div>
   )

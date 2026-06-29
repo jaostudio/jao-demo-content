@@ -6,7 +6,6 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { ThemeToggle } from '@/components/theme-toggle'
-import { LocaleSwitcher } from '@/components/locale-switcher'
 import { useAuth } from '@/hooks/useAuth'
 import { useMounted } from '@/hooks/use-mounted'
 import { useDemoRoleStore, type DemoRole } from '@/store/demo-role-store'
@@ -130,7 +129,6 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
           )}
 
           <div className="mt-auto flex items-center gap-2 border-t border-hairline p-3">
-            <LocaleSwitcher />
             <ThemeToggle />
           </div>
         </Dialog.Content>

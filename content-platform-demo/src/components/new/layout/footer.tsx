@@ -1,27 +1,23 @@
 'use client'
 
 import Link from 'next/link'
-import { Rss } from 'lucide-react'
 
 export function Footer() {
   return (
-    <footer className="mt-12 border-t border-border">
-      <div className="container-likha flex flex-col items-center justify-between gap-2 py-6 text-xs text-text-muted md:flex-row">
-        <div className="flex items-center gap-3">
-          <span className="font-semibold text-text-primary">Likha</span>
-          <span className="hidden md:inline">&middot;</span>
-          <span className="hidden md:inline">&copy; {new Date().getFullYear()}</span>
-        </div>
-        <div className="flex items-center gap-4">
-          <Link href="/" className="hover:text-text-primary transition-colors">Home</Link>
-          <Link href="/guidelines" className="hover:text-text-primary transition-colors">Guidelines</Link>
-          <Link href="/privacy" className="hover:text-text-primary transition-colors">Privacy</Link>
-          <Link href="/terms" className="hover:text-text-primary transition-colors">Terms</Link>
-          <Link href="/copyright" className="hover:text-text-primary transition-colors">Copyright</Link>
-          <Link href="/rss.xml" className="flex items-center gap-1 hover:text-text-primary transition-colors">
-            <Rss className="h-3 w-3" /> RSS
-          </Link>
-        </div>
+    <footer className="mt-16 border-t border-border pt-8 pb-6">
+      <div className="container-likha flex flex-col items-center gap-3 text-center">
+        <p className="text-[13px] leading-relaxed text-faint max-w-lg">
+          Built with care by <span className="font-medium text-muted">JAOstudio</span> — a portfolio demo of a process-first creative publishing platform.
+        </p>
+        <nav className="flex flex-wrap justify-center gap-x-5 gap-y-1 text-[12px]">
+          <Link href="/case-study" className="text-faint hover:text-muted transition-colors">Case Study</Link>
+          <Link href="/architecture" className="text-faint hover:text-muted transition-colors">Architecture</Link>
+          <Link href="/privacy" className="text-faint hover:text-muted transition-colors">Privacy</Link>
+          <Link href="/terms" className="text-faint hover:text-muted transition-colors">Terms</Link>
+          <Link href="/disclaimer" className="text-faint hover:text-muted transition-colors">Disclaimer</Link>
+          <Link href="/security-policy" className="text-faint hover:text-muted transition-colors">Security</Link>
+        </nav>
+        <p className="text-[11px] text-faint/60">&copy; {new Date().getFullYear()} JAOstudio. Likha is a fictional demo.</p>
       </div>
     </footer>
   )

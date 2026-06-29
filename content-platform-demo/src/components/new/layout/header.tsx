@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 import { Search, PenLine, Menu } from 'lucide-react'
 import { ThemeToggle } from '@/components/theme-toggle'
-import { LocaleSwitcher } from '@/components/locale-switcher'
 import { Avatar } from '../ui/avatar'
 import { Button } from '../ui/button'
 import { useEffectiveRole } from '@/hooks/use-effective-role'
@@ -60,7 +59,6 @@ export function Header() {
         {/* Right: Auth */}
         <div className="flex items-center gap-3">
           <ThemeToggle />
-          <LocaleSwitcher />
           {showAuthorActions ? (
             <>
               {effectiveRole === 'ADMIN' && (

@@ -11,6 +11,7 @@ import { MobileDrawer } from './mobile-drawer'
 import { MobileBottomNav } from './mobile-bottom-nav'
 import { LikhaLogo } from '@/components/brand/likha-logo'
 import { useMounted } from '@/hooks/use-mounted'
+import { ThemeToggle } from '@/components/theme-toggle'
 
 const NAV_ITEMS = [
   { href: '/', icon: Home, label: 'Home' },
@@ -97,6 +98,9 @@ export function LeftRail() {
               />
             </Link>
           )}
+
+          {/* Theme toggle */}
+          <ThemeToggle />
 
           {/* Avatar or Hamburger */}
           {user ? (

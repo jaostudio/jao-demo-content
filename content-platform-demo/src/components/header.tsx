@@ -7,7 +7,6 @@ import { useTranslations } from 'next-intl'
 import { Search, PenLine } from 'lucide-react'
 import { MobileDrawer } from '@/components/ui/mobile-drawer'
 import { ThemeToggle } from '@/components/theme-toggle'
-import { LocaleSwitcher } from '@/components/locale-switcher'
 import { useEffectiveRole } from '@/hooks/use-effective-role'
 import { useAuth } from '@/hooks/useAuth'
 
@@ -45,7 +44,6 @@ export function Header() {
           >
             <Search className="h-4 w-4" />
           </Link>
-          <LocaleSwitcher />
           <ThemeToggle />
           {isAuthenticated && (
             <Link

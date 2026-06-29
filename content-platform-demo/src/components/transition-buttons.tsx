@@ -105,8 +105,8 @@ export function TransitionButtons({ articleId, status }: { articleId: string; st
 
   const variantClasses: Record<string, string> = {
     primary: 'bg-primary text-white hover:bg-primary-hover',
-    success: 'bg-emerald-500 text-white hover:bg-emerald-600',
-    danger: 'bg-danger text-white hover:bg-red-600',
+    success: 'bg-primary text-white hover:bg-primary-dark',
+    danger: 'bg-danger text-white hover:bg-danger',
   }
 
   return (

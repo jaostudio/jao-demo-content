@@ -7,39 +7,39 @@
   --color-graphite: #6f695d;
   --color-fog-gray: #9d9587;
   --color-ash: #b5ad9d;
-  --color-hairline: #d8cfbf;
+  --color-hairline: #d7cbbb;
   --color-pure-white: #fffaf0;
-  --color-reactor-green: #00df00;
-  --color-voltage-pink: #ff00f0;
+  --color-reactor-green: #00d100;
+  --color-voltage-pink: #ee4dde;
   --color-onyx: #0d0c0a;
 
   /* Semantic aliases */
-  --color-primary: #00df00;
-  --color-primary-hover: #00cc00;
-  --color-primary-light: rgba(0, 223, 0, 0.12);
-  --color-primary-dark: #00a000;
+  --color-primary: #00d100;
+  --color-primary-hover: #00b800;
+  --color-primary-light: rgba(0, 209, 0, 0.12);
+  --color-primary-dark: #009a00;
 
   --color-secondary: #14130f;
   --color-secondary-hover: #0d0c0a;
   --color-secondary-light: rgba(20, 19, 15, 0.06);
   --color-secondary-dark: #0d0c0a;
 
-  --color-accent: #ff00f0;
-  --color-accent-hover: #e000d0;
-  --color-accent-light: rgba(255, 0, 240, 0.12);
-  --color-accent-dark: #c000b0;
+  --color-accent: #ee4dde;
+  --color-accent-hover: #d600c8;
+  --color-accent-light: rgba(238, 77, 222, 0.12);
+  --color-accent-dark: #b800a8;
 
-  --color-surface: #f7f3ea;
-  --color-surface-alt: #eee8dc;
-  --color-card: #eee8dc;
+  --color-surface: #f6f1e8;
+  --color-surface-alt: #eee6d8;
+  --color-card: #eee6d8;
 
   --color-text-primary: #14130f;
   --color-text-body: #6f695d;
   --color-text-secondary: #9d9587;
   --color-text-muted: #b5ad9d;
 
-  --color-border: #d8cfbf;
-  --color-border-hover: #c4b9a5;
+  --color-border: #d7cbbb;
+  --color-border-hover: #c2b49e;
   --color-border-focus: #14130f;
 
   --color-success: #16A34A;
@@ -106,18 +106,18 @@
   --duration-page: 640ms;
 
   /* ── Brand Tokens ── */
-  --brand-bg: #f7f3ea;
+  --brand-bg: #f6f1e8;
   --brand-ink: #14130f;
   --brand-muted: #6f695d;
   --brand-faint: #9d9587;
-  --brand-surface: #eee8dc;
+  --brand-surface: #eee6d8;
   --brand-surface-raised: #fffaf0;
-  --brand-surface-soft: #e5dccd;
-  --brand-border: #d8cfbf;
-  --brand-reactor: #00df00;
-  --brand-voltage: #ff00f0;
-  --brand-reactor-soft: rgba(0, 223, 0, 0.12);
-  --brand-voltage-soft: rgba(255, 0, 240, 0.12);
+  --brand-surface-soft: #e4d9c8;
+  --brand-border: #d7cbbb;
+  --brand-reactor: #00d100;
+  --brand-voltage: #ee4dde;
+  --brand-reactor-soft: rgba(0, 209, 0, 0.12);
+  --brand-voltage-soft: rgba(238, 77, 222, 0.12);
   --brand-radius-sm: 6px;
   --brand-radius-md: 8px;
   --brand-radius-lg: 16px;
@@ -127,29 +127,31 @@
 
 /* ── Dark mode brand tokens ── */
 .dark {
-  --brand-bg: #11110f;
+  --brand-bg: #15130f;
   --brand-ink: #f2eee3;
   --brand-muted: #b5ad9d;
   --brand-faint: #746f65;
-  --brand-surface: #171713;
-  --brand-surface-raised: #1d1c18;
-  --brand-surface-soft: #24221d;
-  --brand-border: #302d26;
-  --brand-reactor-soft: rgba(0, 223, 0, 0.1);
-  --brand-voltage-soft: rgba(255, 0, 240, 0.12);
+  --brand-surface: #1d1a15;
+  --brand-surface-raised: #24211b;
+  --brand-surface-soft: #2a2620;
+  --brand-border: #3a3329;
+  --brand-reactor: #00b800;
+  --brand-voltage: #d600c8;
+  --brand-reactor-soft: rgba(0, 184, 0, 0.1);
+  --brand-voltage-soft: rgba(214, 0, 200, 0.12);
 }
 
 /* ── Dark mode token overrides ── */
 .dark {
-  --color-surface: #11110f;
-  --color-surface-alt: #171713;
-  --color-card: #171713;
+  --color-surface: #15130f;
+  --color-surface-alt: #1d1a15;
+  --color-card: #1d1a15;
   --color-text-primary: #f2eee3;
   --color-text-body: #b5ad9d;
   --color-text-secondary: #9d9587;
   --color-text-muted: #746f65;
-  --color-border: #302d26;
-  --color-border-hover: #403b30;
+  --color-border: #3a3329;
+  --color-border-hover: #4a4235;
   --color-border-focus: #f2eee3;
 }
 

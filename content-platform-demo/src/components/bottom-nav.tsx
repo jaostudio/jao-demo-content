@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { PenLine } from 'lucide-react'
 import { ThemeToggle } from '@/components/theme-toggle'
-import { LocaleSwitcher } from '@/components/locale-switcher'
 import { useEffectiveRole } from '@/hooks/use-effective-role'
 
 export function BottomNav() {
@@ -56,7 +55,6 @@ export function BottomNav() {
           <span>Theme</span>
         </div>
         <div className="flex flex-col items-center gap-0.5 text-[10px] font-medium text-text-muted">
-          <LocaleSwitcher />
           <span>Language</span>
         </div>
       </div>

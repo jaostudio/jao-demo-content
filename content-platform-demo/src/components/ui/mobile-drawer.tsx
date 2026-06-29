@@ -4,7 +4,6 @@ import * as Dialog from '@radix-ui/react-dialog'
 import { X, Menu } from 'lucide-react'
 import Link from 'next/link'
 import { ThemeToggle } from '@/components/theme-toggle'
-import { LocaleSwitcher } from '@/components/locale-switcher'
 
 export function MobileDrawer() {
   return (
@@ -39,7 +38,6 @@ export function MobileDrawer() {
             </Dialog.Close>
           </nav>
           <div className="mt-auto flex items-center gap-2 border-t border-border p-3 dark:border-border-dark">
-            <LocaleSwitcher />
             <ThemeToggle />
           </div>
         </Dialog.Content>

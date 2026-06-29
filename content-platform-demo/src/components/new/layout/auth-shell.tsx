@@ -1,4 +1,5 @@
 import { LikhaLogo } from '@/components/brand/likha-logo'
+import { ThemeToggle } from '@/components/theme-toggle'
 
 interface AuthShellProps {
   children: React.ReactNode
@@ -17,6 +18,11 @@ export function AuthShell({ children, demoAccess, subtitle }: AuthShellProps) {
             <line x1="17.5" y1="6.5" x2="8.5" y2="15.5" strokeLinecap="round" />
             <circle cx="19.5" cy="19.5" r="1.5" fill="currentColor" />
           </svg>
+        </div>
+
+        {/* Theme toggle */}
+        <div className="absolute top-0 right-0">
+          <ThemeToggle />
         </div>
 
         {/* Header */}
@@ -43,6 +49,7 @@ export function AuthShell({ children, demoAccess, subtitle }: AuthShellProps) {
           )}
         </div>
       </div>
+      <p className="mt-8 text-[11px] text-faint/60 text-center">Built with care by JAOstudio</p>
     </div>
   )
 }

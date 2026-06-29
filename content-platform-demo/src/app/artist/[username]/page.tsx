@@ -7,6 +7,7 @@ import { Header } from '@/components/new/layout/header'
 import { RightPanel } from '@/components/new/layout/right-panel'
 import { WorkCard } from '@/components/new/work/work-card'
 import { Reveal } from '@/components/new/motion/reveal'
+import { Footer } from '@/components/new/layout/footer'
 import type { Metadata } from 'next'
 
 export const revalidate = 60
@@ -181,6 +182,7 @@ export default async function ArtistPage({ params }: { params: Promise<{ usernam
             </div>
           </div>
         </main>
+        <Footer />
       </div>
     </div>
   )

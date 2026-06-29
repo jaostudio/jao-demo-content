@@ -63,6 +63,16 @@ Write-Host "`n=== Protected Routes ===" -ForegroundColor Cyan
 Check-Route "/studio" "Studio (anon redirect)" -AllowRedirect $true
 Check-Route "/admin" "Admin (anon redirect)" -AllowRedirect $true
 
+Write-Host "`n=== Trust / Portfolio Routes ===" -ForegroundColor Cyan
+Check-Route "/case-study" "Case study"
+Check-Route "/architecture" "Architecture"
+Check-Route "/disclaimer" "Disclaimer"
+Check-Route "/security-policy" "Security policy"
+Check-Route "/privacy" "Privacy"
+Check-Route "/terms" "Terms"
+Check-Route "/guidelines" "Guidelines"
+Check-Route "/copyright" "Copyright"
+
 Write-Host "`n=== 404 Routes ===" -ForegroundColor Cyan
 Check-Route "/nonexistent-page-xyz" "Should 404" -ExpectedStatus 404
 

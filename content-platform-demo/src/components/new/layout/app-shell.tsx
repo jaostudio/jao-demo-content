@@ -1,11 +1,13 @@
 import { LeftRail } from './left-rail'
+import { Footer } from './footer'
 
 interface AppShellProps {
   children: React.ReactNode
   rightPanel?: React.ReactNode
+  hideFooter?: boolean
 }
 
-export function AppShell({ children, rightPanel }: AppShellProps) {
+export function AppShell({ children, rightPanel, hideFooter }: AppShellProps) {
   return (
     <div className="min-h-dvh bg-surface dark:bg-surface-dark">
       <LeftRail />
@@ -15,6 +17,7 @@ export function AppShell({ children, rightPanel }: AppShellProps) {
           <aside className="hidden min-w-0 lg:block">{rightPanel}</aside>
         )}
       </div>
+      {!hideFooter && <Footer />}
     </div>
   )
 }
