@@ -1,33 +1,43 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useAuth } from '@/hooks/useAuth'
 import { Button } from '@/components/new/ui/button'
+import { usePathname } from 'next/navigation'
 
 interface FollowButtonProps {
   authorId: string
 }
 
 export function FollowButton({ authorId }: FollowButtonProps) {
-  const { user } = useAuth()
+  const pathname = usePathname()
+  const { user, token, loading: authLoading } = useAuth()
   const [isFollowing, setIsFollowing] = useState(false)
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    if (!user) return
-    fetch(`/api/follows/${authorId}`)
+    if (authLoading) return
+    if (!user || !token) {
+      setIsFollowing(false)
+      return
+    }
+
+    fetch(`/api/follows/${authorId}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
       .then((r) => r.json())
       .then((data) => setIsFollowing(data.isFollowing))
       .catch(() => {})
-  }, [user, authorId])
+  }, [authorId, user, token, authLoading])
 
-  async function toggleFollow() {
-    if (!user) return
+  const toggleFollow = useCallback(async () => {
+    if (!user || !token) {
+      window.location.href = `/signin?next=${encodeURIComponent(pathname)}`
+      return
+    }
     setLoading(true)
     try {
-      const token = localStorage.getItem('likha-token')
-      const headers: Record<string, string> = { 'Content-Type': 'application/json' }
-      if (token) headers['Authorization'] = `Bearer ${token}`
+      const headers: Record<string, string> = { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` }
 
       if (isFollowing) {
         await fetch(`/api/follows/${authorId}`, { method: 'DELETE', headers })
@@ -41,9 +51,25 @@ export function FollowButton({ authorId }: FollowButtonProps) {
     } finally {
       setLoading(false)
     }
+  }, [authorId, isFollowing, user, token, pathname])
+
+  if (authLoading) {
+    return (
+      <Button variant="outline" size="sm" disabled>
+        ...
+      </Button>
+    )
   }
 
-  if (!user) return null
+  if (!user) {
+    return (
+      <a href={`/signin?next=${encodeURIComponent(pathname)}`}>
+        <Button variant="outline" size="sm">
+          Follow
+        </Button>
+      </a>
+    )
+  }
 
   return (
     <Button

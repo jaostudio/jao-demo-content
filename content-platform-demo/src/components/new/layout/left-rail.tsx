@@ -10,6 +10,7 @@ import { useState } from 'react'
 import { MobileDrawer } from './mobile-drawer'
 import { MobileBottomNav } from './mobile-bottom-nav'
 import { LikhaLogo } from '@/components/brand/likha-logo'
+import { useMounted } from '@/hooks/use-mounted'
 
 const NAV_ITEMS = [
   { href: '/', icon: Home, label: 'Home' },
@@ -21,11 +22,13 @@ const NAV_ITEMS = [
 export function LeftRail() {
   const pathname = usePathname()
   const { user } = useAuth()
+  const mounted = useMounted()
   const { role: demoRole } = useDemoRoleStore()
   const [drawerOpen, setDrawerOpen] = useState(false)
 
+  const safeDemoRole = mounted ? demoRole : 'READER'
   const isAdmin = user?.role === 'ADMIN'
-  const effectiveRole = user?.role || demoRole
+  const effectiveRole = user?.role || safeDemoRole
 
   return (
     <>

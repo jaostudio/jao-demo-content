@@ -8,6 +8,7 @@ import { useTranslations } from 'next-intl'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { LocaleSwitcher } from '@/components/locale-switcher'
 import { useAuth } from '@/hooks/useAuth'
+import { useMounted } from '@/hooks/use-mounted'
 import { useDemoRoleStore, type DemoRole } from '@/store/demo-role-store'
 import { getSafeAuthRedirect } from '@/lib/auth/redirect'
 
@@ -31,7 +32,10 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
   const t = useTranslations('common')
   const router = useRouter()
   const { user, signIn } = useAuth()
+  const mounted = useMounted()
   const { enabled: demoEnabled, enableDemoMode, disableDemoMode, setRole } = useDemoRoleStore()
+
+  const safeDemoEnabled = mounted ? demoEnabled : false
 
   const handleDemoSignIn = async (email: string) => {
     const result = await signIn(email, 'password123')
@@ -104,9 +108,9 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
                 {(['READER', 'AUTHOR', 'ADMIN'] as DemoRole[]).map((r) => (
                   <button
                     key={r}
-                    onClick={() => { if (!demoEnabled) enableDemoMode(); setRole(r) }}
+                    onClick={() => { if (!safeDemoEnabled) enableDemoMode(); setRole(r) }}
                     className={`flex-1 rounded px-2 py-1 text-[10px] font-medium transition-colors ${
-                      demoEnabled ? 'bg-reactor-green/10 text-reactor-green' : 'text-fog-gray hover:bg-surface-alt'
+                      safeDemoEnabled ? 'bg-reactor-green/10 text-reactor-green' : 'text-fog-gray hover:bg-surface-alt'
                     }`}
                   >
                     {roleLabels[r]}
@@ -114,7 +118,7 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
                 ))}
               </div>
               <p className="text-[9px] text-ash">UI simulation only.</p>
-              {demoEnabled && (
+              {safeDemoEnabled && (
                 <button
                   onClick={() => disableDemoMode()}
                   className="w-full rounded border border-hairline px-2 py-1 text-[10px] text-fog-gray hover:text-text-primary transition-colors"

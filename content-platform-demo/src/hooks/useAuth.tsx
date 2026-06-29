@@ -12,6 +12,7 @@ interface AuthUser {
 
 interface AuthContextValue {
   user: AuthUser | null
+  token: string | null
   loading: boolean
   signIn: (email: string, password: string) => Promise<{ user?: AuthUser; error?: string }>
   signOut: () => void
@@ -19,6 +20,7 @@ interface AuthContextValue {
 
 const AuthContext = createContext<AuthContextValue>({
   user: null,
+  token: null,
   loading: true,
   signIn: async () => ({}),
   signOut: () => {},
@@ -26,19 +28,22 @@ const AuthContext = createContext<AuthContextValue>({
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<AuthUser | null>(null)
+  const [token, setToken] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const token = localStorage.getItem('likha-token')
-    if (!token) {
+    const stored = localStorage.getItem('likha-token')
+    if (!stored) {
       setLoading(false)
       return
     }
+    setToken(stored)
 
-    apiClient.withToken(token).getMe()
+    apiClient.withToken(stored).getMe()
       .then((u) => setUser(u))
       .catch(() => {
         localStorage.removeItem('likha-token')
+        setToken(null)
         setUser(null)
       })
       .finally(() => setLoading(false))
@@ -48,6 +53,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     try {
       const res = await apiClient.login({ email, password })
       localStorage.setItem('likha-token', res.token)
+      setToken(res.token)
       setUser(res.user)
       return { user: res.user }
     } catch (err) {
@@ -57,11 +63,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const signOut = useCallback(() => {
     localStorage.removeItem('likha-token')
+    setToken(null)
     setUser(null)
   }, [])
 
   return (
-    <AuthContext.Provider value={{ user, loading, signIn, signOut }}>
+    <AuthContext.Provider value={{ user, token, loading, signIn, signOut }}>
       {children}
     </AuthContext.Provider>
   )

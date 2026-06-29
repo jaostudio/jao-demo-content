@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Home, Compass, PenLine, LayoutDashboard, User } from 'lucide-react'
 import { useAuth } from '@/hooks/useAuth'
+import { useMounted } from '@/hooks/use-mounted'
 import { useDemoRoleStore } from '@/store/demo-role-store'
 
 interface NavItem {
@@ -25,9 +26,12 @@ const NAV_ITEMS: NavItem[] = [
 export function MobileBottomNav() {
   const pathname = usePathname()
   const { user } = useAuth()
+  const mounted = useMounted()
   const { enabled: demoEnabled, role: demoRole } = useDemoRoleStore()
 
-  const hasAccess = !!(user || (demoEnabled && (demoRole === 'AUTHOR' || demoRole === 'ADMIN')))
+  const safeRole = mounted ? demoRole : 'READER'
+  const safeEnabled = mounted ? demoEnabled : false
+  const hasAccess = !!(user || (safeEnabled && (safeRole === 'AUTHOR' || safeRole === 'ADMIN')))
 
   const isActive = (href: string) => {
     if (href === '/') return pathname === '/'
@@ -41,7 +45,7 @@ export function MobileBottomNav() {
           if (auth && !hasAccess && label !== 'Profile') return null
 
           if (profile) {
-            if (user || (demoEnabled && demoRole)) {
+            if (user || (safeEnabled && safeRole)) {
               return (
                 <Link
                   key="profile"

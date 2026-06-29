@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { useAuth } from '@/hooks/useAuth'
 import { useDemoRoleStore, type DemoRole } from '@/store/demo-role-store'
+import { useMounted } from '@/hooks/use-mounted'
 import { getSafeAuthRedirect } from '@/lib/auth/redirect'
 import { Avatar } from '../ui/avatar'
 import { FollowButton } from '@/components/follow-button'
@@ -39,10 +40,24 @@ const DEMO_USERS = [
 export function RightPanel({ categories, trending = [], suggestedAuthors = [] }: SuggestedFollowsPanelProps) {
   const pathname = usePathname()
   const router = useRouter()
-  const { user, signIn } = useAuth()
+  const { user, loading: authLoading, signIn } = useAuth()
+  const mounted = useMounted()
   const { enabled: demoEnabled, role: demoRole, enableDemoMode, disableDemoMode, setRole } = useDemoRoleStore()
   const [demoOpen, setDemoOpen] = useState(false)
   const [signingIn, setSigningIn] = useState<string | null>(null)
+
+  const safeDemoEnabled = mounted ? demoEnabled : false
+  const safeDemoRole = mounted ? demoRole : 'READER'
+
+  if (authLoading) {
+    return (
+      <aside className="space-y-6">
+        <div className="animate-pulse rounded-xl bg-hairline h-48" />
+        <div className="animate-pulse rounded-xl bg-hairline h-32" />
+        <div className="animate-pulse rounded-xl bg-hairline h-24" />
+      </aside>
+    )
+  }
 
   if (user) {
     return (
@@ -177,7 +192,7 @@ export function RightPanel({ categories, trending = [], suggestedAuthors = [] }:
               onClick={() => setDemoOpen(!demoOpen)}
               className="flex items-center gap-1.5 text-[10px] text-fog-gray hover:text-text-primary transition-colors"
             >
-              <span className={`inline-block h-1.5 w-1.5 rounded-full ${demoEnabled ? 'bg-voltage-pink' : 'bg-hairline'}`} />
+              <span className={`inline-block h-1.5 w-1.5 rounded-full ${safeDemoEnabled ? 'bg-voltage-pink' : 'bg-hairline'}`} />
               UI Preview {demoOpen ? '▾' : '▸'}
             </button>
             {demoOpen && (
@@ -187,11 +202,11 @@ export function RightPanel({ categories, trending = [], suggestedAuthors = [] }:
                     <button
                       key={r}
                       onClick={() => {
-                        if (!demoEnabled) enableDemoMode()
+                        if (!safeDemoEnabled) enableDemoMode()
                         setRole(r)
                       }}
                       className={`flex-1 rounded-lg px-2 py-1 text-[11px] font-medium transition-colors ${
-                        demoEnabled && demoRole === r
+                        safeDemoEnabled && safeDemoRole === r
                           ? 'bg-reactor-green text-void-black'
                           : 'text-fog-gray hover:bg-surface-alt'
                       }`}
@@ -201,7 +216,7 @@ export function RightPanel({ categories, trending = [], suggestedAuthors = [] }:
                   ))}
                 </div>
                 <p className="text-[10px] text-ash leading-relaxed">UI simulation only. Backend permissions still require login.</p>
-                {demoEnabled && (
+                {safeDemoEnabled && (
                   <button
                     onClick={() => { disableDemoMode(); setDemoOpen(false) }}
                     className="w-full rounded-lg border border-hairline px-2 py-1 text-[10px] text-fog-gray hover:text-text-primary transition-colors"
