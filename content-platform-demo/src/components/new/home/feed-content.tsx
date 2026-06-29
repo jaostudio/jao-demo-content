@@ -2,22 +2,20 @@
 
 import { useState, useMemo } from 'react'
 import { FeedTabs } from './feed-tabs'
+import { WorkCard } from '@/components/new/work/work-card'
+import { Reveal } from '@/components/new/motion/reveal'
 import type { ArticleSummary } from '@content-platform/shared'
 
 interface FeedContentProps {
   initial: ArticleSummary[]
-  children: (items: ArticleSummary[]) => React.ReactNode
 }
 
-export function FeedContent({ initial, children }: FeedContentProps) {
+export function FeedContent({ initial }: FeedContentProps) {
   const [activeTab, setActiveTab] = useState('recent')
 
   const filtered = useMemo(() => {
     if (activeTab === 'trending') {
       return [...initial].sort((a, b) => b.likes - a.likes)
-    }
-    if (activeTab === 'following') {
-      return initial
     }
     return initial
   }, [initial, activeTab])
@@ -25,7 +23,28 @@ export function FeedContent({ initial, children }: FeedContentProps) {
   return (
     <>
       <FeedTabs onChange={setActiveTab} />
-      {children(filtered)}
+      <div className="space-y-4">
+        {filtered.map((article, i) => (
+          <Reveal key={article.slug}>
+            <WorkCard
+              articleId={article.id}
+              title={article.title}
+              slug={article.slug}
+              excerpt={article.excerpt}
+              authorName={article.authorName}
+              categoryName={article.categoryName}
+              readingTime={article.readingTime}
+              commentCount={article.commentCount}
+              image={article.image}
+              format={article.format}
+              aiFreeDeclaration={article.aiFreeDeclaration}
+              provenanceStatus={article.provenanceStatus}
+              publishAt={article.publishAt}
+              variant={i === 0 ? 'featured' : 'feed'}
+            />
+          </Reveal>
+        ))}
+      </div>
     </>
   )
 }
