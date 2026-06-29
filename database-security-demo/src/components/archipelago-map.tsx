@@ -63,7 +63,7 @@ export function ArchipelagoMap() {
           ))}
         </g>
 
-        {/* Allowed paths — islands to Turso core */}
+        {/* Allowed paths - islands to Turso core */}
         <motion.g
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}

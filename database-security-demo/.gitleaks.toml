@@ -1,0 +1,14 @@
+title = "IslaVault gitleaks config"
+
+[allowlist]
+description = "Allowlisted files and paths"
+paths = [
+  '''(^|/)\.next/''',
+  '''(^|/)\.vercel/''',
+  '''(^|/)node_modules/''',
+  '''\.env$''',
+  '''\.env\.local$''',
+  '''\.env\.production\.local$''',
+  '''\.sst$''',
+  '''(^|/)out/''',
+]

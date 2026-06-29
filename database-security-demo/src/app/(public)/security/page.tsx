@@ -86,8 +86,8 @@ export default function SecurityPage() {
                   <tr key={row[0]} className="border-b border-isla-border/50">
                     <td className="py-1.5 pr-4">{row[0]}</td>
                     <td className="py-1.5 pr-4 text-isla-success">{row[1]}</td>
-                    <td className="py-1.5 pr-4">{row[2] === '✓' ? <span className="text-isla-success">✓</span> : <span className="text-isla-muted">—</span>}</td>
-                    <td className="py-1.5">{row[3] === '✓' ? <span className="text-isla-success">✓</span> : <span className="text-isla-muted">—</span>}</td>
+                    <td className="py-1.5 pr-4">{row[2] === '✓' ? <span className="text-isla-success">✓</span> : <span className="text-isla-muted">-</span>}</td>
+                    <td className="py-1.5">{row[3] === '✓' ? <span className="text-isla-success">✓</span> : <span className="text-isla-muted">-</span>}</td>
                   </tr>
                 ))}
               </tbody>

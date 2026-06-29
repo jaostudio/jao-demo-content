@@ -24,12 +24,12 @@ async function check() {
   for (const h of expectedHeaders) {
     const val = res.headers.get(h.name)
     if (!val) {
-      console.log(`  \u2716 ${h.name} — MISSING`)
+      console.log(`  \u2716 ${h.name} - MISSING`)
       failed++
       continue
     }
     if (h.expected && val !== h.expected && !val.includes(h.expected)) {
-      console.log(`  \u2716 ${h.name} — expected "${h.expected}" got "${val}"`)
+      console.log(`  \u2716 ${h.name} - expected "${h.expected}" got "${val}"`)
       failed++
       continue
     }
