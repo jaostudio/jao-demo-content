@@ -1,5 +1,5 @@
 import { getCurrentUser } from '@/lib/auth/get-session'
-import { prisma } from '@/lib/prisma'
+import { getPrisma } from '@/lib/prisma'
 import { redirect } from 'next/navigation'
 import { createOrganization, deleteOrganization } from '@/lib/actions'
 import { GlassCard } from '@/components/ui/glass-card'
@@ -10,6 +10,7 @@ export const dynamic = 'force-dynamic'
 export default async function AdminOrganizationsPage() {
   const user = await getCurrentUser()
   if (!user || user.role !== 'SYSTEM_ADMIN') redirect('/dashboard')
+  const prisma = await getPrisma()
 
   const orgs = await (prisma as any).organization.findMany({
     include: { _count: { select: { users: true, documents: true } } },

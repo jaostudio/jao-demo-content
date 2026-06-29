@@ -1,5 +1,5 @@
 import { getCurrentUser } from '@/lib/auth/get-session'
-import { prisma } from '@/lib/prisma'
+import { getPrisma } from '@/lib/prisma'
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { createDocument, deleteDocument } from '@/lib/actions'
@@ -12,6 +12,7 @@ export default async function DocumentsPage() {
   const user = await getCurrentUser()
   if (!user) redirect('/signin')
   if (!user.orgId && user.role !== 'SYSTEM_ADMIN') redirect('/dashboard')
+  const prisma = await getPrisma()
 
   const where = user.role === 'SYSTEM_ADMIN' ? {} : { organizationId: user.orgId }
   const documents = await (prisma as any).document.findMany({

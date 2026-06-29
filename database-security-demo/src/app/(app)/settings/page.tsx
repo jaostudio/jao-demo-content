@@ -1,5 +1,5 @@
 import { getCurrentUser } from '@/lib/auth/get-session'
-import { prisma } from '@/lib/prisma'
+import { getPrisma } from '@/lib/prisma'
 import { redirect } from 'next/navigation'
 import { GlassCard } from '@/components/ui/glass-card'
 import { Badge } from '@/components/ui/badge'
@@ -10,6 +10,7 @@ export default async function SettingsPage() {
   const user = await getCurrentUser()
   if (!user) redirect('/signin')
   if (!user.orgId) redirect('/dashboard')
+  const prisma = await getPrisma()
 
   const settings = await (prisma as any).securitySetting.findMany({
     where: { organizationId: user.orgId },

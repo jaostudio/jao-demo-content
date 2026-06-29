@@ -1,7 +1,7 @@
 import { notFound, redirect } from 'next/navigation'
 import Link from 'next/link'
 import { getCurrentUser } from '@/lib/auth/get-session'
-import { prisma } from '@/lib/prisma'
+import { getPrisma } from '@/lib/prisma'
 import { Badge } from '@/components/ui/badge'
 import { AccessDecision } from '@/components/ui'
 import { ArrowLeft } from 'lucide-react'
@@ -13,6 +13,7 @@ export default async function DocumentDetailPage({ params }: { params: Promise<{
   if (!user) redirect('/signin')
 
   const { id } = await params
+  const prisma = await getPrisma()
 
   const doc = await (prisma as any).document.findFirst({
     where: { id, organizationId: user.orgId },

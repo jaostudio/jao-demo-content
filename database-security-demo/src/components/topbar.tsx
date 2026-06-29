@@ -5,9 +5,10 @@ import { Badge } from '@/components/ui/badge'
 import { StatusPill } from '@/components/ui/status-pill'
 import { DemoSwitcher } from '@/components/demo-switcher'
 import { useSecurityProof } from '@/components/security-proof-panel'
+import { SandboxIndicator } from '@/components/sandbox-indicator'
 import { ShieldCheck } from 'lucide-react'
 
-export function Topbar() {
+export function Topbar({ sandboxMode = false }: { sandboxMode?: boolean }) {
   const { data: session } = useSession()
   const user = session?.user as any
   const { open } = useSecurityProof()
@@ -36,6 +37,7 @@ export function Topbar() {
           <ShieldCheck className="w-3.5 h-3.5" />
           Security Proof
         </button>
+        {sandboxMode && <SandboxIndicator />}
         <DemoSwitcher />
         <button
           onClick={() => signOut({ callbackUrl: '/' })}

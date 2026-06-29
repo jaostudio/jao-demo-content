@@ -2,7 +2,7 @@
 
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth/auth'
-import { prisma } from '@/lib/prisma'
+import { getPrisma } from '@/lib/prisma'
 import { revalidatePath } from 'next/cache'
 import { headers } from 'next/headers'
 import bcrypt from 'bcryptjs'
@@ -37,6 +37,7 @@ export async function createOrganization(formData: FormData) {
   const user = await getAuthUser()
   const ip = await guardMutation(user, 'admin-org', 20, 600000)
   assertSystemAdmin(user.role as any)
+  const prisma = await getPrisma()
 
   const parsed = adminCreateOrgSchema.safeParse({ name: formData.get('name') ?? '' })
   if (!parsed.success) throw new Error('Validation failed')
@@ -61,6 +62,7 @@ export async function deleteOrganization(orgId: string) {
   const user = await getAuthUser()
   const ip = await guardMutation(user, 'admin-org', 20, 600000)
   assertSystemAdmin(user.role as any)
+  const prisma = await getPrisma()
 
   const userCount = await (prisma as any).user.count({ where: { organizationId: orgId } })
   const docCount = await (prisma as any).document.count({ where: { organizationId: orgId } })
@@ -99,6 +101,7 @@ export async function deleteOrganization(orgId: string) {
 export async function createDocument(formData: FormData) {
   const user = await getAuthUser()
   const ip = await guardMutation(user, 'doc-write', 30, 600000)
+  const prisma = await getPrisma()
 
   const parsed = documentCreateSchema.safeParse({ title: formData.get('title') ?? '', body: formData.get('body') ?? '' })
   if (!parsed.success) throw new Error('Validation failed')
@@ -123,6 +126,7 @@ export async function createDocument(formData: FormData) {
 export async function deleteDocument(docId: string) {
   const user = await getAuthUser()
   const ip = await guardMutation(user, 'doc-write', 30, 600000)
+  const prisma = await getPrisma()
 
   const doc = await (prisma as any).document.findFirst({
     where: { id: docId, organizationId: user.orgId },
@@ -160,6 +164,7 @@ export async function clearAuditLogs() {
   const user = await getAuthUser()
   await guardMutation(user, 'admin-audit', 10, 600000)
   assertSystemAdmin(user.role as any)
+  const prisma = await getPrisma()
   await (prisma as any).auditEvent.deleteMany({ where: { organizationId: user.orgId ?? undefined } })
   revalidatePath('/audit')
 }
@@ -170,6 +175,7 @@ export async function createOrgUser(formData: FormData) {
   const user = await getAuthUser()
   const ip = await guardMutation(user, 'admin-user', 20, 600000)
   assertSystemAdmin(user.role as any)
+  const prisma = await getPrisma()
 
   const parsed = adminCreateUserSchema.safeParse({
     name: formData.get('name') ?? '',
@@ -205,6 +211,7 @@ export async function deleteUser(userId: string) {
   const user = await getAuthUser()
   const ip = await guardMutation(user, 'admin-user', 20, 600000)
   assertSystemAdmin(user.role as any)
+  const prisma = await getPrisma()
 
   const targetUser = await (prisma as any).user.findUnique({ where: { id: userId } })
   if (!targetUser) throw new Error('User not found')

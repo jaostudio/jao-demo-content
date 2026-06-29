@@ -46,6 +46,10 @@ export default function DemoPage() {
           Select a demo identity to explore tenant boundaries, test RBAC enforcement, and inspect
           the audit trail.
         </p>
+        <p className="mt-2 text-xs text-isla-warning/80">
+          This public demo runs in sandbox mode. Every interaction hits real server code, but writes
+          are contained to an ephemeral database — production Turso data is never touched.
+        </p>
 
         <div className="mt-10">
           <h2 className="text-lg font-semibold text-isla-white mb-4">Demo Accounts</h2>

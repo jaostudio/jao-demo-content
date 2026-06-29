@@ -1,6 +1,7 @@
 import { PrismaClient } from '@prisma/security-client'
 import { PrismaLibSql } from '@prisma/adapter-libsql'
 import path from 'path'
+import { initSandbox } from './sandbox'
 
 const globalForPrisma = globalThis as unknown as { prisma: PrismaClient | undefined }
 
@@ -21,3 +22,8 @@ function createPrismaClient() {
 export const prisma = globalForPrisma.prisma ?? createPrismaClient()
 
 if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
+
+export async function getPrisma(): Promise<PrismaClient> {
+  if (process.env.SANDBOX_MODE === 'true') return initSandbox()
+  return prisma
+}

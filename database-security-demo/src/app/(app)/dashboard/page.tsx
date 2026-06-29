@@ -1,5 +1,5 @@
 import { getCurrentUser } from '@/lib/auth/get-session'
-import { prisma } from '@/lib/prisma'
+import { getPrisma } from '@/lib/prisma'
 import { redirect } from 'next/navigation'
 import { StatCard } from '@/components/ui/stat-card'
 import { GlassCard } from '@/components/ui/glass-card'
@@ -10,6 +10,7 @@ export const dynamic = 'force-dynamic'
 export default async function DashboardPage() {
   const user = await getCurrentUser()
   if (!user) redirect('/signin')
+  const prisma = await getPrisma()
 
   const [docCount, auditCount, deniedCount, userCount, recentDocs, recentAudit, org] = await Promise.all([
     (prisma as any).document.count({ where: { organizationId: user.orgId ?? undefined } }),

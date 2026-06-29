@@ -1,5 +1,5 @@
 import { getCurrentUser } from '@/lib/auth/get-session'
-import { prisma } from '@/lib/prisma'
+import { getPrisma } from '@/lib/prisma'
 import { redirect } from 'next/navigation'
 import { createOrgUser, deleteUser } from '@/lib/actions'
 import { Badge } from '@/components/ui/badge'
@@ -17,6 +17,7 @@ const roleVariant: Record<string, 'admin' | 'rbac' | 'tenant'> = {
 export default async function AdminUsersPage() {
   const user = await getCurrentUser()
   if (!user || user.role !== 'SYSTEM_ADMIN') redirect('/dashboard')
+  const prisma = await getPrisma()
 
   const [users, orgs] = await Promise.all([
     (prisma as any).user.findMany({

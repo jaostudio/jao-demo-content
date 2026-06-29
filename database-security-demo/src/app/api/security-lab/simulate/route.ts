@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth/auth'
-import { prisma } from '@/lib/prisma'
+import { getPrisma } from '@/lib/prisma'
 import { AuditActions } from '@/lib/audit-actions'
 import { securityLabSimulationSchema } from '@/lib/validation'
 import { assertSameOrigin } from '@/lib/security/request-guards'
@@ -56,6 +56,7 @@ const simulationHandlers: Record<string, (user: { id: string; role: string; orgI
     }
 
     const sessionOrgId = user.orgId
+    const prisma = await getPrisma()
     const targetOrg = await (prisma as any).organization.findFirst({ where: { slug: 'talapay-cooperative' } })
     const targetOrgId = targetOrg?.id
 

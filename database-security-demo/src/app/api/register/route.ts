@@ -1,5 +1,5 @@
 import bcrypt from 'bcryptjs'
-import { prisma } from '@/lib/prisma'
+import { getPrisma } from '@/lib/prisma'
 import { registerSchema } from '@/lib/validation'
 import { assertSameOrigin, assertJsonContentType, getClientIp } from '@/lib/security/request-guards'
 import { rateLimit } from '@/lib/rate-limit'
@@ -15,6 +15,7 @@ export async function POST(req: Request) {
     const ip = getClientIp(req.headers)
     const rl = await rateLimit(`register:${ip}`, 3, 3600000)
     if (!rl.ok) return Response.json({ error: 'Too many requests' }, { status: 429 })
+    const prisma = await getPrisma()
 
     const body = await req.json()
     const parsed = registerSchema.safeParse(body)

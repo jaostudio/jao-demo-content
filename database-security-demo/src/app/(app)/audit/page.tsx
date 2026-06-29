@@ -1,5 +1,5 @@
 import { getCurrentUser } from '@/lib/auth/get-session'
-import { prisma } from '@/lib/prisma'
+import { getPrisma } from '@/lib/prisma'
 import { redirect } from 'next/navigation'
 import { Badge } from '@/components/ui/badge'
 import { AuditHighlightWrapper } from '@/components/audit-highlight-wrapper'
@@ -68,6 +68,7 @@ export default async function AuditPage({ searchParams }: { searchParams: Promis
   const user = await getCurrentUser()
   if (!user) redirect('/signin')
   const { highlight, before, limit: limitStr } = await searchParams
+  const prisma = await getPrisma()
 
   const limit = parseAuditLimit(limitStr)
 

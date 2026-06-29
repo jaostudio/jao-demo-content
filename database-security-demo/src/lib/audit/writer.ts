@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto'
-import { prisma } from '@/lib/prisma'
+import { getPrisma } from '@/lib/prisma'
 import { stableJson } from './stable-json'
 import type { AuditAction } from '@/lib/audit-actions'
 
@@ -31,6 +31,7 @@ export async function writeAuditEvent(input: WriteAuditEventInput) {
     userAgent,
     metadata,
   } = input
+  const prisma = await getPrisma()
 
   const orgId = organizationId ?? 'global'
   const createdAt = new Date()
