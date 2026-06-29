@@ -84,52 +84,54 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
             )}
           </nav>
 
-          {/* Demo Access section */}
-          {!user && (
-            <div className="border-t border-hairline p-3 space-y-2">
-              <div className="flex items-center gap-1.5">
-                <span className="inline-block h-1.5 w-1.5 rounded-full bg-voltage-pink" />
-                <p className="text-[11px] font-semibold text-text-primary">Demo Access</p>
-              </div>
-              <div className="space-y-1">
-                {DEMO_USERS.map((demo) => (
-                  <button
-                    key={demo.email}
-                    onClick={() => handleDemoSignIn(demo.email)}
-                    className="w-full flex items-center justify-between rounded-lg border border-hairline px-3 py-1.5 text-[11px] hover:border-reactor-green/40 hover:bg-surface-alt transition-all"
-                  >
-                    <span className="text-graphite">{demo.email}</span>
-                    <span className="font-medium text-reactor-green">{demo.label}</span>
-                  </button>
-                ))}
-              </div>
-              <div className="flex gap-1">
-                {(['READER', 'AUTHOR', 'ADMIN'] as DemoRole[]).map((r) => (
-                  <button
-                    key={r}
-                    onClick={() => { if (!safeDemoEnabled) enableDemoMode(); setRole(r) }}
-                    className={`flex-1 rounded px-3 py-2 text-[13px] font-medium transition-colors ${
-                      safeDemoEnabled ? 'bg-reactor-green/10 text-reactor-green' : 'text-fog-gray hover:bg-surface-alt'
-                    }`}
-                  >
-                    {roleLabels[r]}
-                  </button>
-                ))}
-              </div>
-              <p className="text-[9px] text-ash">UI simulation only.</p>
-              {safeDemoEnabled && (
-                <button
-                  onClick={() => disableDemoMode()}
-                  className="w-full rounded border border-hairline px-2 py-1 text-[10px] text-fog-gray hover:text-text-primary transition-colors"
-                >
-                  Exit UI Preview
-                </button>
-              )}
+          {/* Demo Access section — always visible */}
+          <div className="border-t border-hairline p-3 space-y-2">
+            <div className="flex items-center gap-1.5">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-voltage-pink" />
+              <p className="text-[11px] font-semibold text-text-primary">Demo Access</p>
+              {user && <span className="ml-auto text-[10px] text-ash">{user.role}</span>}
             </div>
-          )}
+            <div className="space-y-1">
+              {DEMO_USERS.map((demo) => (
+                <button
+                  key={demo.email}
+                  onClick={() => handleDemoSignIn(demo.email)}
+                  className="w-full flex items-center justify-between rounded-lg border border-hairline px-3 py-1.5 text-[11px] hover:border-reactor-green/40 hover:bg-surface-alt transition-all"
+                >
+                  <span className="text-graphite">{demo.email}</span>
+                  <span className="font-medium text-reactor-green">{user ? `Switch to ${demo.label}` : demo.label}</span>
+                </button>
+              ))}
+            </div>
+            <div className="flex gap-1">
+              {(['READER', 'AUTHOR', 'ADMIN'] as DemoRole[]).map((r) => (
+                <button
+                  key={r}
+                  onClick={() => { if (!safeDemoEnabled) enableDemoMode(); setRole(r) }}
+                  className={`flex-1 rounded px-3 py-2 text-[13px] font-medium transition-colors ${
+                    safeDemoEnabled ? 'bg-reactor-green/10 text-reactor-green' : 'text-fog-gray hover:bg-surface-alt'
+                  }`}
+                >
+                  {roleLabels[r]}
+                </button>
+              ))}
+            </div>
+            <p className="text-[9px] text-ash">UI simulation only.</p>
+            {safeDemoEnabled && (
+              <button
+                onClick={() => disableDemoMode()}
+                className="w-full rounded border border-hairline px-2 py-1 text-[10px] text-fog-gray hover:text-text-primary transition-colors"
+              >
+                Exit UI Preview
+              </button>
+            )}
+          </div>
 
-          <div className="mt-auto flex items-center gap-2 border-t border-hairline p-3">
-            <ThemeToggle />
+          <div className="border-t border-hairline p-3">
+            <div className="flex items-center justify-between rounded-lg px-2 py-1">
+              <span className="text-[13px] font-medium text-text-secondary">Theme</span>
+              <ThemeToggle />
+            </div>
           </div>
         </Dialog.Content>
       </Dialog.Portal>

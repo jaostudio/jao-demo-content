@@ -62,6 +62,77 @@ export function RightPanel({ categories, trending = [], suggestedAuthors = [] }:
   if (user) {
     return (
       <aside className="space-y-6">
+        {/* Demo Access — always visible when authenticated */}
+        <div className="rounded-xl border border-hairline bg-card p-3">
+          <div className="flex items-center gap-1.5 mb-2">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-voltage-pink" />
+            <h3 className="text-[12px] font-semibold text-text-primary">Demo Access</h3>
+            <span className="ml-auto text-[10px] text-ash">{user.role}</span>
+          </div>
+          <div className="space-y-1 mb-2">
+            {DEMO_USERS.map((demo) => (
+              <button
+                key={demo.email}
+                onClick={async () => {
+                  setSigningIn(demo.email)
+                  const result = await signIn(demo.email, 'password123')
+                  if (result.user) {
+                    const target = getSafeAuthRedirect(null, result.user.role)
+                    router.push(target)
+                    router.refresh()
+                  }
+                  setSigningIn(null)
+                }}
+                disabled={signingIn !== null}
+                className="w-full flex items-center justify-between rounded-lg border border-hairline px-2.5 py-1.5 text-[11px] hover:border-reactor-green/40 hover:bg-surface-alt transition-all disabled:opacity-50"
+              >
+                <span className="text-graphite">{demo.email}</span>
+                <span className="font-medium text-reactor-green">
+                  {signingIn === demo.email ? '...' : `Switch to ${demo.label}`}
+                </span>
+              </button>
+            ))}
+          </div>
+          <button
+            onClick={() => setDemoOpen(!demoOpen)}
+            className="flex items-center gap-1 text-[10px] text-fog-gray hover:text-text-primary transition-colors"
+          >
+            <span className={`inline-block h-1.5 w-1.5 rounded-full ${safeDemoEnabled ? 'bg-voltage-pink' : 'bg-hairline'}`} />
+            UI Preview {demoOpen ? '▾' : '▸'}
+          </button>
+          {demoOpen && (
+            <div className="mt-2 space-y-2">
+              <div className="flex gap-1">
+                {roles.map((r) => (
+                  <button
+                    key={r}
+                    onClick={() => {
+                      if (!safeDemoEnabled) enableDemoMode()
+                      setRole(r)
+                    }}
+                    className={`flex-1 rounded-lg px-2 py-1 text-[10px] font-medium transition-colors ${
+                      safeDemoEnabled && safeDemoRole === r
+                        ? 'bg-reactor-green text-void-black'
+                        : 'text-fog-gray hover:bg-surface-alt'
+                    }`}
+                  >
+                    {roleLabels[r]}
+                  </button>
+                ))}
+              </div>
+              <p className="text-[9px] text-ash leading-relaxed">UI only. Backend still requires login.</p>
+              {safeDemoEnabled && (
+                <button
+                  onClick={() => { disableDemoMode(); setDemoOpen(false) }}
+                  className="w-full rounded-lg border border-hairline px-2 py-1 text-[9px] text-fog-gray hover:text-text-primary transition-colors"
+                >
+                  Exit UI Preview
+                </button>
+              )}
+            </div>
+          )}
+        </div>
+
         {/* Featured Artists */}
         {suggestedAuthors.length > 0 && (
           <div>

@@ -104,7 +104,7 @@ export function LeftRail() {
 
           {/* Avatar or Hamburger */}
           {user ? (
-            <Link href="/admin" title="Profile">
+            <Link href="/studio" title="Studio">
               <div className="group">
                 <Avatar name={user.name || 'U'} size="sm" />
               </div>

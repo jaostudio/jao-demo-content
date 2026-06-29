@@ -18,9 +18,10 @@ interface AdminDashboardProps {
   pendingCount: number
   publishedCount: number
   articles: ArticleSummary[]
+  fetchError?: string | null
 }
 
-export function AdminOverview({ draftCount, pendingCount, publishedCount, articles }: AdminDashboardProps) {
+export function AdminOverview({ draftCount, pendingCount, publishedCount, articles, fetchError }: AdminDashboardProps) {
   const statusColor = (status: string) => {
     switch (status) {
       case 'DRAFT': return 'bg-surface-alt text-graphite border-hairline'
@@ -47,6 +48,12 @@ export function AdminOverview({ draftCount, pendingCount, publishedCount, articl
         <h1 className="text-[17px] font-semibold text-text-primary">Overview</h1>
         <p className="text-[11px] text-fog-gray mt-0.5">Works across all studios</p>
       </div>
+
+      {fetchError && (
+        <div className="rounded-lg border border-amber-200 bg-amber-50 p-3 text-xs text-amber-800 dark:border-amber-800 dark:bg-amber-900/20 dark:text-amber-400">
+          Could not load dashboard data. Moderation tools are limited.
+        </div>
+      )}
 
       <div className="grid grid-cols-3 gap-3">
         <Card className="p-3">

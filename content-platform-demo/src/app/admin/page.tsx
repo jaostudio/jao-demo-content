@@ -14,7 +14,7 @@ export const dynamic = 'force-dynamic'
 
 export default async function AdminDashboardPage() {
   const author = await getCurrentAuthor()
-  if (!author) redirect('/signin')
+  if (!author) redirect('/signin?next=/admin')
   if (author.role !== 'ADMIN') redirect('/studio')
 
   const cookieStore = await cookies()
@@ -22,17 +22,29 @@ export default async function AdminDashboardPage() {
   const authHeaders: Record<string, string> = {}
   if (token) authHeaders['Authorization'] = `Bearer ${token}`
 
-  const [articles, stats] = await Promise.all([
-    fetchAPI<ArticleSummary[]>('/api/admin/articles', { headers: authHeaders }),
-    fetchAPI<AdminStatsResponse>('/api/admin/stats', { headers: authHeaders }),
-  ])
+  let articles: ArticleSummary[] = []
+  let stats: AdminStatsResponse | null = null
+  let fetchError: string | null = null
+
+  try {
+    const results = await Promise.all([
+      fetchAPI<ArticleSummary[]>('/api/admin/articles', { headers: authHeaders }),
+      fetchAPI<AdminStatsResponse>('/api/admin/stats', { headers: authHeaders }),
+    ])
+    articles = results[0]
+    stats = results[1]
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : String(error)
+    console.error('[admin] failed to load dashboard data', message)
+    fetchError = message
+  }
 
   if (NEW_LAYOUT_ENABLED) {
     return (
       <AdminOverview
-        draftCount={stats.draftArticles}
-        pendingCount={stats.pendingReview}
-        publishedCount={stats.publishedArticles}
+        draftCount={stats?.draftArticles ?? 0}
+        pendingCount={stats?.pendingReview ?? 0}
+        publishedCount={stats?.publishedArticles ?? 0}
         articles={articles.map((a) => ({
           id: a.id,
           title: a.title,
@@ -43,6 +55,7 @@ export default async function AdminDashboardPage() {
           createdAt: a.createdAt,
           category: { slug: a.categoryId, name: a.categoryName },
         }))}
+        fetchError={fetchError}
       />
     )
   }
@@ -56,17 +69,23 @@ export default async function AdminDashboardPage() {
         </p>
       </div>
 
+      {fetchError && (
+        <div className="mb-4 rounded-lg border border-amber-200 bg-amber-50 p-3 text-xs text-amber-800 dark:border-amber-800 dark:bg-amber-900/20 dark:text-amber-400">
+          Could not load dashboard data. Moderation tools are limited.
+        </div>
+      )}
+
       <div className="mb-4 grid grid-cols-3 gap-3">
         <div className="rounded-lg border border-border bg-card p-3 dark:border-border-dark dark:bg-card-dark">
-          <p className="text-xl font-semibold text-text-primary dark:text-slate-100">{stats.draftArticles}</p>
+          <p className="text-xl font-semibold text-text-primary dark:text-slate-100">{stats?.draftArticles ?? 0}</p>
           <p className="text-[11px] text-text-muted">Drafts</p>
         </div>
         <div className="rounded-lg border border-amber-200 bg-amber-50 p-3 dark:border-amber-800 dark:bg-amber-900/20">
-          <p className="text-xl font-semibold text-amber-700 dark:text-amber-400">{stats.pendingReview}</p>
+          <p className="text-xl font-semibold text-amber-700 dark:text-amber-400">{stats?.pendingReview ?? 0}</p>
           <p className="text-[11px] text-amber-600 dark:text-amber-500">Pending</p>
         </div>
         <div className="rounded-lg border border-emerald-200 bg-emerald-50 p-3 dark:border-emerald-800 dark:bg-emerald-900/20">
-          <p className="text-xl font-semibold text-emerald-700 dark:text-emerald-400">{stats.publishedArticles}</p>
+          <p className="text-xl font-semibold text-emerald-700 dark:text-emerald-400">{stats?.publishedArticles ?? 0}</p>
           <p className="text-[11px] text-emerald-600 dark:text-emerald-500">Published</p>
         </div>
       </div>

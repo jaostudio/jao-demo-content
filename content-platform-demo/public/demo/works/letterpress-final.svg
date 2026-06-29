@@ -1,23 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
   <title>The Art of Letterpress in Digital Design — Final Study</title>
-  <rect width="800" height="600" fill="#f7f3ea"/>
-  <rect width="800" height="600" fill="url(#grid)" opacity="0.04"/>
+  <rect width="800" height="600" fill="#f4efe5"/>
   <defs>
     <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
       <rect width="24" height="24" fill="none"/>
-      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#14130f" strokeWidth="0.5"/>
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#1f1a14" strokeWidth="0.5" opacity="0.6"/>
     </pattern>
   </defs>
-  <path d="M 30 30 L 30 14 L 14 14 L 14 30 Z" fill="none" stroke="#d8cfbf" strokeWidth="1.5"/>
-  <path d="M 770 570 L 770 586 L 786 586 L 786 570 Z" fill="none" stroke="#d8cfbf" strokeWidth="1.5"/>
-  <text x="400" y="200" fontFamily="system-ui, sans-serif" fontWeight="700" fontSize="80" fill="#14130f" textAnchor="middle" opacity="0.1" letterSpacing="8">ABCD</text>
-  <text x="400" y="280" fontFamily="system-ui, sans-serif" fontWeight="500" fontSize="48" fill="#14130f" textAnchor="middle" opacity="0.06" letterSpacing="6">efgh</text>
-  <text x="400" y="380" fontFamily="system-ui, sans-serif" fontWeight="400" fontSize="24" fill="#14130f" textAnchor="middle" opacity="0.06" letterSpacing="4">LETTERPRESS</text>
-  <rect x="200" y="440" width="400" height="2" fill="#14130f" opacity="0.06"/>
-  <circle cx="600" cy="200" r="5" fill="#00df00" opacity="0.25"/>
-  <g opacity="0.08" transform="translate(720, 540)">
-    <path d="M 5 5 v 14 h 14" stroke="#14130f" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <line x1="17.5" y1="6.5" x2="8.5" y2="15.5" stroke="#14130f" strokeWidth="2" strokeLinecap="round"/>
-    <circle cx="19.5" cy="19.5" r="1.5" fill="#ff00f0"/>
+  <rect width="800" height="600" fill="url(#grid)" opacity="0.06"/>
+  <path d="M 30 30 L 30 14 L 14 14 L 14 30 Z" fill="none" stroke="#cfc1ad" strokeWidth="1.5"/>
+  <path d="M 770 570 L 770 586 L 786 586 L 786 570 Z" fill="none" stroke="#cfc1ad" strokeWidth="1.5"/>
+  <text x="400" y="200" fontFamily="system-ui, sans-serif" fontWeight="700" fontSize="80" fill="#1f1a14" textAnchor="middle" opacity="0.16" letterSpacing="8">ABCD</text>
+  <text x="400" y="280" fontFamily="system-ui, sans-serif" fontWeight="500" fontSize="48" fill="#1f1a14" textAnchor="middle" opacity="0.1" letterSpacing="6">efgh</text>
+  <text x="400" y="380" fontFamily="system-ui, sans-serif" fontWeight="400" fontSize="24" fill="#1f1a14" textAnchor="middle" opacity="0.1" letterSpacing="4">LETTERPRESS</text>
+  <rect x="200" y="440" width="400" height="2" fill="#1f1a14" opacity="0.12"/>
+  <circle cx="600" cy="200" r="5" fill="#4f9f46" opacity="0.4"/>
+  <g opacity="0.12" transform="translate(720, 540)">
+    <path d="M 5 5 v 14 h 14" stroke="#1f1a14" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <line x1="17.5" y1="6.5" x2="8.5" y2="15.5" stroke="#1f1a14" strokeWidth="2" strokeLinecap="round"/>
+    <circle cx="19.5" cy="19.5" r="1.5" fill="#b85aa7"/>
   </g>
 </svg>
