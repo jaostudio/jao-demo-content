@@ -19,52 +19,52 @@ async function simulate(page: any, type: string) {
   }, type)
 }
 
-test.describe('Security Lab API — ORG_USER (Paolo)', () => {
+test.describe('Security Lab API — Org-scoped user (Jao)', () => {
   test.beforeEach(async ({ page }) => {
-    await signInAs(page, 'paolo@luntian.demo')
+    await signInAs(page, 'jao@luntian.demo')
   })
 
-  test('Cross-tenant access: responseCode 404 + BLOCKED + document.cross_tenant_denied', async ({ page }) => {
+  test('Cross-tenant access: simulatedResponseCode 404 + BLOCKED + document.cross_tenant_denied', async ({ page }) => {
     const { status, body } = await simulate(page, 'cross-tenant')
     expect(status).toBe(200)
-    expect(body.responseCode).toBe(404)
+    expect(body.simulatedResponseCode).toBe(404)
     expect(body.result).toBe('BLOCKED')
     expect(body.auditEvent).toBe('document.cross_tenant_denied')
     expect(body.auditRecorded).toBe(true)
     expect(Array.isArray(body.steps)).toBe(true)
   })
 
-  test('Admin-only action: responseCode 403 + BLOCKED + admin.action_denied', async ({ page }) => {
+  test('Admin-only action: simulatedResponseCode 403 + BLOCKED + admin.action_denied', async ({ page }) => {
     const { status, body } = await simulate(page, 'admin-action')
     expect(status).toBe(200)
-    expect(body.responseCode).toBe(403)
+    expect(body.simulatedResponseCode).toBe(403)
     expect(body.result).toBe('BLOCKED')
     expect(body.auditEvent).toBe('admin.action_denied')
     expect(body.auditRecorded).toBe(true)
   })
 
-  test('Org ID injection: responseCode 200 + ALLOWED + security.client_org_injection_blocked', async ({ page }) => {
+  test('Org ID injection: simulatedResponseCode 200 + ALLOWED + security.client_org_injection_blocked', async ({ page }) => {
     const { status, body } = await simulate(page, 'org-id-injection')
     expect(status).toBe(200)
-    expect(body.responseCode).toBe(200)
+    expect(body.simulatedResponseCode).toBe(200)
     expect(body.result).toBe('ALLOWED')
     expect(body.auditEvent).toBe('security.client_org_injection_blocked')
     expect(body.auditRecorded).toBe(true)
   })
 
-  test('Audit tamper: responseCode 405 + BLOCKED + security.audit_tamper_denied', async ({ page }) => {
+  test('Audit tamper: simulatedResponseCode 405 + BLOCKED + security.audit_tamper_denied', async ({ page }) => {
     const { status, body } = await simulate(page, 'audit-tamper')
     expect(status).toBe(200)
-    expect(body.responseCode).toBe(405)
+    expect(body.simulatedResponseCode).toBe(405)
     expect(body.result).toBe('BLOCKED')
     expect(body.auditEvent).toBe('security.audit_tamper_denied')
     expect(body.auditRecorded).toBe(true)
   })
 
-  test('Escalated edit: responseCode 403 + BLOCKED + admin.action_denied', async ({ page }) => {
+  test('Escalated edit: simulatedResponseCode 403 + BLOCKED + admin.action_denied', async ({ page }) => {
     const { status, body } = await simulate(page, 'escalated-edit')
     expect(status).toBe(200)
-    expect(body.responseCode).toBe(403)
+    expect(body.simulatedResponseCode).toBe(403)
     expect(body.result).toBe('BLOCKED')
     expect(body.auditEvent).toBe('admin.action_denied')
     expect(body.auditRecorded).toBe(true)
@@ -82,51 +82,51 @@ test.describe('Security Lab API — ORG_USER (Paolo)', () => {
   })
 })
 
-test.describe('Security Lab API — SYSTEM_ADMIN (Rafael)', () => {
+test.describe('Security Lab API — SYSTEM_ADMIN (Grace)', () => {
   test.beforeEach(async ({ page }) => {
-    await signInAs(page, 'rafael@islavault.demo')
+    await signInAs(page, 'grace@pulodata.demo')
   })
 
-  test('Cross-tenant: responseCode 200 + ALLOWED + security_lab.cross_tenant_document_access (bypass)', async ({ page }) => {
+  test('Cross-tenant: simulatedResponseCode 200 + ALLOWED + security_lab.cross_tenant_document_access (bypass)', async ({ page }) => {
     const { status, body } = await simulate(page, 'cross-tenant')
     expect(status).toBe(200)
-    expect(body.responseCode).toBe(200)
+    expect(body.simulatedResponseCode).toBe(200)
     expect(body.result).toBe('ALLOWED')
     expect(body.auditEvent).toBe('security_lab.cross_tenant_document_access')
     expect(body.auditRecorded).toBe(true)
   })
 
-  test('Admin action: responseCode 200 + ALLOWED + security_lab.admin_only_action', async ({ page }) => {
+  test('Admin action: simulatedResponseCode 200 + ALLOWED + security_lab.admin_only_action', async ({ page }) => {
     const { status, body } = await simulate(page, 'admin-action')
     expect(status).toBe(200)
-    expect(body.responseCode).toBe(200)
+    expect(body.simulatedResponseCode).toBe(200)
     expect(body.result).toBe('ALLOWED')
     expect(body.auditEvent).toBe('security_lab.admin_only_action')
     expect(body.auditRecorded).toBe(true)
   })
 
-  test('Org ID injection: responseCode 200 + ALLOWED + security_lab.fake_org_id_injection', async ({ page }) => {
+  test('Org ID injection: simulatedResponseCode 200 + ALLOWED + security_lab.fake_org_id_injection', async ({ page }) => {
     const { status, body } = await simulate(page, 'org-id-injection')
     expect(status).toBe(200)
-    expect(body.responseCode).toBe(200)
+    expect(body.simulatedResponseCode).toBe(200)
     expect(body.result).toBe('ALLOWED')
     expect(body.auditEvent).toBe('security_lab.fake_org_id_injection')
     expect(body.auditRecorded).toBe(true)
   })
 
-  test('Audit tamper: responseCode 405 + BLOCKED + security.audit_tamper_denied', async ({ page }) => {
+  test('Audit tamper: simulatedResponseCode 405 + BLOCKED + security.audit_tamper_denied', async ({ page }) => {
     const { status, body } = await simulate(page, 'audit-tamper')
     expect(status).toBe(200)
-    expect(body.responseCode).toBe(405)
+    expect(body.simulatedResponseCode).toBe(405)
     expect(body.result).toBe('BLOCKED')
     expect(body.auditEvent).toBe('security.audit_tamper_denied')
     expect(body.auditRecorded).toBe(true)
   })
 
-  test('Escalated edit: responseCode 200 + ALLOWED + security_lab.escalated_document_edit', async ({ page }) => {
+  test('Escalated edit: simulatedResponseCode 200 + ALLOWED + security_lab.escalated_document_edit', async ({ page }) => {
     const { status, body } = await simulate(page, 'escalated-edit')
     expect(status).toBe(200)
-    expect(body.responseCode).toBe(200)
+    expect(body.simulatedResponseCode).toBe(200)
     expect(body.result).toBe('ALLOWED')
     expect(body.auditEvent).toBe('security_lab.escalated_document_edit')
     expect(body.auditRecorded).toBe(true)

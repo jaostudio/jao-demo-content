@@ -3,16 +3,10 @@
 import { DemoIdentityCard } from '@/components/demo-identity-card'
 import { GlassCard } from '@/components/ui/glass-card'
 import { Badge } from '@/components/ui/badge'
+import { DEMO_ACCOUNTS, DEMO_PASSWORD } from '@/lib/demo-accounts'
 import { useState } from 'react'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
-
-const demoAccounts = [
-  { name: 'Maria Santos', email: 'maria@luntian.demo', role: 'ORG_ADMIN', tenant: 'Luntian Health Network', access: 'Documents, Audit, Settings', roleVariant: 'rbac' as const },
-  { name: 'Paolo Reyes', email: 'paolo@luntian.demo', role: 'ORG_USER', tenant: 'Luntian Health Network', access: 'Documents only', roleVariant: 'tenant' as const },
-  { name: 'Ana Villarin', email: 'ana@talapay.demo', role: 'ORG_USER', tenant: 'TalaPay Cooperative', access: 'Separate tenant boundary', roleVariant: 'tenant' as const },
-  { name: 'Rafael Cruz', email: 'rafael@islavault.demo', role: 'SYSTEM_ADMIN', tenant: 'Global Control Plane', access: 'All organizations', roleVariant: 'admin' as const },
-]
 
 export default function DemoPage() {
   const [email, setEmail] = useState('')
@@ -43,17 +37,20 @@ export default function DemoPage() {
   return (
     <main className="grid-bg">
       <div className="mx-auto max-w-4xl px-4 py-16">
-        <Badge variant="admin" className="mb-4">Try IslaVault</Badge>
+        <div className="flex items-center gap-3 mb-4">
+          <Badge variant="admin">Try IslaVault</Badge>
+          <Badge variant="tenant">password {DEMO_PASSWORD}</Badge>
+        </div>
         <h1 className="text-3xl font-bold text-isla-white">Launch Security Demo</h1>
         <p className="mt-3 text-isla-muted max-w-2xl">
           Select a demo identity to explore tenant boundaries, test RBAC enforcement, and inspect
-          the audit trail. All accounts use password <span className="text-isla-white mono">password123</span>.
+          the audit trail.
         </p>
 
         <div className="mt-10">
           <h2 className="text-lg font-semibold text-isla-white mb-4">Demo Accounts</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {demoAccounts.map((account) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {DEMO_ACCOUNTS.map((account) => (
               <DemoIdentityCard key={account.email} {...account} />
             ))}
           </div>

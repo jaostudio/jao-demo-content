@@ -4,13 +4,7 @@ import { useState } from 'react'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { cn } from '@/lib/utils'
-
-const demoAccounts = [
-  { name: 'Maria Santos', email: 'maria@luntian.demo', role: 'ORG_ADMIN', tenant: 'Luntian Health' },
-  { name: 'Paolo Reyes', email: 'paolo@luntian.demo', role: 'ORG_USER', tenant: 'Luntian Health' },
-  { name: 'Ana Villarin', email: 'ana@talapay.demo', role: 'ORG_USER', tenant: 'TalaPay' },
-  { name: 'Rafael Cruz', email: 'rafael@islavault.demo', role: 'SYSTEM_ADMIN', tenant: 'Global' },
-]
+import { DEMO_ACCOUNTS, DEMO_PASSWORD } from '@/lib/demo-accounts'
 
 export function DemoSwitcher() {
   const [open, setOpen] = useState(false)
@@ -21,7 +15,7 @@ export function DemoSwitcher() {
     setLoading(email)
     await signIn('credentials', {
       email,
-      password: 'password123',
+      password: DEMO_PASSWORD,
       redirect: false,
     })
     setLoading(null)
@@ -43,7 +37,7 @@ export function DemoSwitcher() {
           <div className="fixed inset-0 z-40" onClick={() => setOpen(false)} />
           <div className="absolute right-0 top-full mt-1 z-50 w-64 glass-card-static p-2 shadow-xl">
             <div className="text-xs text-isla-muted px-2 py-1.5">Switch to another demo account</div>
-            {demoAccounts.map((account) => (
+            {DEMO_ACCOUNTS.map((account) => (
               <button
                 key={account.email}
                 onClick={() => handleSwitch(account.email)}

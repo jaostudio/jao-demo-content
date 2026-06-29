@@ -8,9 +8,9 @@ async function signInAs(page: any, email: string) {
   await page.waitForURL('**/dashboard')
 }
 
-test.describe('RBAC — ORG_USER (Paolo)', () => {
+test.describe('RBAC — ORG_USER (Kiko)', () => {
   test.beforeEach(async ({ page }) => {
-    await signInAs(page, 'paolo@luntian.demo')
+    await signInAs(page, 'kiko@bayani.demo')
   })
 
   test('1. Direct /admin/users redirects to /dashboard', async ({ page }) => {
@@ -41,9 +41,9 @@ test.describe('RBAC — ORG_USER (Paolo)', () => {
   })
 })
 
-test.describe('RBAC — ORG_ADMIN (Maria)', () => {
+test.describe('RBAC — ORG_ADMIN (Gina)', () => {
   test.beforeEach(async ({ page }) => {
-    await signInAs(page, 'maria@luntian.demo')
+    await signInAs(page, 'gina@talapay.demo')
   })
 
   test('6. Sidebar shows Settings link', async ({ page }) => {
@@ -61,9 +61,9 @@ test.describe('RBAC — ORG_ADMIN (Maria)', () => {
   })
 })
 
-test.describe('RBAC — SYSTEM_ADMIN (Rafael)', () => {
+test.describe('RBAC — SYSTEM_ADMIN (Grace)', () => {
   test.beforeEach(async ({ page }) => {
-    await signInAs(page, 'rafael@islavault.demo')
+    await signInAs(page, 'grace@pulodata.demo')
   })
 
   test('9. Sidebar shows System Admin link', async ({ page }) => {

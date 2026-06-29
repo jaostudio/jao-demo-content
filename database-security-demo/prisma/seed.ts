@@ -1,13 +1,14 @@
 import { PrismaClient } from '@prisma/security-client'
 import { PrismaLibSql } from '@prisma/adapter-libsql'
 import bcrypt from 'bcryptjs'
+import { DEMO_ACCOUNTS, DEMO_PASSWORD } from '../src/lib/demo-accounts'
 
 const adapter = new PrismaLibSql({
   url: process.env.DATABASE_URL ?? 'file:./dev.db',
 })
 const prisma = new PrismaClient({ adapter })
 
-const PASSWORD = bcrypt.hashSync('password123', 10)
+const PASSWORD = bcrypt.hashSync(DEMO_PASSWORD, 10)
 
 async function main() {
   // ── Organizations ──
@@ -15,51 +16,51 @@ async function main() {
   const luntian = await prisma.organization.upsert({
     where: { slug: 'luntian-health' },
     update: {},
-    create: { name: 'Luntian Health Network', slug: 'luntian-health' },
+    create: { name: 'Luntian Health', slug: 'luntian-health' },
   })
 
   const talapay = await prisma.organization.upsert({
     where: { slug: 'talapay-cooperative' },
     update: {},
-    create: { name: 'TalaPay Cooperative', slug: 'talapay-cooperative' },
+    create: { name: 'TalaPay', slug: 'talapay-cooperative' },
   })
 
   const bayani = await prisma.organization.upsert({
     where: { slug: 'bayani-freight' },
     update: {},
-    create: { name: 'Bayani Freight Systems', slug: 'bayani-freight' },
+    create: { name: 'Bayani Freight', slug: 'bayani-freight' },
   })
 
-  const sampaguita = await prisma.organization.upsert({
-    where: { slug: 'sampaguita-export' },
+  const pulodata = await prisma.organization.upsert({
+    where: { slug: 'pulo-data-registry' },
     update: {},
-    create: { name: 'Sampaguita Export House', slug: 'sampaguita-export' },
+    create: { name: 'Pulo Data Registry', slug: 'pulo-data-registry' },
   })
 
-  // ── Users ──
+  // ── Users from canonical DEMO_ACCOUNTS ──
 
-  const maria = await prisma.user.upsert({
-    where: { email: 'maria@luntian.demo' },
+  const jao = await prisma.user.upsert({
+    where: { email: DEMO_ACCOUNTS[0].email },
     update: {},
-    create: { name: 'Maria Santos', email: 'maria@luntian.demo', password: PASSWORD, role: 'ORG_ADMIN', organizationId: luntian.id },
-  })
-
-  await prisma.user.upsert({
-    where: { email: 'paolo@luntian.demo' },
-    update: {},
-    create: { name: 'Paolo Reyes', email: 'paolo@luntian.demo', password: PASSWORD, role: 'ORG_USER', organizationId: luntian.id },
+    create: { name: DEMO_ACCOUNTS[0].name, email: DEMO_ACCOUNTS[0].email, password: PASSWORD, role: DEMO_ACCOUNTS[0].role, organizationId: luntian.id },
   })
 
   await prisma.user.upsert({
-    where: { email: 'ana@talapay.demo' },
+    where: { email: DEMO_ACCOUNTS[1].email },
     update: {},
-    create: { name: 'Ana Villarin', email: 'ana@talapay.demo', password: PASSWORD, role: 'ORG_USER', organizationId: talapay.id },
+    create: { name: DEMO_ACCOUNTS[1].name, email: DEMO_ACCOUNTS[1].email, password: PASSWORD, role: DEMO_ACCOUNTS[1].role, organizationId: talapay.id },
   })
 
   await prisma.user.upsert({
-    where: { email: 'rafael@islavault.demo' },
+    where: { email: DEMO_ACCOUNTS[2].email },
     update: {},
-    create: { name: 'Rafael Cruz', email: 'rafael@islavault.demo', password: PASSWORD, role: 'SYSTEM_ADMIN' },
+    create: { name: DEMO_ACCOUNTS[2].name, email: DEMO_ACCOUNTS[2].email, password: PASSWORD, role: DEMO_ACCOUNTS[2].role, organizationId: bayani.id },
+  })
+
+  await prisma.user.upsert({
+    where: { email: DEMO_ACCOUNTS[3].email },
+    update: {},
+    create: { name: DEMO_ACCOUNTS[3].name, email: DEMO_ACCOUNTS[3].email, password: PASSWORD, role: DEMO_ACCOUNTS[3].role, organizationId: pulodata.id },
   })
 
   // ── Documents: Luntian Health Network ──
@@ -74,7 +75,7 @@ async function main() {
 
   for (const doc of luntianDocs) {
     await prisma.document.create({
-      data: { title: doc.title, body: doc.body, organizationId: luntian.id, uploadedById: maria.id },
+      data: { title: doc.title, body: doc.body, organizationId: luntian.id, uploadedById: jao.id },
     })
   }
 
@@ -89,7 +90,7 @@ async function main() {
 
   for (const doc of talapayDocs) {
     await prisma.document.create({
-      data: { title: doc.title, body: doc.body, organizationId: talapay.id, uploadedById: maria.id },
+      data: { title: doc.title, body: doc.body, organizationId: talapay.id, uploadedById: jao.id },
     })
   }
 
@@ -104,28 +105,28 @@ async function main() {
 
   for (const doc of bayaniDocs) {
     await prisma.document.create({
-      data: { title: doc.title, body: doc.body, organizationId: bayani.id, uploadedById: maria.id },
+      data: { title: doc.title, body: doc.body, organizationId: bayani.id, uploadedById: jao.id },
     })
   }
 
-  // ── Documents: Sampaguita Export House ──
+  // ── Documents: Pulo Data Registry ──
 
-  const sampaguitaDocs = [
-    { title: 'Supplier Agreement Records', body: 'All active supplier agreements, NDAs, and data processing addendums for export operations.' },
-    { title: 'Compliance Filing Status', body: 'Current compliance filing status for all export destinations. Updated after Q1 regulatory review.' },
-    { title: 'Export License Documentation', body: 'Active export licenses, permits, and certifications required for cross-border shipments.' },
-    { title: 'Quality Control Reports', body: 'Monthly quality control audit reports for outgoing shipments. Average pass rate: 98.7%.' },
+  const pulodataDocs = [
+    { title: 'Citizen Record Schema', body: 'Master schema definition for citizen identity records, including encryption-at-rest requirements.' },
+    { title: 'Data Sharing MOA', body: 'Memorandum of agreement governing cross-agency data sharing and access controls.' },
+    { title: 'Registry Audit Log', body: 'System-level audit log for registry access events. Append-only with tamper detection.' },
+    { title: 'Access Control Policy', body: 'Policies defining role-based access tiers for registry data consumer applications.' },
   ]
 
-  for (const doc of sampaguitaDocs) {
+  for (const doc of pulodataDocs) {
     await prisma.document.create({
-      data: { title: doc.title, body: doc.body, organizationId: sampaguita.id, uploadedById: maria.id },
+      data: { title: doc.title, body: doc.body, organizationId: pulodata.id, uploadedById: jao.id },
     })
   }
 
   // ── Security Settings ──
 
-  const orgs = [luntian, talapay, bayani, sampaguita]
+  const orgs = [luntian, talapay, bayani, pulodata]
   for (const org of orgs) {
     await prisma.securitySetting.upsert({
       where: { key_organizationId: { key: 'mfa_enabled', organizationId: org.id } },

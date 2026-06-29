@@ -1,12 +1,19 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { signIn } from 'next-auth/react'
 
 export default function RegisterPage() {
   const router = useRouter()
+
+  useEffect(() => {
+    if (process.env.NEXT_PUBLIC_DEMO_REGISTRATION_ENABLED !== 'true') {
+      router.replace('/demo')
+    }
+  }, [router])
+
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')

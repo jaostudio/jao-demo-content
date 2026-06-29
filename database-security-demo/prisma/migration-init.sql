@@ -1,0 +1,64 @@
+CREATE TABLE IF NOT EXISTS User (
+    id TEXT PRIMARY KEY NOT NULL,
+    name TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
+    password TEXT NOT NULL,
+    role TEXT NOT NULL DEFAULT 'ORG_USER',
+    image TEXT,
+    organizationId TEXT,
+    createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (organizationId) REFERENCES Organization(id)
+);
+
+CREATE TABLE IF NOT EXISTS Organization (
+    id TEXT PRIMARY KEY NOT NULL,
+    name TEXT NOT NULL,
+    slug TEXT NOT NULL UNIQUE,
+    createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS Document (
+    id TEXT PRIMARY KEY NOT NULL,
+    title TEXT NOT NULL,
+    body TEXT NOT NULL,
+    status TEXT NOT NULL DEFAULT 'ACTIVE',
+    organizationId TEXT NOT NULL,
+    uploadedById TEXT NOT NULL,
+    createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updatedAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (organizationId) REFERENCES Organization(id),
+    FOREIGN KEY (uploadedById) REFERENCES User(id)
+);
+
+CREATE TABLE IF NOT EXISTS AuditEvent (
+    id TEXT PRIMARY KEY NOT NULL,
+    action TEXT NOT NULL,
+    entityType TEXT NOT NULL,
+    entityId TEXT,
+    userId TEXT,
+    organizationId TEXT NOT NULL,
+    metadata TEXT NOT NULL DEFAULT '{}',
+    ipAddress TEXT,
+    causationId TEXT,
+    createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (userId) REFERENCES User(id)
+);
+
+CREATE TABLE IF NOT EXISTS ApiLog (
+    id TEXT PRIMARY KEY NOT NULL,
+    method TEXT NOT NULL,
+    path TEXT NOT NULL,
+    userId TEXT,
+    ip TEXT,
+    status INTEGER NOT NULL,
+    createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS SecuritySetting (
+    id TEXT PRIMARY KEY NOT NULL,
+    key TEXT NOT NULL,
+    value TEXT NOT NULL,
+    organizationId TEXT NOT NULL,
+    updatedAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE (key, organizationId)
+);

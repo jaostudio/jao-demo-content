@@ -6,6 +6,7 @@ import { DatabasePipeline } from '@/components/database-pipeline'
 import { DemoIdentityCard } from '@/components/demo-identity-card'
 import { Badge } from '@/components/ui/badge'
 import { GlassCard } from '@/components/ui/glass-card'
+import { DEMO_ACCOUNTS } from '@/lib/demo-accounts'
 
 const labCards = [
   { title: 'Cross-Tenant Access', desc: 'Try reading a document from another tenant.', status: 'BLOCKED + LOGGED' },
@@ -13,13 +14,6 @@ const labCards = [
   { title: 'Admin Action Denial', desc: 'Attempt to create an organization as a standard user.', status: 'BLOCKED + LOGGED' },
   { title: 'Audit Tampering', desc: 'Try to modify or delete an audit record.', status: 'BLOCKED + LOGGED' },
   { title: 'Unauthorized Document Edit', desc: 'Edit a document without the required role.', status: 'BLOCKED + LOGGED' },
-]
-
-const demoAccounts = [
-  { name: 'Maria Santos', email: 'maria@luntian.demo', role: 'ORG_ADMIN', tenant: 'Luntian Health Network', access: 'Documents, Audit, Settings', roleVariant: 'rbac' as const },
-  { name: 'Paolo Reyes', email: 'paolo@luntian.demo', role: 'ORG_USER', tenant: 'Luntian Health Network', access: 'Documents only', roleVariant: 'tenant' as const },
-  { name: 'Ana Villarin', email: 'ana@talapay.demo', role: 'ORG_USER', tenant: 'TalaPay Cooperative', access: 'Separate tenant boundary', roleVariant: 'tenant' as const },
-  { name: 'Rafael Cruz', email: 'rafael@islavault.demo', role: 'SYSTEM_ADMIN', tenant: 'Global Control Plane', access: 'All organizations', roleVariant: 'admin' as const },
 ]
 
 export default function IslaVaultHome() {
@@ -149,7 +143,7 @@ export default function IslaVaultHome() {
           <p className="mt-2 text-sm text-isla-muted">Select a demo identity to explore tenant boundaries.</p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {demoAccounts.map((account) => (
+          {DEMO_ACCOUNTS.map((account) => (
             <DemoIdentityCard key={account.email} {...account} />
           ))}
         </div>

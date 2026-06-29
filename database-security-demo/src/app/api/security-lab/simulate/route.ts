@@ -28,8 +28,9 @@ async function logAndReturn(type: string, userId: string | null, orgId: string |
 
   return NextResponse.json({
     steps: [...steps, step('Audit event written', true, `Action "${type}" logged to audit trail`)],
+    simulationExecuted: true,
+    simulatedResponseCode: responseCode,
     result: responseCode >= 400 ? 'BLOCKED' : 'ALLOWED',
-    responseCode,
     auditEvent: type,
     auditRecorded: true,
   })

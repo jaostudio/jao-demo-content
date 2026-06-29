@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard
+Disallow: /documents
+Disallow: /audit
+Disallow: /settings
+Disallow: /admin
+Disallow: /security-lab

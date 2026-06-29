@@ -16,6 +16,13 @@ const luntianDocs = [
   'Patient Data Handling Protocol',
 ]
 
+const bayaniDocs = [
+  'Port Clearance Procedures',
+  'Vendor Contract Database',
+  'Fleet Security Assessment',
+  'Cargo Manifest Review',
+]
+
 const talapayDocs = [
   'Member Data Handling Policy',
   'Loan Review Board Notes',
@@ -24,8 +31,8 @@ const talapayDocs = [
 ]
 
 test.describe('Tenant Isolation', () => {
-  test('1. Paolo sees all Luntian document titles', async ({ page }) => {
-    await signInAs(page, 'paolo@luntian.demo')
+  test('1. Jao sees all Luntian document titles', async ({ page }) => {
+    await signInAs(page, 'jao@luntian.demo')
     await page.getByRole('link', { name: 'Documents' }).click()
     await page.waitForURL('**/documents')
 
@@ -34,28 +41,28 @@ test.describe('Tenant Isolation', () => {
     }
   })
 
-  test('2. Ana sees all TalaPay document titles', async ({ page }) => {
-    await signInAs(page, 'ana@talapay.demo')
+  test('2. Kiko sees all Bayani document titles', async ({ page }) => {
+    await signInAs(page, 'kiko@bayani.demo')
     await page.getByRole('link', { name: 'Documents' }).click()
     await page.waitForURL('**/documents')
 
-    for (const title of talapayDocs) {
+    for (const title of bayaniDocs) {
       await expect(page.getByText(title).first()).toBeVisible()
     }
   })
 
-  test('3. Paolo cannot see any TalaPay document titles', async ({ page }) => {
-    await signInAs(page, 'paolo@luntian.demo')
+  test('3. Jao cannot see any Bayani document titles', async ({ page }) => {
+    await signInAs(page, 'jao@luntian.demo')
     await page.getByRole('link', { name: 'Documents' }).click()
     await page.waitForURL('**/documents')
 
-    for (const title of talapayDocs) {
+    for (const title of bayaniDocs) {
       await expect(page.getByText(title)).not.toBeVisible()
     }
   })
 
   test('4. Cross-tenant attempt is logged to audit trail', async ({ page }) => {
-    await signInAs(page, 'paolo@luntian.demo')
+    await signInAs(page, 'jao@luntian.demo')
 
     const { body } = await page.evaluate(async () => {
       const res = await fetch('/api/security-lab/simulate', {
