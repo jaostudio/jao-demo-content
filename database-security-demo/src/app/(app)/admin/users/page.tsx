@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation'
 import { createOrgUser, deleteUser } from '@/lib/actions'
 import { Badge } from '@/components/ui/badge'
 import { GlassCard } from '@/components/ui/glass-card'
+import { ConfirmSubmitButton } from '@/components/confirm-submit-button'
 
 export const dynamic = 'force-dynamic'
 
@@ -69,7 +70,7 @@ export default async function AdminUsersPage() {
                 <span className="text-xs text-isla-muted">{u._count.documents} docs</span>
                 {u.role !== 'SYSTEM_ADMIN' && (
                   <form action={deleteUser.bind(null, u.id)}>
-                    <button type="submit" className="text-xs text-isla-danger hover:underline">Delete</button>
+                    <ConfirmSubmitButton label="Delete" confirmMessage={`Delete user ${u.name}?`} />
                   </form>
                 )}
               </div>

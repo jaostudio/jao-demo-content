@@ -2,6 +2,10 @@ import { getCurrentUser } from '@/lib/auth/get-session'
 import { prisma } from '@/lib/prisma'
 import { redirect } from 'next/navigation'
 import { Badge } from '@/components/ui/badge'
+import { AuditHighlightWrapper } from '@/components/audit-highlight-wrapper'
+import { AuditPageNav } from '@/components/audit-page-nav'
+import { verifyAuditEvent } from '@/lib/audit/verify'
+import { parseAuditLimit } from '@/lib/pagination/audit-pagination'
 
 export const dynamic = 'force-dynamic'
 
@@ -49,64 +53,89 @@ const actionLabels: Record<string, string> = {
   'security_lab.escalated_document_edit': 'LAB_ESCALATED_EDIT',
 }
 
-export default async function AuditPage() {
+function integrityBadge(status: ReturnType<typeof verifyAuditEvent>) {
+  switch (status) {
+    case 'VERIFIED':
+      return <Badge variant="success">VERIFIED</Badge>
+    case 'TAMPERED':
+      return <Badge variant="danger">TAMPERED</Badge>
+    case 'UNVERIFIED':
+      return <Badge variant="tenant">UNVERIFIED</Badge>
+  }
+}
+
+export default async function AuditPage({ searchParams }: { searchParams: Promise<{ highlight?: string; before?: string; limit?: string }> }) {
   const user = await getCurrentUser()
   if (!user) redirect('/signin')
+  const { highlight, before, limit: limitStr } = await searchParams
+
+  const limit = parseAuditLimit(limitStr)
 
   const where = user.role === 'SYSTEM_ADMIN' ? {} : { organizationId: user.orgId }
-  const events = await (prisma as any).auditEvent.findMany({
+  const rows = await (prisma as any).auditEvent.findMany({
     where,
-    include: { user: true },
-    orderBy: { createdAt: 'desc' },
-    take: 100,
+    include: { user: { select: { name: true } } },
+    orderBy: [{ createdAt: 'desc' }, { id: 'desc' }],
+    take: limit + 1,
+    ...(before ? { cursor: { id: before }, skip: 1 } : {}),
   })
+
+  const hasMore = rows.length > limit
+  const events = hasMore ? rows.slice(0, limit) : rows
+  const nextCursor = hasMore ? events[events.length - 1].id : null
 
   return (
     <div className="p-6 space-y-6">
       <div>
         <h1 className="text-xl font-bold text-isla-white">Audit Trail</h1>
         <p className="text-sm text-isla-muted mt-1">
-          Security telemetry — every mutation and denied access is recorded. Showing last {events.length} events.
+          Security telemetry — every mutation and denied access is recorded. Showing {events.length} of {hasMore ? `${limit}+` : events.length} events (page limit: {limit}).
         </p>
       </div>
 
-      <div className="space-y-2">
-        {events.map((event: any) => {
-          const variant = actionColors[event.action] ?? 'tenant'
-          const isDenied = event.action.includes('denied')
+      <AuditHighlightWrapper highlight={highlight}>
+        <div className="space-y-2">
+          {events.map((event: any) => {
+            const variant = actionColors[event.action] ?? 'tenant'
+            const isDenied = event.action.includes('denied')
+            const integrity = verifyAuditEvent(event)
 
-          return (
-            <div key={event.id} className="glass-card-static p-3 flex items-start gap-4">
-              <div className="text-xs text-isla-muted mono w-16 shrink-0 pt-0.5">
-                {new Date(event.createdAt).toLocaleTimeString()}
-              </div>
-              <Badge variant={variant}>{actionLabels[event.action] ?? event.action}</Badge>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2 text-xs">
-                  <span className="text-isla-white">{event.user?.name ?? 'system'}</span>
-                  {event.ipAddress && <span className="text-isla-muted mono">IP: {event.ipAddress}</span>}
-                  {event.causationId && (
-                    <span className="text-isla-muted mono" title={event.causationId}>
-                      cause: {event.causationId.slice(0, 12)}...
-                    </span>
-                  )}
+            return (
+              <div key={event.id} data-event-id={event.id} className="glass-card-static p-3 flex items-start gap-4">
+                <div className="text-xs text-isla-muted mono w-16 shrink-0 pt-0.5">
+                  {new Date(event.createdAt).toLocaleTimeString()}
                 </div>
-                <div className="text-xs text-isla-muted mono mt-0.5">
-                  {event.entityType} {event.entityId ? `#${event.entityId.slice(0, 12)}...` : ''}
+                <Badge variant={variant}>{actionLabels[event.action] ?? event.action}</Badge>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 text-xs">
+                    <span className="text-isla-white">{event.user?.name ?? 'system'}</span>
+                    {event.ipAddress && <span className="text-isla-muted mono">IP: {event.ipAddress}</span>}
+                    {event.causationId && (
+                      <span className="text-isla-muted mono" title={event.causationId}>
+                        cause: {event.causationId.slice(0, 12)}...
+                      </span>
+                    )}
+                  </div>
+                  <div className="text-xs text-isla-muted mono mt-0.5">
+                    {event.entityType} {event.entityId ? `#${event.entityId.slice(0, 12)}...` : ''}
+                  </div>
+                </div>
+                <div className="shrink-0 text-xs flex flex-col items-end gap-1">
+                  <span className={isDenied ? 'text-isla-danger' : 'text-isla-success'}>
+                    {isDenied ? 'DENIED' : 'SUCCESS'}
+                  </span>
+                  {integrityBadge(integrity)}
                 </div>
               </div>
-              <div className="shrink-0 text-xs">
-                <span className={isDenied ? 'text-isla-danger' : 'text-isla-success'}>
-                  {isDenied ? 'DENIED' : 'SUCCESS'}
-                </span>
-              </div>
-            </div>
-          )
-        })}
-        {events.length === 0 && (
-          <p className="text-center text-sm text-isla-muted py-8">No audit events yet.</p>
-        )}
-      </div>
+            )
+          })}
+          {events.length === 0 && (
+            <p className="text-center text-sm text-isla-muted py-8">No audit events yet.</p>
+          )}
+        </div>
+      </AuditHighlightWrapper>
+
+      <AuditPageNav nextCursor={nextCursor} limit={limit} />
     </div>
   )
 }

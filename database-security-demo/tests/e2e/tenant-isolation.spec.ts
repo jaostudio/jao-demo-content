@@ -23,13 +23,6 @@ const bayaniDocs = [
   'Cargo Manifest Review',
 ]
 
-const talapayDocs = [
-  'Member Data Handling Policy',
-  'Loan Review Board Notes',
-  'Branch Cash Audit Summary',
-  'Partner API Access Request',
-]
-
 test.describe('Tenant Isolation', () => {
   test('1. Jao sees all Luntian document titles', async ({ page }) => {
     await signInAs(page, 'jao@luntian.demo')

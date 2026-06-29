@@ -2,8 +2,6 @@ import { describe, it, expect } from 'vitest'
 
 type Role = 'SYSTEM_ADMIN' | 'ORG_ADMIN' | 'ORG_USER'
 
-type Access = 'read' | 'create' | 'update' | 'delete'
-
 type Action =
   | 'manage_own_org_documents'
   | 'manage_all_org_documents'

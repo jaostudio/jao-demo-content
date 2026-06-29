@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation'
 import { GlassCard } from '@/components/ui/glass-card'
 import { Badge } from '@/components/ui/badge'
 import { SecurityLabCard } from '@/components/security-lab-card'
+import { SecurityLabSuite } from '@/components/security-lab-suite'
 
 export const dynamic = 'force-dynamic'
 
@@ -75,6 +76,8 @@ export default async function SecurityLabPage() {
           <SecurityLabCard key={sim.type} {...sim} />
         ))}
       </div>
+
+      <SecurityLabSuite />
     </div>
   )
 }

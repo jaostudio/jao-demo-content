@@ -1,6 +1,7 @@
 import { getCurrentUser } from '@/lib/auth/get-session'
 import { prisma } from '@/lib/prisma'
 import { redirect } from 'next/navigation'
+import Link from 'next/link'
 import { createDocument, deleteDocument } from '@/lib/actions'
 import { Badge } from '@/components/ui/badge'
 import { GlassCard } from '@/components/ui/glass-card'
@@ -54,7 +55,7 @@ export default async function DocumentsPage() {
             <div className="flex items-start justify-between">
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1">
-                  <h3 className="font-medium text-sm text-isla-white">{doc.title}</h3>
+                  <Link href={`/documents/${doc.id}`} className="font-medium text-sm text-isla-white hover:text-isla-pacific transition-colors">{doc.title}</Link>
                   <Badge variant={doc.status === 'ACTIVE' ? 'audit' : 'tenant'}>{doc.status}</Badge>
                 </div>
                 <p className="text-xs text-isla-muted whitespace-pre-wrap line-clamp-2">{doc.body}</p>

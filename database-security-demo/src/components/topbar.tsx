@@ -4,10 +4,13 @@ import { useSession, signOut } from 'next-auth/react'
 import { Badge } from '@/components/ui/badge'
 import { StatusPill } from '@/components/ui/status-pill'
 import { DemoSwitcher } from '@/components/demo-switcher'
+import { useSecurityProof } from '@/components/security-proof-panel'
+import { ShieldCheck } from 'lucide-react'
 
 export function Topbar() {
   const { data: session } = useSession()
   const user = session?.user as any
+  const { open } = useSecurityProof()
 
   if (!user) return null
 
@@ -26,6 +29,13 @@ export function Topbar() {
 
       <div className="flex items-center gap-3">
         <Badge variant={roleBadgeVariant}>{user.role}</Badge>
+        <button
+          onClick={open}
+          className="flex items-center gap-1.5 rounded-lg bg-isla-amethyst/10 px-3 py-1.5 text-xs font-medium text-isla-amethyst hover:bg-isla-amethyst/20 transition-colors"
+        >
+          <ShieldCheck className="w-3.5 h-3.5" />
+          Security Proof
+        </button>
         <DemoSwitcher />
         <button
           onClick={() => signOut({ callbackUrl: '/' })}

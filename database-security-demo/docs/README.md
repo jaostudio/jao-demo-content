@@ -159,6 +159,46 @@ npm run test         # Vitest: 38 tests (4 files), all passing
 npm run test:e2e     # Playwright: 50 tests (6 spec files), all passing
 ```
 
+## Data Reset
+
+Manual reseed only — no public reset endpoint.
+
+### Local SQLite
+
+```bash
+npm run db:reset
+```
+
+This runs `prisma db push --force-reset` (drops all tables, recreates schema) then `tsx prisma/seed.ts`.
+
+### Turso (production DB)
+
+1. Apply any pending migrations first:
+   ```bash
+   turso db shell <db-name> < prisma/migrations/<migration>/migration.sql
+   ```
+2. Run seed with Turso env vars:
+   ```bash
+   npx tsx prisma/seed.ts
+   ```
+
+### When to reseed
+
+- After schema changes (new fields, new models)
+- After audit integrity hash migration (new events need `eventHash`)
+- Demo data corruption or testing reset scenarios
+- Fresh demo walkthrough
+
+### What gets overwritten
+
+- Users (all 4 demo accounts)
+- Organizations (Luntian Health, TalaPay, Bayani Freight, Pulo Data Registry)
+- Documents (17 seed documents across all orgs)
+- Security settings (per-org mfa_enabled, session_timeout_minutes)
+- Audit events (all existing events are dropped)
+
+---
+
 ## QA Checklist — Manual Verification
 
 ### Auth

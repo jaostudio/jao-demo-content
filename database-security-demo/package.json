@@ -19,6 +19,9 @@
     "db:migrate:local": "prisma migrate dev",
     "db:studio": "prisma studio",
     "audit:deps": "npm audit --audit-level=moderate",
+    "scan:headers": "node scripts/check-security-headers.mjs",
+    "scan:secrets": "gitleaks detect --no-git --source .",
+    "scan:secrets:docker": "docker run --rm -v \"$PWD:/repo\" zricethezav/gitleaks:latest detect --no-git --source /repo",
     "scan:brand": "node scripts/generate-brand-assets.mjs"
   },
   "dependencies": {
@@ -36,7 +39,8 @@
     "next-auth": "^4.24.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "tailwind-merge": "^3.6.0"
+    "tailwind-merge": "^3.6.0",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.12.1",

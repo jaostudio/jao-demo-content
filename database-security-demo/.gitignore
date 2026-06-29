@@ -7,3 +7,15 @@ out/
 next-env.d.ts
 prisma/**/*.db
 prisma/**/*.db-journal
+
+.vercel
+
+# SQLite local dev artifacts
+db
+db-wal
+auth
+auth-wal
+SELECT name FROM sqlite_master WHERE type='table' ORDER BY name;
+SELECT name FROM sqlite_master WHERE type='table' ORDER BY name;-wal
+
+# trigger deploy

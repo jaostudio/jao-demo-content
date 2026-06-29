@@ -1,0 +1,20 @@
+# Tests
+tests/
+
+# Documentation
+docs/
+*.md
+
+# Development files
+test-results/
+lighthouse-reports/
+playwright-report/
+
+# Environment
+.env
+.env.local
+.env*.local
+
+# Git
+.git/
+.gitignore

@@ -3,6 +3,7 @@ import { prisma } from '@/lib/prisma'
 import { redirect } from 'next/navigation'
 import { createOrganization, deleteOrganization } from '@/lib/actions'
 import { GlassCard } from '@/components/ui/glass-card'
+import { ConfirmSubmitButton } from '@/components/confirm-submit-button'
 
 export const dynamic = 'force-dynamic'
 
@@ -42,7 +43,7 @@ export default async function AdminOrganizationsPage() {
               <div className="flex items-center gap-3">
                 <span className="text-xs text-isla-muted">{new Date(org.createdAt).toLocaleDateString()}</span>
                 <form action={deleteOrganization.bind(null, org.id)}>
-                  <button type="submit" className="text-xs text-isla-danger hover:underline">Delete</button>
+                  <ConfirmSubmitButton label="Delete" confirmMessage={`Delete organization ${org.name}? This will fail if org has users or documents.`} />
                 </form>
               </div>
             </div>

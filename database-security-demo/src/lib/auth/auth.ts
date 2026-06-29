@@ -2,12 +2,42 @@ import type { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import bcrypt from 'bcryptjs'
 import { prisma } from '../prisma'
+import { rateLimit } from '@/lib/rate-limit'
+import { safeWriteAuditEvent } from '@/lib/audit/writer'
 
 export const authOptions: NextAuthOptions = {
   session: {
     strategy: 'jwt',
     maxAge: 60 * 60,
     updateAge: 15 * 60,
+  },
+  cookies: {
+    sessionToken: {
+      name: 'next-auth.session-token',
+      options: {
+        httpOnly: true,
+        sameSite: 'lax',
+        path: '/',
+        secure: process.env.NODE_ENV === 'production',
+      },
+    },
+    callbackUrl: {
+      name: 'next-auth.callback-url',
+      options: {
+        sameSite: 'lax',
+        path: '/',
+        secure: process.env.NODE_ENV === 'production',
+      },
+    },
+    csrfToken: {
+      name: 'next-auth.csrf-token',
+      options: {
+        httpOnly: true,
+        sameSite: 'lax',
+        path: '/',
+        secure: process.env.NODE_ENV === 'production',
+      },
+    },
   },
   secret: process.env.NEXTAUTH_SECRET,
   pages: { signIn: '/signin' },
@@ -18,12 +48,50 @@ export const authOptions: NextAuthOptions = {
         email: { label: 'Email', type: 'email' },
         password: { label: 'Password', type: 'password' },
       },
-      async authorize(credentials) {
+      async authorize(credentials, req) {
         if (!credentials?.email || !credentials?.password) return null
+
+        const ip = req?.headers?.['x-forwarded-for']?.split(',')[0]?.trim()
+          ?? req?.headers?.['x-real-ip']
+          ?? 'unknown'
+        const rl = await rateLimit(`signin:${ip}:${credentials.email}`, 5, 600000)
+        if (!rl.ok) return null
+
         const user = await (prisma as any).user.findUnique({ where: { email: credentials.email } })
-        if (!user) return null
+        if (!user) {
+          await safeWriteAuditEvent({
+            action: 'auth.login_failed',
+            outcome: 'FAILED',
+            entityType: 'auth',
+            actorUserId: null,
+            organizationId: null,
+            ipAddress: ip,
+            metadata: { attemptedEmail: credentials.email.toLowerCase(), reason: 'invalid_credentials' },
+          })
+          return null
+        }
         const valid = await bcrypt.compare(credentials.password, user.password)
-        if (!valid) return null
+        if (!valid) {
+          await safeWriteAuditEvent({
+            action: 'auth.login_failed',
+            outcome: 'FAILED',
+            entityType: 'auth',
+            actorUserId: user.id,
+            organizationId: user.organizationId,
+            ipAddress: ip,
+            metadata: { reason: 'invalid_credentials' },
+          })
+          return null
+        }
+
+        await safeWriteAuditEvent({
+          action: 'auth.login_success',
+          outcome: 'SUCCESS',
+          entityType: 'auth',
+          actorUserId: user.id,
+          organizationId: user.organizationId,
+          ipAddress: ip,
+        })
         return { id: user.id, email: user.email, name: user.name, role: user.role, orgId: user.organizationId, image: user.image }
       },
     }),
@@ -35,6 +103,12 @@ export const authOptions: NextAuthOptions = {
         t.id = user.id
         t.role = (user as any).role
         t.orgId = (user as any).orgId
+        t.email = user.email
+
+        if (t.orgId) {
+          const org = await (prisma as any).organization.findUnique({ where: { id: t.orgId }, select: { name: true } })
+          t.orgName = org?.name ?? null
+        }
       }
       return token
     },
@@ -45,6 +119,9 @@ export const authOptions: NextAuthOptions = {
         u.id = t.id
         u.role = t.role
         u.orgId = t.orgId
+        u.orgName = t.orgName
+        u.email = t.email
+        delete u.image
       }
       return session
     },

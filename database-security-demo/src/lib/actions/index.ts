@@ -4,8 +4,14 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth/auth'
 import { prisma } from '@/lib/prisma'
 import { revalidatePath } from 'next/cache'
+import { headers } from 'next/headers'
 import bcrypt from 'bcryptjs'
 import { AuditActions } from '@/lib/audit-actions'
+import { documentCreateSchema, adminCreateUserSchema, adminCreateOrgSchema } from '@/lib/validation'
+import { rateLimit } from '@/lib/rate-limit'
+import { assertSameOrigin, getClientIp } from '@/lib/security/request-guards'
+import { assertSystemAdmin, assertCanDeleteUser, assertCanDeleteOrganization } from '@/lib/security/admin-guards'
+import { writeAuditEvent } from '@/lib/audit/writer'
 
 async function getAuthUser() {
   const session = await getServerSession(authOptions)
@@ -14,33 +20,76 @@ async function getAuthUser() {
   return { id: u.id, role: u.role, orgId: u.orgId }
 }
 
-function logAudit(orgId: string, userId: string | null, action: string, entityType: string, entityId?: string, metadata?: Record<string, unknown>, causationId?: string) {
-  return (prisma as any).auditEvent.create({
-    data: { action, entityType, entityId: entityId ?? '', organizationId: orgId, userId, metadata: JSON.stringify(metadata ?? {}), causationId },
-  })
+async function guardMutation(user: { id: string }, namespace: string, limit: number, windowMs: number): Promise<string> {
+  const h = await headers()
+  try { assertSameOrigin(h) } catch { throw new Error('Invalid request origin') }
+  const ip = getClientIp(h)
+  const rl = await rateLimit(`${namespace}:${user.id}:${ip}`, limit, windowMs)
+  if (!rl.ok) throw new Error('Too many requests')
+  return ip
 }
 
-function requireSystemAdmin(user: { role: string }) {
-  if (user.role !== 'SYSTEM_ADMIN') throw new Error('Forbidden')
-}
+
 
 // ── Organization ──
 
 export async function createOrganization(formData: FormData) {
   const user = await getAuthUser()
-  requireSystemAdmin(user)
+  const ip = await guardMutation(user, 'admin-org', 20, 600000)
+  assertSystemAdmin(user.role as any)
 
-  const name = formData.get('name') as string
+  const parsed = adminCreateOrgSchema.safeParse({ name: formData.get('name') ?? '' })
+  if (!parsed.success) throw new Error('Validation failed')
+
+  const { name } = parsed.data
   const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
   const org = await (prisma as any).organization.create({ data: { name, slug } })
-  await logAudit(org.id, user.id, AuditActions.ADMIN_ORGANIZATION_CREATED, 'organization', org.id)
+  await writeAuditEvent({
+    action: AuditActions.ADMIN_ORGANIZATION_CREATED,
+    outcome: 'SUCCESS',
+    entityType: 'organization',
+    entityId: org.id,
+    actorUserId: user.id,
+    organizationId: org.id,
+    ipAddress: ip,
+    metadata: { name },
+  })
   revalidatePath('/admin/organizations')
 }
 
 export async function deleteOrganization(orgId: string) {
   const user = await getAuthUser()
-  requireSystemAdmin(user)
-  await logAudit(orgId, user.id, AuditActions.ADMIN_ORGANIZATION_DELETED, 'organization', orgId)
+  const ip = await guardMutation(user, 'admin-org', 20, 600000)
+  assertSystemAdmin(user.role as any)
+
+  const userCount = await (prisma as any).user.count({ where: { organizationId: orgId } })
+  const docCount = await (prisma as any).document.count({ where: { organizationId: orgId } })
+
+  try {
+    assertCanDeleteOrganization({ userCount, documentCount: docCount })
+  } catch (e) {
+    await writeAuditEvent({
+      action: AuditActions.ADMIN_ACTION_DENIED,
+      outcome: 'DENIED',
+      entityType: 'organization',
+      entityId: orgId,
+      actorUserId: user.id,
+      organizationId: orgId,
+      ipAddress: ip,
+      metadata: { reason: (e as Error).message, userCount, docCount },
+    })
+    throw e
+  }
+
+  await writeAuditEvent({
+    action: AuditActions.ADMIN_ORGANIZATION_DELETED,
+    outcome: 'SUCCESS',
+    entityType: 'organization',
+    entityId: orgId,
+    actorUserId: user.id,
+    organizationId: orgId,
+    ipAddress: ip,
+  })
   await (prisma as any).organization.delete({ where: { id: orgId } })
   revalidatePath('/admin/organizations')
 }
@@ -49,30 +98,59 @@ export async function deleteOrganization(orgId: string) {
 
 export async function createDocument(formData: FormData) {
   const user = await getAuthUser()
-  const title = formData.get('title') as string
-  const body = formData.get('body') as string
-  if (!title || !body) throw new Error('Missing fields')
+  const ip = await guardMutation(user, 'doc-write', 30, 600000)
+
+  const parsed = documentCreateSchema.safeParse({ title: formData.get('title') ?? '', body: formData.get('body') ?? '' })
+  if (!parsed.success) throw new Error('Validation failed')
+  const { title, body } = parsed.data
 
   const doc = await (prisma as any).document.create({
     data: { title, body, organizationId: user.orgId, uploadedById: user.id },
   })
-  await logAudit(user.orgId, user.id, AuditActions.DOCUMENT_CREATED, 'document', doc.id, { title })
+  await writeAuditEvent({
+    action: AuditActions.DOCUMENT_CREATED,
+    outcome: 'SUCCESS',
+    entityType: 'document',
+    entityId: doc.id,
+    actorUserId: user.id,
+    organizationId: user.orgId,
+    ipAddress: ip,
+    metadata: { title },
+  })
   revalidatePath('/documents')
 }
 
 export async function deleteDocument(docId: string) {
   const user = await getAuthUser()
+  const ip = await guardMutation(user, 'doc-write', 30, 600000)
 
   const doc = await (prisma as any).document.findFirst({
     where: { id: docId, organizationId: user.orgId },
   })
   if (!doc) {
-    await logAudit(user.orgId ?? '(unknown)', user.id, AuditActions.DOCUMENT_CROSS_TENANT_DENIED, 'document', docId, { reason: 'Cross-tenant document delete blocked' })
+    await writeAuditEvent({
+      action: AuditActions.DOCUMENT_CROSS_TENANT_DENIED,
+      outcome: 'DENIED',
+      entityType: 'document',
+      entityId: docId,
+      actorUserId: user.id,
+      organizationId: user.orgId,
+      ipAddress: ip,
+    })
     throw new Error('Not found')
   }
 
+  await writeAuditEvent({
+    action: AuditActions.DOCUMENT_DELETED,
+    outcome: 'SUCCESS',
+    entityType: 'document',
+    entityId: docId,
+    actorUserId: user.id,
+    organizationId: user.orgId,
+    ipAddress: ip,
+    metadata: { title: doc.title },
+  })
   await (prisma as any).document.delete({ where: { id: docId } })
-  await logAudit(user.orgId, user.id, AuditActions.DOCUMENT_DELETED, 'document', docId, { title: doc.title })
   revalidatePath('/documents')
 }
 
@@ -80,7 +158,8 @@ export async function deleteDocument(docId: string) {
 
 export async function clearAuditLogs() {
   const user = await getAuthUser()
-  requireSystemAdmin(user)
+  await guardMutation(user, 'admin-audit', 10, 600000)
+  assertSystemAdmin(user.role as any)
   await (prisma as any).auditEvent.deleteMany({ where: { organizationId: user.orgId ?? undefined } })
   revalidatePath('/audit')
 }
@@ -89,12 +168,17 @@ export async function clearAuditLogs() {
 
 export async function createOrgUser(formData: FormData) {
   const user = await getAuthUser()
-  requireSystemAdmin(user)
+  const ip = await guardMutation(user, 'admin-user', 20, 600000)
+  assertSystemAdmin(user.role as any)
 
-  const name = formData.get('name') as string
-  const email = formData.get('email') as string
-  const role = formData.get('role') as string
-  const orgId = formData.get('orgId') as string | null
+  const parsed = adminCreateUserSchema.safeParse({
+    name: formData.get('name') ?? '',
+    email: formData.get('email') ?? '',
+    role: formData.get('role') ?? '',
+    orgId: formData.get('orgId') ?? null,
+  })
+  if (!parsed.success) throw new Error('Validation failed')
+  const { name, email, role, orgId } = parsed.data
 
   const existing = await (prisma as any).user.findUnique({ where: { email } })
   if (existing) throw new Error('Email exists')
@@ -104,13 +188,60 @@ export async function createOrgUser(formData: FormData) {
   const newUser = await (prisma as any).user.create({
     data: { name, email, password, role, organizationId: orgId || null },
   })
-  await logAudit(orgId ?? '(none)', user.id, AuditActions.ADMIN_USER_CREATED, 'user', newUser.id, { email, role })
+  await writeAuditEvent({
+    action: AuditActions.ADMIN_USER_CREATED,
+    outcome: 'SUCCESS',
+    entityType: 'user',
+    entityId: newUser.id,
+    actorUserId: user.id,
+    organizationId: orgId || null,
+    ipAddress: ip,
+    metadata: { email, role },
+  })
   revalidatePath('/admin/users')
 }
 
 export async function deleteUser(userId: string) {
   const user = await getAuthUser()
-  requireSystemAdmin(user)
+  const ip = await guardMutation(user, 'admin-user', 20, 600000)
+  assertSystemAdmin(user.role as any)
+
+  const targetUser = await (prisma as any).user.findUnique({ where: { id: userId } })
+  if (!targetUser) throw new Error('User not found')
+
+  const adminCount = await (prisma as any).user.count({ where: { role: 'SYSTEM_ADMIN' } })
+
+  try {
+    assertCanDeleteUser({
+      currentUserId: user.id,
+      targetUserId: userId,
+      targetRole: targetUser.role,
+      systemAdminCount: adminCount,
+    })
+  } catch (e) {
+    await writeAuditEvent({
+      action: AuditActions.ADMIN_ACTION_DENIED,
+      outcome: 'DENIED',
+      entityType: 'user',
+      entityId: userId,
+      actorUserId: user.id,
+      organizationId: user.orgId,
+      ipAddress: ip,
+      metadata: { reason: (e as Error).message },
+    })
+    throw e
+  }
+
   await (prisma as any).user.delete({ where: { id: userId } })
-  revalidatePath('/app/admin/users')
+  await writeAuditEvent({
+    action: AuditActions.ADMIN_USER_DELETED,
+    outcome: 'SUCCESS',
+    entityType: 'user',
+    entityId: userId,
+    actorUserId: user.id,
+    organizationId: user.orgId,
+    ipAddress: ip,
+    metadata: { deletedEmail: targetUser.email },
+  })
+  revalidatePath('/admin/users')
 }
