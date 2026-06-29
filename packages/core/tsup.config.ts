@@ -1,0 +1,30 @@
+import { defineConfig } from 'tsup'
+export default defineConfig({
+  entry: {
+    "index": "C:\\Users\\Jaoce\\OneDrive\\Documents\\Portfolio contents\\packages\\core\\src\\index.ts",
+    "db/index": "C:\\Users\\Jaoce\\OneDrive\\Documents\\Portfolio contents\\packages\\core\\src\\db\\index.ts",
+    "auth/index": "C:\\Users\\Jaoce\\OneDrive\\Documents\\Portfolio contents\\packages\\core\\src\\auth\\index.ts",
+    "rate-limit/index": "C:\\Users\\Jaoce\\OneDrive\\Documents\\Portfolio contents\\packages\\core\\src\\rate-limit\\index.ts",
+    "logger/index": "C:\\Users\\Jaoce\\OneDrive\\Documents\\Portfolio contents\\packages\\core\\src\\logger\\index.ts",
+    "validation/index": "C:\\Users\\Jaoce\\OneDrive\\Documents\\Portfolio contents\\packages\\core\\src\\validation\\index.ts",
+    "storage/index": "C:\\Users\\Jaoce\\OneDrive\\Documents\\Portfolio contents\\packages\\core\\src\\storage\\index.ts",
+    "state/index": "C:\\Users\\Jaoce\\OneDrive\\Documents\\Portfolio contents\\packages\\core\\src\\state\\index.tsx",
+    "theme/index": "C:\\Users\\Jaoce\\OneDrive\\Documents\\Portfolio contents\\packages\\core\\src\\theme\\index.tsx",
+    "state-machines/index": "C:\\Users\\Jaoce\\OneDrive\\Documents\\Portfolio contents\\packages\\core\\src\\state-machines\\index.ts",
+    "state-machines/actor": "C:\\Users\\Jaoce\\OneDrive\\Documents\\Portfolio contents\\packages\\core\\src\\state-machines\\actor.ts",
+    "state-machines/factory": "C:\\Users\\Jaoce\\OneDrive\\Documents\\Portfolio contents\\packages\\core\\src\\state-machines\\factory.ts",
+    "events/index": "C:\\Users\\Jaoce\\OneDrive\\Documents\\Portfolio contents\\packages\\core\\src\\events\\index.ts",
+    "events/dispatch": "C:\\Users\\Jaoce\\OneDrive\\Documents\\Portfolio contents\\packages\\core\\src\\events\\dispatch.ts",
+    "events/emitter": "C:\\Users\\Jaoce\\OneDrive\\Documents\\Portfolio contents\\packages\\core\\src\\events\\emitter.ts",
+    "events/types": "C:\\Users\\Jaoce\\OneDrive\\Documents\\Portfolio contents\\packages\\core\\src\\events\\types.ts"
+  },
+  format: 'esm',
+  outExtension: () => ({ js: '.js' }),
+  dts: { compilerOptions: { incremental: false } },
+  clean: true,
+  loader: { '.ts': 'tsx' },
+  external: ["@prisma/client","next","react","react-dom"],
+  esbuildOptions: (options) => { options.jsx = 'automatic' },
+  bundle: true,
+  splitting: false,
+})

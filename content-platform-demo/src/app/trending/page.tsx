@@ -25,8 +25,8 @@ export default async function TrendingPage() {
     return (
       <AppShell>
         <EmptyState
-          title="Could not load trending"
-          description="Something went wrong. Try again."
+          title="Couldn't load trending"
+          description="The connection may have dropped. Try again."
           action={<a href="/trending" className="btn btn-accent btn-sm">Retry</a>}
         />
       </AppShell>
@@ -42,8 +42,8 @@ export default async function TrendingPage() {
 
       {articles.length === 0 ? (
         <EmptyState
-          title="No trending works yet"
-          description="Works with the most engagement will appear here."
+          title="Nothing trending yet"
+          description="Engagement shapes what rises."
         />
       ) : (
         <div className="space-y-4">

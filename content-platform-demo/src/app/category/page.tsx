@@ -25,8 +25,8 @@ export default async function CategoryIndexPage() {
     return (
       <AppShell>
         <EmptyState
-          title="Could not load categories"
-          description="Something went wrong. Try again."
+          title="Couldn't load categories"
+          description="The connection may have dropped. Try again."
           action={<a href="/category" className="btn btn-accent btn-sm">Retry</a>}
         />
       </AppShell>

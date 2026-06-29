@@ -165,8 +165,8 @@ export function SearchPage() {
           <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-surface-alt">
             <Search className="h-5 w-5 text-fog-gray" strokeWidth={1.5} />
           </div>
-          <p className="text-[14px] text-fog-gray">No results for &ldquo;{query}&rdquo;</p>
-          <p className="text-[12px] text-ash mt-1">Try different search terms or browse categories</p>
+          <p className="text-[14px] text-fog-gray">No matches for &ldquo;{query}&rdquo;</p>
+          <p className="text-[12px] text-ash mt-1">Try different terms or browse fields.</p>
           <div className="mt-4 flex justify-center gap-2">
             {FEATURED_TAGS.map((tag) => (
               <Link
@@ -185,8 +185,7 @@ export function SearchPage() {
       {!searched && !loading && (
         <div className="py-8">
           <div className="text-center mb-8">
-            <p className="text-[14px] text-fog-gray">Type something to search</p>
-            <p className="text-[12px] text-ash mt-1">Works, authors, topics</p>
+            <p className="text-[14px] text-fog-gray">Search works, artists, fields, and process notes.</p>
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2">

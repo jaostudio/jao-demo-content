@@ -43,8 +43,8 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
     return (
       <AppShell>
         <EmptyState
-          title="Could not load works"
-          description="Something went wrong. Try again."
+          title="Couldn't load works"
+          description="The connection may have dropped. Try again."
           action={<a href={`/category/${slug}`} className="btn btn-accent btn-sm">Retry</a>}
         />
       </AppShell>
@@ -59,7 +59,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
       </div>
 
       {filteredArticles.length === 0 ? (
-        <EmptyState title="No works in this category yet" description="Check back later for new works." />
+        <EmptyState title="No works tagged here yet" description="This field is open." />
       ) : (
         <div className="space-y-4">
           {filteredArticles.map((article) => (

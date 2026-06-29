@@ -1,5 +1,6 @@
 import { fetchAPI } from '@/lib/api/server'
 import type { ArticleSummary, CategoryResponse } from '@content-platform/shared'
+import type { Metadata } from 'next'
 import { AppShell } from '@/components/new/layout/app-shell'
 import { RightPanel } from '@/components/new/layout/right-panel'
 import { EmptyState } from '@/components/new/ui/empty-state'
@@ -8,6 +9,11 @@ import { FeedContent } from '@/components/new/home/feed-content'
 import Link from 'next/link'
 
 export const dynamic = 'force-dynamic'
+
+export const metadata: Metadata = {
+  title: 'Likha — Follow the work before it becomes finished',
+  description: 'A process-first social publishing platform for Filipino artists. Follow creative work from sketch to finish.',
+}
 
 export default async function HomePage() {
   let articles: ArticleSummary[] = []
@@ -39,8 +45,8 @@ export default async function HomePage() {
     return (
       <AppShell rightPanel={<RightPanel categories={categories} />}>
         <EmptyState
-          title="Could not load the feed"
-          description="Something went wrong. Try again or explore artists."
+          title="Couldn't load the feed"
+          description="The connection may have dropped. Explore artists while we sort it out."
           action={<Link href="/explore" className="btn btn-accent btn-sm">Explore</Link>}
         />
       </AppShell>
@@ -51,8 +57,8 @@ export default async function HomePage() {
     return (
       <AppShell rightPanel={<RightPanel categories={categories} />}>
         <EmptyState
-          title="No live works yet"
-          description="Follow artists or create your first work."
+          title="Your feed is quiet"
+          description="Follow artists or start something new."
           action={
             <div className="flex gap-2">
               <Link href="/explore" className="btn btn-accent btn-sm">Explore Artists</Link>

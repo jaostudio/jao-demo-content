@@ -144,8 +144,8 @@ export default async function ArtistPage({ params }: { params: Promise<{ usernam
               {/* Works Grid */}
               {author.articles.length === 0 ? (
                 <div className="py-16 text-center">
-                  <p className="text-[14px] text-fog-gray">No published works yet.</p>
-                  <p className="text-[12px] text-ash mt-1">Check back later.</p>
+                  <p className="text-[14px] text-fog-gray">This studio is quiet.</p>
+                  <p className="text-[12px] text-ash mt-1">Follow to see new work.</p>
                 </div>
               ) : (
                 <div className="grid gap-4 sm:grid-cols-2">

@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { getCurrentAuthor } from '@/lib/auth/getSession'
 import { fetchAPI } from '@/lib/api/server'
 import type { ArticleSummary } from '@content-platform/shared'
@@ -7,6 +8,11 @@ import { FileText, Clock, CheckCircle, Archive, ExternalLink, Sparkles } from 'l
 import Link from 'next/link'
 
 export const dynamic = 'force-dynamic'
+
+export const metadata: Metadata = {
+  title: 'Studio',
+  description: 'Your creative workspace on Likha.',
+}
 
 interface StudioStats {
   totalArticles: number
@@ -154,7 +160,7 @@ export default async function StudioPage() {
           </table>
           {articles.length === 0 && (
             <div className="py-12 text-center">
-              <p className="text-[13px] text-fog-gray">No works yet. Create your first work.</p>
+              <p className="text-[13px] text-fog-gray">Your studio is quiet. Start with a sketch, a note, or a finished work.</p>
               <Link href="/studio/new" className="mt-2 inline-flex items-center gap-1 text-[12px] font-medium text-reactor-green hover:underline">
                 New Work
               </Link>

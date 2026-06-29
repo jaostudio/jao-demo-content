@@ -13,17 +13,13 @@ export function Footer() {
         </div>
         <div className="flex items-center gap-4">
           <Link href="/" className="transition-colors hover:text-primary">Home</Link>
-          <Link href="/category" className="transition-colors hover:text-primary">Categories</Link>
+          <Link href="/guidelines" className="transition-colors hover:text-primary">Guidelines</Link>
+          <Link href="/privacy" className="transition-colors hover:text-primary">Privacy</Link>
+          <Link href="/terms" className="transition-colors hover:text-primary">Terms</Link>
           <Link href="/rss.xml" className="flex items-center gap-1 transition-colors hover:text-primary">
             <Rss className="h-3 w-3" />
             RSS
           </Link>
-          <button
-            onClick={() => { localStorage.removeItem('likha-welcome-dismissed'); location.reload() }}
-            className="transition-colors hover:text-primary"
-          >
-            Reset
-          </button>
         </div>
       </div>
     </footer>

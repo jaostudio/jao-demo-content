@@ -37,8 +37,8 @@ export default async function ExplorePage() {
     return (
       <AppShell rightPanel={<RightPanel categories={categories} />}>
         <EmptyState
-          title="Could not load works"
-          description="Something went wrong. Try again."
+          title="Couldn't load works"
+          description="The connection may have dropped. Try again."
           action={<Link href="/" className="btn btn-accent btn-sm">Home</Link>}
         />
       </AppShell>
@@ -59,8 +59,8 @@ export default async function ExplorePage() {
 
       {articles.length === 0 ? (
         <EmptyState
-          title="No works to explore yet"
-          description="Be the first to publish."
+          title="No works shared yet"
+          description="The first mark is waiting."
           action={<Link href="/studio/new" className="btn btn-accent btn-sm">New Work</Link>}
         />
       ) : (

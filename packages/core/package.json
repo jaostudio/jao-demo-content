@@ -1,6 +1,6 @@
 {
   "name": "@jaostudio/core",
-  "version": "0.1.0",
+  "version": "0.2.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/jaostudio/jaostudio-platform.git"
@@ -9,23 +9,64 @@
     "registry": "https://npm.pkg.github.com"
   },
   "exports": {
-    ".": "./src/index.ts",
-    "./db": "./src/db/index.ts",
-    "./auth": "./src/auth/index.ts",
-    "./rate-limit": "./src/rate-limit/index.ts",
-    "./logger": "./src/logger/index.ts",
-    "./validation": "./src/validation/index.ts",
-    "./storage": "./src/storage/index.ts",
-    "./state": "./src/state/index.ts",
-    "./theme": "./src/theme/index.tsx",
-    "./state-machines": "./src/state-machines/index.ts",
-    "./state-machines/*": "./src/state-machines/*",
-    "./events": "./src/events/index.ts",
-    "./events/*": "./src/events/*"
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.js"
+    },
+    "./db": {
+      "types": "./dist/db/index.d.mts",
+      "import": "./dist/db/index.js"
+    },
+    "./auth": {
+      "types": "./dist/auth/index.d.mts",
+      "import": "./dist/auth/index.js"
+    },
+    "./rate-limit": {
+      "types": "./dist/rate-limit/index.d.mts",
+      "import": "./dist/rate-limit/index.js"
+    },
+    "./logger": {
+      "types": "./dist/logger/index.d.mts",
+      "import": "./dist/logger/index.js"
+    },
+    "./validation": {
+      "types": "./dist/validation/index.d.mts",
+      "import": "./dist/validation/index.js"
+    },
+    "./storage": {
+      "types": "./dist/storage/index.d.mts",
+      "import": "./dist/storage/index.js"
+    },
+    "./state": {
+      "types": "./dist/state/index.d.mts",
+      "import": "./dist/state/index.js"
+    },
+    "./theme": {
+      "types": "./dist/theme/index.d.mts",
+      "import": "./dist/theme/index.js"
+    },
+    "./state-machines": {
+      "types": "./dist/state-machines/index.d.mts",
+      "import": "./dist/state-machines/index.js"
+    },
+    "./state-machines/*": {
+      "types": "./dist/state-machines/*.d.mts",
+      "import": "./dist/state-machines/*.js"
+    },
+    "./events": {
+      "types": "./dist/events/index.d.mts",
+      "import": "./dist/events/index.js"
+    },
+    "./events/*": {
+      "types": "./dist/events/*.d.mts",
+      "import": "./dist/events/*.js"
+    }
   },
   "peerDependencies": {
     "@prisma/client": "^7.0.0",
-    "next": "^16.1.0"
+    "next": "^16.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "typescript": "^5.7.0",
@@ -36,5 +77,17 @@
     "zod": "^4.0.0",
     "clsx": "^2.1.0",
     "tailwind-merge": "^3.0.0"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.mts",
+  "files": [
+    "dist",
+    "README.md",
+    "package.json"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "clean": "rimraf dist",
+    "prepublishOnly": "npm run build"
   }
 }

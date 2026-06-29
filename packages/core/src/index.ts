@@ -1,11 +1,11 @@
 export { cn } from './cn'
-export { createStore, useStore, StoreProvider } from './state'
+export { createStore } from './state'
 export { ThemeProvider, useTheme } from './theme'
 export { logger } from './logger'
 export { validate } from './validation'
-export { db } from './db'
+export { prisma as db } from './db'
 export { rateLimit } from './rate-limit'
-export { storage } from './storage'
+export { createStorage as storage } from './storage'
 
 // State machines
 export { createMachine } from './state-machines/factory'

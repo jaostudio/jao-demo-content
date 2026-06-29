@@ -128,7 +128,9 @@ export function RightPanel({ categories, trending = [], suggestedAuthors = [] }:
         <div className="border-t border-hairline pt-4">
           <div className="flex flex-wrap gap-x-3 gap-y-1 text-[12px] text-fog-gray">
             <Link href="/" className="hover:text-graphite transition-colors">Home</Link>
-            <Link href="/category" className="hover:text-graphite transition-colors">Fields</Link>
+            <Link href="/guidelines" className="hover:text-graphite transition-colors">Guidelines</Link>
+            <Link href="/privacy" className="hover:text-graphite transition-colors">Privacy</Link>
+            <Link href="/terms" className="hover:text-graphite transition-colors">Terms</Link>
             <Link href="/rss.xml" className="hover:text-graphite transition-colors">RSS</Link>
           </div>
           <p className="mt-2 text-[12px] text-ash">&copy; {new Date().getFullYear()} Likha</p>
@@ -296,7 +298,9 @@ export function RightPanel({ categories, trending = [], suggestedAuthors = [] }:
       <div className="border-t border-hairline pt-4">
         <div className="flex flex-wrap gap-x-3 gap-y-1 text-[12px] text-fog-gray">
           <Link href="/" className="hover:text-graphite transition-colors">Home</Link>
-          <Link href="/category" className="hover:text-graphite transition-colors">Fields</Link>
+          <Link href="/guidelines" className="hover:text-graphite transition-colors">Guidelines</Link>
+          <Link href="/privacy" className="hover:text-graphite transition-colors">Privacy</Link>
+          <Link href="/terms" className="hover:text-graphite transition-colors">Terms</Link>
           <Link href="/rss.xml" className="hover:text-graphite transition-colors">RSS</Link>
         </div>
         <p className="mt-2 text-[12px] text-ash">&copy; {new Date().getFullYear()} Likha</p>

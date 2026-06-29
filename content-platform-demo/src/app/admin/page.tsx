@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { cookies } from 'next/headers'
 import { NEW_LAYOUT_ENABLED } from '@/lib/new/flags'
-import { AdminDashboard } from '@/components/new/pages/admin/dashboard'
+import { AdminOverview } from '@/components/new/pages/admin/dashboard'
 import { StatusBadge } from '@/components/status-badge'
 import { TransitionButtons } from '@/components/transition-buttons'
 import { IllustratedEmptyState } from '@/components/illustrated-empty-state'
@@ -29,7 +29,7 @@ export default async function AdminDashboardPage() {
 
   if (NEW_LAYOUT_ENABLED) {
     return (
-      <AdminDashboard
+      <AdminOverview
         draftCount={stats.draftArticles}
         pendingCount={stats.pendingReview}
         publishedCount={stats.publishedArticles}

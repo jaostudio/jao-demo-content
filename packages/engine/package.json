@@ -1,6 +1,6 @@
 {
   "name": "@jaostudio/engine",
-  "version": "0.1.0",
+  "version": "0.2.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/jaostudio/jaostudio-platform.git"
@@ -9,16 +9,46 @@
     "registry": "https://npm.pkg.github.com"
   },
   "exports": {
-    ".": "./src/index.ts",
-    "./types": "./src/types/index.ts",
-    "./types/*": "./src/types/*",
-    "./rendering": "./src/rendering/index.ts",
-    "./rendering/*": "./src/rendering/*",
-    "./transitions": "./src/transitions/index.ts",
-    "./transitions/*": "./src/transitions/*",
-    "./theme": "./src/theme/index.ts",
-    "./composition": "./src/composition/index.ts",
-    "./composition/*": "./src/composition/*"
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.js"
+    },
+    "./types": {
+      "types": "./dist/types/index.d.mts",
+      "import": "./dist/types/index.js"
+    },
+    "./types/*": {
+      "types": "./dist/types/*.d.mts",
+      "import": "./dist/types/*.js"
+    },
+    "./rendering": {
+      "types": "./dist/rendering/index.d.mts",
+      "import": "./dist/rendering/index.js"
+    },
+    "./rendering/*": {
+      "types": "./dist/rendering/*.d.mts",
+      "import": "./dist/rendering/*.js"
+    },
+    "./transitions": {
+      "types": "./dist/transitions/index.d.mts",
+      "import": "./dist/transitions/index.js"
+    },
+    "./transitions/*": {
+      "types": "./dist/transitions/*.d.mts",
+      "import": "./dist/transitions/*.js"
+    },
+    "./theme": {
+      "types": "./dist/theme/index.d.mts",
+      "import": "./dist/theme/index.js"
+    },
+    "./composition": {
+      "types": "./dist/composition/index.d.mts",
+      "import": "./dist/composition/index.js"
+    },
+    "./composition/*": {
+      "types": "./dist/composition/*.d.mts",
+      "import": "./dist/composition/*.js"
+    }
   },
   "peerDependencies": {
     "react": "^19.0.0",
@@ -29,5 +59,17 @@
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "typescript": "^5.7.0"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.mts",
+  "files": [
+    "dist",
+    "README.md",
+    "package.json"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "clean": "rimraf dist",
+    "prepublishOnly": "npm run build"
   }
 }

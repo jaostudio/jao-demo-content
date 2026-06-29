@@ -130,8 +130,8 @@ export default function CollectionPage() {
               {/* Curated Grid */}
               {collection.items.length === 0 ? (
                 <div className="py-16 text-center">
-                  <p className="text-[14px] text-fog-gray">This collection is empty.</p>
-                  <p className="text-[12px] text-ash mt-1">Collected works will appear here.</p>
+                  <p className="text-[14px] text-fog-gray">Nothing collected yet.</p>
+                  <p className="text-[12px] text-ash mt-1">Curated pieces will appear here.</p>
                 </div>
               ) : (
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

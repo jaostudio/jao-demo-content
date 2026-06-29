@@ -1,18 +1,36 @@
 {
   "name": "@jaostudio/analytics",
-  "version": "0.1.0",
-  "repository": { "type": "git", "url": "git+https://github.com/jaostudio/jaostudio-platform.git" },
+  "version": "0.2.2",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaostudio/jaostudio-platform.git"
+  },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
   "exports": {
-    "./*": "./src/*"
+    "./*": {
+      "types": "./dist/*.d.mts",
+      "import": "./dist/*.js"
+    }
   },
   "peerDependencies": {
-    "next": "^16.1.0"
+    "next": "^16.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "typescript": "^5.7.0",
     "next": "^16.1.0"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "package.json"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "clean": "rimraf dist",
+    "prepublishOnly": "npm run build"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@jaostudio/ui",
-  "version": "0.1.0",
+  "version": "0.2.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/jaostudio/jaostudio-platform.git"
@@ -9,18 +9,43 @@
     "registry": "https://npm.pkg.github.com"
   },
   "exports": {
-    ".": "./src/index.ts",
-    "./*": "./src/*",
-    "./sections": "./src/sections/index.ts",
-    "./sections/*": "./src/sections/*"
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./dist/*.d.mts",
+      "import": "./dist/*.js"
+    },
+    "./sections": {
+      "types": "./dist/sections/index.d.mts",
+      "import": "./dist/sections/index.js"
+    },
+    "./sections/*": {
+      "types": "./dist/sections/*.d.mts",
+      "import": "./dist/sections/*.js"
+    }
   },
   "peerDependencies": {
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "@jaostudio/engine": "^0.2.0"
   },
   "devDependencies": {
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "typescript": "^5.7.0"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.mts",
+  "files": [
+    "dist",
+    "README.md",
+    "package.json"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "clean": "rimraf dist",
+    "prepublishOnly": "npm run build"
   }
 }
