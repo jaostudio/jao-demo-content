@@ -24,16 +24,38 @@ export default async function AnalyticsPage() {
   const authHeaders: Record<string, string> = {}
   if (token) authHeaders['Authorization'] = `Bearer ${token}`
 
-  const stats = await fetchAPI<AdminStatsResponse>('/api/admin/stats', { headers: authHeaders })
+  let stats: AdminStatsResponse | null = null
+  let fetchError: string | null = null
+
+  try {
+    stats = await fetchAPI<AdminStatsResponse>('/api/admin/stats', { headers: authHeaders })
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : String(error)
+    console.error('[admin/analytics] GET /api/admin/stats failed', message)
+    fetchError = message
+  }
+
+  const safeStats = stats ?? {
+    totalArticles: 0,
+    draftArticles: 0,
+    pendingReview: 0,
+    publishedArticles: 0,
+    archivedArticles: 0,
+    totalAuthors: 0,
+    totalCategories: 0,
+    totalTags: 0,
+    totalComments: 0,
+    categories: [],
+  }
 
   const statusData = [
-    { name: 'Draft', value: stats.draftArticles, color: COLORS.draft },
-    { name: 'Pending', value: stats.pendingReview, color: COLORS.pending },
-    { name: 'Published', value: stats.publishedArticles, color: COLORS.published },
-    { name: 'Archived', value: stats.archivedArticles, color: COLORS.archived },
+    { name: 'Draft', value: safeStats.draftArticles, color: COLORS.draft },
+    { name: 'Pending', value: safeStats.pendingReview, color: COLORS.pending },
+    { name: 'Published', value: safeStats.publishedArticles, color: COLORS.published },
+    { name: 'Archived', value: safeStats.archivedArticles, color: COLORS.archived },
   ]
 
-  const categoryChartData = (stats.categories ?? []).map((cat) => ({
+  const categoryChartData = (safeStats.categories ?? []).map((cat: { name: string; _count?: { articles: number } }) => ({
     name: cat.name,
     articles: cat._count?.articles ?? 0,
   }))
@@ -42,18 +64,26 @@ export default async function AnalyticsPage() {
     <div>
       <h1 className="mb-4 text-lg font-semibold text-text-primary dark:text-slate-100">Analytics</h1>
 
+      {fetchError && (
+        <div className="mb-4 rounded-lg border border-warning bg-warning-light p-3 text-xs text-warning">
+          Could not load analytics data. Some charts may be unavailable.
+        </div>
+      )}
+
       <div className="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        <MetricCard label="Total Articles" value={stats.totalArticles} />
-        <MetricCard label="Drafts" value={stats.draftArticles} />
-        <MetricCard label="Published" value={stats.publishedArticles} />
-        <MetricCard label="Authors" value={stats.totalAuthors} />
-        <MetricCard label="Categories" value={stats.totalCategories} />
-        <MetricCard label="Tags" value={stats.totalTags} />
-        <MetricCard label="Comments" value={stats.totalComments} />
-        <MetricCard label="Archived" value={stats.archivedArticles} />
+        <MetricCard label="Total Articles" value={safeStats.totalArticles} />
+        <MetricCard label="Drafts" value={safeStats.draftArticles} />
+        <MetricCard label="Published" value={safeStats.publishedArticles} />
+        <MetricCard label="Authors" value={safeStats.totalAuthors} />
+        <MetricCard label="Categories" value={safeStats.totalCategories} />
+        <MetricCard label="Tags" value={safeStats.totalTags} />
+        <MetricCard label="Comments" value={safeStats.totalComments} />
+        <MetricCard label="Archived" value={safeStats.archivedArticles} />
       </div>
 
-      <ChartSection categoryData={categoryChartData} statusData={statusData.filter((d) => d.value > 0)} />
+      {categoryChartData.length > 0 && (
+        <ChartSection categoryData={categoryChartData} statusData={statusData.filter((d) => d.value > 0)} />
+      )}
     </div>
   )
 }

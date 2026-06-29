@@ -27,16 +27,19 @@ export default async function AdminDashboardPage() {
   let fetchError: string | null = null
 
   try {
-    const results = await Promise.all([
-      fetchAPI<ArticleSummary[]>('/api/admin/articles', { headers: authHeaders }),
-      fetchAPI<AdminStatsResponse>('/api/admin/stats', { headers: authHeaders }),
-    ])
-    articles = results[0]
-    stats = results[1]
+    articles = await fetchAPI<ArticleSummary[]>('/api/admin/articles', { headers: authHeaders })
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : String(error)
-    console.error('[admin] failed to load dashboard data', message)
-    fetchError = message
+    console.error('[admin] GET /api/admin/articles failed', message)
+    fetchError = 'articles'
+  }
+
+  try {
+    stats = await fetchAPI<AdminStatsResponse>('/api/admin/stats', { headers: authHeaders })
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : String(error)
+    console.error('[admin] GET /api/admin/stats failed', message)
+    fetchError = fetchError ? 'multiple' : 'stats'
   }
 
   if (NEW_LAYOUT_ENABLED) {
@@ -70,8 +73,8 @@ export default async function AdminDashboardPage() {
       </div>
 
       {fetchError && (
-        <div className="mb-4 rounded-lg border border-amber-200 bg-amber-50 p-3 text-xs text-amber-800 dark:border-amber-800 dark:bg-amber-900/20 dark:text-amber-400">
-          Could not load dashboard data. Moderation tools are limited.
+        <div className="mb-4 rounded-lg border border-warning bg-warning-light p-3 text-xs text-warning">
+          Could not load admin data. Some dashboard information may be unavailable.
         </div>
       )}
 

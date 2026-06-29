@@ -50,8 +50,8 @@ export function AdminOverview({ draftCount, pendingCount, publishedCount, articl
       </div>
 
       {fetchError && (
-        <div className="rounded-lg border border-amber-200 bg-amber-50 p-3 text-xs text-amber-800 dark:border-amber-800 dark:bg-amber-900/20 dark:text-amber-400">
-          Could not load dashboard data. Moderation tools are limited.
+        <div className="rounded-lg border border-warning bg-warning-light p-3 text-xs text-warning">
+          Could not load dashboard data. Some information may be unavailable.
         </div>
       )}
 

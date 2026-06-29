@@ -43,7 +43,7 @@ export function RightPanel({ categories, trending = [], suggestedAuthors = [] }:
   const { user, loading: authLoading, signIn } = useAuth()
   const mounted = useMounted()
   const { enabled: demoEnabled, role: demoRole, enableDemoMode, disableDemoMode, setRole } = useDemoRoleStore()
-  const [demoOpen, setDemoOpen] = useState(false)
+  const [demoOpen, setDemoOpen] = useState(!user)
   const [signingIn, setSigningIn] = useState<string | null>(null)
 
   const safeDemoEnabled = mounted ? demoEnabled : false

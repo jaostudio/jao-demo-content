@@ -9,25 +9,25 @@
   --color-ash: #b2a691;
   --color-hairline: #cfc1ad;
   --color-pure-white: #fff9ed;
-  --color-reactor-green: #4f9f46;
-  --color-voltage-pink: #b85aa7;
+  --color-reactor-green: #5b8c5a;
+  --color-voltage-pink: #d4738a;
   --color-onyx: #0d0c0a;
 
   /* Semantic aliases */
-  --color-primary: #4f9f46;
-  --color-primary-hover: #40803a;
-  --color-primary-light: rgba(79, 159, 70, 0.14);
-  --color-primary-dark: #3a7233;
+  --color-primary: #5b8c5a;
+  --color-primary-hover: #4a7a49;
+  --color-primary-light: rgba(91, 140, 90, 0.14);
+  --color-primary-dark: #3d6b3c;
 
   --color-secondary: #1f1a14;
   --color-secondary-hover: #0d0c0a;
   --color-secondary-light: rgba(31, 26, 20, 0.06);
   --color-secondary-dark: #0d0c0a;
 
-  --color-accent: #b85aa7;
-  --color-accent-hover: #a34a92;
-  --color-accent-light: rgba(184, 90, 167, 0.13);
-  --color-accent-dark: #8a3c7a;
+  --color-accent: #d4738a;
+  --color-accent-hover: #c45d6f;
+  --color-accent-light: rgba(212, 115, 138, 0.13);
+  --color-accent-dark: #b04a63;
 
   --color-surface: #f4efe5;
   --color-surface-alt: #ebe2d4;
@@ -114,10 +114,10 @@
   --brand-surface-raised: #fff9ed;
   --brand-surface-soft: #ded2bf;
   --brand-border: #cfc1ad;
-  --brand-reactor: #4f9f46;
-  --brand-voltage: #b85aa7;
-  --brand-reactor-soft: rgba(79, 159, 70, 0.14);
-  --brand-voltage-soft: rgba(184, 90, 167, 0.13);
+  --brand-reactor: #5b8c5a;
+  --brand-voltage: #d4738a;
+  --brand-reactor-soft: rgba(91, 140, 90, 0.14);
+  --brand-voltage-soft: rgba(212, 115, 138, 0.13);
   --brand-radius-sm: 6px;
   --brand-radius-md: 8px;
   --brand-radius-lg: 16px;
@@ -135,10 +135,10 @@
   --brand-surface-raised: #2b261d;
   --brand-surface-soft: #342d22;
   --brand-border: #4a4032;
-  --brand-reactor: #78c86d;
-  --brand-voltage: #d17ac0;
-  --brand-reactor-soft: rgba(120, 200, 109, 0.13);
-  --brand-voltage-soft: rgba(209, 122, 192, 0.14);
+  --brand-reactor: #8cba8b;
+  --brand-voltage: #e898a8;
+  --brand-reactor-soft: rgba(140, 186, 139, 0.13);
+  --brand-voltage-soft: rgba(232, 152, 168, 0.14);
 }
 
 /* ── Dark mode token overrides ── */

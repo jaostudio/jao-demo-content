@@ -17,9 +17,10 @@ interface ArticleSummary {
 
 interface ReviewQueueProps {
   articles: ArticleSummary[]
+  fetchError?: string | null
 }
 
-export function ReviewQueue({ articles }: ReviewQueueProps) {
+export function ReviewQueue({ articles, fetchError }: ReviewQueueProps) {
   const pending = articles.filter((a) => a.status === 'PENDING_REVIEW')
   const reviewed = articles.filter((a) => a.status !== 'PENDING_REVIEW')
 
@@ -31,6 +32,12 @@ export function ReviewQueue({ articles }: ReviewQueueProps) {
           Works waiting for review. Check provenance, process notes, and publication status before approving.
         </p>
       </div>
+
+      {fetchError && (
+        <div className="rounded-lg border border-warning bg-warning-light p-3 text-xs text-warning">
+          Could not load review data. Some works may not appear.
+        </div>
+      )}
 
       {pending.length > 0 && (
         <div>

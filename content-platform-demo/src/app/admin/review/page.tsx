@@ -17,7 +17,16 @@ export default async function ReviewPage() {
   const authHeaders: Record<string, string> = {}
   if (token) authHeaders['Authorization'] = `Bearer ${token}`
 
-  const articles = await fetchAPI<ArticleSummary[]>('/api/admin/articles', { headers: authHeaders })
+  let articles: ArticleSummary[] = []
+  let fetchError: string | null = null
 
-  return <ReviewQueue articles={articles} />
+  try {
+    articles = await fetchAPI<ArticleSummary[]>('/api/admin/articles', { headers: authHeaders })
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : String(error)
+    console.error('[admin/review] GET /api/admin/articles failed', message)
+    fetchError = message
+  }
+
+  return <ReviewQueue articles={articles} fetchError={fetchError} />
 }

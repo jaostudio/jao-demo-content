@@ -72,7 +72,9 @@ export function Header() {
                 </Button>
               </Link>
               {user && (
-                <Avatar name={user.name || 'U'} size="sm" />
+                <Link href="/studio" title="Studio">
+                  <Avatar name={user.name || 'U'} size="sm" />
+                </Link>
               )}
             </>
           ) : (
