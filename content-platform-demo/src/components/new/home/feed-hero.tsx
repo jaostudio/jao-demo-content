@@ -20,7 +20,7 @@ export function FeedHero() {
   }, [])
 
   return (
-    <section ref={ref} className="relative overflow-hidden rounded-2xl border border-hairline bg-surface p-8 mb-6 min-h-[260px]">
+    <section ref={ref} className="studio-frame relative overflow-hidden rounded-2xl border border-hairline bg-surface p-8 mb-6 min-h-[260px]">
       {/* Scanline texture */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.04]" style={{
         backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, var(--color-void-black) 2px, var(--color-void-black) 3px)',

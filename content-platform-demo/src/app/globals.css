@@ -2,45 +2,45 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── Zora Color Palette ── */
-  --color-void-black: #121212;
-  --color-graphite: #4d4d4d;
-  --color-fog-gray: #6b6b6b;
-  --color-ash: #999999;
-  --color-hairline: #e6e6e6;
-  --color-pure-white: #ffffff;
+  /* ── Likha Brand Color Palette ── */
+  --color-void-black: #14130f;
+  --color-graphite: #6f695d;
+  --color-fog-gray: #9d9587;
+  --color-ash: #b5ad9d;
+  --color-hairline: #d8cfbf;
+  --color-pure-white: #fffaf0;
   --color-reactor-green: #00df00;
   --color-voltage-pink: #ff00f0;
-  --color-onyx: #000000;
+  --color-onyx: #0d0c0a;
 
   /* Semantic aliases */
   --color-primary: #00df00;
   --color-primary-hover: #00cc00;
-  --color-primary-light: rgba(0, 223, 0, 0.1);
+  --color-primary-light: rgba(0, 223, 0, 0.12);
   --color-primary-dark: #00a000;
 
-  --color-secondary: #121212;
-  --color-secondary-hover: #000000;
-  --color-secondary-light: rgba(18, 18, 18, 0.06);
-  --color-secondary-dark: #000000;
+  --color-secondary: #14130f;
+  --color-secondary-hover: #0d0c0a;
+  --color-secondary-light: rgba(20, 19, 15, 0.06);
+  --color-secondary-dark: #0d0c0a;
 
   --color-accent: #ff00f0;
   --color-accent-hover: #e000d0;
-  --color-accent-light: rgba(255, 0, 240, 0.1);
+  --color-accent-light: rgba(255, 0, 240, 0.12);
   --color-accent-dark: #c000b0;
 
-  --color-surface: #ffffff;
-  --color-surface-alt: #f5f5f5;
-  --color-card: #f5f5f5;
+  --color-surface: #f7f3ea;
+  --color-surface-alt: #eee8dc;
+  --color-card: #eee8dc;
 
-  --color-text-primary: #121212;
-  --color-text-body: #4d4d4d;
-  --color-text-secondary: #878787;
-  --color-text-muted: #cacaca;
+  --color-text-primary: #14130f;
+  --color-text-body: #6f695d;
+  --color-text-secondary: #9d9587;
+  --color-text-muted: #b5ad9d;
 
-  --color-border: #e6e6e6;
-  --color-border-hover: #cacaca;
-  --color-border-focus: #121212;
+  --color-border: #d8cfbf;
+  --color-border-hover: #c4b9a5;
+  --color-border-focus: #14130f;
 
   --color-success: #16A34A;
   --color-success-light: #F0FDF4;
@@ -48,18 +48,18 @@
   --color-warning-light: #FFFBEB;
   --color-danger: #DC2626;
   --color-danger-light: #FEF2F2;
-  --color-info: #121212;
-  --color-info-light: rgba(18, 18, 18, 0.06);
+  --color-info: #14130f;
+  --color-info-light: rgba(20, 19, 15, 0.06);
 
   /* Dark mode tokens */
-  --color-bg-dark: #0f0f0f;
-  --color-surface-dark: #171717;
-  --color-card-dark: #171717;
-  --color-border-dark: #2a2a2a;
-  --color-text-primary-dark: #f5f5f5;
-  --color-text-body-dark: #a3a3a3;
-  --color-text-secondary-dark: #878787;
-  --color-text-muted-dark: #737373;
+  --color-bg-dark: #11110f;
+  --color-surface-dark: #171713;
+  --color-card-dark: #171713;
+  --color-border-dark: #302d26;
+  --color-text-primary-dark: #f2eee3;
+  --color-text-body-dark: #b5ad9d;
+  --color-text-secondary-dark: #9d9587;
+  --color-text-muted-dark: #746f65;
 
   /* ── Typography ── */
   --font-body: 'Space Grotesk', system-ui, -apple-system, sans-serif;
@@ -106,15 +106,18 @@
   --duration-page: 640ms;
 
   /* ── Brand Tokens ── */
-  --brand-bg: #ffffff;
-  --brand-ink: #111111;
-  --brand-muted: #666666;
-  --brand-faint: #999999;
-  --brand-surface: #f5f5f5;
-  --brand-surface-raised: #ffffff;
-  --brand-border: #e6e6e6;
+  --brand-bg: #f7f3ea;
+  --brand-ink: #14130f;
+  --brand-muted: #6f695d;
+  --brand-faint: #9d9587;
+  --brand-surface: #eee8dc;
+  --brand-surface-raised: #fffaf0;
+  --brand-surface-soft: #e5dccd;
+  --brand-border: #d8cfbf;
   --brand-reactor: #00df00;
   --brand-voltage: #ff00f0;
+  --brand-reactor-soft: rgba(0, 223, 0, 0.12);
+  --brand-voltage-soft: rgba(255, 0, 240, 0.12);
   --brand-radius-sm: 6px;
   --brand-radius-md: 8px;
   --brand-radius-lg: 16px;
@@ -124,32 +127,35 @@
 
 /* ── Dark mode brand tokens ── */
 .dark {
-  --brand-bg: #0f0f0f;
-  --brand-ink: #f5f5f5;
-  --brand-muted: #a3a3a3;
-  --brand-faint: #737373;
-  --brand-surface: #171717;
-  --brand-surface-raised: #1d1d1d;
-  --brand-border: #2a2a2a;
+  --brand-bg: #11110f;
+  --brand-ink: #f2eee3;
+  --brand-muted: #b5ad9d;
+  --brand-faint: #746f65;
+  --brand-surface: #171713;
+  --brand-surface-raised: #1d1c18;
+  --brand-surface-soft: #24221d;
+  --brand-border: #302d26;
+  --brand-reactor-soft: rgba(0, 223, 0, 0.1);
+  --brand-voltage-soft: rgba(255, 0, 240, 0.12);
 }
 
 /* ── Dark mode token overrides ── */
 .dark {
-  --color-surface: #0f0f0f;
-  --color-surface-alt: #171717;
-  --color-card: #171717;
-  --color-text-primary: #f5f5f5;
-  --color-text-body: #a3a3a3;
-  --color-text-secondary: #878787;
-  --color-text-muted: #737373;
-  --color-border: #2a2a2a;
-  --color-border-hover: #3a3a3a;
-  --color-border-focus: #f5f5f5;
+  --color-surface: #11110f;
+  --color-surface-alt: #171713;
+  --color-card: #171713;
+  --color-text-primary: #f2eee3;
+  --color-text-body: #b5ad9d;
+  --color-text-secondary: #9d9587;
+  --color-text-muted: #746f65;
+  --color-border: #302d26;
+  --color-border-hover: #403b30;
+  --color-border-focus: #f2eee3;
 }
 
 /* ── Body ── */
 body {
-  background-color: var(--color-surface);
+  background-color: var(--brand-bg);
   color: var(--color-text-body);
   font-family: var(--font-body);
   letter-spacing: -0.02em;
@@ -158,7 +164,7 @@ body {
 }
 
 .dark body {
-  background-color: var(--color-bg-dark);
+  background-color: var(--brand-bg);
   color: var(--color-text-body-dark);
 }
 
@@ -298,9 +304,9 @@ body {
 }
 
 .tatak-draft {
-  background-color: #f5f5f5;
-  color: var(--color-graphite);
-  border-color: var(--color-hairline);
+  background-color: var(--brand-surface);
+  color: var(--brand-muted);
+  border-color: var(--brand-border);
 }
 
 .tatak-pending {
@@ -310,21 +316,21 @@ body {
 }
 
 .tatak-published {
-  background-color: var(--color-success-light);
+  background-color: var(--brand-reactor-soft);
   color: #166534;
-  border-color: var(--color-success);
+  border-color: var(--color-primary);
 }
 
 .tatak-archived {
-  background-color: #f5f5f5;
-  color: var(--color-fog-gray);
-  border-color: var(--color-ash);
+  background-color: var(--brand-surface);
+  color: var(--brand-faint);
+  border-color: var(--brand-border);
 }
 
 .dark .tatak-draft {
-  background-color: #2a2a2a;
-  color: var(--color-ash);
-  border-color: var(--color-graphite);
+  background-color: var(--brand-surface-soft);
+  color: var(--brand-faint);
+  border-color: var(--brand-border);
 }
 
 .dark .tatak-pending {
@@ -334,15 +340,15 @@ body {
 }
 
 .dark .tatak-published {
-  background-color: rgba(22, 163, 74, 0.15);
+  background-color: var(--brand-reactor-soft);
   color: #4ADE80;
-  border-color: rgba(22, 163, 74, 0.3);
+  border-color: var(--color-primary-light);
 }
 
 .dark .tatak-archived {
-  background-color: #2a2a2a;
-  color: var(--color-fog-gray);
-  border-color: var(--color-graphite);
+  background-color: var(--brand-surface-soft);
+  color: var(--brand-faint);
+  border-color: var(--brand-border);
 }
 
 /* ── Input System ── */
@@ -494,10 +500,10 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 16px;
-  height: 16px;
-  border-top: 2px solid var(--color-border);
-  border-left: 2px solid var(--color-border);
+  width: 14px;
+  height: 14px;
+  border-top: 1.5px solid var(--color-border);
+  border-left: 1.5px solid var(--color-border);
   pointer-events: none;
 }
 
@@ -506,10 +512,10 @@ body {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 16px;
-  height: 16px;
-  border-bottom: 2px solid var(--color-border);
-  border-right: 2px solid var(--color-border);
+  width: 14px;
+  height: 14px;
+  border-bottom: 1.5px solid var(--color-border);
+  border-right: 1.5px solid var(--color-border);
   pointer-events: none;
 }
 
@@ -564,8 +570,8 @@ body {
 /* ── Brand Motif: Grid/Scanline Texture (add as utility) ── */
 .brand-grid {
   background-image:
-    linear-gradient(var(--color-reactor-green) 1px, transparent 1px),
-    linear-gradient(90deg, var(--color-reactor-green) 1px, transparent 1px);
+    linear-gradient(var(--brand-border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--brand-border) 1px, transparent 1px);
   background-size: 48px 48px;
   opacity: 0.04;
 }
@@ -575,13 +581,38 @@ body {
     0deg,
     transparent,
     transparent 2px,
-    var(--color-void-black) 2px,
-    var(--color-void-black) 3px
+    var(--brand-ink) 2px,
+    var(--brand-ink) 3px
   );
-  opacity: 0.04;
+  opacity: 0.03;
 }
 
-/* ── Drift Animation ── */
+  /* ── Logo Draw Animation ── */
+@keyframes draw-path {
+  from { stroke-dashoffset: 28; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-draw-path {
+  animation: draw-path 0.8s var(--brand-ease) forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-draw-path {
+    animation: none;
+  }
+}
+
+  /* ── Drift Animation ── */
 @keyframes drift {
   0%, 100% { transform: translate(0, 0); }
   25% { transform: translate(12px, -8px); }

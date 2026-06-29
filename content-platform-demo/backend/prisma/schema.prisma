@@ -1,5 +1,6 @@
 generator client {
   provider = "prisma-client-js"
+  output   = "../node_modules/@prisma/client"
 }
 
 datasource db {
@@ -40,6 +41,8 @@ model Author {
   password  String
   role      AuthorRole @default(AUTHOR)
   image     String?
+  bio       String?
+  specialty String?
   createdAt DateTime   @default(now())
 
   articles    Article[]
@@ -134,6 +137,7 @@ model Collection {
   slug        String
   title       String
   description String?
+  cover       String?
   visibility  CollectionVisibility @default(PUBLIC)
   createdAt   DateTime             @default(now())
   updatedAt   DateTime             @updatedAt

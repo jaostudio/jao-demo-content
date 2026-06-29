@@ -13,7 +13,7 @@ interface AuthUser {
 interface AuthContextValue {
   user: AuthUser | null
   loading: boolean
-  signIn: (email: string, password: string) => Promise<{ error?: string }>
+  signIn: (email: string, password: string) => Promise<{ user?: AuthUser; error?: string }>
   signOut: () => void
 }
 
@@ -49,7 +49,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const res = await apiClient.login({ email, password })
       localStorage.setItem('likha-token', res.token)
       setUser(res.user)
-      return {}
+      return { user: res.user }
     } catch (err) {
       return { error: err instanceof Error ? err.message : 'Login failed' }
     }

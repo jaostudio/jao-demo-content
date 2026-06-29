@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Card } from '../ui/card'
 import { Avatar } from '../ui/avatar'
 import { ProvenanceBadge } from '@/components/provenance-badge'
+import { WorkPoster } from './work-poster'
 import { Heart, MessageCircle, Share2, Clock } from 'lucide-react'
 import { toast } from 'sonner'
 
@@ -91,7 +92,7 @@ export function WorkCard({
 
   return (
     <Link href={`/work/${slug}`} className="block group">
-      <Card className={`overflow-hidden transition-all duration-220 ease-out group-hover:-translate-y-1 group-hover:border-reactor-green/30 ${variant === 'featured' ? 'border-reactor-green/20' : ''}`}>
+      <Card className={`overflow-hidden transition-all duration-220 ease-out group-hover:-translate-y-1 group-hover:border-border-hover ${variant === 'featured' ? 'border-reactor-green/20' : ''}`}>
         {/* Creator Header */}
         <div className="flex items-center gap-2.5 px-4 py-3">
           <Avatar name={authorName} size="md" />
@@ -101,7 +102,7 @@ export function WorkCard({
         </div>
 
         {/* Media */}
-        {image && (
+        {image ? (
           <div className={`relative w-full overflow-hidden ${variant === 'featured' ? 'aspect-[16/9]' : 'aspect-[4/3]'}`}>
             <img
               src={image}
@@ -110,6 +111,14 @@ export function WorkCard({
               loading="lazy"
             />
           </div>
+        ) : (
+          <WorkPoster
+            title={title}
+            authorName={authorName}
+            category={categoryName}
+            provenanceStatus={provenanceStatus}
+            variant={variant === 'featured' ? 'featured' : variant === 'compact' || variant === 'mosaic' ? 'compact' : 'feed'}
+          />
         )}
 
         {/* Content */}
