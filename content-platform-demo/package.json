@@ -10,7 +10,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "vibe": "npm --prefix .vibe-tools/tools run vibe --",
+    "vibe:init": "npm --prefix .vibe-tools/tools run vibe -- init",
+    "vibe:task": "npm --prefix .vibe-tools/tools run vibe -- task",
+    "vibe:validate": "npm --prefix .vibe-tools/tools run vibe -- validate",
+    "vibe:humanize-check": "npm --prefix .vibe-tools/tools run vibe -- humanize-check",
+    "vibe:launch-report": "npm --prefix .vibe-tools/tools run vibe -- launch-report",
+    "vibe:doctor": "npm --prefix .vibe-tools/tools run vibe -- doctor",
+    "vibe:version": "npm --prefix .vibe-tools/tools run vibe -- version"
   },
   "dependencies": {
     "@content-platform/backend": "*",
