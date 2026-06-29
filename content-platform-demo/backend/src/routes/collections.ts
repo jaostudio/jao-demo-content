@@ -18,6 +18,7 @@ collections.get('/', authMiddleware, async (c) => {
     title: col.title,
     slug: col.slug,
     description: col.description,
+    cover: col.cover,
     visibility: col.visibility,
     itemCount: col._count.items,
     createdAt: col.createdAt.toISOString(),
@@ -83,6 +84,7 @@ collections.get('/:slug', authMiddleware, async (c) => {
     title: col.title,
     slug: col.slug,
     description: col.description,
+    cover: col.cover,
     visibility: col.visibility,
     createdAt: col.createdAt.toISOString(),
     items: col.items.map((item) => ({

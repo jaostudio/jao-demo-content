@@ -6,6 +6,34 @@ export interface AuthorResponse {
   email: string
   role: AuthorRole
   image: string | null
+  bio?: string | null
+  specialty?: string | null
+}
+
+export interface CollectionResponse {
+  id: string
+  title: string
+  slug: string
+  description: string | null
+  cover: string | null
+  visibility: string
+  createdAt: string
+  itemCount?: number
+  items?: CollectionItemResponse[]
+}
+
+export interface CollectionItemResponse {
+  id: string
+  articleId: string
+  title: string
+  slug: string
+  excerpt: string | null
+  image: string | null
+  format: string
+  authorName: string
+  categoryName: string
+  commentCount: number
+  addedAt: string
 }
 
 export interface ArticleSummary {

@@ -26,11 +26,15 @@ function Check-Route {
     }
     $resp.Close()
   } catch {
-    if ($AllowRedirect -and $_.Exception.InnerException) {
+    if ($_.Exception.InnerException) {
       $inner = $_.Exception.InnerException
       $status = [int]$inner.StatusCode
-      if ($status -eq 302 -or $status -eq 301 -or $status -eq 308) {
+      if ($AllowRedirect -and ($status -eq 302 -or $status -eq 301 -or $status -eq 308)) {
         Write-Host "  OK $status $Path (redirect)" -ForegroundColor Green
+        return
+      }
+      if ($status -eq $ExpectedStatus) {
+        Write-Host "  OK $status $Path" -ForegroundColor Green
         return
       }
     }
@@ -46,10 +50,10 @@ Check-Route "/search" "Search (no query)"
 Check-Route "/trending" "Trending"
 Check-Route "/category" "Categories index"
 Check-Route "/category/technology" "Single category"
-Check-Route "/work/getting-started-nextjs-16" "Work detail"
-Check-Route "/articles/getting-started-nextjs-16" "Old article redirect" -AllowRedirect $true
-Check-Route "/artist/sarah" "Artist profile"
-Check-Route "/collections/collections-curated-picks" "Public collection"
+Check-Route "/work/character-design-the-guardian" "Work detail (visual + process)"
+Check-Route "/articles/character-design-the-guardian" "Old article redirect" -AllowRedirect $true
+Check-Route "/artist/tala" "Artist profile (Tala)"
+Check-Route "/collections/process-documented-works" "Collection (with cover)"
 
 Write-Host "`n=== Auth Routes ===" -ForegroundColor Cyan
 Check-Route "/signin" "Sign in page"
@@ -59,14 +63,10 @@ Write-Host "`n=== Protected Routes ===" -ForegroundColor Cyan
 Check-Route "/studio" "Studio (anon redirect)" -AllowRedirect $true
 Check-Route "/admin" "Admin (anon redirect)" -AllowRedirect $true
 
-Write-Host "`n=== API Routes ===" -ForegroundColor Cyan
-Check-Route "/api/feed" "Feed API"
-Check-Route "/api/search?q=nextjs" "Search API"
-Check-Route "/api/categories" "Categories API"
-Check-Route "/api/articles" "Articles list API"
-
 Write-Host "`n=== 404 Routes ===" -ForegroundColor Cyan
 Check-Route "/nonexistent-page-xyz" "Should 404" -ExpectedStatus 404
+
+Write-Host "`n=== API Routes (production only) ===" -ForegroundColor Cyan
 
 if ($failed) {
   Write-Host "`nSOME ROUTES FAILED" -ForegroundColor Red

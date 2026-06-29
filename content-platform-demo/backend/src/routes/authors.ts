@@ -29,6 +29,8 @@ authors.get('/:username', async (c) => {
     name: author.name,
     email: author.email,
     image: author.image,
+    bio: author.bio,
+    specialty: author.specialty,
     role: author.role,
     createdAt: author.createdAt.toISOString(),
     followerCount,

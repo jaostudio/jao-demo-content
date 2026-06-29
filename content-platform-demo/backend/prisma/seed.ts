@@ -12,39 +12,95 @@ function slugify(text: string) {
 }
 
 async function main() {
-  console.log('🌱 Seeding Likha...')
+  console.log('\u{1f331} Seeding Likha...')
+
+  // ── Clean order ──
+  await prisma.comment.deleteMany()
+  await prisma.collectionItem.deleteMany()
+  await prisma.collection.deleteMany()
+  await prisma.follow.deleteMany()
+  await prisma.articleVersion.deleteMany()
+  await prisma.articleTag.deleteMany()
+  await prisma.article.deleteMany()
 
   // ── Passwords ──
   const password = await bcrypt.hash('password123', 10)
 
-  // ── Authors (5) ──
+  // ═══════════════════════════════════════════
+  // AUTHORS (5) — with image, bio, specialty
+  // ═══════════════════════════════════════════
   const sarah = await prisma.author.upsert({
     where: { email: 'sarah@content.dev' },
-    update: {},
-    create: { name: 'Sarah Chen', email: 'sarah@content.dev', password, role: 'AUTHOR' },
+    update: {
+      image: '/demo/artists/sarah-avatar.svg',
+      bio: 'Human-made design systems, typography, and sketchbooks. Based in San Francisco.',
+      specialty: 'Typography, Design Systems, Illustration',
+    },
+    create: {
+      name: 'Sarah Chen', email: 'sarah@content.dev', password, role: 'AUTHOR',
+      image: '/demo/artists/sarah-avatar.svg',
+      bio: 'Human-made design systems, typography, and sketchbooks. Based in San Francisco.',
+      specialty: 'Typography, Design Systems, Illustration',
+    },
   })
   const marcus = await prisma.author.upsert({
     where: { email: 'marcus@content.dev' },
-    update: {},
-    create: { name: 'Marcus Rivera', email: 'marcus@content.dev', password, role: 'AUTHOR' },
+    update: {
+      image: '/demo/artists/marcus-avatar.svg',
+      bio: 'Accessibility advocate, research notes, and platform design. Building inclusive digital spaces.',
+      specialty: 'Accessibility, Research, Platform Design',
+    },
+    create: {
+      name: 'Marcus Rivera', email: 'marcus@content.dev', password, role: 'AUTHOR',
+      image: '/demo/artists/marcus-avatar.svg',
+      bio: 'Accessibility advocate, research notes, and platform design. Building inclusive digital spaces.',
+      specialty: 'Accessibility, Research, Platform Design',
+    },
   })
   const admin = await prisma.author.upsert({
     where: { email: 'admin@content.dev' },
-    update: {},
-    create: { name: 'Maya Santos', email: 'admin@content.dev', password, role: 'ADMIN' },
+    update: {
+      image: '/demo/artists/editor-avatar.svg',
+      bio: 'Platform editor and community moderator for Likha.',
+      specialty: 'Moderation, Community, Platform Operations',
+    },
+    create: {
+      name: 'Maya Santos', email: 'admin@content.dev', password, role: 'ADMIN',
+      image: '/demo/artists/editor-avatar.svg',
+      bio: 'Platform editor and community moderator for Likha.',
+      specialty: 'Moderation, Community, Platform Operations',
+    },
   })
   const tala = await prisma.author.upsert({
     where: { email: 'tala@content.dev' },
-    update: {},
-    create: { name: 'Tala Cruz', email: 'tala@content.dev', password, role: 'AUTHOR' },
+    update: {
+      image: '/demo/artists/tala-avatar.svg',
+      bio: 'Character designer and mural artist based in Manila. Explores visual storytelling through traditional and digital media.',
+      specialty: 'Character Design, Mural Art, Visual Storytelling',
+    },
+    create: {
+      name: 'Tala Cruz', email: 'tala@content.dev', password, role: 'AUTHOR',
+      image: '/demo/artists/tala-avatar.svg',
+      bio: 'Character designer and mural artist based in Manila. Explores visual storytelling through traditional and digital media.',
+      specialty: 'Character Design, Mural Art, Visual Storytelling',
+    },
   })
   const leo = await prisma.author.upsert({
     where: { email: 'leo@content.dev' },
-    update: {},
-    create: { name: 'Leo Reyes', email: 'leo@content.dev', password, role: 'AUTHOR' },
+    update: {
+      image: '/demo/artists/leo-avatar.svg',
+      bio: 'Street photographer, community publisher, and audio diarist. Capturing stories from the streets of Manila.',
+      specialty: 'Photography, Community Publishing, Audio',
+    },
+    create: {
+      name: 'Leo Reyes', email: 'leo@content.dev', password, role: 'AUTHOR',
+      image: '/demo/artists/leo-avatar.svg',
+      bio: 'Street photographer, community publisher, and audio diarist. Capturing stories from the streets of Manila.',
+      specialty: 'Photography, Community Publishing, Audio',
+    },
   })
 
-  // ── Categories (3) ──
+  // ── Categories ──
   const tech = await prisma.category.upsert({
     where: { slug: 'technology' },
     update: {},
@@ -80,15 +136,6 @@ async function main() {
     tags[t.slug] = tag.id
   }
 
-  // ── Clean existing articles, versions, comments, follows, collections ──
-  await prisma.collectionItem.deleteMany()
-  await prisma.collection.deleteMany()
-  await prisma.follow.deleteMany()
-  await prisma.comment.deleteMany()
-  await prisma.articleVersion.deleteMany()
-  await prisma.articleTag.deleteMany()
-  await prisma.article.deleteMany()
-
   // ── Helper ──
   let articleCount = 0
   async function createArticle(opts: {
@@ -108,7 +155,7 @@ async function main() {
   }) {
     articleCount++
     const slug = slugify(opts.title) + (articleCount > 1 ? `-${articleCount}` : '')
-    const article = await prisma.article.create({
+    const result = await prisma.article.create({
       data: {
         title: opts.title,
         slug,
@@ -128,42 +175,99 @@ async function main() {
           : undefined,
       },
     })
-
     // Create initial version
     await prisma.articleVersion.create({
       data: {
-        articleId: article.id,
+        articleId: result.id,
         content: opts.content ?? 'Content placeholder.',
         changeNote: 'Initial draft',
         version: 1,
       },
     })
-
-    return article
+    return result
   }
 
   const now = new Date()
   const daysAgo = (n: number) => new Date(now.getTime() - n * 86400000)
 
   // ═══════════════════════════════════════════
-  // WORKS
+  // WORKS — flagship works with SVG media
   // ═══════════════════════════════════════════
 
-  // Sarah — declared human-made, process-documented, writing + drawing
+  // ── TALA: Character Design: The Guardian (3 versions, PROCESS_DOCUMENTED) ──
+  const t1 = await createArticle({
+    authorId: tala.id, title: 'Character Design: The Guardian',
+    format: 'DRAWING', status: 'PUBLISHED', provenanceStatus: 'PROCESS_DOCUMENTED',
+    categoryId: design.id, tagSlugs: ['illustration', 'creative-process'],
+    imageUrl: '/demo/works/guardian-final.svg',
+    excerpt: 'A behind-the-scenes look at my character design process from silhouette exploration to final rendered poster.',
+    publishAt: daysAgo(4), likes: 89,
+    content: 'This project explores the full character design pipeline — from initial silhouette exploration through armor shape language to final rendered poster. Each phase of the process is documented with annotations and decision notes.',
+  })
+  await prisma.articleVersion.create({
+    data: { articleId: t1.id, content: 'Silhouette exploration and initial concept sketches.', changeNote: 'Silhouette exploration and initial concept sketches.', version: 2, mediaUrl: '/demo/works/guardian-sketch.svg', createdAt: daysAgo(8) },
+  })
+  await prisma.articleVersion.create({
+    data: { articleId: t1.id, content: 'Armor shape pass and proportion refinement.', changeNote: 'Armor shape pass and proportion refinement.', version: 3, mediaUrl: '/demo/works/guardian-armor.svg', createdAt: daysAgo(6) },
+  })
+  await prisma.articleVersion.create({
+    data: { articleId: t1.id, content: 'Final rendered character poster with lighting and color.', changeNote: 'Final rendered character poster with lighting and color.', version: 4, mediaUrl: '/demo/works/guardian-final.svg', createdAt: daysAgo(4) },
+  })
+
+  // ── TALA: Stylized Anatomy Studies (2 versions, PROCESS_DOCUMENTED) ──
+  const t2 = await createArticle({
+    authorId: tala.id, title: 'Stylized Anatomy Studies',
+    format: 'DRAWING', status: 'PUBLISHED', provenanceStatus: 'PROCESS_DOCUMENTED',
+    categoryId: design.id, tagSlugs: ['illustration', 'animation'],
+    imageUrl: '/demo/works/anatomy-final.svg',
+    excerpt: 'A series of anatomy studies exploring stylized proportions for character design.',
+    publishAt: daysAgo(7), likes: 73,
+  })
+  await prisma.articleVersion.create({
+    data: { articleId: t2.id, content: 'Initial gesture sketches and proportion studies.', changeNote: 'Initial proportion studies', version: 2, mediaUrl: '/demo/works/anatomy-refinement.svg', createdAt: daysAgo(9) },
+  })
+
+  // ── TALA: Process Notes: Mural Project (3 versions, PROCESS_DOCUMENTED) ──
+  const t3 = await createArticle({
+    authorId: tala.id, title: 'Process Notes: Mural Project',
+    format: 'WRITING', status: 'PUBLISHED', provenanceStatus: 'PROCESS_DOCUMENTED',
+    categoryId: business.id, tagSlugs: ['creative-process', 'storytelling', 'community'],
+    imageUrl: '/demo/works/mural-final.svg',
+    excerpt: 'Documenting the full process behind a community mural project from concept sketches to completed installation.',
+    publishAt: daysAgo(12), likes: 44,
+  })
+  await prisma.articleVersion.create({
+    data: { articleId: t3.id, content: 'Concept sketches and site analysis.', changeNote: 'Concept sketches and site analysis.', version: 2, mediaUrl: '/demo/works/mural-sketches.svg', createdAt: daysAgo(16) },
+  })
+  await prisma.articleVersion.create({
+    data: { articleId: t3.id, content: 'In-progress documentation with community participation.', changeNote: 'In-progress documentation with community participation.', version: 3, mediaUrl: '/demo/works/mural-progress.svg', createdAt: daysAgo(14) },
+  })
+
+  // ── TALA: Experimental Animation Tests ──
+  const t4 = await createArticle({
+    authorId: tala.id, title: 'Experimental Animation Tests',
+    format: 'VIDEO', status: 'DRAFT',
+    categoryId: design.id, tagSlugs: ['animation', 'creative-process'],
+    excerpt: 'Early tests for an experimental animation project exploring organic motion.',
+  })
+
+  // ── SARAH: Letterpress in Digital Design (3 versions, DECLARED_HUMAN_MADE) ──
   const s1 = await createArticle({
     authorId: sarah.id, title: 'The Art of Letterpress in Digital Design',
     format: 'WRITING', status: 'PUBLISHED', provenanceStatus: 'DECLARED_HUMAN_MADE',
     categoryId: design.id, tagSlugs: ['typography', 'creative-process', 'storytelling'],
-    excerpt: 'How traditional letterpress techniques inform modern typography.',
+    imageUrl: '/demo/works/letterpress-final.svg',
+    excerpt: 'How traditional letterpress techniques inform modern typography and digital design.',
     publishAt: daysAgo(2), likes: 24,
   })
   await prisma.articleVersion.create({
-    data: { articleId: s1.id, content: 'Edited draft.', changeNote: 'Added section on color theory', version: 2 },
+    data: { articleId: s1.id, content: 'Research and plate proof documentation.', changeNote: 'Added plate proof documentation', version: 2, mediaUrl: '/demo/works/letterpress-process.svg', createdAt: daysAgo(5) },
   })
   await prisma.articleVersion.create({
-    data: { articleId: s1.id, content: 'Final.', changeNote: 'Final polish before publish', version: 3 },
+    data: { articleId: s1.id, content: 'Final draft with color theory section.', changeNote: 'Added section on color theory', version: 3, createdAt: daysAgo(3) },
   })
 
+  // ── SARAH: Sketchbook: July Explorations ──
   const s2 = await createArticle({
     authorId: sarah.id, title: 'Sketchbook: July Explorations',
     format: 'DRAWING', status: 'PUBLISHED', provenanceStatus: 'PROCESS_DOCUMENTED',
@@ -172,9 +276,10 @@ async function main() {
     publishAt: daysAgo(5), likes: 42,
   })
   await prisma.articleVersion.create({
-    data: { articleId: s2.id, content: 'Initial.', changeNote: 'Added 5 new sketches', version: 2 },
+    data: { articleId: s2.id, content: 'Initial set of 20 sketches.', changeNote: 'Added 5 new sketches', version: 2, createdAt: daysAgo(3) },
   })
 
+  // ── SARAH: Human-Made Reflection ──
   const s3 = await createArticle({
     authorId: sarah.id, title: 'Why I Left AI Tools Behind',
     format: 'WRITING', status: 'PUBLISHED', provenanceStatus: 'DECLARED_HUMAN_MADE',
@@ -183,6 +288,7 @@ async function main() {
     publishAt: daysAgo(8), likes: 67,
   })
 
+  // ── SARAH: Brand Identity WIP ──
   const s4 = await createArticle({
     authorId: sarah.id, title: 'Work in Progress: Brand Identity',
     format: 'DRAWING', status: 'DRAFT',
@@ -190,7 +296,20 @@ async function main() {
     excerpt: 'Early sketches for a proposed brand system.',
   })
 
-  // Marcus — AI-assisted, writing, some process-documented
+  // ── MARCUS: Accessibility-First Design Systems (2 versions, PROCESS_DOCUMENTED) ──
+  const m2 = await createArticle({
+    authorId: marcus.id, title: 'Accessibility-First Design Systems',
+    format: 'WRITING', status: 'PUBLISHED', provenanceStatus: 'PROCESS_DOCUMENTED',
+    categoryId: design.id, tagSlugs: ['accessibility', 'ui-design'],
+    imageUrl: '/demo/works/accessibility-system.svg',
+    excerpt: 'Building design systems that work for everyone from day one.',
+    publishAt: daysAgo(10), likes: 55,
+  })
+  await prisma.articleVersion.create({
+    data: { articleId: m2.id, content: 'Initial draft with component library.', changeNote: 'Added WCAG compliance checklist', version: 2, createdAt: daysAgo(10) },
+  })
+
+  // ── MARCUS: Scaling Community Platforms ──
   const m1 = await createArticle({
     authorId: marcus.id, title: 'Scaling Community Platforms',
     format: 'WRITING', status: 'PUBLISHED', provenanceStatus: 'AI_ASSISTED',
@@ -200,17 +319,7 @@ async function main() {
     publishAt: daysAgo(3), likes: 31,
   })
 
-  const m2 = await createArticle({
-    authorId: marcus.id, title: 'Accessibility-First Design Systems',
-    format: 'WRITING', status: 'PUBLISHED', provenanceStatus: 'PROCESS_DOCUMENTED',
-    categoryId: design.id, tagSlugs: ['accessibility', 'ui-design'],
-    excerpt: 'Building design systems that work for everyone from day one.',
-    publishAt: daysAgo(10), likes: 55,
-  })
-  await prisma.articleVersion.create({
-    data: { articleId: m2.id, content: 'Draft v1.', changeNote: 'Added WCAG compliance checklist', version: 2 },
-  })
-
+  // ── MARCUS: Photography Process ──
   const m3 = await createArticle({
     authorId: marcus.id, title: 'My Photography Process: Finding Light',
     format: 'VIDEO', status: 'PENDING_REVIEW',
@@ -218,6 +327,7 @@ async function main() {
     excerpt: 'A video essay on natural light photography techniques.',
   })
 
+  // ── MARCUS: AI-Assisted Research ──
   const m4 = await createArticle({
     authorId: marcus.id, title: 'AI-Assisted Research Notes',
     format: 'WRITING', status: 'PUBLISHED', provenanceStatus: 'AI_ASSISTED',
@@ -227,59 +337,20 @@ async function main() {
     publishAt: daysAgo(1), likes: 18,
   })
 
-  // Tala — human-made, drawings, some process-documented
-  const t1 = await createArticle({
-    authorId: tala.id, title: 'Character Design: The Guardian',
-    format: 'DRAWING', status: 'PUBLISHED', provenanceStatus: 'DECLARED_HUMAN_MADE',
-    categoryId: design.id, tagSlugs: ['illustration', 'creative-process'],
-    excerpt: 'A behind-the-scenes look at my character design process.',
-    publishAt: daysAgo(4), likes: 89,
-  })
-  await prisma.articleVersion.create({
-    data: { articleId: t1.id, content: 'Sketch phase.', changeNote: 'Refined face proportions', version: 2 },
-  })
-  await prisma.articleVersion.create({
-    data: { articleId: t1.id, content: 'Final.', changeNote: 'Color palette finalized', version: 3 },
-  })
-
-  const t2 = await createArticle({
-    authorId: tala.id, title: 'Stylized Anatomy Studies',
-    format: 'DRAWING', status: 'PUBLISHED',
-    categoryId: design.id, tagSlugs: ['illustration', 'animation'],
-    excerpt: 'A series of anatomy studies exploring stylized proportions.',
-    publishAt: daysAgo(7), likes: 73,
-  })
-
-  const t3 = await createArticle({
-    authorId: tala.id, title: 'Process Notes: Mural Project',
-    format: 'WRITING', status: 'PUBLISHED', provenanceStatus: 'PROCESS_DOCUMENTED',
-    categoryId: business.id, tagSlugs: ['creative-process', 'storytelling', 'community'],
-    excerpt: 'Documenting the process behind a community mural project.',
-    publishAt: daysAgo(12), likes: 44,
-  })
-  await prisma.articleVersion.create({
-    data: { articleId: t3.id, content: 'Draft.', changeNote: 'Added timeline and budget section', version: 2 },
-  })
-
-  const t4 = await createArticle({
-    authorId: tala.id, title: 'Experimental Animation Tests',
-    format: 'VIDEO', status: 'DRAFT',
-    categoryId: design.id, tagSlugs: ['animation', 'creative-process'],
-    excerpt: 'Early tests for an experimental animation project.',
-  })
-
-  // Leo — photography, writing, mixed provenance
+  // ── LEO: Street Photography: Manila (2 versions) ──
   const l1 = await createArticle({
     authorId: leo.id, title: 'Street Photography: Manila',
     format: 'DRAWING', status: 'PUBLISHED', provenanceStatus: 'DECLARED_HUMAN_MADE',
     categoryId: design.id, tagSlugs: ['photography', 'storytelling'],
-    excerpt: 'Capturing everyday life on the streets of Manila.',
+    imageUrl: '/demo/works/manila-street.svg',
+    excerpt: 'Capturing everyday life on the streets of Manila through a documentary lens.',
     publishAt: daysAgo(6), likes: 61,
   })
   await prisma.articleVersion.create({
-    data: { articleId: l1.id, content: 'Initial.', changeNote: 'Added 10 new photos and captions', version: 2 },
+    data: { articleId: l1.id, content: 'Added 10 new photos and captions.', changeNote: 'Added 10 new photos and captions', version: 2, createdAt: daysAgo(3) },
   })
 
+  // ── LEO: Zine Distribution Network ──
   const l2 = await createArticle({
     authorId: leo.id, title: 'Building a Zine Distribution Network',
     format: 'WRITING', status: 'PUBLISHED',
@@ -288,14 +359,17 @@ async function main() {
     publishAt: daysAgo(14), likes: 35,
   })
 
+  // ── LEO: Audio Diaries: Creative Block ──
   const l3 = await createArticle({
     authorId: leo.id, title: 'Audio Diaries: Creative Block',
     format: 'AUDIO', status: 'PUBLISHED', provenanceStatus: 'DECLARED_HUMAN_MADE',
     categoryId: design.id, tagSlugs: ['creative-process', 'storytelling'],
+    imageUrl: '/demo/works/audio-card.svg',
     excerpt: 'A raw audio reflection on working through creative block.',
     publishAt: daysAgo(9), likes: 27,
   })
 
+  // ── LEO: Archived Portfolio ──
   const l4 = await createArticle({
     authorId: leo.id, title: 'Archived Project: 2024 Portfolio',
     format: 'WRITING', status: 'ARCHIVED',
@@ -303,7 +377,7 @@ async function main() {
     excerpt: 'An older portfolio project that has been superseded.',
   })
 
-  // Admin (Maya) — moderation activity
+  // ── EDITOR: Community Guidelines ──
   const a1 = await createArticle({
     authorId: admin.id, title: 'Community Guidelines Update',
     format: 'WRITING', status: 'PUBLISHED',
@@ -312,12 +386,23 @@ async function main() {
     publishAt: daysAgo(15), likes: 12,
   })
 
+  // ── EDITOR: Flagged Content Report ──
   const a2 = await createArticle({
     authorId: admin.id, title: 'Flagged Content Report',
     format: 'WRITING', status: 'ARCHIVED', provenanceStatus: 'REMOVED_BY_ADMIN',
     provenanceNote: 'Provenance badge removed after investigation.',
     categoryId: tech.id, tagSlugs: ['community'],
     excerpt: 'An internal report that has been superseded.',
+  })
+
+  // ── General process notes work ──
+  const processNotes = await createArticle({
+    authorId: tala.id, title: 'Introduction to Likha Process Documentation',
+    format: 'WRITING', status: 'PUBLISHED', provenanceStatus: 'PROCESS_DOCUMENTED',
+    categoryId: design.id, tagSlugs: ['creative-process', 'storytelling'],
+    imageUrl: '/demo/works/process-notes.svg',
+    excerpt: 'A guide to documenting your creative process on Likha.',
+    publishAt: daysAgo(18), likes: 33,
   })
 
   // ═══════════════════════════════════════════
@@ -368,37 +453,52 @@ async function main() {
   }
 
   // ═══════════════════════════════════════════
-  // COLLECTIONS
+  // COLLECTIONS — with covers
   // ═══════════════════════════════════════════
   const col1 = await prisma.collection.create({
     data: {
-      ownerId: sarah.id, slug: 'inspiring-works', title: 'Inspiring Works',
-      description: 'Works that inspire me.', visibility: 'PUBLIC',
+      ownerId: sarah.id, slug: 'process-documented-works', title: 'Process-Documented Works',
+      description: 'Works with full process documentation — sketches, notes, and revisions.',
+      cover: '/demo/collections/process-studies.svg', visibility: 'PUBLIC',
     },
   })
   const col2 = await prisma.collection.create({
     data: {
-      ownerId: tala.id, slug: 'design-reference', title: 'Design Reference',
-      description: 'Reference works for my design practice.', visibility: 'PUBLIC',
+      ownerId: tala.id, slug: 'declared-human-made', title: 'Declared Human-Made',
+      description: 'Works declared human-made with no AI assistance.',
+      cover: '/demo/collections/human-made.svg', visibility: 'PUBLIC',
+    },
+  })
+  const col3 = await prisma.collection.create({
+    data: {
+      ownerId: leo.id, slug: 'studio-notes-manila', title: 'Studio Notes from Manila',
+      description: 'Creative documentation and process notes from Manila-based artists.',
+      visibility: 'PUBLIC',
     },
   })
 
-  // Add items to public collections
-  for (const articleSlug of [m2.slug, l1.slug]) {
+  // Add items
+  for (const articleSlug of [m2.slug, t1.slug, t3.slug, processNotes.slug]) {
     const a = await prisma.article.findFirst({ where: { slug: articleSlug } })
     if (a) {
       await prisma.collectionItem.create({ data: { collectionId: col1.id, articleId: a.id } })
     }
   }
-  for (const articleSlug of [s2.slug, l1.slug]) {
+  for (const articleSlug of [s1.slug, s3.slug, t1.slug, l1.slug]) {
     const a = await prisma.article.findFirst({ where: { slug: articleSlug } })
     if (a) {
       await prisma.collectionItem.create({ data: { collectionId: col2.id, articleId: a.id } })
     }
   }
+  for (const articleSlug of [t3.slug, l1.slug, l3.slug]) {
+    const a = await prisma.article.findFirst({ where: { slug: articleSlug } })
+    if (a) {
+      await prisma.collectionItem.create({ data: { collectionId: col3.id, articleId: a.id } })
+    }
+  }
 
-  console.log(`✅ Seeded ${articleCount} works, 5 artists, 3 categories, 10 tags`)
-  console.log(`   ${commentMap.length} comments, 12 follows, 2 collections`)
+  console.log(`\u2705 Seeded ${articleCount} works, 5 artists, 3 categories, 10 tags`)
+  console.log(`   ${commentMap.length} comments, 12 follows, 3 collections`)
 }
 
 main()

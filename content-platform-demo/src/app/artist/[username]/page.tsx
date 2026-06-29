@@ -16,6 +16,8 @@ interface AuthorResponse {
   name: string
   email: string
   image: string | null
+  bio: string | null
+  specialty: string | null
   role: string
   createdAt: string
   followerCount: number
@@ -82,12 +84,19 @@ export default async function ArtistPage({ params }: { params: Promise<{ usernam
 
               {/* Artist Identity */}
               <div className="flex flex-col sm:flex-row items-start gap-4 -mt-16 relative z-10 px-2">
-                <div className="rounded-full border-2 border-surface bg-surface-dark shadow-md">
-                  <Avatar name={author.name} size="xl" />
+                <div className="rounded-full border-2 border-surface bg-surface-dark shadow-md overflow-hidden">
+                  {author.image ? (
+                    <img src={author.image} alt={`${author.name} avatar`} className="h-16 w-16 object-cover sm:h-20 sm:w-20" />
+                  ) : (
+                    <Avatar name={author.name} size="xl" />
+                  )}
                 </div>
                 <div className="min-w-0 flex-1 pt-2">
                   <h1 className="text-[20px] font-semibold text-text-primary">{author.name}</h1>
                   <p className="text-[12px] text-fog-gray mt-0.5">{author.role} &middot; Joined {new Date(author.createdAt).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}</p>
+                  {author.specialty && (
+                    <p className="text-[11px] text-graphite mt-1">{author.specialty}</p>
+                  )}
                   <div className="mt-3 flex items-center gap-4">
                     <FollowButton authorId={author.id} />
                   </div>
@@ -109,6 +118,13 @@ export default async function ArtistPage({ params }: { params: Promise<{ usernam
                   <p className="text-[11px] text-fog-gray">following</p>
                 </div>
               </div>
+
+              {/* Bio */}
+              {author.bio && (
+                <div className="studio-frame rounded-xl border border-hairline bg-surface p-4">
+                  <p className="text-[13px] text-text-body leading-relaxed">{author.bio}</p>
+                </div>
+              )}
 
               {/* Sticky Tab Bar */}
               <div className="flex gap-0 border-b border-hairline sticky top-0 bg-surface dark:bg-surface-dark z-10">

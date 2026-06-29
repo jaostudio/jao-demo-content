@@ -26,6 +26,7 @@ interface CollectionDetail {
   title: string
   slug: string
   description: string | null
+  cover: string | null
   visibility: string
   items: CollectionItem[]
 }
@@ -93,6 +94,17 @@ export default function CollectionPage() {
 
           {collection && (
             <>
+              {/* Collection Cover Hero */}
+              {collection.cover && (
+                <div className="studio-frame mb-6 overflow-hidden rounded-xl border border-hairline bg-surface-dark">
+                  <img
+                    src={collection.cover}
+                    alt={`${collection.title} collection cover`}
+                    className="aspect-[16/9] w-full object-cover"
+                  />
+                </div>
+              )}
+
               {/* Collection Hero */}
               <div className="studio-frame relative overflow-hidden rounded-xl border border-hairline bg-gradient-to-br from-surface-alt to-surface p-6 mb-6">
                 <div className="pointer-events-none absolute inset-0 opacity-[0.04]" style={{

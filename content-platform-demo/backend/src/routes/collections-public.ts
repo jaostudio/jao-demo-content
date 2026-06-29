@@ -61,6 +61,7 @@ publicCollections.get('/public/:ownerId/:slug', async (c) => {
     title: col.title,
     slug: col.slug,
     description: col.description,
+    cover: col.cover,
     visibility: col.visibility,
     createdAt: col.createdAt.toISOString(),
     items,

@@ -60,6 +60,17 @@ export function WorkDetailPage({ article, versions, comments }: WorkDetailPagePr
         }
       >
         <article className="max-w-[640px]">
+          {/* Hero Image */}
+          {article.image && (
+            <div className="studio-frame mb-8 overflow-hidden rounded-xl border border-hairline bg-surface-dark">
+              <img
+                src={article.image}
+                alt={`${article.title} artwork`}
+                className="aspect-[16/9] w-full object-cover"
+              />
+            </div>
+          )}
+
           {/* Header */}
           <div className="studio-frame mb-8 rounded-xl border border-hairline bg-surface p-6">
             <p className="text-[11px] uppercase tracking-[0.2em] text-fog-gray mb-3">{article.categoryName}</p>
@@ -97,7 +108,7 @@ export function WorkDetailPage({ article, versions, comments }: WorkDetailPagePr
           {/* Process Timeline */}
           {versions.length > 0 && (
             <div className="mt-12 pt-8 border-t border-hairline">
-              <ProcessTimeline entries={versions.map((v: ArticleVersionResponse) => ({ version: v.version, title: v.title, changeNote: v.changeNote ?? null, createdAt: v.createdAt }))} />
+              <ProcessTimeline entries={versions.map((v: ArticleVersionResponse) => ({ version: v.version, title: v.title, changeNote: v.changeNote ?? null, createdAt: v.createdAt, mediaUrl: v.mediaUrl ?? null }))} />
             </div>
           )}
 
