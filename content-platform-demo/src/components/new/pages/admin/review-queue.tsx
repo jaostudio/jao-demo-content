@@ -46,7 +46,7 @@ export function ReviewQueue({ articles }: ReviewQueueProps) {
                     <div className="flex items-center gap-2">
                       <h3 className="text-sm font-medium text-text-primary line-clamp-1">{a.title}</h3>
                       {a.aiFreeDeclaration && (
-                        <Sparkles className="h-3.5 w-3.5 shrink-0 text-fog-gray" aria-label="AI-Free Declaration" />
+                        <Sparkles className="h-3.5 w-3.5 shrink-0 text-fog-gray" aria-hidden="true" />
                       )}
                     </div>
                     <p className="text-[11px] text-fog-gray mt-1">

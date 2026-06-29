@@ -45,6 +45,7 @@ export function LikeButton({ articleId, initialLikes }: LikeButtonProps) {
     <button
       onClick={toggle}
       disabled={loading}
+      aria-label={liked ? 'Unlike this work' : 'Like this work'}
       className={`inline-flex items-center gap-1 text-xs font-medium transition-colors ${
         liked ? 'text-voltage-pink' : 'text-text-muted hover:text-text-secondary'
       }`}

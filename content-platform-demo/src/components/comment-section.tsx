@@ -65,15 +65,18 @@ export function CommentSection({ articleId, initialComments }: { articleId: stri
         <div className="grid grid-cols-2 gap-2.5">
           <input
             placeholder={t('name_placeholder')} required value={name} onChange={(e) => setName(e.target.value)}
+            aria-label="Your name"
             className="w-full rounded-lg border border-border bg-card px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-border-dark dark:bg-card-dark"
           />
           <input
             type="email" placeholder={t('email_placeholder')} required value={email} onChange={(e) => setEmail(e.target.value)}
+            aria-label="Your email"
             className="w-full rounded-lg border border-border bg-card px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-border-dark dark:bg-card-dark"
           />
         </div>
         <textarea
           placeholder={t('body_placeholder')} required value={body} onChange={(e) => setBody(e.target.value)} rows={3}
+          aria-label="Your comment"
           className="w-full rounded-lg border border-border bg-card px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-border-dark dark:bg-card-dark"
         />
         <button type="submit" disabled={submitting}

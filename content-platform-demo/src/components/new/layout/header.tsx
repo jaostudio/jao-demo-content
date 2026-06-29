@@ -51,6 +51,7 @@ export function Header() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={t('search_placeholder') || 'Search'}
+              aria-label="Search"
               className="h-10 w-full rounded-lg bg-surface dark:bg-surface-dark border border-hairline dark:border-border-dark pl-11 pr-4 text-[14px] text-text-primary placeholder:text-fog-gray focus:outline-none focus:ring-2 focus:ring-border-focus/20 transition-colors"
             />
           </form>
@@ -68,7 +69,7 @@ export function Header() {
                 </Link>
               )}
               <Link href="/studio/new">
-                <Button variant="dark" size="sm">
+                <Button variant="dark" size="sm" aria-label="Create new work">
                   <PenLine className="h-4 w-4" />
                 </Button>
               </Link>

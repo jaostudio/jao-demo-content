@@ -66,17 +66,20 @@ export function CommentThread({ articleId, initialComments }: CommentThreadProps
           <input
             placeholder={t('name_placeholder')} required value={name}
             onChange={(e) => setName(e.target.value)}
+            aria-label="Your name"
             className="input h-9 text-[13px]"
           />
           <input
             type="email" placeholder={t('email_placeholder')} required value={email}
             onChange={(e) => setEmail(e.target.value)}
+            aria-label="Your email"
             className="input h-9 text-[13px]"
           />
         </div>
         <textarea
           placeholder={t('body_placeholder')} required value={body}
           onChange={(e) => setBody(e.target.value)} rows={3}
+          aria-label="Your comment"
           className="input resize-none text-[13px]"
         />
         <Button type="submit" variant="accent" size="md" disabled={submitting}>

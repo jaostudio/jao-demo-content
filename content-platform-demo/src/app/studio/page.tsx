@@ -107,8 +107,8 @@ export default async function StudioPage() {
         </div>
       </div>
 
-      {/* Works Table */}
-      <div className="kard overflow-hidden">
+      {/* Works — Desktop Table */}
+      <div className="hidden sm:block kard overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-xs">
             <thead>
@@ -167,6 +167,49 @@ export default async function StudioPage() {
             </div>
           )}
         </div>
+      </div>
+
+      {/* Works — Mobile Cards */}
+      <div className="space-y-2 sm:hidden">
+        {articles.length === 0 ? (
+          <div className="py-12 text-center">
+            <p className="text-[13px] text-fog-gray">Your studio is quiet. Start with a sketch, a note, or a finished work.</p>
+            <Link href="/studio/new" className="mt-2 inline-flex items-center gap-1 text-[12px] font-medium text-reactor-green hover:underline">
+              New Work
+            </Link>
+          </div>
+        ) : (
+          articles.map((a) => (
+            <div key={a.id} className="kard p-3">
+              <div className="flex items-start justify-between gap-2">
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center gap-1.5">
+                    <p className="text-[13px] font-medium text-text-primary line-clamp-1">{a.title}</p>
+                    {a.aiFreeDeclaration && (
+                      <Sparkles className="h-3 w-3 shrink-0 text-reactor-green/60" strokeWidth={1.5} />
+                    )}
+                  </div>
+                  <p className="text-[11px] text-graphite mt-0.5">{a.format}{a.categoryName ? ` · ${a.categoryName}` : ''}</p>
+                </div>
+                <Link
+                  href={`/studio/work/${a.id}/edit`}
+                  className="shrink-0 inline-flex items-center gap-1 rounded px-2 py-1 text-[11px] font-medium text-graphite hover:text-text-primary hover:bg-surface-alt transition-colors"
+                >
+                  Edit
+                </Link>
+              </div>
+              <div className="flex items-center justify-between mt-2 pt-2 border-t border-hairline">
+                <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-medium border ${statusColor(a.status)}`}>
+                  {statusIcon(a.status)}
+                  {statusLabel(a.status)}
+                </span>
+                <span className="text-[10px] text-fog-gray">
+                  {new Date(a.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                </span>
+              </div>
+            </div>
+          ))
+        )}
       </div>
     </div>
   )

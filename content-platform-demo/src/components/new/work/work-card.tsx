@@ -147,6 +147,7 @@ export function WorkCard({
             <button
               onClick={handleLike}
               disabled={liking}
+              aria-label={liked ? 'Unlike this work' : 'Like this work'}
               className={`flex items-center gap-1 transition-colors ${liked ? 'text-voltage-pink' : 'hover:text-text-primary'}`}
             >
               <Heart className={`h-4 w-4 ${liked ? 'fill-voltage-pink' : ''}`} strokeWidth={liked ? 2 : 1.5} />
@@ -162,6 +163,7 @@ export function WorkCard({
             </Link>
             <button
               onClick={handleShare}
+              aria-label="Share this work"
               className="flex items-center gap-1 hover:text-text-primary transition-colors"
             >
               <Share2 className="h-4 w-4" strokeWidth={1.5} />

@@ -1,25 +1,35 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
   <title>Character Design: The Guardian — Final Artwork</title>
   <rect width="800" height="600" fill="#f7f3ea"/>
-  <rect width="800" height="600" fill="url(#grid)" opacity="0.04"/>
   <defs>
-    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
-      <rect width="24" height="24" fill="none"/>
-      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#14130f" strokeWidth="0.5"/>
-    </pattern>
+    <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#00df00" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#00df00" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="45%" r="35%">
+      <stop offset="0%" stop-color="#00df00" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#00df00" stop-opacity="0"/>
+    </radialGradient>
   </defs>
-  <path d="M 30 30 L 30 14 L 14 14 L 14 30 Z" fill="none" stroke="#d8cfbf" strokeWidth="1.5"/>
-  <path d="M 770 570 L 770 586 L 786 586 L 786 570 Z" fill="none" stroke="#d8cfbf" strokeWidth="1.5"/>
-  <circle cx="400" cy="280" r="120" fill="none" stroke="#00df00" strokeWidth="1" opacity="0.15"/>
-  <circle cx="400" cy="280" r="80" fill="none" stroke="#00df00" strokeWidth="1" opacity="0.1"/>
-  <path d="M 400 160 L 400 400 M 280 280 L 520 280" stroke="#00df00" strokeWidth="0.5" opacity="0.08"/>
-  <text x="400" y="260" fontFamily="system-ui, sans-serif" fontWeight="700" fontSize="72" fill="#14130f" textAnchor="middle" opacity="0.12">GUARDIAN</text>
-  <text x="400" y="320" fontFamily="system-ui, sans-serif" fontWeight="700" fontSize="36" fill="#14130f" textAnchor="middle" opacity="0.08">CHARACTER DESIGN</text>
-  <path d="M 340 260 Q 400 220 460 260" fill="none" stroke="#ff00f0" strokeWidth="1.5" opacity="0.2"/>
-  <path d="M 340 280 Q 400 320 460 280" fill="none" stroke="#ff00f0" strokeWidth="1.5" opacity="0.2"/>
-  <circle cx="520" cy="200" r="6" fill="#ff00f0" opacity="0.3"/>
-  <circle cx="280" cy="380" r="4" fill="#00df00" opacity="0.3"/>
-  <g opacity="0.08" transform="translate(720, 540)">
+  <rect width="800" height="600" fill="url(#centerGlow)"/>
+  <path d="M 50 50 L 50 30 L 30 30 L 30 50 Z" fill="none" stroke="#d8cfbf" strokeWidth="1.5"/>
+  <path d="M 750 550 L 750 570 L 770 570 L 770 550 Z" fill="none" stroke="#d8cfbf" strokeWidth="1.5"/>
+  <line x1="50" y1="300" x2="750" y2="300" stroke="#00df00" strokeWidth="0.5" opacity="0.06"/>
+  <line x1="400" y1="50" x2="400" y2="550" stroke="#00df00" strokeWidth="0.5" opacity="0.06"/>
+  <circle cx="400" cy="300" r="180" fill="none" stroke="#00df00" strokeWidth="1" opacity="0.12"/>
+  <circle cx="400" cy="300" r="140" fill="none" stroke="#00df00" strokeWidth="0.5" opacity="0.08"/>
+  <circle cx="400" cy="300" r="100" fill="none" stroke="#ff00f0" strokeWidth="0.5" opacity="0.06"/>
+  <path d="M 400 140 Q 340 200 340 300 Q 340 400 400 460" fill="none" stroke="#14130f" strokeWidth="1.5" opacity="0.08"/>
+  <path d="M 400 140 Q 460 200 460 300 Q 460 400 400 460" fill="none" stroke="#14130f" strokeWidth="1.5" opacity="0.08"/>
+  <path d="M 340 300 Q 370 260 400 280 Q 430 260 460 300" fill="none" stroke="#ff00f0" strokeWidth="1" opacity="0.15"/>
+  <path d="M 320 250 Q 360 220 400 240 Q 440 220 480 250" fill="none" stroke="#ff00f0" strokeWidth="0.75" opacity="0.1"/>
+  <path d="M 330 360 Q 365 330 400 345 Q 435 330 470 360" fill="none" stroke="#ff00f0" strokeWidth="0.75" opacity="0.1"/>
+  <rect x="200" y="480" width="400" height="40" rx="20" fill="#00df00" opacity="0.06"/>
+  <rect x="200" y="480" width="400" height="40" rx="20" fill="none" stroke="#00df00" strokeWidth="0.5" opacity="0.15"/>
+  <text x="400" y="508" fontFamily="system-ui, sans-serif" fontWeight="600" fontSize="14" fill="#00df00" textAnchor="middle" letterSpacing="0.15em" opacity="0.6">CHARACTER DESIGN: THE GUARDIAN</text>
+  <circle cx="180" cy="180" r="3" fill="#ff00f0" opacity="0.25"/>
+  <circle cx="620" cy="420" r="3" fill="#00df00" opacity="0.25"/>
+  <g opacity="0.06" transform="translate(720, 30)">
     <path d="M 5 5 v 14 h 14" stroke="#14130f" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
     <line x1="17.5" y1="6.5" x2="8.5" y2="15.5" stroke="#14130f" strokeWidth="2" strokeLinecap="round"/>
     <circle cx="19.5" cy="19.5" r="1.5" fill="#ff00f0"/>

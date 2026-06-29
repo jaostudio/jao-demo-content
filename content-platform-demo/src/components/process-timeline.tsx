@@ -31,6 +31,7 @@ export function ProcessTimeline({ entries }: ProcessTimelineProps) {
                   <img
                     src={entry.mediaUrl}
                     alt={`${entry.title} process image`}
+                    loading="lazy"
                     className="mt-2 w-full max-h-[160px] rounded-lg border border-hairline object-cover"
                   />
                 )}

@@ -93,6 +93,7 @@ export function SearchPage() {
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleSearch(query)}
             placeholder="Search works, artists, topics..."
+            aria-label="Search"
             className="input h-11 w-full pl-11 pr-4 text-[14px]"
             autoFocus
           />

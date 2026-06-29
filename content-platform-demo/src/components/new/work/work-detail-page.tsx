@@ -66,6 +66,7 @@ export function WorkDetailPage({ article, versions, comments }: WorkDetailPagePr
               <img
                 src={article.image}
                 alt={`${article.title} artwork`}
+                loading="lazy"
                 className="aspect-[16/9] w-full object-cover"
               />
             </div>

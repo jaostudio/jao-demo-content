@@ -209,7 +209,12 @@ body {
   transform: scale(0.98);
 }
 
-.btn:focus-visible {
+.btn:focus-visible,
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
   outline: none;
   box-shadow: 0 0 0 2px var(--color-surface), 0 0 0 4px var(--color-text-primary);
 }

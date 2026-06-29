@@ -109,7 +109,7 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
                   <button
                     key={r}
                     onClick={() => { if (!safeDemoEnabled) enableDemoMode(); setRole(r) }}
-                    className={`flex-1 rounded px-2 py-1 text-[10px] font-medium transition-colors ${
+                    className={`flex-1 rounded px-3 py-2 text-[13px] font-medium transition-colors ${
                       safeDemoEnabled ? 'bg-reactor-green/10 text-reactor-green' : 'text-fog-gray hover:bg-surface-alt'
                     }`}
                   >

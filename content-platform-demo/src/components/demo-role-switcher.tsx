@@ -41,7 +41,7 @@ export function DemoRoleSwitcher() {
                   if (!enabled) enableDemoMode()
                   setRole(r)
                 }}
-                className={`flex-1 rounded-lg px-2 py-1 text-[11px] font-medium transition-colors ${
+                className={`flex-1 rounded-lg px-3 py-2 text-[13px] font-medium transition-colors ${
                   enabled && role === r
                     ? 'bg-reactor-green text-void-black'
                     : 'text-fog-gray hover:bg-surface-alt'

@@ -60,9 +60,12 @@ export function FeedHero() {
         <h1 className="text-[32px] font-semibold leading-[1.05] tracking-[-0.04em] text-text-primary">
           Follow the work before<br />it becomes finished.
         </h1>
-        <p className="mt-4 max-w-md text-[14px] text-graphite leading-relaxed">
-          A process-first social publishing platform for artists. Publish live works, process notes, collections, and studio dispatches.
-        </p>
+          <p className="mt-4 max-w-md text-[14px] text-graphite leading-relaxed">
+            A process-first social publishing platform for artists. Publish live works, process notes, collections, and studio dispatches.
+          </p>
+          <p className="mt-2 text-[12px] text-fog-gray">
+            Review the demo path in the <Link href="/studio" className="text-reactor-green hover:underline">Studio Index</Link>.
+          </p>
         <div className="mt-6 flex gap-3">
           <Link
             href="/explore"
