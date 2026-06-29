@@ -18,12 +18,18 @@ export default async function HomePage() {
 
   try {
     const [feedResult, categoriesResult] = await Promise.all([
-      fetchAPI<ArticleSummary[]>('/api/feed'),
+      fetchAPI<ArticleSummary[]>('/api/feed').catch(() => null),
       fetchAPI<CategoryResponse[]>('/api/categories').catch(() => [] as CategoryResponse[]),
     ])
-    articles = feedResult
-    categories = categoriesResult.map((c: CategoryResponse) => ({ slug: c.slug, name: c.name }))
-  } catch (e) {
+    categories = (categoriesResult as CategoryResponse[]).map((c: CategoryResponse) => ({ slug: c.slug, name: c.name }))
+    if (feedResult) {
+      articles = feedResult as ArticleSummary[]
+    }
+  } catch {
+    feedError = true
+  }
+
+  if (articles.length === 0 && !feedError) {
     try {
       articles = await fetchAPI<ArticleSummary[]>('/api/articles')
     } catch {
