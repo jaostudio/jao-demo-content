@@ -11,7 +11,24 @@ export const dynamic = 'force-dynamic'
 export default async function DocumentsPage() {
   const user = await getCurrentUser()
   if (!user) redirect('/signin')
-  if (!user.orgId && user.role !== 'SYSTEM_ADMIN') redirect('/dashboard')
+
+  const isSystemAdmin = user.role === 'SYSTEM_ADMIN'
+  const hasOrgScope = typeof user.orgId === 'string' && user.orgId.trim().length > 0
+
+  if (!isSystemAdmin && !hasOrgScope) {
+    return (
+      <div className="p-6 space-y-6">
+        <div>
+          <h1 className="text-xl font-bold text-isla-white">Documents</h1>
+          <p className="text-sm text-isla-muted mt-1">Tenant scope missing.</p>
+        </div>
+        <div className="glass-card-static p-6 text-center">
+          <p className="text-sm text-isla-muted">Your session is missing an organization scope. Sign out and sign in again.</p>
+        </div>
+      </div>
+    )
+  }
+
   const prisma = await getPrisma()
 
   const where = user.role === 'SYSTEM_ADMIN' ? {} : { organizationId: user.orgId }

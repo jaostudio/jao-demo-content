@@ -150,34 +150,53 @@ const simulationHandlers: Record<string, (user: { id: string; role: string; orgI
 }
 
 export async function POST(request: NextRequest) {
-  const user = await getSessionUser()
-  if (!user) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-  }
-
   try {
-    assertSameOrigin(request.headers)
-  } catch {
-    return NextResponse.json({ error: 'Invalid request origin' }, { status: 403 })
+    const user = await getSessionUser()
+    if (!user) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    }
+
+    try {
+      assertSameOrigin(request.headers)
+    } catch {
+      return NextResponse.json({ error: 'Invalid request origin' }, { status: 403 })
+    }
+
+    const rl = await rateLimit(`security-lab:${user.id}`, 30, 600000)
+    if (!rl.ok) {
+      return NextResponse.json({ error: 'Too many requests' }, { status: 429 })
+    }
+
+    const body = await request.json()
+    const parsed = securityLabSimulationSchema.safeParse(body)
+    if (!parsed.success) {
+      return NextResponse.json({ error: 'validation_error', message: 'Invalid request payload' }, { status: 400 })
+    }
+
+    const type = parsed.data.type
+
+    const handler = simulationHandlers[type]
+    if (!handler) {
+      return NextResponse.json({ error: `Unknown simulation type: ${type}` }, { status: 400 })
+    }
+
+    return handler(user)
+  } catch (error) {
+    console.error('[security-lab.simulate]', error)
+
+    return NextResponse.json({
+      error: 'simulation_failed',
+      message: 'The simulation could not complete.',
+      simulatedResponseCode: 500,
+      result: 'FAILED',
+      steps: [{
+        label: 'Simulation error',
+        passed: false,
+        detail: 'The server caught an unexpected error while running this simulation.',
+      }],
+      auditEvent: null,
+      auditEventId: null,
+      auditRecorded: false,
+    }, { status: 200 })
   }
-
-  const rl = await rateLimit(`security-lab:${user.id}`, 30, 600000)
-  if (!rl.ok) {
-    return NextResponse.json({ error: 'Too many requests' }, { status: 429 })
-  }
-
-  const body = await request.json()
-  const parsed = securityLabSimulationSchema.safeParse(body)
-  if (!parsed.success) {
-    return NextResponse.json({ error: 'validation_error', message: 'Invalid request payload' }, { status: 400 })
-  }
-
-  const type = parsed.data.type
-
-  const handler = simulationHandlers[type]
-  if (!handler) {
-    return NextResponse.json({ error: `Unknown simulation type: ${type}` }, { status: 400 })
-  }
-
-  return handler(user)
 }

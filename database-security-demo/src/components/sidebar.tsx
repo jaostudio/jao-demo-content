@@ -42,10 +42,10 @@ export function Sidebar() {
               key={item.href}
               href={item.href}
               className={cn(
-                'flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm transition-all',
+                'flex items-center gap-2.5 px-3 py-2 rounded-r-lg text-sm transition-all border-l-2',
                 isActive
-                  ? 'bg-isla-amethyst/10 text-isla-amethyst border border-isla-amethyst/20'
-                  : 'text-isla-muted hover:text-isla-white hover:bg-isla-glass border border-transparent',
+                  ? 'border-l-isla-amethyst bg-isla-amethyst/15 text-white shadow-[inset_0_0_24px_rgba(139,92,246,0.10)]'
+                  : 'border-l-transparent text-isla-muted hover:text-isla-white hover:bg-isla-glass',
               )}
             >
               <item.icon className="w-4 h-4" />

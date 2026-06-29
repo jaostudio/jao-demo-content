@@ -65,26 +65,49 @@ function integrityBadge(status: ReturnType<typeof verifyAuditEvent>) {
 }
 
 export default async function AuditPage({ searchParams }: { searchParams: Promise<{ highlight?: string; before?: string; limit?: string }> }) {
-  const user = await getCurrentUser()
+  let user: { id: string; role: string; orgId?: string | null } | null = null
+  try {
+    user = await getCurrentUser()
+  } catch {
+    /* session error handled below */
+  }
   if (!user) redirect('/signin')
-  const { highlight, before, limit: limitStr } = await searchParams
-  const prisma = await getPrisma()
+
+  let { highlight, before, limit: limitStr } = { highlight: undefined as string | undefined, before: undefined as string | undefined, limit: undefined as string | undefined }
+  try {
+    const sp = await searchParams
+    highlight = sp.highlight
+    before = sp.before
+    limitStr = sp.limit
+  } catch {
+    /* search params error handled below */
+  }
+
+  let prisma: any = null
+  try {
+    prisma = await getPrisma()
+  } catch {
+    /* db init error handled below */
+  }
 
   const limit = parseAuditLimit(limitStr)
 
-  const where = user.role === 'SYSTEM_ADMIN' ? {} : { organizationId: user.orgId }
-
   let rows: any[] = []
   let queryError = false
-  try {
-    rows = await (prisma as any).auditEvent.findMany({
-      where,
-      include: { user: { select: { name: true } } },
-      orderBy: [{ createdAt: 'desc' }, { id: 'desc' }],
-      take: limit + 1,
-      ...(before ? { cursor: { id: before }, skip: 1 } : {}),
-    })
-  } catch {
+  if (prisma) {
+    try {
+      const where = user.role === 'SYSTEM_ADMIN' ? {} : { organizationId: user.orgId }
+      rows = await prisma.auditEvent.findMany({
+        where,
+        include: { user: { select: { name: true } } },
+        orderBy: [{ createdAt: 'desc' }, { id: 'desc' }],
+        take: limit + 1,
+        ...(before ? { cursor: { id: before }, skip: 1 } : {}),
+      })
+    } catch {
+      queryError = true
+    }
+  } else {
     queryError = true
   }
 
@@ -97,10 +120,10 @@ export default async function AuditPage({ searchParams }: { searchParams: Promis
       <div className="p-6 space-y-6">
         <div>
           <h1 className="text-xl font-bold text-isla-white">Audit Trail</h1>
-          <p className="text-sm text-isla-muted mt-1">Could not load audit events. The database may be initializing.</p>
+          <p className="text-sm text-isla-muted mt-1">Audit trail unavailable.</p>
         </div>
         <div className="glass-card-static p-6 text-center">
-          <p className="text-sm text-isla-muted">Try again in a moment. If the issue persists, reset the demo data.</p>
+          <p className="text-sm text-isla-muted">The app could not load audit events for this session. Try resetting the sandbox or signing in again.</p>
         </div>
       </div>
     )
@@ -119,15 +142,28 @@ export default async function AuditPage({ searchParams }: { searchParams: Promis
         <div className="space-y-2">
           {events.map((event: any) => {
             const variant = actionColors[event.action] ?? 'tenant'
-            const isDenied = event.action.includes('denied')
-            const integrity = verifyAuditEvent(event)
+            const isDenied = event.action ? event.action.includes('denied') : false
+
+            let integrity: ReturnType<typeof verifyAuditEvent> = 'UNVERIFIED'
+            try {
+              integrity = verifyAuditEvent(event)
+            } catch {
+              integrity = 'UNVERIFIED'
+            }
+
+            let timeStr = ''
+            try {
+              timeStr = new Date(event.createdAt).toLocaleTimeString()
+            } catch {
+              timeStr = '--'
+            }
 
             return (
               <div key={event.id} data-event-id={event.id} className="glass-card-static p-3 flex items-start gap-4">
                 <div className="text-xs text-isla-muted mono w-16 shrink-0 pt-0.5">
-                  {new Date(event.createdAt).toLocaleTimeString()}
+                  {timeStr}
                 </div>
-                <Badge variant={variant}>{actionLabels[event.action] ?? event.action}</Badge>
+                <Badge variant={variant}>{actionLabels[event.action] ?? event.action ?? 'UNKNOWN'}</Badge>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 text-xs">
                     <span className="text-isla-white">{event.user?.name ?? 'system'}</span>

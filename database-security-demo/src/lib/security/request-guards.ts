@@ -2,16 +2,19 @@ const VALID_CONTENT_TYPES = ['application/json', 'application/x-www-form-urlenco
 
 export function assertSameOrigin(headers: Headers): void {
   const origin = headers.get('origin')
-  if (!origin) return
   const host = headers.get('host')
+
   if (!host) return
+
+  if (!origin) return
+
   try {
     const originHost = new URL(origin).host
     if (originHost !== host) {
-      throw new Error('Invalid request origin')
+      throw new Error('cross_origin_request_blocked')
     }
   } catch {
-    throw new Error('Invalid request origin')
+    throw new Error('cross_origin_request_blocked')
   }
 }
 

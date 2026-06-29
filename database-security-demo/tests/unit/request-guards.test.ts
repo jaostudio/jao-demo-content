@@ -18,7 +18,7 @@ describe('assertSameOrigin', () => {
 
   it('throws when origin does not match host', () => {
     const h = mockHeaders({ origin: 'https://attacker.com', host: 'example.com' })
-    expect(() => assertSameOrigin(h)).toThrow('Invalid request origin')
+    expect(() => assertSameOrigin(h)).toThrow('cross_origin_request_blocked')
   })
 
   it('passes when origin is missing (non-browser request)', () => {
@@ -26,9 +26,14 @@ describe('assertSameOrigin', () => {
     expect(() => assertSameOrigin(h)).not.toThrow()
   })
 
+  it('passes when host is missing', () => {
+    const h = mockHeaders({ origin: 'https://example.com' })
+    expect(() => assertSameOrigin(h)).not.toThrow()
+  })
+
   it('throws on invalid origin URL', () => {
     const h = mockHeaders({ origin: 'not-a-url', host: 'example.com' })
-    expect(() => assertSameOrigin(h)).toThrow('Invalid request origin')
+    expect(() => assertSameOrigin(h)).toThrow('cross_origin_request_blocked')
   })
 })
 

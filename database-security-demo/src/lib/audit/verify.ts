@@ -6,8 +6,8 @@ export function verifyAuditEvent(event: {
   eventHash?: string | null
   previousHash?: string | null
   canonicalPayload?: string | null
-}): IntegrityStatus {
-  if (!event.eventHash || !event.canonicalPayload) {
+} | null | undefined): IntegrityStatus {
+  if (!event || !event.eventHash || !event.canonicalPayload) {
     return 'UNVERIFIED'
   }
 
