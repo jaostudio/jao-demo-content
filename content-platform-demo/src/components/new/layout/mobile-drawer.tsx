@@ -47,7 +47,7 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
                   </Link>
                 </Dialog.Close>
                 <Dialog.Close asChild>
-                  <Link href="/admin/articles/new" className="rounded px-3 py-2 text-[13px] font-medium text-text-secondary hover:bg-surface-alt hover:text-text-primary transition-colors">
+                  <Link href="/studio/new" className="rounded px-3 py-2 text-[13px] font-medium text-text-secondary hover:bg-surface-alt hover:text-text-primary transition-colors">
                     {t('new_article')}
                   </Link>
                 </Dialog.Close>

@@ -9,6 +9,7 @@ import { useDemoRoleStore } from '@/store/demo-role-store'
 import { useState } from 'react'
 import { MobileDrawer } from './mobile-drawer'
 import { MobileBottomNav } from './mobile-bottom-nav'
+import { LikhaLogo } from '@/components/brand/likha-logo'
 
 const NAV_ITEMS = [
   { href: '/', icon: Home, label: 'Home' },
@@ -30,8 +31,8 @@ export function LeftRail() {
     <>
       <nav className="fixed left-0 top-0 z-50 hidden lg:flex h-screen w-[68px] flex-col items-center bg-surface dark:bg-surface-dark border-r border-hairline dark:border-border-dark py-6 safe-top">
         {/* Logo */}
-        <Link href="/" className="mb-6 flex items-center justify-center">
-          <span className="text-2xl font-bold text-text-primary tracking-tight hover:text-reactor-green transition-colors">L</span>
+        <Link href="/" className="mb-6 flex items-center justify-center group" title="Likha">
+          <LikhaLogo variant="mark" size="sm" className="text-text-primary group-hover:text-reactor-green transition-colors" />
         </Link>
 
         {/* Nav Icons */}
@@ -63,7 +64,7 @@ export function LeftRail() {
           {/* Create — green emphasis */}
           {(user || effectiveRole === 'AUTHOR' || effectiveRole === 'ADMIN') && (
             <Link
-              href="/admin/articles/new"
+              href="/studio/new"
               className="group relative flex items-center justify-center"
               title="Create"
             >

@@ -74,7 +74,7 @@ export default async function ArtistPage({ params }: { params: Promise<{ usernam
           <div className="grid gap-8 lg:grid-cols-[1fr_320px]">
             <div className="space-y-6">
               {/* Artist Cover */}
-              <div className="relative h-32 overflow-hidden rounded-xl bg-gradient-to-br from-reactor-green/10 via-surface-alt to-voltage-pink/5 border border-hairline">
+              <div className="studio-frame relative h-32 overflow-hidden rounded-xl bg-gradient-to-br from-reactor-green/10 via-surface-alt to-voltage-pink/5 border border-hairline">
                 <div className="pointer-events-none absolute inset-0 opacity-[0.04]" style={{
                   backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 8px, var(--color-reactor-green) 8px, var(--color-reactor-green) 9px)',
                 }} />
@@ -95,7 +95,7 @@ export default async function ArtistPage({ params }: { params: Promise<{ usernam
               </div>
 
               {/* Stats Row */}
-              <div className="flex gap-6 px-2">
+              <div className="process-line pl-6 flex gap-6 px-2">
                 <div>
                   <p className="text-[18px] font-semibold text-text-primary">{author.articleCount}</p>
                   <p className="text-[11px] text-fog-gray">works</p>

@@ -52,7 +52,7 @@ export default async function HomePage() {
           action={
             <div className="flex gap-2">
               <Link href="/explore" className="btn btn-accent btn-sm">Explore Artists</Link>
-              <Link href="/admin/articles/new" className="btn btn-dark btn-sm">New Work</Link>
+              <Link href="/studio/new" className="btn btn-dark btn-sm">New Work</Link>
             </div>
           }
         />

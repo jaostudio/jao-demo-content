@@ -17,7 +17,7 @@ interface NavItem {
 const NAV_ITEMS: NavItem[] = [
   { href: '/', icon: Home, label: 'Home' },
   { href: '/explore', icon: Compass, label: 'Explore' },
-  { href: '/admin/articles/new', icon: PenLine, label: 'Create', auth: true },
+  { href: '/studio/new', icon: PenLine, label: 'Create', auth: true },
   { href: '/studio', icon: LayoutDashboard, label: 'Studio', auth: true },
   { href: '/signin', icon: User, label: 'Profile', profile: true },
 ]

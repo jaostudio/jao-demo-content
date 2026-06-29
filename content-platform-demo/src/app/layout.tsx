@@ -9,21 +9,26 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
-    default: 'Likha — Philippine Community Information Hub',
+    default: 'Likha — Follow the work before it becomes finished',
     template: '%s | Likha',
   },
-  description: 'A community-driven information platform for the Philippines: editorial workflows, bilingual content, and community engagement.',
-  icons: { icon: '/favicon.svg' },
+  description: 'A process-first social publishing platform for artists. Publish live works, process notes, collections, and studio dispatches in one creative network.',
+  icons: {
+    icon: '/favicon.svg',
+    apple: [{ url: '/apple-icon.png' }],
+  },
   openGraph: {
-    title: 'Likha — Philippine Community Information Hub',
-    description: 'Opinyon, kwento, at impormasyon para sa bawat Pilipino.',
+    title: 'Likha — Follow the work before it becomes finished',
+    description: 'A process-first social publishing platform for artists. Publish live works, process notes, collections, and studio dispatches in one creative network.',
     type: 'website',
     siteName: 'Likha',
+    images: [{ url: '/og/likha-og.svg', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Likha — Philippine Community Information Hub',
-    description: 'Opinyon, kwento, at impormasyon para sa bawat Pilipino.',
+    title: 'Likha — Follow the work before it becomes finished',
+    description: 'A process-first social publishing platform for artists. Publish live works, process notes, collections, and studio dispatches in one creative network.',
+    images: [{ url: '/og/likha-og.svg' }],
   },
 }
 

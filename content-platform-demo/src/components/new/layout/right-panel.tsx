@@ -20,7 +20,7 @@ interface SuggestedFollowsPanelProps {
 }
 
 const DEMO_USERS = [
-  { email: 'sarah@content.dev', label: 'Sign in as Author', role: 'Author' },
+  { email: 'sarah@content.dev', label: 'Sign in as Artist', role: 'Author' },
   { email: 'admin@content.dev', label: 'Sign in as Admin', role: 'Admin' },
 ]
 
@@ -36,13 +36,16 @@ export function RightPanel({ categories, trending = [], suggestedAuthors = [] }:
         <div className="relative overflow-hidden rounded-xl border border-hairline bg-card p-4">
           <div className="pointer-events-none absolute right-0 top-0 h-12 w-12 opacity-[0.15]">
             <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-voltage-pink)" strokeWidth="1">
-              <path d="M12 2L2 7l10 5 10-5-10-5z" />
-              <path d="M2 17l10 5 10-5" />
-              <path d="M2 12l10 5 10-5" />
+              <path d="M5 5v14h14" />
+              <line x1="17.5" y1="6.5" x2="8.5" y2="15.5" />
+              <circle cx="19.5" cy="19.5" r="1.5" />
             </svg>
           </div>
-          <div className="absolute right-0 top-0 h-8 w-8 rounded-bl-xl border-b border-l border-voltage-pink/30" />
-          <h3 className="text-[13px] font-semibold text-text-primary mb-1">Demo Access</h3>
+          <div className="pointer-events-none absolute right-0 top-0 h-8 w-8 rounded-bl-xl border-b border-l border-voltage-pink/30" />
+          <div className="flex items-center gap-1.5 mb-1">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-voltage-pink" />
+            <h3 className="text-[13px] font-semibold text-text-primary">Demo Access</h3>
+          </div>
           <p className="text-[11px] text-fog-gray mb-3">Try Likha as an Artist or Admin.</p>
           <div className="space-y-1.5">
             {DEMO_USERS.map((demo) => (

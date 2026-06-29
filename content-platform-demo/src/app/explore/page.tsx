@@ -61,7 +61,7 @@ export default async function ExplorePage() {
         <EmptyState
           title="No works to explore yet"
           description="Be the first to publish."
-          action={<Link href="/admin/articles/new" className="btn btn-accent btn-sm">New Work</Link>}
+          action={<Link href="/studio/new" className="btn btn-accent btn-sm">New Work</Link>}
         />
       ) : (
         <>

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
+import { LikhaLogo } from '@/components/brand/likha-logo'
 
 const DRIFTING_AVATARS = [
   { initial: 'S', x: 72, y: 18, delay: 0 },
@@ -53,14 +54,14 @@ export function FeedHero() {
       ))}
 
       <div className="relative z-10 max-w-xl">
-        <p className="text-[11px] uppercase tracking-[0.25em] text-fog-gray mb-4">
-          Process-first social publishing
-        </p>
+        <div className="flex items-center gap-2 mb-4">
+          <LikhaLogo variant="lockup" size="sm" />
+        </div>
         <h1 className="text-[32px] font-semibold leading-[1.05] tracking-[-0.04em] text-text-primary">
           Follow the work before<br />it becomes finished.
         </h1>
         <p className="mt-4 max-w-md text-[14px] text-graphite leading-relaxed">
-          Discover live works, process timelines, collections, and creative dispatches from Filipino artists.
+          A process-first social publishing platform for artists. Publish live works, process notes, collections, and studio dispatches.
         </p>
         <div className="mt-6 flex gap-3">
           <Link

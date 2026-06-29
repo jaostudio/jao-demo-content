@@ -82,7 +82,7 @@ export default async function AdminDashboardPage() {
           {articles.map((article) => (
             <div key={article.id} className="flex items-center justify-between px-4 py-2.5">
               <div className="min-w-0 flex-1">
-                <Link href={`/admin/articles/${article.id}/edit`} className="text-sm font-medium text-text-primary hover:text-primary dark:text-slate-100">
+                <Link href={`/studio/work/${article.id}/edit`} className="text-sm font-medium text-text-primary hover:text-primary dark:text-slate-100">
                   {article.title}
                 </Link>
                 <p className="text-[11px] text-text-muted">

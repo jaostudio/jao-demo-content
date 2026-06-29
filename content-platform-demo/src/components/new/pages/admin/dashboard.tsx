@@ -49,7 +49,7 @@ export function AdminDashboard({ draftCount, pendingCount, publishedCount, artic
           <h1 className="text-[17px] font-semibold text-text-primary">Studio Overview</h1>
           <p className="text-[11px] text-fog-gray mt-0.5">All works in the system</p>
         </div>
-        <Link href="/admin/articles/new">
+        <Link href="/studio/new">
           <Button variant="dark" size="sm">
             <Plus className="h-3.5 w-3.5" />
             New Work
@@ -134,7 +134,7 @@ export function AdminDashboard({ draftCount, pendingCount, publishedCount, artic
                     {new Date(a.createdAt).toLocaleDateString()}
                   </td>
                   <td className="px-3 py-2 text-right">
-                    <Link href={`/admin/articles/${a.id}/edit`}>
+                    <Link href={`/studio/work/${a.id}/edit`}>
                       <Button variant="ghost" size="sm">
                         <ExternalLink className="h-3 w-3" />
                       </Button>

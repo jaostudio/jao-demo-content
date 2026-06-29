@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { useEffectiveRole } from '@/hooks/use-effective-role'
-import { LayoutDashboard, PenLine, BarChart3 } from 'lucide-react'
+import { LayoutDashboard, BarChart3, Palette } from 'lucide-react'
 
 export function Sidebar() {
   const pathname = usePathname()
@@ -15,12 +15,12 @@ export function Sidebar() {
   const links = isAdmin
     ? [
         { href: '/admin', label: t('dashboard'), icon: LayoutDashboard },
-        { href: '/admin/articles/new', label: t('new_article'), icon: PenLine },
+        { href: '/studio', label: 'Studio', icon: Palette },
         { href: '/admin/analytics', label: 'Analytics', icon: BarChart3 },
       ]
     : [
         { href: '/admin', label: t('dashboard'), icon: LayoutDashboard },
-        { href: '/admin/articles/new', label: t('new_article'), icon: PenLine },
+        { href: '/studio', label: 'Studio', icon: Palette },
       ]
 
   return (

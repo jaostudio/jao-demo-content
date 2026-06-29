@@ -94,7 +94,7 @@ export default function CollectionPage() {
           {collection && (
             <>
               {/* Collection Hero */}
-              <div className="relative overflow-hidden rounded-xl border border-hairline bg-gradient-to-br from-surface-alt to-surface p-6 mb-6">
+              <div className="studio-frame relative overflow-hidden rounded-xl border border-hairline bg-gradient-to-br from-surface-alt to-surface p-6 mb-6">
                 <div className="pointer-events-none absolute inset-0 opacity-[0.04]" style={{
                   backgroundImage: 'radial-gradient(circle at 30% 40%, var(--color-voltage-pink) 0%, transparent 60%), radial-gradient(circle at 70% 60%, var(--color-reactor-green) 0%, transparent 60%)',
                 }} />

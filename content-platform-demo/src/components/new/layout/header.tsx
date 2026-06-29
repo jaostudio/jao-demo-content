@@ -67,7 +67,7 @@ export function Header() {
                   <Button variant="ghost" size="sm">{t('admin')}</Button>
                 </Link>
               )}
-              <Link href="/admin/articles/new">
+              <Link href="/studio/new">
                 <Button variant="dark" size="sm">
                   <PenLine className="h-4 w-4" />
                 </Button>

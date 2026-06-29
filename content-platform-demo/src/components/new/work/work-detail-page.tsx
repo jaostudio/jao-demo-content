@@ -61,7 +61,7 @@ export function WorkDetailPage({ article, versions, comments }: WorkDetailPagePr
       >
         <article className="max-w-[640px]">
           {/* Header */}
-          <div className="mb-8">
+          <div className="studio-frame mb-8 rounded-xl border border-hairline bg-surface p-6">
             <p className="text-[11px] uppercase tracking-[0.2em] text-fog-gray mb-3">{article.categoryName}</p>
             <h1 className="text-[26px] font-semibold text-text-primary leading-tight tracking-[-0.03em]">
               {article.title}

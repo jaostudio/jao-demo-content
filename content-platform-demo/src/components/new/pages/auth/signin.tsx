@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 import { Button } from '../../ui/button'
 import { useAuth } from '@/hooks/useAuth'
+import { LikhaLogo } from '@/components/brand/likha-logo'
 
 export function SignInPage() {
   const router = useRouter()
@@ -34,9 +35,11 @@ export function SignInPage() {
     <div className="min-h-screen bg-surface dark:bg-surface-dark flex items-center justify-center px-4">
       <div className="w-full max-w-[320px]">
         <div className="text-center mb-8">
-          <p className="text-[13px] font-semibold text-text-primary tracking-tight mb-4">Likha</p>
+          <div className="flex justify-center mb-4">
+            <LikhaLogo variant="lockup" size="md" />
+          </div>
           <h1 className="text-[17px] font-semibold text-text-primary">{t('sign_in_title')}</h1>
-          <p className="text-[13px] text-graphite mt-1">Magkwento. Magbahagi. Mag-aral.</p>
+          <p className="text-[13px] text-graphite mt-1">Sign in to your studio.</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-3">
@@ -77,8 +80,11 @@ export function SignInPage() {
           </Link>
         </p>
 
-        <div className="mt-6 rounded-lg border border-hairline bg-surface-alt dark:bg-surface-dark p-3">
-          <p className="text-[11px] font-medium text-fog-gray mb-2">Demo access:</p>
+        <div className="mt-6 rounded-xl border border-hairline bg-surface-alt dark:bg-surface-dark p-3">
+          <div className="flex items-center gap-1.5 mb-2">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-voltage-pink" />
+            <p className="text-[11px] font-medium text-fog-gray">Demo Access</p>
+          </div>
           <div className="space-y-1 text-[11px] text-fog-gray">
             <p><span className="font-medium text-graphite">sarah@content.dev</span> — Author</p>
             <p><span className="font-medium text-graphite">marcus@content.dev</span> — Author</p>

@@ -3,7 +3,7 @@
 import { useState } from 'react'
 
 const TABS = [
-  { id: 'recent', label: 'Recent' },
+  { id: 'recent', label: 'Live', signal: true },
   { id: 'trending', label: 'Trending' },
   { id: 'following', label: 'Following' },
 ]
@@ -21,9 +21,10 @@ export function FeedTabs({ onChange }: FeedTabsProps) {
         <button
           key={tab.id}
           onClick={() => { setActive(tab.id); onChange?.(tab.id) }}
-          className="relative px-4 py-2 text-[13px] font-medium transition-colors"
+          className="relative px-4 py-2 text-[13px] font-medium transition-colors flex items-center gap-1.5"
           style={{ color: active === tab.id ? 'var(--color-text-primary)' : 'var(--color-fog-gray)' }}
         >
+          {tab.signal && <span className="inline-block h-1.5 w-1.5 rounded-full bg-reactor-green" />}
           {tab.label}
           {active === tab.id && (
             <span

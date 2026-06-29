@@ -104,6 +104,33 @@
   --duration-base: 220ms;
   --duration-slow: 420ms;
   --duration-page: 640ms;
+
+  /* ── Brand Tokens ── */
+  --brand-bg: #ffffff;
+  --brand-ink: #111111;
+  --brand-muted: #666666;
+  --brand-faint: #999999;
+  --brand-surface: #f5f5f5;
+  --brand-surface-raised: #ffffff;
+  --brand-border: #e6e6e6;
+  --brand-reactor: #00df00;
+  --brand-voltage: #ff00f0;
+  --brand-radius-sm: 6px;
+  --brand-radius-md: 8px;
+  --brand-radius-lg: 16px;
+  --brand-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --brand-ease-snap: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Dark mode brand tokens ── */
+.dark {
+  --brand-bg: #0f0f0f;
+  --brand-ink: #f5f5f5;
+  --brand-muted: #a3a3a3;
+  --brand-faint: #737373;
+  --brand-surface: #171717;
+  --brand-surface-raised: #1d1d1d;
+  --brand-border: #2a2a2a;
 }
 
 /* ── Dark mode token overrides ── */
@@ -455,6 +482,103 @@ body {
   .container-likha {
     padding-inline: 24px;
   }
+}
+
+/* ── Brand Motif: Studio Frame ── */
+.studio-frame {
+  position: relative;
+}
+
+.studio-frame::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border-top: 2px solid var(--color-border);
+  border-left: 2px solid var(--color-border);
+  pointer-events: none;
+}
+
+.studio-frame::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  border-bottom: 2px solid var(--color-border);
+  border-right: 2px solid var(--color-border);
+  pointer-events: none;
+}
+
+.dark .studio-frame::before,
+.dark .studio-frame::after {
+  border-color: var(--color-border-dark);
+}
+
+/* ── Brand Motif: Process Line ── */
+.process-line {
+  position: relative;
+}
+
+.process-line::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--color-border), var(--color-reactor-green));
+  border-radius: 1px;
+}
+
+.dark .process-line::before {
+  background: linear-gradient(to bottom, var(--color-border-dark), var(--color-reactor-green));
+}
+
+/* ── Brand Motif: Signal Dot ── */
+.signal-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.signal-dot::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-voltage-pink);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .signal-dot::before {
+    animation: none;
+  }
+}
+
+/* ── Brand Motif: Grid/Scanline Texture (add as utility) ── */
+.brand-grid {
+  background-image:
+    linear-gradient(var(--color-reactor-green) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-reactor-green) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: 0.04;
+}
+
+.brand-scanline {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    var(--color-void-black) 2px,
+    var(--color-void-black) 3px
+  );
+  opacity: 0.04;
 }
 
 /* ── Drift Animation ── */
