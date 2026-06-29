@@ -50,6 +50,7 @@ export default async function TrendingPage() {
           {articles.map((article) => (
             <WorkCard
               key={article.slug}
+              articleId={article.id}
               title={article.title}
               slug={article.slug}
               excerpt={article.excerpt}

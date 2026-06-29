@@ -79,21 +79,22 @@ export default async function ExplorePage() {
                 <h2 className="text-[13px] font-semibold text-text-primary mb-3 uppercase tracking-wider">Declared Human-Made</h2>
                 <div className="space-y-3">
                   {humanMade.slice(0, 3).map((a) => (
-                    <WorkCard
-                      key={a.slug}
-                      title={a.title}
-                      slug={a.slug}
-                      excerpt={a.excerpt}
-                      authorName={a.authorName}
-                      categoryName={a.categoryName}
-                      readingTime={a.readingTime}
-                      commentCount={a.commentCount}
-                      image={a.image}
-                      format={a.format}
-                      aiFreeDeclaration={a.aiFreeDeclaration}
-                      provenanceStatus={a.provenanceStatus}
-                      publishAt={a.publishAt}
-                    />
+            <WorkCard
+              key={a.slug}
+              articleId={a.id}
+              title={a.title}
+              slug={a.slug}
+              excerpt={a.excerpt}
+              authorName={a.authorName}
+              categoryName={a.categoryName}
+              readingTime={a.readingTime}
+              commentCount={a.commentCount}
+              image={a.image}
+              format={a.format}
+              aiFreeDeclaration={a.aiFreeDeclaration}
+              provenanceStatus={a.provenanceStatus}
+              publishAt={a.publishAt}
+            />
                   ))}
                 </div>
               </section>
@@ -106,21 +107,22 @@ export default async function ExplorePage() {
                 <h2 className="text-[13px] font-semibold text-text-primary mb-3 uppercase tracking-wider">Process Documented</h2>
                 <div className="space-y-3">
                   {processDoc.slice(0, 3).map((a) => (
-                    <WorkCard
-                      key={a.slug}
-                      title={a.title}
-                      slug={a.slug}
-                      excerpt={a.excerpt}
-                      authorName={a.authorName}
-                      categoryName={a.categoryName}
-                      readingTime={a.readingTime}
-                      commentCount={a.commentCount}
-                      image={a.image}
-                      format={a.format}
-                      aiFreeDeclaration={a.aiFreeDeclaration}
-                      provenanceStatus={a.provenanceStatus}
-                      publishAt={a.publishAt}
-                    />
+            <WorkCard
+              key={a.slug}
+              articleId={a.id}
+              title={a.title}
+              slug={a.slug}
+              excerpt={a.excerpt}
+              authorName={a.authorName}
+              categoryName={a.categoryName}
+              readingTime={a.readingTime}
+              commentCount={a.commentCount}
+              image={a.image}
+              format={a.format}
+              aiFreeDeclaration={a.aiFreeDeclaration}
+              provenanceStatus={a.provenanceStatus}
+              publishAt={a.publishAt}
+            />
                   ))}
                 </div>
               </section>
@@ -133,21 +135,22 @@ export default async function ExplorePage() {
                 <h2 className="text-[13px] font-semibold text-text-primary mb-3 uppercase tracking-wider">Recent</h2>
                 <div className="space-y-3">
                   {rest.map((a) => (
-                    <WorkCard
-                      key={a.slug}
-                      title={a.title}
-                      slug={a.slug}
-                      excerpt={a.excerpt}
-                      authorName={a.authorName}
-                      categoryName={a.categoryName}
-                      readingTime={a.readingTime}
-                      commentCount={a.commentCount}
-                      image={a.image}
-                      format={a.format}
-                      aiFreeDeclaration={a.aiFreeDeclaration}
-                      provenanceStatus={a.provenanceStatus}
-                      publishAt={a.publishAt}
-                    />
+            <WorkCard
+              key={a.slug}
+              articleId={a.id}
+              title={a.title}
+              slug={a.slug}
+              excerpt={a.excerpt}
+              authorName={a.authorName}
+              categoryName={a.categoryName}
+              readingTime={a.readingTime}
+              commentCount={a.commentCount}
+              image={a.image}
+              format={a.format}
+              aiFreeDeclaration={a.aiFreeDeclaration}
+              provenanceStatus={a.provenanceStatus}
+              publishAt={a.publishAt}
+            />
                   ))}
                 </div>
               </section>

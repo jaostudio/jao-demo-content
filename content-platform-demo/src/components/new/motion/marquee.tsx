@@ -5,6 +5,7 @@ import { useRef } from 'react'
 interface MarqueeProps {
   children: React.ReactNode
   speed?: number
+  pauseOnHover?: boolean
   className?: string
 }
 

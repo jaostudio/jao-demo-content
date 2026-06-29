@@ -65,6 +65,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
           {filteredArticles.map((article) => (
             <WorkCard
               key={article.slug}
+              articleId={article.id}
               title={article.title}
               slug={article.slug}
               excerpt={article.excerpt}

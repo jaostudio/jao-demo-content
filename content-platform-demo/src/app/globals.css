@@ -457,6 +457,18 @@ body {
   }
 }
 
+/* ── Drift Animation ── */
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(12px, -8px); }
+  50% { transform: translate(-6px, 10px); }
+  75% { transform: translate(8px, -4px); }
+}
+
+.animate-drift {
+  animation: drift 18s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -466,6 +478,14 @@ body {
     scroll-behavior: auto !important;
     transition-duration: 1ms !important;
   }
+}
+
+/* ── Safe Area Utilities ── */
+.safe-top {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 /* ── Scrollbar ── */

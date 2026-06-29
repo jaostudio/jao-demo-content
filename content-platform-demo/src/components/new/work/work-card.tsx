@@ -1,10 +1,12 @@
 'use client'
 
+import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
 import { Card } from '../ui/card'
 import { Avatar } from '../ui/avatar'
 import { ProvenanceBadge } from '@/components/provenance-badge'
 import { Heart, MessageCircle, Share2, Clock } from 'lucide-react'
+import { toast } from 'sonner'
 
 export type WorkCardVariant = 'feed' | 'featured' | 'compact' | 'mosaic' | 'studio'
 
@@ -22,6 +24,7 @@ interface WorkCardProps {
   aiFreeDeclaration?: boolean
   provenanceStatus?: string
   publishAt: Date | string | null
+  articleId?: string
 }
 
 function timeAgo(date: Date | string): string {
@@ -40,8 +43,52 @@ function timeAgo(date: Date | string): string {
 
 export function WorkCard({
   title, slug, excerpt, authorName, categoryName,
-  readingTime, commentCount, image, format, aiFreeDeclaration, provenanceStatus, publishAt, variant = 'feed',
+  readingTime, commentCount, image, format, aiFreeDeclaration, provenanceStatus, publishAt, variant = 'feed', articleId,
 }: WorkCardProps) {
+  const [liked, setLiked] = useState(false)
+  const [likeCount, setLikeCount] = useState<number | null>(null)
+  const [liking, setLiking] = useState(false)
+
+  useEffect(() => {
+    if (!articleId) return
+    try {
+      const stored = localStorage.getItem(`liked:${articleId}`)
+      if (stored === 'true') setLiked(true)
+    } catch { /* noop */ }
+  }, [articleId])
+
+  const handleLike = useCallback(async (e: React.MouseEvent) => {
+    e.preventDefault()
+    if (!articleId || liking) return
+    setLiking(true)
+    const action = liked ? 'unlike' : 'like'
+    try {
+      const res = await fetch(`/api/articles/${articleId}/like`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action }),
+      })
+      const data = await res.json()
+      if (data.likes !== undefined) {
+        setLikeCount(data.likes)
+        setLiked(!liked)
+        try { localStorage.setItem(`liked:${articleId}`, String(!liked)) } catch { /* noop */ }
+      }
+    } catch { /* noop */ }
+    setLiking(false)
+  }, [articleId, liked, liking])
+
+  const handleShare = useCallback(async (e: React.MouseEvent) => {
+    e.preventDefault()
+    const url = `${window.location.origin}/work/${slug}`
+    try {
+      await navigator.clipboard.writeText(url)
+      toast('Link copied', { description: 'Work link copied to clipboard.' })
+    } catch {
+      toast('Could not copy', { description: 'Manually copy the URL from the address bar.' })
+    }
+  }, [slug])
+
   return (
     <Link href={`/work/${slug}`} className="block group">
       <Card className={`overflow-hidden transition-all duration-220 ease-out group-hover:-translate-y-1 group-hover:border-reactor-green/30 ${variant === 'featured' ? 'border-reactor-green/20' : ''}`}>
@@ -88,14 +135,26 @@ export function WorkCard({
         {/* Action Bar */}
         <div className="flex items-center gap-3 px-4 pb-3 pt-2">
           <div className="flex items-center gap-3 text-graphite">
-            <button className="flex items-center gap-1 hover:text-text-primary transition-colors" onClick={(e) => { e.preventDefault(); }}>
-              <Heart className="h-4 w-4" strokeWidth={1.5} />
+            <button
+              onClick={handleLike}
+              disabled={liking}
+              className={`flex items-center gap-1 transition-colors ${liked ? 'text-voltage-pink' : 'hover:text-text-primary'}`}
+            >
+              <Heart className={`h-4 w-4 ${liked ? 'fill-voltage-pink' : ''}`} strokeWidth={liked ? 2 : 1.5} />
+              {likeCount !== null && likeCount > 0 && <span className="text-[12px]">{likeCount}</span>}
             </button>
-            <button className="flex items-center gap-1 hover:text-text-primary transition-colors" onClick={(e) => { e.preventDefault(); }}>
+            <Link
+              href={`/work/${slug}#comments`}
+              onClick={(e) => e.stopPropagation()}
+              className="flex items-center gap-1 hover:text-text-primary transition-colors"
+            >
               <MessageCircle className="h-4 w-4" strokeWidth={1.5} />
               {commentCount > 0 && <span className="text-[12px]">{commentCount}</span>}
-            </button>
-            <button className="flex items-center gap-1 hover:text-text-primary transition-colors" onClick={(e) => { e.preventDefault(); }}>
+            </Link>
+            <button
+              onClick={handleShare}
+              className="flex items-center gap-1 hover:text-text-primary transition-colors"
+            >
               <Share2 className="h-4 w-4" strokeWidth={1.5} />
             </button>
           </div>

@@ -6,6 +6,7 @@ import { LeftRail } from '@/components/new/layout/left-rail'
 import { Header } from '@/components/new/layout/header'
 import { RightPanel } from '@/components/new/layout/right-panel'
 import { WorkCard } from '@/components/new/work/work-card'
+import { Reveal } from '@/components/new/motion/reveal'
 import type { Metadata } from 'next'
 
 export const revalidate = 60
@@ -62,6 +63,8 @@ export default async function ArtistPage({ params }: { params: Promise<{ usernam
     notFound()
   }
 
+  const initials = author.name.split(' ').map((n) => n[0]).join('').toUpperCase().slice(0, 2)
+
   return (
     <div className="min-h-screen bg-surface dark:bg-surface-dark">
       <LeftRail />
@@ -70,45 +73,88 @@ export default async function ArtistPage({ params }: { params: Promise<{ usernam
         <main className="mx-auto max-w-[1080px] px-5 py-5">
           <div className="grid gap-8 lg:grid-cols-[1fr_320px]">
             <div className="space-y-6">
-              <div className="flex items-start gap-5">
-                <Avatar name={author.name} size="lg" />
-                <div className="min-w-0 flex-1">
-                  <h1 className="text-[17px] font-semibold text-text-primary">{author.name}</h1>
-                  <div className="mt-1 flex items-center gap-4 text-[12px] text-fog-gray">
-                    <span>{author.articleCount} works</span>
-                    <span>{author.followerCount} followers</span>
-                    <span>{author.followingCount} following</span>
-                  </div>
-                  <div className="mt-3">
+              {/* Artist Cover */}
+              <div className="relative h-32 overflow-hidden rounded-xl bg-gradient-to-br from-reactor-green/10 via-surface-alt to-voltage-pink/5 border border-hairline">
+                <div className="pointer-events-none absolute inset-0 opacity-[0.04]" style={{
+                  backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 8px, var(--color-reactor-green) 8px, var(--color-reactor-green) 9px)',
+                }} />
+              </div>
+
+              {/* Artist Identity */}
+              <div className="flex flex-col sm:flex-row items-start gap-4 -mt-16 relative z-10 px-2">
+                <div className="rounded-full border-2 border-surface bg-surface-dark shadow-md">
+                  <Avatar name={author.name} size="xl" />
+                </div>
+                <div className="min-w-0 flex-1 pt-2">
+                  <h1 className="text-[20px] font-semibold text-text-primary">{author.name}</h1>
+                  <p className="text-[12px] text-fog-gray mt-0.5">{author.role} &middot; Joined {new Date(author.createdAt).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}</p>
+                  <div className="mt-3 flex items-center gap-4">
                     <FollowButton authorId={author.id} />
                   </div>
                 </div>
               </div>
 
-              <div className="space-y-4">
-                {author.articles.map((a) => (
-                  <WorkCard
-                    key={a.id}
-                    title={a.title}
-                    slug={a.slug}
-                    excerpt={a.excerpt}
-                    authorName={author.name}
-                    categoryName={a.categoryName}
-                    readingTime={a.readingTime}
-                    commentCount={a.commentCount}
-                    image={a.image}
-                    format={a.format}
-                    aiFreeDeclaration={a.aiFreeDeclaration}
-                    provenanceStatus={a.provenanceStatus}
-                    publishAt={a.publishAt}
-                  />
-                ))}
-                {author.articles.length === 0 && (
-                  <div className="py-16 text-center">
-                    <p className="text-[14px] text-fog-gray">No published works yet.</p>
-                  </div>
-                )}
+              {/* Stats Row */}
+              <div className="flex gap-6 px-2">
+                <div>
+                  <p className="text-[18px] font-semibold text-text-primary">{author.articleCount}</p>
+                  <p className="text-[11px] text-fog-gray">works</p>
+                </div>
+                <div>
+                  <p className="text-[18px] font-semibold text-text-primary">{author.followerCount}</p>
+                  <p className="text-[11px] text-fog-gray">followers</p>
+                </div>
+                <div>
+                  <p className="text-[18px] font-semibold text-text-primary">{author.followingCount}</p>
+                  <p className="text-[11px] text-fog-gray">following</p>
+                </div>
               </div>
+
+              {/* Sticky Tab Bar */}
+              <div className="flex gap-0 border-b border-hairline sticky top-0 bg-surface dark:bg-surface-dark z-10">
+                {['Works', 'Collections', 'About'].map((tab, i) => (
+                  <button
+                    key={tab}
+                    className={`relative px-4 py-2.5 text-[13px] font-medium transition-colors ${i === 0 ? 'text-text-primary' : 'text-fog-gray hover:text-text-primary'}`}
+                  >
+                    {tab}
+                    {i === 0 && (
+                      <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-reactor-green" />
+                    )}
+                  </button>
+                ))}
+              </div>
+
+              {/* Works Grid */}
+              {author.articles.length === 0 ? (
+                <div className="py-16 text-center">
+                  <p className="text-[14px] text-fog-gray">No published works yet.</p>
+                  <p className="text-[12px] text-ash mt-1">Check back later.</p>
+                </div>
+              ) : (
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {author.articles.map((a, i) => (
+                    <Reveal key={a.id}>
+                      <WorkCard
+                        articleId={a.id}
+                        title={a.title}
+                        slug={a.slug}
+                        excerpt={a.excerpt}
+                        authorName={author.name}
+                        categoryName={a.categoryName}
+                        readingTime={a.readingTime}
+                        commentCount={a.commentCount}
+                        image={a.image}
+                        format={a.format}
+                        aiFreeDeclaration={a.aiFreeDeclaration}
+                        provenanceStatus={a.provenanceStatus}
+                        publishAt={a.publishAt}
+                        variant={i === 0 ? 'featured' : 'feed'}
+                      />
+                    </Reveal>
+                  ))}
+                </div>
+              )}
             </div>
 
             <div className="hidden lg:block">
