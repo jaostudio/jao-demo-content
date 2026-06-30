@@ -1,5 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { createHash } from 'node:crypto'
+import fs from 'node:fs'
+import path from 'node:path'
 import { assertSameOrigin } from '@/lib/security/request-guards'
 import { verifyAuditEvent } from '@/lib/audit/verify'
 
@@ -26,6 +28,36 @@ describe('assertSameOrigin hardened', () => {
   it('passes when host is absent', () => {
     const h = mockHeaders({ origin: 'https://example.com' })
     expect(() => assertSameOrigin(h)).not.toThrow()
+  })
+})
+
+describe('data-plane consistency (static scan)', () => {
+  const authPath = path.join(process.cwd(), 'src', 'lib', 'auth', 'auth.ts')
+  const prismaPath = path.join(process.cwd(), 'src', 'lib', 'prisma.ts')
+  const authSource = fs.readFileSync(authPath, 'utf-8')
+  const prismaSource = fs.readFileSync(prismaPath, 'utf-8')
+
+  it('auth.ts imports getPrisma, not global prisma', () => {
+    expect(authSource).toMatch(/import\s*\{\s*getPrisma\s*\}\s*from\s*['"]\.\.\/prisma['"]/)
+    expect(authSource).not.toMatch(/import\s*\{\s*prisma\s*\}\s*from\s*['"]\.\.\/prisma['"]/)
+  })
+
+  it('authorize() calls await getPrisma()', () => {
+    const authorizeBlock = authSource.match(/authorize\(credentials.*?\)[\s\S]*?return \{.*?\n\s+\}/)
+    expect(authorizeBlock).not.toBeNull()
+    expect(authorizeBlock![0]).toContain('await getPrisma()')
+    expect(authorizeBlock![0]).not.toContain('(prisma as any)')
+  })
+
+  it('jwt() callback uses getPrisma()', () => {
+    const jwtBlock = authSource.match(/async jwt\(\{[\s\S]*?\}\s*\)[\s\S]*?return token/)
+    expect(jwtBlock).not.toBeNull()
+    expect(jwtBlock![0]).toContain('await getPrisma()')
+  })
+
+  it('prisma.ts exports realPrisma (deprecated) not prisma', () => {
+    expect(prismaSource).toMatch(/export\s+const\s+realPrisma\s*=/)
+    expect(prismaSource).not.toMatch(/export\s+const\s+prisma(?:\s*[^R]|$)/)
   })
 })
 

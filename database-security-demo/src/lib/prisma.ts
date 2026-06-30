@@ -19,11 +19,14 @@ function createPrismaClient() {
   return new PrismaClient({ adapter })
 }
 
-export const prisma = globalForPrisma.prisma ?? createPrismaClient()
+/**
+ * @deprecated Use getPrisma() for request code. This bypasses SANDBOX_MODE.
+ */
+export const realPrisma = globalForPrisma.prisma ?? createPrismaClient()
 
-if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
+if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = realPrisma
 
 export async function getPrisma(): Promise<PrismaClient> {
   if (process.env.SANDBOX_MODE === 'true') return initSandbox()
-  return prisma
+  return realPrisma
 }

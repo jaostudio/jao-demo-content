@@ -1,7 +1,7 @@
 import type { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import bcrypt from 'bcryptjs'
-import { prisma } from '../prisma'
+import { getPrisma } from '../prisma'
 import { rateLimit } from '@/lib/rate-limit'
 import { safeWriteAuditEvent } from '@/lib/audit/writer'
 
@@ -57,7 +57,11 @@ export const authOptions: NextAuthOptions = {
         const rl = await rateLimit(`signin:${ip}:${credentials.email}`, 5, 600000)
         if (!rl.ok) return null
 
-        const user = await (prisma as any).user.findUnique({ where: { email: credentials.email } })
+        const db = await getPrisma()
+        const user = await (db as any).user.findUnique({
+          where: { email: credentials.email.toLowerCase() },
+          include: { organization: true },
+        })
         if (!user) {
           await safeWriteAuditEvent({
             action: 'auth.login_failed',
@@ -106,7 +110,8 @@ export const authOptions: NextAuthOptions = {
         t.email = user.email
 
         if (t.orgId) {
-          const org = await (prisma as any).organization.findUnique({ where: { id: t.orgId }, select: { name: true } })
+          const db = await getPrisma()
+          const org = await (db as any).organization.findUnique({ where: { id: t.orgId as string }, select: { name: true } })
           t.orgName = org?.name ?? null
         }
       }
